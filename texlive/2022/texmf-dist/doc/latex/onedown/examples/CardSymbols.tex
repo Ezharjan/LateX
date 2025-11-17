@@ -1,0 +1,44 @@
+\documentclass[onedown-examples]{subfiles}
+
+\begin{document}
+\noindent
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,
+                  title={Use card symbols like {\setdefaults{colors=b+w}♣,♢,♡,♠} directly as input}]
+%\begin{HBox}{Use card symbols like {\setdefaults{colors=b+w}♣,♢,♡,♠} directly as input}
+If you want to use the card symbols {\setdefaults{colors=b+w}♣,♢,♡,♠} within your \LaTeX-document,
+then put these lines in your preamble. That's all.
+\\[0.3em]
+\verb|\DeclareUnicodeCharacter{2660}{\Sp}|
+\verb|\DeclareUnicodeCharacter{2661}{\He}| \\
+\verb|\DeclareUnicodeCharacter{2662}{\Di}|
+\verb|\DeclareUnicodeCharacter{2663}{\Cl}| \\
+\verb|\DeclareUnicodeCharacter{2664}{\Sp}|
+\verb|\DeclareUnicodeCharacter{2665}{\He}| \\
+\verb|\DeclareUnicodeCharacter{2666}{\Di}|
+\verb|\DeclareUnicodeCharacter{2667}{\Cl}| \\[0.3em]
+
+%\vspace{0.3em}
+%\\[0.3em]
+If you put them in a file \textbf{\emph{onedown.symbols}}, somewhere where
+\LaTeX{} can find it, then the \OneDown package will take care of loading it. An
+apropriate place would be in your .texmf directory.
+\end{tcolorbox}
+%\end{HBox}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,
+                  title={To enter these card symbols on your keyboard, use this with Linux}]
+Add following lines to your \emph{.Xmodmap} and run \textbf{xmodmap .Xmodmap}
+\\[0.3em]
+{\ttfamily
+keycode 38 = 0x0061 0x0041 0x0061 0x0041 0x1002663 0x1002667 0x00e6 \\
+keycode 39 = 0x0073 0x0053 0x0073 0x0053 0x1002662 0x1002666 0x100017f \\
+keycode 40 = 0x0064 0x0044 0x0064 0x0044 0x1002661 0x1002665 0x00f0 \\
+keycode 41 = 0x0066 0x0046 0x0066 0x0046 0x1002660 0x1002664 0x01f0 \\
+keycode 65 = space nobreakspace space nobreakspace nobreakspace NoSymbol \\
+}
+\tcblower
+Now you can enter {\setdefaults{colors=b+w}♣,♢,♡,♠} with \emph{Shift+AltGr} a,s,d,f
+\end{tcolorbox}
+
+
+\end{document}
+\endinput

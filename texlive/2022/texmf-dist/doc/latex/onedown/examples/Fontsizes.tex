@@ -1,0 +1,33 @@
+%\documentclass[onedown-examples]{subfiles}
+\documentclass[10pt]{report}
+%
+\usepackage{libertine}
+\usepackage{onedown}
+
+%
+\makeatletter
+\newcommand{\mysize}[1]{%
+  \bgroup\noindent\csname#1\endcsname The #1 size is: \textbf{\csname#1\endcsname\f@size\,pt}.\\The  baselineskip is \the\baselineskip\par\vskip2mm\egroup}
+\makeatother
+
+\begin{document}
+\noindent
+Here we show the different fontsizes with values and output. \\
+For the size commands \emph{ssmall} and \emph{HUGE} refer to package \textsf{moresizes}.
+\\[1em]
+%%%%%
+\mysize{tiny}
+\mysize{ssmall}
+\mysize{scriptsize}
+\mysize{footnotesize}
+\mysize{small}
+\mysize{normalsize}
+\mysize{large}
+\mysize{Large}
+\mysize{LARGE}
+\mysize{huge}
+\mysize{Huge}
+\mysize{HUGE}
+%%%%%
+\end{document}
+\endinput

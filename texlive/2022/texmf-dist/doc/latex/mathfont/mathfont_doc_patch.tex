@@ -1,0 +1,130 @@
+%%
+%% This is file `mathfont_doc_patch.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mathfont_code.dtx  (with options: `doc')
+%% 
+%% This file is from version 2.0 of the free and open-source
+%% LaTeX package "mathfont," to be used with the XeTeX or
+%% LuaTeX engines. (As of version 2.0, LuaTeX is recommended.)
+%% 
+%% Copyright 2018-2021 by Conrad Kosowsky
+%% 
+%% This file may be distributed and modified under the terms
+%% of the LaTeX Public Project License, version 1.3c or any
+%% later version. The most recent version of this license is
+%% available online at
+%% 
+%%           https://www.latex-project.org/lppl/.
+%% 
+%% This Work has the LPPL status "maintained," and the current
+%% maintainer is the package author, Conrad Kosowsky. He can
+%% be reached at kosowsky.latex@gmail.com.
+%% 
+%% THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY EXPRESS
+%% OR IMPLIED WARRANTY, INCLUDING THE IMPLIED WARRANTIES
+%% OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+%% IF THE SOFTWARE IS DEFECTIVE, YOU AGREE TO ASSUME THE
+%% COST FOR ANY REPAIR OR CORRECTION.
+%% 
+%% BY USING OR DISTRIBUTING THIS SOFTWARE, YOU AGREE
+%% TO RELEASE THE PACKAGE AUTHOR FROM ANY LIABILITY FOR
+%% DAMAGES ARISING OUT OF YOUR USE OF THE SOFTWARE. YOU
+%% AGREE TO DO SO TO THE MAXIMUM EXTENT ALLOWED UNDER
+%% APPLICABLE LAW AND EVEN IF THE PACKAGE AUTHOR HAS
+%% BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+%% 
+%% See also the "No Warranty" section of the LaTeX Project
+%% Public License. In releasing the package author from
+%% liability, you also release from liability any third
+%% parties who distribute the software under the terms
+%% of the LaTeX Project Public License. Derivative works
+%% based on this package may come with their own license or
+%% terms of use, and the package author is not responsible
+%% for any third-party software.
+%% 
+%% For more information, see the mathfont_code.dtx.
+%% 
+%% Happy TeXing!
+%% 
+
+\let\?\SpecialUsageIndex
+\expandafter\newif\csname if@def\endcsname
+\newtoks\index@nomainlist
+\index@nomainlist{}
+\MacrocodeTopsep=2.5pt plus 3pt minus 1pt
+\def\@defname{def}
+\def\@edefname{edef}
+\def\@letname{let}
+\let\main\textbf
+
+\def\DoNotIndexMain{\bgroup
+  \catcode`\\=12\relax
+  \do@not@index@main}
+\def\do@not@index@main#1{\egroup
+  \index@nomainlist\expandafter{\the\index@nomainlist#1,}}
+
+\def\macro@finish{\macro@namepart
+  \if@def
+    \@deffalse
+    \@expandtwoargs\in@{\macro@namepart}{\the\index@excludelist}\relax
+    \ifin@
+    \else
+      \@expandtwoargs\in@{\macro@namepart}{\the\index@nomainlist}\relax
+      \ifin@
+        \edef\@tempa{\noexpand\SpecialIndex{\bslash\macro@namepart}}\relax
+        \@tempa
+      \else
+        \edef\@tempa{\noexpand\SpecialMainIndex{\bslash\macro@namepart}}\relax
+        \@tempa
+      \fi
+    \fi
+  \else
+    \ifx\macro@namepart\@defname
+      \@deftrue
+    \else
+      \ifx\macro@namepart\@edefname
+        \@deftrue
+      \else
+        \ifx\macro@namepart\@letname
+          \@deftrue
+        \fi
+      \fi
+    \fi
+    \@expandtwoargs\in@{\macro@namepart}{\the\index@excludelist}\relax
+    \ifin@
+    \else
+      \edef\@tempa{\noexpand\SpecialIndex{\bslash\macro@namepart}}\relax
+      \@tempa
+    \fi
+  \fi}
+
+\def\macro@code{%
+   \topsep \MacrocodeTopsep
+   \@beginparpenalty0% \predisplaypenalty
+   \if@inlabel\leavevmode\fi
+   \trivlist \parskip 0pt plus 0.2pt \item[]%
+   \macro@font
+   \leftskip\@totalleftmargin \advance\leftskip\MacroIndent
+   \rightskip\z@ \parindent\z@ \parfillskip\@flushglue
+   \blank@linefalse \def\par{\ifblank@line
+                             \leavevmode\fi
+                             \blank@linetrue\@@par
+                             \penalty\interlinepenalty}
+   \obeylines
+   \let\do\do@noligs \verbatim@nolig@list
+   \let\do\@makeother \dospecials
+   \global\@newlistfalse
+   \global\@minipagefalse
+   \ifcodeline@index
+     \everypar{\global\advance\c@CodelineNo\@ne
+               \llap{\theCodelineNo\ \hskip\@totalleftmargin}%
+               \check@module}%
+   \else \everypar{\check@module}%
+   \fi
+   \init@crossref}
+\endinput
+%%
+%% End of file `mathfont_doc_patch.tex'.

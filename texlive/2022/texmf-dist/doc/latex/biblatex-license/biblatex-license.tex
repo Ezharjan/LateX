@@ -1,0 +1,150 @@
+\documentclass[11pt,oneside,notitlepage,a4paper,english,parskip=half*] {scrartcl}
+\usepackage{luainputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{color}                
+\usepackage{graphicx}
+%\usepackage{url}
+%\usepackage{hyperref}
+\usepackage{floatrow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{csquotes}
+% !TeX spellcheck = en_US
+\usepackage[
+backend=biber
+,sortlocale=en_EN%.UTF-8
+,style=authoryear
+,bibencoding=UTF8 
+,block=space
+,autocite=inline
+]{biblatex}
+\begin{filecontents}{\jobname.bib}
+@Misc{CreativeCommons4.0,
+  author     = {{Creative Commons}},
+  title      = {{Attribution-NonCommercial-ShareAlike 4.0}},
+  date       = {2013-11-25},
+  url        = {https://creativecommons.org/licenses/by-nc-sa/4.0/},
+  urldate    = {2019-10-01},
+  shorttitle = {{CC BY-NC-SA 4.0}},
+}
+
+@book{Payne2019,
+  author = {Blakeley Hoffman Payne},
+  editor = {{MIT Media Lab Personal Robots Group} and Cynthia Breazeal},
+  title = {An Ethics of Artificial Intelligence Curriculum for Middle School Students},
+  related = {CreativeCommons4.0},
+  relatedtype = {license},
+  url = {https://t1p.de/rwlp},
+  urldate = {2020-01-27},
+  date = {2019-08},
+}
+\end{filecontents}
+\addbibresource{\jobname.bib}
+\usepackage[license=short,link=true,url=false,introtext={default}]{biblatex-license}
+
+\let\endtitlepage\relax
+\title{\texttt{biblatex-license}}
+\author{Anselm Wagner\\a.wagner1@uni-wuppertal.de\\Bergische Universität Wuppertal\\v0.1}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This package provides a modification to the biblatex standard styles for relating cited works to the license under which they were published. This is done via biblatex' build in \texttt{related} mechanism and \texttt{relatedtype = license}. This package basically provides this new relatedtype, the bibmacros for typesetting these related entries and some additional styling options.
+\end{abstract}
+\tableofcontents
+\vspace{2em}
+
+The package is loaded via
+\begin{verbatim}
+\usepackage[options]{biblatex-license}
+\end{verbatim}
+and has to be loaded \emph{after} the \texttt{biblatex} package. The package sets the \texttt{biblatex} option \texttt{related = true}.
+
+\section{Options}
+
+\begin{tabularx}{\linewidth}{c|X|c|c}
+\toprule \textbf{Name} & \textbf{Function}  & \textbf{Possible Values} & \textbf{Default} \\
+\midrule \texttt{license} & Decides if and how the license is to be printed. & short, full, off & short \\
+\hline \texttt{url} & Switch for deciding if the url of the license should be explicitly printed. & true, false & false \\
+\hline \texttt{link} & When set to \texttt{true} and \texttt{url} is set to \texttt{off}, the title of the license becomes an \verb|\href|, i.e. a hyperlink. & true, false & true \\
+\hline \texttt{introtext} & Makes it possible to replace the language specific intro text (e.g. \enquote{licensed under}) with custom text. & any text & \\\bottomrule
+\end{tabularx}
+
+
+\section{Usage}
+
+Consider the following bibliography:
+\begin{verbatim}
+@Misc{CreativeCommons4.0,
+  author     = {{Creative Commons}},
+  title      = {{Attribution-NonCommercial-ShareAlike 4.0 International}},
+  date       = {2013-11-25},
+  url        = {https://creativecommons.org/licenses/by-nc-sa/4.0/},
+  urldate    = {2019-10-01},
+  shorttitle = {{CC BY-NC-SA 4.0}},
+}
+
+@book{Payne2019,
+  author = {Blakeley Hoffman Payne},
+  editor = {{MIT Media Lab Personal Robots Group} and Cynthia Breazeal},
+  title = {An Ethics of Artificial Intelligence Curriculum for Middle
+            School Students},
+  related = {CreativeCommons4.0},
+  relatedtype = {license},
+  url = {https://t1p.de/rwlp},
+  urldate = {2020-01-27},
+  date = {2019-08},
+}
+\end{verbatim}
+Note, that \texttt{Payne2019} has the fields \texttt{related} and \texttt{relatedtype} defined. \texttt{related} is pointing via the label to the entry corresponding to the license under which \texttt{Payne2019} was published: \texttt{CreativeCommons4.0}. The \texttt{relatedtype = \{license\}} is necessary for \texttt{biblatex} to know how this relation should be handled. Please see the \texttt{biblatex} user guide (§3.4 \emph{Related Entries}) for more information on related entries.
+
+Now if \texttt{biblatex} is loaded with the following options:
+\begin{verbatim}
+\usepackage[
+  backend=biber
+ ,sortlocale=en_EN%.UTF-8
+ ,style=authoryear
+ ,bibencoding=UTF8 
+ ,block=space
+]{biblatex}
+\end{verbatim}
+
+And \texttt{biblatex-license} is loaded the default way:
+\begin{verbatim}
+\usepackage{biblatex-license}
+\end{verbatim}
+
+The bibliopgraphic entry of \texttt{Payne2019} would look like this:
+\nocite{Payne2019}\printbibliography[heading=none]
+
+The default way of loading \texttt{biblatex-license} is equivalent to:
+\begin{verbatim}
+\usepackage[license=short,
+            url=false,
+            link=true,
+            introtext={default}]
+            {biblatex-license}
+\end{verbatim}
+
+\subsection{\texttt{introtext}}
+
+Note the text \enquote{Licensed under} in the bibliography. This text is, as of now, only translated to german but can be changed via the option \texttt{introtext} like so:
+\begin{verbatim}
+\usepackage[introtext={Some text}]{biblatex-license}
+\end{verbatim}
+
+\subsection{\texttt{link}}
+
+Also note that in the example output above the title of the license is itself a link to where the \texttt{url}-field of the license entry inside the bib-file is pointing. This link is made via \verb|\href|.
+
+\subsection{\texttt{url}}
+
+It might be better to explicitly print the url of the license, which can be done via the \texttt{url=true} option. If printed this way, the option \texttt{link} has no effect on if this url is itself a hyperlink or not aus the url-field is handled by biblatex itself.
+
+\subsection{\texttt{shorttitle} of the license}
+
+If a \texttt{shorttitle} is provided for the license inside the bib-file, the shorttitle will always be preferred. 
+
+\end{document}
+

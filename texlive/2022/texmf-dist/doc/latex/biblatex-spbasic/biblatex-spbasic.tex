@@ -1,0 +1,102 @@
+% biblatex-spbasic documentation 2021/07/11 
+%
+% Copyright (c) 2021 Herbert Voß hvoss@tug.org
+%% $Id: biblatex-spbasic.tex 379 2021-12-29 13:38:14Z herbert $
+
+\documentclass[toc=graduated,parskip=half-,DIV=13,fontsize=11pt,paper=a4]{scrartcl}
+
+\usepackage{eurosym}	% Damit das Euro-Symbol dargestellt werden kann
+\usepackage{libertinus-otf} 		% Damit LaTex Umlaute usw. erkennt
+\setmonofont[Scale=MatchLowercase,FakeStretch=0.9]{AnonymousPro}
+\usepackage[english]{babel}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\usepackage{hvlogos}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage[babel]{csquotes}
+\usepackage{xurl}
+\usepackage[style=biblatex-spbasic,hyperref]{biblatex} 
+
+\usepackage{xspace}
+\addbibresource{biblatex-examples.bib}
+\addbibresource{\jobname.bib}
+
+\def\bibsp{\texttt{biblatex-spbasic}\xspace}
+\def\bib{\texttt{biblatex}\xspace}
+\def\cs#1{\texttt{\textbackslash#1}}
+
+\usepackage[colorlinks,linktocpage,citecolor=blue!100!black!60]{hyperref}
+
+\begin{document}
+
+\title{biblatex-spbasic}
+\subtitle{Ver. 0.04}
+\author{Herbert Voß}
+
+\maketitle
+
+\vfill
+Thanks to: Wolfgang Engelmann; Moritz Wemheuer;
+\newpage
+
+\section{Introduction}
+This documentation briefly explains the adaptation of the \texttt{biblatex-spbasic}
+bibliography style and how it can be used. Some of the functions of \texttt{biblatex} 
+that are based on are also indirectly explained. If you have any questions about the 
+functions of \texttt{biblatex}, you should always consult the very good and detailed 
+\texttt{biblatex} documentation. 
+
+%Biblatex and biblatex-spbasic cannot be used meaningfully without at least skimming through the user guide in the biblatex documentation.
+For a quick start, the requirements for using \texttt{biblatex-spbasic} are briefly explained in the following section.
+
+
+\section{Installation}
+
+If you do have an official installation of \MiKTeX\ or \TeXLive, then everything would be there anyway, otherwise
+use the package manager and install \texttt{biblatex-spbasic}. If you do not have such an official distribution
+installed, then copy the three files
+
+\begin{verbatim}
+biblatex-spbasic.bbx
+biblatex-spbasic.cbx
+biblatex-spbasic.lbx
+\end{verbatim}
+
+into your local \TeX\ directory and update the so-called file name database by running \texttt{texhash}.
+
+\section{Using the style}
+
+\texttt{biblatex-spbasic} is based on the packages from \texttt{biblatex} and especially the style \texttt{authoryear}. 
+The reason for this is that \texttt{biblatex} provides all functions that make it possible to develop individual 
+styles. However, the way in which »Springer Verlag« cites is so special compared to what is otherwise usual 
+that additional functions are required to map them completely. These can be found in \texttt{authoryear.bbx}. 
+You could have taken these out of the package and integrated them into \texttt{biblatex-spbasic}, but the 
+effort involved seemed too great to me. In addition, the well-maintained \texttt{biblatex} package ensures 
+that the functions provided by it are reliably retained and compatible despite the very rapid development of \texttt{biblatex}.
+
+It is obvious that using \texttt{biblatex-spbasic} needs the \texttt{biblatex} package, too. 
+\texttt{biblatex-spbasic} is loaded by
+
+\begin{verbatim}
+\usepackage[style=biblatex-spbasic,pubstate=<true|false>]{biblatex}
+\end{verbatim}
+
+It is possible to load additional optional arguments which refer to \texttt{biblatex}, the package
+\texttt{biblatex-spbasic} itself has only the option \texttt{pubstate}, which is set by default to false. There
+is no need to set it, if you want this presetting. For printing the publication state use \texttt{pubstate=true}.
+
+\section{Example}
+This is some senseless\footfullcite{Young2018}  text but with a citation (\verb|\parencite|).~\parencite[See][pp.~16]{Daan1984}
+And this is a \verb|\textcite|, what \textcite[See][pp.~16]{Young2018} already wrote. Remember, this
+text is nonsense for this example!\footcite{Young2018}  And the 
+authors~\textcite{Darwin1880} wrote an article titled~\citetitle{Darwin1880}.
+
+\nocite{*}
+\printbibliography[title=Bibliography]
+
+
+\end{document}
+

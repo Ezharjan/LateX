@@ -1,0 +1,169 @@
+%% $Id: pst-calendar-doc.tex 230 2021-09-11 18:04:30Z herbert $
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{}
+\documentclass[11pt,english,BCOR=10mm,DIV=12,bibliography=totoc,parskip=false,headings=small,
+    headinclude=false,footinclude=false,twoside,english]{pst-doc}
+\usepackage{pst-calendar}
+\let\pstFV\fileversion
+\lstset{pos=l,wide=false,language=PSTricks,
+    morekeywords={multidipole,parallel},basicstyle=\footnotesize\ttfamily}
+%
+\def\bgImage{\psscalebox{0.3}{\psCalDodecaeder[Year=2021,style=september]}}
+
+\addbibresource{\jobname.bib}
+
+\begin{document}
+
+\title{\texttt{pst-calendar}}
+\subtitle{A  PSTricks package for creating calendars; v.\pstCalendarVersion}
+\author{Manuel Luque \\Herbert Voß}
+\docauthor{Herbert Voß}
+\date{\today}
+\settitle
+
+\tableofcontents
+
+\clearpage
+
+\begin{abstract}
+\noindent
+\texttt{pst-calendar} 
+provides two macros for creating calendar pages or calendar dodecahedra. The month 
+and year can be freely selected, although calendars are only possible between 2000 
+and 2099. The calculation takes place exclusively with the macros of the \LPack{fp} package.
+\end{abstract}
+
+
+\vfill\noindent
+Thanks to: \\
+    Denis Girou; Timmothy Van Zandt;
+
+%\tableofcontents
+
+
+\section{\LPack{pst-calendar} -- different calendars}
+
+
+The package has the three options \Loption{french}, \Loption{english} and 
+\Loption{ngerman}. \Loption{english} is selected by default, which means that the names 
+of the months and weeks are then output in this language. Ngerman was chosen for this documentation.
+This package does not offer any calendar operations in the mathematical sense, but allows 
+the output of calendar pages. pst-calendar has special language adaptations for English 
+(standard), French and German. This also applies
+to the options listed in~\ref{tab:calendrier:options}. There is no special \TeX\ 
+version, so adjustments are necessary here if you are not working with \LaTeX.
+
+
+\begin{BDef}
+\Lcs{psCalendar}\OptArgs\\
+\Lcs{psCalDodecaeder}\OptArgs
+\end{BDef}
+
+If no data is specified, the current date is always assumed and the corresponding month for 
+\Lcs{psCalendar} and the corresponding months for \Lcs{psCalDodecaeder} are printed.
+
+\begin{table}[htb]
+\caption{Available options for \texttt{calendrierfp}}\label{tab:calendrier:options}
+\begin{tabularx}{\linewidth}{@{} ll@{}c>{\RaggedRight}X@{}}
+\emph{name}     & \emph{value}          & \emph{default}       & \emph{meaning}\\\hline
+\Lkeyword{Year}  & \Larga{Integer}      & \verb+\number\year+  & year\\
+\Lkeyword{Month} & \Larga{$1\ldots 12$} & \verb+\number\month+ & month\\
+\Lkeyword{MonthT}& \Larga{$1\ldots 12$} & \verb+\number\month+ & mark the current day in the given month\\
+\Lkeyword{Day}   & \Larga{$1\ldots 31$} & \verb+\number\day+   & month\\
+\Lkeyword{Style} & \Larga{Month}        & \verb+\number\month+ & month on the fron in a dodecaeder
+\end{tabularx}
+\end{table}
+
+
+\bgroup
+\begin{LTXexample}[pos=t]
+\psscalebox{0.5}{\psCalendar}
+\psscalebox{0.5}{\psCalendar[Year=2021,Month=1]}
+\psscalebox{0.5}{\psCalendar[Year=2021,Tag=23,Month=2,MonthUse=2]}
+\end{LTXexample}
+\egroup
+
+
+The only problem are the holidays, which so far have been based exclusively on the French guidelines. 
+However, the corresponding code sequences in the package are easy to recognize and can be changed accordingly. 
+The output of a complete year can easily be realized with the help of the \Lcs{multido} macro.
+
+\begin{center}
+\bgroup
+\multido{\iM=1+3}{4}{%
+  \multido{\iMM=\iM+1}{3}{\psscalebox{0.5}{\psCalendar[Year=2021,Month=\iMM]}}\\}
+\egroup
+\end{center}
+
+\begin{lstlisting}
+\multido{\iM=1+3}{4}{%
+  \multido{\iMM=\iM+1}{3}{\psscalebox{0.5}{\psCalendar[Year=2021,Month=\iMM]}}\\}
+\end{lstlisting}
+
+
+A much more appealing output enables \Lcs{psCalDodecaeder}, which arranges the months on the sides of a dodecahedron. 
+Without specifying any month or year, January of the current year is assumed. With the option \Lkeyword{style}\texttt{=⟨month⟩} 
+you can always place a different month on the front.
+
+
+\bgroup\xLcs{psCalDodecaeder}\xLkeyword{Year}\xLkeyword{Month}\xLkeyword{style}\xLkeyval{april}
+\xLcs{psscalebox}
+\begin{LTXexample}[pos=t]
+\psscalebox{0.2}{\psCalDodecaeder}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,Month=1]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=april]}
+\end{LTXexample}
+\egroup
+
+\begin{center}
+\bgroup\xLkeyval{january}\xLkeyval{february}\xLkeyval{march}\xLkeyval{april}\xLkeyval{may}\xLkeyval{june}
+\xLkeyval{july}\xLkeyval{august}\xLkeyval{september}\xLkeyval{october}\xLkeyval{november}\xLkeyval{december}
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=january]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=february]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=march]}\\
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=april]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=may]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=june]}\\
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=july]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=august]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=september]}\\
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=october]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=november]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=december]}
+\egroup
+\end{center}
+
+\begin{lstlisting}
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=january]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=february]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=march]}\\
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=april]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=may]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=june]}\\
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=july]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=august]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=september]}\\
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=october]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=november]}\hfill
+\psscalebox{0.2}{\psCalDodecaeder[Year=2021,style=december]}
+\end{lstlisting}
+
+
+\section{List of the available options for \texttt{pst-calendar}}
+
+%\begin{center}
+\xkvview{family=pst-calendar,columns={key,type,default}}
+%\end{center}
+
+
+
+\nocite{*}
+\bgroup
+\raggedright
+\printbibliography
+\egroup
+
+\printindex
+
+
+\end{document}

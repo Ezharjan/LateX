@@ -1,0 +1,2270 @@
+%% LyX 2.4.0-alpha3 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,tableposition=top]{report}
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{0.667969, 1, 1}
+\usepackage{babel}
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=true]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{centred}%
+  {\begin{center}\baselineskip=13pt\parskip=1pt}{\end{center}}
+\newenvironment{lyxcode}
+	{\par\begin{list}{}{
+		\setlength{\rightmargin}{\leftmargin}
+		\setlength{\listparindent}{0pt}% needed for AMS classes
+		\raggedright
+		\setlength{\itemsep}{0pt}
+		\setlength{\parsep}{0pt}
+		\normalfont\ttfamily}%
+	 \item[]}
+	{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{numerica-tables}
+\usepackage{numerica-plus}
+\newcommand\rel{\,\varrho\;}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\gd}{gd}
+\usepackage{upquote}
+
+\reuse{}
+
+\makeatother
+
+\begin{document}
+\title{\texttt{numerica-tables}~\\
+}
+\author{Andrew Parsloe\\
+(\url{ajparsloe@gmail.com})}
+\maketitle
+\begin{abstract}
+The \verb`numerica-tables` package defines a command which enables
+the creation of (possibly multi-column) mathematical tables of function
+values. \emph{Key=value} settings allow presentation in a wide variety
+of table styles within the `formal table' framework of the \texttt{booktabs}
+package. \\
+\\
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+
+\paragraph*{Note:}
+\begin{itemize}
+\item {\normalsize This document applies to version 2.0.0 of }{\normalsize\texttt{numerica-tables}}{\normalsize .}{\small\par}
+\item {\normalsize A version of }{\normalsize\texttt{numerica}}{\normalsize{}
+from or later than 2021/12/07 is required; (}{\normalsize\texttt{numerica}}{\normalsize{}
+requires }{\normalsize\texttt{amsmath}}{\normalsize , }{\normalsize\texttt{mathtools}}{\normalsize{}
+and the \LaTeX 3 bundles }{\normalsize\texttt{l3kernel}}{\normalsize{}
+and }{\normalsize\texttt{l3packages}}{\normalsize ).}{\small\par}
+\item {\normalsize The }{\normalsize\texttt{booktabs}}{\normalsize{} package
+is required.}{\small\par}
+\item {\normalsize I refer many times in this document to }{\normalsize\emph{Handbook
+of Mathematical Functions}}{\normalsize , edited by Milton Abramowitz
+and Irene A. Segun, Dover, 1965. This is abbreviated to }{\normalsize\emph{HMF}}{\normalsize ,
+often followed by a reference to a specific table like Table 1.2.}{\small\par}
+\item {\normalsize Version 2 of }{\normalsize\texttt{numerica-tables}}{\small\par}
+\begin{itemize}
+\item {\normalsize is the first stand-alone version (in v.1 of }{\normalsize\texttt{numerica}}{\normalsize{}
+the }{\normalsize\texttt{\textbackslash nmcTabulate}}{\normalsize{}
+command was available with the }{\normalsize\texttt{tables}}{\normalsize{}
+package option);}{\small\par}
+\item {\normalsize restricts the third item in }{\normalsize\texttt{rspec}}{\normalsize{}
+to }{\normalsize\texttt{rows}}{\normalsize{} only (}{\normalsize\texttt{rstop}}{\normalsize{}
+is no longer accepted there);}{\small\par}
+\item {\normalsize restricts the third item in }{\normalsize\texttt{cspec}}{\normalsize{}
+to }{\normalsize\texttt{cols}}{\normalsize{} only (}{\normalsize\texttt{cstop}}{\normalsize{}
+is no longer accepted there);}{\small\par}
+\item {\normalsize allows an additional row, if wanted, between table title
+and the column header row;}{\small\par}
+\item {\normalsize removes the }{\normalsize\texttt{DEL}}{\normalsize{} column
+function;}{\small\par}
+\item {\normalsize amends documentation.}{\small\par}
+\end{itemize}
+\end{itemize}
+\end{shaded}%
+\end{minipage}
+
+\tableofcontents{}
+\end{abstract}
+
+\chapter{Introduction}
+
+Entering 
+\begin{lyxcode}
+~\textbackslash usepackage\{numerica-tables\}
+\end{lyxcode}
+\noindent in the preamble of a document gives access to a command
+\verb`\nmcTabulate` for creating tables of function values in a wide
+variety of styles. (Since \verb`numerica-tables` requires \textendash{}
+and loads \textendash{} the \verb`numerica` package, all commands
+of that package are also available.) All tables are `formal tables'
+in the sense of the \texttt{booktabs} package, which is loaded automatically.
+Such tables have no vertical rules and few horizontal rules.
+
+\section{Table structure}
+
+I take as my source of models of mathematical tables those presented
+in \emph{Handbook of Mathematical Functions}, edited by Milton Abramowitz
+and Irene A. Segun, Dover, 1965, not because the typesetting is elegant
+(it often isn't) but because \emph{HMF} displays a wide variety of
+table styles. The editors of that volume were faced with a host of
+different problems requiring a host of different solutions. The \verb`\nmcTabulate`
+command aims to reproduce most of those different solutions, within
+\verb`booktabs` elegance.
+
+To create a table we need to specify a function to tabulate. The values
+this function takes will generally depend on a primary parameter and,
+possibly, a number of secondary parameters (which is where much of
+the complexity comes from). Mathematical tables are structured in
+\emph{columns}. We (nearly always) read \emph{down} a column as the
+primary parameter is incremented, generally in regular steps. We need
+to decide on the range of values the primary parameter will take and
+how fine-grained the tabulation will be \textendash{} what the step
+size of its increments will be. Assigning different values to a second
+parameter generates a second, third,\ldots{} column. Sometimes rather
+than a second parameter, a second, third, \ldots{} function of the
+first parameter is tabulated in the successive columns. 
+
+In this document the first parameter is called the \emph{row variable}
+\textendash{} its value determines which row we are in; the second
+parameter, if present, is called the \emph{column variable \textendash{}
+}its value determines which column we are in. A table generally (but
+not always) presents the values of the row variable in the first column,
+the \emph{row-variable column}, sometimes in distinctive type (e.g.
+bolded). The values of the column variable are presented in a \emph{header
+row} above the table body of function values. Above the header row
+there may be a \emph{title row} and perhaps a \emph{subtitle row}
+where other explanatory material can be displayed. Sometimes there
+is a \emph{footer row} beneath the table body. Vertical rules are
+absent, horizontal rules used sparingly \textendash{} for example,
+at the top and bottom of the table, or under the header row, but not
+in the body of the table.
+
+\section{Shared syntax}
+
+The \verb`\nmcTabulate` command (short-name form \verb`\tabulate`)
+shares the syntax of \verb`\nmcEvaluate` (see \texttt{numerica.pdf}).
+When all options are used the command looks like 
+\begin{lyxcode}
+\noindent \textbackslash nmcTabulate{*}{[}settings{]}\{expr.\}{[}vv-list{]}{[}num.~format{]}
+\end{lyxcode}
+\begin{enumerate}
+\item \verb`*` optional switch; if present ensures a single number output
+with no formatting, or an appropriate error message if the single
+number cannot be produced; see §\ref{sec:Star-option};
+\item \verb`[settings]` comma-separated list of \emph{key=value }settings,
+at the heart of creating a table of function values; see Chapter~\ref{chap:=00005CnmcTabulate-settings};
+\item \verb`{expr.}` mandatory argument specifying the mathematical expression
+or expressions in \LaTeX{} form to be tabulated;
+\item \verb`[vv-list]` comma-separated list of \emph{variable=value }items,
+in particular containing the initial value of the row variable (and
+column variable if one is used); 
+\item \verb`[num. format]` optional format specification for presentation
+of the numerical results (rounding, padding with zeros, scientific
+notation); see §\ref{subsec:Trailing-optional-argument}.
+\end{enumerate}
+Unlike \verb`\nmcEvaluate` (from\texttt{ }{\ttfamily\verb`numerica`}\texttt{)},
+for \verb`\nmcTabulate` 
+\begin{itemize}
+\item math delimiters are irrelevant \textendash{} it makes no difference
+to the display of the result whether the command wraps around math
+delimiters, is wrapped within math delimters, or if there are no math
+delimiters involved whatever;
+\item the two apparently optional arguments straddling the main argument
+(\verb`settings` and \verb`vv-list`) are \emph{essential}. Although
+both are delimited by square brackets, that is in order to draw on
+the code from {\ttfamily\verb`numerica`} for \verb`\nmcEvaluate`.
+Each argument contains items \emph{necessary} for the construction
+of any table of function values. 
+\end{itemize}
+
+\subsection{Settings inherited from \texttt{numerica}}
+
+\label{subsec:Inherited-settings}
+
+Most of the settings available to the command \verb`\nmcEvaluate`
+from \verb`numerica` are also available to \verb`\nmcTabulate`.
+To save switching between documents I reproduce the table of relevant
+options found in \verb`numerica.pdf` (only the punctuation \verb`p`
+setting is missing), although for discussion of the options you will
+need to refer to that document. (Note that the setting \verb`vvmode`
+of v.1 of \verb`numerica` is still available; it is equivalent to
+the \verb`vv@` setting.) The \verb`dbg` (and \verb`view`) keys
+have been disabled for \verb`\nmcTabulate` at present (but might
+be enabled in the future).
+
+\begin{table}[h]
+\noindent \centering{}\caption{\protect\label{tab:introSettingsInherited}Settings options inherited
+from \texttt{\textbackslash nmcEvaluate}}
+\noindent \begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}>{\raggedright}p{4cm}}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{dbg}} & {\small int} & {\small debug `magic' integer} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{view}} &  & {\small equivalent to }{\small\texttt{dbg=1}} & \tabularnewline
+{\small\texttt{\textasciicircum}} & {\small char} & {\small exponent mark for sci. notation input} & {\small\texttt{e}}\tabularnewline
+{\small\texttt{xx}} & {\small int (}{\small\texttt{0}}{\small /}{\small\texttt{1}}{\small )} & {\small multi-token variable switch} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{()}} & {\small int (}{\small\texttt{0}}{\small /}{\small\texttt{1}}{\small /}{\small\texttt{2}}{\small )} & {\small trig. function arg. parsing} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{o}} &  & {\small degree switch for trig. functions} & \tabularnewline
+{\small\texttt{log}} & {\small num} & {\small base of logarithms for }{\small{\small\verb`\log`}} & {\small\texttt{10}}\tabularnewline
+{\small\texttt{vv@}} & {\small int (0/1)} & {\small vv-list calculation mode} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{vvd}} & {\small tokens} & {\small vv-list display-style spec.} & {\small\texttt{\{,\}\textbackslash mskip 12mu plus 6mu minus 9mu(vv)}}\tabularnewline
+{\small\texttt{vvi}} & {\small tokens} & {\small vv-list text-style spec.} & {\small\texttt{\{,\}\textbackslash mskip 36mu minus 24mu(vv)}}\tabularnewline
+{*} &  & {\small suppress equation numbering if }{\small\texttt{\textbackslash\textbackslash}}{\small{}
+in }{\small\texttt{vvd}} & \tabularnewline
+{\small\texttt{S+}} & {\small int} & {\small extra rounding for stopping criterion for sums} & {\small\texttt{2}}\tabularnewline
+{\small\texttt{S?}} & {\small$\text{int}\ge0$} & {\small stopping criterion query terms for sums} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{P+}} & {\small int} & {\small extra rounding for stopping criterion for products} & {\small\texttt{2}}\tabularnewline
+{\small\texttt{P?}} & {\small$\text{int}\ge0$} & {\small stopping criterion query terms for products} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+
+
+\chapter{\texttt{\textbackslash nmcTabulate} settings}
+
+\label{chap:=00005CnmcTabulate-settings}In addition to the shared
+settings, \verb`\nmcTabulate` has many settings specific to it. They
+are discussed in groups in subsequent sections, some in more than
+one place. For the main discussion of row-variable settings, see §\ref{sec:Row-variable-settings};
+for column-variable settings see §\ref{sec:Column-variable-settings};
+for whole-of-table formatting see §\ref{sec:Whole-of-table-formatting};
+for formatting the function values in table cells see §\ref{sec:Function-value-formatting}.
+
+\section{Row-variable settings}
+
+\label{sec:Row-variable-settings}
+\begin{table}[b]
+\centering{}\caption{Row-variable specification}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}>{\raggedright}p{3cm}}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small comment}\tabularnewline
+\midrule
+{\small\texttt{rvar}} & {\small token(s)} & {\small row-variable} & \tabularnewline
+{\small\texttt{rstep}} & {\small real num.} & {\small step size} & \tabularnewline
+{\small\texttt{rstop}} & {\small real num.} & {\small stop value} & \multirow{2}{3cm}{use only one of {\small\texttt{rstop}}{\small{} or }{\small\texttt{rows}}}\tabularnewline
+{\small\texttt{rows}} & {\small int} & {\small number of rows} & \tabularnewline
+{\small\texttt{rspec}} & {\small comma list} & {\small\texttt{\{rvar}}{\small , }{\small\texttt{step}}{\small , }{\small\texttt{rows\}}} & {\small short form spec.}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+Deciding on a function to tabulate (entered in the main or mandatory
+argument of \verb`\nmcTabulate`) will inevitably also mean deciding
+on the tabulation variable, the \emph{row} variable, \verb`rvar`,
+what value to start tabulating from (which is specified in the vv-list),
+what value to tabulate to, \verb`rstop`, and how fine-grained the
+tabulation is to be, the step size \verb`rstep`. 
+
+The two tables in the first example below tabulate $\sin x$ and $\cos x$
+between $0$ and $1$ in increments of $0.2$. Note that the start
+value of the tabulation variable is entered in the vv-list. The reason
+for placing it there is that for more complicated functions other
+parameters in the function and therefore in the vv-list may depend
+on the row variable. Although it will often be the first entry in
+the vv-list, it does not need to be. The initial value of the row
+variable may depend on other quantities which must necessarily precede
+it \textendash{} lie to the right of it \textendash{} in the list.
+
+In the vv-list, the start value of the row variable may be a \LaTeX{}
+expression. Both \verb`rstep` and \verb`rstop` can also be \LaTeX{}
+expressions. However, they are evaluated \emph{after} the vv-list
+is evaluated and so may depend on the values of variables in the vv-list,
+including the initial value of the row variable.
+
+The difference in appearance of the two tables below results from
+padding with zeros in the second (the asterisk in the trailing optional
+argument has the same effect in \verb`\nmcTabulate` as in \verb`\nmcEvaluate`).
+As you can see, padding applies not only to the values of the function
+but also to the values of the row variable \textendash{} and makes
+an obvious improvement to the table's appearance.
+\begin{verbatim}
+    \tabulate[rvar=x,rstep=0.2,rstop=1]
+      { \sin x }[x=0]\qquad
+    \tabulate[rvar=x,rstep=0.2,rstop=1]
+      { \cos x }[x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rvar=x,rstep=0.2,rstop=1]
+      { \sin x }[x=0] \qquad
+    \tabulate[rvar=x,rstep=0.2,rstop=1]
+      { \cos x }[x=0][*]\medskip{}
+
+Sometimes (perhaps often) it may prove more convenient to specify
+the number of rows, \verb`rows`, explicitly rather than a stop value.
+Only one of \verb`rows` and \verb`rstop` should be given, but if
+both (inadvertently) are present, it is the value of \verb`rows`
+that prevails. The first of the following three tables shows an example
+of use.
+
+The second and third tables use an abbreviated form of the row-variable
+specification, \verb`rspec`. This is a three-element comma list,
+\verb`{rvar,rstep,rows}`. The second table gives a straightforward
+example of use. In the third table a \LaTeX{} expression has been inserted
+for \verb`rows` in the \verb`rspec` comma list. Like \verb`rstep`
+and \verb`rstop`, \verb`rows` can be a \LaTeX{} expression, but it
+is evaluated \emph{before} the vv-list and therefore, unlike \verb`rstep`
+and \verb`rstop`, cannot depend on quantites specified there like
+the row variable.
+\begin{verbatim}
+    \tabulate[rvar=x,rstep=0.2,rows=6]
+      { \sin x/\cos x }[x=0][*] \qquad
+    \tabulate[rspec={x,0.2,6}]
+      { \tan x }[x=0][*] \qquad
+    \tabulate[rspec={x,0.2,1+(1/0.2)}]
+      { \sqrt{\sec^2 x - 1} }[x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rvar=x,rstep=0.2,rows=6]
+      { \sin x/\cos x }[x=0][*] \qquad
+    \tabulate[rspec={x,0.2,6}]
+      { \tan x }[x=0][*] \qquad
+    \tabulate[rspec={x,0.2,1+(1/0.2)}]
+      { \sqrt{\sec^2 x - 1} }[x=0][*]\medskip{}
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+In version 1 of \verb`numerica` (when \verb`\nmcTabulate` became
+available with the package option \verb`tables`), the third item
+in \verb`rspec` was not restricted to \verb`rows` but could also
+be \verb`rstop`; parentheses placed around the third item assigned
+it to \verb`rows` rather than \verb`rstop`. On reflection, this
+now seems obscure and open to error. In v.2 of \verb`numerica-tables`
+(in fact its first version as a separate package) the third item of
+\verb`rspec` is restricted to \verb`rows` only, which no longer
+needs to be parenthesized.\end{shaded}%
+\end{minipage}
+
+\subsection{Row-variable column formatting}
+
+\label{subsec:Row-var-col-formatting}The padding option ({*}) of
+the trailing optional argument is one way of formatting the row-variable
+column, but to how many decimal places? Aligned left or right or centred?
+Under what heading \textendash{} the example tables so far have simply
+used the row variable for the header? And should the row variable
+column be at the left of the table, or the right \textendash{} or
+both? These and related questions are answered by assigning values
+to the keys listed in Table~\ref{tab:Formatting-the-row-variable}.
+\begin{table}[H]
+\centering{}\caption{\protect\label{tab:Formatting-the-row-variable}Formatting the row-variable
+column}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{rround}} & {\small int} & {\small rounding} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{ralign}} & {\small char (}{\small\texttt{r/c/l}}{\small )} & {\small horizontal alignment} & {\small\texttt{r}}\tabularnewline
+{\small\texttt{rfont}} & {\small chars} & {\small font (}{\small\verb`\math<chars>`}{\small )} & \tabularnewline
+{\small\texttt{rhead}} & {\small tokens} & {\small header} & {\small\texttt{rvar}}\tabularnewline
+{\small\texttt{rhnudge}} & int & {\small nudge header }{\small{\small\verb`<int>`}}{\small{} mu} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{rpos}} & {\small int (}{\small\texttt{0}}{\small\ldots}{\small\texttt{4}}{\small )} & {\small column position(s) } & {\small\texttt{1}}\tabularnewline
+{\small\texttt{rvar'}} & {\small tokens} & {\small 2nd row-variable col. spec. } & {\small\texttt{rvar}}\tabularnewline
+{\small\texttt{rhead'}} & {\small tokens} & {\small header of 2nd rv col. (if it exists)} & {\small\texttt{rvar'}}\tabularnewline
+{\small\texttt{rhnudge'}} & int & {\small nudge 2nd rv col. header }{\small{\small\verb`<int>`}}{\small{}
+mu} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+
+
+\subsubsection{Rounding: \texttt{rround}}
+
+After studying the previous tables, we might decide to adjust the
+step size, say from $0.2$ to $0.25$. But changing \texttt{rstep}
+to the new value gives a disconcerting result (the first table below).
+\texttt{numerica-tables} uses a default rounding value of $1$ for
+the row variable and has rounded $0.25$ down to $0.2$ and $0.75$
+up to $0.8$ accordingly. The second table corrects matters by adjusting
+the row-variable rounding (\texttt{rround}) to \texttt{2}.
+\begin{verbatim}
+    \tabulate[rvar=x,rstep=0.25,rstop=1]
+      { \sin x }[x=0][*] (Eh???) \quad
+    \tabulate[rvar=x,rstep=0.25,rstop=1,rround=2]
+      { \sin x }[x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rvar=x,rstep=0.25,rstop=1]
+      { \sin x }[x=0][*](Eh???) \quad
+    \tabulate[rvar=x,rstep=0.25,rstop=1,rround=2]
+      { \sin x }[x=0][*]
+
+\subsubsection{Alignment: \texttt{ralign}}
+
+By default, the alignment of all columns is to the right, as in the
+previous examples. This lends itself to neat output when padding with
+zeros is activated (the \verb`*` in the trailing argument) and when
+some values are negative \textendash{}  minus signs can interfere
+with neat output in left or centred alignments. But in a case like
+the second table in the last example, you might prefer to centre the
+headers for both the row and function-value columns. These alignments
+are independently set. For the row-variable column the default alignment
+is to the right \texttt{ralign=r}; \texttt{ralign=l} (lowercase L)
+aligns entries in the row-variable column to the left, and \texttt{ralign=c}
+centres entries in the row-variable column. The tables of the next
+example use a \texttt{c} alignment to centre the row-variable column
+header. The third of those tables shows how minus signs spoil the
+effect.
+
+\subsubsection{Font: \texttt{rfont}}
+
+In the second table below bolding by means of the setting \verb`rfont=bf`
+has been applied to emphasize the distinction between the row-variable
+values and the function values. Possible values for this key are those
+characters that can be adjoined to \verb`\math` to give a meaningful
+result. Thus other valid values are \verb`it` (italic), \verb`sf`
+(sans serif), \verb`tt` (typewriter); \verb`frak` (Fraktur); also
+\verb`rm` (roman) is available, but that is the default.
+
+\subsubsection{Row-variable header: \texttt{rhead}}
+
+In the second and third tables, the header for the row-variable column
+has also been bolded. The default header is the row-variable symbol.
+That can be replaced by giving a value to the key \texttt{rhead}.
+I have used \texttt{rhead=\textbackslash boldsymbol\{x\}} (rather
+than \verb`\mathbf{x}`) in order to get an italicized bold symbol.
+Note that you do not need to include math delimiters in the specification.
+It is assumed that \verb`rhead` will sit between \verb`$ $` delimiters
+which are inserted automatically by \verb`numerica-tables`.
+\begin{verbatim}
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=1,
+        rround=2,ralign=c]
+      { \sin x }[x=0][*]\qquad
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=1,rround=2,
+        ralign=c,rfont=bf,rhead=\boldsymbol{x}]
+      { \sin x }[x=0][*]\qquad
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        ralign=c,rfont=bf,rhead=\boldsymbol{x}]
+      { \sin x }[x=-0.5][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rvar=x,rstep=0.25,rstop=1,
+        rround=2,ralign=c]
+      { \sin x }[x=0][*]\qquad
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=1,
+        rround=2,ralign=c,rfont=bf,rhead=\boldsymbol{x}]
+      { \sin x }[x=0][*]\qquad
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        ralign=c,rfont=bf,rhead=\boldsymbol{x}]
+      { \sin x }[x=-0.5][*]\medskip{}
+
+In these tables the row-variable column has been given a centred alignment.
+The third table shows what goes wrong when \emph{some} values in the
+row-variable column are negative. Better then is to use padding, a
+right alignment (the default), and to use a phantom in the header.
+The first table below does this. The second table incorporates kerning
+into the header to achieve the same effect:
+\begin{verbatim}
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        rfont=bf,rhead=\boldsymbol{x}\hphantom{0}]
+      { \sin x }[x=-0.5][*]\qquad
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        rfont=bf,rhead=\boldsymbol{x}\mkern 9 mu]
+      { \sin x }[x=-0.5][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        rfont=bf,rhead=\boldsymbol{x}\hphantom{0}]
+      { \sin x }[x=-0.5][*]\qquad
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        rfont=bf,rhead=\boldsymbol{x}\mkern 9 mu]
+      { \sin x }[x=-0.5][*]\medskip{}
+
+(To my eye, aligning the $\boldsymbol{x}$ above the first column
+of digits after the decimal point gives a better result than truly
+centring it in the column; compare these examples with the first two
+tables of the previous example.)
+
+\subsubsection{Nudging~the~header: \texttt{rhnudge}}
+
+However, you might prefer to avoid inserting positioning commands
+into the actual row-variable header, obscuring its true content. You
+can avoid doing this by setting the key \texttt{rhnudge}. 
+
+The first table below reverts to the default right alignment, avoids
+any positioning commands in the row-variable header, but instead nudges
+it into position with the setting \texttt{rhnudge=9}. For positive
+nudge values, nudging works in the \emph{opposite} sense to the alignment.
+The units for nudging are mu (math units, 18 to a quad), but only
+a number \textendash{} generally an integer \textendash{} should be
+specified; the `mu' is supplied by \verb`numerica-tables`.
+
+In the second table below the row variable takes single digit integer
+values, while the row-variable name now occupies more than one character.
+With a right alignment the header would protrude out to the left.
+By giving \texttt{rhnudge} a \emph{negative} value (\texttt{rhnudge=-12}
+in the example) it is brought back to a centred position in the row-variable
+column. 
+\begin{verbatim}
+    \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        rfont=bf,rhead=\boldsymbol{x},rhnudge=9]
+      { \sin x }[x=-0.5][4*]\qquad
+    \tabulate
+      [rvar=x_{\text{int}},rstep=1,rstop=4,
+        rround=0,rfont=bf,rhnudge=-12,
+        rhead=\boldsymbol{x_{\text{int}}}]
+      { \sin x_{\text{int}} }[x_{\text{int}}=0][4*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rvar=x,rstep=0.25,rstop=0.5,rround=2,
+        rfont=bf,rhead=\boldsymbol{x},rhnudge=9]
+      { \sin x }[x=-0.5][4*]\qquad
+    \tabulate
+      [rvar=x_{\text{int}},rstep=1,rstop=4,
+        rround=0,rfont=bf,rhnudge=-12,
+        rhead=\boldsymbol{x_{\text{int}}}]
+      { \sin x_{\text{int}} }[x_{\text{int}}=0][4*]
+
+\subsubsection{Position in the table: \texttt{rpos}}
+
+\label{subsec:Row-var-col-pos}By default, the row-variable column
+is the \emph{first} column of the table. Its position is determined
+by the value of the key \texttt{rpos}: 
+\begin{itemize}
+\item \texttt{rpos=0}, suppressed (no row-variable column); 
+\item \texttt{rpos=1}, first column (the default); 
+\item \texttt{rpos=2}, last column; 
+\item \texttt{rpos=3}, first and last columns;\texttt{ }
+\item \texttt{rpos=4}, first and last columns, with the values in the last
+column a user-defined function of the first; see §\ref{subsec:Second-row-var-col};
+\item Any other integer acts like \texttt{rpos=1}.
+\end{itemize}
+An example with \texttt{rpos=3} is given shortly below, §\ref{subsec:Multiple-function-tables}. 
+
+\subsubsection{\texttt{rvar'}, \texttt{rhead'}, \texttt{rhnudge'}}
+
+These settings become relevant only when \texttt{rpos=4}; see §\ref{subsec:Second-row-var-col}.
+
+\subsection{Adjoined multi-function tables}
+
+\label{subsec:Adjoining-tables}How might one tabulate multiple functions
+simultaneously? \emph{HMF} has many, many examples where multiple
+functions (like the trigonometric or the hyperbolic functions) are
+tabulated in separate columns of the same table. 
+
+With the settings described so far, one way is to adjoin single column
+tables. In the tables below, which display as a single multi-columned
+table, I have used three different \texttt{rpos} settings (\texttt{rpos=1}
+is implicit in the first). This is one way to build a table that displays
+as multi-column. If you use this method, note that the \texttt{\%}
+comment characters are essential at the end of the last argument of
+the \verb`\tabulate` commands if you want the tables to abut exactly.
+Omitting them results in a space between the tables.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6}]
+      { \sin x }[x=0][*]%
+    \tabulate
+      [rpos=0,rspec={x,0.2,6}]
+      { \cos x }[x=0][*]%
+    \tabulate
+      [rpos=2,rspec={x,0.2,6}]
+      { \tan x }[x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6}]
+      { \sin x }[x=0][*]%
+    \tabulate
+      [rpos=0,rspec={x,0.2,6}]
+      { \cos x }[x=0][*]%
+    \tabulate
+      [rpos=2,rspec={x,0.2,6}]
+      { \tan x }[x=0][*]\medskip{}
+
+However, tabulating more than one function at a time is too common
+a need to have to resort to a fudge like adjoining tables. \verb`numerica-tables`
+offers a systematic way of doing this; see §\ref{subsec:Multiple-function-tables}.
+
+\section{Column-variable settings}
+
+\label{sec:Column-variable-settings}When a function of \emph{two}
+variables is being tabulated, we generally think of one variable as
+the primary variable and the other as a parameter. To tabulate such
+a function, one way to proceed, is to create and adjoin separate tables,
+one per parameter value, but that is clumsy. A more systematic procedure
+is to specify, in addition to the row variable, a \emph{column} variable
+and its start, step and stop values. 
+
+\begin{table}[t]
+\caption{Column-variable specification}
+
+\centering{}\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{cvar}} & {\small token(s)} & {\small column-variable} & \tabularnewline
+{\small\texttt{cstep}} & {\small real num.} & {\small step size} & \tabularnewline
+{\small\texttt{cstop}} & {\small real num.} & {\small stop value} & {\small either }{\small\texttt{cstop}}\tabularnewline
+{\small\texttt{cols}} & {\small int} & {\small number of columns} & {\small or }{\small\texttt{cols}}\tabularnewline
+{\small\texttt{cspec}} & {\small comma list} & {\small\texttt{\{cvar,cstep}}{\small ,}{\small\texttt{cols\}}} & {\small short form spec.}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+In the following example \verb`cvar=k` is the column variable. I
+have chosen a step size \verb`cstep=2` and a stop value \verb`cstop=9`.
+As with the row variable, the start value ({\ttfamily\verb`k=3`})
+of the column variable is specified in the vv-list. Although in the
+example these values are numbers, all three values could be \LaTeX{}
+expressions that evaluate to numbers. In particular, the expressions
+for step and stop values may include the row and column variables
+(in the example $x$ and $k$) which are assigned their initial vv-list
+values. Note also the setting for \verb`rhead` which shows the reader
+of the table that the numerical values displayed in the column headers
+are values of \verb`k`. This usage occurs throughout \emph{HMF}.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},rhead=x\backslash k,
+         cvar=k,cstep=2,cstop=9]
+      { \sin kx }[k=3,x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},rhead=x\backslash k,
+         cvar=k,cstep=2,cstop=9]
+      { \sin kx }[k=3,x=0][*] \medskip{}
+
+Again, as with the row variable, rather than using an explicit stop
+value\texttt{ }{\ttfamily\verb`cstop`}, you might prefer
+to specify the number of columns, \verb`cols`, explicitly. I could
+have replaced {\ttfamily\verb`cstop=9`} with \verb`cols=4`
+to get the same result. Note that the number of columns specified
+here is the number of \emph{function-value} columns; the row-variable
+column is ignored for this count.
+
+It is worth pointing out explicitly that if \verb`cols` is specified,
+then it is possible to have a \emph{zero} step size, \verb`cstep=0`.
+An example where this is useful is presented in §\ref{subsec:Footer-functions}.
+(A similar comment applies to \verb`rows` and \verb`rstep`.)
+
+And again, as with the row variable, it is possible to condense the
+specification into a comma list with the key \verb`cspec`. This is
+a $3$-element comma list of the form \verb`{cvar,cstep,cols}`.\footnote{This is a change from v.1 of \texttt{numerica}; see the boxed comment
+at the end of §\ref{sec:Row-variable-settings}.} Thus, for the preceding table I could have written
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},rhead=x\backslash k,
+         cvar=k,cstep=2,cols=4]
+      { \sin kx }[k=3,x=0][*]
+\end{verbatim}
+or
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},rhead=x\backslash k,
+         cspec={k,2,4}]
+      { \sin kx }[k=3,x=0][*]
+\end{verbatim}
+and produced the same table. 
+
+\verb`cstep`, \verb`cstop` and \verb`cols` can all be \LaTeX{} expressions.
+The first two are evaluated \emph{after }the vv-list; \verb`cols`
+is evaluated \emph{before }the vv-list. Hence \verb`cstep` and \verb`cstop`
+may depend on the row and column variables, which are given their
+initial values in the vv-list.
+
+\subsection{Column header formatting}
+
+\label{subsec:Column-header-formatting}There are four built-in style
+settings for the header to the column-variable (or function-value)
+columns (the `ch' prefix evoking `column header'). If these don't
+meet your needs or otherwise satisfy, then it is possible to define
+your own header to the function value columns using the key \verb`chead`.
+First I discuss the built-in styles.
+
+\subsubsection{Header style: single-column case}
+
+\begin{table}
+\centering{}\caption{Formatting the column-variable header}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{chstyle}} & {\small int (0\ldots 4)} & {\small header style} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{ctitle}} & {\small tokens} & {\small single col. alternative header} & \tabularnewline
+{\small\texttt{chead}} & {\small tokens} & {\small user-defined header} & \tabularnewline
+{\small\texttt{calign}} & {\small char (r/c/l)} & {\small column alignment} & {\small\texttt{r}}\tabularnewline
+{\small\texttt{chnudge}} & {\small int} & {\small nudge header }{\small{\small\verb`int`}}{\small{} mu} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{chround}} & {\small int} & {\small column header rounding} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+When there is only one column of function values, the function being
+tabulated is by default set as the header to the column. This corresponds
+to setting \texttt{ctitle={*}} (see §\ref{subsec:Title:-ctitle-setting}
+below). You may want some other header. Then give \texttt{ctitle}
+some other value (although note that giving it the value \texttt{{*}{*}}
+will set both the function and the vv-list as the header; again see
+§\ref{subsec:Title:-ctitle-setting}). Whatever value you set, it
+will be typeset between math delimiters (\verb`$` signs) and can
+be nudged (see §\ref{subsec:Nudgingtheheaders:-chnudge}) left or
+right to fine-tune its position in the column. (If you want an asterisk
+as the header, you will need to place it between \emph{two} pairs
+of braces, \texttt{ctitle=\{\{{*}\}\}}, to prevent it being misinterpreted
+as the default setting.)
+
+If you want some more complicated header, perhaps not constrained
+by the \verb`$` delimiters, then give \texttt{chead} a value. This
+key I discuss below in §\ref{subsec:chead}. \texttt{chead} is entirely
+up to the user to specify, including any math environment and positioning. 
+
+If both \texttt{ctitle} and \texttt{chead} are given, the \texttt{chead}
+value prevails.
+
+\subsubsection{Header~style: multi-column case}
+
+\texttt{chstyle=0} which is the default gives a header of the form
+displayed in the last example, with only the column-variable \emph{value}
+at the head of each column. This style generally requires the row-variable
+header to indicate what the values denote, as in the example above
+where \texttt{rhead=x\textbackslash backslash k}, the backslash separating
+row from column variable. \emph{HMF} contains a multitude of instances
+of this style; see Tables~9.7, 17.5, 21.1, 24.3, 27.4, etc. for examples.
+
+\texttt{chstyle=1} changes the header of the \emph{first} function
+value column to the form \emph{variable=value} \textendash{} in the
+example below, to $k=3$. This may be an appropriate choice when a
+small rounding value is being used and the resulting columns are narrow.
+I can find only one real instance in \emph{HMF}, Table~26.7. Note
+that the row-variable setting \texttt{rhead} no longer needs the \texttt{\textbackslash backslash
+k} part since the column variable is now explicitly indicated. (The
+first table in the example below.)
+
+\texttt{chstyle=2} changes the header of all function-value columns
+to the form \emph{variable=value}.\emph{ }In \emph{HMF} examples are
+Tables~7.4, 7.9, 10.10, 16.6, etc. Again, the row-variable setting
+\texttt{rhead} no longer needs the \texttt{\textbackslash backslash
+k} part since the column variable is now explicitly indicated (the
+second table in the example).
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=1]
+      { \sin kx }[k=3,x=0][3*]\quad
+    \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=2]
+      { \sin kx }[k=3,x=0][3*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=1]
+      { \sin kx }[k=3,x=0][3*]\quad
+    \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=2]
+      { \sin kx }[k=3,x=0][3*]\medskip{}
+
+\texttt{chstyle=3} fills each column-variable header with the expression
+being tabulated but with the column variable replaced by its respective
+values. See \emph{HMF} Tables~5.4, 8.1, 9.1, 19.1, etc. for examples.
+Note that if the column-variable value is \verb`1`, the \verb`1`
+will be displayed:
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=3]
+      { \sin kx }[k=1,x=0][4*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=3]
+      { \sin kx }[k=1,x=0][4*]\medskip{}
+
+In this last example you may not want the \verb`1` displayed. To
+achieve that result put \texttt{chstyle=4}. This results in a header
+as for \texttt{chstyle=3} but if the column variable takes the value
+\verb`1`, it has an empty replacement:
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=4]
+      { \sin kx }[k=1,x=0][4*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},chstyle=4]
+      { \sin kx }[k=1,x=0][4*]
+
+\subsubsection{User-defined header: \texttt{chead}}
+
+\label{subsec:chead}If the function in the last example were, for
+instance, $k+\sin kx$, then neither replacing $k$ by \verb`1` nor
+an empty replacement would be appropriate. In that case the only recourse
+is to use the \verb`chead` key. Users can assign whatever value they
+like to \verb`chead`. The assignment must contain the correct number
+of tab characters (\verb`&`) for the \emph{column-variable columns
+only}. It is a header only to the function-value columns. The user
+will need to insert \verb`$` signs or other math delimiters as appropriate.
+This differs from the practice for \verb`rhead`, but \verb`chead`
+is potentially far more complicated. Thus for $k+\sin kx$,
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},
+         chead=$1+\sin x$&$3+\sin3x$&$5+\sin 5x$]
+      { k+\sin kx }[k=1,x=0][4*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},
+         cspec={k,2,3},
+         chead=$1+\sin x$&$3+\sin3x$&$5+\sin 5x$]
+      { k+\sin kx }[k=1,x=0][4*]\medskip{}
+
+\noindent Non-empty content for the \verb`chead` key overrides any
+\verb`chstyle` setting and, in the case of a table with only a single
+function-value column, overrides any \verb`ctitle` setting.$ $
+
+\subsubsection{Alignment: \texttt{calign}}
+
+The function-value columns are aligned right, \verb`calign=r`, by
+default. Also available are \verb`calign=c` for centred alignment
+and \verb`calign=l` (lowercase L) for left alignment. Using centred
+alignment with {\ttfamily\verb`chstyle=2`} in a previous
+example table gives
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},ralign=c,
+         cspec={k,2,3},chstyle=2,calign=c]
+      { \sin kx }[k=3,x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},rhead=x,ralign=c,
+         cspec={k,2,3},chstyle=2,calign=c]
+      { \sin kx }[k=3,x=0][*]\medskip{}
+
+\noindent The first column of function values looks better, but the
+minus signs spoil the effect in the others. Handling signs in tables
+is discussed below; see §\ref{subsec:Signs}.
+
+\subsubsection{Nudging~the~headers: \texttt{chnudge}}
+
+\label{subsec:Nudgingtheheaders:-chnudge}In left or right alignment
+it is possible to nudge the headers in the opposite direction by giving
+a numerical value to the the key \verb`chnudge`. The header is moved
+by the specified number of mu (math units; 18 to a quad). Note that
+the `mu' does not need to be written. {\ttfamily\verb`numerica-tables`}
+provides that. In the next example I have chosen \verb`chnudge=12`
+to nudge the column headers to the left to give a centred effect to
+the header but leaving the function values with their (potentially)
+awkward minus signs right aligned.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},ralign=c,
+         cspec={k,2,3},chstyle=2,chnudge=12]
+      { \sin kx }[k=3,x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},ralign=c,
+         cspec={k,2,3},chstyle=2,chnudge=12]
+      { \sin kx }[k=3,x=0][*]\medskip{}
+
+The \verb`chnudge` value does not need to be positive. Negative nudges
+can be useful when a column header is \emph{longer} than the rounded
+function values. In the second example below, I've reduced the rounding
+value for function values to $3$, and chosen an initial $k$ value
+of $100$ to ensure this circumstance. To centre the column headers
+I have used \verb`chnudge=-9`.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},ralign=c,
+         cspec={k,2,3},chstyle=2,chnudge=-9]
+      { \sin kx }[k=100,x=0][3*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},ralign=c,
+         cspec={k,2,3},chstyle=2,chnudge=-9]
+      { \sin kx }[k=100,x=0][3*]
+
+\subsubsection{Rounding: \texttt{chround}}
+
+In the examples so far, the column variable has incremented in integer
+steps. The default rounding value for the column variable is $0$
+(for the row variable it is $1$), so if it increments by some non-integer
+amount, the result will be confusing \textendash{} if $k$ incremented
+by, say, $0.25$, starting from $k=3$, then the next column would
+also have a header $k=3$ (since $3.25$ with a rounding value $0$
+rounds to $3$). The appropriate key to remedy this state of affairs
+is {\ttfamily\verb`chround`}. For a step size of $0.25$
+the appropriate setting is {\ttfamily\verb`chround=2`}.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.2,6},ralign=c,
+         cspec={k,0.25,3},chstyle=2,chround=2]
+      { \sin kx }[k=3,x=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.2,6},rhead=x,ralign=c,
+         cspec={k,0.25,3},chstyle=2,chround=2]
+      { \sin kx }[k=3,x=0][*]
+
+\section{Multiple functions in a single table}
+
+\label{subsec:Multiple-function-tables}As already noted in §\ref{subsec:Adjoining-tables},
+tabulating more than one function at a time is too common a need to
+have to resort to a fudge like adjoining tables. There is a systematic
+way of handling this task available in \verb`numerica-tables`. In
+v.1 of \verb`numerica`, it sufficed to enter the functions in the
+main argument separated by commas, and to \emph{precede the first
+function with a comma}, which was the signal \texttt{numerica} needed
+to make the internal adjustments for a multi-function table. In v.2
+of \verb`numerica-tables` this option is still available, but rather
+than use a `trick' like preceding the first function with a comma,
+the preferred option now is to use a new (with v.2) setting, \verb`multifn`. 
+
+The first table below uses the old `trick' of starting the main
+argument with a comma; the second table uses the \verb`multifn` setting
+(and note in both the \verb`o` setting indicating that the arguments
+of $\sin$ and $\cos$ are in degrees):
+\begin{verbatim}
+    \tabulate[o, rround=0,
+              rvar=\theta,rstep=10,rstop=90]
+      { ,\sin \theta,\cos \theta }[\theta=0][*]
+    \quad
+    \tabulate[o,multifn,rpos=2,rround=0,
+              rvar=\theta,rstep=10,rstop=90]
+      { \sin \theta,\cos \theta }[\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[o,rvar=\theta,rstep=10,rstop=90,
+        rround=0]
+  	{ ,\sin \theta,\cos \theta }[\theta=0][*]
+    \quad
+    \tabulate[o,multifn,rpos=2,rvar=\theta,rstep=10,
+        rstop=90,rround=0]
+  	{ \sin \theta,\cos \theta }[\theta=0][*]\medskip{}
+
+These tables suggest a space saving possibility: since $\sin$ and
+$\cos$ are complementary functions ($\cos\theta=\sin(90-\theta)$),
+the values in the bottom half of the table duplicate values in the
+top half, only with the columns reversed. This is the reason for the
+space saving \texttt{rpos=4} setting (§\ref{subsec:Second-row-var-col})
+which enables complementary functions to be tabulated in `half tables'
+(for examples see \emph{HMF} Tables 4.10\textendash 4.12 for the trigonometric
+functions).
+
+A comma may not always be a convenient separator \textendash{} it
+may occur in one of the functions being tabulated (perhaps in \verb`\max`
+or \verb`\min`). By assigning a value to the setting \verb`multifn`,
+\begin{lyxcode}
+multifn=<char>
+\end{lyxcode}
+the assisgned character can be used to separate the functions. In
+the following example, a semicolon is used. Further, the row-variable
+column is duplicated on the right by using the \verb`rpos=3` setting,
+and the table gives another illustration of the use of \verb`chead`:
+\begin{verbatim}
+    \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[o,multifn=;,rpos=3,rvar=\theta,
+              rstep=10,rstop=90,rround=0,
+              chead=max\hphantom{00} & min\hphantom{00}]
+  	{ \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]   \medskip{}
+
+The glaring omission in the table is any explicit statement of what
+the functions are that are being tabulated. Maximum and minimum, yes,
+but of what? That is (potentially) remedied with the \verb`ctitle`
+setting discussed next; see §\ref{subsec:Title:-ctitle-setting}.
+
+\section{Whole-of-table formatting}
+
+\label{sec:Whole-of-table-formatting}There are a number of settings
+pertaining to the appearance of the table as a whole, things like
+the position of the row-variable column, division of the function
+values into blocks to aid readability, the presence of horizontal
+rules or of a collective column title or of a footer row. I discuss
+these here.
+
+\begin{table}[H]
+\noindent \centering{}\caption{\protect\label{tab:Table-formatting-settings}Table formatting}
+\noindent \begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{ctitle}} & {\small token(s)} & {\small collective title for function-value columns} & \tabularnewline
+{\small\texttt{cmidrow}} & {\small token(s)} & {\small inter-header/title row for} {\small function-value columns} & \tabularnewline
+{\small\texttt{rules}} & {\small char(s)} & {\small horizontal rules template} & {\small\texttt{ThB}}\tabularnewline
+{\small\texttt{foot}} & {\small token(s)} & {\small content of footer line} & \tabularnewline
+{\small\texttt{rpos}} & {\small int (}{\small\texttt{0}}{\small\ldots}{\small\texttt{4}}{\small )} & {\small row-variable column position(s)} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{rbloc}} & {\small comma list} & {\small division of rows into blocks} & \tabularnewline
+{\small\texttt{rblocsep}} & {\small length} & {\small extra spacing between blocks of rows} & {\small\texttt{1 ex}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+
+
+\subsection{Title for function-value columns: \texttt{ctitle}}
+
+\label{subsec:Title:-ctitle-setting}The function-value columns have
+individual headers, formatted in the various ways provided by the
+settings discussed in previous sections, but it can also be helpful
+to have a collective title for these columns. We saw the need in the
+last example. The need is met with the \verb`ctitle` key. This can
+be set to whatever you like (e.g. \texttt{ctitle=\textbackslash text\{Fred\}})
+but, to more purpose, I use the setting to clarify the last example:
+\begin{verbatim}
+     \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle=\sin\theta{,}\,\cos\theta,
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$      \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle=\sin\theta{,}\,\cos\theta,
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]\medskip{}
+
+\noindent Now it is clearer what is being tabulated, although the
+reader is still being asked to interpret rather than read what the
+table is showing. 
+
+There are two in-built settings for \verb`ctitle`: \verb`ctitle=*`,
+which makes the formula the title, and \verb`ctitle=**`, which makes
+a title of the formula and vv-list. Surely, \verb`ctitle=*` is what
+we want: 
+\begin{verbatim}
+    \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle=*,
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle=*,
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]\medskip{}
+
+\noindent Well, that is clear but the length of the title distorts
+the table. This is where the \verb`cmidrow` key can help (see below)
+but we can also use an \verb`aligned` environment within \verb`ctitle`:
+\begin{verbatim}
+     \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle={\begin{aligned}
+                \max(\sin\theta,\cos\theta)\\[-0.7ex]
+                \min(\sin\theta,\cos\theta)
+               \end{aligned}},
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$      \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle={\begin{aligned}
+                \max(\sin\theta,\cos\theta)\\[-0.7ex]
+                \min(\sin\theta,\cos\theta)
+               \end{aligned}},
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+             \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]\medskip{}
+
+The table is no longer distorted in width. Note the \verb`\\[-0.7ex]`
+within the \verb`aligned` environment. This shrinks the vertical
+space between the two lines of the title. Without it, the lines are
+too far apart.
+
+\subsection{Inter-header/title row: \texttt{cmidrow}}
+
+Some tables need to fit more header material or title material into
+their rows than can be comfortably accommodated there. For examples,
+see \emph{HMF} Tables 7.9 (error function for complex arguments),
+17.7 (Jacobian zeta function), 21.1 (eigenvalues of spheroidal wave
+functions), and 26.7 (probability integrals). One way of handling
+this problem is to resort to more complicated environments in header
+and title rows. Another, more direct way, is to insert a row between
+the header row and title row. 
+
+I have chosen \verb`cmidrow` for the key name, in the sense of a
+row `mid header and title rows'. The initial `c' emphasizes that
+it is constrained to the span of the column-variable (or function-value)
+columns only (like \verb`chead` and \verb`ctitle`). The entire content
+is the responsibility of the user, 
+\begin{lyxcode}
+cmidrow=<tokens>
+\end{lyxcode}
+including insertion of the necessary number of tab characters, \verb`&`,
+and any math delimiters required. 
+\begin{verbatim}
+    \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle=\max(\sin\theta{,}\cos\theta),
+        cmidrow=\multicolumn{2}{c}
+                 {$\min(\sin\theta,\cos\theta)$},
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+            \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[o,multifn=;,rpos=3,rround=0,
+        rvar=\theta,rstep=10,rstop=90,
+        ctitle=\max(\sin\theta{,}\cos\theta),
+        cmidrow=\multicolumn{2}{c}
+                  {$\min(\sin\theta,\cos\theta)$},
+        chead=max\hphantom{00} & min\hphantom{00}]
+      { \max(\sin \theta,\cos \theta);
+            \min(\sin \theta,\cos \theta) }
+      [\theta=0][*]\medskip{}
+
+\noindent The display looks the same as in the previous example but
+was obtained perhaps more straightforwardly.
+
+\subsection{Horizontal rules: \texttt{rules}}
+
+\label{subsec:Rules:-rules-setting}The \texttt{booktabs} package
+which \texttt{numerica} uses is most emphatic that one should `1.
+Never, ever use vertical rules. 2. Never use double rules.' Most
+of the tables proper in \emph{HMF} lack rules of any kind although
+closer inspection shows smaller tables within the text generally \emph{are}
+delimited by horizontal rules (often also with vertical rules).\footnote{The tables in \emph{HMF} are often inelegantly typeset, and sometimes
+ugly. For all that, I have used it as a valuable source for the variety
+of structures that the editors found necessary, or at least useful,
+for presenting a multitude of different kinds of numerical data.} I have used horizontal rules in the various examples in the present
+document because these too are tables within text. Some form of delineation
+seems necessary. 
+
+\begin{table}
+\noindent \centering{}\caption{\protect\label{tab:Rules}Rules. {\small (In the \textquoteleft span\textquoteright{}
+column, \textquoteleft f-v\textquoteright =function-value; \textquoteleft r-v\textquoteright =row-variable;
+\textquoteleft$<$~table\textquoteright{} indicates that the rule
+spans the table but is trimmed at each end.)}}
+\noindent \begin{center}
+\begin{tabular}{lll>{\raggedright}p{3cm}l}
+\toprule 
+{\small char} & {\small rule} & {\small position} & {\small span} & {\small default rule thickness}\tabularnewline
+\midrule
+{\small\texttt{T}} & {\small top} & {\small above table} & {\small table} & {\small\texttt{\textbackslash heavyrulewidth=.08em}}\tabularnewline
+{\small\texttt{t}} & {\small title} & {\small below title} & {\small f-v cols} & {\small\texttt{\textbackslash cmidrulewidth =.03em}}\tabularnewline
+{\small m} & {\small midrow} & {\small below midrow} & {\small f-v cols (if $1$ r-v col.)}{\small\par}
+
+{\small$<$ table (if $2$ r-v cols)} & {\small\texttt{\textbackslash cmidrulewidth =.03em}}\tabularnewline
+{\small\texttt{h}} & {\small header} & {\small below header} & {\small table} & {\small\texttt{\textbackslash lightrulewidth=.05em}}\tabularnewline
+{\small\texttt{f}} & {\small footer} & {\small above footer} & {\small table} & {\small\texttt{\textbackslash cmidrulewidth =.03em}}\tabularnewline
+{\small\texttt{B}} & {\small bottom} & {\small below table} & {\small table} & {\small\texttt{\textbackslash heavyrulewidth=.08em}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+The \verb`rules` key enables precisely which rules are used to be
+specified. The value of the key is a `word' \textendash{} a sequence
+of letters \textendash{} where the characters have the significance
+and default thicknesses (from \texttt{booktabs}) shown in Table~\ref{tab:Rules}.
+The default setting is \texttt{rules=ThB}. To insert a rule beneath
+the title, for example, change this to \texttt{rules=TthB}. If in
+addition you are using a footer row and want a rule above it, then
+the specification is \texttt{rules=TthfB} and if you are using a row
+between header and title rows (a `midrow') and want a rule beneath
+that too, then the spec. is \texttt{rules=TtmhfB}. To my eye that
+is too many rules; at most only one of title and midrow rules should
+be used.
+
+The midrow rule changes its behaviour depending on whether there are
+two row-variable columns \textendash{} on the left and right of the
+table \textendash{} or not. If there is only one row-variable column
+then, like the title rule, the midrow rule spans only the function-value
+columns. If there are two row-variable columns then the midrow rule
+spans the table but is trimmed by 0.5 em at each end. That degree
+of trim is the \verb`booktabs` default but can be changed by giving
+a different value to \verb`\cmidrulekern` in the preamble, e.g. \verb`\cmidrulekern=1em`.
+Note that the changed trim will also apply to the title rule.
+
+If you wish to change the thickness of a rule from its default, then
+enter new values for any or all of {\small\texttt{\textbackslash heavyrulewidth}},
+{\small\texttt{\textbackslash lightrulewidth}}, {\small\texttt{\textbackslash cmidrulewidth}}
+in the preamble. The values listed in Table~\ref{tab:Rules} are
+the default values in the \texttt{booktabs} package (except for the
+midrow and footer rules, which \texttt{booktabs} does not cover; in
+\texttt{numerica-tables} these rules are assigned a thickness of {\small\texttt{\textbackslash cmidrulewidth}}).
+
+In the example table below, a rule for the column title has been specified
+(the \verb`t` in the setting \verb`rules=TthB`). Also note the use
+of \texttt{ctitle={*}{*}}. The fornula contains an extra parameter
+$a$, assigned a value in the vv-list. It now makes sense to display
+the vv-list in the column title (but note the braces around \texttt{k}
+and \texttt{x} in the vv-list so that they don't display).
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.25,5},rround=2,rhnudge=9,
+         cspec={k,0.25,3},chstyle=2,chround=2,
+           ctitle=**,rules=TthB]
+      { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.25,5},rround=2,rhnudge=9,
+         cspec={k,0.25,3},chstyle=2,chround=2,
+           ctitle=**,rules=TthB]
+      { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*]
+
+\subsection{Footer row: \texttt{foot} setting}
+
+Some tables have a footer row and \verb`numerica-tables` allows such
+a row to be inserted, but its entire content, with one exception,
+is the responsibility of the user, including insertion of the necessary
+number of tab characters \verb`&`. This will be $1$ less than the
+total number of columns (including row-variable columns) in the table
+\textendash{} or some adjustment thereof if you use \verb`\multicolumn`.
+You can put into the footer what you wish: 
+\begin{lyxcode}
+foot=<tokens>
+\end{lyxcode}
+(\emph{HMF} uses the footer mainly for cryptic descriptions of the
+accuracy and needs of interpolation methods.)
+
+The one exception is when \texttt{foot={*}}. This will fill the footer
+with the header, but \emph{reversed}. This is useful for tabulating
+complementary functions like the sine and cosine or, more generally,
+$f(x)$ and $g(x)$ where $g(x)=f(k-x)$ for some constant $k$. Values
+for the complementary function are read from the bottom up and require
+a reversed row-variable column on the right of the table; see §\ref{subsec:Second-row-var-col}.
+
+\subsubsection{Footer functions}
+
+\label{subsec:Footer-functions}It is also possible to use the footer
+for displaying the values of certain column functions. {\ttfamily\verb`numerica-tables`}
+provides four of these. They can be used in the footer (and only in
+the footer): \verb`SUM`, \verb`AVE` (average), \verb`MAX` and \verb`MIN`.
+These functions act on the function values of the column they are
+in. They \emph{do not} combine mathematically: entering \verb`MAX-MIN`
+in the footer of a given column will produce a footer entry containing
+two values (those of \verb`MAX` and \verb`MIN`) separated by a minus
+sign. The numerical output from each function is automatically wrapped
+in math delimiters (\verb`$`) so that minus signs display correctly.
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+In v.1 of \verb`numerica`, tables supported \emph{five} footer functions.
+The fifth was \verb`DEL=MAX-MIN`. It is no longer supported. First,
+the name was unclear and in any case, it is easy to calculate from
+\verb`MAX` and \verb`MIN`.\end{shaded}%
+\end{minipage}
+
+In the following example, I have chosen a column variable step size
+of zero. This is possible because in the column spec., I have also
+specified the exact number of columns. Zeroing the step size means
+the same set of figures can be used for the four footer functions
+to act on.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.25,(5)},rround=2,rhnudge=9,
+         cspec={k,0,4},ctitle=**,
+         chead=SUM\;&AVE\;&MAX\;&MIN\;,
+         rules=TthfB,
+         foot=&SUM&AVE&MAX&MIN ]
+      { a\sin kx }[a=2/\pi,k=3.5,{x}=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.25,(5)},rround=2,rhnudge=9,
+         cspec={k,0,4},calign=r,ctitle=**,
+         chead=SUM\;&AVE\;&MAX\;&MIN\;,
+         rules=TthfB,
+         foot=&SUM&AVE&MAX&MIN ]
+      { a\sin kx }[a=2/\pi,k=3.5,{x}=0][*]
+
+\subsection{Second row-variable column: \texttt{rpos=4}}
+
+\label{subsec:Second-row-var-col}In §\ref{subsec:Row-var-col-pos}
+I discussed the settings \verb`rpos=0,1,2` and in §\ref{subsec:Multiple-function-tables}
+gave an example of using {\ttfamily\verb`rpos=3`} where
+repeating the row-variable column on the right is helpful. There is
+another value available for this key, \verb`rpos=4`. Like {\ttfamily\verb`rpos=3`}
+this adds the row-variable column to both left and right sides of
+the table, but for the right column the values are a function of those
+in the left column ({\ttfamily\verb`rpos=3`} corresponds
+to the function being the identity). The value given to the key \verb`rvar'`
+determines the function used and the value given to the key \verb`rhead'`
+determines the header for the right-hand row-variable column. If \verb`rhead'`
+is omitted it defaults to a blank header, unless the \verb`rvar'`
+setting is also omitted, when \verb`rpos=4` behaves like \verb`rpos=3`.
+
+For example, the sine and cosine are complementary functions; when
+working in degrees, $\cos\theta=\sin(90-\theta)$. We can exploit
+this fact to halve the table size needed to tabulate the two functions.
+The example also gives an illustration of the use of an  expression
+in the third element of \verb`rspec`.
+\begin{verbatim}
+    \tabulate[o,multifn,rpos=4,
+      rspec={\theta,5,1+45/5},rround=0,
+        chnudge=14,rvar'=90-\theta,
+          rules=ThfB,foot=*]
+      { \sin\theta,\cos\theta }[\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[o,multifn,rpos=4,
+      rspec={\theta,5,1+45/5},rround=0,
+        chnudge=14,rvar'=90-\theta,
+          rules=ThfB,foot=*]
+      { \sin\theta,\cos\theta }[\theta=0][*]\medskip{}
+
+\noindent The values of sines from $0$ to $45$ degrees are read
+downwards from the first column of function values, and from 45 to
+90 degrees are read upwards from the second column of function values.
+For cosines it is downwards from the second column and upwards from
+the first column. The reversed footer line indicates the change of
+columns to use. In the example note
+\begin{itemize}
+\item the setting of \verb`rvar'` to a function (\verb`90-\theta`) of
+the row variable (\verb`\theta`); 
+\item the blank header for the \verb`rvar'` column (since no value was
+set for \verb`rhead'`);
+\item the footer setting \verb`foot=*` to obtain the reversed header in
+the footer;
+\item the rule \emph{above} the footer row specified by the \verb`f` added
+to the \verb`rules` setting, \verb`rules=ThfB`.
+\end{itemize}
+Note also the degree setting \verb`o` in the settings option. 
+
+Although there is a significant space saving with tables like this
+(see \emph{HMF} Tables 4.10, 4.11, 4.12), they are not `kind to the
+reader'. They require a certain concentration to read and in my view
+should be avoided unless space is seriously constrained. \emph{HMF}
+Tables 6.1 and 6.2 are tables of the gamma function and its relatives
+where $y=x-1$ is used in the row-variable column on the right (stemming
+from $y!=\Gamma(x-1)$); \emph{HMF }Table 6.5 in effect uses $\langle1/x\rangle$
+(the nearest integer to $1/x$) for the row variable on the right.
+
+\subsection{Separating blocks of rows: \texttt{rbloc}}
+
+Readability of long columns of figures can be aided by breaking the
+columns into blocks with extra white space between blocks of rows.
+This is achieved with the \texttt{rbloc} key:
+\begin{lyxcode}
+rbloc~=~<comma~list~of~positive~integers>
+\end{lyxcode}
+specifies how many rows belong to each block. For example, \verb`rbloc={5,5,6}`
+breaks the table into blocks of $5$ rows, $5$ rows, then $6$ rows.
+If the number of rows in the table is greater than the sum of the
+entries in the comma list, then division into blocks continues as
+specified by the last entry in the comma list. Thus \texttt{rbloc=5}
+(strictly \texttt{rbloc=\{5\}} but the braces can be omitted in this
+case since no comma is enclosed) divides a table into blocks of $5$
+rows; \texttt{rbloc=\{1,5\}} divides a table into $1$ row followed
+by blocks of $5$ rows. A division of this kind may be appropriate
+when, say, the row variable runs from $0$ to $1$ in increments of
+$0.1$ \textendash{} there are $11$ rows of which the first (when
+the row variable is zero) may have distinctive values. 
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+
+\subsubsection*{The pull of the nice round number}
+
+However, this is not how \emph{HMF} sets out its tables.\emph{ }The
+dominant practice in \emph{HMF} is division into blocks of (generally)
+$5$ rows, many of which start with a zero value for the row variable.
+Rather than isolate this initial value, they include it in the first
+block of $5$, then continue with blocks of $5$ until a single isolated
+row is left at the bottom of the page or the table. There seems to
+be a psychological need to finish a page or table with the row variable
+set to a nice round number. Thus: tabulate from $0$ to $10$ rather
+than $0$ to $9$, from $0$ to $1$ rather than $0$ to $0.9$, and
+even from $0$ to $30$ or $0$ to $2$ rather than $0$ to $29$
+or $0$ to $1.9$. Using blocks of $5$ the consequence is that there
+is always an isolated line at the end \textendash{} a kind of punctuation
+mark to signal the end of the page or the table.\end{shaded}%
+\end{minipage}
+
+\medskip{}
+In the next example I have divided the columns into blocks of $5$
+rows by means of the setting \texttt{rbloc=5}.
+\begin{verbatim}
+    \tabulate[o,rspec={\theta,10,1+90/10},
+                          rround=0,rbloc=5]
+        { ,\sin\theta, \cos\theta }[\theta=0][*]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[o,rspec={\theta,10,1+90/10},
+                          rround=0,rbloc=5]
+		{ ,\sin \theta, \cos \theta}[\theta=0][*]
+
+\subsubsection{Adjusting the extra space\texttt{ rblocsep} }
+
+By default \texttt{numerica} sets the extra space between blocks of
+rows at \verb`1 ex`. This value can easily by changed with the setting
+\texttt{rblocsep=<length>}. The units need to be included in the specification. 
+
+\section{Formatting function values}
+
+\label{sec:Function-value-formatting}
+\begin{table}
+\noindent \centering{}\caption{\protect\label{tab:Function-value-formatting}Formatting function
+values}
+\noindent \begin{center}
+\begin{tabular}{cc>{\raggedright}p{4cm}c}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{(pad)}} & {\small int} & {\small (t-notation) phantom padding} & \tabularnewline
+{\small\texttt{signs}} & {\small int} & {\small sign handling for function-values} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{diffs}} & {\small int} & {\small insert differences \& pre-pad with zeros} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{Q?}} & {\small tokens} & {\small special cell conditional} & \tabularnewline
+{\small\texttt{A!}} & {\small tokens} & {\small special cell formatting} & \tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+In the examples used so far, function values have been limited to
+a narrow range, generally $[-1,1]$. What happens when function values
+span orders of magnitude?
+
+\subsection{Trailing optional argument}
+
+\label{subsec:Trailing-optional-argument}The primary tool for function-value
+formatting is the trailing optional argument of the \verb`\tabulate`
+command where the rounding value is specified, padding with zeros
+is set or not (generally \emph{set}), and scientific notation is set
+or not. Elegant scientific notation, set with an \texttt{x} in the
+trailing optional argument, is generally not appropriate for use in
+tables; see the first table below. Repeating the \texttt{x} \textendash{}
+\verb`xx` \textendash{} in the trailing optional argument (the second
+table) so that scientific notation extends to numbers in the range
+$[1,10)$ helps, particularly with the \emph{left} alignment chosen
+for the function-value column, but the result is wasteful of space
+and the repetition of the `$\times10$' is distracting and would
+be more so for a larger table. The \texttt{x} specification should
+be used in tables, if at all, only for small tables \textendash{}
+a few function values at most.
+\begin{verbatim}
+    \tabulate[rspec={x,1,2*3+1},rround=0]
+      { e^x}[x=-5][*x]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,calign=l]
+      { e^x}[x=-3][*xx]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,1,2*3+1},rround=0]
+      { e^x}[x=-3][*x]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,calign=l]
+      { e^x}[x=-3][*xx]
+
+\subsubsection{The \texttt{t} option}
+
+\emph{HMF} uses a special notation for coping with function values
+spanning orders of magnitude. This notation can be invoked by inserting
+\texttt{t} in the trailing optional argument. Repeating the previous
+two tables, and adding a \texttt{chnudge} value, gives a more compact
+and visually appealing result:
+\begin{verbatim}
+    \tabulate[rspec={x,1,2*3+1},rround=0,chnudge=24]
+      { e^x}[x=-3][*t]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,chnudge=24]
+      { e^x}[x=-3][*tt]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,1,2*3+1},rround=0,chnudge=24]
+      { e^x}[x=-3][*t]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,chnudge=24]
+      { e^x}[x=-3][*tt]
+
+\subsection{Padding the exponent: \texttt{(pad)}}
+
+In the second table of the last example some might quibble at the
+lack of alignment of the left parentheses. \emph{HMF} tends to align
+these and \verb`numerica-tables` offers the setting 
+\begin{lyxcode}
+(pad)~=~<integer>
+\end{lyxcode}
+to achieve the effect. (The parentheses are part of the key \textendash{}
+a reminder of the \verb`t`-form of scientific notation.) \texttt{<integer>}
+is the number of digits/characters to pad to. Repeating the last two
+tables with the setting \texttt{(pad)=2} produces the following results:
+\begin{verbatim}
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+                       chnudge=24,(pad)=2]
+      { e^x}[x=-3][*t]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+                       chnudge=24,(pad)=2]
+      { e^x}[x=-3][*tt]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,1,2*3+1},rround=0,
+                       chnudge=24,(pad)=2]
+      { e^x}[x=-3][*t]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+                       chnudge=24,(pad)=2]
+      { e^x}[x=-3][*tt]\medskip{}
+
+Note that this setting is relevant only when the \texttt{t} option
+is used in the trailing number-formatting argument of the \verb`\tabulate`
+command. Examples in \emph{HMF} of the style exemplified by the first
+table are, among others, Tables 8.6, 9.2, 20.1, and of the style exemplified
+by the second table, among many, Tables 9.9, 10.5, 13.1, 14.1, 19.1.
+
+\subsection{Accommodating signs: \texttt{signs}}
+
+\label{subsec:Signs}Instead of $e^{x}$ as the test function, use
+$e^{x}-1.$ Now there are positive, zero and negative function values
+to contend with. Recall that in the \verb`t`-notation the \emph{exponent}
+is the parenthesized integer part of a number, the \emph{significand}
+the following decimal figures. \verb`numerica-tables` offers the
+\verb`signs` key to align (or not) the exponents. The setting is
+\begin{lyxcode}
+signs~=~<integer>
+\end{lyxcode}
+There are four effective values for \texttt{<integer>} and the do-nothing
+default (\texttt{signs=0}):
+\begin{itemize}
+\item \texttt{signs=2 }inserts a $+$ sign between exponent and significand
+of every non-negative number;
+\item \texttt{signs=1 }inserts a $+$ sign between exponent and significand
+of every non-negative number that immediately precedes or follows
+a negative number;
+\item \texttt{signs=-1 }inserts a $+$ sign between exponent and significand
+of any non-negative number that immediately precedes or follows a
+negative number, and inserts a \emph{phantom} $+$ sign between exponent
+and significand of every other non-negative number;
+\item \texttt{signs=-2 }inserts a \emph{phantom} $+$ sign between exponent
+and significand of every non-negative number;
+\end{itemize}
+In the following examples with \verb`signs=-2`, \verb`signs=-1`
+and \verb`signs=2`, all give acceptable results.
+\begin{verbatim}
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=-2]
+      { e^x-1}[x=-3][4*tt]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=-1]
+      { e^x-1}[x=-3][4*tt]\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=2]
+      { e^x-1}[x=-3][4*tt]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=-2]
+      { e^x-1}[x=-3][4*t']\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=-1]
+      { e^x-1}[x=-3][4*t']\qquad
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=2]
+      { e^x-1}[x=-3][4*t']\medskip{}
+
+\noindent In \emph{HMF} Table 23.2 illustrates \verb`signs=-2`; Tables
+10.1, 13.1, 14.1, 19.1 among many others illustrate \verb`signs=-1`;
+and Tables 9.4, 10.6, 20.2, 22.11 among others illustrate \verb`signs=2`.
+
+\verb`signs=1`, however, is an inappropriate setting for these function
+values in the \verb`t`-notation:
+\begin{verbatim}
+    \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=1]
+      { e^x-1}[x=-3][4*tt] \qquad
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,1,2*3+1},rround=0,
+        (pad)=2,signs=1]
+      { e^x-1}[x=-3][4*tt]\medskip{}
+
+But the \verb`signs` key is not limited to the \verb`t`-notation.
+In the following tables where the notation is not used, positive values
+for the key, including \verb`signs=1`, give good results (I've included
+also the default setting \textendash{} the third table):
+\begin{verbatim}
+    \tabulate[rspec={x,0.1,9},(pad)=2,signs=2]
+      { 10\sin 5x}[x=-0.4][*4]\qquad
+    \tabulate[rspec={x,0.1,9},(pad)=2,signs=1]
+      { 10\sin 5x}[x=-0.4][*4]\qquad
+    \tabulate[rspec={x,0.1,9},(pad)=2]
+      { 10\sin 5x}[x=-0.4][*4]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,0.1,9},(pad)=2,signs=2]
+      { 10\sin 5x}[x=-0.4][*4]\qquad
+    \tabulate[rspec={x,0.1,9},(pad)=2,signs=1]
+      { 10\sin 5x}[x=-0.4][*4]\qquad
+    \tabulate[rspec={x,0.1,9},(pad)=2]
+      { 10\sin 5x}[x=-0.4][*4]\medskip{}
+
+\noindent \emph{HMF} seems to use \verb`signs=2` when the sign of
+the function values changes every few entries and \verb`signs=1`
+when there are runs of entries of the same sign. Over the range tabulated
+here for $10\sin5x$, they would use the middle table of the three,
+\verb`signs=1`. 
+
+\subsection{Differences: \texttt{diffs}}
+
+In fine-grained tables where function values change only slowly from
+entry to entry it can be helpful to include a difference entry between
+function-value entries as an aid to interpolation (and a test of eyesight).
+By entering 
+\begin{lyxcode}
+diffs~=~<non-negative~integer>
+\end{lyxcode}
+the \verb`\tabulate` command will include differences in a table.
+The \texttt{<non-negative integer>} is the maximum number of digits
+in a difference. 
+\begin{verbatim}
+    \tabulate[rspec={x,0.01,1+(1.05-1)/0.01},rround=2,
+      rhnudge=9,chnudge=21,diffs=3]
+        { \sinh x }[x=1][*4]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,0.01,1+(1.05-1)/0.01},rround=2,
+      rhnudge=9,chnudge=21,diffs=3]
+        { \sinh x }[x=1][*4]\medskip{}
+
+I have deliberately chosen the function and settings here \textendash{}
+particularly \texttt{diffs=3} \textendash{} to give a good result.
+With the default right alignment of the function-value columns, it
+is easy to get this wrong. The evidence will be either in the misalignment
+of the first row of function values or unnecessary padding of differences
+with leading zeros. It is a good idea to create your table first,
+see how function values change between successive rows and judge how
+many digits there will be in a difference. In the following examples
+I have deliberately put \texttt{diffs=2} and \texttt{diffs=4} to show
+the effect of a misjudgement. In the first table the first row of
+function values is misaligned by one character. (\texttt{diffs=1}
+would have produced a two-character misalignment.) In the second table
+the unnecessary fourth digit for the differences results in pre-padding
+with $0$. 
+
+In the second table the function $-\sinh x$ is \emph{decreasing},
+showing how it is the \emph{absolute value of the difference} between
+successive function values that is tabulated. A difference is always
+a non-negative value.
+\begin{verbatim}
+    \tabulate[rspec={x,0.01,1+(1.05-1)/0.01},rround=2,
+      rhnudge=9,chnudge=21,diffs=2]
+        { \sinh x }[x=1][*4]\qquad
+    \tabulate[rspec={x,0.01,1.05},rround=2,
+      rhnudge=9,chnudge=30,diffs=4]
+        { -\sinh x }[x=1][*4]
+\end{verbatim}
+$\Longrightarrow$     \tabulate[rspec={x,0.01,1+(1.05-1)/0.01},rround=2,
+      rhnudge=9,chnudge=21,diffs=2]
+        { \sinh x }[x=1][*4]\qquad
+    \tabulate[rspec={x,0.01,1+(1.05-1)/0.01},rround=2,
+      rhnudge=9,chnudge=21,diffs=4]
+        { -\sinh x }[x=1][*4]\medskip{}
+
+\noindent When the \texttt{diffs} setting is too small, function values
+in the first row are misaligned, the amount depending on how much
+too small. (A left alignment of the function value column is another
+way of tackling this issue.) When the \texttt{diffs} setting is too
+big, alignment is fine but differences are padded with unnecessary
+leading zeros, meaning the column header will need a bigger nudge
+to bring \emph{it} into alignment. 
+
+\subsection{Formatting special values: \texttt{Q?} and \texttt{A!}}
+
+You may wish to highlight or display in some special way a particular
+function value or values. \verb`\nmcTabulate` has two related settings
+that enable this: \texttt{Q?=<tokens>} and \texttt{A!=<tokens>}. As
+the names suggest: Question? and Answer! 
+
+The question should be an expression that \texttt{l3fp} can digest
+and produce a boolean answer to (1 for `true' or 0 for `false').
+\emph{This is not a \LaTeX{} expression}; this is an \verb`l3fp` expression.\footnote{Documentation about \texttt{l3fp }can be found in \texttt{interface3.pdf},
+which is part of the \texttt{l3kernel} bundle.} \verb`numerica-tables` uses \texttt{@} to denote the current function
+value, so queries like \texttt{Q?=@<0} (Is the current function value
+negative?) or \texttt{Q?=\{}@\texttt{>=pi\}} (Is the current function
+value greater than or equal to $\pi$?) are valid questions. (Note
+the braces in the second question, used to hide the equality sign.)
+Other possible useful components of such questions are \texttt{exp(1)}
+for the number $e$, || for logical Or, \texttt{\&\&} for logical
+And, and \texttt{!} for logical Not,\texttt{ }as well as the familiar
+arithmetic symbols, \texttt{+},\texttt{ -},\texttt{ {*}},\texttt{
+/} and \texttt{\textasciicircum}, relation symbols \texttt{<},\texttt{
+>},\texttt{ =} and their combinations like \texttt{!=},\texttt{ >=},\texttt{
+<=} etc., and parentheses. In addition to these components, \texttt{numerica-tables}
+offers \texttt{MAX} and \texttt{MIN} which are the maximum and minimum
+function values tabulated, so that, e.g., \texttt{Q?=\{@=MIN\}} (note
+the braces) is the question: Is the current function value equal to
+the minimum function value for the whole table?
+
+The answer must be in the form of a \LaTeXe{} formatting statement,
+again using \texttt{@} to denote the current function value. Thus
+\texttt{A!=\textbackslash mathbf\{@\}} is a valid answer; so is \texttt{A!=\textbackslash color\{red\}\{@\}}
+(provided you have \texttt{\textbackslash usepackage\{color\}} in
+the preamble); and so is \texttt{A!=(@)}. Another valid answer is
+\texttt{A!=} , meaning that function values satisfying the \texttt{Q?}
+question are omitted from the output. 
+
+This can be useful to suppress `irrelevant' values in a particular
+context. For example, suppose we wish to focus on the values of $\cos(m\pi/n)$
+lying between $0$ and $\tfrac{1}{2}$ inclusive for certain values
+of $m$ and $n$. Rather than cluttering the table with values outside
+that interval, we suppress them (the two occurrences of `\texttt{1e-14}'
+in the query are there to prevent rounding errors confusing the result):
+\begin{verbatim}
+    \tabulate
+      [rspec={n,1,1+(15-4)},rround=0,rpos=2,rules=Tth,
+         cspec={m,1,1+(5-2)},ctitle=*,chstyle=2,
+           Q?={@<-1e-14||@>0.5+1e-14},A!=]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+\end{verbatim}
+$\Longrightarrow$      \tabulate
+      [rspec={n,1,1+(15-4)},rround=0,rpos=2,rules=Tth,
+         cspec={m,1,1+(5-2)},ctitle=*,chstyle=2,
+           Q?={@<-1e-14||@>0.5+1e-14},A!=]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+
+\section{Star option: \texttt{\textbackslash nmcTabulate{*}}}
+
+\label{sec:Star-option}If the \verb`Q?` question is satisfied by
+at least one function value then adding a star (asterisk) to the \verb`\tabulate`
+command will display the first such instance. Like other starred commands
+in the \verb`numerica` suite (\verb`\eval*`, \verb`info*`, \verb`\macros*`,
+\verb`\constants*`, \verb`\iter*`, \verb`\solve*` and \verb`\recur*`),
+ \verb`\tabulate*` outputs a single number. Using the star means
+you do not need an answering \verb`A!` to the query \verb`Q?` since
+no formatting of table values is involved.
+\begin{verbatim}
+    \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)},
+           Q?={@<-1e-14||@>0.5+1e-14}]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+\end{verbatim}
+$\Longrightarrow$      \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)},
+           Q?={@<-1e-14||@>0.5+1e-14}]
+      { \cos(m\pi/n) }[n=4,m=2][*4]. Indeed, if you omit the \verb`Q?` and \verb`A!` settings from
+the previous table so that all function values are visible then this
+is the value that follows $0.5000$ in the \texttt{m=2} column \textendash{}
+the first function value encountered either less than $0$ or greater
+than $0.5$.
+
+\subsection{Errors}
+
+If \emph{no} function value satisfies the query then a message is
+generated:
+\begin{verbatim}
+    \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)},
+           Q?=@>1]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+\end{verbatim}
+$\Longrightarrow$      \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)},
+           Q?=@>1]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+
+And if there is no query at all when the star option is chosen, another
+message is shown:
+\begin{verbatim}
+    \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)}]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+\end{verbatim}
+$\Longrightarrow$      \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)}]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+
+\subsection{Scientific notation}
+
+If you want the number output in scientific notation when the star
+option is chosen, then enter the exponent mark in the trailing number-format
+option. This is straightforward for a letter like the commonly used
+\texttt{e}, but remember that if it is the \texttt{x} option that
+you enter, then you will need to place the \verb`\tabulate*` command
+between math delimiters, otherwise the \verb`\times` symbol resulting
+from the \texttt{x} option will generate a \LaTeX{} error (`Missing
+\$ inserted'):
+\begin{verbatim}
+    $ 
+    \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)},
+           Q?={@<-1e-14||@>0.5+1e-14},A!=]
+      { \cos(m\pi/n) }[n=4,m=2][*4x]
+    $
+\end{verbatim}
+$\Longrightarrow$     $ 
+    \tabulate*
+      [rspec={n,1,1+(15-4)},cspec={m,1,1+(5-2)},
+           Q?={@<-1e-14||@>0.5+1e-14},A!=]
+      { \cos(m\pi/n) }[n=4,m=2][*4x]
+    $.
+
+\subsection{Nesting}
+
+A \verb`\tabulate` command can be nested within other commands from
+the wider \verb`numerica` package, and those other commands can be
+nested within a \verb`\tabulate` command.
+
+\subsubsection{Nesting of \texttt{\textbackslash nmcTabulate}}
+
+Occasionally one might want to extract a value \textendash{} perhaps
+a maximum or minimum \textendash{} from a table to insert in another
+command. This can be done by nesting a \verb`\tabulate*` command
+with an appropriate \verb`Q?` setting within the other command. In
+fact, from v.2 of \verb`numerica` we can omit (or forget to include)
+the star. All we require is that the \verb`Q?` setting is satisfied
+by at least one function value. 
+\begin{verbatim}
+    \eval{$ 
+      (\tabulate
+        [rspec={n,1,15},cspec={m,1,5},
+             Q?={@=MAX}]
+      { \cos(m\pi/n) }[n=4,m=2][*4])\sinh t + 
+     (\tabulate
+        [rspec={n,1,15},cspec={m,1,5},
+             Q?={@=MIN}]
+      { \sin(m\pi/n) }[n=4,m=2][*4])\cosh t
+         $}[t=2][4]
+\end{verbatim}
+$\Longrightarrow$     \eval{$ 
+      (\tabulate
+        [rspec={n,1,15},cspec={m,1,5},
+             Q?={@=MAX}]
+      { \cos(m\pi/n) }[n=4,m=2][*4])\sinh t + 
+     (\tabulate
+        [rspec={n,1,15},cspec={m,1,5},
+             Q?={@=MIN}]
+      { \sin(m\pi/n) }[n=4,m=2][*4])\cosh t
+         $}[t=2][4]. 
+
+Evaluating the tables
+\begin{verbatim}
+     \tabulate
+        [rspec={n,1,15},rround=0,rpos=2,rules=Tth,
+           cspec={m,1,5},ctitle=*,chstyle=2]
+      { \cos(m\pi/n) }[n=4,m=2][*4]
+\end{verbatim}
+for the cosine and
+\begin{verbatim}
+    \tabulate
+        [rspec={n,1,15},rround=0,rpos=2,rules=Tth,
+           cspec={m,1,5},ctitle=*,chstyle=2]
+      { \sin(m\pi/n) }[n=4,m=2][*4]
+\end{verbatim}
+for the sine and checking the entries shows that indeed the maximum
+and minimum values are $0.9397$ and $-1.0000$ respectively.
+
+If the \verb`Q?` setting is not satisfied by any function value an
+error message is shown; e.g.,
+\begin{verbatim}
+    \eval{$ 
+      (\tabulate
+        [rspec={n,1,15},cspec={m,1,5},
+          Q?=@>2]
+            { \cos(m\pi/n) }[n=4,m=2][*4])\sinh t 
+          $}[t=2][4]
+\end{verbatim}
+$\Longrightarrow$     \eval{$ 
+      (\tabulate
+        [rspec={n,1,15},cspec={m,1,5},
+          Q?=@>2]
+            { \cos(m\pi/n) }[n=4,m=2][*4])\sinh t 
+          $}[t=2][4]
+
+\noindent Here, `settings (1)' tells us that the message refers
+to the (or a) command at the first level of nesting.
+
+\subsubsection{Nesting within \texttt{\textbackslash nmcTabulate}}
+
+Perhaps a more likely situation is to want to nest other commands
+within a \verb`\tabulate` command, in particular those from the associated
+package \verb`numerica-` \verb`plus`. In the documentation for that
+package, as an illustration of the use of those commands, I describe
+how they can be used to numerically investigate the timing of signals
+between points fixed on a rotating disk. and in particular how to
+look for three-point circuits with the property that, despite the
+rotation, signals take the same time traversing the circuit in one
+direction as the other. 
+
+I show a complicated expression below involving a \verb`\tabulate`
+command wrapped around a \verb`\solve` command (from \verb`numerica-plus`)
+wrapped around four \verb`\iter*` commands (also from \verb`numerica-plus`).
+I also show the table resulting from it all. On my High St laptop
+the table takes perhaps two minutes to compile \textendash{} I haven't
+timed it exactly but it is well over a minute. Two minutes is the
+blink of an eye in a lifetime but an age sitting staring at a computer
+screen. Hence I compiled the table separately, saved it to file using
+the \verb`\reuse` command (see the discussion below, §\ref{sec:reuse-setting})
+and  pasted the saved result into this document.
+
+To explain the expression: suppose the three points on the disk have
+polar coordinates $(r,\pm\theta)$ and $(a,0)$ in a co-rotating coordinate
+system. In the underlying inertial system, the signal speed is $c$
+and the angular velocity $\omega$. The cosine rule for solving triangles
+gives for the travel times $t$ between the points 
+\[
+t=c^{-1}\sqrt{r^{2}+a^{2}-2ra\cos(\theta\pm\omega t)}
+\]
+ and
+\[
+t=c^{-1}r\sqrt{2-2\cos(2\theta\pm\omega t)}
+\]
+where the plus sign is for a signal in the direction of rotation and
+the minus sign for a signal against the rotation. Thus the travel
+times are fixed points of the expressions on the right. Fixed points
+are found with the \verb`\iter*` command, which is where those terms
+of the expression come from. The \verb`\solve` command is then used
+to find, for a given value of $\theta$, a value of $r$ for which
+the difference of the travel times is zero for the circuit traversed
+in the two directions. Finally, the \verb`\tabulate` command creates
+a table of $r$ values for different values of the row-variable $\theta$
+and column variable $a$. 
+
+As noted earlier, it takes a long time to compile this expression
+on an `ordinary' laptop, and so I have compiled the expression separately
+and pasted the result into this document:
+\begin{verbatim}
+    
+    \tabulate[rspec={\theta,0.2,5},chstyle=2,
+              cspec={a,5,3},ctitle=r_{\Delta t=0}]
+    { \solve[var=r,vvi=,+=1]
+        {% circuit 1231
+          2\times\iter*[var=t,+=1]{ 
+            c^{-1}\sqrt{a^2+r^2-
+              2ar\cos(\theta-\omega t)} }[4]
+          + \iter*[var=t,+=1]{ 
+              c^{-1}r\sqrt{2-2\cos(2\theta+\omega t)} }[4]
+         % circuit 1321
+          - 2\times\iter*[var=t,+=1]{ 
+              c^{-1}\sqrt{a^2+r^2-
+                2ar\cos(\theta+\omega t)} }[4]
+          - \iter*[var=t,+=1]{ 
+              c^{-1}r\sqrt{2-2\cos(2\theta-\omega t)} }[4]
+        }[3]
+    }[ c=30,r=a+10,a=10,
+            \theta=0.2,\omega=0.2,t=1 ][3*]
+\end{verbatim}
+$\Longrightarrow$ \begin {tabular}{rccc}
+\toprule 
+&\multicolumn {3}{c}{$r_{\Delta t=0}$}\tabularnewline 
+$\theta $&$a=10$&$a=15$&$a=20$\tabularnewline 
+\midrule 
+${0.2}$&$10.21$&$15.31$&$20.43$\tabularnewline 
+${0.4}$&$10.87$&$16.33$&$21.82$\tabularnewline 
+${0.6}$&$12.15$&$18.31$&$24.55$\tabularnewline 
+${0.8}$&$14.46$&$21.88$&$29.59$\tabularnewline 
+${1.0}$&$18.82$&$28.86$&$39.82$\tabularnewline 
+\bottomrule 
+\end {tabular}
+\begin{verbatim}
+
+\end{verbatim}
+
+\section{Table placement}
+
+\label{sec:Table-placement}There is only one setting in this category
+that is part of \texttt{numerica-tables} as such, the tabular vertical
+alignment option; see §\ref{subsec:Verticalalignment}. But \LaTeX{}
+allows one to insert vertical space with its \verb`\bigskip`, \verb`\medskip`,
+\verb`\smallskip`, usually about one line space, a half line space,
+and a quarter line space (with stretch and shrink), and \verb`booktabs`
+provides \verb`\abovetopsep` and \verb`\belowbottomsep`, both set
+by default to \verb`0ex` (or any other unit you care to use) and
+easily changed by writing, e.g., \verb`\abovetopsep=1.25ex` if you
+want to insert \verb`1.25ex` of space above the table (perhaps to
+fit captions).
+
+\subsection{Vertical~alignment}
+
+\label{subsec:Verticalalignment}By writing\texttt{ }
+\begin{lyxcode}
+valign~=~<char>~
+\end{lyxcode}
+where \texttt{<char>} is one of \texttt{t}, \texttt{m} or \texttt{b}
+the vertical alignment of the table can be set relative to the text
+baseline.\texttt{ valign=t }aligns the top of the table with the text
+baseline, \texttt{valign=b} the bottom of the table with the text
+baseline, \texttt{valign=m} aligns the middle of the table with the
+text baseline. By default \texttt{valign=m} is set. Repeating an example
+from earlier (§\ref{sec:Row-variable-settings}) I have added letters
+A, B, C to show where the baseline is. In the first table the top
+of the table aligns with the baseline; in the second table (default
+case) the middle of the table aligns with the baseline; in the third
+table, the bottom of the table aligns with the baseline.
+\begin{verbatim}
+    A \tabulate[valign=t,rvar=x,rstep=0.2,rows=6]
+      { \sin x/\cos x }[x=0][*] \qquad
+    B \tabulate[rspec={x,0.2,1+(1/0.2)}]
+      { \tan x }[x=0][*] \qquad
+    C \tabulate[valign=b,rspec={x,0.2,(6)}]
+      { \sqrt{\sec^2 x - 1} }[x=0][*]
+\end{verbatim}
+$\Longrightarrow$     A \tabulate[valign=t,rvar=x,rstep=0.2,rows=6,rstop=2]
+      { \sin x/\cos x }[x=0][*] \qquad
+    B \tabulate[rspec={x,0.2,1+(1/0.2)}]
+      { \tan x }[x=0][*] \qquad
+    C \tabulate[valign=b,rspec={x,0.2,6}]
+      { \sqrt{\sec^2 x - 1} }[x=0][*]\medskip{}
+
+As explained in §\ref{subsec:Adjoining-tables}, tables can be adjoined
+to give the appearance of a single larger table. If tables with different
+numbers of rows are adjoined in this manner, then a middle alignment
+fails and a top alignment is necessary (so that the header rows of
+the tables align).
+
+\section{The \texttt{reuse} setting}
+
+\label{sec:reuse-setting}By entering 
+\begin{lyxcode}
+reuse~=~<non-negative~integer>
+\end{lyxcode}
+it is possible to specify what is saved when the \verb`\tabulate`
+command is followed by a \verb`\reuse` command.
+\begin{itemize}
+\item \texttt{reuse=0} saves the table as displayed (the default);
+\item \texttt{reuse=n} saves the $n$-th \emph{column} of function values
+\begin{itemize}
+\item if \texttt{rpos} is non-zero: in a comma-separated list of braced
+pairs \texttt{\{row-variable value,function value}\};
+\item if \texttt{rpos=0}: in a comma-separated list of function values.
+\end{itemize}
+\item \texttt{reuse=-n} saves the $n$-th \emph{row} of function values
+in a comma-separated list that includes the row-variable value in
+its appropriate position(s) if \texttt{rpos} is non-zero.
+\end{itemize}
+In the following example the third row is saved to the control sequence
+\verb`\rowiii` by using the setting \verb`reuse=-3`.
+\begin{verbatim}
+    \tabulate
+      [rspec={x,0.25,5},rround=2,rhead=x,
+        ralign=r,rhnudge=9,
+         cspec={k,0.25,3},chstyle=2,
+          chround=2,calign=r,ctitle=**,
+           rules=TthB,reuse=-3]
+      { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*] 
+    \reuse{rowiii}
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.25,(5)},rround=2,
+         rhead=x,ralign=r,rhnudge=9,
+         cspec={k,0.25,(3)},chstyle=2,
+         chround=2,calign=r,ctitle=**,rules=TthB,reuse=-3]
+      { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*] 
+    \reuse[renew]{rowiii}\medskip{}
+
+\noindent Now test the content of the control sequence
+\begin{lyxcode}
+\noindent \verb`\rowiii`~$\Longrightarrow$~\rowiii ~
+\end{lyxcode}
+\noindent You can see that indeed the third row has been `captured
+for posterity'.
+
+Alternatively, we could save the second column of function values
+in the control sequence \verb`\colii`:
+\begin{verbatim}
+    \tabulate[rspec={x,0.25,5},rround=2,rhead=x,
+     ralign=r,rhnudge=9,
+      cspec={k,0.25,3},chstyle=2,
+       chround=2,calign=r,ctitle=**,
+        rules=TthB,reuse=2]
+         { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*] 
+    \reuse{colii}
+\end{verbatim}
+$\Longrightarrow$     \tabulate
+      [rspec={x,0.25,(5)},rround=2,
+         rhead=x,ralign=r,rhnudge=9,
+         cspec={k,0.25,(3)},chstyle=2,
+         chround=2,calign=r,ctitle=**,
+         rules=TthB,reuse=2]
+      { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*] 
+    \reuse[renew]{colii}\medskip{}
+
+Now to see what is saved in \verb`\colii` I use \TeX 's \verb`\meaning`
+command to show that it is indeed braced pairs: 
+\begin{verbatim}
+    \meaning \colii
+\end{verbatim}
+$\Longrightarrow$ \meaning\colii
+
+Finally, let's use the default \verb`reuse` setting (\verb`reuse=0`)
+by not entering an explicit \verb`reuse` setting at all. This should
+save the whole table:
+\begin{verbatim}
+    \tabulate[rspec={x,0.25,5},rround=2,rhead=x,
+     ralign=r,rhnudge=9,
+      cspec={k,0.25,3},chstyle=2,
+       chround=2,calign=r,ctitle=**,
+        rules=TthB]
+         { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*] 
+    \reuse{wholetable}
+\end{verbatim}
+$\Longrightarrow$ \tabulate[rspec={x,0.25,5},rround=2,rhead=x,
+     ralign=r,rhnudge=9,
+      cspec={k,0.25,3},chstyle=2,
+       chround=2,calign=r,ctitle=**,
+        rules=TthB]
+         { a\sin kx }[a=2/\pi,{k}=3,{x}=0][*] 
+    \reuse[renew]{wholetable}\medskip{}
+ 
+
+\noindent Now check that the whole table has been saved:\medskip{}
+
+\noindent \verb`\wholetable` $\Longrightarrow$\wholetable\medskip{}
+
+\noindent and, indeed it has.
+
+\chapter{Reference summary}
+
+\section{Commands defined in \texttt{numerica-tables}}
+
+\texttt{\textbackslash nmcTabulate, \textbackslash tabulate}
+
+\section{Settings for \texttt{\textbackslash nmcTabulate}}
+
+\subsubsection*{Row-variable specification §\ref{sec:Row-variable-settings}}
+\begin{center}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}>{\raggedright}p{3cm}}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small comment}\tabularnewline
+\midrule
+{\small\texttt{rvar}} & {\small token(s)} & {\small row-variable} & \tabularnewline
+{\small\texttt{rstep}} & {\small real num} & {\small step size} & \tabularnewline
+{\small\texttt{rstop}} & {\small real num} & {\small stop value} & \multirow{2}{3cm}{either {\small\texttt{rstop}}{\small{} or }{\small\texttt{rows}}{\small ,
+not both}}\tabularnewline
+{\small\texttt{rows}} & {\small int} & {\small number of rows} & \tabularnewline
+{\small\texttt{rspec}} & {\small comma list} & {\small\texttt{\{start}}{\small , }{\small\texttt{step}}{\small , }{\small\texttt{rows\}}} & {\small short form spec.}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+
+\subsubsection*{Row-variable column formatting §\ref{subsec:Row-var-col-formatting}}
+\begin{center}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{rround}} & {\small int} & {\small rounding} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{ralign}} & {\small char (}{\small\texttt{r/c/l}}{\small )} & {\small horizontal alignment} & {\small\texttt{r}}\tabularnewline
+{\small\texttt{rfont}} & {\small chars} & {\small font (}{\small\verb`\math<chars>`}{\small )} & \tabularnewline
+{\small\texttt{rhead}} & {\small tokens} & {\small header} & {\small\texttt{rvar}}\tabularnewline
+{\small\texttt{rhnudge}} & int & {\small nudge header }{\small{\small\verb`rhnudge`}}{\small{}
+mu} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{rpos}} & {\small int (}{\small\texttt{0}}{\small\ldots}{\small\texttt{4}}{\small )} & {\small column position(s)} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{rvar'}} & {\small token(s)} & {\small 2nd row-variable col. spec.} & {\small\texttt{rvar}}\tabularnewline
+{\small\texttt{rhead'}} & {\small token(s)} & {\small header of 2nd r-v col. (if it exists)} & {\small\texttt{rvar'}}\tabularnewline
+{\small\texttt{rhnudge'}} & int & {\small nudge 2nd r-v col. header }{\small{\small\verb`rhnudge'`}}{\small{}
+mu} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+
+\subsubsection*{Column-variable specification §\ref{sec:Column-variable-settings}.}
+\begin{center}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{cvar}} & {\small token(s)} & {\small column-variable} & \tabularnewline
+{\small\texttt{cstep}} & {\small real num} & {\small step size} & \tabularnewline
+{\small\texttt{cstop}} & {\small real num} & {\small stop value} & {\small either }{\small\texttt{cstop}}\tabularnewline
+{\small\texttt{cols}} & {\small int} & {\small number of columns} & {\small or }{\small\texttt{cols}}{\small , not both}\tabularnewline
+{\small\texttt{cspec}} & {\small comma list} & {\small\texttt{\{cvar,cstep}}{\small ,}{\small\texttt{cols\}}} & {\small short form spec.}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+
+\subsubsection*{Column-variable header formatting §\ref{subsec:Column-header-formatting}.}
+\begin{center}
+\begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{chstyle}} & {\small int (}{\small\texttt{0}}{\small\ldots}{\small\texttt{4}}{\small )} & {\small header style} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{ctitle}} & {\small token(s)} & {\small single col. alternative header} & \tabularnewline
+{\small\texttt{chead}} & {\small token(s)} & {\small user-defined header} & \tabularnewline
+{\small\texttt{calign}} & {\small char (r/c/l)} & {\small column alignment} & {\small\texttt{r}}\tabularnewline
+{\small\texttt{chnudge}} & {\small int} & {\small nudge header }{\small{\small\verb`chnudge`}}{\small{}
+mu} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{chround}} & {\small int} & {\small column header rounding} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+
+\subsubsection*{Function-value formatting §\ref{sec:Function-value-formatting}.}
+\noindent \begin{center}
+\noindent \begin{center}
+\begin{tabular}{cc>{\raggedright}p{4cm}c}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{(pad)}} & {\small int} & {\small (t-notation) phantom padding} & \tabularnewline
+{\small\texttt{signs}} & {\small int} & {\small sign handling for function-values} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{diffs}} & {\small int} & {\small insert differences \& pre-pad with zeros} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{Q?}} & {\small tokens} & {\small special cell conditional} & \tabularnewline
+{\small\texttt{A!}} & {\small token(s)} & {\small special cell formatting} & \tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+
+\subsubsection*{\newpage Whole-of-table formatting §\ref{sec:Whole-of-table-formatting}.}
+\noindent \begin{center}
+\noindent \begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}l}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{ctitle}} & {\small token(s)} & {\small collective title for function-value columns} & \tabularnewline
+{\small\texttt{cmidrow}}  & {\small token(s) } & {\small inter-header/title row} & \tabularnewline
+{\small\texttt{rules}} & {\small char(s)} & {\small horizontal rules template} & {\small\texttt{ThB}}\tabularnewline
+{\small\texttt{foot}} & {\small token(s)} & {\small content of footer line} & \tabularnewline
+{\small\texttt{rpos}} & {\small int (}{\small\texttt{0}}{\small\ldots}{\small\texttt{4}}{\small )} & {\small row-variable column position(s)} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{rbloc}} & {\small comma list} & {\small division of rows into blocks} & \tabularnewline
+{\small\texttt{rblocsep}} & {\small length} & {\small extra spacing between blocks of rows} & {\small\texttt{1 ex}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+
+\subsubsection*{Miscellaneous settings §\ref{subsec:Multiple-function-tables}, \ref{subsec:Verticalalignment}.}
+\noindent \begin{center}
+\noindent \begin{center}
+\begin{tabular}{cc>{\raggedright}p{4cm}c}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{multifn}} & {\small char} & {\small multi-function separator} & {\small\texttt{,}}\tabularnewline
+{\small\texttt{valign}} & {\small char (t/m/b)} & {\small vertical alignment} & {\small\texttt{m}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\par\end{center}
+\end{document}

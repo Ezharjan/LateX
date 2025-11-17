@@ -1,0 +1,25 @@
+% Florian Sihler, 2022
+% Licensed under GNU General Public License version 3
+% https://opensource.org/licenses/gpl-3.0.html
+\documentclass{article}
+
+\usepackage{fontawesome}
+
+\usepackage{fancyqr}
+
+\usepackage[active,tightpage]{preview} % for presentation
+\setlength\PreviewBorder{15pt}
+
+\fancyqrset{height=3.25cm,level=H,padding}
+
+\begin{document}
+\preview
+% \FancyQrDoNotPrintSquare{8}{9}
+% \FancyQrHardCut
+\mbox{\FancyQrLoad{blobs}
+\fancyqr[image=\scalebox{2.9}{\faGithub\kern1pt},image padding=1,color=black!90!gray]{https://github.com/EagleoutIce/fancyqr}
+\FancyQrLoad{default}
+\fancyqr{https://github.com/EagleoutIce/fancyqr}
+\FancyQrLoad{dots}\fancyqr[image={\tikz\node[align=center,draw]{\huge Ha\\Huhu};},r color=gray,gradient angle=45]{https://github.com/EagleoutIce/fancyqr}}%
+\endpreview
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[livre]{udes-genie-these}
+
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+
+\ConfigurationDocument
+{
+  langue = francais,
+  type = memoire,
+  programme = electrique,
+  lignes,
+  liste-figures,
+  liste-tableaux,
+  fichier-resume-francais = {resume-francais},
+  fichier-resume-anglais = {resume-anglais},
+  fichier-remerciements = {merci},
+  fichier-lexique = {lexique},
+  fichier-symboles = {symboles},
+  fichier-acronymes = {acronymes},
+  fichiers-references = {references},
+}
+
+\TitreFrancais{CECI EST LE TITRE FRANÇAIS\\DU DOCUMENT}
+\TitreAnglais{DOCUMENT ENGLISH TITLE}
+\Auteur{Prénom}{NOM}
+\Date{Septembre}{2022}
+\Dedicace{À mon chien préféré, Pitou, et à mon chat préféré, Minou.}
+\MotsClesFrancais{3 à 8 mots-clés français}
+\MotsClesAnglais{3 to 8 english keywords}
+
+\Directeur{Prénom1}{NOM1}
+\Codirectrice{Prénom2}{NOM1}
+\Codirecteur{Prénom3}{NOM3}
+\Evaluatrice{Prénom4}{NOM4}
+\Evaluateur{Prénom5}{NOM5}
+
+% Le contenu du document doit respecter le protocole de rédaction.
+% Le contenu fourni ici n'est qu'un exemple afin d'illustre l'utilisation de la classe.
+\bibliographystyle{plain}
+
+\begin{document}
+
+\include{introduction}
+\include{conception}
+\include{realisation}
+\include{tests}
+\include{analyse}
+\include{conclusion-francaise}
+\include{conclusion-anglaise}
+
+\appendix
+
+\include{donnees}
+
+\end{document}

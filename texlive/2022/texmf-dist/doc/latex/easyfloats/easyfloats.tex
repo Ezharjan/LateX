@@ -1,0 +1,63 @@
+% !TeX program = pdflatex
+% !TeX option = --shell-escape
+
+% underline links generated with the keyword api defined in preamble/keydoc.tex
+% does *not* affect \ref, \cite, table of contents etc.
+\newif\ifunderlinelinks
+\underlinelinkstrue
+
+\documentclass[a4paper]{ltxdoc}
+
+\usepackage{dtxdescribe}
+\usepackage{parskip}
+\usepackage{csquotes}
+
+\input{preamble/bibliography}
+\input{preamble/macros}
+\input{preamble/examplecode}
+\input{preamble/markdown}
+\input{preamble/link}
+\input{preamble/keydoc}
+\input{preamble/description-links}
+\input{preamble/pdfstring}
+
+\usepackage[hidelinks, pdfusetitle]{hyperref}
+\usepackage[nameinlink, noabbrev]{cleveref}
+
+\newlicense{lppl}{\LaTeX\ Project Public License}{https://www.latex-project.org/lppl/}
+\newlicense{wtfpl}{WTFPL}{http://www.wtfpl.net/}
+
+\makeindex
+
+\title{An easier interface to insert figures, tables and other objects in \LaTeX}
+\author{Erik Zöllner}
+\date{December~20, 2020}
+\package{\jobname}
+\version{v1.0.0}
+
+\newcommand{\myinput}[1]{\input{#1}\unskip}
+
+\input{links}
+\begin{document}
+	\myinput{undescribed-keywords}
+	\myinput{content/titlepage}
+	\myinput{content/examples}
+	\myinput{content/names}
+	\myinput{content/documentation}
+	\myinput{content/installation}
+	\myinput{content/bug-reports-and-contributions}
+	\myinput{content/license}
+
+	\appendix
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+	\myinput{content/motivation}
+	\myinput{content/used-packages}
+	\myinput{content/other-packages}
+
+	\section{\refname}
+	Works cited in this documentation (ordered by appearance in this document,
+	if there are several versions on CTAN I am referring to the English pdf):
+	\printbibliography[heading=none]
+
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+\end{document}

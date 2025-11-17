@@ -1,0 +1,54 @@
+%%
+%% This is file `smfdoc.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% smflatex.dtx  (with options: `doc')
+%% BibTeX style for the smflatex bundle, version v1.6
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{smfdoc.tex}[2020/11/05 v1.5f
+   Documentation LaTeX pour les classes et styles SMF]
+\documentclass{ltxdoc}
+\GetFileInfo{smfdoc.tex}
+\usepackage{amssymb,amstext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+ % \DisableCrossrefs  if index is ready
+ % Say \EnableCrossrefs if index is not ready
+\EnableCrossrefs
+\RecordChanges
+\CodelineIndex
+\setlength\hfuzz{15pt}  % dont make so many
+\hbadness=7000          % over and under full box warnings
+
+\IndexPrologue{\section*{Index} Les nombres en \usage{italique}
+d\'esignent les pages o\`u l'entr\'ee correspondante est d\'ecrite,
+ceux \main{soulign\'es} leur d\'efinition, et les autres signalent
+les endroits o\`u l'entr\'ee est utilis\'ee.}
+
+\begin{document}
+ \let\oldsection\section
+ \def\section{\clearpage\oldsection}
+ \DocInput{smflatex.dtx}
+\end{document}
+%%
+%% 
+%%
+%% End of file `smfdoc.tex'.

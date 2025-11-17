@@ -1,0 +1,774 @@
+%%  BibArts 2.4 assists you to write LaTeX texts in arts and humanities.
+%%  Copyright (C) 2022  Timo Baumann  bibarts[at]gmx.de  (2022/01/10)
+%%%  LaTeX  +  "bibsort -i ba-short -m -utf8 -k -e -h"  +  LaTeX  %%%
+
+
+   \documentclass[12pt,a4paper]{article}
+   \usepackage{bibarts}
+         \usepackage[utf8]{inputenc} 
+         %\usepackage[english]{babel}
+
+   \bacaptionsenglish
+\setlength{\footnotesep}{2ex}   %% ... as in bibarts.sty 2.0; see README.txt %%
+
+\hyphenation{Last-Name}
+
+  \title{The \LaTeX\hy Package \BibArts \\[1.25ex] {\normalsize\slshape 
+    A package to assist in making bibliographical features \\[-1.25ex] common in the arts and humanities}}
+  \author{\textsc{Timo Baumann}}
+  \date{\small Version 2.4 (2022). \hspace{1em}\copyright\ 2.x (2022, 2021, 2019, 2016, 2015).}
+
+  \setcounter{secnumdepth}{0}
+  %\renewcommand{\kxxemph}{\em}
+
+     \newcommand{\pkTitle}{k\kern -0.05em Title}
+     \newcommand{\kTitle}{\sort{kTitle}\protect\pkTitle}
+                        
+     \newcommand{\pbs}{\string\ \unskip}
+     \newcommand{\bs}{\protect\pbs}
+
+     \let\lbashortmem=\{
+     \let\rbashortmem=\}
+     \renewcommand{\{}{{\normalfont\lbashortmem}}
+     \renewcommand{\}}{{\normalfont\rbashortmem}}
+
+\long\def\Doppelbox#1#2{\nopagebreak\vspace{2.25ex}%
+   {\fbox{\parbox{.45\textwidth}{\frenchspacing\raggedright\footnotesize\ttfamily
+    \ignorespaces #1}\hfill\parbox{.45\textwidth}{\vspace{1ex}%
+    \begin{minipage}{.45\textwidth}\sloppy\small
+    \renewcommand{\thempfootnote}{\arabic{mpfootnote}}%
+    \setcounter{mpfootnote}{\arabic{footnote}}%
+    {\ignorespaces #2}%
+    \setcounter{footnote}{\arabic{mpfootnote}}%
+    \end{minipage}
+    \vspace{1ex}}}\vspace{2.4ex}}}
+
+\let\mempage=\thepage 
+\renewcommand{\pbapageframe}[1]{\underline{#1}}
+\renewcommand{\thepage}{\textit{\bapageframe{\roman{page}}}}
+\pagestyle{myheadings}
+
+
+
+\begin{document}
+
+\maketitle \thispagestyle{empty}
+
+{\small\tableofcontents}
+
+\vfill\noindent\rule{\textwidth}{.1pt}
+
+\vspace{1.75ex}
+\hbox{\parbox{7.7cm}{\footnotesize\noindent
+\textbf{\BibArts~2.4 (9 files, 8 dated 2022\ko/01\ko/10):} \\[.875ex]
+ \begin{tabular}{ll}%
+ \texttt{README.txt}   & Version history since 1.3      \\[-1.75pt]
+ \texttt{bibarts.sty}  & The \LaTeX\ style file         \\[-1.75pt]
+ \texttt{ba-short.pdf} & This documentation here        \\[-1.75pt]
+ \texttt{ba-short.tex} & Source of \texttt{ba-short.pdf}\\[-1.75pt]
+ \texttt{bibarts.pdf}  & Full documentation (German)    \\[-1.75pt]
+ \texttt{bibarts.tex}  & Source of \texttt{bibarts.pdf} \\[-1.75pt]
+ \texttt{bibsort.exe}  & Binary to create the lists     \\[-1.75pt]
+ \texttt{bibsort.c}    & Source of \texttt{bibsort.exe} \\[-1.75pt]
+ \texttt{COPYING}      & License (dated 1993/11/28)     \\
+ \end{tabular}} 
+\\
+\hspace*{2.4mm}
+\parbox{5.6cm}{\vspace{-.4ex}%
+  {\footnotesize\normalfont
+   \hfil\texttt{bibarts}\kern.075em(\kern-.05em at\kern-.075em)\kern.075em\texttt{gmx.de}} \\[1.4ex]
+   \tiny\sffamily
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+}}
+
+
+\newpage
+\section{Introduction}
+ Type \verb|\usepackage{bibarts}| into your \textit{file}.\texttt{tex}, and
+ \verb|\bacaptionsenglish| to switch to English captions (to name pages p.,
+ not S.). They are used here. \verb|\bacaptionsfrench| sets French captions;
+ default is \verb|\bacaptionsgerman|.
+
+ \vspace{.75ex}\noindent 
+ You need to write the full reference once (the page number \verb|[Pg]| is optional):
+
+ \vspace{-.4ex}
+ \Doppelbox
+ {
+  \bs vli\{FirstName\}\{LastName\}
+  \\ \ \ \{The \bs ktit\{kTitle\}, 
+  \\ \ \ \ place and year of 
+        \\ \ \ \ publication\}[Pg].
+ }
+ {
+  \vli{FirstName}{LastName}
+   {The \ktit{\kTitle}, place and year of publication}[Pg].
+ }
+
+ \noindent
+ This full reference will also be found in the Bibliography (see \verb|\printvli| on p.\,\pageref{appendix}). The \BibArts' program
+ \texttt{bibsort} creates your List of Literature. 
+ You have to enter at the prompt: (1) \LaTeX\ \textit{file}, (2) \texttt{bibsort} \texttt{-utf8} \textit{file}, (3) \LaTeX\ \textit{file}.
+
+ \vspace{.75ex}\noindent
+ After the first full citation (\kern -0.02em\textsf{v}oll), you may use shortened references (\textsf{k}urz\kern -0.02em):
+ 
+ \vspace{-.6ex}
+ \Doppelbox
+ {
+  \bs kli\{LastName\}\{kTitle\}[Pg].
+ }
+ {\vspace{1.75ex}
+  \kli{LastName}{\kTitle}[Pg].
+ }
+
+ \vspace{-.3ex}\noindent
+ Use \verb|\vqu| and \verb|\kqu| \hspace{.1em}in the same way
+ \hspace{.1em}to cite published documents (\kern -0.04em\textsf{Qu}ellen\kern -0.02em):
+
+\vspace{-.25ex}
+\Doppelbox
+{
+ \bs vqu \{Carl von\} \{Clausewitz\} \{\bs ktit\{Vom Kriege\}.
+ \\ \ Hinterlassenes Werk, 3\bs fup\{rd\} 
+ \\ \ ed.\bs\ Frankfurt/M. 1991\}[3].
+ \\[2.6ex] 
+ \bs kqu\{Clausewitz\}\{Vom Kriege\}[3].
+}
+{
+ \vqu {Carl von} {Clausewitz} {\ktit{Vom Kriege}.
+ Hinterlassenes Werk, 3\fup{rd} ed.\ Frankfurt/M. 1991}[3].
+ \\[1.25ex] 
+ \kqu{Clausewitz}{Vom Kriege}[3].
+}
+
+ \vspace{-.25ex}\noindent 
+ Then, \verb|\printvqu| will print a List of Published Documents 
+ (full references\kern -0.02em). 
+
+ \vspace{.75ex}\noindent 
+ And \verb|\printnumvkc| (p.\,\pageref{vkc}) will print an index 
+ of all your shortened references (from \verb|\kli|, \verb|\kqu|, and 
+ from \verb|\ktit| inside the last argument of \verb|\vli| or \verb|\vqu|).
+ 
+ \vspace{.75ex}\vfill\noindent
+ There are also \BibArts\hy commands to cite periodicals 
+ and archive documents:
+ 
+ \vspace{-.35ex}
+ \Doppelbox
+ {
+  \bs per\{Journal\}\string_Num\string_[Pg]
+  \\[1ex]
+  \bs arq\{Unpublished Document\}
+  \\ \ \{Archive File Sig\}\string|Vol\string|(Folio)
+ }
+ {
+  \per{Journal}_Num_[Pg]
+  \\[.5ex]        
+  \arq{Unpublished Document}
+   {Archive File Sig}|Vol|(Folio)
+ }
+
+ \vspace{-.25ex}\noindent 
+ \verb|\printper| your Periodicals, and \verb|\printarq| the List of Archive
+ Files. Spaces are forbidden before the optional arguments \verb+[Pg]+,
+ \verb+(Foilo)+, \verb+|Vol|+, or \verb+_Num_+.
+
+
+\newpage
+\noindent
+In footnotes, and \texttt{minipage} footnotes, \BibArts\ is introducing 
+\textsc{ibidem} automatically. That means, that \verb|\kli|, \verb|\kqu|, 
+\verb|\per|, and \verb|\arq| can change to \textsc{ibidem}:
+
+\setcounter{footnote}{0}
+{\footnotesize\begin{verbatim}
+ <1>  ...\footnote{ \vli{Niklas} {Luhmann} {\ktit{Soziale Systeme}.
+             Grundriß einer allgemeinen Theorie, Frankfurt/M. 1984}.}
+
+ <2>  ...\footnote{\kli{Luhmann}{Soziale Systeme}|1|[22], and 
+                   \kli{Luhmann}{Soziale Systeme}|1|[23].}
+ <3>  ...\footnote{\kli{Luhmann}{Soziale Systeme}|1|[23]. Next sentence.}
+ <4>     \footnote{\kli{Luhmann}{Soziale Systeme}|2|[56].}
+
+ <5>  ...\footnote{\arq{Haber to Kultusminister, 17 December 1914}
+           {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+             Litt~A, Nr.\,108}|2|(223\f).}
+                                                
+ <6>     \footnote{\arq{Setsuro Tamaru to Clara Haber, 24 December 1914} 
+           {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+             Litt~A, Nr.\,108}|2|(226-231).}
+                                                
+ <7>     \footnote{\arq{Setsuro Tamaru to Clara Haber, 24 December 1914} 
+           {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+             Litt~A, Nr.\,108}|2|(226-231).}
+                                                
+ <8>     \footnote{\arq{Valentini to Schmidt, 13 March 1911} 
+           {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+             Litt~A, Nr.\,108}|1|(47).}
+                                                
+   \fillarq{GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+             Litt~A, Nr.\,108} {2\,Vols.}
+\end{verbatim}}
+
+  \noindent
+  When you introduce a book,\footnote{ \vli{Niklas} {Luhmann} {\ktit{Soziale Systeme}.
+  Grundriß einer allgemeinen Theorie, Frankfurt/M. 1984}.}
+  you are free to add a \verb+|Vol|+, or not. But if you set a \verb+|Vol|+ once,
+  you will have to repeat that, when you refer to the same book in the following
+  footnote (or say \verb|\clearbamem|).
+  \verb+[Pg]+ is equivalent. You may also cite one work several times in the same 
+  footnote.\footnote{\kli{Luhmann}{Soziale Systeme}|1|[22], and
+  \kli{Luhmann}{Soziale Systeme}|1|[23].}\,%
+  \footnote{\kli{Luhmann}{Soziale Systeme}|1|[23]. Next sentence.}\,%
+  \footnote{\kli{Luhmann}{Soziale Systeme}|2|[56].}
+
+  \vspace{1ex}\noindent
+  And here are examples about how to cite archive 
+  sources.\footnote{\arq{Haber to Kultusminister, 17 December 1914}
+  {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, Litt~A, Nr.\,108}|2|(223\f).}\,%
+  \footnote{\arq{Setsuro Tamaru to Clara Haber, 24 December 1914}
+  {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23,
+  Litt~A, Nr.\,108}|2|(226-231).}\,%
+  \footnote{\arq{Setsuro Tamaru to Clara Haber, 24 December 1914}
+  {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23,
+  Litt~A, Nr.\,108}|2|(226-231).}\,%
+  \footnote{\arq{Valentini to Schmidt, 13 March 1911} 
+  {GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+  Litt~A, Nr.\,108}|1|(47).} 
+        \fillarq{GStAPK, HA\,1, Rep~76~Vc, Sekt~1, Tit~23, 
+                   Litt~A, Nr.\,108} {2\,Vols.}
+  The \verb|\fillarq| above adds to the entry in the
+  \texttt{arq}\hy list that ``Nr.\,108'' has 2 volumes \baref{arqlist}. 
+  
+
+\newpage
+\renewcommand{\thepage}{\mempage}
+\setcounter{page}{1}
+\setcounter{footnote}{0}
+\section{Switches}
+ For writing an essay without a List of Literature, type \verb|\conferize|
+ at the top of your \LaTeX\ file; then, \verb|\kli| will print a cross\hy 
+ reference to the full reference:
+
+ \Doppelbox
+ {\bs conferize\ ...\bs footnote\{
+  \\[.15ex] \ \ Full ref.: \ \bs vli\{Niklas\} 
+  \\[.05ex] \ \ \ \{Luhmann\} \b{\{}\bs ktit\{Soziale 
+  \\[.15ex] \ \ \ \ \ \ \ \ Systeme\}. Grundriß 
+  \\ \ \ \ \ einer allgemeinen Theorie, 
+  \\ \ \ \ \ Frankfurt/M. 1984\b{\}}[22].\}
+  \\[1.5ex] ... pp.\bs footnote\{ \bs notibidemize
+  \\ \ \ \ \%no ibidem in this footnote\%
+  \\ \ Shortened ref.: \bs kli\{Luhmann\} 
+  \\ \ \ \ \ \ \ \{Soziale Systeme\}[23\bs f].\}
+ }
+ {\conferize ...\footnote{
+        Full ref.: \vli{Niklas}{Luhmann} {\ktit{Soziale Systeme}. 
+        Grundriß einer allgemeinen Theorie, Frankfurt/M. 1984}[22].} 
+  \texttt{[u, v]} or \texttt{[w-x]} or \texttt{[y\bs f]} or 
+          \texttt{[z\bs baplural]} are creating pp.\footnote{\notibidemize 
+        %no ibidem in this footnote%
+       Shortened ref.: \kli{Luhmann} {Soziale Systeme}[23\f].}
+ }
+
+ \noindent 
+ If \texttt{k}\textit{\fhy commands} \verb|\kli| and \verb|\kqu| are never
+ used, \verb|\notannouncektit| shortened references at \texttt{v}\textit{\fhy commands}
+ ({\footnotesize cited as ...} will not be printed at \verb|\vli| and
+ \verb|\vqu|).
+ 
+ No historian? Set \verb|\notprinthints| $-$ you will never use \verb|\vqu|
+ or \verb|\kqu|, and therefore, it is unnecessary to print \ehinttovliname,
+ because there is only one \texttt{v}\textit{\fhy list}.
+
+
+\section{The extra \texttt{*}\{\ko\textit{argument}\} of \texttt{v}- and \texttt{k}\fhy commands}
+ 
+\textit{Works by multiple authors}: Use \texttt{x}\fhy commands with co\hy authors in \texttt{*}\hy arguments:
+
+ \Doppelbox
+ {
+  Set names ...\bs footnote\{Two:\
+  \\ \ \bs xvli\{FirstName\}\{LastName\} 
+  \\ \ \ *\b{\{}\bs vauthor\{co-FirstName\}
+  \\ \ \ \ \ \ \{co-LastName\}\b{\}}
+  \\ \ \ \{The \bs ktit\{kTitle2\} ETC\}.\}
+  \\[1.25ex]
+        ... to ibidemize.\bs footnote\{
+  \\ \ \bs xkli\{LastName\}
+  \\ \ \ *\{\bs kauthor\{co-LastName\}\}
+  \\ \ \ \{kTitle2\}[11-14].\}
+ }
+ {
+  Set names in \texttt{\bs vauthor}~$-$\,\texttt{\bs kauthor}.\footnote{Two:
+   \xvli{FirstName}{LastName} 
+          *{\vauthor{co-FirstName}
+                     {co-LastName}}
+          {The \ktit{\kTitle2} ETC}.}
+  
+   That's necessary to ibidemize.\footnote{\xkli{LastName}*{\kauthor{co-LastName}}{\kTitle2}[11-14].}
+ }
+
+ \noindent 
+ You may also use \texttt{*}\fhy arguments to mask text (\verb|\editor|) in the ibidemization:
+
+ \Doppelbox
+ {
+  ...\bs footnote\{An edited book is
+  \\ \ \bs vli\{FirstName\}\{LastName\} 
+  \\ \ \ *\{\bs onlyvoll\{\bs editor\}\}
+  \\ \ \ \{The \bs ktit\{kTitleEd\} ETC\}[2].\}
+  \\[1.25ex]
+  \bs footnote\{ \%Without *-argument:\
+  \\ \ \bs kli\{LastName\}\{kTitleEd\}[3, 6].\}
+ }
+ {
+  \texttt{\bs editor} has no sorting 
+           weight.\footnote{An edited book is
+   \vli{FirstName}{LastName} 
+          *{\onlyvoll{\editor}}
+          {The \ktit{\kTitle Ed} ETC}[2].}
+  \footnote{ %Without *-argument:\
+  \kli{LastName}{\kTitle Ed}[3, 6].}
+ }
+
+
+ \newpage
+ \noindent 
+ For works with three or more authors, you have to set all `middle' authors
+ in \verb|\midvauthor| (or \verb|\midkauthor|), and the `last' in
+ \verb|\vauthor| (or \verb|\kauthor|):
+
+ \vspace{-.125ex}
+\Doppelbox
+ {
+   ...\bs footnote \b{\b{\{}}See
+   \\ \ \bs xvli\{Manfred F.\}\{Boemeke\}
+   \\ \ \ *\b{\{}\bs midvauthor\{Roger\}
+   \\ \ \ \ \ \ \ \ \ \ \ \{Chickering\} 
+   \\ \ \ \ \ \bs vauthor\{Stig\}\{Förster\}\%
+   \\ \ \ \ \ \bs onlyvoll\{ \bs editors\}\b{\}}
+   \\[.2ex] \ \ \{\bs ktit\{Anticipating Total War\}. 
+   \\ \ \ \ The German and American 
+   \\ \ \ \ Experiences 1871-{}-1914, 
+   \\ \ \ \ Cambridge/U.\bs,K. 1999\}.\b{\b{\}}}
+   \\[.275ex]
+   ... all LastNames.\bs footnote \{
+   \\ \ \bs xkli\{Boemeke\}
+   \\ \ \ *\b{\{}\bs midkauthor\{Chickering\} 
+   \\ \ \ \ \ \bs kauthor\{Förster\}\b{\}}
+   \\ \ \ \{Anticipating Total War\}[9\bs f]!\}
+ }
+ {
+   \texttt{bibsort} sorts \texttt{\bs vauthor\{F\}\{L\}}, 
+   and \texttt{\bs midvauthor\{F\}\{L\}} always as \texttt{L F}.\footnote {See
+   \xvli{Manfred F.}{Boemeke}*{\midvauthor{Roger}{Chickering} 
+   \vauthor{Stig}{Förster}%
+         \onlyvoll{ \editors}}{\ktit{Anticipating Total War}. 
+   The German and American Experiences 1871--1914, Cambridge/U.\,K. 1999}.}
+
+   Repeat all \texttt{LastName}s in \texttt{\bs xkli}, but not the argument
+   of \texttt{\bs onlyvoll}.\footnote
+   {\xkli{Boemeke}*{\midkauthor{Chickering} \kauthor{Förster}}
+   {Anticipating Total War}[9\f]!}
+ }
+
+
+\vspace{-1ex}
+\section{Refer to different articles from the same source}
+ 
+\vspace{-.75ex}
+Use \verb|\per| inside the last argument of a \texttt{v}\fhy command to cite articles in journals:
+
+\Doppelbox
+{
+...\bs footnote\{See \bs vqu \{John 
+\\ \ \ Frederick Charles\} \{Fuller\} 
+\\ \ \b{\{}Gold Medal (Military) 
+\\ \ \ \bs ktit\{Prize Essay\} for 1919, 
+\\ \ \ first published in: 
+\\ \ \ \bs per\{Journal of the Royal 
+\\ \ \ \ \ \ \ \ United Service 
+\\ \ \ \ \ \ \ \ Institution\}\string_458 
+\\ \ \ \ \ \ \ \ \ (1920)\string_[239-274]\b{\}}*[240].\}
+\\[1.5ex]
+...\bs footnote\{ \bs kqu \{Fuller\} 
+\\ \ \ \ \ \ \ \ \ \ \ \{Prize Essay\}[241].\}
+\\[1.5ex]
+... here.\bs footnote\{ \bs vqu\{R.\} 
+\\ \ \{Chevenix Trench\} 
+\\ \ \{Gold Medal (Military) 
+\\ \ \ \bs ktit\{Prize Essay\} for 1922, 
+\\ \ \ in: \bs per\{Journal of the 
+\\ \ \ \ \ \ \ \ Royal United Service 
+\\ \ \ \ \ \ \ \ Institution\}\string_470 
+\\ \ \ \ \ \ \ \ \ (1923)\string_[199-227]\}*[200].\}
+}
+{
+You can use \texttt{*[Pg]} to cite a
+certain page inside \texttt{[PgBegin-PgEnd]}.
+Do not type spaces before \texttt{*[Pg]}.\footnote{See 
+\vqu {John Frederick Charles} {Fuller} 
+{Gold Medal (Military) \ktit{Prize Essay} for 1919, 
+first published in: \per{Journal of the Royal United Service 
+Institution}_458 (1920)_[239-274]}*[240].}
+
+\BibArts\ creates an outer \textsc{ibidem} 
+here.\footnote{ \kqu {Fuller} {Prize Essay}[241].}
+
+\BibArts\ creates an inner \textsc{ibidem} 
+here.\footnote{ \vqu{R.} 
+{Chevenix Trench} 
+{Gold Medal (Military) \ktit{Prize Essay} for 1922, 
+in: \per{Journal of the Royal United Service 
+Institution}_470 (1923)_[199-227]}*[200].\label{third}}
+}
+
+ \noindent 
+ After the main arguments of \verb|\per|, or \verb|\vli|, etc., you are free
+ to type \verb+_Num_+, or \verb+|Vol|+; both are only printing different
+ separators (see in note~\ref{third}: {\footnotesize no.\,470}).
+
+ \noindent
+ To cite an article from a book, you may use \verb|\vli| for the book 
+ \textit{inside the last} \texttt{v}\textit{\fhy argument}. 
+ \verb|\printvli| is \textit{printing} such inner references 
+ \textit{as shortened references}; the \textit{full inner reference} 
+ appears as separate item (see \underline{Publ}). For further articles from 
+ the same book, you may use an inner \verb|\kli| for the book:
+
+ \vspace{-.25ex}
+ \Doppelbox{
+ \bs footnote\{\bs vli\{\} \{Pitt\} \b{\b{\{}}The 
+ \\[-.2ex] \ \ \ \ \ \ \ \ \ \ \ \ \ \ \bs ktit\{First\}, in:
+ \\[.25ex] \bs vli\{J.\}\{Yi\}\{The \bs ktit\{iT\}
+ \\[.25ex] \ \ \ \ \ \ \ \ \ \ \bs underline\{Publ\}\}\b{\b{\}}}.\}
+ \\[.75ex] \bs footnote\{\bs kli \{Pitt\}\{First\}.\}
+ \\[1ex] \bs footnote\{\bs vli[m]\{\}\{Pitt\}\b{\{}The 
+ \\[.2ex] \ \ \ \ \ \ \ \ \ \ \ \bs ktit\{Second\}, in: 
+ \\[-.05ex] \ \ \ \ \ \ \ \ \bs kli\{Yi\}\{iT\}[7-9]\b{\}}*[8].\}
+ }
+ {
+ \texttt{\bs vli[f]}...\ or \texttt{\bs kli[f]}...\ would refer to `the same female author'.%
+ \footnote{\vli {}{Pitt}{The \ktit{First}, in: \vli{J.}{Yi} {The \ktit{\protect\fbox{iT}} \underline{Publ}}}.}
+ \footnote{\kli {Pitt}{First}.}
+ \footnote{\vli[m]{}{Pitt} {The \ktit{Second}, in: \kli{Yi}{\protect\fbox{iT}}[7-9]}*[8].\vspace{1ex}\strut}
+ }
+
+\noindent 
+If the shortened inner referencing in the bibliography and the inner ibidemization in footnotes
+is not wanted, use \verb|\ntvauthor| instead of the inner \verb|\vli|:
+
+\vspace{-.275ex}
+\Doppelbox
+{
+ \vspace{.225ex}
+ \bs footnote\{\bs vli\{Jost\}\{Dülffer\}
+ \\[.35ex] \ \b{\{}\bs em \bs ktit\{Einleitung\}\bs em, 
+ \\[.35ex] \ \ in: \bs ntvauthor\{Jost\}\{Dülffer\} 
+ \\[.35ex] \ \ Bereit zum Krieg\b{\}}[9].\}
+ \\[2.25ex]
+ \bs footnote\{\bs kli\{Dülffer\} 
+ \\ \ \ \ \ \ \ \ \{Einleitung\}[9].\}
+}
+{
+ \texttt{\bs emph\{\bs ktit\{}\fabra{...}\texttt{\}\}} masks {\scriptsize cited as \fabra{...}},\vspace{-.1ex} 
+ so use \texttt{\bs em} \abra{...}\,\texttt{\bs em} to emphasize!\footnote{\vli{Jost}{Dülffer}
+   {\em \ktit{Einleitung}\em, 
+    in: \ntvauthor{Jost}{Dülffer} Bereit zum Krieg}[9].}
+ \footnote{\kli{Dülffer} 
+   {Einleitung}[9].}
+}
+
+
+\vfill\noindent 
+If you use \verb|\printnumvli| instead of \verb|\printvli|, an
+\textit{index referring to page and footnote numbers} will be printed.
+Here, \fbox{iT} is a centrally defined inner\,k\kern -0.05em Title:
+
+\vfill
+{\baonecolitemdefs\printnumvlilist}
+
+
+\let\memvlititlename=\evlititlename
+\renewcommand{\evlititlename}{\texttt{\bs printvli} \ \memvlititlename}
+
+\let\memvqutitlename=\evqutitlename
+\renewcommand{\evqutitlename}{\texttt{\bs printvqu} \ \memvqutitlename}
+
+\let\membibtitlename=\ebibtitlename
+\renewcommand{\ebibtitlename}{\texttt{\bs printbibtitle} \ \membibtitlename}
+
+
+\newpage\noindent
+In the case of multiple works by one author, 
+you may enter \hspace{.25em} \texttt{bibsort -k }\abra{...}\ \hspace{.005em} at the prompt.
+Then, in both \texttt{v}\fhy lists, \BibArts\ inserts \hspace{.05em} $\sim$ \hspace{.005em} 
+instead of the repeated \textit{first name and last name}. 
+And \texttt{-e} prints the last names of co\hy authors first. Anyway, 
+\label{appendix} \hspace{-.05em}\verb|\printbibtitle|\hspace{.05em}\verb|\printvli|\hspace{.05em}\verb|\printvqu| 
+will print your bibliography:
+
+\printbibtitle \printvli \printvqu
+
+\vfill\noindent 
+Use e.\,g.\ \verb|{\small| \verb|\printvli}| to change the font size of a whole list. 
+Besides, \BibArts\ provides commands to format the lists:
+The sequence \verb|{\bibsortheads| \verb|\printvli}| places a capital letter
+as separator at the beginning of each group of entries starting with the same letter, 
+whereas \verb|{\bibsortspaces| \verb|\printvli}| only inserts additional vertical space there instead.
+
+
+\newpage
+\noindent
+\subsection*{\texttt{\bs printnumvkc} \ \evkctitlename}
+\addcontentsline{toc}{subsection}{\texttt{\bs printnumvkc} \ \evkctitlename}
+\verb|\printnumvkc| prints an index of all your shortened references in 
+\texttt{twocolumn}, whereas \verb|\printnumvkclist| \label{vkc} just prints
+your list without \texttt{headings} or title:\vspace{.5ex}
+
+{\batwocolitemdefs\printnumvkclist}
+
+\let\mempertitlename=\epertitlename
+\renewcommand{\epertitlename}{\texttt{\bs printper} \ \mempertitlename}
+\vspace{-.5ex}\printper
+
+\renewcommand{\epertitlename}{\texttt{\bs printnumper} \ \mempertitlename}
+\vspace{-.5ex}\printnumper
+
+\let\memarqtitlename=\earqtitlename
+\renewcommand{\earqtitlename}{\texttt{\bs printarq} \ \memarqtitlename}
+\vspace{-.5ex}\printarq \balabel{arqlist}
+
+\renewcommand{\earqtitlename}{\texttt{\bs printnumarq} \ \memarqtitlename}
+\vspace{-.5ex}\printnumarq
+
+\vspace{2ex}\noindent
+\verb|\arqsection{GStAPK}{Geheimes Staatsarchiv}| may introduce 
+a headline ``\textsf{GStAPK} $-$ \textbf{Geheimes Staatsarchiv}'' 
+above all GStAPK\fhy entries in the list.
+
+
+\newpage
+\section{Additional features}
+
+The following work is not mentioned in the text, but appears on the \texttt{vqu}\hy list:
+
+\vspace{-1.1ex}
+{\footnotesize\begin{verbatim}
+ !\begin{unused} \sethyphenation{ngerman}%  %% hyphenation travels along
+   \vqu{Karl}{Marx}{Das \ktit{Kapital}, in: \midvauthor{Karl}{Marx}
+   \ntvauthor{Friedrich}{Engels} Werke, \ersch|3|[1]{Berlin}{1962--1964}}
+  \end{unused}!  Note, that            %% vol.|3| and ed.[1] are optional
+\end{verbatim}}
+
+\vspace{-1.25ex}\noindent
+ !\begin{unused} \sethyphenation{ngerman}%  %% other hyphenation optional
+   \vqu{Karl}{Marx}{Das \ktit{Kapital}, in: \midvauthor{Karl}{Marx}
+   \ntvauthor{Friedrich}{Engels} Werke, \ersch|3|[1]{Berlin}{1962--1964}}
+  \end{unused}!  Note, that          %% vol.|3| and ed.[1] are optional
+\textit{inner} \texttt{v}\textit{\fhy commands} in \verb|{unused}|\hy environments
+do not send an own item to the \texttt{v}\fhy lists. So, such inner entries
+have to be repeated separately.
+
+\vspace{1.5ex}\noindent
+\BibArts\ does not only help to cite. The environment \verb|{originalquote}|
+helps to quote from literature or sources. You may call all hyphenation
+settings, which your \LaTeX\ possesses, in the \verb|[|\textit{optional
+argument}\verb|]| of the environment:
+
+\vspace{-.5ex}
+\Doppelbox
+{\vspace{.5ex}
+ \bs begin\{originalquote\}[german]\%old
+ \\[.4ex] \ \ \string`\string`Dies ist die erste 
+ \\ \ \ Wechselwirkung und das  
+ \\ \ \ erste Äu\bs hyss erste, 
+ \\ \ \ \bs fabra\{...\}.\string'\string'\bs footnote \ \b{\{}The 
+ \\ \ Eszett splits different here:
+ \\ \ \b{\b{\{}}\bs sethyphenation\{ngerman\} \%new
+ \\[-.4ex] \ \ Au\bs hyss er\b{\b{\}}}. \bs kqu\{Clausewitz\} 
+ \\[-.4ex] \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{Vom Kriege\}[19].\b{\}}
+ \\[.3ex] \bs end\{originalquote\}
+ \vspace{.3ex}
+}
+{\renewcommand{\originalquotetype}{\footnotesize}%
+ \begin{originalquote}[german]%old
+ ``Dies ist die erste
+ Wechselwirkung und das
+ erste Äu\hyss erste, 
+ \fabra{...}.''\footnote  {The 
+  Eszett splits different here:
+ {\sethyphenation{ngerman} %new
+  %% I use  Au\hyss er  here.  The hyphenation  Äu-
+  %% ßerst  has to recognize the Ä; I do not want to 
+  %% use \usepackage[T1]{fontenc} in this file here.
+        Au\hyss er}. \kqu{Clausewitz}
+                {Vom Kriege}[19].
+ \\[.5ex] \hspace*{3mm} \texttt{\% In \bs scshape, \bs hyss prints }{\scshape \hyss}\texttt{,}
+ \\ \hspace*{3mm} \texttt{\% and splits }{\scshape s-s}\,\texttt{ (old AND new)!}%
+ \vspace{-1.5ex}%
+ }
+ \end{originalquote}
+}
+
+\vspace{-.125ex}\noindent 
+In quotations, you may use \verb|\abra| to insert additions. 
+Use \verb|\fabra| to prevent a line break between the closing bracket and the following text. 
+\BibArts\ puts height\hy adjusted square brackets around the following additions:
+
+\vspace{.75ex}\noindent
+{\small
+  \ifnum\catcode`\"=12\else\catcode`\"=12\message{ Set catcode of \string" to 12. }\fi
+   %% ... to avoid error messages if you load a german package (active doublequote). %%
+   \verb|     \abra{,}                 => | ``Red\abra{,} blue and green were the \\[-.25ex]
+   \verb|     \abra{.}\newsentence     => | colours\abra{.}\newsentence And \hspace{2.25em} \verb|% spacing| \\[-.25ex]
+   \verb|     \abra{...}  \abra{\dots} => | there \abra{...} were \abra{\dots} others, \\[-.25ex]
+   \verb|     \abra{---}               => | \abra{---} let's say \abra{---} \\[-.25ex]
+   \verb|     \abra{-}    \abra{--}    => | green\abra{-}red\abra{--}painted. \\[-.25ex]
+   \verb|    \fabra{`}   \fabra{'}     => | \hbox to 6em{\fabra{`}Marks\fabra{'}.\hfill} \verb|% U+0060 and U+0027| \\[-.25ex]
+   \verb|    \fabra{``}   \abra{''}    => | \fabra{``}Good!\abra{''} \\[-.25ex]
+   \verb|    \fabra{"}    \abra{"}     => | \hbox to 6em{\fabra{"}Good!\abra{"}\hfill}  \verb|% or \abra{\dq}| \\[-.25ex]
+   \verb|     \abra{sic!}.''           => | \hbox to 6em{\fabra{sic!}.''\hfill} \verb|% unknown=>normalsize|}
+
+\vspace{1.5ex}\vfill\noindent 
+\BibArts\ defines
+\hspace{.1em}\verb|S\fup{te}|\hspace{.3em}\verb|=>|\hspace{.3em}S\fup{te}
+(if that command for \textit{French up} is undefined) and does also 
+help to set ordinals in English, French and German:
+
+\vspace{.875ex}\vfill\noindent
+{\small
+  \verb|    \eordinal{103} Assistant. => | \eordinal{103} Assistant. \\[-.2ex]
+  \verb|    Le \fordinalm{1} homme.   => | Le \fordinalm{1} homme.   \\[-.25ex]
+  \verb|    La \fordinalf{1} femme.   => | La \fordinalf{1} femme.   \\[-.2ex]
+  \verb|    Der 1\te August.          => | Der 1\te August.} 
+
+
+ \newpage\noindent
+ To print a formatted \textit{abbreviation} in your text, you may use 
+ \verb|\abk{|\textit{xyz}\verb|}|. It will only appear 
+ on the List of Abbreviations, if you say what it stands for:
+
+ \vspace{-.25ex}
+ \Doppelbox
+ {
+      \bs abkdef\{HMS\}\{Her Majesty\string's Ship\}
+   \\[.35ex] \ \ or
+   \\[.35ex] \bs defabk\{Her Majesty\string's Ship\}\{HMS\}
+   \\[.35ex] \ \ and then \bs texttt\{bibsort\}
+   \\[.35ex] \ \ will accept \bs abk\{HMS\}.
+   \vspace{-1ex}\strut
+ }
+ {
+      \abkdef{HMS}{Her Majesty's Ship}
+   \\  or
+   \\ \defabk{Her Majesty's Ship}{HMS}
+   \\  and then \texttt{bibsort}
+   \\  will accept \abk{HMS}.
+   \vspace{-1ex}\strut
+ }
+
+\noindent 
+For a correct spacing at the end of a sentence, you have to set 
+a separate full stop: \verb|\abk{U.\,K.}. Next |... \verb|=>| \abk{U.\,K.}. Next
+... (or \verb|\abk{e.\,g.}. Next|).
+You may use \verb|\printnumabk| (or \verb|\printabk|) to print a 
+List of Abbreviations:
+
+\vspace{-.325ex}
+\printnumabklist
+
+\noindent 
+\BibArts\ provides up to three \textit{registers} (geographical, subject, and person). 
+The commands to feed them have one argument. It is
+invisible in your text, e.\,g.: \verb|\addtogrr{London}|,
+\verb|\addtosrr{Ship}|, and \verb|\addtoprr{Churchill}|\,.
+Use \verb|\printnumgrr|, \verb|\printnumsrr|, and \verb|\printnumprr| 
+to print the lists. They are prepared by \texttt{bibsort}. This
+has nothing to do with \textsc{MakeIndex}.
+
+\vspace{1ex}\noindent 
+A last feature of \BibArts\ are fill\hy commands. \verb|\fillgrr|, 
+\verb|\fillsrr|, \verb|\fillprr|, \verb|\fillper|, and \verb|\fillarq| 
+have two arguments. The first has to be identical with \textit{the} argument 
+of a register\hy entry, or \verb|\per|\hy command, or \textit{the second} 
+argument of an \verb|\arq|\hy command (the archive file information). 
+Fill\hy commands may be used at a central position to add information to 
+an entry on the list:
+
+\vspace{-.25ex}
+\Doppelbox
+{\vspace{1.2ex}
+ \ \bs fillprr\{Churchill\}\{1874-1965\} \\[1.5ex] 
+ Churchill \bs addtoprr\{Churchill\}
+ was prime minister.\bs footnote\b{\{}
+ \\ \ Born \bs addtoprr\{Churchill\} 
+ \\ \ Blenheim Palace.\b{\}} \\[1.325ex] 
+ \bs renewcommand\{\bs xrrlistemph\}\{\bs em\} \\ 
+ \bs printnumprr
+ \vspace{1ex}
+}
+{\vspace{-1.1ex}%
+ \fbox{\begin{minipage}{.95\textwidth}
+    \setcounter{mpfootnote}{\arabic{footnote}}%
+ \vspace{.125ex}
+  \fillprr{Churchill}{1874-1965}
+ Churchill \addtoprr{Churchill}
+ was prime minister.\footnote
+ { Born \addtoprr{Churchill} 
+   Blenheim Palace.}
+    \setcounter{footnote}{\arabic{mpfootnote}}%
+ \end{minipage}}
+ \\[1.6ex]
+ \fbox{\begin{minipage}{.95\textwidth}
+ \vspace{.875ex}
+ \subsubsection*{\eprrtitlename}        
+   \vspace{-.75ex}%
+ \renewcommand{\xrrlistemph}{\em}%
+ {\footnotesize \printnumprrlist}%
+ \vspace{-1.375ex}%
+ \end{minipage}}%
+ \vspace{-1.3ex}%
+}
+
+\vspace{.5ex}\vfill\noindent 
+Please use commands like \verb|\bfseries| to \verb|\renewcommand| fonts, not \verb|\textbf|:
+
+
+\vspace{1.5ex}\vfill\noindent
+{\small\begin{tabular}{lll}
+\textsf{Command}    & \textsf{Predefined}          & \textsf{Executed on} \\[.325ex]
+\verb|\xrrlistemph| & \verb|{}|                    & entries on grr\fhy, srr\fhy, and prr\hy lists\\
+\verb|\abkemph|     & \verb|{\sffamily}|           & abbreviations in your text \\
+\verb|\abklistemph| & \verb|{\bfseries}|           & abbreviations on the abk\hy list \\
+\verb|\kxxemph|     & \verb|{}|                    & last argument of \texttt{k}\fhy commands \\
+\verb|\peremph|     & \verb|{\normalfont\scshape}| & periodicals \verb| %{\upshape}| \\
+\end{tabular}}
+
+\edef\bamantestargs{ -h -utf8 -k -e }
+\ifx\bamantestargs\bibsortargs\else\newpage\noindent bibsort was started with options\\ \bibsortargs\\ instead of\\ \bamantestargs\fi
+
+\end{document}
+
+
+
+
+
+
+
+

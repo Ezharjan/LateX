@@ -1,0 +1,73 @@
+%name: sugconf-template.tex
+\documentclass{sugconf}%loads packages: graphicx, hyperref, inputenc
+\sugconfbanner{banner-sgf-2021.png}
+\sugconfpapernumber{Paper 999-2021, draft of \today}%
+\title{Musings on The Analytical Engine}
+%%note double backslash \\ means 'newline'
+\author{Ada Lovelace \\ Charles Babbage}%multiple authors: A. Berry \\ C. Derby
+\begin{document}\maketitle
+\hypersetup{pdftitle   ={What is the name of this paper?}%
+           ,pdfauthor  ={R.J. Fehd and LaTeX Krewe}% separate multiple authors by 'and'
+           ,pdfsubject ={sugconf tightlist}%
+           ,pdfkeywords={description enumerate itemize}%
+           }%end pdfinfo notes: open .pdf, <Ctrl> D shows this information
+\section{Abstract}%<heading 1>
+\SASregistered software %provided by sugconf.cls
+
+%\tableofcontents%use to rough-draft toc, disable for final
+
+\section{Introduction}%<heading 1>
+\section{first main topic}%<heading 1>
+\subsection{figures, tables}%<heading 2>
+
+\texttt{\%let mvar = value;}   \texttt{\%put echo \&=mvar;}
+
+\begin{verbatim}
+%let mvar = value;
+%put echo &=mvar;
+\end{verbatim}
+
+\section{Conclusion}%<heading 1>
+this is the paragraph of the conclusion.
+
+\vspace{-1\baselineskip}%move up one line
+\begin{thebibliography}{9}%or 99 if cites ge 10, <widest label>
+\addcontentsline{toc}{subsection}{references}%optional, for toc review
+
+%useage: \cite{example} or \nameref{example}
+\bibitem[example]{example}\strut %\vspace{0pt}
+\begin{verbatim}
+\bibitem[label]{cite-key}
+author, (year), "title".
+In: \textit{conference name}.
+\textsc{url:} \url{...}.
+\end{verbatim}
+
+\bibitem[text of label]{cite-key}%note: \nameref{cite-key} returns [text of label]
+author, (year), "title".
+In: \textit{conference}.
+\par\textsc{url:} \url{www.lexjansen.com}.
+
+\end{thebibliography}
+
+\subsection{Acknowledgements}%<heading 2>
+
+\subsection{contact info}%<heading 2>
+
+Your comments and questions are valued and encouraged. Contact the author at:
+
+\begin{center}
+\begin{tabular}[h]{rl}
+name:      & Augusta Ada King, Countess of Lovelace\\
+phone:     &\href{https://www.youtube.com/watch?v=KOUNkVsx1-s}{634-5789} \\ %(optional)
+enterprise:& Charles Babbage's computer, the Analytical Engine\\ % (optional)
+e-mail:    &\url{mailto:alovelace@babbageinstitute.edu}\\
+linkedin:  &\url{https://www.linkedin.com/feed/}\\
+web:       &\url{https://en.wikipedia.org/wiki/Ada_Lovelace}\\ %(optional)
+\end{tabular}
+\end{center}
+
+\vfill
+\SASisRegisteredTrademark %sugconf.cls
+\vfill \OtherTrademarks %sugconf.cls
+\end{document}

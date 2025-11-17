@@ -1,0 +1,95 @@
+\documentclass[12pt,pdftex,sansfont,4x3]{elpres}
+\usepackage[latin1]{inputenc}
+\usepackage[perpage,para,symbol,norule]{footmisc}
+\usepackage[document]{ragged2e}
+
+\RaggedRight
+
+\usepackage{elpreswhitebluescheme}
+% \usepackage{elpresgrayscheme}
+% \usepackage{elpreswhiteredscheme}
+% \usepackage{elpresbluelightgrayscheme}
+% \usepackage{elpreswhitetealscheme}
+
+
+\begin{document}
+\begin{titlepage}
+  \centering
+  \distance{1}
+  {
+    \Huge \bfseries \textcolor{eptitlecolor}{Title of presentation} \par
+  }
+  \vspace{1.3ex} \large
+  Author\\[2ex]Date and place of presentation
+  \distance{2}
+\end{titlepage}
+
+\begin{psli}[Title of first page]
+This is an example of a \LaTeX\ \texttt{itemize} list 
+
+\begin{itemize}
+   \item first line in an itemized list
+   \item second line in an itemized list
+   \item third line in an itemized list
+\end{itemize}
+
+\end{psli}
+
+\begin{psli}[Title of second page\footnote{footnotes are often
+      not a good idea for a presentation}]
+% \raggedright
+The second page with nested, ``vertically compressed'' lists using the
+\texttt{citemize} and \texttt{cenumerate} environments.
+
+\begin{citemize}
+   \item first line in an itemized list
+   \item second line in an itemized list
+   \begin{cenumerate}
+      \item first line of numbered list
+      \item second line of numbered list
+   \end{cenumerate}
+   \item final line in itemized list\footnote{\dots\ it is therefore
+       useful to write comments into a single footnote paragraph in order
+       to save space}
+\end{citemize}
+
+{\small For footnotes, the \texttt{footmisc} package, providing the
+  options \texttt{perpage} and \texttt{symbol}, is recommended. \par}
+\end{psli}
+
+\begin{psli}[Title of third page]
+
+  \begin{cdescription}
+\item[environment name:] \texttt{cdescription}, comparable to
+    \LaTeX s \texttt{des\-cription} environment
+   \item[used for:] vertically compressed lists with small ``titles''
+\end{cdescription}
+
+\end{psli}
+
+\begin{psli}[A page with two columns]
+  
+  \begin{minipage}[b]{0.58\textwidth}
+    \includegraphics[width=1.0\textwidth]{ctan-lion}
+  \end{minipage}
+  \hspace{0.4em}
+  \begin{minipage}[b]{0.39\paperwidth} \small
+    The ``CTAN \TeX-lion'' drawn by Duane Bibby,
+    thanks to \texttt{ctan.org}
+    
+  \end{minipage}
+\end{psli}
+
+\begin{rsli}
+  A final page written with the \textcolor{ephighlightcolor}{\texttt{rsli}}
+  environment
+
+\begin{itemize}
+\item This slide type is intended to be used for freely arranged text and
+  graphics.
+
+\item In contrast to \textcolor{ephighlightcolor}{\texttt{psli}}-slides, the
+  contents are \emph{not} centered vertically.
+\end{itemize}
+\end{rsli}
+\end{document}

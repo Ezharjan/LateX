@@ -1,0 +1,15 @@
+linenoamsmath -- Make the `amsmath' package work with the `lineno' package
+
+Karl Wette, 2021/09/29
+
+This package patches the `amsmath' package to work with the `lineno'
+package. The code I've used is largely based on the posts at
+https://tex.stackexchange.com/a/461192 and
+https://tex.stackexchange.com/a/443201; credit is due to their author.
+In addition I've made a few refinements to handle some corner cases.
+
+This work is licensed under the LaTeX Project Public License 1.3 or
+any later version.
+
+History:
+* v1.0 (2021/09/29) Initial version

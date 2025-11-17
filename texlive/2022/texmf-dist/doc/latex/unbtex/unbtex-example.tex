@@ -1,0 +1,424 @@
+%%
+%% UnBTeX: A class for bachelor, master, and doctoral thesis at the
+%% University of Brasilia (UnB), Brazil
+%% Version 1.1.3 2022/09/04
+%% Copyright (C) 2021-2022 by Henrique C. Ferreira <hcferreira@unb.br>
+%%
+%% This class file may be distributed and/or modified under the conditions
+%% of the LaTeX Project Public License, either version 1.3 of this license
+%% or (at your option) any later version. The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX version
+%% 2005/12/01 or later.
+%%
+%% This file is a template for use with the UnBTex class
+%% To compile the document you should call pdflatex, biber, pdflatex
+%% 
+
+\documentclass[
+	% -- opções da classe memoir -- https://www.ctan.org/pkg/memoir
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em página ímpar
+	                    % (insere página vazia caso preciso)
+	oneside,			% caso queira imprimir em frente e verso, use
+	%twoside,
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 -- https://www.ctan.org/pkg/abntex2
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil				% para trabalhos em inglês não é necessário alterar aqui
+	                    % altere o idioma após o comando \begin{document}
+	]{unbtex}
+
+% ---
+% Pacotes básicos (Adicione abaixo pacotes úteis para o seu trabalho)
+% ---
+
+% Pacote para desenho
+\usepackage{tikz}
+\usetikzlibrary{external,shapes,arrows,positioning}
+
+% Bibliografia nas normas da ABNT, formato autor-data (Pacote biblatex)
+% O formato autor-data facilita a leitura, sobretudo de trabalhos com muitas páginas
+% https://www.ctan.org/pkg/biblatex
+% https://ctan.org/pkg/biblatex-abnt
+\usepackage[style=abnt,backref=true,justify,indent,uniquename=init,giveninits,maxbibnames=99,extrayear,repeatfields,noslsn]{biblatex}
+\usepackage{csquotes} % Necessário para o pacote biblatex funcionar
+
+% Arquivos com as referências bibliográficas
+\addbibresource{unbtex-example/referencias.bib}
+\addbibresource{unbtex-example/references.bib}
+
+% ---
+% Compila o índice
+% ---
+\makeindex
+% ---
+
+% ---
+% Compila a nomenclatura
+% ---
+\makenomencl
+% ---
+
+% Diretório das figuras
+\graphicspath{{unbtex-example/figuras/}}
+% --- 
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Informações do trabalho
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% Título (no idioma do texto)
+\titulo{Modelo de Trabalho \\ Acadêmico com UnB\TeX} % insira \\ para forçar quebras de linha no título
+% Não utilize caixa alta para o título do trabalho e nem das seções (com exceção de siglas)
+% Em inglês caso o trabalho seja em inglês.
+\tituloestrangeiro{}
+% Obrigatório título em português caso o texto do trabalho seja em inglês (caso contrário, deixe vazio)
+
+% Autores
+\autori[]{Carlos}{Lisboa} % \autori[]{Nome}{Sobrenome}
+% No caso de nomes como Carlos de Souza, utilize \autori[]{Carlos de}{Souza} (e não \autori[]{Carlos}{de Souza})
+\autorii[]{}{} % deixe os argumentos vazios se não tiver segundo autor
+
+% Orientadores
+\orientador[Prof. Dr.]{Lourenço Nassib}{Chehab} % É possível alterar o gênero para orientadora mais abaixo, após o comando \begin{document}
+\coorientador[Prof. Dr.]{}{} % deixe os argumentos vazios se não tiver coorientador 
+% É possível alterar o gênero para coorientadora mais abaixo, após o comando \begin{document}
+
+% Tipo de trabalho
+\tipotrabalho{Projeto Final de Curso} % Dissertação de Mestrado; Tese de Doutorado (em português, mesmo que o trabalho seja em inglês)
+\tipocurso{Engenharia de Controle e Automação} % Programa de Pós-Graduação em Engenharia Elétrica (em português, mesmo que o trabalho seja em inglês)
+\preambulo{Projeto Final de Curso submetido como requisito parcial para obtenção do grau de Engenheiro de Controle e Automação} % Texto que aparece na folha de rosto e na folha de aprovação. Pode variar, por exemplo, de acordo com o tipo de trabalho (Trabalho de Conclusão de Curso, Dissertação de Mestrado, Tese de Doutorado), do grau (Bacharel, mestre, doutor) e do curso. Consulte a secretaria/coordenação do curso para saber o que deve ser escrito no preâmbulo. Use português mesmo que o trabalho seja em inglês.
+
+% Instituição
+\instituicao[Universidade de Brasília]{Faculdade de Tecnologia}{}
+%\instituicao[Universidade de Brasília]{Faculdade de Tecnologia}{Departamento de Engenharia Elétrica} 
+% Use português mesmo que o trabalho seja em inglês.
+
+% Local e data
+\local{Brasília}
+\dia{29}
+\mes{julho}
+\ano{2022}
+
+% Palavras-chave (pelo menos três devem ser informadas)
+\pchavei{Palavra chave 1}
+\kwordi{Keyword 1}
+\pchaveii{Palavra chave 2}
+\kwordii{Keyword 2}
+\pchaveiii{Palavra chave 3}
+\kwordiii{Keyword 3}
+\pchaveiv{Palavra chave 4} % deixar vazio se não tiver
+\kwordiv{Keyword 4} % deixar vazio se não tiver
+
+% Código Cutter para a ficha catalográfica:
+% A ficha catalográfica deve conter o código Cutter, que pode ser obtido com a ajuda de alguns sites da internet (por exemplo, https://cuttersonline.com/app/). O sobrenome do primeiro autor é associado a um número com dois ou três dígitos, que deve ser utilizado como argumento do comando \numerocutter presente no arquivo *.tex principal do relatório. No caso de nomes como Carlos de Souza, utilize 'Souza, Carlos de' (e não 'de Souza, Carlos') para gerar o código.
+% Quando compilar o arquivo, a ficha catalográfica gerada terá antes e depois do número de dois ou três dígitos, a primeira letra do sobrenome (em maiúsculo) e a primeira letra do título do trabalho (em minúscula), respectivamente.
+\numerocutter{769} % Correspondente à entrada: Lisboa, Carlos
+
+% Membros da banca
+\membrodabancai{Prof. Dr. Lourenço Nassib Chehab, UnB/FT/ENE} % Membro 1 - Geralmente é o orientador
+\membrodabancaifuncao{Orientador} % Em português mesmo que o trabalho seja em inglês.
+\membrodabancaii{Prof. Dr. Roberto Aureliano Salmeron, UnB/FT/ENM} % Membro 2
+\membrodabancaiifuncao{Examinador interno}
+\membrodabancaiii{Prof. Dr. Anísio Spínola Teixeira, UnB/FT/CIC} % Membro 3
+\membrodabancaiiifuncao{Examinador interno}
+\membrodabancaiv{} % deixar vazio se não tiver o quarto membro
+\membrodabancaivfuncao{Examinador externo}
+\membrodabancav{} % deixar vazio se não tiver o quarto membro
+\membrodabancavfuncao{Examinador externo}
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Início do documento
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+\begin{document}
+
+% Alterar para o idioma no qual o trabalho será escrito
+\selectlanguage{brazil}
+%\selectlanguage{english} % Para trabalhos escritos em inglês, é obrigatório conter um apêndice com resumo estendido em língua portuguesa.
+
+\IfStrEq*{\languagename}{brazil}{
+\thmnamebr
+\renewcommand{\bibname}{Referências}
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\orientadorname}{Orientador} % O gênero pode ser alterado para Orientadora
+\renewcommand{\coorientadorname}{Coorientador} % O gênero pode ser alterado para Coorientadora
+}{
+\thmnameen
+\renewcommand{\bibname}{References}
+\renewcommand{\lstlistingname}{Code}
+\renewcommand{\orientadorname}{Orientador} % O gênero pode ser alterado para Orientadora. Não alterar para Supervisor/Advisor, mesmo que o trabalho seja em inglês.
+\renewcommand{\coorientadorname}{Coorientador} % O gênero pode ser alterado para Coorientadora. Não alterar para Co-Supervisor/Co-Advisor, mesmo que o trabalho seja em inglês.
+}
+
+% ------------------------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ------------------------------------------------------------------------
+\pretextual
+% ------------------------------------------------------------------------
+
+% ---
+% Insere capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Insere folha de rosto
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Insere ficha bibliográfica
+% ---
+\fichacatalografica
+% ---
+
+% ---
+% Insere folha de aprovação
+% ---
+\imprimirfolhadeaprovacao
+% ---
+
+% ---
+% Insere dedicatória (elemento opcional)
+% ---
+\begin{dedicatoria}
+   \centering
+   \vspace*{\fill}
+   
+   % Primeiro autor
+   \textit{Este trabalho é dedicado às crianças adultas que,\\
+   quando pequenas, sonharam em se tornar cientistas.} \\
+   
+   \ifthenelse{\equal{\autoriinome}{}}{}{
+   \vspace{1cm}
+   \autorinome\ \autorisobrenome \\
+   \vspace*{\fill}
+   
+   % Segundo autor
+    \textit{Dedicatória do segundo autor.} \\
+   
+   \vspace{1cm}
+   \autoriinome\ \autoriisobrenome
+   }
+   \vspace*{\fill}
+\end{dedicatoria}
+% ---
+
+% ---
+% Insere agradecimentos (elemento opcional)
+% ---
+\begin{agradecimentos}
+
+% Primeiro autor
+Agradecemos ao Dr. Lauro César Araujo e equipe que desenvolveram a classe \abnTeX, que pôde ser facilmente customizada para escrita de trabalhos acadêmicos na Universidade de Brasília que atendessem não só as normas da ABNT, como também regras e necessidades específicas de cursos de graduação e pós-graduação.
+
+Agradecemos também ao Prof. Dr. Leonardo Luiz e Castro pelo modelo em \LaTeX\ para livro para editora UnB, com diversas customizações que foram adaptadas para o UnB\TeX.
+% ---
+
+\ifthenelse{\equal{\autoriinome}{}}{}{
+\vspace{1cm}
+\hfill \autorinome\ \autorisobrenome
+\vspace{1cm}
+
+% Segundo autor
+Agradecimentos do segundo autor.
+% ---
+
+\vspace{1cm}
+\hfill \autoriinome\ \autoriisobrenome
+}
+
+\end{agradecimentos}
+% ---
+
+% ---
+% Insere epígrafe (elemento opcional)
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``If you find that you're spending almost all your time on theory,\\ start turning some attention to practical things; \\ it will improve your theories.\\ If you find that you're spending almost all your time on practice, \\ start turning some attention to theoretical things; \\ it will improve your practice.''\\
+		(Donald Knuth)}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% Insere resumos
+% ---
+
+% Resumo em português
+\newcommand{\imprimirresumo}{
+\newpage
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}[Resumo]
+% ---
+Segundo a \textcite[seções 3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão destes itens dependem do tipo de resumo (informativo ou indicativo) e do tratamento que cada item recebe no documento original. O resumo deve ser precedido da referência do documento, com exceção do resumo inserido no próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do resumo, antecedidas da expressão Palavras-chave: separadas entre si por ponto e finalizadas também por ponto.
+% ---
+\vspace{\onelineskip}
+
+\noindent
+\textbf{Palavras-chave}: \pchaveinome. \pchaveiinome. \pchaveiiinome. \ifthenelse{\equal{\pchaveivnome}{}}{}{\pchaveivnome.}
+\end{resumo}}
+
+% Resumo em inglês
+\newcommand{\imprimirabstract}{
+\newpage
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}[Abstract]
+\begin{otherlanguage*}{english}
+% ---
+This is the english abstract.
+% ---
+\vspace{\onelineskip}
+ 
+\noindent 
+\textbf{Keywords}: \kwordinome. \kwordiinome. \kwordiiinome. \ifthenelse{\equal{\kwordivnome}{}}{}{\kwordivnome.}
+\end{otherlanguage*}
+\end{resumo}}
+% ---
+
+\IfStrEq*{\languagename}{english}{
+\imprimirabstract
+\imprimirresumo}{
+\imprimirresumo
+\imprimirabstract}
+
+% ---
+% Insere lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% Insere lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% Insere lista de abreviaturas e siglas
+% ---
+{\SingleSpacing
+%\setlength{\nomitemsep}{-\parsep}
+\printnomenclature[2cm]}
+\cleardoublepage
+% ---
+
+% ---
+% Insere o sumário
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+% ------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ------------------------------------------------------------------------
+\textual
+% ------------------------------------------------------------------------
+
+% ---
+% Capítulo de introdução
+% ---
+\include{unbtex-example/capitulo1}
+% ---
+
+% ---
+% Capítulo de fundamentos teóricos ou técnicos
+% ---
+\include{unbtex-example/capitulo2}
+% ---
+
+% ---
+% Capítulo com a proposta desenvolvida
+% ---
+\include{unbtex-example/capitulo3}
+% ---
+
+% ---
+% Capítulo de resultados
+% ---
+\include{unbtex-example/capitulo4}
+% ---
+
+% ---
+% Capítulo de conclusões
+% ---
+\include{unbtex-example/capitulo5}
+% ---
+
+% ------------------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ------------------------------------------------------------------------
+\postextual
+% ------------------------------------------------------------------------
+
+% ---
+% Referências bibliográficas
+% ---
+
+\defbibheading{bibliography}[\bibname]{\chapter*{#1}}
+\cleardoublepage
+\phantomsection
+\tocprintchapternonum
+\addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{\bibname}}{\bibname}}
+\printbibliography
+\markboth{}{}
+% ---
+
+%\defbibheading{bibliography}[\refname]{\section*{#1}\sectionmark{\refname}}
+
+% ---
+% Apêndices
+% ---
+
+\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+\include{unbtex-example/apendice-a}
+
+\include{unbtex-example/apendice-b}
+
+\end{apendicesenv}
+% ---
+
+% ---
+% Anexos
+% ---
+
+\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+\partanexos
+
+\include{unbtex-example/anexo-a}
+
+\include{unbtex-example/anexo-b}
+
+\end{anexosenv}
+
+\end{document}

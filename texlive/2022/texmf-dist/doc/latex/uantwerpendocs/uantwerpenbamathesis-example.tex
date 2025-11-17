@@ -1,0 +1,155 @@
+%%
+%% This is file `uantwerpenbamathesis-example.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% uantwerpendocs.dtx  (with options: `bmt-example')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2013-2022  by Walter Daems <walter.daems@uantwerpen.be>
+%% 
+%% This work may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX version
+%% 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Walter Daems.
+%% 
+\documentclass[ti,twoside,openright,a4paper,11pt]{uantwerpenbamathesis}
+
+\usepackage[dutch]{babel} % or english if your text is in English
+\usepackage{kantlipsum}   % this is just for some dummy text, please remove
+
+\usepackage[backref,hyperindex=true,pagebackref=true]{hyperref}
+                          % New: you must load the hyperref package
+                          % yourself! This allows you to put it in the
+                          % correct order with the other packages you load!
+
+\usepackage{mathptmx}
+\iftutex
+\usepackage{fontspec}
+\setmainfont{Calibri} % comment this line out if you want computer
+                      % modern as main font, or feel free to select
+                      % any other font
+\setsansfont{Calibri}
+\usepackage{sansmathaccent}
+\fi
+
+\usepackage{multicol}
+
+\bamadegree{ti-nl-ma-ei}
+
+\title{Minimax optimisatie voor performantie-
+  ruimtemodellering} % either don't split titles, or do so with hypen
+                     % and a newline
+\subtitle{Deze subtitel mag je weglaten}
+\author{Bert Bibber}
+
+\supervisor{prof. dr. ir. P. Kumulus}{UAntwerpen}
+\supervisor{prof. dr. ir. E. Snuffel}{UAntwerpen}
+\cosupervisor{ing. P. Pienter}{Cosys, UAntwerpen}
+\extsupervisor{prof. dr. H. Warwinkel}{TNT-Bang, N.V.}
+
+\academicyear{2022 - 2023}
+
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{multicols}{2}
+  [
+  \begin{center}
+    \textbf{
+      \Large Samenvatting\\[1ex]
+      \@title~\\[1ex]
+      \large \@subtitle\\[0.5ex]}
+    \@author
+  \end{center}
+  ]
+  \kant[11]
+
+  \kant[12]
+
+  \kant [13]
+
+  \kant [14]
+
+  \kant [15]
+
+\end{multicols}
+\pagestyle{fancy}
+
+
+\chapter{Inleiding}
+
+\insettext{Bene vixit qui bene latuit!}
+
+\kant[1]
+
+\chapter{Onderzoeksvraag}
+
+\insetquote{As any dedicated reader can clearly see, the Ideal of
+  practical reason is a representation of
+  as far as I know, the things themselves, a vast overexaggeration.}
+
+\section{Het gebeuren}
+
+\kant[2]
+
+\begin{equation}
+  e^{-j\pi} + 1 = 0
+\end{equation}
+
+\kant[3]
+
+\kant[4]
+
+\kant[5]
+
+\kant[6]
+
+\kant[7]
+
+\kant[8]
+
+\kant[9]
+
+\kant[10]
+
+\chapter{Literatuurstudie}
+
+\chapter{Theoretische achtergrond}
+
+\chapter{Eigen realisatie}
+
+\chapter{Besluit}
+
+\appendix
+
+\chapter{Symbolen}
+\chapter{Referentielijst}
+
+\end{document}
+
+
+\endinput
+%%
+%% End of file `uantwerpenbamathesis-example.tex'.

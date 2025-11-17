@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="generator" content="Docutils 0.17b2.dev: http://docutils.sourceforge.net/" />
+<title>puenc-greek.def</title>
+<meta name="dcterms.rights" content="© 2020 Günter Milde" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/"/>
+<style type="text/css">
+
+/* Minimal style sheet for the HTML output of Docutils.                    */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id$               */
+/* :Copyright: © 2015 Günter Milde.                                        */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
+
+/* This CSS2.1_ stylesheet defines rules for Docutils elements without    */
+/* HTML equivalent. It is required to make the document semantic visible. */
+/*                                                                        */
+/* .. _CSS2.1: http://www.w3.org/TR/CSS2                                  */
+/* .. _validates: http://jigsaw.w3.org/css-validator/validator$link       */
+
+/* alignment of text and inline objects inside block objects*/
+.align-left   { text-align: left; }
+.align-right  { text-align: right; }
+.align-center { clear: both; text-align: center; }
+.align-top    { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
+
+/* titles */
+h1.title,
+p.subtitle {
+  text-align: center;
+}
+p.topic-title,
+p.sidebar-title,
+p.rubric,
+p.admonition-title,
+p.system-message-title {
+  font-weight: bold;
+}
+h1 + p.subtitle {
+  font-size: 1.6em;
+}
+h2 + p.section-subtitle,
+p.sidebar-title {
+  font-size: 1.2em;
+}
+p.subtitle,
+p.section-subtitle,
+p.sidebar-subtitle {
+  font-weight: bold;
+  margin-top: -0.5em;
+}
+p.rubric {
+  font-size: larger;
+  color: maroon;
+}
+a.toc-backref {
+  color: black;
+  text-decoration: none; }
+
+/* Warnings, Errors */
+div.system-messages h2,
+span.problematic,
+p.system-message-title {
+  color: red;
+}
+
+/* inline literals */
+span.docutils.literal {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+/* do not wraph at hyphens and similar: */
+.literal > span.pre { white-space: nowrap; }
+
+/* Lists */
+
+/* compact and simple lists: no margin between items */
+.simple  li, .compact li,
+.simple  ul, .compact ul,
+.simple  ol, .compact ol,
+.simple > li p, .compact > li p,
+dl.simple > dd, dl.compact > dd {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Table of Contents */
+div.topic.contents { margin: 0.5em 0; }
+div.topic.contents ul {
+  list-style-type: none;
+  padding-left: 1.5em;
+}
+
+/* Enumerated Lists */
+ol.arabic     { list-style: decimal }
+ol.loweralpha { list-style: lower-alpha }
+ol.upperalpha { list-style: upper-alpha }
+ol.lowerroman { list-style: lower-roman }
+ol.upperroman { list-style: upper-roman }
+
+dt span.classifier { font-style: italic }
+dt span.classifier:before {
+  font-style: normal;
+  margin: 0.5em;
+  content: ":";
+}
+
+/* Field Lists and drivatives */
+/* bold field name, content starts on the same line */
+dl.field-list > dt,
+dl.option-list > dt,
+dl.docinfo > dt,
+dl.footnote > dt,
+dl.citation > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.5em;
+}
+/* Offset for field content (corresponds to the --field-name-limit option) */
+dl.field-list > dd,
+dl.option-list > dd,
+dl.docinfo > dd {
+  margin-left:  9em; /* ca. 14 chars in the test examples */
+}
+/* start field-body on a new line after long field names */
+dl.field-list > dd > *:first-child,
+dl.option-list > dd > *:first-child
+{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+/* field names followed by a colon */
+dl.field-list > dt:after,
+dl.docinfo > dt:after {
+  content: ":";
+}
+
+/* Bibliographic Fields (docinfo) */
+pre.address { 
+  font: inherit; 
+  margin: 0.5em 0;
+}
+dd.authors > p { margin: 0; }
+
+/* Option Lists */
+dl.option-list { margin-left: 1.5em; }
+dl.option-list > dt { font-weight: normal; }
+span.option { white-space: nowrap; }
+
+/* Footnotes and Citations  */
+dl.footnote.superscript > dd {margin-left: 1em; }
+dl.footnote.brackets > dd {margin-left: 2em; }
+dl.footnote > dt { font-weight: normal; }
+a.footnote-reference.brackets:before,
+dt.label > span.brackets:before { content: "["; }
+a.footnote-reference.brackets:after,
+dt.label > span.brackets:after { content: "]"; }
+a.footnote-reference.superscript,
+dl.footnote.superscript > dt.label {
+  vertical-align: super;
+  font-size: small;
+}
+dt.label > span.fn-backref { margin-left: 0.2em; }
+dt.label > span.fn-backref > a { font-style: italic; }
+
+/* Figures, Images, and Tables */
+.figure.align-left,
+figure.align-left,
+img.align-left,
+object.align-left,
+table.align-left {
+  margin-right: auto;
+}
+.figure.align-center,
+figure.align-center,
+img.align-center,
+object.align-center,
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.figure.align-right,
+figure.align-right,
+img.align-right,
+object.align-right,
+table.align-right {
+  margin-left: auto;
+}
+img.align-center, img.align-right,
+object.align-center, object.align-right {
+  display: block;
+}
+/* reset inner alignment in figures and tables */
+.figure.align-left, .figure.align-right,
+figure.align-left, figure.align-right,
+table.align-left, table.align-center, table.align-right {
+  text-align: inherit;
+}
+
+/* Sidebar */
+aside.sidebar {
+  width: 30%;
+  max-width: 26em;
+  float: right;
+  clear: right;
+}
+
+/* Text Blocks */
+blockquote,
+div.topic,
+div.admonition,
+div.system-message {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+div.line-block { display: block; }
+div.line-block div.line-block {
+  margin: 0 0 0 2em;
+}
+pre { margin-left: 2em; }
+pre.code .ln { color: gray; } /* line numbers */
+
+
+/* Tables */
+table { border-collapse: collapse; }
+td, th {
+  border-style: solid;
+  border-color: silver;
+  padding: 0 1ex;
+  border-width: thin;
+}
+td > p:first-child, th > p:first-child { margin-top: 0; }
+td > p, th > p { margin-bottom: 0; }
+
+table > caption {
+  text-align: left;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+table.captionbelow {
+  caption-side: bottom;
+}
+
+table.borderless td, table.borderless th {
+  border: 0;
+  padding: 0;
+  padding-right: 0.5em /* separate table cells */
+}
+
+/* Document Header and Footer */
+header { border-bottom: 1px solid black; }
+footer { border-top: 1px solid black; }
+
+/* new HTML5 block elements: set display for older browsers */
+header, section, footer, aside, nav, main, article, figure {
+  display: block;
+}
+
+</style>
+<style type="text/css">
+
+/* CSS3_ style sheet for the output of Docutils HTML writers.              */
+/* Generic responsive design for all screen sizes.                         */
+/*                                                                         */
+/* :Author: Günter Milde                                                   */
+/*                                                                         */
+/* :Id: $Id$                                                               */
+/* :Copyright: © 2021 Günter Milde.                                        */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
+/* .. _CSS3: http://www.w3.org/TR/CSS3                                     */
+
+
+/* General Settings */
+/* ================ */
+
+/* Suited for all screen sizes or special to small ones (mobile first).    */
+/* For adaption to larger screens see media queries below 	 	   */
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+
+body {
+  background-color: #fafaf6;
+/*   background-color: #fefdfb; */
+  font-size: larger;
+  line-height: 1.4;
+  margin: auto;
+}
+main {
+  counter-reset: figure table;
+}
+main, header, footer {
+  padding: 0.5em 5%;
+  background-color: #fefefc;
+  max-width: 66em;
+}
+
+main > *, section > * {
+  max-width: 55em; /* ca. 90…100 characters */
+}
+main > section, section > section {
+  max-width: 100%;
+}
+
+/* Vertical Space (Parskip) */
+p, ol, ul, dl, li,
+div.line-block,
+div.topic,
+table {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h1, h2, h3, h4, h5, h6,
+dl > dd {
+  margin-bottom: 0.5em;
+}
+/* exceptions */
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+blockquote > table,
+div.topic > table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Indented Blocks */
+blockquote,
+figure,
+div.topic {
+  /* background-color: Honeydew; */
+  margin: 0.5em 2%;
+  padding-left: 1em;
+}
+div.line-block div.line-block,
+dl.option-list,
+.literal-block,
+pre {
+  /* background-color: LightCyan; */
+  margin-left: calc(2% + 1em);
+}
+
+/* Object styling */
+/* ============== */
+
+footer > *, header > *,
+aside.sidebar > *, .marginal > * {
+  font-size: smaller;
+}
+
+/* Frontmatter */
+blockquote.dedication,
+div.topic.dedication {
+  padding: 0;
+  margin-left: 0;
+  font-style: italic;
+  font-size: larger;
+}
+/* div.abstract p.topic-title, */
+div.dedication p.topic-title {
+  display: none;
+}
+
+blockquote p.attribution,
+div.topic p.attribution {
+  text-align: right;
+}
+
+/* Table of Contents */
+div.topic.contents {
+  padding: 0;
+}
+ul.auto-toc > li > p {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+div.topic.contents ul {
+  padding-left: 1em;
+}
+
+/* Transitions */
+hr {
+  margin: 1em 10%;
+}
+
+/* Lists */
+
+/* Smaller indent on small screens */
+ul, ol {
+  padding-left: 1.1em;
+}
+dd {
+  margin-left: 1.5em;
+}
+dl.field-list > dd {
+  margin-left: 4em;
+}
+dl.field-list.narrow > dd,
+dl.docinfo > dd,
+dl.option-list > dd {
+  margin-left: 2.4em;
+}
+/* run-in: start field-body on same line after long field names */
+dl.field-list.run-in > dd p {
+  display: block;
+}
+
+/* "description style" like in most dictionaries, encyclopedias etc. */
+dl.description > dt {
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.5em;
+  font-weight: bold;
+}
+dl.description > dd:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+/* start lists nested in description/field lists on new line */
+dd > dl:first-child,
+dd > ul:first-child,
+dd > ol:first-child {
+    clear: left;
+}
+/* Footnotes and Citations */
+/* TODO: use <aside> */
+dl.footnote {
+  font-size: smaller;
+  padding-left: 0.5em;
+/*   text-indent: -0.5em; */
+  border-left: solid;
+  border-left-width: thin;
+}
+
+/* Images, Figures, and Tables */
+img {
+  display: block;
+}
+p > img, p > a > img,
+figure > img, figure > a > img {
+  display: inline;
+}
+
+table tr {
+  text-align: left;
+}
+
+/* th { vertical-align: bottom; } */
+/* "booktabs" style (no vertical lines) */
+table.booktabs {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+table.booktabs * {
+  border: 0;
+}
+table.booktabs th {
+  border-bottom: thin solid;
+}
+
+figcaption,
+table > caption {
+  /*   font-size: smaller; */
+  font-style: italic;
+}
+figcaption > .legend {
+  font-size: smaller;
+  font-style: initial;
+}
+
+figure.numbered > figcaption > p:before {
+  counter-increment: figure;
+  content: "Figure " counter(figure) ": ";
+  font-weight: bold;
+  font-style: initial;
+}
+table.numbered > caption:before {
+  counter-increment: table;
+  content: "Table " counter(table) ": ";
+  font-weight: bold;
+  font-style: initial;
+}
+
+/* Admonitions and System Messages */
+div.admonition,
+div.system-message {
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: silver;
+  border-width: thin;
+  margin: 1em 2%;
+  padding: 0.5em;
+}
+div.caution p.admonition-title,
+div.attention p.admonition-title,
+div.danger p.admonition-title,
+div.warning p.admonition-title,
+div.error {
+  color: maroon;
+}
+div.system-message > p > span.literal {
+  overflow-wrap: break-word;
+}
+
+/* Literal and Code */
+pre {
+  /* font-family: Consolas, "Liberation Mono", Menlo, monospace; */
+  /* font-size: 0.9em; */
+  overflow: auto;
+  margin-right: -5%;
+}
+
+
+pre.code .ln { color: gray; } /* line numbers */
+/* basic highlighting: for a complete scheme, see */
+/* http://docutils.sourceforge.net/sandbox/stylesheets/ */
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+
+
+.sans {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Lucida Sans", "Noto Sans", sans-serif;
+    letter-spacing: .02em;
+}
+
+/* Hyperlink References */
+/* underline that clears descenders */
+a {
+  text-decoration: none;
+  text-decoration-skip-ink: auto; /* nonstandard selector */
+}
+a:link{
+  overflow-wrap: break-word;
+}
+/* undecorated links */
+a[href^="#system-message"],
+.contents a, a.toc-backref, a.image-reference,
+a.footnote-reference, a.fn-backref, .fn-backref a,
+a.citation-reference {
+  color: inherit;
+}
+a:link:hover {
+  text-decoration: underline;
+}
+
+
+/* Block Alignment */
+/* Let content flow to the side of aligned images and figures */
+
+/* no floats around this elements */
+dl.footnote, dl.citation, /* errors with internal floats */
+footer, header, hr, 
+h1, h2, h3, .contents > p.topic-title {
+  clear: both;
+}
+
+img.align-left,
+figure.align-left,
+table.align-left {
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0.5em;
+  clear: left;
+  float: left;
+}
+img.align-right,
+figure.align-right,
+table.align-right {
+  margin-left: 0.5em;
+  clear: right;
+  float: right;
+}
+
+/* Margin Elements */
+/* see below for screen size dependent rules */
+aside.sidebar {
+/* overwrite minimal.css */
+  width: auto;
+  max-width: 100%;
+/*   float: none; */
+}
+aside.sidebar,
+.marginal,
+.admonition.marginal,
+.topic.marginal {
+  background-color: #efefea;
+  box-sizing: border-box;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  clear: right;
+}
+
+/* Adaptive page layout */
+
+/* larger margins and floating elements moderately small screens */
+/* main text more than around 40 characters/line */
+@media (min-width: 35em) {
+  /* wider margins */
+  main, header, footer {
+    padding: 0.5em calc(20% - 5rem);
+    line-height: 1.6
+  }
+  pre {
+    margin-right: calc(5rem - 20%);
+  }
+  /* floating margin elements */
+  aside.sidebar,
+  .marginal,
+  .admonition.marginal,
+  .topic.marginal {
+    max-width: min(45%, 18em);
+    margin-left: 1em;
+    clear: right;
+    float: right;
+  }
+  /* more indent for field-list values */
+  dl.field-list > dd,
+  dl.docinfo > dd {
+    margin-left: 6.4em;
+  }
+  dl.option-list > dd {
+    margin-left: 5em;
+  }
+}
+
+@media (min-width: 65em) {
+  /* 2 column layout with wide margin */
+  main, header, footer {
+    padding: 0.5em 15%;
+  }
+  aside.sidebar,
+  .marginal,
+  .admonition.marginal,
+  .topic.marginal {
+    background-color: inherit;
+    /*  background-color: lavender; */
+    margin-right: -18%;
+    padding: 0;
+  }
+  .admonition.marginal { padding: 0.5em; }
+}
+
+/* Move ToC to the left */
+@media (min-width: 100em) {
+  main, header, footer {
+    padding-left: min(30%, 36em);
+  }
+  main > div.topic.contents {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: min(25%, 28em);
+    height: 100vh;
+    margin: 0;
+    background-color: #fafaf6;
+    padding: 5.5em 2%;
+    overflow: auto;
+  }
+  main > div.topic.contents > * {
+    padding-left: 0;
+  }
+  
+/* marginal elements outside of main text */
+@media (min-width: 126em) {
+  aside.sidebar,
+  figure.marginal,
+  .topic.marginal,
+  p.marginal { 
+   width: min(45%, 18em);
+ }
+}
+
+</style>
+</head>
+<body>
+<main id="puenc-greek-def">
+<h1 class="title">puenc-greek.def</h1>
+<p class="subtitle" id="greek-licr-definitions-for-pdf-strings-hyperref">Greek LICR definitions for PDF strings (hyperref)</p>
+<dl class="docinfo">
+<dt class="copyright">Copyright</dt>
+<dd class="copyright">© 2020 Günter Milde</dd>
+<dt class="licence">Licence</dt>
+<dd class="licence"><p>This work may be distributed and/or modified under the
+conditions of the <a class="reference external" href="http://www.latex-project.org/lppl.txt">LaTeX Project Public License</a>, either
+version 1.3 of this license or any later version.</p>
+</dd>
+<dt class="identification">Identification</dt>
+<dd class="identification"><pre class="literal-block">\ProvidesFile{puenc-greek.def}
+[2020/10/18 2.0 Greek LICRs for PDF strings]</pre>
+</dd>
+</dl>
+<div class="abstract topic">
+<p class="topic-title">Abstract</p>
+<p>Support for Greek LICR macros in PDF bookmarks. Extends <span class="docutils literal">puenc.def</span>
+from the <a class="reference external" href="https://ctan.org/pkg/hyperref">hyperref</a> package.
+Used by <a class="reference external" href="http://ctan.org/pkg/babel-greek">babel-greek</a> and <a class="reference external" href="textalpha.sty.html">textalpha</a>.</p>
+</div>
+<dl>
+<dt><strong>History</strong>:</dt>
+<dd><table class="borderless">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 14%" />
+<col style="width: 78%" />
+</colgroup>
+<tbody>
+<tr><td><p>2.0</p></td>
+<td><p>2020-10-18</p></td>
+<td><p>initial version</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<section id="diacritics">
+<h2>Diacritics</h2>
+<p>Greek alias names for standard accents (without tabacckludge):</p>
+<pre class="literal-block">\DeclareTextCommand{\acctonos}{PU}{\'}
+\DeclareTextCommand{\accvaria}{PU}{\`}
+\DeclareTextCommand{\accdialytika}{PU}{\&quot;}</pre>
+<p>Use combining characters when no pre-composed character is available:</p>
+<p>Breathings and perispomeni:</p>
+<pre class="literal-block">\DeclareTextCommand{\accpsili}{PU}[1]{#1\83\023} % ψιλή spiritus lenis (smooth breathing)
+\DeclareTextCommand{\accdasia}{PU}[1]{#1\83\024} % δασεῖα spiritus asper (rough breathing)
+\DeclareTextCommand{\accperispomeni}{PU}[1]{#1\83\102} % COMBINING GREEK PERISPOMENI</pre>
+<p>Sub-iota (<span class="docutils literal">\ypogegrammeni</span>) is a postfix accent (ligature in LGR)</p>
+<pre class="literal-block">\DeclareTextCommand{\ypogegrammeni}{PU}{\83\105} % COMBINING GREEK YPOGEGRAMMENI</pre>
+<p>Combined diacritics:</p>
+<pre class="literal-block">\DeclareTextCommand{\accdialytikavaria}{PU}[1]{#1\83\010\83\000}
+\DeclareTextCommand{\accdialytikatonos}{PU}[1]{#1\83\010\83\001}
+\DeclareTextCommand{\accdialytikaperispomeni}{PU}[1]{#1\83\102\83\010}
+
+\DeclareTextCommand{\accdasiavaria}{PU}[1]{#1\83\024\83\000}
+\DeclareTextCommand{\accdasiaoxia}{PU}[1]{#1\83\024\83\001}
+\DeclareTextCommand{\accdasiaperispomeni}{PU}[1]{#1\83\024\83\102}
+
+\DeclareTextCommand{\accpsilivaria}{PU}[1]{#1\83\000\83\023}
+\DeclareTextCommand{\accpsilioxia}{PU}[1]{#1\83\001\83\023}
+\DeclareTextCommand{\accpsiliperispomeni}{PU}[1]{#1\83\102\83\023}</pre>
+</section>
+<section id="common-definitions">
+<h2>Common Definitions</h2>
+<p>Use the common <cite>Greek font encoding definitions</cite>.</p>
+<p>Set the <span class="docutils literal">\LastDeclaredEncoding</span> to PU and read definitions
+from <a class="reference external" href="greek-fontenc.def.html">greek-fontenc.def</a>:</p>
+<pre class="literal-block">\renewcommand*{\LastDeclaredEncoding}{PU}
+\input{greek-fontenc.def}</pre>
+</section>
+<section id="character-definitions">
+<h2>Character Definitions</h2>
+<section id="compatibility-defs-with-lgr">
+<h3>Compatibility defs with LGR</h3>
+<p>Basic Latin:</p>
+<pre class="literal-block">\DeclareTextCommand{\textsemicolon}{PU}{;} % &quot;003B</pre>
+<p>Latin 1 Supplement:
+Distinguish MICRO SIGN from letter mu:</p>
+<pre class="literal-block">\DeclareTextCommand{\textmicro}{PU}{\83\274} % &quot;00B5 MICRO SIGN</pre>
+</section>
+<section id="greek-and-coptic">
+<h3>Greek and Coptic</h3>
+<pre class="literal-block">% NR    Unicode Name                               %   babel name, PU name
+% 0370  GREEK CAPITAL LETTER HETA                  % Ͱ
+% 0371  GREEK SMALL LETTER HETA                    % ͱ
+% 0372  GREEK CAPITAL LETTER ARCHAIC SAMPI         % Ͳ
+% 0373  GREEK SMALL LETTER ARCHAIC SAMPI           % ͳ
+\DeclareTextCommand{\textdexiakeraia}{PU}{\83\164} % ʹ \anwtonos, \textnumeralsigngreek
+\DeclareTextCommand{\textaristerikeraia}{PU}{\83\165} % ͵ \katwtonos, \textnumeralsignlowergreek
+% 0376  GREEK CAPITAL LETTER PAMPHYLIAN DIGAMMA    % Ͷ
+% 0377  GREEK SMALL LETTER PAMPHYLIAN DIGAMMA      % ͷ</pre>
+<p>037A  GREEK YPOGEGRAMMENI (use textcompwordmarkypogegrammeni) % ͺ
+037B  GREEK SMALL REVERSED LUNATE SIGMA SYMBOL
+037C  GREEK SMALL DOTTED LUNATE SIGMA SYMBOL
+037D  GREEK SMALL REVERSED DOTTED LUNATE SIGMA SYMBOL</p>
+<p>Erotimatiko: use 003B SEMICOLON, not 037E GREEK QUESTION MARK; dont use the
+literal char, as it is active with textalpha’s “keep-semicolon” option:</p>
+<pre class="literal-block">\DeclareTextCommand{\texterotimatiko}{PU}{\80\073}
+
+\DeclareTextCompositeCommand{\'}{PU}{\&#64;empty}{\83\204} % ΄ 0384 GREEK TONOS
+\DeclareTextCompositeCommand{\'}{PU}{\ }{\83\204} % ΄ 0384 GREEK TONOS
+\DeclareTextCompositeCommand{\accdialytikatonos}{PU}{\&#64;empty}{\83\205}
+\DeclareTextCompositeCommand{\accdialytikatonos}{PU}{\ }{\83\205}
+\DeclareTextCompositeCommand{\'}{PU}{\textAlpha}{\83\206} % Ά
+\DeclareTextCommand{\textanoteleia}{PU}{\80\267} % use 00B7 MIDDLE DOT, not 0387 GREEK ANO TELEIA
+\DeclareTextCompositeCommand{\'}{PU}{\textEpsilon}{\83\210} % Έ
+\DeclareTextCompositeCommand{\'}{PU}{\textEta}{\83\211} % Ή
+\DeclareTextCompositeCommand{\'}{PU}{\textIota}{\83\212} % Ί
+\DeclareTextCompositeCommand{\'}{PU}{\textOmicron}{\83\214} % Ό
+\DeclareTextCompositeCommand{\'}{PU}{\textUpsilon}{\83\216} % Ύ
+\DeclareTextCompositeCommand{\'}{PU}{\textOmega}{\83\217} % Ώ
+\DeclareTextCompositeCommand{\accdialytikatonos}{PU}{\textiota}{\83\220} % ΐ
+\DeclareTextCommand{\textAlpha}{PU}{\83\221} % Α &quot;0391
+\DeclareTextCommand{\textBeta}{PU}{\83\222} % Β &quot;0392
+\DeclareTextCommand{\textGamma}{PU}{\83\223} % Γ &quot;0393
+\DeclareTextCommand{\textDelta}{PU}{\83\224} % Δ &quot;0394
+\DeclareTextCommand{\textEpsilon}{PU}{\83\225} % Ε &quot;0395
+\DeclareTextCommand{\textZeta}{PU}{\83\226} % Ζ &quot;0396
+\DeclareTextCommand{\textEta}{PU}{\83\227} % Η &quot;0397
+\DeclareTextCommand{\textTheta}{PU}{\83\230} % Θ &quot;0398
+\DeclareTextCommand{\textIota}{PU}{\83\231} % Ι &quot;0399
+\DeclareTextCommand{\textKappa}{PU}{\83\232} % Κ &quot;039A
+\DeclareTextCommand{\textLambda}{PU}{\83\233} % Λ &quot;039B
+\DeclareTextCommand{\textMu}{PU}{\83\234} % Μ &quot;039C
+\DeclareTextCommand{\textNu}{PU}{\83\235} % Ν &quot;039D
+\DeclareTextCommand{\textXi}{PU}{\83\236} % Ξ &quot;039E
+\DeclareTextCommand{\textOmicron}{PU}{\83\237} % Ο &quot;039F
+\DeclareTextCommand{\textPi}{PU}{\83\240} % Π &quot;03A0
+\DeclareTextCommand{\textRho}{PU}{\83\241} % Ρ &quot;03A1
+\DeclareTextCommand{\textSigma}{PU}{\83\243} % Σ &quot;03A3
+\DeclareTextCommand{\textTau}{PU}{\83\244} % Τ &quot;03A4
+\DeclareTextCommand{\textUpsilon}{PU}{\83\245} % Υ &quot;03A5
+\DeclareTextCommand{\textPhi}{PU}{\83\246} % Φ &quot;03A6
+\DeclareTextCommand{\textChi}{PU}{\83\247} % Χ &quot;03A7
+\DeclareTextCommand{\textPsi}{PU}{\83\250} % Ψ &quot;03A8
+\DeclareTextCommand{\textOmega}{PU}{\83\251} % Ω &quot;03A9
+\DeclareTextCompositeCommand{\&quot;}{PU}{\textIota}{\83\252} % Ϊ &quot;03AA
+\DeclareTextCompositeCommand{\&quot;}{PU}{\textUpsilon}{\83\253} % Ϋ &quot;03AB
+\DeclareTextCompositeCommand{\'}{PU}{\textalpha}{\83\254} % ά &quot;03AC
+\DeclareTextCompositeCommand{\'}{PU}{\textepsilon}{\83\255} % έ &quot;03AD
+\DeclareTextCompositeCommand{\'}{PU}{\texteta}{\83\256} % ή &quot;03AE
+\DeclareTextCompositeCommand{\'}{PU}{\textiota}{\83\257} % ί &quot;03AF
+\DeclareTextCompositeCommand{\accdialytikatonos}{PU}{\textupsilon}{\83\260} % ΰ &quot;03B0
+\DeclareTextCommand{\textalpha}{PU}{\83\261} % α &quot;03B1
+\DeclareTextCommand{\textbeta}{PU}{\83\262} % β &quot;03B2
+\DeclareTextCommand{\textgamma}{PU}{\83\263} % γ &quot;03B3
+\DeclareTextCommand{\textdelta}{PU}{\83\264} % δ &quot;03B4
+\DeclareTextCommand{\textepsilon}{PU}{\83\265} % ε &quot;03B5
+\DeclareTextCommand{\textzeta}{PU}{\83\266} % ζ &quot;03B6
+\DeclareTextCommand{\texteta}{PU}{\83\267} % η &quot;03B7
+\DeclareTextCommand{\texttheta}{PU}{\83\270} % θ &quot;03B8
+\DeclareTextCommand{\textiota}{PU}{\83\271} % ι &quot;03B9
+\DeclareTextCommand{\textkappa}{PU}{\83\272} % κ &quot;03BA
+\DeclareTextCommand{\textlambda}{PU}{\83\273} % λ &quot;03BB
+\DeclareTextCommand{\textmu}{PU}{\83\274} % μ &quot;03BC \textmugreek
+\DeclareTextCommand{\textnu}{PU}{\83\275} % ν &quot;03BD
+\DeclareTextCommand{\textxi}{PU}{\83\276} % ξ &quot;03BE
+\DeclareTextCommand{\textomicron}{PU}{\83\277} % ο &quot;03BF
+\DeclareTextCommand{\textpi}{PU}{\83\300} % π &quot;03C0
+\DeclareTextCommand{\textrho}{PU}{\83\301} % ρ &quot;03C1
+\DeclareTextCommand{\textfinalsigma}{PU}{\83\302} % ς &quot;03C2 final sigma
+\DeclareTextCommand{\textsigma}{PU}{\83\303} % σ &quot;03C3
+\DeclareTextCommand{\texttau}{PU}{\83\304} % τ &quot;03C4
+\DeclareTextCommand{\textupsilon}{PU}{\83\305} % υ &quot;03C5
+\DeclareTextCommand{\textphi}{PU}{\83\306} % φ &quot;03C6
+\DeclareTextCommand{\textchi}{PU}{\83\307} % χ &quot;03C7
+\DeclareTextCommand{\textpsi}{PU}{\83\310} % ψ &quot;03C8
+\DeclareTextCommand{\textomega}{PU}{\83\311} % ω &quot;03C9
+
+\DeclareTextCompositeCommand{\&quot;}{PU}{\textiota}{\83\312}% ϊ &quot;03CA
+\DeclareTextCompositeCommand{\&quot;}{PU}{\textupsilon}{\83\313}% ϋ &quot;03CB
+\DeclareTextCompositeCommand{\'}{PU}{\textomicron}{\83\314}% ό &quot;03CC
+\DeclareTextCompositeCommand{\'}{PU}{\textupsilon}{\83\315}% ύ &quot;03CD
+\DeclareTextCompositeCommand{\'}{PU}{\textomega}{\83\316}% ώ &quot;03CE</pre>
+<p>Archaic letters (still used in Greek numerals)
+and symbol variants:</p>
+<pre class="literal-block">\DeclareTextCommand{\textbetasymbol}{PU}{\83\320} % ϐ &quot;03D0
+\DeclareTextCommand{\textthetasymbol}{PU}{\83\321} % ϑ &quot;03D1
+
+\DeclareTextCommand{\textphisymbol}{PU}{\83\325} % ϕ &quot;03D5
+\DeclareTextCommand{\textpisymbol}{PU}{\83\326} % ϖ &quot;03D6
+
+\DeclareTextCommand{\textQoppa}{PU}{\83\330} % Ϙ &quot;03D8
+\DeclareTextCommand{\textqoppa}{PU}{\83\331} % ϙ &quot;03D9
+\DeclareTextCommand{\textStigma}{PU}{\83\332} % Ϛ &quot;03DA
+\DeclareTextCommand{\textstigma}{PU}{\83\333} % ϛ &quot;03DB
+\DeclareTextCommand{\textDigamma}{PU}{\83\334} % Ϝ &quot;03DC
+\DeclareTextCommand{\textdigamma}{PU}{\83\335} % ϝ &quot;03DD
+\DeclareTextCommand{\textKoppa}{PU}{\83\336} % Ϟ &quot;03DE in LGR identic to \textkoppa
+\DeclareTextCommand{\textkoppa}{PU}{\83\337} % ϟ &quot;03DF \koppa, \textqoppa [sic!]
+\DeclareTextCommand{\textSampi}{PU}{\83\340} % Ϡ &quot;03E0
+\DeclareTextCommand{\textsampi}{PU}{\83\341} % ϡ &quot;03E1
+
+\DeclareTextCommand{\textkappasymbol}{PU}{\83\360} % ϰ &quot;03F0
+\DeclareTextCommand{\textrhosymbol}{PU}{\83\361} % ϱ &quot;03F1
+
+\DeclareTextCommand{\textThetasymbol}{PU}{\83\364} % ϴ &quot;03F4
+\DeclareTextCommand{\textepsilonsymbol}{PU}{\83\365} % ϵ &quot;03F5</pre>
+<p>Dummy definition (textautosigma is lowercase of textSigma)
+TODO: implement autosigma for PU and TU:</p>
+<pre class="literal-block">\ProvideTextCommand{\textautosigma}{PU}{\textsigma}</pre>
+</section>
+<section id="greek-extended">
+<h3>Greek Extended</h3>
+<p>We skip definitions for characters “… WITH OXIA”, because they would
+overwrite the defintions for “… WITH TONOS” in the <cite>Greek and Coptic</cite>
+block.</p>
+<pre class="literal-block">\DeclareTextCompositeCommand{\accpsili}{PU}{\textalpha}{\9037\000} % ἀ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textalpha}{\9037\001} % ἁ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textalpha}{\9037\002} % ἂ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textalpha}{\9037\003} % ἃ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textalpha}{\9037\004} % ἄ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textalpha}{\9037\005} % ἅ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textalpha}{\9037\006} % ἆ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textalpha}{\9037\007} % ἇ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textAlpha}{\9037\010} % Ἀ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textAlpha}{\9037\011} % Ἁ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textAlpha}{\9037\012} % Ἂ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textAlpha}{\9037\013} % Ἃ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textAlpha}{\9037\014} % Ἄ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textAlpha}{\9037\015} % Ἅ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textAlpha}{\9037\016} % Ἆ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textAlpha}{\9037\017} % Ἇ
+
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textepsilon}{\9037\020} % ἐ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textepsilon}{\9037\021} % ἑ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textepsilon}{\9037\022} % ἒ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textepsilon}{\9037\023} % ἓ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textepsilon}{\9037\024} % ἔ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textepsilon}{\9037\025} % ἕ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textEpsilon}{\9037\030} % Ἐ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textEpsilon}{\9037\031} % Ἑ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textEpsilon}{\9037\032} % Ἒ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textEpsilon}{\9037\033} % Ἓ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textEpsilon}{\9037\034} % Ἔ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textEpsilon}{\9037\035} % Ἕ
+
+\DeclareTextCompositeCommand{\accpsili}{PU}{\texteta}{\9037\040} % ἠ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\texteta}{\9037\041} % ἡ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\texteta}{\9037\042} % ἢ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\texteta}{\9037\043} % ἣ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\texteta}{\9037\044} % ἤ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\texteta}{\9037\045} % ἥ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\texteta}{\9037\046} % ἦ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\texteta}{\9037\047} % ἧ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textEta}{\9037\050} % Ἠ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textEta}{\9037\051} % Ἡ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textEta}{\9037\052} % Ἢ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textEta}{\9037\053} % Ἣ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textEta}{\9037\054} % Ἤ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textEta}{\9037\055} % Ἥ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textEta}{\9037\056} % Ἦ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textEta}{\9037\057} % Ἧ
+
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textiota}{\9037\060} % ἰ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textiota}{\9037\061} % ἱ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textiota}{\9037\062} % ἲ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textiota}{\9037\063} % ἳ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textiota}{\9037\064} % ἴ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textiota}{\9037\065} % ἵ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textiota}{\9037\066} % ἶ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textiota}{\9037\067} % ἷ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textIota}{\9037\070} % Ἰ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textIota}{\9037\071} % Ἱ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textIota}{\9037\072} % Ἲ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textIota}{\9037\073} % Ἳ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textIota}{\9037\074} % Ἴ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textIota}{\9037\075} % Ἵ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textIota}{\9037\076} % Ἶ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textIota}{\9037\077} % Ἷ
+
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textomicron}{\9037\100} % ὀ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textomicron}{\9037\101} % ὁ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textomicron}{\9037\102} % ὂ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textomicron}{\9037\103} % ὃ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textomicron}{\9037\104} % ὄ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textomicron}{\9037\105} % ὅ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textOmicron}{\9037\110} % Ὀ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textOmicron}{\9037\111} % Ὁ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textOmicron}{\9037\112} % Ὂ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textOmicron}{\9037\113} % Ὃ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textOmicron}{\9037\114} % Ὄ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textOmicron}{\9037\115} % Ὅ
+
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textupsilon}{\9037\120} % ὐ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textupsilon}{\9037\121} % ὑ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textupsilon}{\9037\122} % ὒ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textupsilon}{\9037\123} % ὓ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textupsilon}{\9037\124} % ὔ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textupsilon}{\9037\125} % ὕ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textupsilon}{\9037\126} % ὖ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textupsilon}{\9037\127} % ὗ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textUpsilon}{\9037\131} % Ὑ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textUpsilon}{\9037\133} % Ὓ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textUpsilon}{\9037\135} % Ὕ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textUpsilon}{\9037\137} % Ὗ
+
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textomega}{\9037\140} % ὠ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textomega}{\9037\141} % ὡ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textomega}{\9037\142} % ὢ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textomega}{\9037\143} % ὣ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textomega}{\9037\144} % ὤ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textomega}{\9037\145} % ὥ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textomega}{\9037\146} % ὦ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textomega}{\9037\147} % ὧ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textOmega}{\9037\150} % Ὠ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textOmega}{\9037\151} % Ὡ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\textOmega}{\9037\152} % Ὢ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\textOmega}{\9037\153} % Ὣ
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\textOmega}{\9037\154} % Ὤ
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\textOmega}{\9037\155} % Ὥ
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\textOmega}{\9037\156} % Ὦ
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\textOmega}{\9037\157} % Ὧ
+
+\DeclareTextCompositeCommand{\`}{PU}{\textalpha}{\9037\160} % ὰ
+\DeclareTextCompositeCommand{\`}{PU}{\textepsilon}{\9037\162} % ὲ
+\DeclareTextCompositeCommand{\`}{PU}{\texteta}{\9037\164} % ὴ
+\DeclareTextCompositeCommand{\`}{PU}{\textiota}{\9037\166} % ὶ
+\DeclareTextCompositeCommand{\`}{PU}{\textomicron}{\9037\170} % ὸ
+\DeclareTextCompositeCommand{\`}{PU}{\textupsilon}{\9037\172} % ὺ
+\DeclareTextCompositeCommand{\`}{PU}{\textomega}{\9037\174} % ὼ
+
+\DeclareTextCompositeCommand{\u}{PU}{\textalpha}{\9037\260} % ᾰ
+\DeclareTextCompositeCommand{\=}{PU}{\textalpha}{\9037\261} % ᾱ
+% ᾲ
+% ᾳ
+% ᾴ
+\DeclareTextCompositeCommand{\~}{PU}{\textalpha}{\9037\266} % ᾶ
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\textalpha}{\9037\267} % ᾶ
+% ᾷ
+\DeclareTextCompositeCommand{\u}{PU}{\textAlpha}{\9037\270} % Ᾰ
+\DeclareTextCompositeCommand{\=}{PU}{\textAlpha}{\9037\271} % Ᾱ
+\DeclareTextCompositeCommand{\`}{PU}{\textAlpha}{\9037\272} % Ὰ
+% Ά
+% ᾼ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\&#64;empty}{\9037\275} % ᾽
+\DeclareTextCompositeCommand{\accpsili}{PU}{\ }{\9037\275} % ᾽
+\DeclareTextCommand{\prosgegrammeni}{PU}{\9037\276} % ι
+\DeclareTextCompositeCommand{\accpsili}{PU}{\&#64;empty}{\9037\277} % ᾿
+\DeclareTextCompositeCommand{\accpsili}{PU}{\ }{\9037\277} % ᾿
+
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\&#64;empty}{\9037\300} % ῀
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\ }{\9037\300} % ῀
+\DeclareTextCompositeCommand{\accdialytikaperispomeni}{PU}{\&#64;empty}{\9037\301} % ῁
+\DeclareTextCompositeCommand{\accdialytikaperispomeni}{PU}{\ }{\9037\301} % ῁
+% ῂ
+% ῃ
+% ῄ
+\DeclareTextCompositeCommand{\~}{PU}{\texteta}{\9037\307} % ῆ
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\texteta}{\9037\307} % ῆ
+% ῇ
+\DeclareTextCompositeCommand{\`}{PU}{\textEpsilon}{\9037\310} % Ὲ
+\DeclareTextCompositeCommand{\`}{PU}{\textEta}{\9037\312} % Ὴ
+% ῌ
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\&#64;empty}{\9037\315} % ῍
+\DeclareTextCompositeCommand{\accpsilivaria}{PU}{\ }{\9037\315} % ῍
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\&#64;empty}{\9037\316} % ῎
+\DeclareTextCompositeCommand{\accpsilioxia}{PU}{\ }{\9037\316} % ῎
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\&#64;empty}{\9037\317} % ῏
+\DeclareTextCompositeCommand{\accpsiliperispomeni}{PU}{\ }{\9037\317} % ῏
+
+\DeclareTextCompositeCommand{\u}{PU}{\textiota}{\9037\320} % ῐ
+\DeclareTextCompositeCommand{\=}{PU}{\textiota}{\9037\321} % ῑ
+\DeclareTextCompositeCommand{\accdialytikavaria}{PU}{\textiota}{\9037\322} % ῒ
+\DeclareTextCompositeCommand{\accdialytikaoxia}{PU}{\textiota}{\9037\323} % ΐ
+\DeclareTextCompositeCommand{\~}{PU}{\textiota}{\9037\326} % ῖ
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\textiota}{\9037\326} % ῖ
+\DeclareTextCompositeCommand{\accdialytikaperispomeni}{PU}{\textiota}{\9037\327} % ῗ
+\DeclareTextCompositeCommand{\u}{PU}{\textIota}{\9037\330} % Ῐ
+\DeclareTextCompositeCommand{\=}{PU}{\textIota}{\9037\331} % Ῑ
+\DeclareTextCompositeCommand{\`}{PU}{\textIota}{\9037\332} % Ὶ
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\&#64;empty}{\9037\335} % ῝
+\DeclareTextCompositeCommand{\accdasiavaria}{PU}{\ }{\9037\335} % ῝
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\&#64;empty}{\9037\336} % ῞
+\DeclareTextCompositeCommand{\accdasiaoxia}{PU}{\ }{\9037\336} % ῞
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\&#64;empty}{\9037\337} % ῟
+\DeclareTextCompositeCommand{\accdasiaperispomeni}{PU}{\ }{\9037\337} % ῟
+
+\DeclareTextCompositeCommand{\u}{PU}{\textupsilon}{\9037\340} % ῠ
+\DeclareTextCompositeCommand{\=}{PU}{\textupsilon}{\9037\341} % ῡ
+\DeclareTextCompositeCommand{\accdialytikavaria}{PU}{\textupsilon}{\9037\342} % ῢ
+\DeclareTextCompositeCommand{\accdialytikaoxia}{PU}{\textupsilon}{\9037\343} % ΰ
+\DeclareTextCompositeCommand{\accpsili}{PU}{\textrho}{\9037\344} % ῤ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textrho}{\9037\345} % ῥ
+\DeclareTextCompositeCommand{\~}{PU}{\textupsilon}{\9037\346} % ῦ
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\textupsilon}{\9037\346} % ῦ
+\DeclareTextCompositeCommand{\accdialytikaperispomeni}{PU}{\textupsilon}{\9037\347} % ῧ
+\DeclareTextCompositeCommand{\u}{PU}{\textUpsilon}{\9037\350} % Ῠ
+\DeclareTextCompositeCommand{\=}{PU}{\textUpsilon}{\9037\351} % Ῡ
+\DeclareTextCompositeCommand{\`}{PU}{\textUpsilon}{\9037\352} % Ὺ
+\DeclareTextCompositeCommand{\accdasia}{PU}{\textRho}{\9037\354} % Ῥ
+\DeclareTextCompositeCommand{\accdialytikavaria}{PU}{\&#64;empty}{\9037\355} % ῭
+\DeclareTextCompositeCommand{\accdialytikavaria}{PU}{\ }{\9037\355} % ῭
+\DeclareTextCompositeCommand{\accdialytikaoxia}{PU}{\&#64;empty}{\9037\356} % ΅
+\DeclareTextCompositeCommand{\accdialytikaoxia}{PU}{\ }{\9037\356} % ΅
+% `
+
+% ῲ
+% ῳ
+% ῴ
+\DeclareTextCompositeCommand{\~}{PU}{\textomega}{\9037\366} % ῶ
+\DeclareTextCompositeCommand{\accperispomeni}{PU}{\textomega}{\9037\366} % ῶ
+% ῷ
+\DeclareTextCompositeCommand{\`}{PU}{\textOmicron}{\9037\370} % Ὸ
+\DeclareTextCompositeCommand{\`}{PU}{\textOmega}{\9037\372} % Ὼ
+% ῼ
+\DeclareTextCompositeCommand{\accoxia}{PU}{\&#64;empty}{\9037\375} % ´
+\DeclareTextCompositeCommand{\accoxia}{PU}{\ }{\9037\375} % ´
+\DeclareTextCompositeCommand{\accdasia}{PU}{\&#64;empty}{\9037\376} % ῾
+\DeclareTextCompositeCommand{\accdasia}{PU}{\ }{\9037\376} % ῾</pre>
+</section>
+<section id="letterlike-symbols">
+<h3>Letterlike Symbols</h3>
+<pre class="literal-block">\DeclareTextCommand{\textohm}{PU}{\83\251} % &quot;03A9 OHM SIGN, use 03A9 Omega</pre>
+</section>
+<section id="ancient-greek-numbers">
+<h3>Ancient Greek Numbers</h3>
+<p>TODO: map other chars to corresponding Greek letters.
+See also the <a class="reference external" href="http://ctan.org/pkg/grnumalt">grnumalt</a> package.</p>
+<p>Definition with literal Unicode characters, because the code-point has 5
+hexadecimal digits:</p>
+<pre class="literal-block">\DeclareTextCommand{\textpentedeka}{PU}{𐅄}    % &quot;10144 GREEK ACROPHONIC ATTIC FIFTY
+\DeclareTextCommand{\textpentehekaton}{PU}{𐅅} % &quot;10145 GREEK ACROPHONIC ATTIC FIVE HUNDRED
+\DeclareTextCommand{\textpenteqilioi}{PU}{𐅆}  % &quot;10146 GREEK ACROPHONIC ATTIC FIVE THOUSAND
+\DeclareTextCommand{\textpentemuria}{PU}{𐅇}   % &quot;10147 GREEK ACROPHONIC ATTIC FIFTY THOUSAND</pre>
+<!-- References -->
+</section>
+</section>
+</main>
+</body>
+</html>

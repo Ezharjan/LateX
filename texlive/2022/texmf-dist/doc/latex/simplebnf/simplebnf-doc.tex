@@ -1,0 +1,147 @@
+\documentclass[a4paper]{article}
+
+\usepackage{simplebnf}
+\usepackage{hyperref}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,breakable}
+\tcbset{listing engine=listings,colframe=black,colback=white,size=small}
+
+\NewDocumentEnvironment {exampleside} {}
+  { \tcblisting{listing side text,righthand width=.55\textwidth} }
+  { \endtcblisting }
+
+\NewDocumentCommand \cmd { m } {\texttt{\textbackslash#1}}
+
+\NewDocumentEnvironment { presentcommand } { b }
+  {%
+    \vspace*{0.5\baselineskip}\noindent\fbox{%
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+      #1
+    \end{minipage}}\vspace*{0.5\baselineskip}
+  }
+  { }
+
+\NewDocumentCommand \env { m m }
+  {
+    \texttt{%
+      \textbackslash begin\{#1\} \textrm{#2}%
+      \textbackslash end\{#1\}%
+    }%
+  }
+
+\title{%
+  \textsf{simplebnf} --- A simple package to format Backus-Naur form%
+  \footnote{This file describes v0.3.1.}}
+\author{Jay Lee\footnote{E-mail: %
+  \href{mailto:jaeho.lee@snu.ac.kr}{\texttt{jaeho.lee@snu.ac.kr}}}}
+\date{2022/05/08}
+
+\begin{document}
+\maketitle
+
+This package provides a simple way to typeset grammars written in Backus-Naur form (BNF).
+
+\begin{presentcommand}
+  \cmd{SimpleBNFDefEq}
+\end{presentcommand}
+This command is used to typeset the definition symbol separate a nonterminal from its productions. It defaults to \SimpleBNFDefEq. It can be redefined to customized output using \verb|RenewDocumentCommand|.
+
+\begin{presentcommand}
+  \cmd{SimpleBNFDefOr}
+\end{presentcommand}
+This command is used to typeset the separator symbol between productions. It defaults to \SimpleBNFDefOr. It can be redefined to customized output using \verb|RenewDocumentCommand|.
+
+\begin{presentcommand}
+  \cmd{bnfexpr}
+\end{presentcommand}
+This command is used when typesetting the BNF nonterminal and productions. It defaults to a wrappers around \cmd{texttt}. It can be redefined to customized output using \verb|RenewDocumentCommand|.
+
+\begin{presentcommand}
+ \cmd{bnfannot}
+\end{presentcommand}
+This command is used when typesetting the annotations on nonterminals and productions. It defaults to a wrappers around \cmd{textit}. It can be redefined to customized output using \verb|RenewDocumentCommand|.
+
+\begin{presentcommand}
+  \env{bnfgrammar}{text}
+\end{presentcommand}
+can be used to typeset BNF grammars. The \textit{text} inside the environment should be formatted as:
+\begin{verbatim}
+  term1 ::= rhs1
+  ;;
+  term2 ::= rhs2
+  ;;
+  ...
+  termk ::= rhsk
+\end{verbatim}
+where each of the \textit{rhs} represents alternative syntactic forms of the \textit{term}. An annotation may accompany each alternative in which case the alternative must be separated from its annotation with a colon (\verb/:/). If you don't need annotations, simply omit the colons and annotations altogether. The alternatives themselves are separated using the pipe symbol (\verb/|/).
+
+A sample code and the result is shown below:
+\begin{exampleside}
+  \begin{bnfgrammar}
+    a \in \textit{Vars}
+    ;;
+    expr ::=
+      expr + term : sum
+    | term        : term
+    ;;
+    term ::=
+      term * a : product
+    | a        : variable
+  \end{bnfgrammar}
+\end{exampleside}
+
+Annotations can also be provided on left-hand sides, to label the nonterminal instead of a specific production.
+\begin{exampleside}
+  \begin{bnfgrammar}
+    a : Variables \in \textit{Vars}
+    ;;
+    expr : Expressions ::=
+      expr + term
+    | term
+    ;;
+    term ::=
+      term * a
+    | a
+  \end{bnfgrammar}
+\end{exampleside}
+
+You can also provide an optional specification to the grammar environment, to redefine alignment or spacing.
+\begin{tcblisting}{text above listing}
+  \begin{bnfgrammar}[lr@{\hspace{4pt}}c@{\hspace{2pt}}ll]
+    a : Variables \in \textit{Vars}
+    ;;
+    expr ::=
+      expr + term : sum
+    | term        : term
+    ;;
+    term ::=
+      term * a : product
+    | a        : variable
+  \end{bnfgrammar}
+\end{tcblisting}
+
+If you want to typeset multiple productions on a single line, you can use double vertical bars by default.
+\begin{exampleside}
+  \begin{bnfgrammar}
+    a \in \textit{Vars}
+    ;;
+    expr ::= expr + term || term
+    ;;
+    term ::= term * a || a
+  \end{bnfgrammar}
+\end{exampleside}
+
+The second and third optional arguments specify regular expressions for the line-breaking and non-breaking RHS seperators:
+\begin{tcblisting}{text above listing}
+  \begin{bnfgrammar}[llcll][\|\|][\|]
+    a \in \textit{Vars}
+    ;;
+    expr ::= expr + term | term
+    ;;
+    term ::= term * a
+    || a
+  \end{bnfgrammar}
+\end{tcblisting}
+
+\end{document}

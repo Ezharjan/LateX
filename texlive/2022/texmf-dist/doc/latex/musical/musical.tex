@@ -1,0 +1,250 @@
+\documentclass{article}
+\providecommand*{\url}{\texttt}
+
+\usepackage[symbol,perpage,para,ragged,flushmargin]{footmisc}
+\DefineFNsymbols{dave}[text]{*†‡¤{**}{††}{‡‡}{¤¤}}
+\setfnsymbol{dave}
+
+
+\RequirePackage{xltxtra}
+\setmainfont[Numbers=OldStyle, Mapping=tex-text]{Garamond Premier Pro}
+%\setsansfont[Mapping=tex-text, BoldFont={GillSansMTPro-Bold}, Numbers=OldStyle]{GillSansMTPro-Medium}
+\setmonofont[Mapping=tex-text,Scale = MatchLowercase]{Menlo}
+
+\usepackage{fancyvrb}
+
+\DefineShortVerb[commandchars=+()]{\|}
+\DefineVerbatimEnvironment%
+     {example}{Verbatim}
+     {commandchars=+()}
+\let\ital\textit
+\def\lyricsymbol{{\textsf ♪}}
+
+\newbox\musicalbox
+\newcommand{\spacer}[1]{
+    \setbox\musicalbox\hbox{#1}%
+    \noindent\hbox to \wd\musicalbox{\strut\hfil}%
+}
+
+\begin{document}
+\title{The \textsf{musical} package}
+\author{Dave Howell \\ \url{dh.musical@howell.seattle.wa.us}}
+\date{v. 3.1, April 2020}
+
+\maketitle
+
+\section{Introduction}
+
+Writing a musical is hard. Writing a musical and handing actors a well-formatted script is also hard. Maintaining a well-formatted script while you’re constantly making changes to it is even harder, and doing it without a word processor specifically programmed for scripts is even harder yet. 
+
+|musical.sty| exists because I didn’t want to spend a couple hundred dollars on commercial script-writing software. It is specifically engineered for writing musical musical scripts. As such, it should also work just fine for recreating existing scripts, and for writing not-musical scripts.
+
+In general, as much as possible has been left for standard \LaTeX\ to handle: title page, copyright page, table of contents, and so forth. Acts and Scenes are chapters and sections, so packages that control the appearance of those should (fingers crossed) allow control of the appearance of the script. 
+
+\section{Usage}
+
+ Start with the obvious |\RequirePackage{musical}| in the preamble or in your master style file for the work, along with the usual \TeX-y stuff.  The fun starts when you’re ready to have the cast of characters, aka “Dramatis Personae” appear, traditionally right before the actual script. The script itself is contained in a |\begin{script}...\end{script}| environment. I usually put the environment in my main .tex file, and include the cast list and individual scenes using |\include|.
+
+\subsection{Cast/Character List}
+
+You’ll normally have a list of characters in front of the script. As mentioned, I’m trying to minimize the number of special commands and keeping it as much as possible in familiar territory, so start the cast list with \verb-\chapter{Dramatis Personae}- or \verb-\chapter{Cast}- or whatever you prefer. You can also do \verb-\section{Leads}- and \verb-\section{Ensemble}- if you like, and so forth. 
+
+The key |musical| command in this section is 
+	\begin{example}
+	\addcharacter[+ital(Nickname)]{+ital(Name)}{+ital(Description)}
+	\end{example}
+	
+For example (assuming a musical version of \ital{Romeo and Juliet})
+	\begin{example}
+	\addcharacter[Romeo]{Romeo}{A young man of about sixteen. A Montague.}
+	\addcharacter[Mercutio]{Mercutio}{A friend of Romeo’s}
+	\addcharacter[Dad]{Montague}{Romeo’s father}
+	\addcharacter[Mom]{Lady Montague}{Romeo’s mother}
+	\end{example}
+	
+The nickname is optional, but so very handy, as you’ll see shortly. The result is
+
+	\medskip\begin{tabular}{ll}
+	\textsc{Romeo}&A young man of about sixteen. A Montague.\strut\\
+	\textsc{Mercutio}&A friend of Romeo’s\strut\\
+	\textsc{Montague}&Romeo’s father\strut\\
+	\textsc{Lady Montague}&Romeo’s mother\strut\\
+	\end{tabular}
+	\medskip
+	
+The descriptions will line up across pages, spaced to accomodate the longest name. Note that this is not done with tables. Page breaks will happen wherever they would normally fall. It will usually take two passes before the column widths settle into position. 
+
+\subsection{The Script Proper}
+
+\subsubsection{Acts and Scenes}
+
+As mentioned above, enclose the actual script in a |script| environment. Acts are super-easy: |\act|. This will start a new page and put “Act \ital N” at the top of the page. 
+
+Scenes are similar: |\scene[+ital(Title)]{+ital(Setting)}|. “Setting” is the set or location for the scene. “Title” (if provided) is used both after the “Scene \ital N” section head and in the running heads. Acts are numbered with roman numerals, scenes with arabic ones. “Act III, Scene 4”. Each new |\scene| command increments the scene number, and the |\act| command resets the scene counter to 1. If the |\scene| command does \ital{not} follow an |\act| command (more specifically, if the scene is not scene \#1), then it will start a new page. 
+
+\begin{example}
+	\act
+	\scene{Verona. A public place.}
+\end{example}
+	
+The \ital{formatting} of the act and scene heads is set by invoking |\scripttitles|, in order to include the act and scene counters. If you want to change the formatting, use |\renewcommand{scripttitles}|. Here’s the default, using commands from the |titlesec| package:
+
+\begin{example}
+  \renewcommand{\scripttitles}{%
+    \titlespacing*{\chapter}{0pt}{0cm}{0cm}%
+    \titleformat{\chapter}[block]{\center}{\LARGE\sc Act \Roman{actcounter}}{0pt}{}%
+    \titlespacing*{\section}{0pt}{0pt plus 1\baselineskip}{0pt}%
+    \titleformat{\section}[display]{\center}{\Large\sc Scene \arabic{scenecounter}}{4pt}{\sc}%
+  }
+\end{example}
+	
+\subsubsection{Page Numbers, and Running Heads}
+
+The page number doesn’t reset when the script starts. Depending on how much material you have before Act I, the first page of the script might be page 17. However, within the |\script| environment, page numbers are \ital{Act\#}-\ital{Scene\#}-\ital{Page\#}, so the first page of this hypothetical script might be “I-1-17”. The running head also includes “Act N, Scene n” and, if the scene has an optional title, that’s included as well. The pagestyle is named |scriptheader|, and can also be redefined with the |\fancypagestyle| command from the |fancyhdr| package. 
+
+\subsubsection{Dialog and Stage Directions}
+
+The most commonly used command, of course, is |\dialog{+ital(CharacterName)}{+ital(Spoken Words)}|, or, if you prefer, |\dialogue|. Generally, the spoken words should be one paragraph, but you can put multiple paragraphs in a dialog command if you really want to. The character name will be set Caps/SmallCaps centered above the spoken text, the text will be inset from the margins by |\speechmargin| (default 2em), with a bit of space between it and the previous text. If the text crosses a page boundary, it will start on the next page with “Character Name (cont.)”. 
+
+\begin{example}
+	\dialog{Montague}{Thou villain Capulet, Hold me not, let me go!}
+	\dialog{Lady Montague}{Thou shalt not stir a foot to seek a foe.}
+\end{example}
+
+Remember the nicknames assigned to characters back on the character list pages? They’ve been defined as commands you can use to insert the full character name. 
+\begin{example}
+	\dialog{\Dad}{Thou villain Capulet, Hold me not, let me go!}
+	\dialog{\Mom}{Thou shalt not stir a foot to seek a foe.}
+\end{example}
+
+But an even shorter shortcut is to replace the |\dialog| command with the nickname:
+\begin{example}
+	\Dad{Thou villain Capulet, hold me not, let me go!}
+	\Mom{Thou shalt not stir a foot to seek a foe.}
+\end{example}
+
+Stage directions are created with the |\stdir| command. General stage directions are created outside of |\dialog| commands, while character-specific ones are placed inside |\dialog| commands. In both cases, stage directions are in italics. Character specific ones are also put inside parentheses. You can also use the character nickname shortcuts inside stage directions; they’ll be set using caps and small caps. 
+
+\begin{example}
+	\stdir{Enter \Dad and \Mom}
+	\Dad{Thou villain Capulet, hold me not, let me go!}
+	\Mom{Thou shalt not stir a foot to seek a foe. \stdir{wags finger at \Dad}}
+\end{example}
+
+\noindent\ital{Enter \textsc{Montague} and \textsc{Lady Montague}}
+
+\medskip\centerline{\textsc{Montague}}
+\hspace{2em}Thou villain Capulet, hold me not, let me go!
+
+\medskip\centerline{\textsc{Lady Montague}}
+\hspace{2em}Thou shalt not stir a foot to seek a foe. (\ital{wags finger at \textsc{Montague}})
+
+\medskip
+You can denote a transition (lighting cue, shift in focus, or such) with the |\transition| command. It inserts a row of three asterisks. If it's a musical transition, you can combine a transition mark with a rehearsal mark (described later) by providing the rehearsal mark's name/letter as an optional parameter to the transition: |\transition[G]|. There’s also a |\pause| command to insert that as a stage direction. If you want to include a character in a stage direction for whom there isn’t a defined shortcut, use the |\character| command:
+ 
+\begin{example}
+	\transition[D]
+	\stdir{\character{Rabble} enters, muttering.}
+\end{example}
+\par
+\noindent\hbox to \textwidth{\hfil*\hspace{2em}*\hspace{2em}*\hfil\hbox to 0pt{\hss{(\textit{Rehearsal Mark} \fbox{D})}}}\par
+\noindent\ital{\textsc{Rabble} enters, muttering.}
+\medskip
+
+Note that it’s up to you to use a good-quality font that has actual small caps (not fake ones), and the even rarer italicized small caps, if you care about such things. I hope you do.\footnote{I'm using Garamond Premier Pro for this document. The Minion and Arno font families, for example, also have true italic small caps. If you're not accessing your system fonts through XeTeX, there are packages that provide italic small caps for Computer Modern and Times.}
+
+Finally, it should be possible to include footnotes in dialog and stage directions with the usual |\footnote{+ital(note)}| command. The footnote will drop to the bottom of the page. However, I won't swear that there aren't still some bugs in the footnoting system. 
+
+\subsubsection{Music, Dance, and Lyrics}
+
+Musicals have songs, which means singing, which means lyrics. Mark musical cues with the |\music{+ital(Title)}| command, dance numbers with the equivalent |\dance{+ital(Title)}| command, and lyrics with the |\lyrics{+ital(Character Name)}{+ital(Lyrics)}| command. 
+
+Traditionally, which is to say, since the invention of the typewriter, lyrics were presented in all caps to distinguish them from dialog. This is because typewriters are an abomination against quality typography; “all caps” is an abominable and appalling “solution.” If you \ital{really} want your lyrics capitalized, you can switch them to small caps with |\toggletrue{scaplyrics}|, although I hope you don't.   
+
+Capped or not, lyrics are inset twice as far as dialog on the left side. In order to cut down on the number of wrapped lines, the right margin is the same width as the text block. Unlike dialog, line breaks in lyrics are preserved. Use a |~| to create blank lines between stanzas. Also, the character name is bracketed by a symbol (specifically |\lyricsymbol|), to make it even easier to identify lyrics. You can include stage directions in lyrics as well.
+
+\begin{example}
+	\music{Behold!}
+	\lyrics{\Romeo}{Behold my Juliet! \stdir{points}
+	Upon the parapet.
+	We’re not together yet
+	‘Cause she’s a Capulet.
+	~
+	But soon enough, you’ll see
+	We’ll be in ecstasy. 
+	After from here we flee,
+	And joined eternally.}
+\end{example} 
+\medskip
+
+{\flushright\ital{Music Cue: “Behold!”}
+
+}\centerline{\lyricsymbol~\textsc{Romeo} \lyricsymbol }
+
+\hspace{4em}Behold my Juliet! (\ital{points})\strut
+
+\hspace{4em}Upon the parapet.\strut
+
+\newpage\centerline{\lyricsymbol~\textsc{Romeo} (cont.)\lyricsymbol }
+\hspace{4em}We’re not together yet\strut
+
+\hspace{4em}’Cause she’s a Capulet.\strut
+
+\hspace{4em}~\strut
+
+\hspace{4em}But soon enough, you’ll see\strut
+
+\hspace{4em}We’ll be in ecstasy. \strut
+
+\hspace{4em}After from here we flee,\strut
+
+\hspace{4em}And joined eternally.\strut
+\medskip
+
+If the song is particularly long and/or complicated, you can connect specific spots in the script to specific spots in the score by referencing the score's rehearsal marks with the |\rehearsalmark{+ital(mark)}| command.  For more complicated lyrics, which move between characters mid-line, there’s the |\spacer| command to keep things lined up:
+
+\begin{example}
+	\lyrics{Montagues}{How now?}
+	\lyrics{Capulets}{\spacer{How now?} What’s this?}
+	\lyrics{Montagues}{\spacer{How now? What’s this?} Romeo is missing!}
+	\lyrics{Capulets}{\spacer{How now? What’s this? Romeo is missing!} Juliet has fled?}
+	\rehearsalmark{A}
+	\lyrics{Montagues, Capulets}{How can such a thing have happened?}
+	\lyrics{Montagues}{He’s in a lot of trouble!}
+	\lyrics{Capulets}{\spacer{He’s in a lot of trouble!} She might even be dead!}
+\end{example} 
+
+\centerline{\lyricsymbol~\textsc{Montagues} \lyricsymbol}
+\hspace{4em}\strut How now?
+
+\medskip\centerline{\lyricsymbol~\textsc{Capulets} \lyricsymbol}
+\hspace{4em}\strut\spacer{How now?} What’s this?
+
+\medskip\centerline{\lyricsymbol~\textsc{Montagues} \lyricsymbol}
+\hspace{4em}\strut\spacer{How now? What’s this?} Romeo is missing!
+
+\medskip\centerline{\lyricsymbol~\textsc{Capulets} \lyricsymbol}
+\hspace{4em}\strut\spacer{How now? What’s this? Romeo is missing!} Juliet has fled!
+
+\medskip{\raggedleft\small
+		\vspace{1ex}%
+		{(\textit{Rehearsal Mark} \fbox{A})}\par
+		\vspace{-1ex}}
+\centerline{\lyricsymbol~\textsc{Montagues, Capulets} \lyricsymbol}
+\hspace{4em}How can such a thing have happened?
+
+\medskip\centerline{\lyricsymbol~\textsc{Montagues} \lyricsymbol}
+\hspace{4em}\strut He’s in a lot of trouble!
+
+\medskip\centerline{\lyricsymbol~\textsc{Capulets} \lyricsymbol}
+\hspace{4em}\strut\spacer{He’s in a lot of trouble!} She might even be dead!
+
+\bigskip
+
+You can include table-of-contents-like lists of all the musical cues and dance numbers in your script with |\listofsongs| and |\listofdances|. 
+
+\section{Wrapping Up}
+
+That's pretty much it. If you find this style library useful, please drop me a line. It'd be nice to know I didn't take all this time creating the documentation for no good reason. If you have problems with it, or find a bug, definitely drop me a line. 
+
+\end{document}

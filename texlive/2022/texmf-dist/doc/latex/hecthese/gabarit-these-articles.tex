@@ -1,0 +1,269 @@
+%%
+%% This is file `gabarit-these-articles.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% hecthese.dtx  (with options: `gabarit,phd,articles,francais')
+%% 
+%% This is a stripped version of the original file.
+%% 
+%% Copyright 2017-2021 HEC Montreal
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% 
+%% The latest version of this license is in
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Benoit Hamel
+%% <benoit.2.hamel@hec.ca>.
+%% 
+%% This work consists of the files hecthese.dtx, hecthese-fr.ins,
+%% hecthese-en.ins, hecthese.pdf, hecthese-en.pdf
+%% and the derived files listed in the README file.
+%% 
+%% GABARIT POUR UNE THESE PAR ARTICLES
+%%
+%% Ceci est le fichier maitre dans lequel vous inscrivez les m\'{e}tadonn\'{e}es
+%% relatives \`{a} votre travail, vous cr\'{e}ez vos commandes et environnements
+%% personnalis\'{e}s, et \`{a} partir duquel vous lancez vos compilations.
+%%
+%% NE REDIGEZ PAS VOTRE THESE OU MEMOIRE DANS CE FICHIER!
+%%
+%% Consultez la documentation de la classe hecthese pour de plus amples
+%% informations.
+%%
+%% DECLARATION DE LA CLASSE DE DOCUMENT
+%%
+%% La classe est declaree avec le type de document et les langues par
+%% defaut. Inscrivez dans la liste d'options la taille de police de
+%% caracteres (10pt, 11pt, 12pt) ou laissez la classe charger la taille
+%% par defaut : 12pt.
+\documentclass[phdarticles,english,french]{hecthese}
+%%
+%% PACKAGES DEJA CHARGES
+%%
+%% Voici la liste des packages qui viennent deja charges avec la classe
+%% hecthese. VOUS NE DEVEZ PAS LES RECHARGER A NOUVEAU! Si vous le faites,
+%% vous occasionnerez des bogues.
+%%
+%% Package[utf8]{inputenc}
+%% Package[T1]{fontenc}
+%% Package{natbib}
+%% Package{chapterbib}
+%% Package{babel}
+%% Package[autolanguage]{numprint}
+%% Package{calc}
+%% Package{enumitem}
+%% Package{tocvsec2}
+%% Package{graphicx}
+%% Package{color}
+%% Package{amsmath}
+%% Package{iflang}
+%%
+%% PACKAGES A CHARGER
+%%
+%% Ajoutez tous les packages necessaires a la redaction de votre travail.
+%% Assurez-vous cependant de suivre les consignes suivantes :
+%%
+%% 1) Le package hyperref doit etre charge EN DERNIER si vous voulez qu'il
+%% fonctionne correctement.
+%% 2) Le package geometry est INCOMPATIBLE avec la classe memoir. Vous ne
+%% devez pas l'utiliser dans votre travail. Consultez la documentation
+%% de la classe memoir pour de plus amples informations.
+%%
+%% CHOIX D'UNE POLICE DE CARACTERES
+%%
+%% Choisissez le package mathptmx si vous voulez utiliser une police de type
+%% Times, avec empattements, et le package mathpazo si vous voulez utiliser
+%% une police de type Arial, sans empattements. Choisissez-en une et supprimez
+%% l'autre, ou mettez-la en commentaires.
+\usepackage{mathptmx}
+%% \usepackage{mathpazo}
+
+\usepackage{hyperref}
+%%
+%% PRODUCTION DE L'INDEX
+%%
+\makeindex
+%%
+%% GENERATION DES TITRES
+%%
+%% On change les titres de l'introduction et de la conclusion generales.
+%%
+\HECgenererTitres
+%%
+%%
+%% MISE EN FORME DE LA TABLE DES MATIERES
+%%
+%% On inclut dans la table des matieres toutes les divisions de document
+%% jusqu'aux sous-sections. Si vous desirez avoir une table des matieres
+%% plus detaillee, indiquez dans les deux commandes ci-dessous jusqu'a
+%% quel niveau vous voulez voir repertories dans la TDM.
+%%
+\setsecnumdepth{subsection} % Numerotation des sous-sections / Subsection numbering
+\settocdepth{subsection} % Inclusion des sous-sections dans la TDM / Including subsections in the TOC
+%%
+%% METADONNEES DU DOCUMENT
+%%
+%% Le titre de votre travail. Si le titre est long, utilisez la commande \\
+%% pour le mettre sur plusieurs lignes.
+\HECtitre{Titre de la th\`{e}se ou du m\'{e}moire}
+%% Le sous-titre de votre travail. S'il ne comporte pas de sous-titre, videz
+%% le contenu des accolades.
+\HECsoustitre{Sous-titre de la th\`{e}se}
+%% L'auteur, c'est vous...
+\HECauteur{Pr\'{e}nom Nom}
+%% Nom de l'option de votre grade
+\HECoption{Nom de l'option}
+%% Mois du depot final de votre travail
+\HECmoisDepot{Mai}
+%% Annee du depot final de votre travail
+\HECanneeDepot{2017}
+%% Le nom complet du president rapporteur et son genre (M ou F)
+\HECpresidentRapporteur{Pr\'{e}nom Nom}{M ou F}
+%% Le nom complet de votre directeur de recherche et son genre (M ou F)
+\HECdirecteurRecherche{Pr\'{e}nom Nom}{M ou F}
+%% Le nom complet de votre codirecteur de recherche et son genre (M ou F)
+\HECcodirecteurRecherche{Pr\'{e}nom Nom}{M ou F}
+%% L'universite de provenance de votre codirecteur de recherche
+\HECuniversiteCodirecteur{HEC Montr\'{e}al}
+%% Le nom complet du membre du jury
+\HECmembreJury{Pr\'{e}nom Nom}
+%% L'universite de provenance du membre du jury
+\HECuniversiteMembreJury{HEC Montr\'{e}al}
+%% Le nom complet de l'examinateur externe et son genre (M ou F)
+\HECexaminateurExterne{Pr\'{e}nom Nom}{M ou F}
+%% L'universite de provenance de l'examinateur externe
+\HECuniversiteExaminateur{HEC Montr\'{e}al}
+%% Le nom complet du representant du directeur et son genre (M ou F)
+\HECrepresentantDirecteur{Pr\'{e}nom Nom}{M ou F}
+%%
+%% OPTIONS DES PACKAGES CHARGES
+%%
+%% Si vos packages ont des options specifiques a charger avant le debut
+%% du document, inscrivez-les ci-dessous. Si vous voulez outrepasser les
+%% options des packages charges par defaut avec la classe hecthese,
+%% consultez la documentation pour en connaitre la procedure.
+%%
+%% Options du package hyperref (inclure les metadonnees pdf dans les options) /
+%% hyperref package option (including pdf metadata)
+\hypersetup{%
+colorlinks=true,
+allcolors=black,
+pdfauthor=\HECpdfauteur,
+pdftitle=\HECpdftitre
+}
+%% Options de babel / babel options
+\frenchbsetup{% 
+og=«, fg=» % caracteres « et » sont les guillemets
+}
+%%
+%% DEBUT DE LA THESE OU DU MEMOIRE
+%%
+\begin{document}
+%%
+%% STYLE BIBLIOGRAPHIQUE
+%%
+%% On utilise par defaut le style bibliographique francais issu du package
+%% francais-bst. L'utilisation de ce style n'est pas obligatoire. Consultez
+%% la documentation pour connaitre la liste des styles compatibles avec la
+%% langue de redaction de votre these ou memoire.
+%%
+\bibliographystyle{francais}
+
+%% Pages liminaires / frontmatter
+\frontmatter
+
+%% Page de garde / cover page
+\mbox{}
+\thispagestyle{empty}
+\cleardoublepage
+
+%% Page de titre
+ \HECpagestitre
+
+%% Configuration des bibliographies des articles /
+%% Articles' bibliographies configuration
+\HECbibliographieArticle
+
+%% Resume francais / french abstract
+ \include{resume-francais}
+
+%% Resume anglais / english abstract
+ \include{resume-anglais}
+
+%% Table des matieres (* pour ne pas inclure la TDM dans la TDM) /
+%% Table of contents (* for excluding the TOC from the TOC)
+\tableofcontents*
+\cleardoublepage
+
+%% Liste des tableaux / list of table
+\listoftables
+\cleardoublepage
+
+%% Liste des figures / list of figures
+\listoffigures
+\cleardoublepage
+
+%% Liste des abreviations / acronyms list
+ \include{liste-abreviations}
+
+%% Dedicace / dedication
+ \include{dedicace}
+
+%% Remerciements / acknowledgements
+ \include{remerciements}
+
+%% Avant-propos / preface
+ \include{avant-propos}
+
+%% Partie principale de la these ou du memoire / mainmatter
+\mainmatter
+
+%% Introduction
+\include{introduction}
+
+%% Cadre theorique / theoretical framework
+ \include{cadre-theorique}
+
+%% Articles de developpement / articles
+\include{article-1}
+\include{article-2}
+\include{article-3}
+
+%% Conclusion
+\include{conclusion}
+
+%% Index analytique / analytical index
+\printindex
+
+%% BIBLIOGRAPHIE / BIBLIOGRAPHY
+ %% Configuration de la bibliographie generale
+\HECbibliographieGenerale
+%% Inscrivez le nom de votre fichier .bib entre les accolades.
+\bibliography{}
+
+\backmatter
+
+%% Retour a la pagination romaine / Back to roman page numbering
+\pagenumbering{roman}
+
+%% Annexes / appendices
+\appendix
+ \include{annexe}
+
+%% Page de garde de fin / back cover page
+\mbox{}
+\thispagestyle{empty}
+
+\end{document}
+\endinput
+%%
+%% End of file `gabarit-these-articles.tex'.

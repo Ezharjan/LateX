@@ -1,0 +1,108 @@
+% ----------------------------------------------------------
+\chapter{Figuras e gráficos}
+% ----------------------------------------------------------
+
+\section{Introdução}
+
+Sugiro que você guarde todas as figuras na pasta ``figuras'' para que seu projeto fique mais organizado. A figura \ref{fig:logolatex} mostra como é fácil inserir uma figura com legenda e referência à fonte.
+
+\begin{figure}[htb]
+	\centering
+	\begin{minipage}{0.6\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{1280px-LaTeX-logo.png}
+		\caption{Logo \LaTeX.} \label{fig:logolatex}
+		\source{Wikimedia Commons \cite{wikimedia-latex}.}
+	\end{minipage}
+\end{figure}
+
+Além de figuras, é possível inserir caixas de texto de diversos tipos, como axiomas, teoremas etc.
+
+Existem pacotes que permitem criar figuras e gráficos no próprio código \LaTeX. Por exemplo, temos
+
+\begin{itemize}
+    \item PGFPlots \url{http://pgfplots.sourceforge.net/}
+    \item TikZ \url{http://www.texample.net/tikz/examples/all/}
+    \item Metapost \url{http://tex.loria.fr/prod-graph/zoonekynd/metapost/metapost.html}
+    \item PSTricks \url{https://tug.org/PSTricks/main.cgi?file=examples}
+\end{itemize}
+
+\section{Exercício}
+
+\begin{exercise}
+    Explique como Isaac Newton usaria cada um dos pacotes seguintes, se vivesse no tempo presente:
+    \begin{enumerate}[label=(\Alph*)]
+        \item Metapost
+        \item TikZ
+        \item PGFPlots
+        \item PSTricks
+    \end{enumerate}
+\end{exercise}
+
+%\begin{solution}
+%    \begin{enumerate}[label=(\Alph*)]
+%        \item Para fazer figuras 3D.
+%        \item Para fazer diagramas.
+%        \item Para traçar gráficos.
+%        \item Para fazer de um tudo.
+%    \end{enumerate}
+%\end{solution}
+
+\section{Algoritmo}
+
+\begin{algorithm} [h]
+\caption{NN-based MPC pseudocode for consensus control}
+\label{alg:NNMPC}
+\begin{algorithmic}[1]
+
+%\Procedure{Roy}{$a,b$}       \Comment{This is a test}
+    \State System Initialization at $x(0), \theta(0)$
+    \State $J = V(e(0),\theta(0))$
+    \State $K^{ab}_0 = 0$ $\forall (a,b)$
+    \State $dataset \gets [K_0,J]$
+    \For{$k = 1:k_{max}$} \Comment{Simulation loop}
+        \State $(W,Y) \gets train(dataset)$
+        \State $\tilde{J} = Y\sigma(Wz)$ $\forall K^{ab}_k\pm \delta_K
+        $
+        \State $K_k^{\ast} = arg \min_{K_k}(\tilde{J})$
+        \State $u(k) =  \left( L(\theta(k)) \otimes K_k^{\ast} \right) x(k)$
+        \State $\hat{x}(k) = x(k)$; $\hat{\theta}(k) = \theta(k)$
+        \For{$t = k+1:k+h+1$} \Comment{Prediction loop}
+            %\For{$s = 1:S$} \Comment{Markov loop}
+                \State $\hat{\theta}(t) = randMarkov(\hat{\theta}(t-1),\Pi)$
+                \State $p = \hat{\theta}(t)$
+                \State $\hat{u}(t) = \left( L(p) \otimes K_k^{\ast} \right) \hat{x}(t)$
+                \State $\hat{x}(t+1) = F_p(\hat{x}(t))$
+                \State $x_0(t) = mean(\hat{x}(t))$
+                \State $\hat{e}(t) = F_p(\hat{x}(t)) - \boldsymbol{1_N} f_{p0}(x(t)) $
+                \State $\hat{V}_t = \hat{e}^T(t)P_{p}\hat{e}(t)$
+                \EndFor
+                %\State $r(t) = r(t-k)\Pi^{k}$
+                %\State $\bar{V}_t = \sum_{s=1}^S r_s(t) V_t^s$
+                %\EndFor
+        \State $\hat{J} = \sum_{t = k+1}^{k+h+1} \hat{V}_t$
+        \State $dataset \gets [K^{\ast}_k,\hat{J}]$
+        \State $x(k+1) = F_p(x(k))$
+    \EndFor
+    
+%\EndProcedure
+
+\end{algorithmic}
+\end{algorithm}
+
+\section{Programa}
+
+\begin{lstlisting}
+/**
+* MSO: ativa o servo cujo eixo eh descrito
+* por drive_axis; informacoes de controle
+* sao gravadas em MSO_1
+*/
+  MSO(drive_axis,MSO_1);
+/* Atribui o valor 0.0 ao primeiro elemento do array speed */
+  speed[0] := 0.0; 
+/* Atribui 1 para dataInitialized */
+  dataInitialized := 1;
+\end{lstlisting}
+
+Para mais exemplos de programas, veja o \autoref{apd:cdg}

@@ -1,0 +1,212 @@
+\documentclass[dvisvgm,hypertex,aspectratio=169]{beamer}
+
+\usetheme{default}
+\makeatletter
+\defbeamertemplate*{frametitle}{mydefault}{%
+  \nointerlineskip\vspace{1ex}{\usebeamerfont{frametitle}\insertframetitle}%
+  \ifx\insertframesubtitle\@empty\else{\usebeamerfont{framesubtitle}\\\insertframesubtitle}\fi%
+  \vspace{-0.8ex}%
+}
+\makeatother
+\setbeamersize{text margin left=0.0333\paperheight,text margin right=0.0333\paperheight}
+
+\usefonttheme{serif}
+\usepackage[british]{babel}
+
+\usepackage{media4svg}
+\usepackage{menukeys,siunitx,calc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% slide navigation via keyboard and mouse click/mouse wheel, mouse cursor
+% autohide on idle; navigation symbols <--, -->
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[totpages]{zref}
+\usepackage{fontawesome5}
+\setbeamertemplate{navigation symbols}{}
+\AtBeginShipout{%
+  \AtBeginShipoutAddToBox{%
+    \special{dvisvgm:raw
+      <style>svg{cursor: none}</style>%
+      <defs>%
+      <script type="text/javascript">%
+      <![CDATA[%
+        var cursorTimer;%
+        var downOnLink=false;%
+        var downOnRoot=false;%
+        function islink(tg){return (tg.tagName=='a') ? true : tg.parentNode ? islink(tg.parentNode) : false;};%
+        document.addEventListener('mousemove', function(e){%
+          if(islink(e.target)||e.target.getAttribute('class')=='annot'||e.target.tagName=='video'){%
+            e.target.style.cursor='pointer';}else{e.target.style.cursor='default';}%
+          try{clearTimeout(cursorTimer);}catch(err){};%
+          cursorTimer=setTimeout(function(){e.target.style.cursor='none';},3000);%
+        });%
+        document.addEventListener('mousedown', function(e){%
+          if(islink(e.target)) downOnLink=true;%
+          else downOnRoot=true;%
+        });%
+        document.addEventListener('mouseup', function(e){%
+          if(downOnLink||!downOnRoot){downOnLink=false;return;}%
+          downOnRoot=false;%
+          \ifnum\thepage<\ztotpages
+            if(!e.shiftKey) document.location.replace('\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage+1\relax}.svg');%
+          \fi%
+          \ifnum\thepage>1
+            if(e.shiftKey) document.location.replace('\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage-1\relax}.svg');%
+          \fi%
+        });%
+        document.addEventListener('wheel', function(e){%
+          \ifnum\thepage<\ztotpages
+            if(e.deltaY>0){%
+              document.location.replace('\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage+1\relax}.svg');%
+            }%
+          \fi%
+          \ifnum\thepage>1
+            if(e.deltaY<0){%
+              document.location.replace('\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage-1\relax}.svg');%
+            }%
+          \fi%
+        });%
+        document.addEventListener('keydown',function(e){%
+            \ifnum\thepage<\ztotpages
+              if(e.key=='PageDown'||e.key=='ArrowDown'||e.key=='ArrowRight')%
+                  document.location.replace('\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage+1\relax}.svg');%
+            \fi%
+            \ifnum\thepage>1
+              if(e.key=='PageUp'||e.key=='ArrowUp'||e.key=='ArrowLeft')%
+                document.location.replace('\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage-1\relax}.svg');%
+            \fi%
+            if(e.key=='Home')
+              document.location.replace('\jobname-\zeroPad{\ztotpages}{1}.svg');%
+            if(e.key=='End')
+              document.location.replace('\jobname-\ztotpages.svg');%
+          });%
+      ]]>%
+      </script>%
+      </defs>%
+    }%
+  }%
+  \AtBeginShipoutUpperLeftForeground{%
+    \raisebox{-\dimexpr\height+0.5ex\relax}[0pt][0pt]{\makebox[\paperwidth][r]{%
+      \normalsize\color{structure!40!}%
+      \ifnum\thepage>1%
+        \href{\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage-1\relax}.svg}{\faArrowLeft}%
+      \else%
+        \textcolor{lightgray}{\faArrowLeft}%
+      \fi\hspace{0.5ex}%
+      \ifnum\thepage<\ztotpages%
+        \href{\jobname-\zeroPad{\ztotpages}{\the\numexpr\thepage+1\relax}.svg}{\faArrowRight}%
+      \else%
+        \textcolor{lightgray}{\faArrowRight}%
+      \fi%
+      \hspace{0.5ex}%
+    }}%
+  }%
+}%
+% helper macro \zeroPad : zero-pads integer according to template,
+% e. g. 123 --> 00123 if template is `99999`
+% #1: arbitrary integer number as template specifying the
+%     width, e. g. `987654' for a width of 6 digits
+% #2: the number to be formatted
+\def\zeroPad#1#2{\zeroPadI{\zeroTemplate{0}{#1}}{#2}}
+%low level macros used by \zeroPad
+\def\zeroPadI#1#2{% #1: string of zeros specifying width, #2 number
+  \ifnum1#2<1#1
+    \zeroPadI{#1}{0#2}%
+  \else%
+    #2%
+  \fi%
+}%
+\def\zeroTemplate#1#2{% create template (string of zeros) from given num
+  \ifnum10#1>1#2
+    #1%
+  \else%
+    \zeroTemplate{0#1}{#2}%
+  \fi%
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Presentation example with embedded video}
+\subtitle{Use a Web browser and press \keys{F11}}
+\author{AlexG}
+\date{\today}
+
+\begin{document}
+\selectlanguage{british}
+
+\begin{frame}[fragile]
+\titlepage\footnotesize
+\makebox[0.3\linewidth]{\hrulefill}\\[1ex]
+Toggle Full-Screen with \keys{F11}, navigate with \keys{PageUp} \& \keys{PageDn}, mouse click or mouse wheel.\\[2ex]
+To build this presentation from the source, run:\vspace{-2ex}
+\begin{verbatim}
+dvilualatex beamer-example
+dvilualatex beamer-example
+dvisvgm --bbox=papersize --font-format=woff2 --zoom=-1 --page=- --linkmark=none \
+                                                                     beamer-example
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Video file}
+embedded local video file from package \emph{mwe}
+\begin{verbatim}
+\includemedia[width=24em,height=13.5em]{}{example-movie.mp4}
+\end{verbatim}
+  \begin{center}
+  \includemedia[width=24em,height=13.5em]{}{example-movie.mp4}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Remote video}
+video streamed from URL and YouTube player with two videos played in a loop
+\begin{verbatim}
+\includemedia[width=16em,height=9em,url,controls]{}{%
+  https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm}
+\end{verbatim}
+\begin{verbatim}
+\includemedia[width=16em,height=9em,youtube,controls,loop,
+                                  autoplay,muted]{}{OSPyXTjIrnk,9HQfauGJaTs}
+\end{verbatim}
+\vspace{1ex}
+\begin{columns}[onlytextwidth,b]
+  \begin{column}{0.49\linewidth}
+    \includemedia[width=16em,height=9em,url,controls]{}{https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm}
+  \end{column}
+  \begin{column}{0.49\linewidth}
+    \includemedia[width=16em,height=9em,youtube,controls,loop,autoplay,muted]{}{OSPyXTjIrnk,9HQfauGJaTs}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Player control}
+The standard player controls (option `\verb+controls+') take a lot of space of the media display. Therefore, it is not recommended to enable them. Nevertheless, interactivity is still provided through touch or left mouse button click, and through the keyboard as summarized in the table.
+
+Click on the media display to start playback. To pause playback, press the left mouse button on the media display. Release it to resume playback. To pause playback permanently, press the left mouse button on the media display and move the mouse out while keeping the button pressed.
+
+\begin{minipage}[t]{0.5\linewidth}
+  \rule{1ex}{0pt}\\
+  \begin{tabular}{ll}\hline
+  Command & Shortcut\\\hline
+  \rule{0pt}{2.4ex}Toggle Play/Pause & \keys{\SPACE}\\
+  Increase volume & \keys{\arrowkeyup}\\
+  Decrease volume & \keys{\arrowkeydown}\\
+  Unmute audio & \keys{Ctrl+\arrowkeyup}\\
+  Mute audio & \keys{Ctrl+\arrowkeydown}\\
+  Toggle Full-Screen & \keys{F11}
+  \end{tabular}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+  \rule{1ex}{0pt}\\
+  \begin{tabular}{ll}\hline
+  Command & Shortcut\\\hline
+  \rule{0pt}{2.4ex}Seek back \SI{1}{\percent} & \makebox[\widthof{\keys{\SPACE}}][l]{\keys{\arrowkeyleft}}\\
+  Seek forward \SI{1}{\percent} & \keys{\arrowkeyright}\\
+  Seek back \SI{10}{\percent} & \keys{Ctrl+\arrowkeyleft}\\
+  Seek forward \SI{10}{\percent} & \keys{Ctrl+\arrowkeyright}\\
+  Seek to beginning & \keys{Home}\\
+  Seek to end & \keys{End}
+  \end{tabular}
+\end{minipage}
+
+\end{frame}
+
+\end{document}

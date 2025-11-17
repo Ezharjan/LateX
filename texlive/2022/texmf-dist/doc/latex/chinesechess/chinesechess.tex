@@ -1,0 +1,1054 @@
+\documentclass[full]{l3doc}
+\usepackage[scheme=chinese]{ctex}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{fancyvrb-ex}
+\usepackage[piecechar={C}{炮}]{chinesechess}
+% \usepackage[draft,piecechar={C}{炮}]{chinesechess}
+
+\IndexPrologue
+  {
+    \section*{Index}
+    \markboth{Index}{Index}
+    \addcontentsline{toc}{section}{Index}
+    The~italic~numbers~denote~the~pages~where~the~
+    corresponding~entry~is~described,~
+    numbers~underlined~point~to~the~definition,~
+    all~others~indicate~the~places~where~it~is~used.
+  }
+
+\newcommand\tikzmark[1]{\tikz \coordinate[overlay, remember picture] (#1);}
+
+\geometry{
+  left=4.5cm,
+  right=2cm,
+  top=2cm,
+  bottom=2cm,
+}
+\hypersetup {
+  CJKbookmarks,
+  bookmarksopen,
+  bookmarksopenlevel=3,
+  pdfstartview=FitH,
+  pdfinfo = {
+   Title = 中国象棋排版宏包 ,
+   Subject = A LaTeX3 package ,
+   Author = 耿楠
+ }
+}
+
+\DoNotIndex{\begin, \end}
+\setlength{\parskip}{\medskipamount}
+\DeclareDocumentEnvironment { noteen } { +b } {
+  \par\textbf{\textsf{NOTE:~}}#1\par
+} {}
+\DeclareDocumentEnvironment { notezh } { +b } {
+  \par\textbf{\textsf{注意:~}}#1\par
+} {}
+
+\AtEndDocument{
+  \newgeometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+  }
+  \PrintIndex
+}
+
+\ExplSyntaxOn
+\dim_new:N \l__my_syntax_dim
+\box_new:N \g__my_syntax_box
+\NewDocumentEnvironment { Syntax } { s }
+  {
+    \dim_set:Nn \l__my_syntax_dim
+      { \textwidth }
+    \hbox_gset:Nw \g__my_syntax_box
+      \small \ttfamily
+      \begin{minipage}[t]{\l__my_syntax_dim}
+        \raggedright\obeyspaces\obeylines
+  }
+  {
+      \end{minipage}
+    \hbox_gset_end:
+    \IfValueF { #1 } { \smallskip }
+    \box_use_drop:N \g__my_syntax_box
+    \smallskip
+  }
+
+\DeclareDocumentEnvironment { Description } { o +b } {
+  \hbox_set:Nn \l_tmpa_box { #1 }
+  \dim_set:Nn \l_tmpa_dim { \box_wd:N \l_tmpa_box }
+  \begin{itemize}[labelwidth=\l_tmpa_dim, align=left]
+    #2
+  \end{itemize}
+} {  }
+
+\keys_define:nn { cchess/doc } {
+  opt .tl_set:N = \l_opt_tl,
+  desc .tl_set:N = \l_desc_tl,
+  init .tl_set:N = \l_init_tl,
+  init .initial:n = init-none,
+}
+
+\box_new:N \l__option_box
+\NewDocumentEnvironment { option } { m +b } {
+  \keys_set:nn { cchess/doc } { #1 }
+  \hbox_set:Nw \l__option_box
+    \small \ttfamily
+    \begin{minipage}[t]{\textwidth}
+      \obeyspaces\obeylines
+      \textcolor{red}{
+        \l_opt_tl
+        \exp_args:Nx\SpecialOptionIndex{\l_opt_tl}
+      }
+      {~}\l_desc_tl
+      \hfill(
+      \tl_if_eq:NnTF \l_init_tl { init-none } { no~value }
+        { 初始值:~\texttt{\l_init_tl} }
+      )
+    \end{minipage}
+  \hbox_gset_end:
+  \box_use_drop:N \l__option_box
+  #2
+  % \vspace*{-4ex}
+  \medskip
+} {  }
+
+\DeclareDocumentCommand \opt { O{} m }
+  { \__codedoc_cmd:no {#1} { #2 } }
+\ExplSyntaxOff
+
+\def\vers{\texttt{v1.2.0} }
+
+\begin{document}
+\title{
+  中国象棋棋谱排版\\\pkg{chinesechess} 宏包
+  % \rlap{\makebox[4cm][r]{
+    % \normalsize $\Longrightarrow$ \color{red}
+    % \protect\hyperlink{en}{English Version}
+    % \protect\hypertarget{zh}{}
+  % }}
+}
+\author{\textit{耿楠} \texttt{<nangeng@nwafu.edu.cn>}}
+\date{\the\year 年\the\month 月\the\day 日\qquad \vers
+% \thanks{\url{https://github.com/registor/chinesechess}}
+\thanks{\url{https://gitee.com/nwafu_nan/chinesechess}}
+}
+
+\maketitle
+
+\begin{abstract}
+  \pkg{chinesechess}是一个基于\pkg{l3draw}绘图宏包，用\pkg{Expl3}%
+  开发的中国象棋排版宏包。它提供了\tn{cchessboard}(全棋盘)、%
+  \tn{cchessbord*}(空棋盘)和\tn{cchessman}(棋谱)排版命令。同时，
+  该宏包还提供了用于打谱的排版环境\env{setcchessman}，在该环境
+  中，可以通过环境专用命令\tn{init}(初始化棋谱状态)，\tn{set}(在
+  指定位置布置棋子)，\tn{del}(删除指定位置的棋子)，\tn{mov}(实现
+  棋子的移动)实现打谱操作，并在环境结束后排版最终状态棋谱。
+  通过其星号环境\env{setcchessman*}可以记录打谱过程，并通过%
+  \tn{printman}利用交叉引用标签\oarg{label}选项对指定%
+  \env{setcchessman*}打谱环境记录的打谱文本在指定位置排版输出。
+  棋子、棋盘、背景等外观可以通过命令、环境选项或\tn{cchessset}%
+  命令进行设置。
+\end{abstract}
+
+{\small
+\tableofcontents
+}
+\newpage
+
+\begin{documentation}
+
+\section{引言}
+
+\pkg{chinesechess}是一个基于\pkg{l3draw}绘图宏包，用\pkg{Expl3}%
+开发的中国象棋排版宏包。它利用\pkg{l3draw}的绘图功能，通过为红黑
+各7个棋子文字添加背景实现了棋子绘制，利用简单线条实现了棋盘绘制，
+并可以通过\pkg{graphicx}宏包可以为棋盘添加图片背景。
+
+该宏包的目的是实现\textsf{不依赖于字体文件}或\textsf{字体宏包}的
+中国象棋棋谱排版，由于需要大量绘制操作，因此，其编译速度较低。
+
+\section{用户接口}
+
+\subsection{\tn{cchessboard}棋盘排版命令}
+
+\begin{function}{\cchessboard}
+  \begin{syntax}
+    \cs{cchessboard} \oarg{外观选项}
+    \cs{cchessboard*} \oarg{外观选项}
+  \end{syntax}
+\end{function}
+
+  按设置的\oarg{外观选项}输出带有32个红黑棋子，并布置于初始位置
+  的棋盘。
+
+  在\oarg{外观选项}中可以通过key-value的方式设置棋子、棋盘的颜色、
+  字体、字号、线宽等外观。
+
+  通过\oarg{外观选项}设置的外观参数仅对当前命令局部有效，
+
+  其星号版本命令用于无棋子棋盘排版。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+          resize/height=4.0cm}
+  \cchessboard\quad
+  \cchessboard*
+\end{SideBySideExample}
+
+\subsection{\tn{cchessman}棋谱排版命令}\label{subsec-cchessman}
+
+\begin{function}{\cchessman}
+  \begin{syntax}
+    \cs{cchessman} \oarg{外观选项} \marg{棋子列表}
+  \end{syntax}
+\end{function}
+
+  按设置的\oarg{外观选项}，将在\marg{棋子列表}中指定棋子布置于棋盘的
+  指定位置并排版输出。
+
+  \marg{棋子列表}中各个棋子用大括号分组后再用英文逗号进行分隔，每个棋子
+  是由大括号括起来的\textsf{棋子位置}与\textsf{棋子编码}组成的。
+
+  棋子位置由英文逗号分隔的纵横坐标确定，其中，纵向坐标用英文小写字母
+  a--j或阿拉伯数字0--9分别表示棋盘纵向10个交点；横向坐标用英文小写字母
+  a--i或阿拉伯数字0--8分别表示棋盘横向的9个交点。
+
+  \textbf{\textsf{注意: }}可以混合使用字母和数字棋子坐标表示方法，但强烈
+  建议使用单一字母法或数字法表示棋子坐标。
+
+  棋子编码采用大写字母表示红棋，小写字母表示黑棋，具体如表%
+  \ref{tab-piececode}所示。
+
+  \begin{table}[!htbp]
+    \centering
+    \caption{棋子编码规则}\label{tab-piececode}
+    \begin{tabular}{cc||cc}
+      \hline
+      编码 & 红棋 & 编码 & 黑棋\\\hline
+      K    & 帥   & k    & 將  \\
+      A    & 仕   & a    & 士  \\
+      B(E) & 相   & b(e) & 象  \\
+      N(H) & 马   & n(h) & 馬  \\
+      R    & 车   & r    & 車  \\
+      C    & 炮   & c    & 炮  \\
+      P    & 兵   & p    & 卒  \\\hline
+    \end{tabular}
+  \end{table}
+
+  例如，一个完整的\marg{棋子列表}为:
+
+  |{{4,0}{K}}, {{2,2}{p}}, {{1,7}{C}}, {{4,9}{k}}|
+
+  在\oarg{外观选项}中可以通过key-value的方式设置棋子、棋盘的颜色、
+  字体、字号、线宽等外观。
+
+  通过\oarg{外观选项}设置的外观参数仅对当前命令局部有效，
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.50\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+          resize/width=.90\linewidth}
+  \cchessman{ {{4,0}{K}}, {{2,2}{p}},
+              {{1,7}{C}}, {{4,9}{k}}
+            }
+\end{SideBySideExample}
+
+\subsection{\env{setcchessman}打谱排版环境}
+
+\begin{function}{setcchessman}
+  \begin{syntax}
+    \tn{begin}|{setcchessman}|\oarg{外观选项}
+    .....
+    \tn{end}|{setcchessman}|
+    \tn{begin}|{setcchessman*}|\oarg{外观选项}
+    .....
+    \tn{end}|{setcchessman*}|
+  \end{syntax}
+\end{function}
+
+  按设置的\oarg{外观选项}排版打谱结果。
+
+  在\env{setcchessman}环境中，可以通过专用命令\tn{init}%
+  (初始化棋谱状态)(残局)，\tn{set}(在指定位置布置棋子)，\tn{del}(删除
+  指定位置的棋子)，\tn{mov}(棋子移动)实现打谱操作。
+  在环境结束后以最终打谱状态排版棋谱。
+
+  星号环境\env{setcchessman*}用于同时记录打谱过程的文本描述(如：车一进二等)。
+  在\env{setcchessman*}环境中可以用\oarg{label}选项设置引用标签，
+  再用\tn{printman}命令通过引用标签输出对应打谱过程文本描述。
+
+  在\oarg{外观选项}中可以通过key-value的方式设置棋子、棋盘的颜色、
+  字体、字号、线宽等外观。对于\env{setcchessman*}星号环境，%
+  \oarg{外观选项}中的棋子与棋盘相关外观选项设置无效。
+
+  通过\oarg{外观选项}设置的外观参数仅对当前命令局部有效，
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.48\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+        resize/width=.90\linewidth}
+  \begin{setcchessman}
+    % 残局初始化
+    \init{ {{4,0}{K}}, {{2,2}{p}},
+           {{1,7}{C}}, {{4,9}{k}} }
+    % 添加棋子
+    \set{e,d}{P} \set{8,g}{h}
+    % 删除棋子
+    \del{4,3}
+    % 移动棋子
+    \mov{C}{b,h}{b,b} \mov{p}{2,2}{3,2}
+    \mov{K}{4,0}{4,1} \mov{h}{8,6}{6,7}
+    \mov{K}{4,1}{3,1} \mov{h}{6,7}{5,5}
+  \end{setcchessman}
+\end{SideBySideExample}
+
+\subsection{打谱专用命令}
+
+\subsubsection{\tn{init}棋谱初始化命令}
+
+\begin{function}{\init}
+  \begin{syntax}
+    \cs{init} \marg{棋子列表}
+  \end{syntax}
+\end{function}
+
+  用于将\marg{棋子列表}中指定的所有棋子布置于棋盘的指定位置。
+
+  \marg{棋子列表}中的棋子表示方法与第\ref{subsec-cchessman}小节
+  中的说明相同。
+
+  \textbf{\textsf{注意: }}该命令只能用于\env{setcchessman}环境中。
+
+\subsubsection{\tn{set}棋子布置命令}
+
+\begin{function}{\set}
+  \begin{syntax}
+    \cs{set} \marg{棋子}
+  \end{syntax}
+\end{function}
+
+  用于将指定\marg{棋子}布置于棋盘的指定位置。
+
+  \marg{棋子}中的棋子表示方法与第\ref{subsec-cchessman}小节
+  中的说明相同。
+
+  \textbf{\textsf{注意: }}该命令只能用于\env{setcchessman}环境中。
+
+\subsubsection{\tn{del}棋子删除命令}
+
+\begin{function}{\del}
+  \begin{syntax}
+    \cs{del} \marg{棋盘坐标}
+  \end{syntax}
+\end{function}
+
+  用于删除\marg{棋盘坐标}中指定坐标处的棋子。
+
+  \marg{棋盘坐标}中的表示方法与第\ref{subsec-cchessman}小节
+  中的说明相同。
+
+  \textbf{\textsf{注意: }}该命令只能用于\env{setcchessman}环境中。
+
+\subsubsection{\tn{mov}棋子移动命令}
+
+\begin{function}{\mov}
+  \begin{syntax}
+    \cs{mov} \marg{棋子编码}\marg{原棋盘坐标}\marg{新棋盘坐标}
+  \end{syntax}
+\end{function}
+
+  用于将\marg{棋子编码}中指定的棋子从\marg{原棋盘坐标}移动到%
+  \marg{新棋盘坐标}。若\marg{新棋盘坐标}处有棋子，则会被无条件
+  ``吃''掉(替换)。
+
+  \marg{棋子编码}、\marg{原棋盘坐标}和\marg{新棋盘坐标}中采用
+  棋子与棋盘坐标表示方法与第\ref{subsec-cchessman}小节中的说明相同。
+
+  \textbf{\textsf{注意: }}该命令只能用于\env{setcchessman}环境中。
+
+\subsection{\tn{printman}输出打谱结果命令}
+
+\begin{function}{\printman}
+  \begin{syntax}
+    \cs{printman} \oarg{每行步数} \marg{label标签}
+  \end{syntax}
+\end{function}
+
+  输出由label标签指定的\env{setcchessman*}打谱环境生成的棋谱文本描述。
+  \footnote{棋谱文本描述文件以\tn{jobname}+label+索引编号命名，
+            并以``.man''为后缀名，是一个纯文本文件。}
+
+  \oarg{每行步数}选项用于指定每行中输出的棋谱步数。
+
+\subsection{\tn{getpiece}输出棋子命令}
+
+\begin{function}{\getpiece}
+  \begin{syntax}
+    \cs{getpiece} \oarg{棋子字号} \marg{棋子编码}
+  \end{syntax}
+\end{function}
+
+  按\oarg{棋子字号}指定的字号将用\marg{棋子编码}指定的棋子在当前位置输出。
+
+  \marg{棋子编码}中的编码详见表\ref{tab-piececode}。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.28\linewidth,gobble=2]
+  \centering
+  \getpiece{K}\getpiece{A}\getpiece{B}\getpiece{R}%
+  \getpiece{N}\getpiece{C}\getpiece{P}
+
+  \getpiece{k}\getpiece{a}\getpiece{b}\getpiece{r}%
+  \getpiece{n}\getpiece{c}\getpiece{p}
+\end{SideBySideExample}
+
+\subsection{\tn{piecechar}棋子字符设置命令}
+
+\begin{function}{\piecechar}
+  \begin{syntax}
+    \cs{piecechar} \marg{棋子编码} \marg{棋子字符}
+  \end{syntax}
+\end{function}
+
+  用于将\marg{棋子编码}指定的棋子字符设置为指定的\marg{棋子字符}。
+
+  \marg{棋子编码}中的编码详见表\ref{tab-piececode}。
+
+  \textbf{\textsf{说明: }}该功能也可以通过|piecechar|外观选项实现。
+
+\subsection{\tn{resetpiece}棋子字符复位命令}
+
+\begin{function}{\resetpiece}
+  \begin{syntax}
+    \cs{resetpiece}
+  \end{syntax}
+\end{function}
+
+  将棋子字符复位到默认字符。
+
+\subsection{\tn{cchessset}选项设置命令}
+
+\begin{function}{\cchessset}
+  \begin{syntax}
+    \cs{cchessset} \marg{外观选项}
+  \end{syntax}
+\end{function}
+
+  通过\marg{外观选项}中的key-value方式设置棋子、棋盘的文字、
+  字体、颜色、线宽等外观参数。
+
+  % \textbf{\textsf{说明: }}执行该命令时，仅有\textbf{\textsf{除}}%
+  % 棋子与棋盘外观的\textbf{\textsf{其它参数}}有效，棋子与棋盘外观
+  % 参数的设置会在执行下一次命令或环境参数时起效。
+
+  通过\cs{cchessset}\marg{外观选项}设置的外观参数对后续所有
+  棋谱排版命令有效。
+
+  \textbf{\textsf{注意: }}由于\pkg{chinesechess}宏包涉及大量
+  绘图操作，因此建议尽量减少在命令或环境中使用\oarg{外观选项}设置%
+  以节约编译时间。如需要更改棋子或棋盘外观，可以在引用宏包时，
+  通过为宏包添加选项实现，也可以执行\tn{cchessset}命令进行必要的
+  全局设置或在一定范围内进行统一设置。
+
+  % \oarg{外观选项}中的棋子与棋盘相关外观选项设置无效。
+
+% \section{宏包选项}
+
+\section{宏包选项}
+
+在\pkg{chinesechess}宏包中，棋子与棋盘的文本、字体、颜色、背景等
+外观可以可以在引入宏包时通过\oarg{宏包选项}进行设置，也可以在
+命令或环境的\oarg{外观选项}中进行局部设置，还可以通过\cs{cchessset}命令
+进行全局设置。
+
+强烈建议在引用宏包时通过\oarg{宏包选项}为一个文档统一全局设置棋子与
+棋盘外观，以节约编译时间。应避免频繁在命令和环境中使用\oarg{宏包选项}或
+使用\cs{cchessset}命令设置棋子与棋盘外面。
+
+\pkg{chinesechess}宏包的选项是一组由(英文)逗号分隔的选项列表，列表中的
+选项通常是\marg{key}|=|\marg{value}形式。部分选项的\marg{value}可以省略。
+对于同一选项，后续设置会覆盖以前的设置。
+
+\pkg{chinesechess}采用\LaTeX3风格的键值设置，支持不同类型以及多种层次的
+选项设定。键值列表中，``|=|''左右的空格不影响设置。但需注意，参数列表中%
+\textsf{不可以出现空行}。
+
+布尔型的参数\marg{选项}|=true|中的``|=true|''可以省略。
+
+对于``|resize|''缩放和``|man|''子选项，只能用于命令与环境选项中，或通过
+\tn{cchessset}命令进行设置。
+
+\textbf{\textsf{注意: }}为提高编译速度，\pkg{chinesechess}宏包会分别根据%
+\tn{cchessset}命令或棋谱排版命令与环境的可选项中的棋盘与棋子相关参数决定
+是否对棋盘或棋子进行重新绘制，因此，前一次的棋盘与棋子外观选项会影响至下
+一次新的外观选项出现。如果需要改变前一次外观选项的影响，可以使用一次棋盘
+或棋子外观相关选项。
+
+\subsection{草稿选项}
+
+\begin{option}{ opt = draft, desc = {= \meta{草稿选项}}, init=false }
+  设置草稿选项。
+\end{option}
+
+  \oarg{draft}选项将删除所有效果设置，所有棋子仅显示文本，
+  棋盘仅带有九宫格对角线。从而加快编译速度。
+
+  \textbf{\textsf{注意: }}在草稿模式下，命令与环境中与棋子与棋盘外观
+  相关的选项都将失效，因此，可能与最终排版结果会有出入。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.53\linewidth,gobble=2]
+  % \usepackage[draft]{chinesechess}
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+     resize/width=.90\linewidth}
+  \cchessboard[draft]
+\end{SideBySideExample}
+\subsection{棋盘}
+
+\subsubsection{单元格尺寸}
+
+\begin{option}{ opt = gridsize, desc = {= \meta{棋盘格尺寸}}, init=10mm }
+  设置棋盘单元格尺寸。
+\end{option}
+
+  \textbf{\textsf{说明: }}由于在前一个示例中使用了|[draft]|%
+  参数，为恢复棋子外观，需要执行一次棋子相关设置参数。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.90\linewidth}
+  \cchessboard[gridsize=15mm,
+               piecetype=ooo]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{棋盘类型}
+
+\begin{option}{ opt = boardtype, desc = {= \meta{棋盘类型}}, init=x+tn }
+  设置棋盘类型，目前支持：
+\end{option}
+
+  \begin{Description}[a]
+    \item |x|---有九宫对角线，无兵炮位置标志。
+    \item |x+|---有九宫对角线和兵炮位置标志。
+    \item |x+t|---有九宫对角线、兵炮位置标志和楚河汉界。
+    \item |x+tn|---有九宫对角线、兵炮位置标志、楚河汉界和纵线标位数字。
+    \item |x+Xtn|---有九宫对角线、兵炮位置标志、楚河汉界、纵线标位数字和象位虚线。
+  \end{Description}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.54\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+        resize/width=.35\linewidth}
+  \cchessboard*[boardtype=x]\quad
+  \cchessboard*[boardtype=x+]\\
+  \cchessboard*[boardtype=x+t]\quad
+  \cchessboard*[boardtype=x+tn]\\
+  \cchessboard*[boardtype=x+Xtn]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{棋盘线线宽}
+
+\begin{option}{ opt = boardlinewd, desc = {= \meta{棋盘线宽}}, init=0.4pt }
+  设置棋盘线线宽。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.56\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+     resize/width=.90\linewidth}
+  \cchessboard*[boardlinewd=1.0pt]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{棋盘线颜色}
+
+\begin{option}{ opt = boardlinecolor, desc = {= \meta{棋盘线颜色}}, init=black }
+  设置棋盘线颜色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.55\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.90\linewidth}
+  \cchessboard*[boardlinecolor=red]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{棋盘背景}
+
+\begin{option}{ opt = boardbg, desc = {= \meta{棋盘背景}}, init=init-none }
+  设置棋盘背景图的插图文件路径及文件名。
+\end{option}
+
+  \textbf{\textsf{注意: }}使用该选项时，需要在导言区添加|\usepackage{grpahicx}|命令。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.55\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+     resize/width=.35\linewidth}
+  \cchessboard*[boardbg=bg01]\quad
+  \cchessboard*[boardbg=bg02]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsection{棋子}
+
+\subsubsection{字符}
+
+\begin{option}{ opt = piecechar, desc = {= \meta{棋子字符}},
+                init=\{K\}\{帥\} }
+  设置棋子字符，用两组大括号分别指定棋子编码和棋子字符。
+  其中，棋子编码见表\ref{tab-piececode}。
+\end{option}
+
+  \textbf{\textsf{注意: }}使用该选项时，在能需要在导言区添加字体，
+  如|\usepackage{fontawesome5}|命令。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.55\linewidth,gobble=2]
+  %\usepackage{fontawesome5}
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.90\linewidth}
+  \cchessboard[%
+    piecechar={K}{\faChessKing},
+    piecechar={A}{\faShield*},
+    piecechar={E}{\faChessBishop},
+    piecechar={H}{\faChessKnight},
+    piecechar={R}{\faChessRook},
+    piecechar={C}{\faMeteor},
+    piecechar={P}{\faChessPawn},
+    piecechar={k}{\faChessQueen},
+    piecechar={a}{\faShield*},
+    piecechar={e}{\faChessBishop},
+    piecechar={h}{\faChessKnight},
+    piecechar={r}{\faChessRook},
+    piecechar={c}{\faMeteor},
+    piecechar={p}{\faChessPawn},
+    boardlinecolor=red]
+\end{SideBySideExample}
+
+\bigskip
+
+\resetpiece
+\cchessset{piecechar={C}{炮}}
+
+\subsubsection{字体}
+
+\begin{option}{ opt = piecefont, desc = {= \meta{棋子字符字体}}, init=\cs{kaishu} }
+  设置棋子字符字体。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.54\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+        resize/width=.90\linewidth}
+  \cchessboard[piecefont=\sffamily]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{边框类型}
+
+\begin{option}{ opt = piecetype, desc = {= \meta{棋子边框类型}}, init=|ooo| }
+  设置棋子外框类型，目前支持：
+\end{option}
+
+  \begin{Description}[a]
+    \item |o|---实心填充圆(小写英文字母``|o|'')。
+    \item |oo|---双同心实心圆。
+    \item |ooo|---双同心实心圆叠加阴影错位圆。
+  \end{Description}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.55\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+     resize/width=.40\linewidth}
+  \cchessboard[piecetype=o]\quad
+  \cchessboard[piecetype=oo]\\
+  \cchessboard[piecetype=ooo]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{边框线宽}
+
+\begin{option}{ opt = boxlinewd, desc = {= \meta{棋子外框线宽度}}, init=0.4pt }
+  设置棋子外框线线宽。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[boxlinewd=0.8pt]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{边框颜色}
+
+\begin{option}{ opt = boxcolor, desc = {= \meta{棋子外框线颜色}}, init=black }
+  设置棋子外框线颜色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[boxcolor=white]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{红棋字符颜色}
+
+\begin{option}{ opt = redpiece, desc = {= \meta{红棋棋子字符颜色}}, init=red }
+  设置红棋棋子字符颜色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[redpiece=white]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{黑棋字符颜色}
+
+\begin{option}{ opt = blkpiece, desc = {= \meta{黑棋棋子字符颜色}}, init=black }
+  设置黑棋棋子字符颜色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[blkpiece=white]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{背景圆填充色}
+
+\begin{option}{ opt = lower, desc = {= \meta{棋子背景圆填充色}}, init=init-none }
+  设置棋子背景圆填充色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[lower=black]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{表面圆环填充色}
+
+\begin{option}{ opt = donut, desc = {= \meta{棋子表面圆环填充色}}, init=init-none }
+  设置棋子表面圆环填充色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[donut=red]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{红棋表面圆填充色}
+
+\begin{option}{ opt = redupper, desc = {= \meta{红棋棋子表面圆填充色}}, init=init-none }
+  设置红棋棋子表面圆填充色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[redupper=red,
+             redpiece=white]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{黑棋表面圆填充色}
+
+\begin{option}{ opt = blkupper, desc = {= \meta{黑棋棋子表面圆填充色}}, init=init-none }
+  设置黑棋棋子表面圆填充色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[blkupper=black,
+               blkpiece=white]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{阴影错位圆填充色}
+
+\begin{option}{ opt = shadow, desc = {= \meta{棋子阴影错位圆填充色}}, init=init-none }
+  设置棋子阴影错位圆填充色。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.60\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[shadow=red!80]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{笔划}
+
+\begin{option}{ opt = scharstroke, desc = {= \meta{棋子字符笔划类型}}, init=bold }
+  设置棋子字符笔划类型。
+\end{option}
+
+  \begin{Description}[a]
+    \item |none|---默认笔划。
+    \item |solid|---实线笔划轮廓，笔划内部透明，颜色使用字符颜色。
+    \item |white|---实线白色笔划轮廓，笔划内部用白色填充。
+    \item |bold|---加粗笔划，颜色使用字符颜色。
+    \item |invisible|---隐藏笔划。
+  \end{Description}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.58\linewidth,gobble=2]
+  \centering
+  % 为便排版，进行缩放
+  \cchessset{resize/type=real,
+    resize/width=.95\linewidth}
+  \cchessboard[charstroke=white,
+    redupper=red,blkupper=black]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsection{打谱}
+
+打谱参数位于|man|子选项中，可以使用|man={label=test}|或
+|man/label=test|两种形式进行设置。
+
+\subsubsection{label标签}
+
+\begin{option}{ opt = label, desc = {= \meta{棋谱标签}}, init=init-none }
+  设置\env{setcchessman*}打谱环境交叉引用标签。
+\end{option}
+
+  该选项目前仅支持\env{setcchessman*}打谱环境。
+
+\subsubsection{每行棋谱步数}
+
+\begin{option}{ opt = nums, desc = {= \meta{每行棋谱步数}}, init=2 }
+  设置\tn{printman}输出棋谱时，每行输出棋谱的步数。
+\end{option}
+
+  该选项只在\tn{printman}命令中起作用。
+
+  \textbf{\textsf{说明: }}由于在前一个示例中使用了|[charstroke=white]|%
+  参数，为恢复棋子外观，需要执行一次棋子相关设置参数。
+
+  但要注意的是|setcchessman*|星号环境并不执行棋子棋盘重构，因此，此处
+  需要在\tn{cchessset}命令中重新设置棋子笔划类型。
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.45\linewidth,gobble=2]
+  \centering
+    \printman{test}
+    % 为便排版，进行缩放
+    \cchessset{charstroke=bold,
+             resize/type=real,
+             resize/width=0.90\linewidth}
+    \begin{setcchessman*}[man/label=test]
+      % 残局初始化
+      \init{ {{4,0}{K}}, {{2,2}{p}},
+             {{1,7}{C}}, {{4,9}{k}} }
+      % 添加棋子
+      \set{e,d}{P} \set{8,g}{h}
+      % 删除棋子
+      \del{4,3}
+      % 移动棋子
+      \mov{C}{b,h}{b,b} \mov{p}{2,2}{3,2}
+      \mov{K}{4,0}{4,1} \mov{h}{8,6}{6,7}
+      \mov{K}{4,1}{3,1} \mov{h}{6,7}{5,5}
+    \end{setcchessman*}
+    \begin{flushleft}
+      \small
+      \printman[man/nums=4]{test}
+    \end{flushleft}
+\end{SideBySideExample}
+
+\subsection{棋谱缩放}
+
+缩放方式位于|resize|子选项中，可以使用|resize={type=real}|或
+|resize/xscale=0.5|两种形式进行设置。
+
+\subsubsection{缩放方式}
+
+\begin{option}{ opt = type, desc = {= \meta{棋谱缩放方式}}, init=none }
+  设置最终棋谱输出时的整体缩放方式，目前支持：
+\end{option}
+
+  \begin{Description}[a]
+    \item |none|---无缩放。
+    \item |real|---按指定的width、height、xscale或yscale进行缩放。
+  \end{Description}
+
+\bigskip
+
+\subsubsection{横向缩放因子}
+
+\begin{option}{ opt = xscale, desc = {= \meta{x方向缩放系数}}, init=1 }
+  设置x方向缩放系数，需要配合|resize|缩放方式参数一起使用。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.48\linewidth,gobble=2]
+  \centering
+  \cchessboard[resize/type=real,
+              resize/xscale=0.5]
+\end{SideBySideExample}
+
+
+\bigskip
+
+\subsubsection{纵向缩放因子}
+
+\begin{option}{ opt = yscale, desc = {= \meta{y方向缩放系数}}, init=1 }
+  设置y方向缩放系数，需要配合|resize|缩放方式参数一起使用。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.70\linewidth,gobble=2]
+  \centering
+  \cchessboard[%
+    resize/type=real,
+    resize/yscale=0.5]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{横向尺寸}
+
+\begin{option}{ opt = width, desc = {= \meta{宽度}}, init=init-none }
+  设置输出宽度，需要配合|resize|缩放方式参数一起使用。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.65\linewidth,gobble=2]
+  \centering
+  \cchessboard[%
+    resize/type=real,
+    resize/width=7cm]
+\end{SideBySideExample}
+
+\bigskip
+
+\subsubsection{纵向尺寸}
+
+\begin{option}{ opt = height, desc = {= \meta{高度}}, init=init-none }
+  设置输出高度，需要配合|resize|缩放方式参数一起使用。
+\end{option}
+
+\begin{SideBySideExample}[frame=single,numbers=left,
+                xrightmargin=.65\linewidth,gobble=2]
+  \centering
+  \cchessboard[%
+    resize/type=real,
+    resize/height=6cm]
+\end{SideBySideExample}
+
+  \textbf{\textsf{说明: }}缩放纵/横参数可以混合使用。
+
+\bigskip
+
+% \bigskip
+
+% \title{
+%   \pkg{chinesechess} package for writing Chinese chess
+%   \rlap{\makebox[4cm][r]{
+%     \normalsize $\Longrightarrow$ \color{red}
+%     \protect\hyperlink{zh}{中文版本}
+%     \protect\hypertarget{en}{}
+%   }}
+% }
+% \author{Nan Geng \texttt{<nangeng@nwafu.edu.cn>}}
+% \date{\today\qquad \vers}
+% \maketitle
+%
+% \section{Introduction}
+%
+% \section{Interface}
+%
+% \section{options}
+
+\end{documentation}
+
+\end{document}

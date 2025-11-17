@@ -1,0 +1,84 @@
+       name: README
+description: read me for sugconf.cls
+    purpose: introduction and explanation
+             of LaTeX document class sugconf
+             for SAS(R) User Group (SUG) conference authors
+       date: 4/31/2021 posted to CTAN
+     author: Ronald J. Fehd, SAS-L's macro maven
+                             TeX User Group (TUG) member
+             mailto:Ron.Fehd.macro.maven@gmail.com
+       note: SAS-L is the name of listserv
+                   of the international online SAS user group community
+             http://www.listserv.uga.edu/cgi-bin/wa?S1=sas-l
+       note: CTAN: Comprehensive TeX Archive Network
+       note: License type:  Free, LaTeX project public license
+             http://www.latex-project.org/lppl/
+
+* SUG authors
+
+LaTeX is a set of macros for the LaTeX document processing application.
+
+Several years ago I began using LaTeX to write my SUG papers.
+In order to produce a paper which conforms
+to SAS User Group International conference paper guidelines
+it is necessary to modify the LaTeX document class article.
+
+The layout produced by the 'sugconf' class
+is based on the description contained in SUGI paper guidelines,
+published by SAS Institute: (2006)
+http://support.sas.com/usergroups/sugi/sugi31/package/WritersGuidelines.pdf
+note: 2021-04-02 this file is n/a
+
+* All SUG conferences now require submission of papers as a .pdf.
+TeX distributions provide pdflatex.exe which produces a .pdf
+from the source text file. (.tex or .ltx or .txt).
+The .pdf can be read with Adobe Reader v5 or greater.
+
+* filename extensions
+
+** .bat: windows batch file
+         executes pdflatex, input      : <filename>.tex
+                      note: input may be <filename>.txt
+                            output     : <filename>.pdf
+** .tex: input : text file containing LaTeX markup commands
+** .pdf: output: Adobe v5 or higher
+
+* Please review the following files
+in order to familiarize yourself with LaTeX markup commands.
+
+** sugconf-template illustrates the LaTeX document class article
+hello-world-article.tex
+hello-world-sugconf.tex
+
+** sugconf-skeleton and sugconf-template are your basic starting documents
+
+sugconf-skeleton.tex
+sugconf-template.tex
+
+** this file provides the LaTeX document class sugconf based on article
+   you must download this file and place it in the same folder
+   with your SUG-conf-paper
+
+sugconf.cls
+
+is available in the TeXlive distribution:
+where <UNC> is Universal Naming Convention for your TeXlive installation folder
+
+<UNC>\texlive\2021\texmf-dist\tex\latex\sugconf
+
+this document is in:
+<UNC>\texlive\2021\texmf-dist\doc\latex\sugconf
+
+* processing your .tex file with a Windows .bat file
+- - - -  sugconf-template.bat - - -
+pdflatex sugconf-template
+- - - -  sugconf-template.bat end - - -
+
+note assumption: filename extension is .tex
+to process a text file other than .tex, specify the extension:
+pdflatex sugconf-template.txt
+
+* highly recommended
+I recommend a professional text editor.
+
+\end{document}%README

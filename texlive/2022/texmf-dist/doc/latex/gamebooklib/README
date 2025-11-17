@@ -1,0 +1,41 @@
+Copyright (C) 2021 by Robert J Lee
+
+This file may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either
+version 1.3 of this license or (at your option) any later
+version. The latest version of this license is in:
+
+http://www.latex-project.org/lppl.txt
+
+and version 1.3 or later is part of all distributions of
+LaTeX version 2005/12/01 or later.
+
+
+The gamebooklib package, provides a convenient set of macros to assist
+the author choosing to develop a gamebook. In particular, it aims to
+solve 2 non-trivial issues:
+
+1) Writing a set of entries in order, then shuffling them in the
+output routine, preserving reference links, and
+
+2) Allowing LaTeX to output footnotes at the end of an entry, in the
+case where another entry falls below the footnote mark on the page.
+
+
+This package uses the standard TeX .dtx+.ins install mechanism,
+although a UNIX Makefile is provided for convenience to generate all
+files.
+
+The file "gamebooklib_test.tex" provides a simple demonstration of
+this library.
+
+The file "gamebooklib_countpagesperseed.sh" is a utility script using
+bash, perl and pdflatex that will report on the number of pages for
+your document, when entries are shuffled with different pseudorandom
+seeds. This is useful if you have large objects such as graphics and
+want to minimise needless white space. Further instructions are
+provided in the header of that file.
+
+It is suggested that the gamebooklib_countpagesperseed.sh utility
+should be placed on the system path for ease of use, or into any
+utility scripts directory.

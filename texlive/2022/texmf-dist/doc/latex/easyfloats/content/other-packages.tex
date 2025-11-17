@@ -1,0 +1,51 @@
+% !TeX root = ../easyfloats.tex
+
+\section{Other packages}
+\label{other-packages}
+
+Other useful packages for dealing with figures or tables:
+\pkgdoc{placeins}
+  When loaded with the `section` package option it prevents floats from floating to another section.
+  It provides the `\FloatBarrier` command which prevents floats from floating past a certain point.
+\pkgdoc{flafter}
+  ensures that floats are not placed before their inclusion in the source code.
+  (With the placement=t it is possible that they are placed on the top of the same page.)
+\pkgdoc{booktabs}
+  for formatting tables
+\pkgdoc{xcolor}
+  When loaded with the package option \pkgoptn{table} it provides commands for coloring tables.
+
+  `\rowcolor{<color>}` sets a background color for a single row. See \cref{local-definitions-in-tables}.
+
+  `\rowcolors{<firstrow>}{<oddcolor>}{<evencolor>}` can be used with the `exec` key and sets alternating row colors for the entire table.
+
+\pkgdoc{array}
+  extends the column specification syntax and defines the `\newcolumntype` command to define custom column types.
+  Also changes the approach how rules are drawn but that is irrelevant if you apply \pkg{booktabs}' guidelines~\autocite[section~2 \sectionname{The layout of formal tables}]{booktabs}.
+\pkgdoc{siunitx}
+  for typesetting numbers and units.
+  It provides the `S` column to align numbers at their decimal separator.
+\pkgdoc{tabularx}
+  A table where the columns adapt to the width of the table, not the other way around.
+  Unlike `tabular*` the space goes into the columns, not between the columns.
+\pkgdoc{longtable}
+  provides tables where a pagebreak is allowed,
+  see \cref{longtable}
+\pkgdoc{hyperref}
+  automatically creates links in the pdf document for example from references to floating objects.
+  With the package option `pdfusetitle` it automatically sets the pdf title and author based on `\title` and `\author`.
+\pkgdoc{cleveref}
+  to reference an object.
+  In contrast to the standard `\ref` and `\pageref`, `\cref` and `\cpageref` automatically detect the type of object and can handle multiple references at once.
+  With the `nameinlink` package option the object type in front of the number becomes part of the link created by hyperref (i.e.\ the link is \enquote{figure 1} instead of \enquote{1} and \enquote{figure } being before the link.)
+  With the `noabbrev` option references are not abbreviated (by default references are abbreviated but only the lower case variants, not the upper case variants which seems inconsistent to me. Abbreviating at the beginning of a sentence is considered bad style~\autocite{texexchange_abbrev_bad_style}.)
+\pkgdoc{biblatex}
+  If you input graphics you need to specify the source.
+  Biblatex creates an entire bibliography for you.
+\pkgdoc{tikz}
+  is an amazingly powerful package to create your own graphics in \LaTeX.
+\pkgdoc{newfloat} provides a more modern command to define new floating environments than the \pkg{float} package.
+\endpkgdoc
+
+
+For more information about floats see \url{https://latexref.xyz/Floats.html} (it seems this is an html version of the above quoted pdf~\autocite{latex2e}).

@@ -1,0 +1,41 @@
+%% Fichier contenant un article. La classe genere trois fichiers
+%% d'articles par defaut. Une these compte generalement trois articles
+%% et un memoire, un. Si vous en avez besoin davantage,
+%% enregistrez ce fichier sous un autre nom et incluez-le dans
+%% votre gabarit avec la commande \include.
+%%
+%% Les articles sont structures tel que vous le voyez ci-dessous :
+%% un resume non numerote, une introduction, des sections et une
+%% conclusion numerotees, et une bibliographie. Vous pouvez ajouter
+%% ou supprimer des sections de developpement selon vos besoins.
+\chapter{Titre de l'article / Article title}
+\thispagestyle{empty} % Premiere page non paginee / First page is unnumbered
+
+\section*{\HECtdmResumeArticle}
+\phantomsection\addcontentsline{toc}{section}{\HECtdmResumeArticle}
+
+%% Redigez votre resume ici.
+
+\section{Introduction}
+
+%% Redigez votre introduction d'article ici.
+
+\section{Titre de la section de d\'{e}veloppement 1 / Section 1 title}
+
+%% Redigez votre section de developpement ici.
+
+\section{Titre de la section de d\'{e}veloppement 2 / Section 2 title}
+
+%% Redigez votre section de developpement ici.
+
+\section{Titre de la section de d\'{e}veloppement 3 / Section 3 title}
+
+%% Redigez votre section de developpement ici.
+
+\section{Conclusion}
+
+%% Redigez votre conclusion d'article ici.
+
+\bibliographystyle{francais}
+%% Inscrivez le nom de votre fichier .bib entre les accolades.
+\bibliography{}

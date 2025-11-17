@@ -1,0 +1,60 @@
+\documentclass[british]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{csquotes}
+
+%These two are needed because biblatex provides \nolinkurl and \url
+\usepackage{url}
+\providecommand*{\nolinkurl}{\url}
+
+\usepackage{amssymb} % Just for \mathbb
+\usepackage{cite}
+%% \usepackage[style=numeric, backend=biber]{biblatex}
+%% \usepackage{biblatex2bibitem}
+%%
+%% \addbibresource{biblatex-examples.bib}
+%%
+%% \addbibresource{biblatex2bibitem-examples.bib}
+
+\begin{document}
+\cite{sigfridsson,knuth:ct:e}.
+
+See also \cite{solymosi2010question,halbeisen2019geometric,Kohnert2006IntegralPS}.
+
+\begin{thebibliography}{99}
+{}
+\bibitem{halbeisen2019geometric}
+Lorenz Halbeisen and Norbert Hungerbühler. ‘A geometric
+representation of integral solutions of $x^2+ xy+ y^2= m^2$’. In:
+\emph{Quaestiones Mathematicae} (2019), pp. 1–15.
+{}
+\bibitem{knuth:ct:e}
+Donald E. Knuth. \emph{Computers \& Typesetting}. Vol. E:
+\emph{{Computer Modern} Typefaces}. Reading, Mass.:
+Addison-Wesley, 1986.
+{}
+\bibitem{Kohnert2006IntegralPS}
+Axel Kohnert and Sascha Kurz. ‘Integral point sets over {$\mathbb
+{Z}^m_n$}’. In: \emph{Discrete Applied Mathematics} 157 (2006),
+pp. 2105–2117.
+{}
+\bibitem{sigfridsson}
+
+Emma Sigfridsson and Ulf Ryde. ‘Comparison of methods for deriving
+atomic charges from the electrostatic potential and moments’. In:
+\emph{Journal of Computational Chemistry} 19.4 (1998), pp. 377–395.
+\textsc{doi}: \nolinkurl
+{10.1002/(SICI)1096-987X(199803)19:4<377::AID-JCC1>3.0.CO;2-P}.
+{}
+\bibitem{solymosi2010question}
+Jozsef Solymosi and Frank De Zeeuw. ‘On a question\relax ~of Erdős
+and Ulam’. In: \emph{Discrete \& Computational Geometry} 43.2
+(2010), pp. 393–401. arXiv: \nolinkurl {0806.3095_}. \textsc{url}: \url
+{https://example.com/@%D1%80%D1%83%D1%81_}.
+\end{thebibliography}
+
+%% \printbibliography
+%%
+%% \printbibitembibliography
+\end{document}

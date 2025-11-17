@@ -1,0 +1,2060 @@
+%% LyX 2.4.0-alpha3 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,tableposition=top]{report}
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{0.667969, 1, 1}
+\usepackage{babel}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=true,pdfborder={0 0 1},backref=section,colorlinks=true]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{centred}%
+  {\begin{center}\baselineskip=13pt\parskip=1pt}{\end{center}}
+\newenvironment{lyxcode}
+	{\par\begin{list}{}{
+		\setlength{\rightmargin}{\leftmargin}
+		\setlength{\listparindent}{0pt}% needed for AMS classes
+		\raggedright
+		\setlength{\itemsep}{0pt}
+		\setlength{\parsep}{0pt}
+		\normalfont\ttfamily}%
+	 \item[]}
+	{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{numerica-plus}
+\usepackage{upquote}
+\newcommand\rel{\,\varrho\;}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\gd}{gd}
+
+\reuse{}
+\constants{ c=30,\omega=0.2 }
+
+\makeatother
+
+\begin{document}
+\title{\texttt{numerica-plus}~\\
+}
+\author{Andrew Parsloe\\
+(\url{ajparsloe@gmail.com})}
+\maketitle
+\begin{abstract}
+The \verb`numerica-plus` package defines commands to iterate and
+find fixed points of functions of a single variable, to find the zeros
+or extrema of such functions, and to calculate the terms of recurrence
+relations.\\
+\\
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+
+\paragraph*{Note:}
+\begin{itemize}
+\item {\normalsize This document applies to version 2.0.0 of }{\normalsize\texttt{numerica-plus}}{\normalsize .def.}{\small\par}
+\item {\normalsize A version of }{\normalsize\texttt{numerica}}{\normalsize{}
+from or later than 2021/12/07 is required; (}{\normalsize\texttt{numerica}}{\normalsize{}
+requires }{\normalsize\texttt{amsmath}}{\normalsize , }{\normalsize\texttt{mathtools}}{\normalsize{}
+and the \LaTeX 3 bundles }{\normalsize\texttt{l3kernel}}{\normalsize{}
+and }{\normalsize\texttt{l3packages}}{\normalsize ).}{\small\par}
+\item {\normalsize I refer a number of times in this document to }{\normalsize\emph{Handbook
+of Mathematical Functions}}{\normalsize , edited by Milton Abramowitz
+and Irene A. Segun, Dover, 1965. This is abbreviated to }{\normalsize\emph{HMF}}{\normalsize .}{\small\par}
+\item {\normalsize Version 2 of }{\normalsize\texttt{numerica-plus}}{\small\par}
+\begin{itemize}
+\item {\normalsize is the first stand-alone version; (in v.1 of }{\normalsize\texttt{numerica}}{\normalsize{}
+the commands }{\normalsize\texttt{\textbackslash nmcIterate}}{\normalsize ,
+}{\normalsize\texttt{\textbackslash nmcSolve}}{\normalsize{} and }{\normalsize\texttt{\textbackslash nmcRecur}}{\normalsize{}
+were loaded with the }{\normalsize\texttt{plus}}{\normalsize{} package
+option);}{\small\par}
+\item {\normalsize makes some small code adjustements;}{\small\par}
+\item {\normalsize amends documentation.}{\small\par}
+\end{itemize}
+\end{itemize}
+\end{shaded}%
+\end{minipage}
+\end{abstract}
+\tableofcontents{}
+
+\chapter{Introduction}
+
+Entering 
+\begin{lyxcode}
+~\textbackslash usepackage\{numerica-plus\}
+\end{lyxcode}
+in the preamble of your document makes available the commands
+\begin{itemize}
+\item \verb`\nmcIterate`, a command to iterate a function (apply it repeatedly
+to itself), including finding fixed points (values $x$ where $f(x)=x$);
+\item \verb`\nmcSolve`, a command to find the zeros of functions of a single
+variable (values $x$ for which $f(x)=0$) or, failing that, local
+maxima or minima of such functions;
+\item \verb`\nmcRecur`, a command to calculate the values of terms in recurrence
+relations in a single (recurrence) variable (like the terms of the
+Fibonacci sequence or Legendre polynomials).
+\end{itemize}
+\verb`numerica-plus` requires a version of \verb`numerica` from
+or later than 2021/11/26. If found, \verb`numerica` is loaded automatically,
+making available the \verb`\nmcEvaluate`, \verb`\nmcInfo`, \verb`\nmcMacros`,
+\verb`\nmcConstants`, and \verb`\nmcReuse` commands; see the \verb`numerica`
+documentation for details on the use of these commands. 
+
+The commands of the present package all share the syntax of \verb`\nmcEvaluate`.
+I will discuss them individually in later chapters but turn first
+to something more than a `toy' example that illustrates their use
+and gives a sense of `what they are about'.
+
+\section{Example of use: the rotating disk}
+
+\label{sec:introExampleOfUse}Consider a disk rotating uniformly with
+angular velocity $\omega$ in an anticlockwise sense in an inertial
+system in which the disk's centre \textbf{0} is at rest. Three distinct
+points \textbf{1}, \textbf{2}, \textbf{3} are fixed in the disk and,
+in a co-rotating polar coordinate system centred at \textbf{0}, have
+polar coordinates $(r_{i},\theta_{i})$ ($i,j=1,2,3$). Choose \textbf{01}
+as initial line so that $\theta_{1}=0$.
+
+The cosine rule for solving triangles tells us that the time $t_{ij}$
+in the underlying inertial system for a signal to pass from \textbf{i}
+to \textbf{j} satisfies the equation
+\[
+t_{ij}=c^{-1}\sqrt{r_{i}^{2}+r_{j}^{2}-2r_{i}r_{j}\cos(\theta_{j}-\theta_{i}+\omega t_{ij})}\equiv f(t_{ij}),
+\]
+where $c$ is the speed of light. (Equally, we could be describing
+an acoustic signal between points on a disk rotating uniformly in
+a still, uniform atmosphere \textendash{} in which case $c$ would
+be the speed of sound.) Although the equation doesn't solve algebraically
+for the time $t_{ij},$ it does tell us that $t=t_{ij}$ is a \emph{fixed
+point} of the function $f(t)$. To calculate fixed points we use the
+command \verb`\nmcIterate`, or its short-name form \verb`\iter`,
+with the star option, \verb`\iter*`. For \verb`\iter` the star option
+means: continue iterating until a fixed point has been reached and,
+as with the \verb`\eval` command, suppress all elements from the
+display save for the numerical result. 
+
+First, though, values need to be assigned to the various parameters.
+Suppose we use units in which $c=30,$ and $\omega=0.2$ radians per
+second. To avoid having to write these values in the vv-list every
+time, I have put in the preamble to this document the statement
+\begin{verbatim}
+    \constants{ c=30,\omega=0.2 }
+\end{verbatim}
+For the polar coordinates of \textbf{1 }and \textbf{3 }I have chosen
+$r_{1}=10$, $r_{3}=20$ and $\theta_{3}=0.2$ radians (remember $\theta_{1}=0$).
+To find a fixed point $t_{13}$ I give $t$ an initial trial value
+$1$ (plucked from the air). Its position as the rightmost item in
+the vv-list tells \verb`\iter` that $t$ is the iteration variable:
+\begin{verbatim}
+    \iter*{ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+              \cos(\theta_3+\omega t)}
+          }[ r_1=10,r_3=20,\theta_3=0.2,t=1 ],
+    \quad\info{iter}.
+\end{verbatim}
+$\Longrightarrow$     \iter*{ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+              \cos(\theta_3+\omega t)}
+          }[ r_1=10,r_3=20,\theta_3=0.2,t=1 ],
+    \quad\info{iter}. The short-name form of the \verb`\nmcInfo` command from \verb`numerica`
+ has been used to display the number of iterations required to attain
+the fixed-point value. 
+
+To six figures, only five iterations are needed, which seems rapid
+but we can check this by substituting $t=0.356899$ back into the
+formula and \verb`\eval`-uating it:
+\begin{verbatim}
+    \eval*{ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+              \cos(\theta_3+\omega t)}
+          }[ r_1=10,r_3=20,\theta_3=0.2,t=0.356899 ]
+\end{verbatim}
+$\Longrightarrow$     \eval*{ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+              \cos(\theta_3+\omega t)}
+          }[ r_1=10,r_3=20,\theta_3=0.2,t=0.356899 ], confirming that we have indeed calculated a fixed point. That it
+did indeed take only $5$ iterations can be checked by omitting the
+asterisk from the \verb`\iter` command and specifying the total number
+of iterations to perform. I choose \texttt{do=}7 to show not just
+the $5$th iteration but also the next two just to confirm that the
+result is stable. We shall view all $7$: \texttt{see=7}. Because
+of the length of the formula I have suppressed display of the vv-list
+by giving the key \texttt{vvd}\emph{ }an empty value:\footnote{See the associated document \texttt{numerica.pdf}, the chapter on
+settings.}
+\begin{verbatim}
+    \iter[do=7,see=7,vvd=]
+      {\[ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+        \cos(\theta_3+\omega t)} \]}
+          [ r_1=10,r_3=20,\theta_3=0.2,t=1 ]
+\end{verbatim}
+$\Longrightarrow$     \iter[do=7,see=7,vvd=]
+      {\[ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+        \cos(\theta_3+\omega t)} \]}
+          [ r_1=10,r_3=20,\theta_3=0.2,t=1 ]
+\noindent \begin{flushleft}
+The display makes clear that on the $5$th iteration, the $6$-figure
+value has been attained. 
+\par\end{flushleft}
+
+Alternatively, we could use the \verb`\nmcRecur` command, or its
+short-name form \verb`\recur`, to view the successive iterations,
+since an iteration is a first-order recurrence: $f_{n+1}=f(f_{n})$:
+\begin{verbatim}
+    \recur[do=8,see1=0,see2=5,vvd={,\\(vv)\\},*]
+      {\[ f_{n+1}=c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+        \cos(\theta_3+\omega f_{n})} \]}
+          [ r_1=10,r_3=20,\theta_3=0.2,f_{0}=1 ]
+\end{verbatim}
+$\Longrightarrow$     \recur[do=8,see1=0,see2=5,vvd={,\\(vv)\\},*]
+      {\[ f_{n+1}=c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+        \cos(\theta_3+\omega f_{n})} \]}
+          [ r_1=10,r_3=20,\theta_3=0.2,f_{0}=1 ]
+
+\noindent I have specified \texttt{do=8} terms rather than $7$ since
+the zero-th term ($f_{0}=1$) is included in the count. I've chosen
+to view the last $5$ of them but none prior to those by writing \texttt{see1=0,see2=5}.
+Notice the \texttt{vvd} setting, pushing display of the vv-list and
+result to new lines and suppressing equation numbering with the \texttt{{*}}
+setting (which turns the \verb`multline` environment into a \verb`multline*`
+environment).
+
+Another and perhaps more obvious way to find the value of $t_{13}$,
+is to look for a zero of the function $f(t)-t$. That means using
+the command \verb`\nmcSolve` or its short-name form \verb`\solve`.
+I shall do so with the star option \verb`\solve*` which suppresses
+display of all but the numerical result. A trial value for $t$ is
+required. I have chosen \texttt{t=0}:
+\begin{verbatim}
+    \solve*{ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+      \cos(\theta_3+\omega t)} - t }
+        [ r_1=10,r_3=20,\theta_3=0.2,t=0 ],
+    \quad\nmcInfo{solve}.
+\end{verbatim}
+$\Longrightarrow$     \solve*{ c^{-1}\sqrt{r_1^2+r_3^2-2r_1 r_3
+      \cos(\theta_3+\omega t)} - t }
+        [ r_1=10,r_3=20,\theta_3=0.2,t=0 ],
+    \quad\nmcInfo{solve}. 
+
+Nearly the same answer as before is attained but this time many more
+steps have been required. This is to be expected. The \verb`\solve`
+command uses the bisection method. Since $1/2^{10}\approx1/10^{3}$,
+about $10$ bisections are needed to determine $3$ decimal places.
+Hence we can expect about $20$ bisections for a $6$-decimal-place
+answer. The particular form of the \verb`\nmcInfo` command display,
+`$1+20$ steps', indicates that it took $1$ search step to find
+an interval in which the function vanished and, having found that
+interval, $20$ bisections to narrow the position of the zero to $6$-figures.
+I will discuss the discrepancy in the final figure in Chapter~\ref{chap:solveSolve};
+see §\ref{subsec:solveExtraRounding}.
+
+\subsection{Circuits}
+
+Okay, so we can calculate the time taken in the underlying inertial
+system for a signal to pass from one point of the rotating disk to
+another. How long does it take to traverse the circuit \textbf{1}
+to \textbf{2} to \textbf{3} and back to \textbf{1}? That means forming
+the sum $t_{12}+t_{23}+t_{31}$, hence calculating the separate $t_{ij}$
+and then using \verb`\eval` to calculate their sum. 
+
+To simplify things, I assume a little symmetry. Let the (polar) coordinates
+of \textbf{1} be $(a,0),$ of \textbf{2} be $(r,-\theta)$, and of
+\textbf{3} be $(r,\theta)$: \textbf{2} and \textbf{3} are at the
+same radial distance from the centre \textbf{0} and at the same angular
+distance from the line \textbf{01} but on opposite sides of it, \textbf{3}
+ahead of the line, \textbf{2} behind it. The rotation is in the direction
+of positive $\theta$. Rather than just calculate $t_{12}+t_{23}+t_{31}$
+for the circuit \textbf{1231}, I also calculate the time $t_{13}+t_{32}+t_{21}$
+for a signal to traverse the same circuit but in the opposite sense,
+\textbf{1321},  and compare them (form the difference). 
+
+Note that with \textbf{2} and \textbf{3} positioned as they are relative
+to \textbf{1}, a signal against the rotation from \textbf{3} to \textbf{1}
+takes the same time as a signal from \textbf{1} to \textbf{2} and,
+in the sense of rotation, a signal from \textbf{2} to \textbf{1} takes
+the same time as a signal from \textbf{1} to \textbf{3}. To see this,
+suppose the signal from \textbf{2} to \textbf{1} starts at time $t=0$;
+it reaches \textbf{1} at a later time $t=t'$ when the disk has rotated
+an angle $\omega t'$. Viewed from the underlying inertial system,
+the signal path is  a straight line from a point on a circle of radius
+$r$ to a point on a concentric circle of radius $a$, the points
+subtending an angle at the centre \textbf{0} of $\theta+\omega t'$.
+But \textbf{3} at time $t'$ and \textbf{1} at time $t=0$ also subtend
+an angle $\theta+\omega t'$ at \textbf{0}, and also lie on circles
+of radii $r$ and $a$ respectively. In the underlying inertial system
+the line segments \textbf{1}$(0)$\textbf{3}$(t')$ and \textbf{2}$(0)$\textbf{1(}$t')$
+are of equal length. Similarly, if a signal from \textbf{3} at time
+$t=0$ reaches \textbf{1} at time $t=t''$ then \textbf{3}$(0)$\textbf{1}$(t'')$
+and \textbf{1}$(0)$\textbf{2}$(t'')$  are of equal length. Hence
+the round trip times are $2t_{12}+t_{23}$ and $2t_{13}+t_{32}$.
+
+\subsubsection{Nesting commands}
+
+Analytically, both $t_{21}$ and $t_{13}$ are the same fixed point
+of the function 
+\[
+c^{-1}\sqrt{r^{2}+a^{2}-2ra\cos(\theta+\omega t)}
+\]
+ and $t_{31}$ and $t_{12}$ are the same fixed point of the function
+\[
+c^{-1}\sqrt{r^{2}+a^{2}-2ra\cos(\theta-\omega t).}
+\]
+To calculate $2t_{12}+t_{23}$ therefore means calculating
+\begin{verbatim}
+    2\iter*{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta-\omega t)} }
+      + \iter*{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta+\omega t)} }
+\end{verbatim}
+with the analogous expression for $2t_{13}+t_{32}$. But we can do
+the comparison of round trip times `in one go' by nesting the \verb`\iter*`
+commands inside an \verb`\eval*` command:
+\begin{verbatim}
+     
+    \eval*{ % circuit 1231
+        2\iter*[var=t]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta-\omega t)} }[8]
+      + \iter*[var=t]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta+\omega t)} }[8]
+    % circuit 1321
+      - 2\iter*[var=t]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta+\omega t)} }[8]
+      - \iter*[var=t]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta-\omega t)} }[8]
+          }[ a=10,r=20,\theta=0.2,t=1 ] 
+\end{verbatim}
+$\Longrightarrow$     \eval*{ % circuit 1231
+        2\times\iter*[var=t]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta-\omega t)} }[8]
+      + \iter*[var=t]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta+\omega t)} }[8]
+    % circuit 1321
+      - 2\times\iter*[var=t]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta+\omega t)} }[8]
+      - \iter*[var=t]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta-\omega t)} }[8]
+          }[ a=10,r=20,\theta=0.2,{t}=1 ] . 
+
+By itself this result is of little interest beyond seeing that \verb`numerica-plus`
+can handle the calculation. What \emph{is} interesting is to find
+values of our parameters for which the time difference vanishes \textendash{}
+say values of $\theta$, given the other parameters, especially the
+value of $r$. Is there a circuit such that it takes a signal the
+same time to travel in opposite senses around the circuit, despite
+the rotation of the disk? Rather than nesting the \verb`\iter*` commands
+inside an \verb`\eval`, we need to nest them in a \verb`\solve`
+command:
+\begin{verbatim}
+    \solve[p=.,var=\theta,+=1,vvd=\\,*,+=1]
+      {\[ % circuit 1231    
+        2\times\iter*[var=t,+=1]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta-\omega t)} }
+      + \iter*[var=t,+=1]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta+\omega t)} }
+      % circuit 1321
+      - 2\times\iter*[var=t,+=1]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta+\omega t)} }
+      - \iter*[var=t,+=1]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta-\omega t)} }
+      \]}[ a=10,r=20,\theta=0.1,t=1 ]
+\end{verbatim}
+$\Longrightarrow$     \solve[p=.,var=\theta,+=1,vvd=\\,*]
+      {\[ % circuit 1231    
+        2\times\iter*[var=t,+=1]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta-\omega t)} }
+      + \iter*[var=t,+=1]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta+\omega t)} }
+      % circuit 1321
+      - 2\times\iter*[var=t,+=1]{ c^{-1}\sqrt{a^2+r^2-2ar
+                  \cos(\theta+\omega t)} }
+      - \iter*[var=t,+=1]{ c^{-1}\sqrt{2r^2-2r^2
+                  \cos(2\theta-\omega t)} }
+      \]}[ a=10,r=20,\theta=0.1,t=1 ]
+
+One point to note here is the use of \verb`\times` (in \verb`2\times\iter*`).
+In this example the formula is displayed (\verb`\solve` wraps around
+math delimiters). Without the \verb`\times` the result would have
+been the same but the display of the formula would have juxtaposed
+the `$2$'s against the following decimals, making it look as if
+signal travel times were $20.537778$ and $20.61442$ (and no doubt
+causing perplexity). Also note the \texttt{vvd=\textbackslash\textbackslash}
+to place the result on a new line and suppress display of the vv-list.
+
+So this expression gives a value of $\theta_{\Delta t=0}$ for one
+value of $r$. The obvious next step is to create a table of such
+values. I show how that is done in the document \verb`numerica-tables.pdf`
+using the command \verb`\nmcTabulate` defined in the associated package
+\verb`numerica-tables`. But this is not a research paper on the rotating
+disk. I wished to show how the different commands of \verb`numerica-plus`
+can be used to explore a meaningful problem. And although it looks
+as if a lot of typing is involved, once $c^{-1}\sqrt{r^{2}+a^{2}-2ra\cos(\theta-\omega t)}$
+has been formed in \LaTeX{} and values specified in the vv-list, much
+of the rest is copy-and-paste with minor editing.
+
+\section{Shared syntax of the new commands}
+
+\texttt{numerica-plus} offers three new commands for three processes:
+\verb`\nmcIterate` (short-name form \verb`\iter`) for iterating
+functions, \verb`\nmcSolve` (short-name form \verb`\solve`) for
+finding the zeros or (local) extrema of functions, and \verb`\nmcRecur`
+(short-name form \verb`\recur`) for calculating terms of recurrence
+relations.
+
+All three commands share the syntax of the \verb`\nmcEvaluate` (or
+\verb`\eval`) command detailed in the associated document \texttt{numerica.pdf}.
+When all options are used the command looks like, for instance,
+\begin{centred}
+\noindent \verb`\nmcIterate*[settings]{expr.}[vv-list][num. format]`
+\end{centred}
+You can substitute \verb`\nmcSolve`, or \verb`\nmcRecur` for \verb`\nmcIterate`
+here. The arguments are similar to those for \verb`\nmcEvaluate`. 
+\begin{enumerate}
+\item \verb`*` optional switch; if present ensures a single number output
+with no formatting, or an appropriate error message if the single
+number cannot be produced;
+\item \verb`[settings]` optional comma-separated list of \emph{key=value
+}settings for this particular command and calculation;
+\item \verb`{expr.}` the only mandatory argument; the mathematical expression
+in \LaTeX{} form that is the object of interest;
+\item \verb`[vv-list]` optional comma-separated list of \emph{variable=value
+}items; for \verb`\iter` and \verb`\solve` the \emph{rightmost}
+(or innermost) variable in the vv-list may have special significance;
+\item \verb`[num. format]` optional format specification for presentation
+of the numerical result (rounding, padding with zeros, scientific
+notation); boolean output is suppressed for these commands.
+\end{enumerate}
+Like \verb`\nmcEvaluate`, for all three commands the way the result
+is displayed depends on whether the command wraps around math delimiters,
+or is used between math delimiters or in the absence of math delimiters.
+These distinctions are relevant\emph{ only if the optional star {*}
+is absent.}
+\begin{itemize}
+\item When the star option is used, the \emph{result} is a number only,
+without any formatting or vv-list display, or an error message is
+displayed.
+\item When the star option is not used and one of the following is the case
+\begin{itemize}
+\item the command wraps around math delimiters, e.g. \verb`\iter{$ expr. $}`,
+then 
+\begin{itemize}
+\item the result is displayed in the form \emph{formula~=~result, (vv-list)}
+or the form \emph{formula~$\rightarrow$~result, (vv-list)} as appropriate;
+\end{itemize}
+\item the command is used within math delimiters, e.g. \verb`\[\iter...\]`,
+then 
+\begin{itemize}
+\item the result is displayed in the form \emph{result, (vv-list)} (without
+reference to the formula);
+\end{itemize}
+\item the command is used in the absence of delimiters, then 
+\begin{itemize}
+\item the result is presented as if it had been used between \verb`\[`
+and \verb`\]`.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+Looking at the various examples in the preceding section on the rotating
+disk you will see illustrations of all these situations.
+
+\subsection{Settings}
+
+Nearly all the settings available to the \verb`\eval` command are
+available to these other commands. To save switching between documents
+I reproduce in Table~\ref{tab:introSettingsInherited} the options
+found in \texttt{numerica.pdf}, although for discussion of the options
+you will need to refer to that document. In addition, each of the
+present commands also has settings of its own, discussed at the relevant
+parts of the following chapters.
+
+\subsection{Nesting}
+
+In v.1 of \verb`numerica`, for commands to be nested one within an
+another, it was necessary for the inner command to be starred (and
+thus produce a purely numerical result). With v.2 of \verb`numerica`
+this is no longer the case. A nested command is detected as such and
+the star automatically set, whether the user has explicitly starred
+the command or not. Provided the starred form of a command actually
+does produce a numerical result and not an error message then it can
+be nested within the main argument of any one of the other commands,
+including itself. The example of use, §\ref{sec:introExampleOfUse}
+above, shows several examples of this. The starred form can also be
+used in the vv-list of any one of the commands, including itself.
+The associated document \texttt{numerica.pdf} shows examples of an
+\verb`\eval*` command being used in the vv-list of an \verb`\eval`
+command. 
+
+\begin{table}
+\noindent \centering{}\caption{\protect\label{tab:introSettingsInherited}Inherited settings options}
+\noindent \begin{center}
+\begin{tabular}{ll>{\raggedright}p{4cm}>{\raggedright}p{4cm}}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{dbg}} & {\small int} & {\small debug `magic' integer} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{\textasciicircum}} & {\small char} & {\small exponent mark for sci. notation input} & {\small\texttt{e}}\tabularnewline
+{\small\texttt{xx}} & {\small int (0/1)} & {\small multi-token variable switch} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{()}} & {\small int (0/1/2)} & {\small trig. function arg. parsing} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{o}} &  & {\small degree switch for trig. funcions} & \tabularnewline
+{\small\texttt{log}} & {\small num} & {\small base of logarithms for }{\small{\small\verb`\log`}} & {\small\texttt{10}}\tabularnewline
+{\small\texttt{vvmode}} & {\small int (0/1)} & {\small vv-list calculation mode} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{vvd}} & {\small tokens} & {\small vv-list display-style spec.} & {\small\texttt{\{,\}\textbackslash mskip 12mu plus 6mu minus 9mu(vv)}}\tabularnewline
+{\small\texttt{vvi}} & {\small token(s)} & {\small vv-list text-style spec.} & {\small\texttt{\{,\}\textbackslash mskip 36mu minus 24mu(vv)}}\tabularnewline
+{*} &  & {\small suppress equation numbering if }{\small\texttt{\textbackslash\textbackslash}}{\small{}
+in }{\small\texttt{vvd}} & \tabularnewline
+{\small\texttt{p}} & char(s) & {\small punctuation (esp. in display-style)} & {\small\texttt{, (comma)}}\tabularnewline
+{\small\texttt{S+}} & {\small int} & {\small extra rounding for stopping criterion for sums} & {\small\texttt{2}}\tabularnewline
+{\small\texttt{S?}} & {\small$\text{int}\ge0$} & {\small stopping criterion query terms for sums} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{P+}} & {\small int} & {\small extra rounding for stopping criterion for products} & {\small\texttt{2}}\tabularnewline
+{\small\texttt{P?}} & {\small$\text{int}\ge0$} & {\small stopping criterion query terms for products} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+
+
+\chapter{Iterating functions: \texttt{\textbackslash nmcIterate}}
+
+\label{chap:Iterating-functions}Only in desperation would one try
+to evaluate a continued fraction by stacking fraction upon fraction
+upon fraction like so:
+\begin{verbatim}
+    \eval{\[ 1+\frac{1}{1+\frac{1}{1+\frac{1}
+      {1+\frac{1}{1+\frac{1}{1+\frac{1}
+        {1+\frac{1}{1+\frac{1}{1+\frac{1}
+          {1+\frac{1}{1+\frac{1}
+            {1+\frac{1}{1}}}}}}}}}}}} \]}
+\end{verbatim}
+$\Longrightarrow$     \eval{\[ 1+\frac{1}{1+\frac{1}{1+\frac{1}
+      {1+\frac{1}{1+\frac{1}{1+\frac{1}
+        {1+\frac{1}{1+\frac{1}{1+\frac{1}
+          {1+\frac{1}{1+\frac{1}
+            {1+\frac{1}{1}}}}}}}}}}}} \]}
+
+\noindent \verb`numerica-plus` provides a command for tackling problems
+like this sensibly. In such problems a function is repeatedly applied
+to itself (iterated). This is done through the command \verb`\nmcIterate`
+or (short-name form) \verb`\iter`. Thus to evaluate this continued
+fraction write (for instance),
+\begin{centred}
+\verb`\iter[do=15,see=5]{\[ 1+1/x \]}[x=1]` $\Longrightarrow$ \iter[do=15,see=5]{\[ 1+1/x \]}[x=1]
+\end{centred}
+The \verb`\iter` command evaluates $1+1/x$ when $x=1$ and then
+uses this value as a new $x$-value to substitue into $1+1/x$, to
+once again evaluate and use as a new $x$-value, and so on. It looks
+as if the repeated iterations are approaching \verb`\eval{$ \tfrac{\sqrt{5}+1}2 $}`
+$\Longrightarrow$ \eval{$ \tfrac{\sqrt{5}+1}2 $}. Increasing the
+number of iterations in the example from \texttt{do=15} to, say, \texttt{do=18},
+shows that this is indeed the case. 
+\begin{centred}
+\verb`\iter[do=18,see=5]{\[ 1+1/x \]}[x=1]` $\Longrightarrow$ \iter[do=18,see=5]{\[ 1+1/x \]}[x=1] 
+\end{centred}
+But iteration of functions is not limited to continued fractions.
+Particularly since the emergence of chaos theory, iteration has become
+an important study in its own right. Any function with range within
+its domain can be iterated \textendash{} repeatedly applied to itself
+\textendash{} like the cosine:
+\begin{centred}
+\verb`\iter[do=20,see=4]{\[ \cos x \]}[x=\pi/2]` $\Longrightarrow$
+\iter[do=20,see=4]{\[ \cos x \]}[x=\pi/2]
+\end{centred}
+which displays the first one and last four of 20 iterations of $\cos x$
+when $x=\tfrac{\pi}{2}$. It looks as if the cosine is `cautiously'
+approaching a limit, perhaps around $0.738$ or $0.739$. You need
+to nearly double the number of iterations (\texttt{do=40}) to confirm
+that this is so.
+
+The logistic function $kx(1-x)$ exhibits a variety of behaviours
+depending on the value of $k$. For instance, with $k=3.5$ we get
+a period-4 cycle:
+\begin{centred}
+\verb`\iter[do=12,see=8]{\[ kx(1-x) \]}[k=3.5,x=0.5]` $\Longrightarrow$
+ \iter[do=12,see=8]{\[ kx(1-x) \]}[k=3.5,x=0.5]
+\end{centred}
+and with $k=3.1$ we get a period-2 cycle, although it takes many
+more iterations to stabilize there:
+\begin{centred}
+\verb`\iter[do=42,see=4]{\[ kx(1-x) \]}[k=3.1,x=0.5]` $\Longrightarrow$
+\iter[do=42,see=4]{\[ kx(1-x) \]}[k=3.1,x=0.5]
+\end{centred}
+
+\section{Star (\texttt{{*}}) option: fixed points}
+
+In the first two of these examples, iteration eventually ended at
+a \emph{fixed point}. This is a point $x$ where $f(x)=x$. Appending
+a star (asterisk) to the \verb`\iter` command is the signal for iteration
+to continue until a fixed point has been reached at the specified
+rounding value:
+\begin{centred}
+\verb`\iter*{ 1+a/x }[a=n(n+1),n=1,x=1]` $\Longrightarrow$ \iter*{ 1+a/x }[a=n(n+1),n=1,x=1]
+\end{centred}
+(with the default rounding value $6$).\footnote{For your own interest try also putting $n=2,3,4,\ldots$ in the vv-list
+of this expression.} The star overrides any value for the number of iterations to perform
+(the \texttt{do} key) that may have been entered in the settings option.
+It also overrides any elements of the display other than the numerical
+result. With the star option math delimiters are irrelevant \textendash{}
+other than displaying minus signs correctly when \verb`\iter*` is
+between them.
+
+A function may not approach a fixed point when iterated \textendash{}
+see the examples with the logistic function above. To prevent an infinite
+loop \verb`\iter*` counts the number of iterations performed and
+when that number reaches a certain cut-off value \textendash{} the
+default is $100$ \textendash{} the loop terminates and a message
+is displayed:
+\begin{centred}
+\verb`\iter*{kx(1-x)}[k=3.5,x=0.5]` $\Longrightarrow$ \iter*{kx(1-x)}[k=3.5,x=0.5]
+\end{centred}
+In this case we \emph{know} that a fixed point does not exist, but
+that may not always be the case. One response to a message like this
+is to change parameter values or starting value of the iteration variable.
+For instance, changing the parameter value to $k=1.5$,
+\begin{centred}
+\verb`\iter*{kx(1-x)}[k=1.5,x=0.5]` $\Longrightarrow$ \iter*{kx(1-x)}[k=1.5,x=0.5],
+\end{centred}
+means a fixed point is now attained. It is easy to check that $1/3$
+is indeed a fixed point (but that makes the $4$ in the last decimal
+place a concern; see the extra rounding setting, §\ref{subsec:iterExtra-rounding}). 
+
+But should a fixed point still not eventuate after `fiddling' with
+parameter and start values, there are two general adjustments one
+might try: either 
+\begin{enumerate}
+\item reduce the rounding value, from the default $6$ (or the one specified),
+to a smaller value, or
+\item increase the cut-off figure from the default 100 to some higher value. 
+\end{enumerate}
+The former is done via the trailing number format optional argument
+of the \verb`\iter` command; the latter is done via the settings
+option, see §\ref{sec:iterSettings-option}, specifically §\ref{subsec:iterMaximum-iteration-count}. 
+
+\subsection{Use with \texttt{\textbackslash nmcInfo}}
+
+It is of interest to know how many iterations are required to reach
+a fixed point at a particular rounding value. That knowledge allows
+a good guess as to whether a fixed point will be attained at a greater
+rounding value. Thus when iterating the function
+\[
+f(t_{ij})=c^{-1}\sqrt{r_{i}^{2}+r_{j}^{2}-2r_{i}r_{j}\cos(\theta_{j}-\theta_{i}+\omega t_{ij})}
+\]
+in §\ref{sec:introExampleOfUse} only $5$ iterations were required
+to attain $6$-figure accuracy for the fixed point. That information
+came by following the \verb`\iter*` command with \verb`\nmcInfo`
+(or \verb`\info`) with the argument \verb`iter`. And generally,
+for any `infinite' process, follow the command with an \verb`\info`
+command if you want to know how many `steps' \textendash{} in the
+present case iterations \textendash{} are required to achieve the
+result. So, if $5$ iterations achieve $6$-figure accuracy, presumably
+something like $10$ iterations will achieve $12$-figure accuracy:
+\begin{verbatim}
+    \iter*{ c^{-1}\sqrt{r_i^2+r_j^2-2r_i r_j
+      \cos(\theta_{ij}+\omega t)}
+        }[ r_i=10,r_j=20,\theta_{ij}=0.2,t=1 ][12]
+    ,\quad\info{iter}. 
+\end{verbatim}
+$\Longrightarrow$     \iter*{ c^{-1}\sqrt{r_i^2+r_j^2-2r_i r_j
+      \cos(\theta_{ij}+\omega t)}
+        }[ r_i=10,r_j=20,\theta_{ij}=0.2,t=1 ][12]         
+    ,\quad\info{iter}. (Remember, \verb`numerica-plus` knows the values of $c$ and $\omega$
+from a \verb`\constants` statement in the preamble.) And indeed only
+$9$ iterations suffice to achieve $12$-figure accuracy: 
+\begin{verbatim}
+    \iter[do =11,see=4]
+      { c^{-1}\sqrt{r_i^2+r_j^2-2r_i r_j
+        \cos(\theta_{ij}+\omega t)}
+      }[ r_i=10,r_j=20,\theta_{ij}=0.2,t=1 ][12]
+\end{verbatim}
+$\Longrightarrow$     \iter[do =11,see=4]
+      { c^{-1}\sqrt{r_i^2+r_j^2-2r_i r_j
+        \cos(\theta_{ij}+\omega t)}
+      }[ r_i=10,r_j=20,\theta_{ij}=0.2,t=1 ][12]
+
+Or again, with another example from earlier,
+\begin{centred}
+\verb`$ \iter*{\cos x}[x=\pi/2] $,\ \info{iter}.` $\Longrightarrow$
+$\iter*{\cos x}[x=\pi/2] $,\ \info{iter}.
+\end{centred}
+That suggests that around $2\times37=74$ iterations will give a $2\times6=12$-figure
+answer, well within the cut-off figure of $100$:
+\begin{centred}
+\verb`$ \iter*{\cos x}[x=\pi/2][12] $,\ \info{iter}.` $\Longrightarrow$
+$\iter*{\cos x}[x=\pi/2][12] $,\ \info{iter}.
+\end{centred}
+
+\section{Settings option}
+
+\label{sec:iterSettings-option}The settings option is a comma-separated
+list of items of the form \emph{key~=~value}.
+
+\subsection{Inherited settings}
+
+Nearly all of the keys discussed in the settings\emph{ }option for
+\verb`\nmcEvaluate` are available for \verb`\nmcIterate`. Table~\ref{tab:introSettingsInherited}
+above lists these, repeating a table from \texttt{numerica.pdf}. Thus
+should a quantity in the vv-list depend on the iteration variable,
+forcing an implicit mode calculation, simply enter, as with \verb`\eval`,
+\verb`vv@=1` (alternatively, \verb`vvmode=1`) in the settings option:
+\begin{centred}
+\verb`\iter*[vv@=1]{$ f(x) $}[f(x)=1+a/x,a=12,x=1]` $\Longrightarrow$
+\iter*[vv@=1]{$ f(x) $}[f(x)=1+a/x,a=12,x=1].
+\end{centred}
+Implicit in the example is the default multi-token setting \texttt{xx=1}
+inherited from \verb`\eval` and ensuring that the multi-token variable
+$f(x)$ is treated correctly. 
+
+Let's add \verb`dbg=1` to the example:
+\begin{centred}
+\verb`\iter*[dbg=1,vv@=1]{$ f(x) $}[f(x)=1+a/x,a=12,x=1]` $\Longrightarrow$
+\iter*[dbg=1,vv@=1]{$ f(x) $} [f(x)=1+a/x,a=12,x=1]
+\end{centred}
+The multi-token variable \verb`f(x)` has been changed to a single-token.
+The values shown under `stored' and `fp-form' are those of the
+\emph{final} iteration.
+
+\subsection{\texttt{\textbackslash nmcIter}ate-specific settings}
+
+In addition to the inherited settings there are some specific to \verb`\nmcIterate`.
+These are listed in Table~\ref{tab:iterSettings}.
+
+\subsubsection{Iteration variable}
+
+In nearly all of the examples so far, the iteration variable has been
+the rightmost variable in the vv-list and has not needed to be otherwise
+specified. However it is sometimes not feasible to indicate the variable
+in this way. In that case, entering
+\begin{lyxcode}
+var~=~<variable~name>
+\end{lyxcode}
+in the settings option enables the variable to be specified, irrespective
+of what the rightmost variable in the vv-list is. Here, \texttt{<variable
+name>} will generally be a character like \texttt{x} or \texttt{t}
+or a token like \verb`\alpha`, but it could also be a multi-token
+name like {\ttfamily\verb`x'`}\texttt{ }or \texttt{\textbackslash beta\_\{ij\}}
+(or even \texttt{Fred} if you so chose). Although the iteration variable
+can be independently specified like this, it must still be given an
+initial \emph{value} in the vv-list \textendash{} only it need not
+be the rightmost variable.
+
+In the following example the rightmost variable is $a$ which is clearly
+\emph{not} the iteration variable:
+\begin{centred}
+\verb`\iter[var=x,do=40,see=5]{$ 1+a/x $}[x=a/6,a=6][*]` $\Longrightarrow$
+\iter[var=x,do=40,see=5]{$ 1+a/x $}[x=a/6,a=6][*]
+\end{centred}
+
+\subsubsection{Extra rounding for fixed-point calculations}
+
+\label{subsec:iterExtra-rounding}
+\begin{table}
+\centering{}\caption{\protect\label{tab:iterSettings}Settings for \texttt{\textbackslash nmcIterate}}
+\begin{center}
+\begin{tabular}{llll}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{var}} & {\small token(s)} & {\small iteration variable} & \tabularnewline
+{\small\texttt{+}} & {\small int} & {\small fixed point extra rounding} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{max}} & {\small int > 0} & {\small max. iteration count (fixed points)} & {\small\texttt{100}}\tabularnewline
+{\small\texttt{do}} & {\small int > 0} & {\small number of iterations to perform} & {\small\texttt{5}}\tabularnewline
+{\small\texttt{see}} & {\small int > 0} & {\small number of final iterations to view} & {\small\texttt{4}}\tabularnewline
+ & {\small int ($\mathtt{0}/\mathtt{1}/\mathtt{2}$)} & {\small form of result saved with }{\small{\small\verb`\`}} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+\verb`numerica-plus` determines that a fixed point has been reached
+when the difference between successive iterations vanishes when rounded
+to the current rounding value. One might want reassurance that this
+really is the correct value by seeking a fixed point at a higher rounding
+value than that displayed. This extra rounding is achieved by entering 
+\begin{lyxcode}
++~=~<integer>
+\end{lyxcode}
+in the settings option. By default this extra rounding is set to zero. 
+
+We have seen before that $\cos x$ starting at $x=\tfrac{1}{2}\pi$
+takes $37$ iterations to reach a $6$-figure fixed point $0.739085$,
+about $6$ iterations per decimal place. By entering \texttt{+=1}
+in the settings option the number of iterations is increased to $43$,
+$6$ more than $37$ but, reassuringly, the $6$-figure result that
+is displayed remains unchanged:
+\begin{centred}
+\verb`$ \iter*[+=1]{\cos x}[x=\pi/2] $,\ \info{iter}.` $\Longrightarrow$
+$ \iter*[+=1]{\cos x}[x=\pi/2] $,\ \info{iter}.
+\end{centred}
+
+\subsubsection{Maximum {\small iteration count for fixed-point searches}}
+
+\label{subsec:iterMaximum-iteration-count}To prevent a fixed-point
+search from continuing indefinitely when no fixed point exists, there
+needs to be a maximum number of iterations specified after which point
+the search is called off. By default this number is $100$. To change
+it enter
+\begin{lyxcode}
+max~=~<positive~integer>
+\end{lyxcode}
+in the settings option.
+
+\subsubsection{Number of iterations to perform}
+
+To specify the number of iterations to perform enter
+\begin{lyxcode}
+do~=~<positive~integer>
+\end{lyxcode}
+in the settings option. Note that if the \verb`*` option is present
+this value will be ignored and iteration will continue until either
+a fixed point or the maximum iteration count is reached. By default
+\texttt{do} is set to $5$. (Note that \texttt{do} can be set to a
+greater number than \texttt{max}; \texttt{max} applies only to \verb`\iter*`.)
+
+\subsubsection{Number of iterations to show}
+
+To specify the number of final iterations to show enter 
+\begin{lyxcode}
+see~=~<positive~integer>
+\end{lyxcode}
+in the settings option. By default \texttt{see} is set to $4$. Always
+it is the \emph{last} \texttt{see} iterations that are displayed.
+If \texttt{see} is set to a greater value than \texttt{do}, all iterations
+are shown. If the star option is used the \texttt{see} value is ignored.
+
+\subsubsection{Form of result saved by \texttt{\textbackslash nmcReuse}}
+
+By entering
+\begin{lyxcode}
+reuse~=~<integer>
+\end{lyxcode}
+in the settings option of the \verb`iter` command it is possible
+to specify the form of result that is saved when using \verb`\nmcReuse`.
+(This setting has no effect when the star option is used with \verb`\nmcIterate`.
+In that case only the numerical result of the fixed point calculation
+\textendash{} if successful \textendash{} is saved.) The possibilities
+are:
+\begin{itemize}
+\item \texttt{int=0} (or any integer $\mathtt{\ne1,2}$) saves the display
+resulting from the \verb`\iter` command (the default);
+\item \texttt{int=1} saves a comma-separated list of braced pairs of the
+form:\texttt{ }~\\
+\texttt{\{$k$, value-of-$k$-th-iterate\}};
+\item \texttt{int=2} saves a comma-separated list of iterate values.
+\end{itemize}
+Note that the number and content of the items in the lists are those
+resulting from the \texttt{see} setting (the number of iterations
+to view).
+\begin{verbatim}
+    \iter[reuse=1,do=12,see=4]
+      {\[ kx(1-x) \]}[k=3.5,x=0.5]
+    \reuse{logistic}
+\end{verbatim}
+$\Longrightarrow$ \iter[reuse=1,do=12,see=4]{\[ kx(1-x) \]}[k=3.5,x=0.5]  \reuse[renew]{logistic}
+
+\noindent whence \verb`\logistic` $\Longrightarrow$ \logistic{}.
+As you can see the control sequence \verb`\logistic` displays as
+a comma-separated list of numbers, alternating between the iterate
+ordinal and the iterate value. That these are stored as braced pairs
+can be seen by using \TeX 's \verb`\meaning` command:
+\begin{verbatim}
+    \meaning \logistic
+\end{verbatim}
+$\Longrightarrow$ \meaning \logistic
+
+\subsection{Changing default values}
+
+\begin{wraptable}[11]{o}{0.5\columnwidth}%
+\centering{}\vspace{-2.7ex}
+\caption{\protect\label{tab:iterSettingsDefaults}Defaults for \texttt{\textbackslash nmcIterate}}
+\begin{center}
+\begin{tabular}{ll}
+\toprule 
+{\small key} & {\small default}\tabularnewline
+\midrule
+{\small iter-extra-rounding} & {\small\texttt{0}}\tabularnewline
+{\small iter-max-iterations} & {\small\texttt{100}}\tabularnewline
+{\small iter-do} & {\small\texttt{5}}\tabularnewline
+{\small iter-see-last} & {\small\texttt{4}}\tabularnewline
+{\small iter-reuse} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}\end{wraptable}%
+If you wish to change the default values of the various settings for
+\verb`\nmcIterate` this can be done by entering new values in a configuration
+file \texttt{numerica-plus.cfg} as described in the chapter on settings
+in the associated document \texttt{numerica.pdf}. The relevant keys
+are listed in Table~\ref{tab:iterSettingsDefaults}, corresponding
+to the \verb`+`, \verb`max`, \verb`do`, \verb`see` and \verb`reuse`
+settings of the \verb`\iter` command. (Obviously it makes no sense
+to have a default setting for the iteration variable. That will change
+from case to case.)
+
+\section{Errors}
+
+By errors I refer to \verb`numerica-plus` errors rather than \LaTeX{}
+errors. We have already met one in the discussion of fixed points:
+\begin{centred}
+\verb`\iter*{kx(1-x)}[k=3.5,x=0.5]` $\Longrightarrow$ \iter*{kx(1-x)}[k=3.5,x=0.5]
+\end{centred}
+For a function to be iterated indefinitely, its range must lie within
+or be equal to its domain. If even part of the range of a function
+lies outside its domain, then on repeated iteration there is a chance
+that a value will eventually be calculated which lies in this `outside'
+region. Iteration cannot continue beyond this point and an error message
+is generated. As an example consider the inverse cosine, \verb`\arccos`.
+This can be iterated only so far as the iterated values lie between
+$\pm1$ inclusive. If we try to iterate \verb`\arccos` at 0 for example,
+since $\cos\frac{1}{2}\pi=0$, $\arccos0=\eval{0.5\pi}[4]$ (which
+is $\tfrac{1}{2}\pi$) so only a first iterate is possible. But we
+could choose an initial value more carefully; $37$ iterations of
+the cosine at $\tfrac{1}{2}\pi$ led to a fixed point $0.739085$,
+so let's choose $0.739085$ as initial point and perform $37$ iterations:
+\begin{centred}
+\verb`\iter[do=37,see=4]{\[ \arccos x \]}[x=0.739085]` $\Longrightarrow$
+\iter[do=37,see=4]{\[ \arccos x \]}[x=0.739085]
+\end{centred}
+The result of the $37$th iteration is greater than $1$. Thus increasing
+the number of iterations to 38 should generate an error message:
+\begin{centred}
+\verb`\iter[do=38,see=4]{\[ \arccos x \]}[x=0.739085]` $\Longrightarrow$\iter[do=38,see=4]{\[ \arccos x \]} [x=0.739085]  
+\end{centred}
+\verb`l3fp` objects when asked to find the inverse cosine of a number
+greater than $1$.
+
+\chapter{Finding zeros and extrema: \texttt{\textbackslash nmcSolve}}
+
+\label{chap:solveSolve}\verb`numerica-plus` provides a command,\textbf{
+}\verb`\nmcSolve` (short-name form \verb`\solve`), for finding a
+zero of a function, should it have one. In the following example, 
+\begin{centred}
+\verb`\solve[p]{\[ e^{ax}-bx^2 \]}[a=2,b=3,{x}=0]` $\Longrightarrow$
+\solve[p]{\[ e^{ax}-bx^2 \]}[a=2,b=3,{x}=0]
+\end{centred}
+I have sought and found a solution $x$ to the equation $e^{ax/2}-bx^{2}=0$
+when $a=2$ and $b=3$, starting with a trial value $x=0$, entered
+as the \emph{rightmost} variable in the vv-list (and em-braced since
+I don't want this trial value displaying in the presentation of the
+result). Although $x$ has been found to the default six-figure accuracy,
+it is evident that the function vanishes only to five figures. Let's
+check:
+\begin{centred}
+\verb`\eval{$ bx^2 $}[b=3,x=x=-0.390647]` $\Longrightarrow$ \eval{$ bx^2 $}[b=3,x=-0.390647], 
+
+\verb`\eval{$ e^{ax} $}[a=2,x=-0.390647]` $\Longrightarrow$ \eval{$ e^{ax} $}[a=2,x=-0.390647]; 
+\end{centred}
+the values agree save in the final digit.
+
+This discrepancy in the final decimal place or places is a general
+feature of solutions found by \verb`\solve`. It is the value of $x$,
+not the value of $f(x)$, that is being found (in this case) to six
+figures. If the graph of a function crosses the $x$-axis steeply
+then the $x$ value (the zero) may be located to a higher precision
+than the function value. Conversely, if the graph of a function crosses
+the $x$-axis gently (at a shallow angle) then the function value
+will vanish to a greater number of decimal places than the zero (the
+$x$ value) is found to.
+
+A second example, which we can check against values tabulated in \emph{HMF},
+is to find a value of $x$ that satisfies $\tan x=\lambda x$. In
+other words, find a zero of $\tan x-\lambda x$. In the example $\lambda$
+is negative, so a trial value for $x$ greater than $\pi/2$ seems
+like a good idea. I've chosen $x=2$. 
+\begin{centred}
+\verb`\solve{$ \tan x - \lambda x $}[\lambda=-1/0.8,{x}=2][5]` $\Longrightarrow$
+\solve{$ \tan x - \lambda x $}[\lambda=-1/0.8,{x}=2][5].
+\end{centred}
+Table 4.19 of \emph{HMF }lists values of $x$ against $\lambda$ and
+this is the value tabulated there.
+
+\section{Extrema}
+
+A function may not have a zero; or, for the given initial trial value
+and initial step in the search for a zero, there may be a local extremum
+in the way. In that case \verb`numerica-plus` may well locate the
+local extremum (maximum or minimum but not a saddle point). For example
+for the quadratic $(2x-1)^{2}+3x+1$ the \verb`\solve` command gives
+the result 
+\begin{centred}
+\verb`\solve[vvi=]{$ (2x-1)^2+3x+1 $}[x=2]` $\Longrightarrow$\solve[vvi=]{$ (2x-1)^2+3x+1 $}[{x}=2]. 
+\end{centred}
+Since $(2x-1)^{2}+3x+1\ne0$ for any (real number) $x$, we deduce
+that the quadratic takes a minimum value $1.9375$ at $x=0.125$ \textendash{}
+easily confirmed analytically. This particular minimum is a global
+minimum but in general any extremum found is only \emph{local}. The
+function may well take larger or smaller values (or vanish for that
+matter) further afield.
+
+It is also worth noting in this example the \verb`vvi=` in the settings
+option which suppresses display of the vv-list. (The only member of
+the vv-list is the trial value \verb`x=2` which we do not want to
+display.)
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+Note that the function for which a zero is being sought is \emph{not}
+equated to zero when entered in the \verb`\solve` command. It is
+\verb`\solve{ f(x) }`, not \verb`\solve{ f(x)=0 }`. This is precisely
+because it may be an extremum that is found rather than a zero (if
+extremum or zero is found at all \textendash{} think $e^{x}$). The
+display of the result makes clear which is which, equating $f(x)$
+to its value, zero or extremum depending on what has been found, as
+you can see in the preceding examples.\end{shaded}%
+\end{minipage}
+
+\subsection{The search strategy}
+
+\label{subsec:solveSearch-strategy}If you have some sense of where
+a function has a zero, then choose a trial value in that vicinity.
+\verb`\solve` uses a bisection method to home in on the zero. It
+therefore needs \emph{two} initial values. For the first it uses the
+trial value you specify, call it $a$ and for the second, by default,
+it uses $a+1$. (The default value $1$ for the initial step from
+the trial value can be changed in the settings option; see §\ref{sec:solveSettings-option}.)
+If $f(a)$ and $f(a+1)$ have opposite signs then that is good. Bisection
+of the interval $[a,a+1]$ can begin immediately in order to home
+in on the precise point where $f$ vanishes. Write $b=a+1$.
+\begin{itemize}
+\item Let $c=\tfrac{1}{2}(a+b)$; if $f(c)=0$ the zero is found; otherwise
+either $f(a),f(c)$ are of opposite signs or $f(c),f(b)$ are of opposite
+signs. In the former case write $a_{1}=a,$ $b_{1}=c$; in the latter
+case write $a_{1}=c$, $b_{1}=b$ and then redefine $c=\tfrac{1}{2}(a_{1}+b_{1})$.
+Continue the bisection process, either until an exact zero $c$ of
+$f$ is reached ($f(c)=0$) or a value $c$ is reached where the difference
+between $a_{n+1}$ and $b_{n+1}$ is zero at the specified rounding
+value. (But note, $f(c)$ may not vanish at that rounding value \textendash{}
+the zero might be elsewhere in the interval and $f$ might cross the
+axis at a steep slope.)
+\end{itemize}
+However $f(a)$ and $f(b)=f(a+1)$ may not have opposite signs. If
+we graph the function $y=f(x)$ and suppose $f(a),f(b)$ are distinct
+but of the same sign, then the line through the points $(a,f(a))$,
+$(b,f(b))$ will intersect the $x$-axis to the left of $a$ or the
+right of $b$ depending on its slope. We search always \emph{towards
+the $x$-axis} in steps of $b-a$ ($=1$ with default values).
+\begin{itemize}
+\item If the line intersects the axis to the left of $a$ then $c=a-(b-a)$
+and we set $a_{1}=c,b_{1}=a$; if the line intersects the axis to
+the right of $b$ then $c=b+(b-a)$ and we set $b_{1}=c,a_{1}=b$.
+The hope is that by always taking steps in the direction towards the
+$x$-axis that eventually $f(c)$ will be found to lie on the \emph{opposite}
+side of the axis from $f(a_{n})$ or $f(b_{n})$, at which point the
+bisection process begins.
+\item Of course this may not happen. At some point $c$ may lie to the left
+of $a_{n}$ but $\left|f(c)\right|>\left|f(a_{n})\right|$, or $c$
+may lie to the right of $b_{n}$ but $\left|f(c)\right|>\left|f(b_{n})\right|$.
+The slope has reversed. In that case we halve the step value to $\tfrac{1}{2}(b-a)$
+and try again in the same direction as before from the same point
+as before ($a_{n}$ or $b_{n}$ as the case may be).
+\item Should we find at some point that $f(a_{n})=f(b_{n})$ then the previous
+strategy does not apply. In this case we choose $a_{n+1}$ and \textbf{$b_{n+1}$}
+at the quarter and three-quarter marks between $a_{n}$ and $b_{n}$.
+Either $f(a_{n+1})$ and $f(b_{n+1})$ will differ and the previous
+search strategy can start again or we are on the way to finding an
+extremum of $f$.
+\end{itemize}
+As already noted it is also possible that our function has neither
+zeros nor extrema. To prevent the search continuing indefinitely,
+\texttt{numerica} uses a cut-off value for the maximum number of steps
+pursued \textendash{} by default set at 100.
+
+\subsubsection{Elusive extrema}
+
+The strategy `search always towards the $x$-axis' has a consequence:
+it means that a local maximum above the $x$-axis will almost certainly
+not be found, since `towards the $x$-axis' pulls the search away
+from the maximum. Similarly a local minimum below the $x$-axis will
+also not be found since `towards the $x$-axis' pulls the search
+away from the minimum. 
+
+One way of countering this elusiveness is to add a constant value
+(possibly negative) to the function whose zeros and extrema are being
+sought. The zeros of the function will change but the abscissae ($x$
+values) of the extrema remain unchanged. If the constant is big enough
+it will push a local minimum above the axis where it can be found
+or, for a negative constant, push a local maximum below the axis where
+it can be found.
+
+For example $f(x)=x^{3}-x$ has roots at $-1,0,1$, a local maximum
+at $-\tfrac{1}{\surd3}$ and a local minimum at $\tfrac{1}{\surd3}$.
+To locate the minimum, I have added an unnecessarily large constant
+$k$ to $f(x)$. ($k=1$ would have sufficed, but note, $k=0$ fails.)
+\begin{centred}
+\verb`\solve{$ x^3-x+k $}[k=5,{x}=0.5]` $\Longrightarrow$ \solve{$ x^3-x+k $}[k=5,{x}=0.5].
+\end{centred}
+Checking, \verb`\eval{$\tfrac1{\surd 3}$}` $\Longrightarrow$ \eval{$\tfrac1{\surd 3}$}.
+There is a discrepancy in the $6$th decimal place which can be eliminated
+by using the extra rounding setting; see §\ref{subsec:solveExtraRounding}.
+
+\subsubsection{False extrema}
+
+A function which `has an infinity' at a particular value can result
+in a false extremum being found:
+\begin{centred}
+\verb`\solve{$ 1/x $}[x=-1/3]` $\Longrightarrow$ \solve{$ 1/x $}[x=-1/3].
+\end{centred}
+One needs to look for extrema with some awareness, a general sense
+of how the function behaves. `Searching blind' may lead to nonsense
+results. In this particular example, changing the rounding value will
+show the supposed extremum jumping from one large value to another
+and not settling at a particular value.
+
+\section{Star (\texttt{{*}}) option}
+
+A starred form of the\textbf{ }\verb`\nmcSolve` command suppresses
+all elements of display of the result apart from the numerical value.
+In v.1 of \verb`numerica`, when the commands of \verb`numerica-plus`
+were invoked with a package option, nesting a \verb`\solve*` command
+within another command was the form to use. Now that \verb`numerica-plus`
+is a separate package (but labelled v.2), the star is no longer necessary.
+\verb`numerica` and associated packages understand a nested command
+to be the starred form, whether the star is explicitly present or
+not. 
+
+With the `elusive' extremum example above, we can find the actual
+value of the minimum by nesting \verb`\solve*` or \verb`\solve`
+within the vv-list of an \verb`\eval` command:
+\begin{centred}
+\verb`\eval{$ x^3-x $}[x={\solve{y^3-y+k}[k=5,y=0.5]}]` $\Longrightarrow$
+\eval{$ x^3-x $}[x={\solve{y^3-y+k}[k=5,y=0.5]}].
+\end{centred}
+(Note the braces around the \verb`\solve` and its vv-list to hide
+\emph{its} square-brackets  from the parsing of the vv-list of the
+\verb`\eval` command.) The result is to be compared with \verb`$\eval*{x^3-x}[x=\tfrac1{\surd3}]$`
+$\Longrightarrow$ $\eval*{x^3-x}[x=\tfrac1{\surd3}]$. 
+
+\section{Settings option}
+
+\label{sec:solveSettings-option}The settings option is a comma-separated
+list of items of the form \emph{key~=~value}.
+
+\subsection{Inherited settings}
+
+The keys discussed in the settings\emph{ }option for \verb`\nmcEvaluate`
+are also available for \verb`\nmcSolve`. The very first example in
+this chapter used the punctuation option \texttt{p} (\verb`\solve[p]{\[... `)
+inherited from the \verb`\eval` command to ensure a comma after the
+display-style presentation of the result. We also saw in the quadratic
+example illustrating extrema the use of \texttt{vvi} with no value
+to suppress display of the vv-list: \verb`\solve[vvi=]{$ ...`. 
+
+Putting \verb`dbg=1` produces a familiar kind of display. Using the
+function 
+\[
+ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)}
+\]
+from the rotating disk problem,
+\begin{verbatim}
+    \solve[dbg=1,var=t]
+      {$ ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)} 
+      $}[a=10,b=20,\beta=1,{t}=0][4]
+\end{verbatim}
+$\Longrightarrow$     \solve[dbg=1,var=t]
+      {$ ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)} 
+      $}[a=10,b=20,\beta=1,{t}=0][4]
+
+\subsubsection{Multi-line display of the result}
+
+\label{subsec:solveMulti-line-display}By default the result is presented
+on a single line. Unless the star option is being used, this can be
+of the form \emph{function = function value, (vv-list) $\rightarrow$
+result}. It takes only a slightly complicated formula and only a few
+variables in the vv-list before this becomes a crowded line, likely
+to exceed the line width and extend into the margin. To split the
+display over two lines choose a \texttt{vvd} specification in the
+vv-list like, for instance, \texttt{vvd=\{,\}\textbackslash\textbackslash (vv)}.
+The \texttt{\textbackslash\textbackslash} is a trigger for \texttt{numerica}
+to replace whatever environment the \texttt{\textbackslash eval}
+command is wrapped around with a \texttt{multline} environment. An
+asterisk in the vv-list replaces \texttt{multline} with \texttt{multline{*}}
+so that no equation number is used:
+\begin{verbatim}
+    \solve[p=.,vvd={,}\\(vv),*]
+      {$ ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)} 
+      $}[a=10,b=20,\beta=1,{t}=0][4]
+\end{verbatim}
+$\Longrightarrow$ \solve[p=.,vvd={,}\\(vv),*]
+      {$ ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)} 
+      $}[a=10,b=20,\beta=1,{t}=0][4]
+\begin{verbatim}
+
+\end{verbatim}
+You could introduce a third line if you wished to display the result
+on a line of its own by using the spec. \texttt{vvd=\{,\}\textbackslash\textbackslash (vv)\textbackslash\textbackslash}.
+
+The function evaluates to $-0.0007$. Is this a zero that has been
+found or an extremum? To find out, the calculation needs to be carried
+out to a higher rounding value which is the reason why \verb`\nmcSolve`
+has an extra rounding setting; see §\ref{subsec:solveExtraRounding}
+below.
+
+\subsection{\texttt{\textbackslash nmcSolve}-specific settings}
+
+In addition there are some settings specific to \verb`\nmcSolve`.
+These are listed in Table~\ref{tab:solveSettings}.
+
+\begin{table}
+\centering{}\caption{\protect\label{tab:solveSettings}Settings for \texttt{\textbackslash nmcSolve}}
+\begin{center}
+\begin{tabular}{llll}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{var}} & {\small token(s)} & {\small equation variable} & \tabularnewline
+{\small\texttt{dvar}} & {\small real $\ne0$ } & {\small initial step size} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{+}} & {\small int} & {\small extra rounding} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{max}} & {\small int > 0} & {\small max. number of steps before cut off} & {\small\texttt{100}}\tabularnewline
+{\small\texttt{reuse}} & {\small int ($\mathtt{0}/\mathtt{1}$)} & {\small form of result saved with }{\small{\small\verb`\reuse`}} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+
+
+\subsubsection{Equation variable}
+
+By default the equation variable is the \emph{rightmost} variable
+in the vv-list. This may not always be convenient. A different equation
+variable can be specified by entering
+\begin{lyxcode}
+var~=~<variable~name>
+\end{lyxcode}
+in the vv-list. \texttt{<variable name>} will generally be a single
+character or token \textendash{} $x$, $t$, $\alpha$, $\omega$
+\textendash{} but is not necessarily of this kind. Multi-token names
+are perfectly acceptable (with the default multi-token setting; see
+the associated document \verb`numerica.pdf` about this).
+
+\subsubsection{Initial step size}
+
+The vv-list contains the equation variable set to a trial value. But
+\verb`\solve` needs \emph{two} initial values to begin its search
+for a zero or extremum; see §\ref{subsec:solveSearch-strategy}. Ideally,
+these values will straddle a zero of the function being investigated.
+By default, the second trial value is $1$ more than the first: if
+the equation variable is set to a trial value $a$ then the second
+value defaults to $a+1$. The `$+1$' here can be changed by entering
+in the settings option
+\begin{lyxcode}
+dvar~=~<non-zero~real~number>
+\end{lyxcode}
+For instance, \texttt{dvar=-1}, or \texttt{dvar=\textbackslash pi}
+are two valid specifications of initial step size. The notation is
+prompted by the use of expressions like $x$ and $x+dx$ for two nearby
+points in calculus.
+
+An example where the default step value is too big and a smaller one
+needs to be specified is provided by Planck's radiation function (\emph{HMF
+}Table 27.2),
+\[
+f(x)=\frac{1}{x^{5}(e^{1/x}-1)}.
+\]
+From the (somewhat coarse-grained) table in \emph{HMF }it is clear
+that there is a maximum of about 21.2 when $x$ is a little more than
+$0.2$. This is a maximum above the $x$-axis and hence `elusive'.
+To find it, substract $100$ (say) from the formula and again use
+the ability to nest commands to display the result. In the example,
+I find in the vv-list of the \verb`\eval` command the value of $x$
+which maximizes the Planck radiation function, then calculate the
+maximum in the main argument of the \verb`\eval` command. Note the
+\verb`dvar=0.1` in the settings option of the \verb`\solve*` command: 
+\begin{verbatim}
+    \eval[p=.]{\[ \frac1{x^5(e^{1/x}-1)} \]}
+      [ x={ \solve*[dvar=0.1]
+        { \frac1{y^5(e^{1/y}-1)}-100 }[y=0.1]
+          } ]
+\end{verbatim}
+$\Longrightarrow$     \eval[p=.]{\[ \frac1{x^5(e^{1/x}-1)} \]}
+      [ x={ \solve*[dvar=0.1]
+              { \frac1{y^5(e^{1/y}-1)}-100 }[y=0.1]
+          } ]
+
+\noindent The maximum is indeed a little over $21.2$ and the $x$
+value a little more than $0.2$. 
+
+The default \verb`dvar=1` is too big for this problem. From the table
+in \emph{HMF},\emph{ }$f(0.1)=4.540$ and $f(1.1)=0.419$. Thus for
+$f(x)-100$ the `towards the $x$-axis' search strategy would lead
+to negative values of $x$ with the default \verb`dvar` setting. 
+
+\subsubsection{Extra rounding}
+
+\label{subsec:solveExtraRounding}\verb`\solve` determines that a
+zero or an extremum has been reached when the difference between two
+successive bisection values vanishes at the specified rounding value
+(the value in the final trailing optional argument of the \verb`\solve`
+command; $6$ by default). If our function is $f(x)$ then $\abs{x_{n+1}-x_{n}}=0$
+to the specified rounding value and $f(x_{n})$, $f(x_{n+1})$ have
+opposite signs or at least one vanishes. Then (assuming $x_{n+1}>x_{n}$
+and continuity) there must be a critical value $x_{c}\in[x_{n},x_{n+1}]$
+such that $f(x_{c})=0$ exactly. But in general the critical value
+$x_{c}$ will not coincide with $x_{n}$ or $x_{n+1}$. If $f(x)$
+crosses the $x$-axis at a steep angle it may well be that although
+$f(x_{c})$ vanishes to all $16$ figures, $f(x_{n})$ and $f(x_{n+1})$
+do not, not even at the (generally smaller) specified rounding value.
+For instance, suppose $f(x)=1000x-3000$ and that our trial value
+is $x=e$:
+\begin{centred}
+\verb`\solve[vvi=]{$ 1000x-3000 $}[x=e][4*]` $\Longrightarrow$ \solve[vvi=]{$ 1000x-3000 $}[x=e][4*].
+\end{centred}
+Although the difference between successive $x$ values vanishes to
+$4$ places of decimals, $f(x)$ does not, not even to $2$ places.
+If we want the function to vanish at the specified rounding value
+\textendash{} $4$ in the example \textendash{} then we will need
+to locate the zero more precisely than that.
+
+This is the purpose of the extra rounding key in the settings option.
+Enter
+\begin{lyxcode}
++~=~<integer>
+\end{lyxcode}
+in the settings option of the \verb`\solve` command to add \texttt{<integer>}
+to the rounding value determining the conclusion of the calculation.
+By default, \texttt{+=}0. 
+
+With this option available it is easy to check that \verb`+=3` suffices
+in the example to ensure that both $x$ and $f(x)$ vanish to $4$
+places of decimals,
+\begin{centred}
+\verb`\solve[+=3]{$ 1000x-3000 $}[x=e][4*]` $\Longrightarrow$ \solve[+=3]{$ 1000x-3000 $}[x=e][4*],
+\end{centred}
+and that \texttt{+=2} does not, i.e., we need to locate the zero to
+$4+3=7$ figures to ensure the function vanishes to $4$ figures. 
+
+There is no need for the \texttt{<integer>} to be positive. In fact
+negative values can illuminate what is going on. In the first of the
+following, the display is to $10$ places but (\verb`+=-4`) the calculation
+is only to $10-4=6$ places. In the second, the display is again to
+$10$ places, but (\verb`+=-3`) the calculation is to $10-3=7$ places.
+\begin{centred}
+\verb`\solve[+=-4]{$ 1000x-3000 $}[x=e][10*]` $\Longrightarrow$
+\solve[+=-4]{$ 1000x-3000 $}[x=e][10*],
+
+\verb`\solve[+=-3]{$ 1000x-3000 $}[x=e][10*]` $\Longrightarrow$
+\solve[+=-3]{$ 1000x-3000 $}[x=e][10*].
+\end{centred}
+Only in the second does $f(x)=1000x-3000$ vanish when rounded to
+$4$ figures. 
+
+Returning to an earlier example (§\ref{subsec:solveMulti-line-display})
+in which it was not entirely clear whether a zero or an extremum had
+been found, we can now resolve the confusion. Use the extra rounding
+setting (and pad with zeros to emphasize the $4$-figure display by
+adding an asterisk in the trailing optional argument):
+\begin{verbatim}
+    \solve[+=2,vvd={,}\\(vv),*]
+      {$ ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)} 
+        $}[a=10,b=20,\beta=1,{t}=0][4*]
+\end{verbatim}
+$\Longrightarrow$     \solve[+=2,vvd={,}\\(vv),*]
+      {$ct-\sqrt{a^{2}+b^{2}-2ab\cos(\beta+\omega t)} 
+        $}[a=10,b=20,\beta=1,{t}=0][4*]
+
+\subsubsection{Maximum number of steps before cut-off}
+
+Once two function values have been found of different sign, bisection
+is guaranteed to arrive at a result. The problem is the \emph{search}
+for two such values. This may not terminate \textendash{} think of
+a function like $e^{x}$ which lacks both zeros and extrema. To prevent
+an infinite loop, \verb`\solve` cuts off the search after $100$
+steps. This cut-off value can be changed for a calculation by entering 
+\begin{lyxcode}
+max~=~<positive~integer>
+\end{lyxcode}
+in the settings option.
+
+To illustrate, we know that $1/x$ has neither zero nor extremum,
+but we do not get an infinite loop; we get an error message if we
+attempt to `solve' $1/x$:
+\begin{centred}
+\verb`\solve{ 1/x }[x=1]` $\Longrightarrow$ \solve{ 1/x }[x=1]
+\end{centred}
+
+\subsubsection{Form of result saved by \texttt{\textbackslash nmcReuse}}
+
+As wth \verb`\eval` and \verb`\iter` it is possible to specify to
+some extent what is saved to file when using \verb`\reuse` after
+a \verb`\solve` command. The form of entry in the settings option
+is
+\begin{lyxcode}
+reuse~=~<integer>
+\end{lyxcode}
+If the star option is used with the \verb`\solve` command the numerical
+result is the only thing saved, but in the absence of the star option,
+\begin{itemize}
+\item \texttt{reuse=0} saves\emph{ the form that is displayed}. For example,
+if the display is of the form \emph{function = function value, (vv-list)
+$\rightarrow$ result} then that is what is saved; this is the default
+behaviour;
+\item \texttt{reuse=1} (or any non-zero integer) saves only the numerical
+result.
+\end{itemize}
+
+\subsection{Changing default values}
+
+\begin{wraptable}[12]{o}{0.5\columnwidth}%
+\centering{}\caption{\protect\label{tab:solveSettingsDefaults}Defaults for \texttt{\textbackslash nmcSolve}}
+\begin{center}
+\begin{tabular}{ll}
+\toprule 
+{\small key} & {\small default}\tabularnewline
+\midrule
+{\small solve-first-step} & 1\tabularnewline
+{\small solve-extra-rounding} & {\small\texttt{0}}\tabularnewline
+{\small solve-max-steps} & {\small\texttt{100}}\tabularnewline
+{\small solve-reuse} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}\end{wraptable}%
+If you wish to change the default values of the various settings for
+\verb`\nmcSolve` this can be done by entering new values in a configuration
+file \texttt{numerica-plus.cfg} as described in the chapter on settings
+in the associated document \texttt{numeric.pdf}. The relevant keys
+are listed in Table~\ref{tab:solveSettingsDefaults}, corresponding
+to the \verb`dvar`, \verb`+`, \verb`max` and \verb`reuse` settings
+of the \verb`\solve` command. (Obviously it makes no sense to have
+a default setting for the solution variable. That will change from
+case to case.)
+
+\chapter{Recurrence relations: \texttt{\textbackslash nmcRecur}}
+
+One of the simplest recurrence relations is that determining the Fibonacci
+numbers, $f_{n+2}=f_{n+1}+f_{n}$, with initial values $f_{0}=f_{1}=1$.
+The command \verb`\nmcRecur`, short-name form \verb`\recur`, allows
+calculation of the terms of this sequence:
+\begin{verbatim}
+    $ \nmcRecur[do=8,see1=8,...]
+      { f_{n+2}=f_{n+1}+f_{n} }
+        [f_{1}=1,f_{0}=1] $
+\end{verbatim}
+$\Longrightarrow$     $\nmcRecur[do=8,see1=8,...]
+      { f_{n+2}=f_{n+1}+f_{n} }
+        [f_{1}=1,f_{0}=1]$
+
+The recurrence relation is entered in the main argument (between braces),
+the initial values in the vv-list trailing the main argument, and
+the display specification is placed in the settings option: \texttt{do=8}
+terms to be calculated, all $8$ to be viewed (\texttt{see1=8}), and
+the display to be concluded by an ellipsis to indicate that the sequence
+continues (those are three dots/periods/full stops in the settings
+option, not an ellipsis glyph).
+
+A more complicated recurrence relation determines the Legendre polynomials:
+\[
+(n+2)P_{n+2}(x)-(2n+3)xP_{n+1}(x)+(n+1)P_{n}(x)=0.
+\]
+For the purposes of \verb`\recur` we need $P_{n+2}$ expressed in
+terms of the lower order terms:
+\[
+P_{n+2}(x)=\frac{1}{n+2}\left((2n+3)xP_{n+1}(x)-(n+1)P_{n}(x)\right).
+\]
+ It is this standard form \textendash{} the term to be calculated
+on the left, equated to an expression involving a fixed number of
+lower-order terms on the right \textendash{} that \verb`numerica-plus`
+works with. For $P_{0}(x)=1,~P_{1}(x)=x$ and $x=0.5$, the terms
+are calculated thus:
+\begin{verbatim}
+    \recur[p,do=11,see1=4,see2=2,vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2}
+        \Bigl((2n+3)xP_{n+1}(x)-(n+1)P_{n}(x)\Bigr)
+      \]}[P_{1}(x)=x,P_{0}(x)=1,x=0.5]
+\end{verbatim}
+$\Longrightarrow$     \recur[p,do=11,see1=4,see2=2,vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2}
+        \Bigl((2n+3)xP_{n+1}(x)-(n+1)P_{n}(x)\Bigr)
+      \]}[P_{1}(x)=x,P_{0}(x)=1,x=0.5] 
+
+\noindent where $P_{9}(0.5)$ and $P_{10}(0.5)$ are the last two
+displayed values (and to $6$-figures are the values listed in \emph{HMF
+}Table 8.1).
+
+These examples also illustrate a common behaviour of the commands
+in \verb`numerica` and associated packages: when wrapped around math
+delimiters: the display is of the \emph{expression=result} form, and
+when placed between math delimiters the display is simply of the \emph{result}.
+When used without math delimiters, \verb`numerica-plus` treats the
+command as if it had been placed between \texttt{\textbackslash{[}
+\textbackslash{]}}.
+
+\section{Notational niceties}
+
+More than the other commands in {\ttfamily\verb`numerica`}
+and associated packages, \verb`\nmcRecur` depends on getting the
+notation into a standard form.
+\begin{itemize}
+\item The terms of the recurrence must be \emph{subscripted}: $f_{n}$,
+$P_{n}(x)$ are examples.
+\item The recurrence relation is placed in the main (mandatory) argument
+of \verb`\nmcRecur` in the form: \emph{high-order term=function of
+lower-order terms}.
+\item The initial-value terms in the vv-list must occur left-to-right in
+the order \emph{high }to \emph{low} order.
+\item The recurrence variable changes by $1$ between successive terms.
+\end{itemize}
+The example for Legendre polynomials in particular shows what is required.
+The Fibonacci example is simpler, since the recurrence variable does
+not occur independently in the recurrence relation as it does with
+the Legendre polynomials. In both cases though the recurrence variable
+is absent from the vv-list.
+
+\subsection{Vv-list and recurrence variable}
+
+The recurrence variable is required in the vv-list only when an implicit
+mode calculation is undertaken. Suppose we write $A$ and $B$ for
+the coefficients $2n+3$ and $n+1$ respectively in the Legendre recurrence.
+$A$ and $B$ will now need entries in the vv-list which means the
+recurrence variable will need a value assigned to it there too, and
+we will need to add \verb`vv@=1` (or \verb`vvmode=1`) to the settings
+option.
+\begin{verbatim}
+    \recur[p,vvmode=1,do=11,see1=4,see2=2,vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2}
+        \Bigl(AxP_{n+1}(x)-BP_{n}(x)\Bigr)
+      \]}[P_{1}(x)=x,P_{0}(x)=1,x=0.5,A=2n+3,B=n+1,n=0]
+\end{verbatim}
+$\Longrightarrow$     \recur[p,vvmode=1,do=11,see1=4,see2=2,vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2}
+        \Bigl(AxP_{n+1}(x)-BP_{n}(x)\Bigr)
+      \]}[P_{1}(x)=x,P_{0}(x)=1,x=0.5,A=2n+3,B=n+1,n=0] 
+
+Since the vv-list is evaluated from the right, the left-to-right high-to-low
+ordering of the initial-value terms means the value of the lowest
+order term is read first. Although \verb`numerica-plus` depends on
+this order of occurrence of the terms, they do not need to be \emph{consecutive}
+as in the examples so far (although it is natural to enter them in
+this way). \verb`numerica-plus` reads the value of the subscript
+of only the right-most term (the lowest order term), increments it
+by $1$ when reading the next recurrence term to the left, and so
+on. The reading of the subscript of the lowest order term in the vv-list
+provides the initial value of the recurrence variable.
+
+In the following example I have placed other items between $P_{1}(x)$
+and $P_{0}(x)$ in the vv-list (but maintained their left-to-right
+order) and given the recurrence variable $n$ a ridiculous initial
+value $\pi^{2}/12$. (Because of the order in which things get done
+`behind the scenes', \emph{some} value is necessary so that the
+$n$ in `$B=n+1$' does not generate an `unknown token' message.)
+The result is unchanged.
+\begin{verbatim}
+    \recur[p,vvmode=1,do=11,see1=4,see2=2,vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2}
+        \Bigl(AxP_{n+1}(x)-BP_{n}(x)\Bigr)
+      \]}[A=2n+3,P_{1}(x)=x,B=n+1,n=\pi^2/12,P_{0}(x)=1,x=0.5]
+\end{verbatim}
+$\Longrightarrow$     \recur[p,vvmode=1,do=11,see1=4,see2=2,vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2}
+        \Bigl(AxP_{n+1}(x)-BP_{n}(x)\Bigr)
+      \]}[A=2n+3,P_{1}(x)=x,B=n+1,n=\pi^2/12,P_{0}(x)=1,x=0.5]
+
+\subsection{Form of the recurrence relation}
+
+As noted earler, the form of the recurrence must be entered in the
+main argument in the form: \emph{highest order term = function of
+consecutive lower order terms}. The number of lower\emph{ }order terms
+is the order of the recurrence. The Fibonacci and Legendre polynomial
+recurrences are both second order and presented in the form: \emph{$n+2$-th
+term = function of $n+1$-th term and $n$-th term}. We could equally
+have done
+\begin{verbatim}
+    \nmcRecur[p,do=8,see1=8,...]
+      {$ f_{n}=f_{n-1}+f_{n-2} $}
+        [f_{1}=1,f_{0}=1]
+\end{verbatim}
+$\Longrightarrow$     \nmcRecur[p,do=8,see1=8,...]
+      {$ f_{n}=f_{n-1}+f_{n-2} $}
+        [f_{1}=1,f_{0}=1] where now the recurrence is of the form $n$\emph{-th term = function
+of $n-1$-th term and $n-2$-th term}, or (adjusting the coefficients
+as well as the recurrence terms),
+\begin{verbatim}
+    \recur[p=.,do=10,see1=4,see2=2,vvd={,}\\(vv)\\,*]{\[
+      P_{n+1}(x)=\frac{1}{n+1}
+        \Bigl((2n+1)xP_{n}(x)-nP_{n-1}(x)\Bigr)
+          \]}[P_{2}(x)=-0.125,P_{1}(x)=x,x=0.5]
+\end{verbatim}
+$\Longrightarrow$     \recur[p=.,do=10,see1=4,see2=2,vvd={,}\\(vv)\\,*]{\[
+      P_{n+1}(x)=\frac{1}{n+1}
+        \Bigl((2n+1)xP_{n}(x)-nP_{n-1}(x)\Bigr)
+          \]}[P_{2}(x)=-0.125,P_{1}(x)=x,x=0.5]
+
+\noindent The recurrence here is of the form $n+1$\emph{-th term
+= function of $n$-th term and $n-1$-th term}. This last example
+has one further `wrinkle'. I've made $P_{1}(x)$ the lowest order
+term and decreased the number of terms to calculate by $1$ accordingly. 
+
+\subsection{First order recurrences (iteration)}
+
+The recurrence relations for both the Fibonacci sequence and Legendre
+polynomials are second order. There is no reason why the recurrence
+should not be of third or higher order or, indeed, lower. A first
+order recurrence provides an alternative means of iterating functions.
+\verb`\recur` therefore provides a means to display the results of
+an iteration in a different form from \verb`\iter`. 
+
+Iterating $1+a/x$ in this way, $16$ terms gives the sequence
+\begin{verbatim}
+    \recur[do=16,see1=0,see2=3,...]{$
+      x_{n+1}=1+a/x_{n}
+        $}[x_{0}=1,a=1]
+\end{verbatim}
+$\Longrightarrow$     \recur[do=16,see1=0,see2=3,...]{$
+      x_{n+1}=1+a/x_{n} 
+        $}[x_{0}=1,a=1]
+
+\noindent to be compared with the example near the start of Chapter~\ref{chap:Iterating-functions}.
+(\emph{That} effected $15$ iterations; \emph{this} uses $16$ terms
+because of the extra $x_{0}=1$ term.) 
+
+\section{Star (\texttt{{*}}) option}
+
+When the star option is used with the \verb`\nmcRecur` command, only
+a single term, the \emph{last}, is presented as the result. Repeating
+the last calculation, but with the star option produces
+\begin{verbatim}
+    \recur*[p=.,do=10]{\[
+      P_{n+1}(x)=\frac{1}{n+1}
+        \Bigl((2n+1)xP_{n}(x)-nP_{n-1}(x)\Bigr)
+          \]}[P_{2}(x)=-0.125,P_{1}(x)=x,x=0.5]
+\end{verbatim}
+$\Longrightarrow$     \recur*[p=.,do=10]{\[
+      P_{n+1}(x)=\frac{1}{n+1}
+        \Bigl((2n+1)xP_{n}(x)-nP_{n-1}(x)\Bigr)
+          \]}[P_{2}(x)=-0.125,P_{1}(x)=x,x=0.5]
+
+Although punctuation (a full stop) was specified in the settings,
+it has been ignored in the display of the result. Other settings would
+also have been ignored with the exception of the \verb`do` key which
+is required to know exactly which term to calculate. The star option
+produces a purely numerical answer without any trimmings.
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+This seems something of a waste of the star option since it gives
+much the same result as choosing \texttt{do=10,see1=0,see2=1}. Not
+\emph{exactly} the same, since math delimiters are involved now, but
+sufficiently similar to make me wonder if I should change the starred
+form to apply only to those recurrences which approach a limit. The
+starred form would then produce the limiting value as its result (like
+\verb`\iter*`). This is a possible change for future versions of
+\verb`numerica-plus` and should be borne in mind if using \verb`\recur*`.\end{shaded}%
+\end{minipage}
+
+\section{Settings}
+
+The settings option is a comma-separated list of items of the form
+\emph{key~=~value}.
+
+\subsection{Inherited settings}
+
+Because recurrence terms are necessarily multi-token, the multi-token
+key is hard-coded in \verb`\recur` to \texttt{xx=1}. 
+
+\subsubsection{Multi-line formatting of result}
+
+When the \verb`\recur` command wraps around math delimiters, the
+\texttt{vvd} setting is available to split display of the result over
+two or more lines. For example, \texttt{vvd=\{,\}\textbackslash\textbackslash (vv)}pushes
+the vv-list and sequence of calculated values to a second line; or,
+\texttt{vvd=\{,\}\textbackslash qquad(vv)\textbackslash\textbackslash}
+pushes only the sequence of calculated values to a second line; or
+\texttt{vvd=\{,\}\textbackslash\textbackslash (vv)\textbackslash\textbackslash}
+pushes the vv-list, centred, to a second line and the sequence of
+values, right aligned, to a third line. The \texttt{{*}} setting is
+available to suppress equation numbering (by substituting \verb`multline*`
+for \verb`multline`).
+\begin{verbatim}
+ \nmcRecur[do=8,see1=8,...,vvd={,}\qquad(vv)\\,*]
+      {$ f_{n+2}=f_{n+1}+f_{n} $}
+        [f_{1}=1,f_{0}=1]
+\end{verbatim}
+$\Longrightarrow$     \nmcRecur[do=8,see1=8,...,vvd={,}\qquad(vv)\\,*]
+      {$ f_{n+2}=f_{n+1}+f_{n} $}
+        [f_{1}=1,f_{0}=1]
+
+\subsection{\texttt{\textbackslash nmcRecur}-specific settings}
+
+\label{subsec:recurSpecific-settings}In addition to the inherited
+settings there are some specific to \verb`\nmcRecur`. These are listed
+in Table~\ref{tab:recurSettings} below.
+
+\subsubsection{Number of terms to calculate}
+
+By entering
+\begin{lyxcode}
+do~=~<integer>
+\end{lyxcode}
+in the settings option you can specify how many terms of a recurrence
+to calculate. The default is set to $7$ (largely to show a sufficient
+number of terms of the Fibonacci series to begin to be interesting).
+Note that \texttt{<integer>} will generally \emph{not} correspond
+to the subscript on the last term calculated since that also depends
+on the value of the subscript of the lowest order term in the vv-list.
+
+\subsubsection{Number of terms to display}
+
+\begin{table}[b]
+\centering{}\caption{\protect\label{tab:recurSettings}Settings for \texttt{\textbackslash nmcRecur}}
+\begin{center}
+\begin{tabular}{llll}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{do}} & {\small int$\ge0$} & {\small number of terms to calculate} & {\small\texttt{7}}\tabularnewline
+{\small\texttt{see1}} & {\small int$\ge0$} & {\small number of initial terms to display} & {\small\texttt{3}}\tabularnewline
+{\small\texttt{see2}} & {\small int$\ge0$} & {\small number of final terms to display} & {\small\texttt{2}}\tabularnewline
+{\small\texttt{...}} & {\small chars} & {\small follow display of values with an ellipsis} & \tabularnewline
+{\small\texttt{reuse}} & {\small int ($\mathtt{0}/\mathtt{1}/\mathtt{2}$)} & {\small form of result saved with }{\small{\small\verb`\reuse`}} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{table}
+By entering
+\begin{lyxcode}
+see1~=~<integer1>,~see2=<integer2>
+\end{lyxcode}
+in the settings option, you can specify how many initial terms of
+the recurrence and how many of the final terms calculated you want
+to view. If the sum of these settings is less than the \texttt{do}
+setting, then the terms are displayed with an intervening ellipsis.
+If the sum is greater than the \texttt{do} setting, then the values
+are adjusted so that their sum equals the \texttt{do} setting and
+all terms are displayed. 
+
+The adjustment is preferentially to \texttt{see1}. Suppose \texttt{do=}7,
+\texttt{see1=5}, \texttt{see2=4}. Then \texttt{see2} is left unchanged
+but \texttt{see1} is reduced to \texttt{7-4=3}. If, say, \texttt{do=}7,
+\texttt{see1=5}, \texttt{see2=8}, then \texttt{see2} is reduced to
+\texttt{7} and \texttt{see1} to \texttt{-1} (rather than zero, for
+technical reasons). The reason for preserving \texttt{see2} over \texttt{see1}
+is for the functioning of the \texttt{reuse} setting (see below).
+
+The default value for \texttt{see1} is $3$; the default value for
+\texttt{see2} is $2$.
+
+\subsubsection{Ellipsis}
+
+Including three dots in the settings option
+\begin{lyxcode}
+...
+\end{lyxcode}
+ensures that a (proper) ellipsis is inserted after the final term
+is displayed. An example is provided by the display of the Fibonacci
+sequence at the start of this chapter. By default this option is turned
+off.
+
+\subsubsection{Form of result saved by \texttt{\textbackslash nmcReuse}}
+
+By entering
+\begin{lyxcode}
+reuse~=~<integer>
+\end{lyxcode}
+it is possible to specify the form of result that is saved when using
+\verb`\nmcReuse`. (This setting has no effect when the star option
+is used with \verb`\nmcRecur`. In that case only the numerical result
+of the final term calculated is saved.) There are three different
+outputs possible:
+\begin{itemize}
+\item \texttt{int=0} (or any integer $\mathtt{\ne1,2}$) saves the full
+display (the default);
+\item \texttt{int=1} saves a comma-separated list of braced pairs of the
+form: \texttt{\{$k$, value-of-term-$k$\}} for the last \texttt{see2}
+terms calculated;
+\item \texttt{int=2} saves a comma-separated list of the values of the last
+\texttt{see2} terms calculated.
+\end{itemize}
+As an example, using \texttt{reuse=1},
+\begin{verbatim}
+    \recur[reuse=1,p=.,vvmode=1,do=11,see1=4,see2=2,
+      vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2} 
+            \Bigl(kxP_{n+1}(x)-(n+1)P_{n}(x)\Bigr)
+      \]}[k=2n+3,n=1,P_{1}(x)=x,P_{0}(x)=1,x=0.5]
+    \reuse[legendre]
+\end{verbatim}
+$\Longrightarrow$     \recur[reuse=1,p=.,vvmode=1,do=11,see1=4,see2=2,
+      vvd={,}\\(vv)\\,*]
+      {\[ P_{n+2}(x)=\frac{1}{n+2} 
+            \Bigl(kxP_{n+1}(x)-(n+1)P_{n}(x)\Bigr)
+      \]}[k=2n+3,n=0,P_{1}(x)=x,P_{0}(x)=1,x=0.5]
+    \reuse[renew]{ legendre}
+
+\noindent Now check to see what has been saved: 
+\begin{centred}
+\verb`$\legendre$` $\Longrightarrow$ $ \legendre $.
+\end{centred}
+As you can see, the final two (because of \texttt{see2=2}) of the
+$11$ Legendre polynomials calculated ($P_{0}(x)$ is the first) have
+been saved, each value preceded by its index value. If the setting
+had been \texttt{reuse=2}, only the two values without the index values
+would have been saved. To see that they are saved as braced pairs,
+use \TeX 's \verb`\meaning` command:
+\begin{verbatim}
+    \meaning \legendre
+\end{verbatim}
+$\Longrightarrow$ \meaning \legendre
+
+\subsection{Changing default values}
+
+\begin{wraptable}[12]{o}{0.5\columnwidth}%
+\centering{}\caption{\protect\label{tab:recurSettingsDefaults}Defaults for \texttt{\textbackslash nmcRecur}}
+\begin{center}
+\begin{tabular}{ll}
+\toprule 
+{\small key} & {\small default}\tabularnewline
+\midrule
+{\small recur-do} & {\small\texttt{7}}\tabularnewline
+{\small recur-see-first} & {\small\texttt{3}}\tabularnewline
+{\small recur-see-last} & {\small\texttt{2}}\tabularnewline
+{\small recur-reuse} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}\end{wraptable}%
+If you wish to change the default values of the various settings for
+\verb`\nmcRecur` this can be done by entering new values in a configuration
+file \texttt{numerica-plus.cfg} as described in the chapter on settings
+in the associated document \texttt{numerica.pdf}. The relevant keys
+are listed in Table~\ref{tab:recurSettingsDefaults}, corresponding
+to the \verb`do`, \verb`see1`, \verb`see2` and \verb`reuse` settings
+of the \verb`\recur` command. 
+
+\subsection{Orthogonal polynomials}
+
+I've used Legendre polynomials in examples above, but orthogonal polynomials
+generally lend themselves to the \verb`\recur` treatment. Quoting
+from \emph{HMF} 22.7, orthogonal polynomials $f_{n}$ satisfy recurrence
+relations of the form
+\[
+a_{1n}f_{n+1}(x)=(a_{2n}+a_{3n}x)f_{n}(x)-a_{4n}f_{n-1}(x),
+\]
+or in the standard form required by \verb`\recur`,
+\[
+f_{n+1}(x)=\frac{a_{2n}+a_{3n}x}{a_{1n}}f_{n}(x)-\frac{a_{4n}}{a_{1n}}f_{n-1}(x).
+\]
+\emph{HMF} 22.7 provides a listing of the coefficients $a_{in}$ for
+the polynomials of Jacobi, Chebyshev, Legendre, Laguerre, Hermite
+and others, and tables for these polynomials.
+
+For example, Laguerre polynomials satisfy the recurrence 
+\[
+L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-\frac{n}{n+1}L_{n-1}(x).
+\]
+with initial values $L_{0}(x)=1$ and $L_{1}(x)=1-x$. So let's calculate
+the first $13$ Laguerre polynomials for, say, $x=0.5$: 
+\begin{verbatim}
+    \recur[do=13,see1=4,see2=2,vvd={,}\\(vv)\\,*]{\[
+      L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+        \frac{n}{n+1}L_{n-1}(x) 
+           \]}[L_{1}(x)=1-x,L_{0}(x)=1,x=0.5]
+\end{verbatim}
+$\Longrightarrow$     \recur[do=13,see1=4,see2=2,vvd={,}\\(vv)\\,*]{\[
+      L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+        \frac{n}{n+1}L_{n-1}(x) 
+           \]}[L_{1}(x)=1-x,L_{0}(x)=1,x=0.5]
+
+\noindent and for $x=5$: 
+\begin{verbatim}
+    \recur[p=.,do=13,see1=4,see2=2,vvd={,}\\(vv)\\,*]{\[
+      L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+        \frac{n}{n+1}L_{n-1}(x) 
+           \]}[L_{1}(x)=1-x,L_{0}(x)=1,x=5]
+\end{verbatim}
+$\Longrightarrow$    \recur[p=.,do=13,see1=4,see2=2,vvd={,}\\(vv)\\,*]{\[
+      L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+        \frac{n}{n+1}L_{n-1}(x) 
+           \]}[L_{1}(x)=1-x,L_{0}(x)=1,x=5]
+
+\noindent The results (reassuringly) coincide with those provided
+in \emph{HMF }Table 22.11.
+
+\subsection{Nesting}
+
+It is possible to use the \verb`\recur` command (with star in v.1
+of \verb`numerica`, with or without star in v.2 of \verb`numerica-plus`)
+within an \verb`\eval`, \verb`\iter`, or \verb`\solve` command,
+and indeed in \verb`\recur` itself, but with this caveat: if \verb`\recur`
+is nested within another command, the initial terms of the recurrence
+\textendash{} e.g., $f_{1}=1,f_{0}=1$, for the Fibonacci series,
+or $L_{1}(x)=1-x,L_{0}(x)=1$ for the Laguerre polynomials \textendash{}
+\emph{must be located in the vv-list of that inner }\verb`\recur`\emph{
+command}. Other shared variables can often be shifted to the vv-list
+of the outer command, but not these initial terms.
+
+In the following example I multiply together (rather futilely) the
+third and fourth members of the sequence of Laguerre polynomials for
+$x=5$ (the answer expected is \verb`$ \eval{3.5\times2.666667} $`
+$\Longrightarrow$ $ \eval{3.5\times2.666667} $). Note that although
+it is tempting to shift the shared vv-lists of the inner \verb`\recur*`
+commands to the vv-list of the outer \verb`\eval` command, in fact
+only the \verb`x=5` entry has been transferred:
+\begin{verbatim}
+    \eval[p=.]{$
+      \recur*[do=3]
+        { L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+            \frac{n}{n+1}L_{n-1}(x)}
+          [L_{1}(x)=1-x,L_{0}(x)=1]
+      \times 
+      \recur*[do=4]
+        { L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+            \frac{n}{n+1}L_{n-1}(x)}
+          [L_{1}(x)=1-x,L_{0}(x)=1]
+    $}[x=5]
+\end{verbatim}
+$\Longrightarrow$     \eval[p=.]{$
+      \recur*[do=3]
+        { L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+            \frac{n}{n+1}L_{n-1}(x)}
+              [L_{1}(x)=1-x,L_{0}(x)=1,x=5]
+      \times 
+      \recur*[do=4]
+        { L_{n+1}(x)=\frac{2n+1-x}{n+1}L_{n}(x)-
+            \frac{n}{n+1}L_{n-1}(x)}
+              [L_{1}(x)=1-x,L_{0}(x)=1,x=5]
+    $}
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+The terms of a recurrence relation are multi-token variables but \texttt{numerica}
+requires single tokens for its calculations. The problem for \verb`\recur`
+is that the terms in the recurrence relation in the main (mandatory)
+argument differ from the terms in the vv-list: for instance $f_{n}$
+in the main argument, $f_{0}$ in the vv-list. If left like that,
+when \texttt{numerica} does its conversion from multi-token to single
+token variables, $f_{n}$ would not be found since it differs from
+$f_{0}$. Hence a crucial first step for \verb`\recur` is to reconcile
+the different forms, which it does by converting the forms in the
+vv-list to the forms in the recurrence in the main argument. To be
+available for this form change, they must reside in the \emph{inner}
+vv-list. In the outer vv-list they would be inaccessible to the inner
+command.
+
+{*}{*}{*}
+
+This suggests an alternative way of proceeding: write the inital values
+of the recurrence terms in the \emph{same} form in which they occur
+in the recurrence relation, together with an initial value for the
+recurrence variable, e.g., $f_{n+1}=1,f_{n}=1,n=0$. This is not how
+mathematicians write the initial values in recurrence relations, which
+is why I did not pursue it, but it neatly sidesteps what is otherwise
+an initial awkwardness. \end{shaded}%
+\end{minipage}
+
+\chapter{Reference summary}
+
+\section{Commands defined in \texttt{numerica-plus}}
+\begin{enumerate}
+\item \texttt{\textbackslash nmcIterate, \textbackslash iter}
+\item \texttt{\textbackslash nmcSolve, \textbackslash solve}
+\item \textbackslash\texttt{nmcRecur, \textbackslash recur}
+\end{enumerate}
+
+\section{Settings for the three commands}
+
+\subsection{Settings for \texttt{\textbackslash nmcIterate}}
+
+Settings option of \verb`\nmcIterate`:
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{var}} & {\small token(s)} & {\small iteration variable} & \tabularnewline
+{\small\texttt{+}} & {\small int} & {\small fixed point extra rounding} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{max}} & {\small int > 0} & {\small max. iteration count (fixed points)} & {\small\texttt{100}}\tabularnewline
+{\small\texttt{do}} & {\small int > 0} & {\small number of iterations to perform} & {\small\texttt{5}}\tabularnewline
+{\small\texttt{see}} & {\small int > 0} & {\small number of final iterations to view} & {\small\texttt{4}}\tabularnewline
+{\small\texttt{reuse}} & {\small int ($\mathtt{0}/\mathtt{1}/\mathtt{2}$)} & {\small form of result saved with }{\small{\small\verb`\reuse`}} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+
+Configuration settings for \verb`\nmcIterate`:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule 
+{\small key} & {\small default}\tabularnewline
+\midrule
+{\small iter-extra-rounding} & {\small\texttt{0}}\tabularnewline
+{\small iter-max-iterations} & {\small\texttt{100}}\tabularnewline
+{\small iter-do} & {\small\texttt{5}}\tabularnewline
+{\small iter-see-last} & {\small\texttt{4}}\tabularnewline
+{\small iter-reuse} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+
+\subsection{Settings for \texttt{\textbackslash nmcSolve}}
+
+Settings option of \verb`\nmcSolve`:
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{var}} & {\small token(s)} & {\small equation variable} & \tabularnewline
+{\small\texttt{dvar}} & {\small real $\ne0$} & {\small initial step size} & {\small\texttt{1}}\tabularnewline
+{\small\texttt{+}} & {\small int} & {\small extra rounding} & {\small\texttt{0}}\tabularnewline
+{\small\texttt{max}} & {\small int > 0} & {\small max. number of steps before cut off} & {\small\texttt{100}}\tabularnewline
+{\small\texttt{reuse}} & {\small int ($\mathtt{0}/\mathtt{1}$)} & {\small form of result saved with }{\small{\small\verb`\reuse`}} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+
+Configuration settings for \verb`\nmcSolve`:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule 
+{\small key} & {\small default}\tabularnewline
+\midrule
+{\small solve-first-step} & 1\tabularnewline
+{\small solve-extra-rounding} & {\small\texttt{0}}\tabularnewline
+{\small solve-max-steps} & {\small\texttt{100}}\tabularnewline
+{\small solve-reuse} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+
+\subsection{Settings for \texttt{\textbackslash nmcRecur}}
+
+Settings option of \verb`\nmcRecur`:
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule 
+{\small key} & {\small type} & {\small meaning} & {\small default}\tabularnewline
+\midrule
+{\small\texttt{do}} & {\small int$\ge0$} & {\small number of terms to calculate} & {\small\texttt{7}}\tabularnewline
+{\small\texttt{see1}} & {\small int$\ge0$} & {\small number of initial terms to display} & {\small\texttt{3}}\tabularnewline
+{\small\texttt{see2}} & {\small int$\ge0$} & {\small number of final terms to display} & {\small\texttt{2}}\tabularnewline
+{\small\texttt{...}} & {\small chars} & {\small follow display of values with an ellipsis} & \tabularnewline
+{\small\texttt{reuse}} & {\small int ($\mathtt{0}/\mathtt{1}/\mathtt{2}$)} & {\small form of result saved with }{\small{\small\verb`\reuse`}} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+
+Configuration settings for \verb`\nmcRecur`:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule 
+{\small key} & {\small default}\tabularnewline
+\midrule
+{\small recur-do} & {\small\texttt{7}}\tabularnewline
+{\small recur-see-first} & {\small\texttt{3}}\tabularnewline
+{\small recur-see-last} & {\small\texttt{2}}\tabularnewline
+{\small recur-reuse} & {\small\texttt{0}}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}
+\end{document}

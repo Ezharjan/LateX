@@ -1,0 +1,109 @@
+%%
+%% This is file `gamebooklib_test.tex',
+%%
+%% Copyright (C) 2021 by Robert J Lee
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+\documentclass{report}
+\usepackage[seed=123]{lcg}
+\usepackage[verbose,footnote]{gamebooklib}
+\usepackage{lipsum}
+\begin{document}
+
+\newcommand{\turnto}[1]{\ref{gentry:#1}\par}
+
+\section*{Example of Use}
+
+This document was used for testing during development of gamebooklib.
+Please see the \texttt{gamebooklib\_test.tex} file alongside the PDF
+to see how the package behaves.
+
+\tracingmacros=1
+\begin{gentry}{codea}
+  This is the first gentry!
+
+  It actually contains two gentryraphs.
+  
+Turn to \turnto{codeb}
+\end{gentry}
+
+\begin{gentry}{codea}
+  This one is a duplicate! This creates a `'multiple defined'' labels Warning!
+\end{gentry}
+
+\begin{gentry}{codeb}
+  This is the second gentry.
+  
+  Turn to \turnto{codec}
+  
+Turn to \turnto{coded}
+\end{gentry}
+
+\begin{gentry}{codec}[You lose!]
+  This is the third gentry.
+
+  You can't escape from here.
+\end{gentry}
+
+\begin{gentry}[123]{coded}[You win!]
+  This is the second and final gentryraph.
+  
+  To play again, turn to \turnto{codea}
+  
+  (Note that this is the wrong number due to the duplicate label)
+\end{gentry}
+
+\section*{Here is the result:}
+
+\thegentries
+\eject
+
+For my next trick, here are some longer and multi-page examples.
+
+Note the location of the footnotes in these entries.
+
+\begin{gentry}{restart}\noentryfoot
+  This is the first gentryraph again.
+  \lipsum[1]\footnote{First footnote, forced to page end}
+\end{gentry}
+
+\begin{gentry}{restart2}
+  \lipsum[2-7]\footnote{This is just Lorum Ipsum\footnote{Nonsense
+      pseudo-latin, with roughly English letter distribution, commonly
+      used to compare fonts\footnotemark.\footnotetext{Here, it's just nonsense.}}}
+\end{gentry}
+
+\newcounter{foo}
+\newcounter{bar}
+\setcounter{foo}{3}
+\setcounter{bar}{3}
+\newcommand{\gentrytst}[2]{
+  \begin{gentry}{restart#1}
+    \lipsum[#1]\footnote{This was gentry #1}
+    \lipsum[#1-#2]\footnote{This was also gentry #1}
+  \end{gentry}
+}
+\whiledo{\not{\value{foo}>10}}{
+  \stepcounter{foo}
+  \stepcounter{bar}
+  \stepcounter{bar}
+  \edef\idx{\arabic{foo}}
+  \edef\idxx{\arabic{bar}}
+  \expandafter\gentrytst\expandafter{\idx}{\idxx}
+}
+
+\section*{Here is the result:}
+
+\thegentries
+\vfill
+
+\end{document}

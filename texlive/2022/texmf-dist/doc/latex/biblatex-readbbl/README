@@ -1,0 +1,13 @@
+biblatex-readbbl
+
+This small package modifies the macro of biblatex
+which reads a by Biber created bbl file. It is
+now possible to include a created bbl file with
+the filecontents macro into the main document
+and send it to a publisher who do not need to run
+the program biber.
+
+However, if the bibliography changes one has to
+create a new bbl file.
+
+hvoss@tug.org   2022-01-09

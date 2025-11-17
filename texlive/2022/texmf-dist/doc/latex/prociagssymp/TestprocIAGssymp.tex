@@ -1,0 +1,145 @@
+% THIS IS BOTH A MINIMAL USER-MANUAL 
+% OF THE PACKAGE   procIAGssymp.sty    
+% AND AN EXAMPLE OF ITS  USE
+%
+% File  :   TestprocIAGssymp.tex  (current version 2022-05-05)
+% Author:   Battista Benciolini
+% E-mail:   <Battista.Benciolini@unitn.it>
+% See file  procIAGssymp.sty  for more information 
+% 
+%
+\documentclass[a4paper,twocolumn,10pt]{article} % 
+\usepackage{procIAGssymp}   
+\title{The package procIAGssymp.sty for the formatting  
+       of a paper with the style of the proceedings of 
+       symposia sponsored by IAG}
+\author{B.Benciolini\thanks{e-mail: battista.benciolini@unitn.it}
+\and  No Second Author \and  No Third Author\thanks{No-Where Institute}}
+\date{ }
+\hbadness=10000   \vbadness=10000
+\begin{document}
+\maketitle 
+\paragraph{Abstract.}  The package \texttt{procIAGssymp.sty} has  
+been designed to help the  formatting of a paper with the style 
+of the proceedings of symposia sponsored by the 
+"International Association of Geodesy (IAG)".
+This  paper itself is an example of the use of the package. It 
+contains instructions and suggestions for the use of the package, 
+while most of the comment included in \texttt{procIAGssymp.sty} 
+are of a more technical nature.
+\paragraph{WARNING:}
+I have not recently checked the instruction from 
+the publisher of the proceedings of IAG-sponsored-symposia. 
+I presume that "official" more refined and 
+up-to-date "sty" and "cls" files 
+are now available from the publisher.
+This package is therefore not as useful 
+as it was at the time of it's first publication, 
+but it is pehaps still conveniet for some user.
+\linea
+\section{Introduction}
+The package \texttt{procIAGssymp.sty} provides some (re-)definitions 
+of \LaTeX commands.  The use of the package is explained in this text.
+\par\noindent I have tried to provide a package that helps in 
+the preparation of a paper that corresponds to the instructions 
+distributed by the publisher of the proceedings of 
+IAG-sponsored-symposia, but please read the subsection 
+\textbf{Important notes} below.
+\par\noindent The curious readers are 
+invited to look directly at the source of this file and, more 
+important, to the  code in the file \texttt{procIAGssymp.sty}. 
+\section{Suggestions for the user}
+\subsection{General page lay-out}
+The general lay-out of the pages is controlled by some assignment 
+made by \texttt{procIAGssymp.sty} AND by the use of the class 
+\texttt{article} that must be loaded with the proper options, i.e. 
+\verb+[a4paper,twocolumn,10pt]+ .
+\subsection{Top-matter}
+The title and the author(s) must be prepared with 
+\verb+\title{ . . .}+  and \verb+\author{ . . .}+ and they will be 
+printed by \verb+\maketitle+.  The use of \verb+\thanks{. . .}+ inside 
+the argument of \verb+\title{ . . .}+ is not appropriate because this 
+command has been redefined.
+If there are several authors, their 
+names must be separated by \verb+\and+. The authors that share the 
+same address must be listed consecutively and must be followed by 
+\verb+\thanks{. . .}+ (with the address as argument). To see an example 
+you can see the code of this file. 
+\subsection{Sectioning}
+The use of \verb+\section{. . . }+  and \verb+\subsection{. . . }+
+can be done as in any \LaTeX paper. 
+These commands have been redefined so that they 
+produce the first level and second level headers in the proper format. 
+All the other sectioning commands have been redefined with a coherent 
+style. 
+The command \verb+\section*{References}+ can be used to start  
+the reference list. One of the following sections is just a test of 
+the various sectioning commands.
+\section{Test of sectioning (1st level)} 
+\subsection{Test of sectioning (2nd level)} 
+\subsubsection{Test of sectioning (3rd level)} 
+This is just an example of the use and abuse 
+of \verb+\section+, \verb+\subsection+ and
+\verb+\subsubsection+. We can also test \verb+\paragraph+ and 
+\verb+\subparagraph+.
+\paragraph{Paragraph} This is a paragraph, headed by \verb+\paragraph+.
+\subparagraph{Subparagraph} This is a  sub paragraph. And the section 
+end HERE. 
+\section{Technicalities}
+\subsection{About the format of the top-matter}
+The main structure of the topmatter is governed by \verb+\@maketitle+ 
+which is properly redefined.  \par\noindent
+The command \verb+\thanks+ has been 
+redefined to print the authors' address immediately after the 
+authors' names. The  new form of this command makes it unsuitable 
+to put a note to the title.
+\subsection{Compatibility}
+The package has been used together with the \texttt{article} class 
+and with several packages including:  
+\texttt{makeidx}, \texttt{amsmath}, 
+\texttt{amssymb}, \texttt{apalike}, \texttt{array}, 
+\texttt{epsfig}, \texttt{graphicx} and \texttt{verbatim}.
+I have not found any compatibility problem.
+\section{Some info from the internal documentation}
+\subsection{Important Notes}
+\begin{enumerate}
+\item The files that are distributed are : 
+\begin{itemize}
+\item \verb+README.txt+ ,
+\item \verb+procIAGssymp.sty+ ,
+\item \verb+TestprocIAGssymp.tex+ ,
+\item \verb+TestprocIAGssymp.pdf+ .
+\end{itemize}
+\item The copyright holder of this package is its author.
+This program may be used, distributed and/or modified under 
+the conditions of the LaTeX Project Public License.
+The latest version of this license is in: 
+\texttt{http://www.latex-project.org/lppl.txt}
+\item When this package is used the correspondence between the
+obtained result and any requirement and prescription
+must  be judged by the user.
+\item The release of this package on CTAN is a personal initiative 
+of its author. The mention of IAG and of the publisher 
+of the proceedings of the symposia sponsored by IAG does 
+not imply any involvement of these entities in this initiative. 
+\end{enumerate}
+\subsection{History}
+\begin{description}
+\item[2000-2002:] development, test, in-house use,
+\item[2002:] released in CTAN,
+\item[2022:] general revision,  
+changes in the comments and documentation, new release in CTAN.
+\end{description}
+% 
+\subsection{Acknowledgment}
+People listed here after contributed with suggestions.
+Some of them also provided fragments of code. \\
+Claretta Carrara, Nico Snew, Claudio Beccari.
+%
+\section{Recommendation}
+I recommend all the users of the package \texttt{procIAGssymp.sty}
+to send me any comment about it. 
+\end{document}
+\endinput
+%%
+%% End of file TestprocIAGssymp.tex 

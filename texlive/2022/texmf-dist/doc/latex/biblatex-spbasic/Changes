@@ -1,0 +1,10 @@
+--- biblatex-spbasic.bbx|cbx|lbx
+
+0.04  2021/12/29   - prevent warning for uniquenme=full, set uniquename=init
+                     in the cbx file
+0.03  2021/12/22   - \newbibmacro -> \renewbibmacro
+0.02  2021/12/15   - fix for hyperref option
+                   - added lbx file
+                   - fix for double dot after title
+                   - add option pubstate to print the publication state
+0.01  2021/07/12   - first CTAN version

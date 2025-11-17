@@ -1,0 +1,154 @@
+%%
+%% This is file `mathfont_equations.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mathfont_code.dtx  (with options: `equations')
+%% 
+%% This file is from version 2.0 of the free and open-source
+%% LaTeX package "mathfont," to be used with the XeTeX or
+%% LuaTeX engines. (As of version 2.0, LuaTeX is recommended.)
+%% 
+%% Copyright 2018-2021 by Conrad Kosowsky
+%% 
+%% This file may be distributed and modified under the terms
+%% of the LaTeX Public Project License, version 1.3c or any
+%% later version. The most recent version of this license is
+%% available online at
+%% 
+%%           https://www.latex-project.org/lppl/.
+%% 
+%% This Work has the LPPL status "maintained," and the current
+%% maintainer is the package author, Conrad Kosowsky. He can
+%% be reached at kosowsky.latex@gmail.com.
+%% 
+%% THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY EXPRESS
+%% OR IMPLIED WARRANTY, INCLUDING THE IMPLIED WARRANTIES
+%% OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+%% IF THE SOFTWARE IS DEFECTIVE, YOU AGREE TO ASSUME THE
+%% COST FOR ANY REPAIR OR CORRECTION.
+%% 
+%% BY USING OR DISTRIBUTING THIS SOFTWARE, YOU AGREE
+%% TO RELEASE THE PACKAGE AUTHOR FROM ANY LIABILITY FOR
+%% DAMAGES ARISING OUT OF YOUR USE OF THE SOFTWARE. YOU
+%% AGREE TO DO SO TO THE MAXIMUM EXTENT ALLOWED UNDER
+%% APPLICABLE LAW AND EVEN IF THE PACKAGE AUTHOR HAS
+%% BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+%% 
+%% See also the "No Warranty" section of the LaTeX Project
+%% Public License. In releasing the package author from
+%% liability, you also release from liability any third
+%% parties who distribute the software under the terms
+%% of the LaTeX Project Public License. Derivative works
+%% based on this package may come with their own license or
+%% terms of use, and the package author is not responsible
+%% for any third-party software.
+%% 
+%% For more information, see the mathfont_code.dtx.
+%% 
+%% Happy TeXing!
+%% 
+\begin{multicols}{2}
+\let\medskip\relax
+
+Black-Scholes Equation
+\[
+\frac{\partial V}{\partial t}+\frac12\sigma^2S^2\frac{\partial^2V}{\partial S^2}=
+  rV-rS\frac{\partial V}{\partial X}
+\]
+\medskip
+
+Cardano's Formula/Cubic Formula
+\begin{align*}
+t_i&=\omega_i\sqrt[3]{-\frac q2+\sqrt{\frac{q^2}4+\frac{p^3}{27}}}\\
+  &\qquad\qquad{}+\omega_i^2\sqrt[3]{-\frac q2-\sqrt{\frac{q^2}4+\frac{p^3}{27}}}
+\end{align*}
+\medskip
+
+Einstein's Field Equation (General Relativity)
+\[
+R_{\mu\nu}-\frac12Rg_{\mu\nu}+\Lambda g_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu}
+\]
+\medskip
+
+First Isomorphism Theorem
+\[
+\phi(X)\cong X/\ker(\phi)
+\]
+\medskip
+
+Gauss-Bonnet Formula
+\[
+\int_MK\ dA+\int_{\partial M}k_g\ ds=2\pi\chi(M)
+\]
+\medskip
+
+Maxwell's Equations
+\begin{align*}
+\nabla\bullet\mathbf E&=\frac\rho{\epsilon_0}&
+\nabla\bullet\mathbf B&=0\\
+\nabla\times\mathbf E&=-\frac{\partial\mathbf B}{\partial t}&
+\nabla\times\mathbf B&=\mu_0\left(\mathbf J+
+  \epsilon_0\frac{\partial\mathbf E}{\partial t}\right)
+\end{align*}
+\medskip
+
+Michaelis-Menten Model
+\[
+v=\frac{d[P]}{dt}=V\frac{[S]}{K_M+[S]}
+\]
+
+%% next column begins here
+
+Navier-Stokes Equation
+\begin{align*}
+\frac{\partial}{\partial t}(\rho\mathbf{u})+\nabla\bullet
+  (\rho \mathbf{u}\otimes \mathbf{u})={}
+  &{-}\nabla\bar p+\mu\nabla^2\mathbf{u}\\
+  &+\frac13\mu\nabla(\nabla\bullet u)+
+  \rho\mathbf{g}
+\end{align*}
+\medskip
+
+Quadratic Formula
+\[
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\]
+\medskip
+
+Ramanujan's Approximation for $\Gamma$
+\[
+\Gamma(1+x)\approx\sqrt\pi\,x^xe^{-x}\,\sqrt[6]{8x^3+4x^2+x+\frac1{30}}
+\]
+\medskip
+
+Residue Theorem
+\[
+\frac1{2i\pi}\int_{\gamma}f(z)\ dz=\sum_{k=1}^n\Res_{a_k}(f)
+\]
+\medskip
+
+Riemann Zeta Function
+\begin{align*}
+\zeta(z)&=\sum_{i=1}^\infty\frac1{z^i}
+  =\frac1{\Gamma(z)}\int_0^\infty\frac{x^{z-1}}{e^x-1}\ dx\\
+  &=2^z\pi^{z-1}\sin\left(\frac{\pi z}2\right)\,\Gamma(1-z)\,\zeta(1-z)
+\end{align*}
+\medskip
+
+Schrodinger Equation
+\[
+i\hbar\frac d{dt}|\Psi(t)\fakerangle=\hat H|\Psi(t)\fakerangle
+\]
+\medskip
+
+Lorentz Transformation (Special Relativity)
+\[
+t'=\left(t-\frac{vx}{c^2}\right)\frac1{\sqrt{1-\frac{v^2}{c^2}}}
+\]
+
+\end{multicols}
+\endinput
+%%
+%% End of file `mathfont_equations.tex'.

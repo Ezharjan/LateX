@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content="Docutils 0.19b.dev: https://docutils.sourceforge.io/" />
+<title>LGR Transcription to Greek LICR transformation</title>
+<meta name="dcterms.rights" content="© 2010 Günter Milde" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/"/>
+<link rel="stylesheet" href="minimal.css" type="text/css" />
+<link rel="stylesheet" href="responsive.css" type="text/css" />
+</head>
+<body>
+<main id="lgr-transcription-to-greek-licr-transformation">
+<h1 class="title">LGR Transcription to Greek LICR transformation</h1>
+<dl class="docinfo simple">
+<dt class="copyright">Copyright<span class="colon">:</span></dt>
+<dd class="copyright">© 2010 Günter Milde</dd>
+<dt class="licence">Licence<span class="colon">:</span></dt>
+<dd class="licence"><p>This work may be distributed and/or modified under the
+conditions of the <a class="reference external" href="http://www.latex-project.org/lppl.txt">LaTeX Project Public License</a>, either
+version 1.3 of this license or any later version.</p>
+</dd>
+</dl>
+<!-- #!/usr/bin/env lua -->
+<p>The LGR font encoding is the de-facto standard for Greek typesetting with
+LaTeX. This file provides a translation from the Latin transcription defined
+by LGR into the LaTeX Internal Character Representation (LICR) macros.</p>
+<pre class="literal-block">usage = [[
+Usage: lua lgr2licr.lua [OPTIONS] [STRING]
+  Convert STRING from Latin transcription to LICR macros for Greek symbols.
+  (This dumb conversion fails if the string contains TeX macros.)
+  Without argument, the script reads from standard input like a
+  redirected file. End interactive input with Ctrl-D.
+Options: -h, --help      show this help
+         -f, --file      read input from file STRING
+]]
+
+if arg[1] == &quot;-h&quot; or arg[1] == &quot;--help&quot; then
+    print(usage)
+    return
+end</pre>
+<p>Get input string:</p>
+<pre class="literal-block">local s
+
+if arg[1] == &quot;-f&quot; then
+    local f = assert(io.open(arg[2], &quot;r&quot;))
+    s = f:read(&quot;*all&quot;)
+    f:close()
+elseif arg[1] then
+    s = table.concat(arg, &quot; &quot;) .. &quot;\n&quot;
+else
+    -- test:
+    -- s = &quot;\\emph{x\\'us}&quot;
+    s = io.read(&quot;*all&quot;)
+end</pre>
+<p>The mapping from the LGR Latin transcription to LICR macros:</p>
+<pre class="literal-block">LGR_map = {
+  A = &quot;\\textAlpha{}&quot;,
+  B = &quot;\\textBeta{}&quot;,
+  G = &quot;\\textGamma{}&quot;,
+  D = &quot;\\textDelta{}&quot;,
+  E = &quot;\\textEpsilon{}&quot;,
+  Z = &quot;\\textZeta{}&quot;,
+  H = &quot;\\textEta{}&quot;,
+  J = &quot;\\textTheta{}&quot;,
+  I = &quot;\\textIota{}&quot;,
+  K = &quot;\\textKappa{}&quot;,
+  L = &quot;\\textLambda{}&quot;,
+  M = &quot;\\textMu{}&quot;,
+  N = &quot;\\textNu{}&quot;,
+  X = &quot;\\textXi{}&quot;,
+  O = &quot;\\textOmicron{}&quot;,
+  P = &quot;\\textPi{}&quot;,
+  R = &quot;\\textRho{}&quot;,
+  S = &quot;\\textSigma{}&quot;,
+  T = &quot;\\textTau{}&quot;,
+  U = &quot;\\textUpsilon{}&quot;,
+  F = &quot;\\textPhi{}&quot;,
+  Q = &quot;\\textChi{}&quot;,
+  Y = &quot;\\textPsi{}&quot;,
+  W = &quot;\\textOmega{}&quot;,
+
+  a = &quot;\\textalpha{}&quot;,
+  b = &quot;\\textbeta{}&quot;,
+  g = &quot;\\textgamma{}&quot;,
+  d = &quot;\\textdelta{}&quot;,
+  e = &quot;\\textepsilon{}&quot;,
+  z = &quot;\\textzeta{}&quot;,
+  h = &quot;\\texteta{}&quot;,
+  j = &quot;\\texttheta{}&quot;,
+  i = &quot;\\textiota{}&quot;,
+  k = &quot;\\textkappa{}&quot;,
+  l = &quot;\\textlambda{}&quot;,
+  m = &quot;\\textmu{}&quot;,
+  n = &quot;\\textnu{}&quot;,
+  x = &quot;\\textxi{}&quot;,
+  o = &quot;\\textomicron{}&quot;,
+  p = &quot;\\textpi{}&quot;,
+  r = &quot;\\textrho{}&quot;,
+  s = &quot;\\textautosigma{}&quot;,
+  c = &quot;\\textfinalsigma{}&quot;,
+  t = &quot;\\texttau{}&quot;,
+  u = &quot;\\textupsilon{}&quot;,
+  f = &quot;\\textphi{}&quot;,
+  q = &quot;\\textchi{}&quot;,
+  y = &quot;\\textpsi{}&quot;,
+  w = &quot;\\textomega{}&quot;,
+  v = &quot;\\noboundary{}&quot;,
+
+  [&quot;'&quot;] = &quot;\\'&quot;,
+  [&quot;`&quot;] = &quot;\\`&quot;,
+  [&quot;~&quot;] = &quot;\\~&quot;,
+  [&quot;&lt;&quot;] = &quot;\\&lt;&quot;,
+  [&quot;&gt;&quot;] = &quot;\\&gt;&quot;,
+  [&quot;|&quot;] = &quot;\\|&quot;,
+  ['&quot;'] = '\\&quot;',
+  [&quot;;&quot;] = &quot;\\textanoteleia{}&quot;,
+  [&quot;?&quot;] = &quot;\\texterotimatiko{}&quot;,
+}</pre>
+<p>Return substitution string for 3 captures:</p>
+<p><cite>c1</cite> backslash
+<cite>c2</cite> a-zA-Z
+<cite>c3</cite> any other char</p>
+<pre class="literal-block">function lgr_replace(c1, c2, c3)
+    -- print (c1, c2, c3)
+    if c1 == &quot;\\&quot; then
+        if c2 and (c2 ~= &quot;&quot;) then
+            return c1 .. c2 .. (LGR_map[c3] or c3 or &quot;&quot;)
+        end
+        return c1 .. c3
+    end
+    c2 = string.gsub(c2, &quot;s(.)&quot;, &quot;sv%1&quot;)
+    return (string.gsub(c2, &quot;.&quot;, LGR_map) or &quot;&quot;) .. (LGR_map[c3] or c3 or &quot;&quot;)
+end
+
+-- Use the mapping to replace every ASCII-character with
+-- non-standard meaning to the corresponding LICR macro
+-- (skip macros)::
+  -- *([a-zA-Z'`~&lt;&gt;|\&quot;;?]
+s = string.gsub(s, &quot;(\\?)([a-zA-Z]*)([^\\]?)&quot;, lgr_replace)</pre>
+<p>Ligatures:</p>
+<pre class="literal-block">s = string.gsub(s, &quot;%(%(&quot;, &quot;\\guillemetleft{}&quot;)
+s = string.gsub(s, &quot;%)%)&quot;, &quot;\\guillemetright{}&quot;)
+s = string.gsub(s, &quot;\\'\\'&quot;, &quot;\\textquoteright{}&quot;)               -- ''
+s = string.gsub(s, &quot;\\`\\`&quot;, &quot;\\textquoteleft{}&quot;)                -- ``
+s = string.gsub(s, '\&quot;(%s)', &quot;\\textquoteright{}%1&quot;)</pre>
+<p>Separating empty group “{}” only required if followed by space or ASCII:</p>
+<pre class="literal-block">s = string.gsub(s, &quot;{}([^ a-zA-Z])&quot;, &quot;%1&quot;)</pre>
+<p>Autosigma replacements:</p>
+<pre class="literal-block">s = string.gsub(s, &quot;\\textautosigma\\noboundary&quot;, &quot;\\textsigma&quot;)  -- sv
+s = string.gsub(s, &quot;\\textautosigma(\\['`~&lt;&gt;|\&quot;])&quot;, &quot;\\textsigma%1&quot;) -- accents
+
+s = string.gsub(s, &quot;\\textautosigma([-%s!#$%%&amp;%(%)*+,./0-9:=%[%]{|}])&quot;,
+                   &quot;\\textfinalsigma%1&quot;)
+
+s = string.gsub(s, &quot;\\textautosigma(\\textquote)&quot;, &quot;\\textfinalsigma%1&quot;)
+s = string.gsub(s, &quot;\\textautosigma(\\texterotimatiko)&quot;, &quot;\\textfinalsigma%1&quot;)
+s = string.gsub(s, &quot;\\textautosigma(\\textanoteleia)&quot;, &quot;\\textfinalsigma%1&quot;)
+
+s = string.gsub(s, &quot;\\textautosigma$&quot;, &quot;\\textfinalsigma&quot;)</pre>
+<p>Write the result to stdout:</p>
+<pre class="literal-block">io.write(s)</pre>
+</main>
+</body>
+</html>

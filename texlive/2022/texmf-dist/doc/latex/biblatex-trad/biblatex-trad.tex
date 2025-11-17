@@ -1,0 +1,305 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+\usepackage[strict]{csquotes}
+\usepackage[useregional]{datetime2}
+\usepackage{libertinus}
+\usepackage[scaled=0.78]{beramono}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{btxdockit}
+
+\hypersetup{%
+  colorlinks=true,
+  allcolors=spot,
+  bookmarksopen=false,
+  bookmarksnumbered=false,
+  plainpages=false}
+
+\definecolor{spot}{rgb}{0,0.2,0.6}
+
+\lstset{basicstyle=\ttfamily,keepspaces=true}
+
+\makeatletter
+% this is taken from ltxdockit.cls, which is not loaded
+\newrobustcmd*{\fnurl}[1][]{\hyper@normalise\ltd@fnurl{#1}}
+\def\ltd@fnurl#1#2{\footnote{#1\hyper@linkurl{\Hurl{#2}}{#2}}}
+
+\newrobustcmd*{\email}{\hyper@normalise\ltd@email}
+\def\ltd@email#1{\href{mailto:#1}{#1}}
+
+% title
+\providecommand*{\titlepage}{}
+\providecommand*{\titlefont}{}
+\renewrobustcmd*{\titlepage}[1]{\setkeys{ltd@ttp}{#1}}
+\renewcommand*{\titlefont}{\bfseries}
+\define@key{ltd@ttp}{title}{\def\ltd@title@title{#1}}
+\define@key{ltd@ttp}{subtitle}{\def\ltd@title@subtitle{#1}}
+\define@key{ltd@ttp}{url}{\def\ltd@title@url{#1}}
+\define@key{ltd@ttp}{author}{\def\ltd@title@author{#1}}
+\define@key{ltd@ttp}{email}{\def\ltd@title@email{#1}}
+\define@key{ltd@ttp}{revision}{\def\ltd@title@revision{#1}}
+\define@key{ltd@ttp}{date}{\def\ltd@title@date{#1}}
+
+\providecommand*{\printtitlepage}{}
+\renewrobustcmd*{\printtitlepage}{%
+  \begingroup
+  \centering\titlefont
+  \begingroup\LARGE
+    \ifundef\ltd@title@url
+      {\ltd@title@title}
+      {\href{\ltd@title@url}{\ltd@title@title}}%
+    \par
+  \endgroup
+  \vspace{0.25\baselineskip}
+  \begingroup\large
+    \ltd@title@subtitle\par
+  \endgroup
+  \expandafter\url\expandafter{\ltd@title@url}\par
+  \begin{multicols}{2}
+  \raggedleft
+    \ltd@title@author\par
+    \expandafter\email\expandafter{\ltd@title@email}\par
+  \raggedright
+    Version \ltd@title@revision\par\ltd@title@date
+  \end{multicols}
+  \endgroup}
+
+
+\renewcommand\tableofcontents{%
+    \pdfbookmark[1]{\contentsname}{contents}%
+    \section*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \@starttoc{toc}%
+    }
+\def\@starttoc#1{%
+  \begingroup
+    \begin{multicols}{2}
+    \makeatletter
+    \RaggedRight
+    \@input{\jobname.#1}%
+    \if@filesw
+      \expandafter\newwrite\csname tf@#1\endcsname
+      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+    \fi
+    \end{multicols}
+    \@nobreakfalse
+  \endgroup}
+
+\let\accentcolour\spotcolor
+
+\newcommand*{\allsectionsfont}{\sffamily\accentcolour}
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                     {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                     {2.3ex \@plus.2ex}%
+                                     {\normalfont\Large\bfseries\allsectionsfont}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                       {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                       {1.5ex \@plus .2ex}%
+                                       {\normalfont\large\bfseries\allsectionsfont}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                       {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                       {1.5ex \@plus .2ex}%
+                                       {\normalfont\normalsize\bfseries\allsectionsfont}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                      {3.25ex \@plus1ex \@minus.2ex}%
+                                      {-1em}%
+                                      {\normalfont\normalsize\bfseries\allsectionsfont}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+                                         {3.25ex \@plus1ex \@minus .2ex}%
+                                         {-1em}%
+                                         {\normalfont\normalsize\bfseries\allsectionsfont}}
+
+% from KOMA-Script
+\newcommand*{\@list@extra}{%
+  \ifdim\parskip>\z@
+    \topsep\z@
+    \parsep\parskip
+    \itemsep\z@
+  \fi
+}
+\appto\@listi{\@list@extra}
+\appto\@listii{\@list@extra}
+\appto\@listiii{\@list@extra}
+\appto\@listiv{\@list@extra}
+\appto\@listv{\@list@extra}
+\appto\@listvi{\@list@extra}
+\makeatother
+
+\newrobustcmd*{\tex}{\TeX}
+\newrobustcmd*{\etex}{\mbox{e-TeX}}
+\newrobustcmd*{\pdftex}{pdf\-\tex}
+\newrobustcmd*{\xetex}{Xe\-\tex}
+\newrobustcmd*{\luatex}{Lua\-\tex}
+\newrobustcmd*{\latex}{\LaTeX}%{La\kern-0.07em TeX}
+\newrobustcmd*{\pdflatex}{pdf\-\latex}
+\newrobustcmd*{\xelatex}{Xe\-\latex}
+\newrobustcmd*{\lualatex}{Lua\-\latex}
+\newrobustcmd*{\miktex}{Mik\-\tex}
+\newrobustcmd*{\texlive}{\tex~live}
+\newrobustcmd*{\bibtex}{Bib\kern-0.07em TeX}
+\newrobustcmd*{\lppl}{\latex{} Project Public License}
+
+\renewcommand*{\verbatimfont}{\ttfamily}
+\renewcommand*{\displayverbfont}{\ttfamily}
+\renewcommand*{\marglistfont}{\accentcolour\sffamily\small}
+\renewcommand*{\margnotefont}{\sffamily\small}
+\renewcommand*{\optionlistfont}{\accentcolour\sffamily\displayverbfont}
+\renewcommand*{\ltxsyntaxfont}{\ttfamily}
+\renewcommand*{\ltxsyntaxlabelfont}{\accentcolour\displayverbfont}
+\renewcommand*{\changelogfont}{\normalfont}
+\renewcommand*{\changeloglabelfont}{\accentcolour\sffamily\bfseries}
+\newcommand*{\stylelistlabelfont}{\accentcolour\sffamily\small}
+\newcommand*{\bibfieldformatfont}{\sffamily}
+\newcommand*{\bibfieldformatlabelfont}{\accentcolour\bibfieldformatfont\small}
+
+\MakeAutoQuote*{<}{>}
+
+
+\titlepage{%
+  title={The \sty{biblatex-trad} Package},
+  subtitle={Traditional bibliography styles for \sty{biblatex}},
+  url={https://github.com/moewew/biblatex-trad/},
+  author={Marco Daniel\\Moritz Wemheuer},
+  email={mwemheu@posteo.de},
+  revision={0.5},
+  date={\DTMDate{2021-03-06}}}
+
+\hypersetup{%
+  pdftitle={The biblatex-trad Package},
+  pdfsubject={Traditional bibliography styles for biblatex},
+  pdfauthor={Marco Daniel},
+  pdfkeywords={tex, latex, biblatex, bibtex, bibliography, references, citation}}
+
+
+\newrobustcmd*{\Deprecated}{%
+  \textcolor{spot}{\margnotefont Deprecated}}
+\newrobustcmd*{\DeprecatedMark}{%
+  \leavevmode\marginpar{\Deprecated}}
+\newcommand*{\gitissuelink}[1]{%
+  \href{https://github.com/moewew/biblatex-trad/issues/#1}{issue \##1 on github}}
+
+\hyphenation{%
+  star-red
+  bib-lio-gra-phy
+  white-space
+}
+
+\begin{document}
+
+\printtitlepage
+\tableofcontents
+
+
+\section{Introduction}\label{sec:int}
+
+The package \sty{biblatex-trad} is a contribution to the great package \sty{biblatex}.
+
+It provides the implementation of the traditional bibliography styles (\sty{plain},
+\sty{unsrt}, \sty{alpha} and \sty{abbrv}) as a style for \sty{biblatex}.
+
+\subsection{Motivation}\label{subsec:int:mot}
+
+The package is motivated by a question at \tex{} -- \latex Stack Exchange
+\enquote{\href{http://tex.stackexchange.com/a/69706/}{How to emulate the traditional BibTeX styles
+(\sty{plain}, \sty{abbrv}, \sty{unsrt}, \sty{alpha}) as closely as possible with \sty{biblatex}?}}
+
+\subsection{Requirements}
+The use of the styles requires the \sty{biblatex} package.
+It is tested with the current version of \sty{biblatex} (at the time of writing that is v3.16).
+Care has been taken to retain backwards compatibility with older versions,
+but please do not expect the styles to work flawlessly with ancient versions of \sty{biblatex}.
+Note also that the style may fail silently with older versions, it need not necessarily emit noisy
+warnings or error messages, the output might just be wrong.
+
+Note that in recent versions of \sty{biblatex} the \bibtex backend has been degraded to
+the status of \enquote{fallback backend}.
+Some features of this style will only work properly if you use the default Biber backend.
+
+\subsection{License}
+
+Copyright \textcopyright\ 2012--2015 Marco Daniel, 2016--2021 Moritz Wemheuer. Permission is granted to copy, distribute and\slash or modify this software under the terms of the \lppl, version 1.3c.\fnurl{http://www.latex-project.org/lppl.txt}
+
+
+\subsection{Feedback}\label{subsec:int:feb}
+
+Please use the \sty{biblatex-trad} project page on GitHub to report bugs and submit feature requests.\fnurl{https://github.com/moewew/biblatex-trad}
+
+If you do not want to report a bug or request a feature but are simply in need of assistance, you might want to consider posting your question on the \texttt{comp.text.tex} newsgroup or \tex{} -- \latex Stack Exchange.\fnurl{http://tex.stackexchange.com/questions/tagged/biblatex}
+
+\section{Usage}
+
+\sty{biblatex-trad} is not a standalone package. As described in \secref{sec:int} it is
+a small collection of styles. So you can load the styles as follows:
+
+\begin{lstlisting}[style=latex,escapeinside={(*@}{@*)}]{}
+\usepackage[style=(*@$\langle$\normalfont\emph{style}$\rangle$@*)]{biblatex}
+\end{lstlisting}
+The available styles are listed below.
+\begin{marglist}
+
+\item[trad-plain] Implementation of the standard style \sty{plain}
+\item[trad-unsrt] Implementation of the standard style \sty{unsrt}
+\item[trad-alpha] Implementation of the standard style \sty{alpha}
+\item[trad-abbrv] Implementation of the standard style \sty{abbrv}
+
+\end{marglist}
+
+After loading the style you can use all options provided by \sty{biblatex}.
+That means also that all fields of the standard bibliography drivers are available,
+even if they are unknown to the traditional \texttt{.bst} files.
+
+\section{Limitations}
+
+Up to now the entry types \bibtype{article}, \bibtype{book}, \bibtype{incollection},
+\bibtype{inproceedings}, \bibtype{online}, \bibtype{proceedings}, \bibtype{thesis},
+\bibtype{report} and \bibtype{unpublished} are set up.
+
+Since the styles are based on \sty{biblatex} standard styles, the fields retain the meaning
+they have in \sty{biblatex} even if that may be at odds with how the traditional \sty{.bst}
+files handle those fields.
+
+
+\section{Revision History}\label{apx:log}
+\begin{changelog}
+\begin{release}{0.5}{2021-03-06}
+\item Synced with \sty{biblatex} v3.16 (2020-12-31)
+\end{release}
+
+\begin{release}{0.4a}{2018-02-17}
+\item Fixed alphabetic labels for names with prefix (\enquote{von} part) (\gitissuelink{34})
+\end{release}
+
+\begin{release}{0.4}{2018-02-02}
+\item Fixed incorrect bibstring for chapters (\gitissuelink{32})
+\item Various small modifications
+\end{release}
+
+\begin{release}{0.3}{2016-06-26}
+\item Fix issues with new name formats in \sty{biblatex} versions $\geq$~3.3 (\gitissuelink{25})
+\item Fix problems with the related mechanism (\gitissuelink{24})
+\item Proper support for \bibtype{thesis}-types (\gitissuelink{23})
+\item Modify \opt{maxalphanames}/\opt{minalphanames} and \cmd{labelalphaothers} in \sty{trad-alpha} to mirror \sty{alpha} more closely (\gitissuelink{22})
+\item Use \bibfield{labelprefix} instead of \bibfield{prefixnumber}
+\end{release}
+
+\begin{release}{0.2}{2012-09-29}
+\item Fixed missing comma after journal name if journal name has a period
+\item Make titles sentence case
+\item Removed extra \emph{in}
+\item Removed extra \cmd{printfield}
+\item Fixed extra comma if \bibtype{article} doesn't have a year
+\item Use package \sty{libertine-type1} for documentation
+\end{release}
+
+\begin{release}{0.1}{2012-09-09}
+\item First upload
+\end{release}
+\end{changelog}
+\end{document}
+
+\endinput

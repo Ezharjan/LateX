@@ -1,0 +1,987 @@
+% \iffalse meta-comment
+%
+% File: postnotes.tex
+%
+% This file is part of the LaTeX package "postnotes".
+%
+% Copyright (C) 2022  Gustavo Barros
+%
+% It may be distributed and/or modified under the conditions of the
+% LaTeX Project Public License (LPPL), either version 1.3c of this
+% license or (at your option) any later version.  The latest version
+% of this license is in the file:
+%
+%    https://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+%
+% This work is "maintained" (as per LPPL maintenance status) by
+% Gustavo Barros.
+%
+% This work consists of the files postnotes.dtx,
+%                                 postnotes.ins,
+%                                 postnotes.tex,
+%                                 postnotes-code.tex,
+%                   and the files generated from them.
+%
+% The released version of this package is available from CTAN.
+%
+% -----------------------------------------------------------------------
+%
+% The development version of the package can be found at
+%
+%    https://github.com/gusbrs/postnotes
+%
+% for those people who are interested.
+%
+% -----------------------------------------------------------------------
+%
+% \fi
+
+\documentclass{l3doc}
+
+% The package itself *must* be loaded so that \GetFileInfo can pick up date
+% and version data.
+\usepackage{postnotes}
+\postnotesetup{
+  heading={
+    \section*{\pntitle}
+    \markright{\pnheaderdefault}
+    \addcontentsline{toc}{section}{\pntitle}
+  } ,
+}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\usepackage[scale=.88]{tgheros} % sans
+\usepackage[varqu,scaled=1.03]{inconsolata} % tt
+\usepackage{microtype}
+
+\hypersetup{hidelinks}
+
+\usepackage{zref-clever}
+\zcsetup{
+  cap,
+  countertype = { pnexample = example } ,
+}
+\usepackage{zref-titleref}
+\usepackage{zref-check}
+
+\usepackage{listings}
+\lstdefinestyle{code}{
+  language=[LaTeX]TeX,
+  alsoletter = {_:},
+  moretexcs={
+    \chapter ,
+    \@mkboth ,
+    \@textsuperscript ,
+    \AddToHook ,
+    \counterwithin ,
+    \tableofcontents ,
+    \ExplSyntaxOn ,
+    \ExplSyntaxOff ,
+    \NewDocumentCommand ,
+    \tl_if_eq:NNTF ,
+    \bool_case_true:nF ,
+    \str_if_eq_p:ee ,
+    \prg_replicate:nn ,
+    \lipsum ,
+    \addto ,
+    \gappto ,
+    \extras ,
+    \captions ,
+  }
+}
+\lstdefinestyle{postnotes}{
+  style=code,
+  moretexcs={
+    \postnote ,
+    \postnoteref ,
+    \postnotesection ,
+    \printpostnotes ,
+    \postnotesetup ,
+    \pntitle ,
+    \pnhdnotes ,
+    \pnhdtopage ,
+    \pnhdtopages ,
+    \pnheaderdefault ,
+    \pnthechapter ,
+    \pnthesection ,
+    \pnthechapternextnote ,
+    \pnthesectionnextnote ,
+    \pnhdpagefirst ,
+    \pnhdpagelast ,
+    \pnhdchapfirst ,
+    \pnhdchaplast ,
+    \pnhdsectfirst ,
+    \pnhdsectlast ,
+    \pnhdnamefirst ,
+    \pnhdnamelast ,
+    \mypnheader ,
+    \demochapter ,
+  }
+}
+\lstset{
+  style=postnotes,
+  basicstyle=\ttfamily\small,
+  columns=fullflexible,
+  keepspaces,
+  xleftmargin=\leftmargin,
+  xrightmargin=.5\leftmargin,
+}
+% Setup inspired by https://tex.stackexchange.com/a/4068. For how to use these
+% environments in a .dtx context see https://tex.stackexchange.com/a/31026.
+\newcounter{pnexample}
+\lstnewenvironment{pnexample}[1][]{%
+  \renewcommand{\lstlistingname}{Example}%
+  \renewcommand*\theHlstlisting{ht.\thelstlisting}%
+  \lstset{#1}%
+  \setcounter{lstlisting}{\value{pnexample}}%
+}{}
+\lstnewenvironment{pnsnippet}[1][]{%
+  \renewcommand{\lstlistingname}{Example}%
+  \lstset{#1}%
+}{}
+\ExplSyntaxOn
+\makeatletter
+\lst@AddToHook { PreInit }
+  {
+    \cs_if_exist:cT { c@ \lstenv@name }
+      { \exp_args:Nx \refstepcounter { \lstenv@name } }
+  }
+\makeatother
+\ExplSyntaxOff
+
+\setlength{\marginparsep}{2\labelsep}
+
+\NewDocumentCommand\opt{m}{\texttt{#1}}
+% Temporary workaround for 'l3doc' bug.
+% https://github.com/latex3/latex3/issues/1111
+% FIXME Remove when fixed upstream.
+\NewDocElement[macrolike=false]{Option}{option}
+
+\begin{document}
+
+\GetFileInfo{postnotes.sty}
+
+\title{%
+  The \pkg{postnotes} package%
+  \thanks{This file describes \fileversion, released \filedate.}%
+  \texorpdfstring{\\{}\medskip{}}{ - }%
+  User manual%
+  \texorpdfstring{\medskip{}}{}%
+}
+
+\author{%
+  Gustavo Barros%
+  \thanks{\url{https://github.com/gusbrs/postnotes}}%
+}
+
+\date{\filedate}
+
+\maketitle
+
+\begin{center}
+  {\bfseries \abstractname\vspace{-.5em}\vspace{0pt}}
+\end{center}
+
+\begin{quotation}
+  \pkg{postnotes} is an endnotes package for \LaTeX{}.  Its user interface
+  provides means to print multiple sections of notes along the document, and
+  to subdivide them either automatically -- by chapter, by section -- or at
+  manually specified places, thus being able to easily handle both numbered
+  and unnumbered headings.  The package also provides infrastructure for
+  setting up contextual running headers for printed notes.  The default is a
+  simple but useful one, in the form ``Notes to pages N--M'', but more
+  elaborate ones can be built.  When \pkg{hyperref} is loaded, \pkg{postnotes}
+  provides hyperlinked notes, including back links.
+\end{quotation}
+
+\clearpage{}
+
+\tableofcontents
+
+\clearpage{}
+
+\section{Introduction}
+
+\pkg{postnotes} is an endnotes package for \LaTeX{}.  Its user interface
+provides means to print multiple sections of notes along the document, and to
+subdivide them either automatically -- by chapter, by section -- or at
+manually specified places, thus being able to easily handle both numbered and
+unnumbered headings.  The package also provides infrastructure for setting up
+contextual running headers for printed notes.  The default is a simple but
+useful one, in the form ``Notes to pages N--M'', but more elaborate ones can
+be built.  When \pkg{hyperref} is loaded, \pkg{postnotes} provides hyperlinked
+notes, including back links.
+
+Though this feature set is mostly (albeit not completely) available in one or
+another of the existing endnotes packages for \LaTeX{}, subsets of it exist in
+individual packages, not necessarily compatible with each other.
+\pkg{postnotes} brings these features together in one place, with no external
+dependencies except an up-to-date kernel.
+
+On the technical side, \pkg{postnotes} is peculiar among existing \LaTeX{}
+packages in this area of functionality by the fact that it does not use an
+external file to store the notes.  Both the notes' contents and its metadata
+are stored in variables which are later retrieved at the time of printing.  In
+particular, the content of the note is stored and retrieved with ``no
+manipulation'' (as in \texttt{expl3}'s \texttt{N}/\texttt{n} function
+signatures) and only gets to be expanded at the time it is meant to be
+typeset.  The \file{.aux} file is leveraged to set page labels for the notes,
+since that particular information has to be retrieved asynchronously but,
+other than that, variables are employed to pass information around.
+
+This has some advantages.  First, as is well known, sending arbitrary content
+to a file to be read later is not a noiseless process in \LaTeX{}.  Thus, not
+doing so makes things smoother.  Second, the external file approach is
+strictly linear: the notes which were written to the file get printed as such,
+in the order they were written.  Having the notes available as a set of
+variables allows for some more flexibility than that, through the possibility
+of pre-processing the notes before printing.  It also brings some extra
+degrees of freedom in storing note metadata, and in restoring part of the
+environment where the note is called to where the note's content is printed.
+
+
+\section{Loading the package}
+
+\pkg{postnotes} can be loaded with the usual:
+
+\begin{pnsnippet}
+\usepackage{postnotes}
+\end{pnsnippet}
+
+The package does not accept load-time options, package options must be set
+using \cs{postnotesetup} (see \zcref{sec:options},
+\zcref[ref=title,noname]{sec:package-options}).
+
+\section{User interface}
+
+\begin{function}{\postnote}
+  \begin{syntax}
+    \cs{postnote}\oarg{options}\marg{text}
+  \end{syntax}
+\end{function}
+Sets a postnote with content \meta{text}.  A note ``mark'' is typeset at the
+place \cs{postnote} is called, and \meta{text} is stored to be typeset later,
+on the next call to \cs{printpostnotes}.  The mark is usually determined by
+the printed representation of the main counter, \texttt{postnote}, but can be
+manually set too.  \cs{postnote} can receive a number of \meta{options}, which
+are presented in \zcref{sec:options},
+\zcref[ref=title,noname]{sec:note-options}.
+
+\begin{function}{\postnotesection}
+  \begin{syntax}
+    \cs{postnotesection}\oarg{options}\marg{text}
+  \end{syntax}
+\end{function}
+Sets a postnote section with content \meta{text}.  This is the basic interface
+for making notes subdivisions, and it places \meta{text} between the notes
+where it occurs, at the point the notes are printed by \cs{printpostnotes}.
+For more details and some examples, see \zcref{sec:notes-sections}.  Its
+\meta{options} are presented in \zcref{sec:options},
+\zcref[ref=title,noname]{sec:section-options}.  A \cs{postnotesectionx} is
+also provided which expands \meta{text} in place (\texttt{x}-type expansion)
+before storing it (differently from \cs{postnotesection} which stores
+\meta{text} with ``no manipulation'').
+
+\begin{function}{\printpostnotes}
+  \begin{syntax}
+    \cs{printpostnotes}
+  \end{syntax}
+\end{function}
+Prints the \cs{postnotes} set since the last call of \cs{printpostnotes}, or
+since the beginning of the document.  For two basic usage illustrations, see
+\zcref{ex:sect:basic,ex:x:multi-print}.
+
+\begin{function}{\postnoteref}
+  \begin{syntax}
+    \cs{postnoteref}\meta{*}\marg{label}
+  \end{syntax}
+\end{function}
+Typesets a postnote reference to \meta{label}.  Of course, \meta{label} must
+have been set to a particular postnote, which can be done by the standard
+\cs{label} command.  The starred version of the command inhibits hyperlinking.
+When the \pkg{zref-user} package is loaded, a corresponding \cs{postnotezref}
+is also provided.
+
+
+\section{Options}
+\zlabel{sec:options}
+
+\subsection*{Package options}
+\zlabel{sec:package-options}
+
+\begin{function}{\postnotesetup}
+  \begin{syntax}
+    \cs{postnotesetup}\oarg{options}
+  \end{syntax}
+\end{function}
+Package options can be configured by means of \cs{postnotesetup}, which
+receives options and values in \texttt{key=value} fashion.
+
+\bigskip{}
+
+\DescribeOption{heading} %
+\DescribeMacro{\pnheading} %
+The \opt{heading} option sets the heading for the printed notes or, more
+generally put, that which is printed at the beginning of \cs{printpostnotes}.
+Its default value depends on the document class in use.  If \cs{chapter} is
+defined, the default is:
+\begin{pnsnippet}
+\chapter*{\pntitle}
+\@mkboth{\pnheaderdefault}{\pnheaderdefault}
+\end{pnsnippet}
+but otherwise, it is:
+\begin{pnsnippet}
+\section*{\pntitle}
+\@mkboth{\pnheaderdefault}{\pnheaderdefault}
+\end{pnsnippet}
+where \cs{pntitle} is localizable string, which by default contains ``Notes''
+(see \zcref{sec:localization}), and \cs{pnheaderdefault} is a function which
+takes no arguments, but processes a number of variables, to set a contextual
+running header for the printed notes (see \zcref{sec:headers}).
+\cs{pnheaderdefault} produces a header in the form ``Notes to pages N--M'',
+according to the notes in each page.  If you prefer, you can redefine
+\cs{pnheading} instead of using the \opt{heading} option, to the same effect.
+
+\DescribeOption{format} %
+The \opt{format} option stores formatting instructions for printing the
+notes.  It is called at \cs{printpostnotes}, every time a block of notes is
+about to start.  The default value is \cs{small}.
+
+\DescribeOption{listenv} %
+The \opt{listenv} option sets the list environment inside which the notes are
+printed in \cs{printpostnotes}.  This must be the name of an existing list
+environment, and \pkg{postnotes} provides two suitable ones for convenience:
+\env{postnoteslist}, which is the default, and \env{postnoteslisthang} which
+typesets the notes with a hanging indent.  You can also create your own, with
+\pkg{enumitem} or otherwise, of course.  \opt{listenv} can also receive the
+special value \texttt{none}, in which case the notes blocks are not wrapped in
+a list environment, but rather typeset as plain paragraphs.
+\texttt{\opt{listenv}=none} already sets \opt{postprintnote} to \cs{par} for
+that reason but, when using \texttt{none}, you'll probably also want to set
+\opt{maketextmark}, \opt{pretextmark}, or \opt{posttextmark} to values
+different than the defaults.
+
+\DescribeOption{makemark} %
+\DescribeOption{maketextmark} %
+\DescribeMacro{\pnthepage} %
+The \opt{makemark} and \opt{maketextmark} options control how the mark is to
+be typeset, at the point \cs{postnote} is called and at the point the note's
+text is printed at \cs{printpostnotes}, respectively.  They both can receive
+three arguments: \texttt{\#1} is the mark itself, and arguments \texttt{\#2}
+and \texttt{\#3} are, respectively, the start and the end of the hyperlink
+(hence they must be used in this order, and always in pair).  Their default
+values are:
+\begin{pnsnippet}
+makemark = {#2\hbox{\@textsuperscript{\normalfont#1}}#3} ,
+maketextmark = {#2#1.#3} ,
+\end{pnsnippet}
+At the point \opt{maketextmark} gets typeset, the \cs{pnthepage} variable
+contains the value of \cs{thepage} where its corresponding note was set.
+
+\DescribeOption{pretextmark} %
+\DescribeOption{posttextmark} %
+\DescribeOption{postprintnote} %
+The options \opt{pretextmark}, \opt{posttextmark}, and \opt{postprintnote}
+allow to insert additional material in \cs{printpostnotes}, respectively,
+right before the mark, right after the mark, and after the note's content.
+All in all, when \opt{listenv} is not \texttt{none}, each note in the list is
+laid out in the form:
+\begin{pnsnippet}[escapeinside=`']
+\item[`\meta{pretextmark}'`\meta{mark}'`\meta{posttextmark}']`\meta{note content}'`\meta{postprintnote}'
+\end{pnsnippet}
+and when \opt{listenv} is \texttt{none}, each note is laid out in the form:
+\begin{pnsnippet}[escapeinside=`']
+`\meta{pretextmark}'`\meta{mark}'`\meta{posttextmark}'`\meta{note content}'`\meta{postprintnote=\textbackslash{}\textbf{par}}'
+\end{pnsnippet}
+
+\DescribeOption{style} %
+\opt{style} is just a convenience ``meta'' option which sets a number of
+``base'' options -- such as \opt{listenv}, \opt{format}, \opt{maketextmark},
+etc.\ -- in order to emulate known styles of printing the notes.  It accepts
+the values \texttt{endnotes} or \texttt{pagenote} so that \cs{printpostnotes}
+works as its counterparts in each of these packages.
+
+\DescribeOption{hyperref} %
+\DescribeOption{backlink} %
+The \opt{hyperref} option controls the use of \pkg{hyperref} by
+\pkg{postnotes} and takes values \opt{auto}, \opt{true} or \opt{false}.  The
+default value, \opt{auto}, makes \pkg{postnotes} use \pkg{hyperref} if it is
+loaded.  \opt{true} does the same thing, but warns if \pkg{hyperref} is not
+loaded (\pkg{hyperref} is never loaded for you).  \opt{false} means not to use
+\pkg{hyperref} regardless of its availability.  The \opt{backlink} option
+controls whether only a link from the note to is respective text at
+\cs{printpostnotes} is created, or if a back link from the text at
+\cs{printpostnotes} back to where the note's mark is placed is also made
+available.  It is a boolean option, defaults to \texttt{true}, and is only
+operational if \opt{hyperref} is not \texttt{false}.  These are both preamble
+only options.
+
+\DescribeOption{sort} %
+The \opt{sort} option controls whether the notes queue is sorted or not at
+\cs{printpostnotes}.  Normally, the order the notes should be printed is the
+one in which the notes were placed along the document.  However, in cases
+where some manual intervention was required, sorting the notes can be quite
+useful, and difficult to handle in its absence.  Two typical examples are: a
+note inside a float which disturbed the sequence of the \texttt{postnote}
+counter (see \zcref{ex:x:float} in \zcref{sec:further-examples} for an
+illustration) and a manually set mark, in which case \pkg{postnotes} also
+allows to manually set a sort value with the \opt{sortnum} option of
+\cs{postnote}.  Sorting does not cross boundaries of notes sections, as set by
+\cs{postnotesection}, in other words, if notes sections exist, sorting is only
+ever carried out within the boundaries of each section.  This may be a
+restriction for cases in which floats cross sections' boundaries, but it's the
+only reasonable thing to do.  \opt{sort} is a boolean option, and defaults to
+\texttt{true}.
+
+
+\subsection*{Note options}
+\zlabel{sec:note-options}
+
+The options accepted by \cs{postnote}\oarg{options}\marg{text} are the
+following:
+
+\bigskip{}
+
+\DescribeOption{mark} %
+By default, the mark generated by \cs{postnote} is determined by the printed
+representation of the \texttt{postnote} counter, \cs{thepostnote}, which is
+stepped when \cs{postnote} is called.  But the \opt{mark} option allows you to
+manually set it, in case you want, or need, to do so.  When \opt{mark} is
+manually set, the \texttt{postnote} counter is not stepped.  Note that,
+differently from the optional argument of \cs{footnote}, this does not need to
+be a number, it can receive some text as value, which is directly used as the
+mark.
+
+\DescribeOption{sortnum} %
+Normally, the sort value used for sorting the notes queue (see the \opt{sort}
+package option above) is determined by the value of the \texttt{postnote}
+counter (that is, by \cs{the}\cs{c@postnote}, and not by its printed
+representation, \cs{thepostnote}).  But you may specify this sort value
+manually with the \opt{sortnum} option, typically, when you have also manually
+specified the mark.  It receives a floating point number as value.  So, for
+example, if one needed to insert a note between notes 2 and 3, without
+disturbing the numbering of other notes, one could use
+\texttt{\cs{postnote}[mark=2*,sortnum=2.5]\marg{text}}.
+
+\DescribeOption{nomark} %
+The \opt{nomark} option makes \cs{postnote} inhibit the typesetting of the
+mark.  Of course, normally, we do want the visual cue of the mark, but the
+intended use case for this option is for a \cs{postnote} with \opt{nomark} to
+be paired with a \cs{postnoteref}, so as to be able to typeset a note in
+places where doing so directly may be problematic.  For a practical example
+and an illustration on how to use it, see \zcref{ex:x:caption} in
+\zcref{sec:further-examples}.
+
+\DescribeOption{label} %
+The \opt{label} option sets a standard \cs{label} named with the value given
+to the option.  When the \pkg{zref-user} package is loaded, a corresponding
+\opt{zlabel} option is also provided.  See \zcref{sec:cross-references} for
+details about cross-referencing.
+
+
+\subsection*{Section options}
+\zlabel{sec:section-options}
+
+The options accepted by \cs{postnotesection}\oarg{options}\marg{text} are the
+following:
+
+\bigskip{}
+
+\DescribeOption{name} %
+For the purposes of building running headers, each \cs{postnotesection} can be
+identified by its \opt{name}.  This is mainly intended to support unnumbered
+headings, but its mechanism is general.  The name of a note section is made
+available for the first and last note on a given page through the variables
+\cs{pnhdnamefirst} and \cs{pnhdnamelast} at the moment the header of the page
+is typeset.  For details on how to use these variables, see
+\zcref{sec:headers}.
+
+
+\section{Notes sections}
+\zlabel{sec:notes-sections}
+
+As mentioned above, \cs{postnotesection} is the basic interface for
+subdividing the notes when printed.  For those familiar with it, this command
+is \pkg{postnotes}'s equivalent to \pkg{endnotes}' \cs{addtoendnotes}.  It has
+the same intended use -- to add text or commands along the notes' sequence at
+the point it is called -- and the way it works is quite similar to
+\cs{addtoendnotes}.  But there are some differences, prominently a
+\cs{postnotesection} is skipped at \cs{printpostnotes} if it contains no
+notes.  In other words, if two (or more) calls of \cs{postnotesection} occur
+in immediate sequence, with no \cs{postnote} in between, the latter call takes
+precedence over the former, instead of being accumulated in the queue.  This
+is intended to facilitate the automation of the subdivision of the notes.  So,
+one can, for example, use a hook to \cs{chapter} and not have to worry if a
+chapter with no notes will generate an empty section inside
+\cs{printpostnotes}, e.g., by the call to \cs{chapter*} at the table of
+contents, and so on.  Or, one can use the heading number for the automated
+case, but be able to override it manually for an occasional unnumbered one.
+For this reason, a more semantic name was chosen for it, instead of the
+generic ``add to''.
+
+\DescribeMacro{\pnthechapter} %
+\DescribeMacro{\pnthesection} %
+\DescribeMacro{\pnthechapternextnote} %
+\DescribeMacro{\pnthesectionnextnote} %
+Just like with \cs{postnote}, the contents of \cs{postnotesection} are not
+expanded in place, but rather stored with ``no manipulation'' to be typeset
+later at \cs{printpostnotes}.  For this reason, some contextual information is
+stored at the place \cs{postnotesection} is called, and made available at the
+point it's content gets expanded by means of some variables (you can use
+\cs{postnotesectionx} instead, in which case these variables are of little
+use).  When the content of a notes section gets typeset, \cs{pnthechapter}
+contains the value of \cs{thechapter} where \cs{postnotesection} was
+originally called.  Similarly, \cs{pnthesection} contains the value of
+\cs{thesection}.  \cs{pnthechapternextnote} and \cs{pnthesectionnextnote} are
+meant to support the automation of the notes subdivision by using hooks to
+sectioning commands, which is a quite natural way to do this.  However, since
+it may be problematic to hook \emph{after} sectioning commands --
+\cs{section}, for example, figures prominently in the documentation of
+\pkg{ltcmdhooks} as a case of ``look ahead'' command for which the
+\texttt{after} hook is not supported -- we will typically want to hook
+\emph{before} them.  But, at this point the values of the \texttt{chapter} or
+\texttt{section} counters have not yet been stepped, therefore \cs{thechapter}
+and \cs{thesection} do not correspond to what we would like to refer to.  For
+this reason, \cs{pnthechapternextnote} contains the value of \cs{thechapter}
+at the point the ``next note'' is placed (a \cs{postnote}, that is), the first
+in the chapter, and already inside it, thus with an expected value of the
+\texttt{chapter} counter.  Similarly, \cs{pnthesectionnextnote} contains the
+value of \cs{thesection} for the ``next note''.  Of course, the ``next note''
+variables are \emph{proxies}, but they are meant to support the automation of
+the subdivision of the notes through the use of \texttt{before} hooks to the
+document's sectioning commands, in which case the subdivision of the notes
+will correspond to the document's structure and, given empty notes sections
+are skipped, the values will be the ones we are interested in.  But more
+complex use cases may require something different.  Either way, it is up to
+the user to judge whether the \emph{proxy} is a good one for their use case,
+the variables just do what they say, and contain the values of interest for
+the ``next note''.
+
+This is meant to be simple.  Some examples might make things more concrete.
+At its most basic, \cs{postnotesection} can just be set manually:
+
+\begin{pnexample}[caption={Basic usage},label={ex:sect:basic}]
+\documentclass{book}
+\usepackage{postnotes}
+\usepackage{hyperref}
+\begin{document}
+\chapter{First chapter}
+\postnotesection{\section*{Notes to chapter \pnthechapter}}
+Foo.\postnote{Foo note.}
+Bar.\postnote{Bar note.}
+\chapter{Second chapter}
+\postnotesection{\section*{Notes to chapter \pnthechapter}}
+\setcounter{postnote}{0}
+Baz.\postnote{Baz note.}
+Boo.\postnote{Boo note.}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+The document in \zcref{ex:sect:basic} resets the \texttt{postnote} counter for each
+chapter, and manually sets notes sections by chapter, which results in
+\cs{printpostnotes} being correspondingly subdivided.  But it is easy to make
+this automatic:
+
+\begin{pnexample}[caption={Automating notes subdivision with a hook},label={ex:sect:auto}]
+\documentclass{book}
+\usepackage{postnotes}
+\AddToHook{cmd/chapter/before}{%
+  \postnotesection{\section*{Notes to chapter \pnthechapternextnote}}}
+\counterwithin*{postnote}{chapter}
+\usepackage{hyperref}
+\begin{document}
+\tableofcontents
+\chapter{First chapter}
+Foo.\postnote{Foo note.}
+Bar.\postnote{Bar note.}
+\chapter{Second chapter}
+Baz.\postnote{Baz note.}
+Boo.\postnote{Boo note.}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+\zcref{ex:sect:auto} uses the \texttt{cmd/chapter/before} hook, and thus
+\cs{pnthechapternextnote} to retrieve the correct chapter number for
+\cs{postnotesection}, as explained above.  The counter is reset every chapter
+by means of \cs{counterwithin*}.  Note that the call to \cs{chapter*} inside
+\cs{tableofcontents} does not generate a spurious notes section at
+\cs{printpostnotes} (as long as you don't place a note in a sectioning command
+with no short argument, which you shouldn't do anyway).  But what if we have,
+among mostly numbered chapters, an ocasional unnumbered one?
+\cs{pnthechapternextnote} wouldn't possibly work in this case.  Since
+immediately successive calls to \cs{postnotesection} override the previous
+ones, it is straightforward to just manually adjust the exception:
+
+\begin{pnexample}[caption={Fine-tuning automation},label={ex:sect:fine-auto}]
+\documentclass{book}
+\usepackage{postnotes}
+\AddToHook{cmd/chapter/before}{%
+  \postnotesection{\section*{Notes to chapter \pnthechapternextnote}}}
+\counterwithin*{postnote}{chapter}
+\usepackage{hyperref}
+\begin{document}
+\tableofcontents
+\chapter*{Introduction}
+\postnotesection{\section*{Notes to the introduction}}
+Intro.\postnote{Intro note.}
+\chapter{First chapter}
+Foo.\postnote{Foo note.}
+Bar.\postnote{Bar note.}
+\chapter{Second chapter}
+Baz.\postnote{Baz note.}
+Boo.\postnote{Boo note.}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+\section{Headers}
+\zlabel{sec:headers}
+
+\pkg{postnotes}' support for running headers comprises a basic header, enabled
+by default, generating headers in the form ``Notes to pages N--M'', but also
+some infrastructure for users to build more elaborate ones.
+
+The default headers are generated by the function \cs{pnheaderdefault} which,
+as we saw in \zcref{sec:section-options} is used to set the headers in option
+\opt{heading} (with \cs{@mkboth}).  So, the default headers are enabled
+through that particular setting.
+
+Examining the definition of \cs{pnheaderdefault} is possibly the most direct
+way to explore how the feature is meant to work.
+
+\begin{pnsnippet}
+\ExplSyntaxOn
+\NewDocumentCommand \pnheaderdefault {}
+  {
+    \tl_if_eq:NNTF \pnhdpagefirst \pnhdpagelast
+      { \pnhdnotes{} ~ \pnhdtopage{} ~ \pnhdpagefirst }
+      { \pnhdnotes{} ~ \pnhdtopages{} ~ \pnhdpagefirst -- \pnhdpagelast }
+  }
+\ExplSyntaxOff
+\end{pnsnippet}
+
+\cs{pnhdnotes}, \cs{pnhdtopage}, and \cs{pnhdtopages} are localizable strings,
+which by default respectively contain ``Notes'', ``to page'', and ``to pages''
+(see \zcref{sec:localization}).  Let's replace them to examine the interesting
+part of the definition:
+
+\begin{pnsnippet}
+\ExplSyntaxOn
+\NewDocumentCommand \pnheaderdefault {}
+  {
+    \tl_if_eq:NNTF \pnhdpagefirst \pnhdpagelast
+      { Notes~to~page~ \pnhdpagefirst }
+      { Notes~to~pages~ \pnhdpagefirst -- \pnhdpagelast }
+  }
+\ExplSyntaxOff
+\end{pnsnippet}
+
+\DescribeMacro{\pnhdpagefirst} %
+\DescribeMacro{\pnhdpagelast} %
+\DescribeMacro{\pnhdchapfirst} %
+\DescribeMacro{\pnhdchaplast} %
+\DescribeMacro{\pnhdsectfirst} %
+\DescribeMacro{\pnhdsectlast} %
+\DescribeMacro{\pnhdnamefirst} %
+\DescribeMacro{\pnhdnamelast} %
+\cs{pnhdpagefirst} and \cs{pnhdpagelast} store the value of \cs{thepage} for
+the first and the last notes (where these notes were originally placed) of the
+current page (at the point they are being printed).  These variables are
+updated every page along the span of \cs{printpostnotes} to the values
+corresponding to their respective first and last note (which start on that
+page), so that these values are available at the moment the headers get to be
+typeset.  Hence, what the definition of \cs{pnheaderdefault} does is to use
+these variables to build a rule in the form: ``if the page of the first and
+last notes are equal, write a singular form and just one value but, if they
+are different, write a plural form and a range of both values''.
+\cs{pnhdchapfirst}, \cs{pnhdchaplast}, \cs{pnhdsectfirst}, and
+\cs{pnhdsectfirst} provide the same for \cs{thechapter} and \cs{thesection}.
+\cs{pnhdnamefirst} and \cs{pnhdnamelast} contain the name of the notes
+section, the one given with the \opt{name} option of \cs{postnotesection} (and
+are empty in case no \opt{name} was provided).
+
+With that in hand, fancier headers can be built.  For example, if we'd like
+headers in the form ``Notes to chapters A--C, pages N--M'', we could define:
+\begin{pnsnippet}
+\ExplSyntaxOn
+\NewDocumentCommand \mypnheader {}
+  {
+    \tl_if_eq:NNTF \pnhdchapfirst \pnhdchaplast
+      { Notes~to~chapter~\pnhdchapfirst,~ }
+      { Notes~to~chapters~\pnhdchapfirst -- \pnhdchaplast,~ }
+    \tl_if_eq:NNTF \pnhdpagefirst \pnhdpagelast
+      { page~\pnhdpagefirst }
+      { pages~\pnhdpagefirst -- \pnhdpagelast }
+  }
+\ExplSyntaxOff
+\end{pnsnippet}
+and then set \opt{heading} to use \cs{mypnheader} instead of
+\cs{pnheaderdefault}.  This definition should work well as long as all the
+chapters (containing notes) are numbered, but if unnumbered ones come into
+play, again we can fine-tune the automation, adjusting for the exception.
+That's the purpose of the \opt{name} option for \cs{postnotesection}, and of
+\cs{pnhdnamefirst} and \cs{pnhdnamelast}.  \zcref{ex:hd:fancy} illustrates
+their use (of course, the use of \pkg{lipsum} is just for demonstration):
+
+\begin{pnexample}[caption={Fancy headers},label={ex:hd:fancy}]
+\documentclass{book}
+\usepackage{postnotes}
+\postnotesetup{
+  heading = {%
+    \chapter*{\pntitle}
+    \markboth{\mypnheader}{\mypnheader}%
+  } ,
+}
+\counterwithin*{postnote}{chapter}
+\AddToHook{cmd/chapter/before}{%
+  \postnotesection{\section*{Notes to chapter \pnthechapternextnote}}%
+}
+\ExplSyntaxOn
+\NewDocumentCommand \mypnheader {}
+  {
+    \bool_case_true:nF
+      {
+        {
+          \str_if_eq_p:ee { \pnhdnamefirst } { intro } &&
+          \str_if_eq_p:ee { \pnhdnamelast } { intro }
+        }
+        { Notes~to~the~introduction,~ }
+        {
+          \str_if_eq_p:ee { \pnhdnamefirst } { intro } &&
+          ! \str_if_eq_p:ee { \pnhdnamelast } { intro }
+        }
+        { Notes~to~the~introduction~and~chapter~\pnhdchaplast{},~ }
+      }
+      {
+        \tl_if_eq:NNTF \pnhdchapfirst \pnhdchaplast
+          { Notes~to~chapter~\pnhdchapfirst{},~ }
+          { Notes~to~chapters~\pnhdchapfirst{} -- \pnhdchaplast{},~ }
+      }
+    \tl_if_eq:NNTF \pnhdpagefirst \pnhdpagelast
+      { page~\pnhdpagefirst{} }
+      { pages~\pnhdpagefirst{} -- \pnhdpagelast{} }
+  }
+\ExplSyntaxOff
+\usepackage{hyperref}
+\usepackage{lipsum}
+\ExplSyntaxOn
+\NewDocumentCommand \demochapter { m }
+  { \prg_replicate:nn { #1 } { \lipsum[1-2]\postnote{\lipsum[3]}\par } }
+\ExplSyntaxOff
+\begin{document}
+\tableofcontents
+\chapter*{Introduction}
+\postnotesection[name=intro]{\section*{Notes to the introduction}}
+\demochapter{12}
+\chapter{Chapter 1}
+\demochapter{15}
+\chapter{Chapter 2}
+\demochapter{15}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+
+\section{Cross-references}
+\zlabel{sec:cross-references}
+
+Cross-referencing with \pkg{postnotes} works in a pretty standard way: set a
+label, make references to it.  However, there are two ways to set a label to a
+note.  One can either set a label with the \opt{label} option of
+\cs{postnote}, or one can directly set it with the standard \cs{label} as part
+of the note's content.  They are both valid, but they are not equivalent, they
+have different meanings and, accordingly, behave differently.
+
+The label set with the \opt{label} option is set at the place where
+\cs{postnote} is.  The label set with \cs{label} in the note's content, is
+just stored, and only gets expanded when this content gets to be typeset, at
+\cs{printpostnotes}.  In short, the \opt{label} option belongs to the
+``mark'', while the \cs{label} set in the content belongs to the ``text''.
+
+Of course, the data stored in each label will correspond to this difference.
+Even if the plain \cs{ref} to both will get the same value (the mark), a
+\cs{pageref} will be different, the links to either will point to different
+places, etc.
+
+
+\section{Localization}
+\zlabel{sec:localization}
+
+\DescribeMacro{\pntitle} %
+\DescribeMacro{\pnhdnotes} %
+\DescribeMacro{\pnhdtopage} %
+\DescribeMacro{\pnhdtopages} %
+\pkg{postnotes} uses a few localized strings, stored in the variables
+\cs{pntitle}, \cs{pnhdnotes}, \cs{pnhdtopage}, and \cs{pnhdtopages}.  The
+first one is used in the default value of the \opt{heading} option and
+defaults to ``Notes''.  The remaining three are used in \cs{pnheaderdefault}
+(and thus, indirectly also in the \opt{heading} option) and their respective
+defaults are: ``Notes'', ``to page'', and ``to pages''.  So, if you changed
+the default value of \opt{heading} and is not using \cs{pnheaderdefault}, you
+don't have to worry about them.
+
+These strings will automatically adjust to the document language, set either
+by \pkg{babel} or by \pkg{polyglossia}, \emph{if} the language is supported by
+\pkg{postnotes}.  Currently supported are English, French, Portuguese, and
+their variants.  Either way, you can always change these variables to the
+values of your preference.  If you are not using either \pkg{babel} or
+\pkg{polyglossia}, you can do so directly, for example, with:
+\begin{pnsnippet}
+\renewcommand*{\pntitle}{My title}
+\end{pnsnippet}
+However, with \pkg{babel} or \pkg{polyglossia}, and specially in a multi
+language document, you must use the appropriate hooks of your language package
+for this, otherwise, the next call to \cs{selectlanguage} will override your
+settings.  For \pkg{babel} you should use:
+\begin{pnsnippet}[escapeinside=`']
+\addto\extras`\meta{language}'{\renewcommand*{\pntitle}{My title}}
+\end{pnsnippet}
+and for \pkg{polyglossia}:
+\begin{pnsnippet}[escapeinside=`']
+\gappto\captions`\meta{language}'{\renewcommand*{\pntitle}{My title}}
+\end{pnsnippet}
+
+
+\section{Further examples}
+\zlabel{sec:further-examples}
+
+This section collects some further usage examples which did not fit into the
+previous sections, but might still be of interest.
+
+\bigskip{}
+
+\zcref{ex:x:multi-print} illustrates a basic procedure of how to obtain a note
+section for each chapter of a book, by calling \cs{printpostnotes} at the end
+of each chapter:
+
+\begin{pnexample}[caption={Notes for each chapter},label={ex:x:multi-print}]
+\documentclass{book}
+\usepackage{postnotes}
+\postnotesetup{heading={\section*{\pntitle}}}
+\usepackage{hyperref}
+\begin{document}
+\chapter{First chapter}
+Foo.\postnote{Foo note.}
+Bar.\postnote{Bar note.}
+\printpostnotes
+\chapter{Second chapter}
+\setcounter{postnote}{0}
+Baz.\postnote{Baz note.}
+Boo.\postnote{Boo note.}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+\zcref{ex:x:float} shows a case of a float which disturbs the order of the
+notes.  It demonstrates a (traditional) technique to deal with the situation,
+by setting a manual mark and adjusting the counter where appropriate.  It also
+illustrates the role the sorting of notes can have, by producing not only
+correctly ordered note marks (as a result of the manual adjustments), but also
+correctly ordered printed notes (as a result of sorting):
+
+\begin{pnexample}[caption={Sorting and floats},label={ex:x:float}]
+\documentclass{book}
+\usepackage{postnotes}
+\usepackage{hyperref}
+\begin{document}
+\chapter{First chapter}
+\postnote{1}
+\postnote{2}
+\begin{table}[p]
+  \caption{Table}
+  Table.\postnote[mark=5,sortnum=5]{3}
+\end{table}
+\postnote{4}
+\postnote{5}
+\stepcounter{postnote}
+\clearpage
+\postnote{6}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+\zcref{ex:x:caption} illustrates a couple of techniques to handle long
+captions.  Captions pose a problem to \cs{postnote} because, if you set a
+\cs{postnote} inside a standard caption, whose text is long enough to require
+two lines, the content of the caption ends up being typeset twice: once to
+check if it would have fitted in a single line, the second to typeset the two
+lines since it didn't fit in one.  This triggers the \texttt{postnote} counter
+to be stepped twice (and any other counter that happens to be there too).  One
+way to handle the situation is, if you know(!) that the caption takes two
+lines, you can decrement the counter just before it, and place the note
+directly in the caption, this will get you a correctly numbered note.  Another
+way is to use the pairing between a \opt{nomark} \cs{postnote} and
+\cs{postnoteref}: place a note outside the caption (but close to it, since its
+position will determine the anchor for the backlink) with the \opt{nomark}
+option, set a label inside it and, inside the caption make a \cs{postnoteref}
+to the label.  In practice:
+
+\begin{pnexample}[caption={Long caption},label={ex:x:caption}]
+\documentclass{article}
+\usepackage[textwidth=8cm]{geometry}
+\usepackage{postnotes}
+\usepackage{hyperref}
+\begin{document}
+\begin{figure}
+  Figure.
+  \addtocounter{postnote}{-1}
+  \caption[Caption for LOF]{A long caption, long enough to require two
+    lines\postnote{A note.}}
+\end{figure}
+\begin{figure}
+  Figure.
+  \postnote[nomark]{\label{en:1}A note.}%
+  \caption[Caption for LOF]{A long caption, long enough to require two
+    lines\postnoteref{en:1}}
+\end{figure}
+\printpostnotes
+\end{document}
+\end{pnexample}
+
+
+\section{Acknowledgments}
+
+Some people have kindly contributed to \pkg{postnotes}.  Suggestions, ideas,
+insightful comments, solutions to problems, bug reports were generously
+provided by (in chronological order):
+  Ulrike Fischer,
+  % 2022-03-22: https://chat.stackexchange.com/transcript/message/60708390#60708390
+  % 2022-03-28: https://chat.stackexchange.com/transcript/message/60754383#60754383
+  % 2022-03-31: https://github.com/latex3/hyperref/issues/230
+  % 2022-04-09: https://github.com/latex3/hyperref/issues/229
+  David Carlisle,
+  % 2022-03-28: https://chat.stackexchange.com/transcript/message/60754383#60754383
+  % 2022-04-08: https://tex.stackexchange.com/a/640035 (comments)
+  and Moritz Wemheuer.
+  % 2022-04-05: https://tex.stackexchange.com/q/597359#comment1594585_597389
+
+The package's language support have been provided or improved thanks to:
+  `\texttt{Pika78}' (French).
+  % 2022-04-25: https://github.com/gusbrs/postnotes/issues/1#issuecomment-1108634938
+
+If I have inadvertently left anyone off the list I apologize, and please let
+me know, so that I can correct the oversight.
+
+Thank you all very much!
+
+
+\section{Change history}
+
+A change log with relevant changes for each version, eventual upgrade
+instructions, and upcoming changes, is maintained in the package's repository,
+at \url{https://github.com/gusbrs/postnotes/blob/main/CHANGELOG.md}.  The
+change log is also distributed with the package's documentation through CTAN
+upon release so, most likely, \texttt{texdoc postnotes/changelog} should
+provide easy local access to it.  An archive of historical versions of the
+package is also kept at \url{https://github.com/gusbrs/postnotes/releases}.
+
+\end{document}

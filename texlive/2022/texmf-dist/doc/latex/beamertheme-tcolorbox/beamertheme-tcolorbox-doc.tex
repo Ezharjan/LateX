@@ -1,0 +1,218 @@
+% !TeX TS-program = latexmk -time -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %%O %%S" %   | txs:///view-log | txs:///view-pdf 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Documentation for the tcolorbox inner theme
+% A beamer inner theme which reproduces standard beamer blocks using tcolorboxes
+% Maintained by samcarter
+%
+% Project repository and bug tracker:
+% https://github.com/samcarter/beamertheme-tcolorbox
+%
+% Released under the LaTeX Project Public License v1.3c or later
+% See http://www.latex-project.org/lppl.txt
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[parskip=half]{scrartcl}
+
+% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}	
+\usepackage[utf8]{inputenc}		
+\usepackage[english]{babel}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[most]{tcolorbox}
+\usepackage[paper=a4paper,hmargin=2.9cm,vmargin=2.5cm]{geometry}
+\usepackage{scrlayer-scrpage} 
+\usepackage[colorlinks=true,breaklinks=true,urlcolor=blendedblue,linkcolor=blendedblue,citecolor=blendedblue,filecolor=blendedblue]{hyperref}
+
+% customisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{blendedblue}{rgb}{0.2,0.2,0.7}
+\addtokomafont{sectioning}{\color{blendedblue}}
+\addtokomafont{date}{\normalsize}
+\addtokomafont{author}{\normalsize}
+
+\lstdefinestyle{tcolorboxstyle}{%
+	language={[latex]TeX},
+	tabsize=2,
+	breaklines,
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+%	texcsstyle=*\color{blendedblue}\bfseries,
+%	moretexcs={usetheme,useinnertheme},
+}
+
+\tcbset{%
+  toptitle=1mm,
+  left=2mm,
+  title={Example},
+  fonttitle=\large\sffamily,
+  colbacktitle=blendedblue!75!black,
+	colframe=blendedblue!75!black,
+  colback=blendedblue!75!black!10!white,
+  boxrule=0cm,
+  frame hidden,
+  arc=1.3mm,
+	arc=2mm,
+	sidebyside,
+	listing options={style=tcolorboxstyle},
+	bottom=0pt, 
+	top=0pt,
+  lower separated=false,
+  comment style={scale=2},
+  enhanced,
+  drop fuzzy shadow=black!90,
+  title code app={
+    \shade[top color=blendedblue!75!black,bottom color=blendedblue!75!black!10!white] (title.south west) rectangle ([yshift=-1mm]title.south east); 
+  }        
+}
+
+\lstset{style=tcolorboxstyle}
+
+%\makeatletter
+\newcommand{\prefix}{./build}
+\tcbset{
+  compilable listing/.style={listing file={\prefix/\jobname-listing-\thetcblistingcount.tex}},
+  run pdflatex/.style={run@system@command={cd\space \prefix;\space pdflatex}{\jobname-listing-\thetcblistingcount.tex}},%
+}
+%\makeatother
+
+
+% meta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{The tcolorbox beamer inner theme}
+\subtitle{A beamer inner theme to reproduce standard beamer blocks using tcolorboxes}
+\author{%
+	\texorpdfstring{
+		\texttt{samcarter}\\
+		\url{https://github.com/samcarter/beamertheme-tcolorbox}\\
+		\url{https://www.ctan.org/pkg/beamertheme-tcolorbox}
+	}{samcarter}}
+\date{Version v0.5 \textendash{} 2022/09/14}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{intro}
+
+Over the last decade of answering beamer problems and more recently also being one of the maintainers of the beamer class, I saw countless of requests about beamer blocks. There were users who were looking for sometimes smaller, sometimes larger tweaks to the blocks in their document, for example "How to use the rectangular blocks with sharp corners, but with the shadows from the rounded beamer blocks". Other users encountered various tiny or something bigger problems with the default beamer blocks, like issues with some pdf viewers in which the seams of the underlying colorboxes would become visible. 
+
+For all these cases, there is now an alternative to the default beamer blocks: The tcolorbox inner beamer theme will replace the usual beamer mechanism to draw blocks with tcolorboxes. The tcolorboxes will automatically adopt the look and feel (round vs.\ sharp corners and shadows) as well as the colours of the normal beamer blocks.
+
+The package is included in \TeX{}Live and MiK\TeX\ and available from \textsc{CTAN} (\url{https://www.ctan.org/pkg/beamertheme-tcolorbox}). 
+The development version of this package is located at \url{https://github.com/samcarter/beamertheme-tcolorbox}. If you have any problems, ideas or other feedback, please make constructive use of the issue tracker.
+
+Copyright \raisebox{0.2em}{\tiny\fontfamily{cmr}\selectfont\textcopyright} \texttt{samcarter}. Permission is granted to copy, distribute and\slash or modify this software under the terms of the LaTeX project public licence, version 1.3c or later \url{http://www.latex-project.org/lppl.txt}.
+
+\section{Usage}
+
+The basic usage is fairly simple. One just needs to load the theme via 
+\begin{tcolorbox}[title={}]
+\begin{lstlisting}
+\useinnertheme{tcolorbox}
+\end{lstlisting}
+\end{tcolorbox}
+and after that, one can use the normal beamer \lstinline|block| environment as usual. 
+
+Behind the scenes, this will replace the default mechanism of puzzling together the block from two separate \lstinline|beamercolorboxes|, with one tcolorbox.
+
+In this simple configuration, the look and feel of the new blocks will be taken from other themes loaded in the presentation. For example if the Madrid theme is loaded, the resulting tcolorbox will have the usual colours, rounded corners and a shadow:
+
+\begin{tcblisting}{
+  listing and comment,
+  pdf comment,
+  freeze pdf,
+  compilable listing,
+  run pdflatex,
+}
+\documentclass{beamer}
+\usetheme{Madrid}
+\useinnertheme{tcolorbox}
+\begin{document}
+\begin{frame}
+\begin{block}{Title}
+  Body
+\end{block}
+\begin{alertblock}{Title}
+  Body
+\end{alertblock}
+\begin{exampleblock}{Title}
+  Body
+\end{exampleblock}
+\end{frame}
+\end{document}
+\end{tcblisting}
+
+\section{Options}
+
+In addition to automatically adopting settings from other themes, one can also explicitly influence the look and feel via these options:
+\begin{description}
+\item[blocks] controls if tcolorboxes should be used for beamer blocks (default: \lstinline|true|)
+\item[inmargin] controls if the block titles are placed in the left sidebar instead of the top of the block, e.g. for themes like \lstinline|Bergen| (default: \lstinline|false|, but set to \lstinline|true| if the \lstinline|inmargin| inner theme is detected)
+\item[rounded] controls if corners are rounded or sharp (default: \lstinline|false|, but set to \lstinline|true| if the \lstinline|rounded| inner theme is detected)
+\item[shaded] controls if there is a short colour gradient between the title and the body (default: \lstinline|false|, but set to \lstinline|true| if the block corners are rounded)
+\item[shadow] controls if the block has a shadow (default: \lstinline|false|, but set to \lstinline|true| if the \lstinline|shadow| outer theme is detected)
+\item[showtitle] controls if a small coloured stripe is shown for blocks with empty title (default: \lstinline|true|, but set to \lstinline|false| if the block has rounded corners)
+\item[titlepage] controls if tcolorboxes should be used for the title page, section page etc. (default: \lstinline|true|)
+\end{description}
+These options can be set to \lstinline|true| or \lstinline|false| (calling either option without explicit \lstinline|true| or \lstinline|false| will set it to \lstinline|true|).
+
+If one for example likes the Antibes theme, but prefers the blocks to have shadows, they can now easily be added: \nopagebreak
+\begin{tcblisting}{
+  listing and comment,
+  pdf comment,
+  freeze pdf,
+  compilable listing,
+  run pdflatex,
+}
+\documentclass{beamer}
+\usetheme{Antibes}
+\useinnertheme[
+  shadow
+]{tcolorbox}
+\begin{document}
+\begin{frame}
+\begin{block}{Title}
+  Body
+\end{block}
+\begin{alertblock}{Title}
+  Body
+\end{alertblock}
+\begin{exampleblock}{Title}
+  Body
+\end{exampleblock}
+\end{frame}
+\end{document}
+\end{tcblisting}
+
+Beyond these two options, the users also has the myriads of options of the tcolobox package to their disposal, e.g.\ via \lstinline|\tcbset{...}|:
+
+\begin{tcblisting}{
+  listing and comment,
+  pdf comment,
+  freeze pdf,
+  compilable listing,
+  run pdflatex,
+}
+\documentclass{beamer}
+\usetheme{Ilmenau}
+\useinnertheme{tcolorbox}
+\tcbsetforeverylayer{
+  boxrule=3pt,
+  borderline={1pt}{0pt}{pink,dashed},
+}
+\begin{document}
+\begin{frame}
+\begin{block}{Title}
+  Body
+\end{block}
+\begin{alertblock}{Title}
+  Body
+\end{alertblock}
+\begin{exampleblock}{Title}
+  Body
+\end{exampleblock}
+\end{frame}
+\end{document}
+\end{tcblisting}
+
+\end{document}

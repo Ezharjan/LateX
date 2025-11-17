@@ -1,0 +1,56 @@
+2019-12-22  Frank Mittelbach  <Frank.Mittelbach@latex-project.org>
+
+	* thm-kv.dtx:
+	removed dependency on etexcmds package
+
+2020-07-16  Yukai Chou <muzimuzhi@gmail.com>
+
+  * thm-restate.dtx:
+  made compatible with cleveref's \label[]{} syntax
+
+  * thmtools-manual.tex (and comment part of dtx files):
+  refined manual
+
+  * general:
+  updated license and maintenance status
+
+2020-07-24  Yukai Chou <muzimuzhi@gmail.com>
+  
+  * thm-kv.dtx:
+  made \declaretheorem[<option list>]{<thmname>} accept a clist in <thmname>, #2
+  made \declarethemrem accept an extra optional arg
+  made "numbered=unless unique" compatible with and aware of "numberwithin=<counter>", #3 & #4
+
+  * unique.dtx:
+  adjusted indent
+
+2020-07-29  Yukai Chou <muzimuzhi@gmail.com>
+
+  * thm-list.dtx:
+  provided new option "swapnumber" for \listoftheorems, #5
+
+  * thm-kv.dtx:
+  fixed wrong default value of option "numbered"
+
+2020-08-01  Yukai Chou <muzimuzhi@gmail.com>
+
+  * thm-list.dtx:
+  made \listoftheorems compatible with ams classes, #6
+
+  * thmtools-manual.tex:
+  documented new changes and keys of \listoftheorems
+
+2021-05-27 Yukai Chou <muzimuzhi@gmail.com>
+
+  * aliasctr.dtx:
+  made \@aliasctr compatible with cleveref, #22
+
+2022-06-01 Yukai Chou <muzimuzhi@gmail.com>
+
+  * aliasctr.dtx:
+  fixed wrong use of \@ifdefinable, #28
+
+2022-06-01 Yukai Chou <muzimuzhi@gmail.com>
+
+  * thm-autoref.dtx:
+  fixed non-global restoration for \cs{the\thmt@envname}, #27

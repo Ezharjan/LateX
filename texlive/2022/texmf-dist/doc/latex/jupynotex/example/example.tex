@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{jupynotex}
+
+\begin{document}
+
+One cell:
+
+\jupynotex[1]{notebook.ipynb}
+
+
+A range of cells:
+
+\jupynotex[4-6]{notebook.ipynb}
+
+
+Some specific cells:
+
+\jupynotex[12,17]{notebook.ipynb}
+
+
+The whole notebook:
+
+\jupynotex{notebook.ipynb}
+
+
+\end{document}

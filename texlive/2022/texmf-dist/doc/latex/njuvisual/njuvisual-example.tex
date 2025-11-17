@@ -1,0 +1,46 @@
+%%
+%% This is file `njuvisual-example.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% njuvisual.dtx  (with options: `example')
+%% njuvisual-curves.dtx  (with options: `example')
+%% 
+%% Copyright (C) 2021 - 2022
+%% by Nanjing University Linux User Group <nju.lug@yaoge123.cn>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3c of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX version
+%% 2005/12/01 or later.
+%% 
+%% To produce the documentation run the original source files ending with `.dtx'
+%% through XeTeX.
+%% 
+\documentclass{article}
+\usepackage{njuvisual}
+\usetikzlibrary{backgrounds,external}
+\tikzexternalize[prefix=nju-]
+\let\FIG=\tikzsetnextfilename
+\begin{document}
+\FIG{emblem}            \njuemblem{!}{!}
+\FIG{name}              \njuname{!}{!}
+\FIG{name-en}           \njuname*{!}{!}
+\FIG{motto}             \njumotto{!}{!}
+\FIG{spirit}            \njuspirit{!}{!}
+\FIG{emblem-dii}        \njuemblem[department=dii]{!}{!}
+\FIG{emblem-eng}        \njuemblem[department=eng]{!}{!}
+\FIG{emblem-ai}         \njuemblem[department=ai]{!}{!}
+\FIG{emblem-cs}         \njuemblem[department=cs]{!}{!}
+\FIG{emblem-software}   \njuemblem[department=software]{!}{!}
+\FIG{emblem-chem}       \njuemblem[department=chem]{!}{!}
+\end{document}
+\endinput
+%%
+%% End of file `njuvisual-example.tex'.
