@@ -1,0 +1,418 @@
+% \iffalse meta-comment
+%
+% Copyright 2006, 2020
+% Sergio Callegari <sergio.callegari@gmail.com>
+%
+% ---------------------------------------------
+% This file is part of the flippdf package,
+% a contribution to the LaTeX2e system.
+% ---------------------------------------------
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, version 1.3c.
+% This license is in
+%   https://www.latex-project.org/lppl/lppl-1-3c/
+% and is part of all distributions of LaTeX later than
+% 2008-05-04.
+% 
+% This work has the LPPL maintenance status "maintained".
+%
+% This program consists of the files listed in the README.md file
+% included in the package.
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{mathptmx}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{hologo}
+\usepackage[T1]{fontenc}
+\usepackage{hypdoc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{flippdf.dtx}
+\end{document}
+%</driver>
+%
+% \fi
+%
+% \DoNotIndex{\NeedsTeXFormat, \documentclass}
+% \DoNotIndex{\begin, \end}
+% \DoNotIndex{\def, \gdef, \let, \newcommand}
+% \DoNotIndex{\ProvidesPackage, \RequirePackage, \usepackage, \PackageError}
+% \DoNotIndex{\DeclareOption, \ProcessOptions}
+% \DoNotIndex{\ifx, \fi, \newif, \else}
+% \DoNotIndex{\paperwidth, \space, \strip@pt}
+% \DoNotIndex{\maketitle, \title, \lipsum}
+% \DoNotIndex{\thispagestyle, \relax, \setcounter, \Large, \clearpage, \bigskip}
+% \DoNotIndex{\@ifundefined, \AtBeginDocument, \endinput, \MessageBreak}
+% \DoNotIndex{\PackageWarningNoLine}
+
+% \CheckSum{86}
+%
+% \def\filename{flippdf.dtx}
+% \def\fileversion{2.0b}
+% \def\filedate{2020/10/27}
+% \def\docdate{2020/10/27}
+%
+% \newcommand*{\Lpack}[1]{\textsf {#1}}           ^^A typeset a package
+% \newcommand*{\Lopt}[1]{\textsf {#1}}            ^^A typeset an option
+% \newcommand*{\file}[1]{\texttt {#1}}            ^^A typeset a file
+% \newcommand*{\Lcount}[1]{\textsl {\small#1}}    ^^A typeset a counter
+% \newcommand*{\pstyle}[1]{\textsl {#1}}          ^^A typeset a pagestyle
+% \newcommand*{\Lenv}[1]{\texttt {#1}}            ^^A typeset an environment
+%
+% \title{The \Lpack{flippdf} package\thanks{This file
+%     (\texttt{\filename}) has version number \fileversion, last
+%     revised \filedate.}}
+%
+% \author{%
+%   Sergio Callegari\thanks{Sergio Callegari can be reached at
+%       \texttt{sergio.callegar at gmail dot com}}} 
+%
+% \date{\docdate}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   The \Lpack{pdfflip} package extends \hologo{pdfLaTeX} and
+%   \hologo{LuaLaTeX} making it possible to typeset a ``mirrored'' version
+%   of the document. This is sometimes required by publishers who use
+%   photographic printing processes that need ``camera-ready'' documents
+%   to be printable on transparent films, so that one reads the pages
+%   correctly by looking \emph{through} the film with the \emph{unprinted}
+%   side of the film towards his eyes. This package requires
+%   \Lpack{everypage} by the same author and works exclusively with
+%   \hologo{pdfLaTeX} and \hologo{LuaLaTeX} in PDF output mode.
+% \end{abstract}
+% 
+% \section{Introduction}
+% 
+% This \LaTeX\ package makes it possible to typeset a document flipping
+% its pages horizontally. This is sometimes required by publishers who use
+% photographic printing process that need ``camera-ready'' documents to be
+% printable on transparent films, so that one reads the pages correctly by
+% looking \emph{through} the film (i.e., with the \emph{unprinted} side of
+% the film towards his eyes).
+%
+% It is also possible to activate the mirroring capability on a page
+% by page basis.
+%
+% This package requires \Lpack{everypage} by the same author and works
+% exclusively with \hologo{pdfLaTeX} and \hologo{LuaLaTeX} in PDF output
+% mode.
+%
+% \section{User interface}
+% By default, once loaded as:
+% \begin{quote}
+% |\usepackage{pdfflip}|
+% \end{quote}
+% the \Lpack{pdfflip} becomes immediately \emph{active} (i.e., starts
+% flipping horizontally every page). Conversely, by selecting the
+% \Lopt{off} option as in
+% \begin{quote}
+% |\usepackage[off]{pdfflip}|
+% \end{quote}
+% The package is loaded but remains inactive.
+%
+% \DescribeMacro{\FlipPDF} The |\FlipPDF| command lets one switch on page
+% flipping. Conversely, \DescribeMacro{\UnFlipPDF}|\UnFlipPDF| switches
+% off page flipping.
+%
+%
+% \section{Examples}
+% \subsection{Plain case}
+% In this example, every page of the document is flipped, relying on the
+% automatic operation mode of the package.
+% \iffalse
+%<*test-1>
+% \fi
+%    \begin{macrocode}
+\documentclass[a4paper]{article}
+\usepackage{flippdf}
+\usepackage{lipsum}
+
+\title{Test document for the flippdf package}
+
+\begin{document}
+\maketitle
+\lipsum[1-5]
+\end{document}
+%    \end{macrocode}
+% \iffalse
+%</test-1>
+% \fi
+%
+% \subsection{Case with activation and deactivation}
+% In this example, the page flipping is manually activated and deactivated.
+% \iffalse
+%<*test-2>
+% \fi
+%    \begin{macrocode}
+\documentclass[a4paper]{article}
+\usepackage[off]{flippdf}
+\usepackage{lipsum}
+
+\title{Test document for the flippdf package}
+
+\begin{document}
+
+\thispagestyle{empty}
+{\Large Some non-mirrored initial info}
+
+\bigskip
+
+\lipsum[1]
+
+\maketitle
+\setcounter{page}{1}
+\FlipPDF
+\lipsum[2-6]
+
+\clearpage
+\UnFlipPDF
+\thispagestyle{empty}
+{\Large Some non-mirrored final info}
+
+\bigskip
+
+\lipsum[7]
+\end{document}
+%    \end{macrocode}
+% \iffalse
+%</test-2>
+% \fi
+%
+% \section{Package redesign}
+%
+% Until Fall 2020, \Lpack{flippdf} relied on package \Lpack{everypage} for
+% its operation. Recently, functionalities similar to those offered by
+% \Lpack{everypage} have been incorporated into \hologo{LaTeX} and
+% \Lpack{everypage} has been deprecated, maintaining support for it just
+% in view of compatibility for legacy packages still relying on it. As a
+% consequence, \Lpack{flippdf} has been redesigned to take advantage of the
+% new \hologo{LaTeX} features and to drop the dependence on
+% \Lpack{everypage}.
+%
+% Version 2.0 of \Lpack{flippdf} is the result of the redesign. Version
+% 1.x remains availabe las \Lpack{flippdf-1x} and modern \Lpack{flippdf}
+% knows how to fallback on it when used on a \hologo{LaTeX} format missing
+% the new features.
+%
+% \StopEventually {}
+%
+% \section{Implementation}
+%
+% \subsection{Implementation of \Lpack{flippdf}}
+%
+% \iffalse
+%<*flippdf>
+% \fi
+% \changes{R2.0}{2020/10/18}{Use modern \hologo{LaTeX} features.}%
+% Announce the name and version of the package, that requires
+% \hologo{LaTeX2e} (actually \hologo{pdfLaTeX} or \hologo{LuaLaTeX}).
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{flippdf}%
+  [2020/10/27 R2.0b Horizontal flipping of pages with pdfLaTeX]
+%    \end{macrocode}
+% \changes{R2.0b}{2020/10/27}{Assure that options are passed to
+% \Lpack{flippdf-1x} when the old code is used.}
+% Depending on the actual functionalities provided by \hologo{LaTeX}
+% consider loading \Lpack{flippdf-1x}. If so doing, warn about this,
+% and hand over the operation to that package.
+%    \begin{macrocode} 
+\@ifundefined{AddToHook}{%
+  \PackageWarningNoLine{flippdf}{%
+    You appear to be running a version of LaTeX\MessageBreak
+    unsupported by current flippdf.\MessageBreak
+    Forcing fallback to `flippdf-1x` that\MessageBreak
+    uses an older code base}%
+  \RequirePackageWithOptions{flippdf-1x}%
+  \endinput}{}
+%    \end{macrocode}
+% State package requirements, including \Lpack{iftex}
+%    \begin{macrocode} 
+\RequirePackage{iftex}
+%    \end{macrocode}
+% Error out if not working in PDF mode
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \ifpdf
+    \relax
+  \else
+    \PackageError{flippdf}{%
+      package only works in pdf output mode.}%
+  \fi}
+%    \end{macrocode}
+%
+% \begin{macro}{\if@sc@flippdf}
+% Define a boolean variable to remember if pages are to be flipped or
+% not.
+%    \begin{macrocode}
+\newif\if@sc@flippdf
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\FlipPDF}\begin{macro}{\UnFlipPDF}
+% Define the commands used to switch on and off the horizontal
+% flipping of the document pages.
+%    \begin{macrocode}
+\newcommand\FlipPDF{\@sc@flippdftrue}
+\newcommand\UnFlipPDF{\@sc@flippdffalse}
+%    \end{macrocode}
+% \end{macro}\end{macro}
+%
+% By default activate the flipping:
+%    \begin{macrocode}
+\FlipPDF
+%    \end{macrocode} 
+% 
+% Set up the processing of options:
+%    \begin{macrocode}
+\DeclareOption{off}{\UnFlipPDF}
+\ProcessOptions
+%    \end{macrocode}
+%
+% And eventually, tell \hologo{LaTeX} to flip every page, by using the
+% \Lpack{everypage} hook. First consider the case when running in
+% \hologo{pdfLaTeX}
+%    \begin{macrocode}
+\ifpdftex
+  \AddToHook{shipout/background}{%
+    \if@sc@flippdf
+      \pdfliteral direct {-1 0 0 1 \strip@pt\paperwidth\space 0 cm}%
+    \fi}%
+\fi
+%    \end{macrocode}
+% Then consider the case when running in \hologo{LuaLaTeX}
+% \changes{R1.1}{2020/10/17}{Extend package to work also with
+% \hologo{LuaLaTeX}.}
+%    \begin{macrocode}
+\ifluatex
+  \AddToHook{shipout/background}{%
+    \if@sc@flippdf
+    \pdfextension literal direct {%
+      -1 0 0 1 \strip@pt\paperwidth\space 0 cm}%
+    \fi}%
+\fi
+%    \end{macrocode}
+% \iffalse
+%</flippdf>
+% \fi
+
+
+% \subsection{Implementation of \Lpack{flippdf-1x}}
+% \iffalse
+%<*flippdf-1x>
+% \fi
+% Announce the name and version of the package, that requires
+% \hologo{LaTeX2e} (actually \hologo{pdfLaTeX} or \hologo{LuaLaTeX}).
+% \changes{R1.0b}{2020/10/11}{%
+%  Require \Lpack{everypage} package to be at least at its 2007/06/20 (R1.1)
+%  release.}
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{flippdf-1x}%
+  [2020/10/17 1.1 Horizontal flipping of pages with pdfLaTeX]
+%    \end{macrocode}
+%
+% Assure that the dependence on \Lpack{everypage} is satisfied.
+%    \begin{macrocode}
+\RequirePackage{everypage}[2007/06/20]
+%    \end{macrocode}
+%
+% Depend on \Lpack{iftex} and error out if not working in PDF mode
+% \changes{R1.1}{2020/10/17}{Error out if output mode is not PDF.}%
+%    \begin{macrocode}
+\RequirePackage{iftex}
+\AtBeginDocument{%
+  \ifpdf
+    \relax
+  \else
+    \PackageError{flippdf}{%
+      package only works in pdf output mode}%
+  \fi}
+%    \end{macrocode}
+%
+% \begin{macro}{\if@sc@flippdf}
+% Define a boolean variable to remember if pages are to be flipped or
+% not.
+%    \begin{macrocode}
+\newif\if@sc@flippdf
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\FlipPDF}\begin{macro}{\UnFlipPDF}
+% Define the commands used to switch on and off the horizontal
+% flipping of the document pages.
+%    \begin{macrocode}
+\newcommand\FlipPDF{\@sc@flippdftrue}
+\newcommand\UnFlipPDF{\@sc@flippdffalse}
+%    \end{macrocode}
+% \end{macro}\end{macro}
+%
+% By default activate the flipping:
+%    \begin{macrocode}
+\FlipPDF
+%    \end{macrocode} 
+% 
+% Set up the processing of options:
+%    \begin{macrocode}
+\DeclareOption{off}{\UnFlipPDF}
+\ProcessOptions
+%    \end{macrocode}
+%
+% And eventually, tell \LaTeX\ to flip every page, by using the
+% \Lpack{everypage} hook. First consider the case when running in
+% \hologo{pdfLaTeX}
+%    \begin{macrocode}
+\ifpdftex
+  \AddEverypageHook{%
+    \if@sc@flippdf
+      \pdfliteral direct {-1 0 0 1 \strip@pt\paperwidth\space 0 cm}%
+    \fi}%
+\fi
+%    \end{macrocode}
+% Then consider the case when running in \hologo{LuaLaTeX}
+% \changes{R1.1}{2020/10/17}{Extend package to work also with
+% \hologo{LuaLaTeX}.}
+%    \begin{macrocode}
+\ifluatex
+  \AddEverypageHook{%
+    \if@sc@flippdf
+    \pdfextension literal direct {%
+      -1 0 0 1 \strip@pt\paperwidth\space 0 cm}%
+    \fi}%
+\fi
+%    \end{macrocode}
+% \iffalse
+%</flippdf-1x>
+% \fi
+%
+% \Finale
+% \PrintChanges
+% \PrintIndex
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+\endinput
+
+% %% Local Variables: 
+% %% mode: doctex
+% %% TeX-master: t
+% %% End: 

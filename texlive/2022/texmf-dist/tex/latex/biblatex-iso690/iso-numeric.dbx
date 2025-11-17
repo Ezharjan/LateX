@@ -1,0 +1,12 @@
+\ProvidesFile{iso-numeric.dbx}
+  [2022/03/20 v0.4.1 ISO 690 biblatex data model extension]
+
+\RequireBiber[3]
+
+% Declare new fields
+\DeclareDatamodelFields[type=list, datatype=name]{supervisor}
+\DeclareDatamodelFields[type=field, datatype=literal]{dateaddon}
+
+% Declare new fields for (specific / all) entry types
+\DeclareDatamodelEntryfields[thesis]{supervisor}
+\DeclareDatamodelEntryfields{dateaddon}

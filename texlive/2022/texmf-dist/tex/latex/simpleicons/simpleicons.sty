@@ -1,0 +1,51 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{simpleicons}[2022/09/16 7.11.0 Simple Icons 7.11.0 Logos]
+
+
+\RequirePackage{ifxetex,ifluatex}
+\newif\ifsimpleicons@otf\simpleicons@otffalse
+\ifxetex
+  \simpleicons@otftrue
+\else
+  \ifluatex
+    \simpleicons@otftrue\fi\fi
+
+\newcommand*{\simpleicon}[1]{%
+  {\csname simpleicon@#1\endcsname}}
+
+\ifsimpleicons@otf
+\usepackage{fontspec}
+
+\newfontfamily{\simpleiconsmap}{SimpleIcons}
+\input{simpleiconsglyphs-xeluatex.tex}
+
+\else
+
+
+  \DeclareRobustCommand\simpleiconsmapOne{\fontencoding{U}\fontfamily{simpleiconsOne}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapTwo{\fontencoding{U}\fontfamily{simpleiconsTwo}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapThree{\fontencoding{U}\fontfamily{simpleiconsThree}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapFour{\fontencoding{U}\fontfamily{simpleiconsFour}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapFive{\fontencoding{U}\fontfamily{simpleiconsFive}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapSix{\fontencoding{U}\fontfamily{simpleiconsSix}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapSeven{\fontencoding{U}\fontfamily{simpleiconsSeven}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapEight{\fontencoding{U}\fontfamily{simpleiconsEight}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapNine{\fontencoding{U}\fontfamily{simpleiconsNine}\selectfont}
+  
+  \DeclareRobustCommand\simpleiconsmapOneZero{\fontencoding{U}\fontfamily{simpleiconsOneZero}\selectfont}
+  
+\input{simpleiconsglyphs-pdftex.tex}
+
+\fi
+
+
+\endinput

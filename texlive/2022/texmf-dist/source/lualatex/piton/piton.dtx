@@ -1,0 +1,859 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2022 by F. Pantigny
+% -----------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+% http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% \fi
+% \iffalse
+\def\myfileversion{0.6a}
+\def\myfiledate{2022/09/19}
+%
+%
+%<*batchfile> 
+\begingroup
+\input l3docstrip.tex
+\keepsilent
+\usedir{tex/latex/cascade}
+\preamble
+
+Copyright (C) 2022 by F. Pantigny
+-----------------------------------
+
+This file may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in:
+
+http://www.latex-project.org/lppl.txt
+
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+\endpreamble
+\askforoverwritefalse
+\endgroup
+%</batchfile>
+%
+%<@@=piton>
+%<*driver>
+\documentclass{l3doc}
+\usepackage{geometry}
+\geometry{left=2.8cm,right=2.8cm,top=2.5cm,bottom=2.5cm,papersize={21cm,29.7cm}}
+\usepackage{fontspec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{caption,tabularx}
+\def\emphase{\bgroup\color{RoyalPurple}\let\next=}
+\fvset{commandchars=\~\#\@,formatcom=\color{gray}}
+\captionsetup{labelfont = bf}
+\usepackage{ragged2e}
+\usepackage[escape-inside=$$]{piton} % $$
+
+\def\interitem{\vskip 7mm plus 2 mm minus 3mm}          
+\parindent 0pt
+\skip\footins = 2\bigskipamount
+
+\begin{filecontents}[noheader,overwrite]{example1.txt}
+from math import pi
+
+def arctan(x,n=10):
+    """Compute the value of arctan(x)
+       n is the number of terms if the sum"""
+    if x < 0:
+         return -arctan(-x) # recursive call
+    elif x > 1: 
+         return pi/2 - arctan(1/x) 
+         ## (we have used that $\arctan(x)+\arctan(1/x)=\frac{\pi}{2}$ for $x>0$)\footnote{This LaTeX escape has been done by beginning the comment by \ttfamily\#\#}
+    else 
+         s = 0
+         for k in range(n):
+              s += (-1)**k/(2*k+1)*x**(2*k+1)
+         return s 
+\end{filecontents}
+
+\begin{filecontents}[noheader,overwrite]{example2.txt}
+def fact(n):
+    if n==0:
+        return 1
+    else:
+        $\colorbox{yellow!50}{$return n*fact(n-1)$}$
+\end{filecontents}
+
+
+\EnableCrossrefs
+
+\begin{document}
+\DocInput{piton.dtx}
+\end{document}
+%</driver>
+
+% \fi
+% \title{The package \pkg{piton}\thanks{This document corresponds to the
+% version~\myfileversion\space of \pkg{piton}, at the date of~\myfiledate.}} 
+% \author{F. Pantigny \\ \texttt{fpantigny@wanadoo.fr}}
+%
+% \maketitle
+%
+% \begin{abstract}
+% The package \pkg{piton} provides tools to typeset Python listings with
+% syntactic highlighting by using the Lua library LPEG. It requires LuaLaTeX.
+% \end{abstract}
+% 
+% 
+% \section{Presentation}
+% 
+%
+% The package \pkg{piton} uses the Lua library LPEG\footnote{LPEG is a
+% pattern-matching library for Lua, written in C, based on \emph{parsing
+% expression grammars}: \url{http://www.inf.puc-rio.br/~roberto/lpeg/}} for
+% parsing Python listings and typeset them with syntactic highlighting. Since it
+% uses Lua code, it works with |lualatex| only (and won't work with the other
+% engines: |latex|, |pdflatex| and |xelatex|). It does not use external program
+% and the compilation does not require |--shell-escape|. The compilation is very
+% fast since all the parsing is done by the library LPEG, written in C.
+% 
+% \bigskip
+% Here is an exemple of code typeset by \pkg{piton}, with the environment |{Piton}|.
+%
+% \bigskip
+% \PitonInputFile{Example1.txt}
+%
+%
+% \section{Installation}
+% 
+% The package \pkg{piton} is contained in two files: |piton.sty| and
+% |piton.lua| (the LaTeX file |piton.sty| loaded by |\usepackage| will load the
+% Lua file |piton.lua|). Both files must be in a repertory where LaTeX will be
+% able to find them. The best way is to install them in a |texmf| tree.
+% 
+% 
+% \section{Use of the package}
+%
+% In order to use the package \pkg{piton}, one has only to load the package in
+% its document with the standard command |\usepackage| and remember that the
+% compilation must be done with |lualatex| (and no other LaTeX engine).
+%
+% \medskip
+% The package \pkg{piton} provides three tools to typeset Python code: the
+% command |\piton|, the environment |{Piton}| and the command |\PitonInputFile|.
+%
+% \begin{itemize}
+% \item The command |\piton| should be used to typeset small pieces of code
+% inside a paragraph. \emph{Caution}: That fonction takes in its argument
+% \emph{verbatim}. Therefore, it cannot be used in the argument of another
+% command (however, it can be used within an environment).
+% \item The environment |{Piton}| should be used to typeset multi-lines code.
+% 
+% \item The command |\PitonInputFile| is used to insert and typeset a whole
+% external file. 
+% \end{itemize}
+%
+% \bigskip
+% It's possible to compose comments in LaTeX by beginning with |##| (it's a
+% ``LaTeX escape''). The characters |##| themselves won't be printed and the
+% spaces after |##| are removed.
+% 
+% \section{Customization}
+%
+% \subsection{The command \textbackslash PitonOptions}
+%
+% The command |\PitonOptions| provides five keys: |gobble|, |auto-gobble|,
+% |env-gobble|, |line-numbers| and |all-line-numbers|.
+%
+% \begin{itemize}
+% \item The key |gobble| takes in as value a positive integer~$n$: the first $n$
+% characters are discarded (before the process of hightlighning of the code) for
+% each line of the environment |{Piton}|.
+%
+% \item Then the key |auto-gobble| is in force, the extension \pkg{piton} computes
+% the minimal value $n$ of the number of consecutives space beginning each (non
+% empty) line of the environment |{Piton}| and applies |gobble| with that value
+% of~$n$.
+%
+% \item When the key |env-gobble| is in force, \pkg{piton} applies |gobble| with
+% a value of $n$ equal to the number of spaces before |\end{Piton}| on the last
+% line (if that line contains only spaces).
+%
+% \item With the key |line-numbers|, the \emph{non empty} lines are numbered in
+% the environments |{Piton}| and in the listings resulting from the use of
+% |\PitonInputFile|.
+% 
+% \item With the key |all-line-numbers|, \emph{all} the lines are numbered,
+% including the empty ones.
+% \end{itemize}
+%
+% \bigskip
+%
+% \begingroup
+% \fvset{commandchars=\~\&\@,formatcom=\small\color{gray}}
+% \begin{Verbatim}
+% ~emphase&\PitonOptions{line-numbers,auto-gobble}@
+% \begin{Piton}
+%     from math import pi
+%
+%     def arctan(x,n=10):
+%         """Compute the value of arctan(x)
+%            n is the number of terms if the sum"""
+%         if x < 0:
+%              return -arctan(-x) # recursive call
+%         elif x > 1: 
+%              return pi/2 - arctan(1/x) 
+%              ## (on a utilisé le fait que $\arctan(x)+\arctan(1/x)=\frac{\pi}{2}$ pour $x>0$)
+%         else 
+%              s = 0
+%              for k in range(n):
+%                   s += (-1)**k/(2*k+1)*x**(2*k+1)
+%              return s 
+% \end{Piton}
+% \end{Verbatim}
+% \endgroup
+%
+%
+% \begingroup
+% \PitonOptions{line-numbers,auto-gobble}
+% \PitonInputFile{Example1.txt}
+% \endgroup
+% 
+% \subsection{The option escape-inside}
+%
+% The option |escape-inside| must be used when loading the package \pkg{piton}
+% (that is to say in the instruction |\usepackage|). For technical reasons, it
+% can't be used in the command |\PitonOptions|. That option takes in as value
+% two characters which will be used to delimit pieces of code which will
+% composed in LaTeX.
+%
+% \medskip
+% In the following example, we assume that the extension \pkg{piton} has been
+% loaded by the following instruction.
+%
+% \begin{Verbatim}
+% \usepackage[~emphase#escape-inside=$$@]{piton}
+% \end{Verbatim}
+%
+% \medskip
+% In the following code, which is a recursive programmation of the mathematical
+% factorial, we decide to highlight in yellow the instruction which contains the
+% recursive call. 
+% \begin{Verbatim}
+% \begin{Piton}
+% def fact(n):
+%     if n==0:
+%         return 1
+%     else:
+%         ~emphase#$\colorbox{yellow!50}{$@return n*fact(n-1)~emphase#$}$@
+% \end{Piton}
+% \end{Verbatim}
+%
+% \PitonInputFile{Example2.txt}
+%
+% \bigskip
+%
+% \emph{Caution} : The escape to LaTeX allowed by the characters of
+% |escape-inside| is not active in the strings nor in the Python comments
+% (however, it's possible to have a whole Python comment composed in LaTeX by
+% beginning it with |##|). 
+%
+%
+% \subsection{The styles}
+%
+% The package \pkg{piton} provides the command |\SetPitonStyle| to customize the
+% different styles used to format the syntactic elements of the Python listings.
+% The customizations done by that command are limited to the current TeX group.
+%
+% \bigskip
+% The command |\SetPitonStyle| takes in as argument a comma-separated list of
+% \textsl{key=value} pairs. The keys are names of styles and the value are LaTeX
+% formatting instructions.
+%
+% \bigskip
+% These LaTeX instructions must be formatting instructions such as
+% |\color{...}|, |\bfseries|, |\slshape|, etc. (the commands of this kind are
+% sometimes called \emph{semi-global} commands). It's also possible to put,
+% \emph{at the end of the list of instructions}, a LaTeX command taking exactly
+% one argument.
+% 
+% \bigskip
+% Here an example which changes the style used to highlight, in the definition
+% of a Python function, the name of the function which is defined.
+%
+% \begin{verbatim}
+% \SetPitonStyle 
+%   { Name.Function = \bfseries \setlength{\fboxsep}{1pt}\colorbox{yellow!50} }
+% \end{verbatim}
+%
+% In that example, |\colorbox{yellow!50}| must be considered as the name of a
+% LaTeX command which takes in exactly one argument, since, usually, it is used
+% with the syntax |\colorbox{yellow!50}{text}|.
+%
+% \medskip
+% \begingroup
+% \SetPitonStyle 
+%   { Name.Function = \bfseries \setlength{\fboxsep}{1pt}\colorbox{yellow!50} }
+% With that setting, we will have : \piton{def cube(x) : return x * x * x }
+% \endgroup
+% 
+% \medskip
+% The different styles are described in the table \ref{Semantic}.
+%
+%
+%
+% \begin{table}[b]
+% \centering
+% \caption{Usage of the different styles}
+% \label{Semantic}
+% \begin{tabular}{@{}>{\ttfamily}l>{\RaggedRight\arraybackslash}p{9cm}@{}}
+% \toprule
+% \normalfont Style  & Usage \\
+% \midrule
+% Number & the numbers \\
+% String.Short & the short strings (between \texttt{'} or \verb|"|) \\
+% String.Long & the long strings (between \texttt{'''} or \verb|"""|) except the
+% documentation strings \\ 
+% String & that keys sets both |String.Short| and |String.Long| \\
+% String.Doc & the documentation strings \\
+% String.Interpol & the syntactic elements of the fields of the f-strings (that
+% is to say the characters \texttt{\{}, \texttt{\}} and \texttt{:}) \\
+% Operator & the following operators : \texttt{!= == << >> - \~{} + / * \% = < > \& .} \verb+|+ \verb|@|\\
+% Operator.Word & the following operators : \texttt{in}, \texttt{is},
+% \texttt{and}, \texttt{or} et \texttt{not} \\ 
+% Name.Builtin & the predefined functions of Python \\
+% Name.Function & the name of the functions defined by the user, at the point of
+% their definition (that is to say after the keyword |def|) \\
+% Name.Decorator & the decorators (instructions beginning by \verb|@| in the classes) \\
+% Name.Namespace & the name of the modules (= external libraries) \\
+% Name.Class & the name of the classes at the point of their definition \\
+% Exception & the names of the exceptions (eg: \texttt{SyntaxError}) \\
+% Comment & the comments beginning with \verb|#| \\
+% LaTeX & the comments beginning by \verb|##| which are composed in LaTeX by
+% \pkg{piton} (\verb|##| is an espace sequence to LaTeX) \\
+% Keyword.Constant & |True|, |False| and |None| \\
+% Keyword & the following keywords :
+%           \ttfamily assert, break, case, continue, del,
+%           elif, else, except, exec, finally, for, from, 
+%           global, if, import, lambda, non local,
+%           pass, raise, return, try, while,
+%           with, yield, yield from.\\
+% \bottomrule 
+% \end{tabular}
+% \end{table}
+%
+%
+%
+% 
+% \subsection{Creation of new environments}
+%
+% Since the environment |{Piton}| has to catch its body in a special way (more
+% or less as verbatim text), it's not possible to construct new environments
+% directly over the environment |{Piton}|
+%
+% That's why \pkg{piton} provides a command |\NewPitonEnvironment|. That
+% command takes in three mandatory arguments. 
+
+% That command has the same syntax as the classical environment
+% |\NewDocumentEnvironment|.
+% 
+% \bigskip
+% With the following instruction, a new environment |{Python}| will be
+% constructed with the same behaviour as |{Piton}|:
+%
+% \verb|\NewPitonEnvironment{Python}{}{}{}|
+% 
+% \bigskip
+% If on wished to format Python code in a box in a box of \pkg{tcolorbox}, it's
+% possible to define an environment |{Python}| with the following code:
+%
+%\begin{verbatim}
+% \NewPitonEnvironment{Python}{}
+%   {\begin{tcolorbox}}
+%   {\end{tcolorbox}}
+% \end{verbatim}
+%
+%
+% \clearpage
+%
+% \section{Implementation}
+%
+%     \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{l3keys2e}
+\ProvidesExplPackage
+  {piton}
+  {\myfiledate}
+  {\myfileversion}
+  {Highlight Python codes with LPEG on LuaLaTeX}
+%    \end{macrocode}
+%
+% \bigskip
+%    \begin{macrocode}
+\msg_new:nnn { piton } { LuaLaTeX~mandatory }
+  { The~package~'piton'~must~be~used~with~LuaLaTeX.\\ It~won't~be~loaded. }
+\sys_if_engine_luatex:F { \msg_critical:nn { piton } { LuaLaTeX~mandatory } }
+%    \end{macrocode}
+% 
+% \bigskip
+%    \begin{macrocode}
+\RequirePackage { luatexbase } 
+%    \end{macrocode}
+%
+% \bigskip
+% We define a set of keys |piton/package| for these options.
+%    \begin{macrocode}
+\keys_define:nn { piton / package }
+  { 
+    escape-inside .tl_set:N = \c_@@_escape_inside_tl ,
+    unknown .code:n = \msg_error:nn { piton } { unknown~key~for~package }
+  }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\msg_new:nnn { piton } { unknown~key~for~package }
+  {
+    Unknown~key\\
+    You~have~used~the~key~'\l_keys_key_str'~but~the~only~key~available~here~
+    is~the~key~'escape-inside'.\\
+    That~key~will~be~ignored.
+  }
+%    \end{macrocode}
+% 
+% \bigskip
+%    \begin{macrocode}
+\tl_clear_new:N \c_@@_escape_inside_tl
+%    \end{macrocode}
+%
+% We process the options when the package is loaded (with |\usepackage|).
+%    \begin{macrocode}
+\ProcessKeysOptions { piton / package }
+%    \end{macrocode}
+%
+% \bigskip
+%    \begin{macrocode}
+\begingroup
+\cs_new_protected:Npn \@@_set_escape_char:nn #1 #2 
+  {
+    \directlua { begin_escape = "#1" }
+    \directlua { end_escape = "#2" }
+  }
+\cs_generate_variant:Nn \@@_set_escape_char:nn { x x }
+\@@_set_escape_char:xx 
+  { \tl_head:V \c_@@_escape_inside_tl }
+  { \tl_tail:V \c_@@_escape_inside_tl }
+\endgroup
+%    \end{macrocode}
+% 
+% 
+% \bigskip
+%    \begin{macrocode}
+\AtBeginDocument
+  {
+    \@ifpackageloaded { xcolor }
+      { }
+      { \msg_fatal:nn { piton } { xcolor~not~loaded } }
+  }
+%    \end{macrocode}
+%
+%    \begin{macrocode}     
+\msg_new:nnn { piton } { xcolor~not~loaded }
+  {
+    xcolor~not~loaded \\
+    The~package~'xcolor'~is~required~by~'piton'.\\
+    This~error~is~fatal.
+  }
+%    \end{macrocode}
+% 
+% \bigskip
+%    \begin{macrocode}
+\msg_new:nnn { piton } { piton.lua~not~found }
+  { 
+    The~file~'piton.lua'~can't~be~found.\\ 
+    The package~'piton'~won't be loaded.
+  }
+%    \end{macrocode}
+%
+% \bigskip
+%    \begin{macrocode}
+\file_if_exist:nF { piton.lua }
+  { \msg_critical:nn { piton } { piton.lua~not~found} }
+%    \end{macrocode}
+% 
+%    \begin{macrocode}
+\lua_now:e { require("piton.lua") }
+%    \end{macrocode}
+% 
+% \bigskip
+% The following function has not a name with the conventions of L3 because it
+% will be used in the Lua code.
+%    \begin{macrocode}
+\cs_new:Npn \pitonEOL 
+  { 
+    \par \leavevmode 
+    \@@_print_number:
+  }
+%    \end{macrocode}
+%
+% \medskip
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_print_number:
+  { 
+    \bool_if:NT \l_@@_line_numbers_bool 
+      { \@@_actually_print_number: }
+  }
+%    \end{macrocode}
+%
+% \medskip
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_actually_print_number:
+  {
+%    \end{macrocode}
+% The empty lines in the code are not numbered.
+%    \begin{macrocode}
+    \bool_if:NF \l_@@_all_line_numbers_bool
+      { \peek_meaning:NF \pitonEOL }
+    \@@_actually_print_number_i: 
+  }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_actually_print_number_i:
+  {
+    \int_incr:N \l_@@_lineno_int 
+    \hbox_overlap_left:n
+      { 
+        { \color{gray} \footnotesize \int_to_arabic:n \l_@@_lineno_int }
+        \quad 
+      }
+  }
+%    \end{macrocode}
+% 
+% \bigskip
+% The following counter will be used to count the lines in the code when the
+% user requires the numbers of the lines to be printed.
+%    \begin{macrocode}
+\int_new:N \l_@@_lineno_int 
+%    \end{macrocode}
+% 
+% \bigskip
+% The following integer is the number of characters to gobble on the left side
+% of the Python listings. Of course, the initial value is $0$.
+%    \begin{macrocode}
+\int_new:N \l_@@_gobble_int 
+%    \end{macrocode}
+%
+%
+% \bigskip
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_define_gobble_syntax:n #1
+  { \lua_now:n { define_gobble_syntax(#1) } }
+%    \end{macrocode}
+% 
+% \bigskip
+%    \begin{macrocode}
+\NewDocumentCommand { \piton } { v }
+  {
+    \group_begin:
+    \ttfamily
+    \lua_now:e { Parse(token.scan_argument()) } { #1 }
+    \group_end:
+  }
+%    \end{macrocode}
+% 
+% \bigskip
+%    \begin{macrocode}
+\NewDocumentCommand { \PitonInputFile } { m }
+  {
+    \group_begin:
+      \ttfamily
+      \bool_if:NT \l_@@_line_numbers_bool 
+        { 
+          \@@_actually_print_number:
+          \vspace{-\baselineskip}
+        }
+      \lua_now:e { ParseFile(token.scan_argument()) } { #1 }
+    \group_end:
+  }
+%    \end{macrocode}
+%
+% \subsection{PitonOptions}
+%
+%    \begin{macrocode}
+\bool_new:N \l_@@_line_numbers_bool 
+\bool_new:N \l_@@_all_line_numbers_bool 
+%    \end{macrocode}
+% 
+%    \begin{macrocode}
+\keys_define:nn { PitonOptions }
+  {
+    gobble           .int_set:N         = \l_@@_gobble_int , 
+    gobble           .value_required:n  = true ,
+    auto-gobble      .code:n            = \int_set:Nn \l_@@_gobble_int { -1 } , 
+    auto-gobble      .value_forbidden:n = true ,
+    env-gobble       .code:n            = \int_set:Nn \l_@@_gobble_int { -2 } , 
+    env-gobble       .value_forbidden:n = true ,
+    line-numbers     .bool_set:N        = \l_@@_line_numbers_bool ,
+    line-numbers     .default:n         = true ,
+    all-line-numbers .code:n = 
+      \bool_set_true:N \l_@@_line_numbers_bool 
+      \bool_set_true:N \l_@@_all_line_numbers_bool ,
+    all-line-numbers .value_forbidden:n = true  ,
+    unknown          .code:n = 
+      \msg_error:nn { piton } { Unknown~key~for~PitonOptions }
+  }
+%    \end{macrocode}
+%
+%  \bigskip
+%    \begin{macrocode}
+\msg_new:nnn { piton } { Unknown~key~for~PitonOptions }
+  { 
+    Unknown~key \\
+    The~key~'\l_keys_key_str'~is~unknown~for~\token_to_str:N \PitonOptions.~The~
+    available~keys~are:~all-line-numbers,~auto-gobble,~env-gobble,~gobble~and~
+    line-numbers.\\
+    If~you~go~on,~that~key~will~be~ignored.
+  }
+%    \end{macrocode}
+% 
+% \bigskip
+% The argument of |\PitonOptions| is provided by currification.
+%    \begin{macrocode}
+\NewDocumentCommand \PitonOptions { }
+  { \keys_set:nn { PitonOptions } }
+%    \end{macrocode}
+% 
+% \bigskip 
+%    \begin{macrocode}
+\NewDocumentCommand { \NewPitonEnvironment } { m m m m }
+  {
+%    \end{macrocode}
+% We construct a TeX macro which will catch as its argument all the tokens
+% until \textsl{\texttt{newline}} + |\end{Piton}| with, in that
+% \textsl{\texttt{newline}}| + \end{Piton}|, the catcode of
+% \textsl{\texttt{newline}}, |\|, |{| and |}| equal to 12 (``\texttt{other}'').
+% The latter explains why the definition of that function is a bit complicated.
+%    \begin{macrocode}
+    \use:x 
+      { 
+        \cs_set_protected:Npn 
+          \use:c { __piton_collect_ #1 :w } 
+          ####1 
+          \c_backslash_str end \c_left_brace_str #1 \c_right_brace_str
+      }
+          {
+            \group_end:
+            \par \addvspace { 0.5 em }
+            {
+              \dim_set_eq:NN \parindent \c_zero_dim 
+              \ttfamily
+              \bool_if:NT \l_@@_line_numbers_bool 
+                { 
+                  \@@_actually_print_number:
+                  \vspace{-\baselineskip}
+                }
+              \int_case:nnF \l_@@_gobble_int 
+                { 
+                  0 
+%    \end{macrocode}
+% Be careful: the last argument is provided by currification.
+%    \begin{macrocode}
+                  { \lua_now:e { Parse(token.scan_argument()) } }
+                  { -1 }
+                  { \lua_now:e { AutoGobbleParse(token.scan_argument()) } } 
+                  { -2 }
+                  { \lua_now:e { EnvGobbleParse(token.scan_argument()) } } 
+                }
+                {
+                   \exp_args:NV \@@_define_gobble_syntax:n \l_@@_gobble_int 
+                   \lua_now:e { GobbleParse(token.scan_argument()) } 
+                }
+              { ##1 }
+            }
+            \par \addvspace { 0.5 em } 
+%    \end{macrocode}
+% The following |\end{#1}| is only for the groups and the stack of
+% environments of LaTeX.
+%    \begin{macrocode}
+            \end { #1 }
+          }   
+%    \end{macrocode}
+% 
+% 
+% \bigskip
+% We can now define the new environment.
+%    \begin{macrocode}
+    \NewDocumentEnvironment { #1 } { #2 } 
+      {
+        #3 
+        \group_begin:
+        \tl_map_function:nN 
+          { \ \\ \{ \} \$ \& \# \^ \_ \% \~ } 
+          \char_set_catcode_other:N 
+        \use:c { __piton_collect_ #1 :w }
+      }
+      { #4 }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+    \AddToHook { env / #1 / begin } { \char_set_catcode_other:N \^^M }
+  }
+%    \end{macrocode}
+%
+% \bigskip
+%    \begin{macrocode}
+\NewPitonEnvironment { Piton } { } { } { }
+%    \end{macrocode}
+% 
+% \bigskip
+%
+%    \begin{macrocode}
+\NewDocumentCommand { \PitonStyle } { m } { \csname pitonStyle#1\endcsname }
+%    \end{macrocode}
+%
+% \bigskip
+%    \begin{macrocode}
+\NewDocumentCommand { \SetPitonStyle } { } { \keys_set:nn { piton } }
+%    \end{macrocode}
+% 
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_math_scantokens:n #1 
+  { \normalfont \scantextokens { $#1$ } }
+%    \end{macrocode}
+% 
+% \bigskip
+%    \begin{macrocode}
+\keys_define:nn { piton }
+  {
+    String.Interpol  .tl_set:c = pitonStyle String.Interpol , 
+    String.Interpol  .value_required:n = true ,
+    FormattingType   .tl_set:c = pitonStyle FormattingType ,
+    FormattingType   .value_required:n = true ,
+    Dict.Value       .tl_set:c = pitonStyle Dict.Value ,
+    Dict.Value       .value_required:n = true ,
+    Name.Decorator   .tl_set:c = pitonStyle Name.Decorator ,
+    Name.Decorator   .value_required:n = true ,
+    Name.Function    .tl_set:c = pitonStyle Name.Function ,
+    Name.Function    .value_required:n = true ,
+    Keyword          .tl_set:c = pitonStyle Keyword ,
+    Keyword          .value_required:n = true ,
+    Keyword.Constant .tl_set:c = pitonStyle Keyword.Constant ,
+    Keyword.constant .value_required:n = true ,
+    String.Doc       .tl_set:c = pitonStyle String.Doc ,
+    String.Doc       .value_required:n = true ,
+    Interpol.Inside  .tl_set:c = pitonStyle Interpol.Inside ,
+    Interpol.Inside  .value_required:n = true ,
+    String.Long      .tl_set:c = pitonStyle String.Long ,
+    String.Long      .value_required:n = true ,
+    String.Short     .tl_set:c = pitonStyle String.Short ,
+    String.Short     .value_required:n = true ,
+    String           .meta:n = { String.Long = #1 , String.Short = #1 } ,
+    Comment.Math     .tl_set:c = pitonStyle Comment.Math , 
+    Comment.Math     .default:n = \@@_math_scantokens:n ,
+    Comment.Math     .initial:n = ,
+    Comment          .tl_set:c = pitonStyle Comment , 
+    Comment          .value_required:n = true ,
+    InitialValues    .tl_set:c = pitonStyle InitialValues ,
+    InitialValues    .value_required:n = true ,
+    Number           .tl_set:c = pitonStyle Number , 
+    Number           .value_required:n = true ,
+    Name.Namespace   .tl_set:c = pitonStyle Name.Namespace , 
+    Name.Namespace   .value_required:n = true ,
+    Name.Class       .tl_set:c = pitonStyle Name.Class , 
+    Name.Class       .value_required:n = true ,
+    Name.Builtin     .tl_set:c = pitonStyle Name.Builtin , 
+    Name.Builtin     .value_required:n = true ,
+    Name.Type        .tl_set:c = pitonStyle Name.Type , 
+    Name.Type        .value_required:n = true ,
+    Operator         .tl_set:c = pitonStyle Operator , 
+    Operator         .value_required:n = true ,
+    Operator.Word    .tl_set:c = pitonStyle Operator.Word , 
+    Operator.Word    .value_required:n = true ,
+    Post.Function    .tl_set:c = pitonStyle Post.Function , 
+    Post.Function    .value_required:n = true ,
+    Exception        .tl_set:c = pitonStyle Exception ,
+    Exception        .value_required:n = true ,
+    Comment.LaTeX    .tl_set:c = pitonStyle Comment.LaTeX ,
+    Comment.LaTeX    .value_required:n = true ,
+    unknown          .code:n = \msg_error:nn { piton }{ Unknown~key~for~SetPitonStyle }
+  }
+%    \end{macrocode}
+% 
+% 
+% \bigskip
+%    \begin{macrocode}
+\msg_new:nnn { piton } { Unknown~key~for~SetPitonStyle } {
+  The~style~'\l_keys_key_str'~is~unknown.\\
+  This~key~will~be~ignored.\\
+  The~available~styles~are~(in~alphabetic~order):~
+  Comment,~
+  Comment.LaTeX,~
+  Dict.Value,~
+  Exception,~
+  InitialValues,~ 
+  Keyword,~
+  Keyword.Constant,~
+  Name.Builtin,~
+  Name.Class,~
+  Name.Decorator,~
+  Name.Function,~
+  Name.Namespace,~
+  Number,~
+  Operator,~
+  Operator.Word,~
+  String,~
+  String.Doc,~
+  String.Long,~
+  String.Short,~and~
+  String.Interpol. }
+%    \end{macrocode}
+%
+% \bigskip
+%    \begin{macrocode}
+\SetPitonStyle
+  {                                                       
+    Comment          = \color[HTML]{0099FF} \itshape , 
+    Exception        = \color[HTML]{CC0000} ,
+    Keyword          = \color[HTML]{006699} \bfseries ,               
+    Keyword.Constant = \color[HTML]{006699} \bfseries ,               
+    Name.Builtin     = \color[HTML]{336666} ,
+    Name.Decorator   = \color[HTML]{9999FF}, 
+    Name.Class       = \color[HTML]{00AA88} \bfseries ,
+    Name.Function    = \color[HTML]{CC00FF} , 
+    Name.Namespace   = \color[HTML]{00CCFF} , 
+    Number           = \color[HTML]{FF6600} ,
+    Operator         = \color[HTML]{555555} ,
+    Operator.Word    = \bfseries ,
+    String           = \color[HTML]{CC3300} ,         
+    String.Doc       = \color[HTML]{CC3300} \itshape , 
+    String.Interpol  = \color[HTML]{AA0000} ,
+    Comment.LaTeX    = \normalfont \color[rgb]{.468,.532,.6} , 
+    Name.Type        = \color[HTML]{336666} ,
+    InitialValues    = \piton ,
+    Dict.Value       = \piton ,
+    Post.Function    = \piton ,
+    Interpol.Inside  = \color{black}\piton ,
+  }
+%    \end{macrocode}
+%
+%
+% \vspace{1cm}
+% \tableofcontents
+% \end{document}
+%
+% Local Variables:
+% TeX-fold-mode: t
+% TeX-fold-preserve-comments: nil
+% flyspell-mode: nil
+% fill-column: 80
+% End:
+
+
+
+
+
+

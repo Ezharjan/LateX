@@ -1,0 +1,405 @@
+% \iffalse meta-comment
+%
+% Copyright (c) 2021 Daniel Schmitz
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+% associated documentation files (the "Software"), to deal in the Software without restriction,
+% including without limitation the rights to use, copy, modify, merge, publish, distribute,
+% sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+% 
+% The above copyright notice and this permission notice shall be included in all copies or substantial
+% portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+% NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+% OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+%
+% \fi
+
+% \iffalse
+
+%<*driver>
+\documentclass[full]{l3doc}
+\usepackage[height=1.5\baselineskip]{mahjong}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{cleveref}
+\usepackage{gensymb}
+\renewcommand{\arraystretch}{1.8}
+\parskip 6pt
+\parindent 0pt
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+\DocInput{mahjong.dtx} \end{document}
+%</driver>
+% \fi
+
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \} Tilde         \~}
+
+% \changes{v0.5}{2021/04/07}{First working version, minimal error handling}
+% \changes{v0.9}{2021/04/11}{Fully functional}
+% \changes{v1.0}{2021/04/14}{First complete release}
+% \changes{v1.0.1}{2021/04/16}{Added package prefix to filenames}
+% 
+% \GetFileInfo{mahjong.sty}
+% \DoNotIndex{\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ }
+% \DoNotIndex{\advance,\begingroup,\catcode,\closein}
+% \DoNotIndex{\closeout,\day,\def,\edef,\else,\empty,\endgroup}
+
+% \title{The \textsf{mahjong} package\thanks{This document corresponds to \textsf{mahjong}~\fileversion, dated~\filedate}}
+%  \author{Daniel Schmitz \\ \texttt{schmytzi@gmail.com}}
+%
+% \maketitle
+% \tableofcontents
+% \begin{abstract}
+% The \textsf{mahjong} package provides a \LaTeXe{} and \LaTeX~3 interface for typesetting mahjong tiles using an extended version of MPSZ algebraic notation.
+% Features include spaces, rotated, blank, and concealed tiles, as well as red fives.
+% The size of the mahjong tiles can be controlled using a package option and an optional argument of |\mahjong|.
+% It is primarily aimed at Riichi (aka. Japanese) Mahjong but can be used to typeset any style of mahjong.
+% However, flower tiles and jokers are currently missing.
+% \end{abstract}
+%
+% \begin{documentation}
+% \section{Introduction}
+% Mahjong is a tile-based game originating from China which is popular in East and South-East Asia and has since spread throughout the world.
+% The \textsf{mahjong} package provides an interface for typesetting mahjong tiles and hands using MPSZ algebraic notation.
+% This documentation assumes familiarity with the game in general but none of its many styles.
+% Nonetheless, some basic terms will be defined because of differing vocabulary among players.
+% 
+% \newcommand{\rmahjong}[1]{\raisebox{-.4\height}{\mahjong{#1}}}
+% \section{Mahjong Tiles}
+% \subsection{Suited Tiles}
+% The suited tiles are referred to as follows:
+% 
+% \begin{tabular}{@{} l l @{}}
+% \toprule
+% \textbf{Suit} & \textbf{Tiles} \\
+% \midrule
+% Bamboo & \rmahjong{1234506789s} \\
+% Dots & \rmahjong{1234506789p} \\
+% Character & \rmahjong{1234506789m} \\
+% \bottomrule
+% \end{tabular}
+% 
+% Suited tiles are referred to using the pattern \meta{value} \meta{suit}.
+% For instance, \mahjong{4s} is called \textit{4~Bamboo}.
+% 
+% \subsection{Honor Tiles}
+% This documentation refers to the seven honor tiles as follows:
+%
+% \begin{tabular}{@{}c c c c@{}}
+% \toprule
+% \multicolumn{4}{c}{\bfseries Winds} \\
+% \mahjong{1z} & \mahjong{2z} & \mahjong{3z} & \mahjong{4z} \\
+% East Wind (E) & South Wind (S) & West Wind (W) & North Wind (N) \\
+% \midrule
+% \multicolumn{4}{c}{\bfseries Dragons} \\
+% \mahjong{5z} & \mahjong{6z} & \mahjong{7z} & \\
+% White Dragon & Green Dragon & Red Dragon & \\
+% \bottomrule
+% \end{tabular}
+%
+% \section{MPSZ Algebraic Notation}
+% \subsection{Standard Notation}
+% \begin{table}
+% \centering
+% \caption[MPSZ reference]{MPSZ notation reference. Each tile is identified by its column's number and its row's letter.}
+% \label{tab:mpszref}
+% \begin{tabular}{ccccccccccc}
+%    & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} \\
+%    \textbf{s} & \raisebox{-.75\baselineskip}{\rmahjong{0s}} & \rmahjong{1s} & \rmahjong{2s} & \rmahjong{3s} & \rmahjong{4s} & \rmahjong{5s} & \rmahjong{6s} & \rmahjong{7s} & \rmahjong{8s} & \rmahjong{9s} \\
+%    \textbf{p} & \rmahjong{0p} & \rmahjong{1p} & \rmahjong{2p} & \rmahjong{3p} & \rmahjong{4p} & \rmahjong{5p} & \rmahjong{6p} & \rmahjong{7p} & \rmahjong{8p} & \rmahjong{9p} \\
+%    \textbf{m} & \rmahjong{0m} & \rmahjong{1m} & \rmahjong{2m} & \rmahjong{3m} & \rmahjong{4m} & \rmahjong{5m} & \rmahjong{6m} & \rmahjong{7m} & \rmahjong{8m} & \rmahjong{9m} \\
+%    \textbf{z} & & \rmahjong{1z} & \rmahjong{2z} & \rmahjong{3z} & \rmahjong{4z} & \rmahjong{5z} & \rmahjong{6z} & \rmahjong{7z} & &
+% \end{tabular}
+% \end{table}
+%
+% %  \DeleteShortVerb{\"}
+% MPSZ notation assigns each tile an identifier consisting of a digit and a letter (\cref{tab:mpszref}).
+% For suited tiles, the digit corresponds to the tile's value and the letter to its suit, Bamboo (|s|), Dots (|p|) or Character (|m|).
+% For instance, |2m| identifies \mahjong{2m} (2~Character).
+% The only exception ot this rule are red fives, whose numeric value is 0.
+% Red 5 Bamboo, for example, has identifier |0s|.
+% Honor tiles are assigned the "suit" |z|, with |1z| -- |4z| corresponding to E, S, W and N, and |5z| -- |7z| to the white, green and red dragon, respectively.
+% 
+% Collections of tiles, such as melds or hands, are represented by concatenating the identifiers of the tiles they comprise.
+% For instance, |3s4s5s| corresponds to \mahjong{3s4s5s}.
+% Groups of tiles sharing the same suit can be abbreviated by omitting all but the last suit identifier.
+% The above example can also be expressed as |345s|.
+% Spaces are ignored and the notation is case-insensitive.
+%
+% \subsection{Extensions}
+% \paragraph{Spaces.} Spaces can be inserted using |-|:
+% |444s-567s| produces \mahjong{444s-567s}.
+%
+% \paragraph{Concealed Tiles.} \mahjong{X} Concealed (or face-down) tiles are represented by |X|.
+% They don't need a suit identifier and don't act as one.
+% |123s X 456s| and |123 X 456s| are therefore equivalent.
+%
+% \paragraph{Blank Tiles.} \mahjong{?} Blank or unknown tiles are represented by |?|.
+% Just like concealed tiles, they don't change the current suit.
+% |123s ? 456s| and |123 ? 456s| are equivalent, for instance.
+%
+% \paragraph{Rotation.} Inserting an apostrophe (|'|) rotates the \textit{preceeding} tile counter-clockwise.
+% For instance, |6'66m| is rendered as \mahjong{6'66m}. 
+% This can only be done once per tile, i.e. it is not possible to rotate them 180\degree{} or 270\degree{}.
+% When you want to rotate the last tile of a group, it doesn't matter whether the apostrophe appears before or after the suit, so |77'm| and |77m'| are equivalent.
+%
+%
+% \paragraph{Rotation and Stacking.} Quotes (|"|) cause the \textit{preceeding} tile to be rendered as two rotated and stacked tiles.
+% For instance, |77"7z| produces \mahjong{77"7z}.
+%
+% \section{Typesetting Mahjong Tiles in Your Document}
+% \DescribeMacro{\mahjong}
+% The main interface is |\mahjong| \oarg{height} \marg{hand}.
+% \meta{hand} refers to a tile sequence in MPSZ notation as discussed above and \meta{height} specifies the height of the rendered mahjong tiles.
+% If \meta{height} is not specified, the default height is used.
+%
+% \DescribeMacro{\mahjong_typeset_hand:n} \DescribeMacro{\mahjong_typeset_hand:x}
+% The \LaTeX~3 interface for rendering mahjong tiles are |\mahjong_typeset_hand:n| and its variants.
+% This macro accepts the hand to be rendered in MPSZ notation.
+% The height can be specified by setting |\l_mahjong_tile_height| \DescribeMacro{\l_mahjong_tile_height} and the default height is saved in |\g_mahjong_default_height|. \DescribeMacro{\g_mahjong_default_height}
+% 
+% The default height can be set using the package's |height| parameter.
+% For instance, |\usepackage[height=2\baselineskip]{mahjong}| sets the default size of mahjong tiles to double the value of |\baselineskip| in the context they are rendered in.
+% The parameter defaults to |\baselineskip|.
+%
+% \section{Acknowledgments}
+% The mahjong tiles used in this package were created by GitHub user \href{https://github.com/FluffyStuff}{FluffyStuff}.
+% The original repository is \href{https://github.com/FluffyStuff/riichi-mahjong-tiles}{FluffyStuff/riichi-mahjong-tiles}, used under CC-BY Version 4.0.
+% \end{documentation}
+% \begin{implementation}
+%
+%    \begin{macrocode}
+%<*pkg>
+%<@@=mahjong>
+\NeedsTeXFormat{LaTeX2e}[2019/10/01]
+\RequirePackage{expl3}
+\ProvidesExplPackage{mahjong}{2021/04/16}{1.0.1}{Typeset Mahjong Hands}
+\RequirePackage{xparse}
+\RequirePackage{l3keys2e}
+\RequirePackage{graphicx}
+\RequirePackage{stackengine}
+%    \end{macrocode}
+
+%    \begin{macrocode}
+\msg_new:nnnn {mahjong} {invalid_token}
+{Token ~ #1 ~ is ~ not ~ valid ~ in ~ MPSZ ~ notation}
+{Valid ~ tokens ~ are ~ digits ~ 0-9, ~ m, ~ p, ~ s, ~ z, ~ x, ~ -, ~ ?, ~ ', ~ and ~ " }
+\msg_new:nnnn {mahjong} {unknown_tile}
+{I~don't~know~tile~#1.}
+{Please~check~the~documentation~for~recognized~tiles.}
+\msg_new:nnnn {mahjong} {unknown_orientation}
+{Orientation ~ #1 ~ is ~ unknown}
+{This ~ should ~ not ~ happen.~ Please ~ create ~ a ~ bug ~ report.}
+
+\keys_define:nn {mahjong} {
+    height .dim_gset:N = \g_mahjong_default_height
+}
+
+% Identifiers for all suits
+\cs_new:Npn \c_@@_suits_tl {mpsz}
+% Allowed tokens
+\cs_new:Npn \c_@@_allowed_tokens_tl {0123456789mpsz-?x'"}
+
+% Variables have to be declared globally
+\tl_new:N \l_@@_suit_tl
+\tl_new:N \l_@@_tiles_tl
+\tl_new:N \l_@@_reversed_tl
+\tl_new:N \l_@@_hand_tl
+\tl_new:N \l_@@_current_suit_tl
+\tl_new:N \l_@@_current_group_tl
+\tl_new:N \l_@@_current_char
+
+
+\dim_set:Nn \g_mahjong_default_height {\baselineskip}
+\dim_new:N \l_mahjong_tile_height
+
+\int_new:N \l_@@_tile_orientation_int
+\seq_new:N \l_@@_tile_maps_seq
+\str_new:N \l_@@_file_path_str
+
+
+\ProcessKeysPackageOptions{mahjong}
+%    \end{macrocode}
+
+% \begin{macro}[aux]{\@@_make_tile:nn, \@@_make_tile:VV, \@@_make_tile:xV, \@@_make_tile:nV}
+% Inserts a mahjong tile into the input stream.
+% This functions only handles that use the front background and have a forground,
+% i.e. regular and blank tiles.
+%    \begin{macrocode}
+\cs_set:Npn \@@_make_tile:nn #1#2 {
+    \file_if_exist:nTF {#1} {
+        \int_case:nnF {#2} {
+            {0} {
+                \stackinset{c}{0pt}{c}{0pt}{
+                    \includegraphics[
+                        angle=0,
+                        height=.85\l_mahjong_tile_height]
+                    {#1}
+                }{
+                    \includegraphics[
+                        angle=0, 
+                        height=\l_mahjong_tile_height]
+                    {tiles/mahjong-Front.pdf}
+                }
+            } {1} {
+                \stackinset{c}{0pt}{c}{0pt}{
+                    \includegraphics[
+                        angle=90,
+                        width=.85\l_mahjong_tile_height]
+                    {#1}
+                }{
+                    \includegraphics[
+                        angle=90,
+                        width=\l_mahjong_tile_height]
+                    {tiles/mahjong-Front.pdf}
+                }
+            } {2} {
+                % Stack 2 rotated tiles on top of each other.
+                \stackon [0pt] {
+                    \@@_make_tile:nn {#1} {1}
+                } {
+                    \@@_make_tile:nn {#1} {1}
+                }
+            }
+        } {
+            \msg_fatal:nnx {mahjong} {unknown_orientation} {#2}
+        }
+    } {
+        \msg_error:nnx {mahjong} {unknown_tile} {#1}
+    }
+}
+
+\cs_generate_variant:Nn \@@_make_tile:nn {VV, xV, nV}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\mahjong_typeset_hand:n, \mahjong_typeset_hand:x}
+% Parseses and typesets a mahjong hand in MPSZ notation.
+% Set |\l_mahjong_tile_height| to control the tiles' size.
+%    \begin{macrocode}
+% Parses a full hand
+\cs_set:Npn \mahjong_typeset_hand:n #1 {
+    \tl_set:Nx \l_@@_hand_tl {\text_lowercase:n {#1}} 
+    % MPSZ notation is easier to parse right-to-left, so reverse string
+    % There is no string reversal function but we can reverse token lists
+    % Token lists and strings are freely convertible between each other
+    \tl_set:Nx \l_@@_reversed_tl {\tl_reverse:V \l_@@_hand_tl} 
+    \tl_map_variable:NNn \l_@@_reversed_tl \l_@@_current_char {
+        % Check if we recognize the current token
+        \exp_args:NVV \tl_if_in:nnF \c_@@_allowed_tokens_tl \l_@@_current_char {
+            \msg_error:nnx {mahjong} {invalid_token} {\l_@@_current_char}
+        }
+        \exp_args:NVV \tl_if_in:nnTF \c_@@_suits_tl \l_@@_current_char {
+            % If we've found a suit identifier, change the current suit
+            \tl_set:NV \l_@@_current_suit_tl \l_@@_current_char
+        } {
+            \str_case:VnF \l_@@_current_char {
+                {'} {
+                    % An apostrophe indicates that the next tile is rotated
+                    \int_set:Nn \l_@@_tile_orientation_int {1}
+                }
+                {"} {
+                    % Quotes mean the next tile is actually 2 rotated tiles stacked on top of each other
+                    \int_set:Nn \l_@@_tile_orientation_int {2}
+                }
+            } {
+                % Default case: We've got a complete tile identifier
+                % Turn it into a property list
+                \prop_clear:N \l_tmpa_prop
+                \prop_put:NnV \l_tmpa_prop {suit} \l_@@_current_suit_tl
+                \prop_put:NnV \l_tmpa_prop {face} \l_@@_current_char
+                \prop_put:NnV \l_tmpa_prop {orientation} \l_@@_tile_orientation_int
+                % Add it to the beginning of the sequence (we are parsing in reverse)
+                \seq_put_left:NV \l_@@_tile_maps_seq \l_tmpa_prop
+                \int_set:Nn \l_@@_tile_orientation_int {0}
+            }
+        }
+    }
+    % Typesetting begins here. Sequence is in correct order
+    \seq_map_variable:NNn \l_@@_tile_maps_seq \l_tmpa_prop {
+        \prop_get:NnN \l_tmpa_prop {face} \l_tmpa_tl
+        \prop_get:NnN \l_tmpa_prop {orientation} \l_tmpa_int
+        \str_case:VnF \l_tmpa_tl {
+            {-} {
+                % If the current face is a dash, insert a space
+                \includegraphics[height=\l_mahjong_tile_height]{tiles/mahjong-Space.pdf}
+            } {x} {
+                % Insert a flipped tile
+                \int_case:nn {\l_tmpa_int} {
+                    {0} { % Upright
+                        \includegraphics[
+                        angle=0,
+                        height=\l_mahjong_tile_height]
+                        {tiles/mahjong-Back.pdf}
+                    } {1} { % Rotated
+                        \includegraphics[
+                        angle=90,
+                        width=\l_mahjong_tile_height]
+                        {tiles/mahjong-Back.pdf}
+                    } {2} { % Rotated and stacked
+                        \stackon [0pt] {
+                            \includegraphics[
+                                angle=90,
+                                width=\l_mahjong_tile_height]
+                                {tiles/mahjong-Back.pdf}
+                        } {
+                            \includegraphics[angle=90,
+                            width=\l_mahjong_tile_height]
+                            {tiles/mahjong-Back.pdf}
+                        }
+                    }
+                }
+            } {?} { % Blank tile
+                \@@_make_tile:nV {tiles/mahjong-Blank.pdf} \l_tmpa_int
+            }
+        } { % Any other tile identified by a code.
+            \@@_make_tile:xV {tiles/mahjong-\l_tmpa_tl\prop_item:Nn \l_tmpa_prop {suit}.pdf} \l_tmpa_int
+        }
+    }
+    % Clear the list for the next invocation
+    \seq_clear:N \l_@@_tile_maps_seq
+}
+
+% Have TeX automatically expand the argument for us
+\cs_generate_variant:Nn \@@_typeset_hand:n {x}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\mahjong}
+% This is the only \LaTeXe{} macro in this package.
+% It typesets a mahjong hand.
+%    \begin{macrocode}
+\NewDocumentCommand{\mahjong}{O{\g_mahjong_default_height} m}{
+    \dim_set:Nn \l_mahjong_tile_height {#1}
+    \mahjong_typeset_hand:n {#2}
+}
+%</pkg>
+%    \end{macrocode}
+% \end{macro}
+% 
+% \end{implementation}
+%
+% \PrintChanges
+\endinput

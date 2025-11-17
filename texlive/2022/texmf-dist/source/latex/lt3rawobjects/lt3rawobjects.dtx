@@ -1,0 +1,1564 @@
+% \iffalse meta-comment
+%
+%  lt3rawobjects Objects and proxies in LaTeX3
+%  Copyright (C) 2022  Paolo De Donato <dedonato95@hotmail.it>
+%
+%  This file is part of lt3rawobjects.
+%
+%  lt3rawobjects is free software: you can redistribute it and/or modify
+%  it under the terms of the GNU General Public License as published by
+%  the Free Software Foundation, either version 3 of the License, or
+%  (at your option) any later version.
+%
+%  lt3rawobjects is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%  GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License
+%  along with lt3rawobjects.  If not, see <https://www.gnu.org/licenses/>.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{lt3rawobjects.dtx}[2022/08/03 2.0 Objects and proxies in LaTeX3]
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\RequirePackage{expl3}[2022-04-10]
+%<package>\ProvidesExplPackage{lt3rawobjects}{2022/08/03}{ 2.0 }{Objects and proxies in LaTeX3}
+%<*driver>
+\documentclass[full]{l3doc}
+\usepackage{lt3rawobjects}
+\usepackage{xparse}
+\begin{document}
+\DocInput{lt3rawobjects.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \NewDocumentCommand{\thpkg}{}{\pkg{lt3rawobjects}}
+% \NewDocumentCommand{\thvsn}{}{2.0}
+% \NewDocumentCommand{\thdta}{}{2022/08/03}
+% \NewDocumentCommand{\fromV}{ m }{{\ttfamily From: #1}}
+%
+% \title{The \pkg{lt3rawobjects} package}
+%   \author{Paolo De Donato}
+%   \date{Released on \thdta\ Version \thvsn}
+%
+% \maketitle
+%
+% \tableofcontents
+%
+% \begin{documentation}
+%
+% \section{Introduction}
+% First to all notice that \thpkg\ means ``raw object(s)'', indeed \thpkg\ introduces a new mechanism to create objects like the well known C structures. The functions exported by this package are quite low level, and many important mechanisms like member protection and name resolution aren't already defined and should be introduced by intermediate packages.
+%
+% This packages follows the \href{https://semver.org/}{SemVer} specification (\texttt{https://semver.org/}). In particular any major version update (for example from \texttt{1.2} to \texttt{2.0}) may introduce imcompatible changes and so it's not advisable to work with different packages that require different major versions of \thpkg. Instead changes introduced in minor and patch version updates are always backward compatible, and any withdrawn function is declared deprecated instead of being removed.
+%
+% \section{To do}
+% \begin{itemize}
+%   \item Uniform declarations for templated proxies;
+%   \item Constant objects.
+% \end{itemize}
+%
+% \section{Objects and proxies}
+% Usually an object in programming languages can be seen as a collection of variables (organized in different ways depending on the chosen language) treated as part of a single entity. In \thpkg\ objects are collections of
+% \begin{itemize}
+%   \item \LaTeX3 variables, called \emph{members};
+%   \item \LaTeX3 functions, called \emph{methods}.
+% \end{itemize}
+% Both members and methods can be retrieved from a string representing the container object, that is the \emph{address} of the object and act like the address of a structure in C.
+%
+% An address is composed of two parts: the \emph{module} in which variables are created and an \emph{identifier} that identify uniquely the object inside its module. It's up to the caller that two different objects have different identifiers. The address of an object can be obtained with the \cs{object_address} function. Identifiers and module names should not contain numbers, |#|, |:| and |_| characters in order to avoid conflicts with hidden auxiliary commands. However you can use non letter characters like |-| in order to organize your members and methods.
+%
+% Moreover normal control sequences have an address too, but it's simply any token list for which a |c| expansion retrieves the original control sequence. We impose also that any |x| or |e| fully expansion will be a string representing the control sequence's name, for this reason inside an address |#| characters and \cs{exp_not} functions aren't allowed.
+%
+% In \thpkg\ objects are created from an existing object that have a suitable inner structure. These objects that can be used to create other objects are called \emph{proxy}. Every object is generated from a particular proxy object, called \emph{generator}, and new objects can be created from a specified proxy with the \cs{object_create} functions.
+%
+% Since proxies are themself objects we need a proxy to instantiate user defined proxies, you can use the |proxy| object in the |rawobjects| module to create you own proxy, which address is held by the \cs{c_proxy_address_str} variable. Proxies must be created from the |proxy| object otherwise they won't be recognized as proxies. Instead of using \cs{object_create} to create proxies you can directly use the function \cs{proxy_create}.
+%
+% Each member or method inside an object belongs to one of these categories:
+% \begin{enumerate}
+%   \item \emph{mutables};
+%   \item \emph{near constants};
+%   \item \emph{remote constants}.
+% \end{enumerate}
+% \textbf{Warning}: Currently only members (variables) can be mutables, not methods. Mutable members can be added in future releases if they'll be needed.
+%
+% Members declared as mutables works as normal variables: you can modify their value and retrieve it at any time. Instead members and methods declared as near constant works as constants: when you create them you must specify their initial value (or function body for methods) and you won't be allowed to modify it later. Remote constants for an object are simply near constants defined in its generator: all near constants defined inside a proxy are automatically visible as remote constants to every object generated from that proxy. Usually functions involving near constants have |nc| inside their name, and |rc| if instead they use remote constants.
+%
+% Instead of creating mutable members in each of your objects you can push their specifications inside the generating proxy via \cs{proxy_push_member}. In this way either object created from such proxy will have the specified members. Specify mutable members in this way allows you to omit that member type in some functions as \cs{object_member_adr} for example, their member type will be deduced automatically from its specification inside generating proxy.
+%
+% Objects can be declared public, private and local, global. In a public/private object every nonconstant member and method is declared public/private, but inside local/global object only assignation to mutable members is performed locally/globally since allocation is always performed globally via \cs{\meta{type}_new:Nn} functions (nevertheless members will be accordingly declared |g_| or |l_|). This is intentional in order to follow the \LaTeX3 guidelines about variables managment, for additional motivations you can see \href{https://github.com/latex3/latex3/issues/410}{this thread} in the \LaTeX3 repository.
+%
+% Address of members/methods can be obtained with functions in the form \cs{object_\meta{category}\meta{item}_adr} where \meta{item} is |member| or |method| and \meta{category} is empty for mutable members, |nc| for near constants and |rc| for remote constants. For example \cs{object_rcmethod_adr} retrieves the address of specified remote constant method.
+%
+% \section{Library functions}
+% \label{sec:lib}
+%  \subsection{Base object functions}
+%
+% \begin{function}[EXP]{\object_address:nn}
+%  \begin{syntax}
+%   \cs{object_address:nn} \Arg{module} \Arg{id}
+%  \end{syntax}
+%  Composes the address of object in module \meta{module} with identifier \meta{id} and places it in the input stream. Notice that \meta{module} and \meta{id} are converted to strings before composing them in the address, so they shouldn't contain any command inside. If you want to execute its content you should use a new variant, for example |V|, |f| or |e| variants.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}{\object_address_set:Nnn, \object_address_gset:Nnn}
+%  \begin{syntax}
+%   \cs{object_address_set:nn} \meta{str var} \Arg{module} \Arg{id}
+%  \end{syntax}
+%  Stores the adress of selected object inside the string variable \meta{str var}.
+%
+% \fromV{1.1}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_if_exist:n, \object_if_exist:V}
+%  \begin{syntax}
+%   \cs{object_if_exist_p:n} \marg{address}
+%   \cs{object_if_exist:nTF} \marg{address} \marg{true code} \marg{false code}
+%  \end{syntax}
+%  Tests if an object was instantiated at the specified address.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_get_module:n, \object_get_module:V, \object_get_proxy_adr:n, \object_get_proxy_adr:V}
+%  \begin{syntax}
+%   \cs{object_get_module:n} \marg{address}
+%   \cs{object_get_proxy_adr:n} \marg{address}
+%  \end{syntax}
+%  Get the object module and its generator.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_if_local:n, \object_if_global:n, \object_if_local:V, \object_if_global:V}
+%  \begin{syntax}
+%   \cs{object_if_local_p:n} \marg{address}
+%   \cs{object_if_local:nTF} \marg{address} \marg{true code} \marg{false code}
+%  \end{syntax}
+%  Tests if the object is local or global.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_if_public:n, \object_if_private:n, \object_if_public:V, \object_if_private:V}
+%  \begin{syntax}
+%   \cs{object_if_public_p:n} \marg{address}
+%   \cs{object_if_public:nTF} \marg{address} \marg{true code} \marg{false code}
+%  \end{syntax}
+%  Tests if the object is public or private.
+%
+% \fromV{1.0}
+% \end{function}
+%
+%  \subsection{Members}
+%
+% \begin{function}[EXP]{\object_member_adr:nnn, \object_member_adr:Vnn, \object_member_adr:nnv, \object_member_adr:nn, \object_member_adr:Vn}
+%  \begin{syntax}
+%   \cs{object_member_adr:nnn} \marg{address} \marg{member name} \marg{member type}
+%   \cs{object_member_adr:nn} \marg{address} \marg{member name}
+%  \end{syntax}
+%  Fully expands to the address of specified member variable. If type is not specified it'll be retrieved from the generator proxy, but only if member is specified in the generator.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_member_if_exist:nnn, \object_member_if_exist:Vnn, \object_member_if_exist:nn, \object_member_if_exist:Vn}
+%  \begin{syntax}
+%   \cs{object_member_if_exist_p:nnn} \marg{address} \marg{member name} \marg{member type}
+%   \cs{object_member_if_exist:nnnTF} \marg{address} \marg{member name} \marg{member type} \Arg{true code} \Arg{false code}
+%   \cs{object_member_if_exist_p:nn} \Arg{address} \Arg{member name}
+%   \cs{object_member_if_exist:nnTF} \Arg{address} \Arg{member name} \Arg{true code} \Arg{false code}
+%  \end{syntax}
+%  Tests if the specified member exist.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_member_type:nn, \object_member_type:Vn}
+%  \begin{syntax}
+%   \cs{object_member_type:nn} \marg{address} \marg{member name}
+%  \end{syntax}
+%  Fully expands to the type of member \meta{member name}. Use this function only with member variables specified in the generator proxy, not with other member variables.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}{\object_new_member:nnn, \object_new_member:Vnn, \object_new_member:nnv}
+%  \begin{syntax}
+%   \cs{object_new_member:nnn} \marg{address} \marg{member name} \marg{member type}
+%  \end{syntax}
+%  Creates a new member variable with specified name and type. You can't retrieve the type of these variables with \cs{object_member_type} functions.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_member_use:nnn, \object_member_use:Vnn, \object_member_use:nnv, \object_member_use:nn, \object_member_use:Vn}
+%  \begin{syntax}
+%   \cs{object_member_use:nnn} \marg{address} \marg{member name} \marg{member type}
+%   \cs{object_member_use:nn} \marg{address} \marg{member name}
+%  \end{syntax}
+%  Uses the specified member variable.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_member_set_eq:nnnN, \object_member_set_eq:nnvN, \object_member_set_eq:VnnN, \object_member_set_eq:nnnc, \object_member_set_eq:Vnnc, \object_member_set_eq:nnN, \object_member_set_eq:VnN, \object_member_set_eq:nnc, \object_member_set_eq:Vnc}
+%  \begin{syntax}
+%   \cs{object_member_set_eq:nnnN} \marg{address} \marg{member name} \marg{member type} \meta{variable}
+%   \cs{object_member_set_eq:nnN} \marg{address} \marg{member name} \meta{variable}
+%  \end{syntax}
+%  Sets the value of specified member equal to the value of \meta{variable}.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_ncmember_adr:nnn, \object_ncmember_adr:Vnn, \object_ncmember_adr:vnn, \object_rcmember_adr:nnn, \object_rcmember_adr:Vnn}
+%  \begin{syntax}
+%   \cs{object_ncmember_adr:nnn} \Arg{address} \Arg{member name} \Arg{member type}
+%  \end{syntax}
+%  Fully expands to the address of specified near/remote constant member.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_ncmember_if_exist:nnn, \object_ncmember_if_exist:Vnn, \object_rcmember_if_exist:nnn, \object_rcmember_if_exist:Vnn}
+%  \begin{syntax}
+%   \cs{object_ncmember_if_exist_p:nnn} \marg{address} \marg{member name} \marg{member type}
+%   \cs{object_ncmember_if_exist:nnnTF} \marg{address} \marg{member name} \marg{member type} \Arg{true code} \Arg{false code}
+%  \end{syntax}
+%  Tests if the specified member constant exist.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_ncmember_use:nnn, \object_ncmember_use:Vnn, \object_rcmember_use:nnn, \object_rcmember_use:Vnn}
+%  \begin{syntax}
+%   \cs{object_ncmember_use:nnn} \Arg{address} \Arg{member name} \Arg{member type}
+%  \end{syntax}
+%  Uses the specified near/remote constant member.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \subsection{Methods}
+% Currentlu only constant methods (near and remote) are implemented in \thpkg\ as explained before.
+%
+% \begin{function}[EXP]{\object_ncmethod_adr:nnn, \object_ncmethod_adr:Vnn, \object_ncmethod_adr:vnn, \object_rcmethod_adr:nnn, \object_rcmethod_adr:Vnn}
+%  \begin{syntax}
+%   \cs{object_ncmethod_adr:nnn} \Arg{address} \Arg{method name} \Arg{method variant}
+%  \end{syntax}
+%  Fully expands to the address of the specified
+%  \begin{itemize}
+%    \item near constant method if \cs{object_ncmethod_adr} is used;
+%    \item remote constant method if \cs{object_rcmethod_adr} is used.
+%  \end{itemize}
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_ncmethod_if_exist:nnn, \object_ncmethod_if_exist:Vnn, \object_rcmethod_if_exist:nnn, \object_rcmethod_if_exist:Vnn}
+%  \begin{syntax}
+%   \cs{object_ncmethod_if_exist_p:nnn} \marg{address} \marg{method name} \marg{method variant}
+%   \cs{object_ncmethod_if_exist:nnnTF} \marg{address} \marg{method name} \marg{method variant} \Arg{true code} \Arg{false code}
+%  \end{syntax}
+%  Tests if the specified method constant exist.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}{\object_new_cmethod:nnnn, \object_new_cmethod:Vnnn}
+%  \begin{syntax}
+%   \cs{object_new_cmethod:nnnn} \Arg{address} \Arg{method name} \Arg{method arguments} \Arg{code}
+%  \end{syntax}
+%  Creates a new method with specified name and argument types. The \marg{method arguments} should be a string composed only by |n| and |N| characters that are passed to \cs{cs_new:Nn}.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}[EXP]{\object_ncmethod_call:nnn, \object_ncmethod_call:Vnn, \object_rcmethod_call:nnn, \object_rcmethod_call:Vnn}
+%  \begin{syntax}
+%   \cs{object_ncmethod_call:nnn} \marg{address} \marg{method name} \marg{method variant}
+%  \end{syntax}
+%  Calls the specified method. This function is expandable if and only if the specified method was not declared |protected|.
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \subsection{Constant member creation}
+% Unlike normal variables, constant variables in \LaTeX3 are created in different ways depending on the specified type. So we dedicate a new section only to collect some of these fuinctions readapted for near constants (remote constants are simply near constants created on the generator proxy).
+%
+% \begin{function}{\object_newconst_tl:nnn, \object_newconst_tl:Vnn, \object_newconst_str:nnn, \object_newconst_str:Vnn, \object_newconst_int:nnn, \object_newconst_int:Vnn, \object_newconst_clist:nnn, \object_newconst_clist:Vnn, \object_newconst_dim:nnn, \object_newconst_dim:Vnn, \object_newconst_skip:nnn, \object_newconst_skip:Vnn, \object_newconst_fp:nnn, \object_newconst_fp:Vnn}
+%  \begin{syntax}
+%   \cs{object_newconst_\meta{type}:nnn} \Arg{address} \Arg{constant name} \Arg{value}
+%  \end{syntax}
+%  Creates a constant variable with type \meta{type} and sets its value to \meta{value}.
+%
+%  \fromV{1.1}
+% \end{function}
+%
+% \begin{function}{\object_newconst_seq_from_clist:nnn, \object_newconst_seq_from_clist:Vnn}
+%  \begin{syntax}
+%   \cs{object_newconst_seq_from_clist:nnn} \Arg{address} \Arg{constant name} \Arg{comma-list}
+%  \end{syntax}
+%  Creates a |seq| constant which is set to contain all the items in \meta{comma-list}.
+%
+% \fromV{1.1}
+% \end{function}
+%
+% \begin{function}{\object_newconst_prop_from_keyval:nnn, \object_newconst_prop_from_keyval:Vnn}
+%  \begin{syntax}
+%   \cs{object_newconst_prop_from_keyval:nnn} \Arg{address} \Arg{constant name}
+%   \{
+%   \meta{key} = \meta{value}, ...
+%   \}
+%  \end{syntax}
+%  Creates a |prop| constant which is set to contain all the specified key-value pairs.
+%
+% \fromV{1.1}
+% \end{function}
+%
+% \subsection{Proxy utilities and object creation}
+%
+% \begin{function}[pTF]{\object_if_proxy:n, \object_if_proxy:V}
+%  \begin{syntax}
+%   \cs{object_if_proxy_p:n} \marg{address}
+%   \cs{object_if_proxy:nTF} \marg{address} \marg{true code} \marg{false code}
+%  \end{syntax}
+%  Test if the specified object is a proxy object.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_test_proxy:nn, \object_test_proxy:Vn}
+%  \begin{syntax}
+%   \cs{object_test_proxy_p:nn} \Arg{object address} \Arg{proxy address}
+%   \cs{object_test_proxy:nnTF} \Arg{object address} \Arg{proxy address} \Arg{true code} \Arg{false code}
+%  \end{syntax}
+%  Test if the specified object is generated by the selected proxy, where \meta{proxy variable} is a string variable holding the proxy address.
+%
+% \begin{texnote}
+% Remember that this command uses internally an |e| expansion so in older engines (any different from Lua\LaTeX\ before 2019) it'll require slow processing. Don't use it in speed critical parts, instead use \cs{object_test_proxy:nN}.
+% \end{texnote}
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{function}[pTF]{\object_test_proxy:nN, \object_test_proxy:VN}
+%  \begin{syntax}
+%   \cs{object_test_proxy_p:nN} \Arg{object address} \meta{proxy variable}
+%   \cs{object_test_proxy:nNTF} \Arg{object address} \meta{proxy variable} \Arg{true code} \Arg{false code}
+%  \end{syntax}
+%  Test if the specified object is generated by the selected proxy, where \meta{proxy variable} is a string variable holding the proxy address. The |:nN| variant don't use |e| expansion, instead of |:nn| command, so it can be safetly used with older compilers. 
+%
+% \fromV{2.0}
+% \end{function}
+%
+% \begin{variable}{\c_proxy_address_str}
+%  The address of the |proxy| object in the |rawobjects| module.
+%
+% \fromV{1.0}
+% \end{variable}
+%
+% \begin{function}{\object_create:nnnNN, \object_create:VnnNN}
+%  \begin{syntax}
+%   \cs{object_create:nnnNN} \marg{proxy address} \marg{module} \marg{id} \meta{scope} \meta{visibility}
+%  \end{syntax}
+%  Creates an object by using the proxy at \meta{proxy address} and the specified parameters.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{variable}{\c_object_local_str, \c_object_global_str}
+%  Possible values for \meta{scope} parameter.
+%
+% \fromV{1.0}
+% \end{variable}
+%
+% \begin{variable}{\c_object_public_str, \c_object_private_str}
+%  Possible values for \meta{visibility} parameter.
+%
+% \fromV{1.0}
+% \end{variable}
+%
+% \begin{function}{\object_create_set:NnnnNN, \object_create_set:NVnnNN, \object_create_set:NnnfNN, \object_create_gset:NnnnNN, \object_create_gset:NVnnNN, \object_create_gset:NnnfNN}
+%  \begin{syntax}
+%   \cs{object_create_set:NnnnNN} \meta{str var} \marg{proxy address} \marg{module} \marg{id} \meta{scope} \meta{visibility}
+%  \end{syntax}
+%  Creates an object and sets its fully expanded address inside \meta{str var}.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}{\object_allocate_incr:NNnnNN, \object_allocate_incr:NNVnNN, \object_gallocate_incr:NNnnNN, \object_gallocate_incr:NNVnNN, \object_allocate_gincr:NNnnNN, \object_allocate_gincr:NNVnNN, \object_gallocate_gincr:NNnnNN, \object_gallocate_gincr:NNVnNN}
+%  \begin{syntax}
+%   \cs{object_allocate_incr:NNnnNN} \meta{str var} \meta{int var} \Arg{proxy address} \Arg{module} \meta{scope} \meta{visibility}
+%  \end{syntax}
+%  Build a new object address with module \meta{module} and an identifier generated from \meta{proxy address} and the integer contained inside \meta{int var}, then increments \meta{int var}. This is very useful when you need to create a lot of objects, each of them on a different address. the |_incr| version increases \meta{int var} locally whereas |_gincr| does it globally.
+%
+% \fromV{1.1}
+% \end{function}
+%
+% \begin{function}{\proxy_create:nnN, \proxy_create_set:NnnN, \proxy_create_gset:NnnN}
+%  \begin{syntax}
+%   \cs{proxy_create:nnN} \marg{module} \marg{id} \meta{visibility}
+%   \cs{proxy_create_set:NnnN} \meta{str var} \marg{module} \marg{id} \meta{visibility}
+%  \end{syntax}
+%  Creates a global proxy object.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}{\proxy_push_member:nnn, \proxy_push_member:Vnn}
+%  \begin{syntax}
+%   \cs{proxy_push_member:nnn} \marg{proxy address} \marg{ member name } \marg{ member type }
+%  \end{syntax}
+%  Updates a proxy object with a new member specification, so that every subsequential object created with this proxy will have a member variable with the specified name and type that can be retrieved with \cs{object_member_type} functions.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \begin{function}{\object_assign:nn, \object_assign:Vn, \object_assign:nV, \object_assign:VV}
+%  \begin{syntax}
+%   \cs{object_assign:nn} \marg{to address} \marg{from address}
+%  \end{syntax}
+%  Assigns the content of each variable of object at \meta{from address} to each correspective variable in \meta{to address}. Both the objects should be created with the same proxy object and only variables listed in the proxy are assigned.
+%
+% \fromV{1.0}
+% \end{function}
+%
+% \section{Examples}
+%  \subsection*{Example 1}
+% Create a public proxy with id \verb|myproxy| with the specification of a single member variable with name \verb|myvar| and type \verb|tl|, then set its address inside \cs{l_myproxy_str}.
+%
+% \begin{verbatim}
+% \str_new:N \l_myproxy_str
+% \proxy_create_set:NnnN \l_myproxy_str { example }{ myproxy }
+%   \c_object_public_str
+% \proxy_push_member:Vnn \l_myproxy_str { myvar }{ tl }
+% \end{verbatim}
+%
+% Then create a new object with name \verb|myobj| with that proxy, assign then token list \verb|\c_dollar_str{} ~ dollar ~ \c_dollar_str{}| to \verb|myvar| and then print it.
+%
+% \begin{verbatim}
+% \str_new:N \l_myobj_str
+% \object_create_set:NVnnNN \l_myobj_str \l_myproxy_str
+%   { example }{ myobj } \c_object_local_str \c_object_public_str
+% \tl_set:cn
+%   {
+%     \object_member_adr:Vn \l_myobj_str { myvar }
+%   }
+%   { \c_dollar_str{} ~ dollar ~ \c_dollar_str{} }
+% \object_member_use:Vn \l_myobj_str { myvar }
+% \end{verbatim}
+%
+% Output: \ExplSyntaxOn
+% \str_new:N \l_myproxy_str
+% \proxy_create_set:NnnN \l_myproxy_str { example }{ myproxy }
+%   \c_object_public_str
+% \proxy_push_member:Vnn \l_myproxy_str { myvar }{ tl }
+% \str_new:N \l_myobj_str
+% \object_create_set:NVnnNN \l_myobj_str \l_myproxy_str
+%   { example }{ myobj } \c_object_local_str \c_object_public_str
+% \tl_set:cn
+%   {
+%     \object_member_adr:Vn \l_myobj_str { myvar }
+%   }
+%   { \c_dollar_str{} ~ dollar ~ \c_dollar_str{} }
+% \object_member_use:Vn \l_myobj_str { myvar }
+% \ExplSyntaxOff
+%
+% If you don't want to specify an object identifier you can also do
+%
+% \begin{verbatim}
+% \int_new:N \l_intc_int
+% \object_allocate_incr:NNVnNN \l_myobj_str \l_intc_int \l_myproxy_str
+%   { example } \c_object_local_str \c_object_public_str
+% \tl_set:cn
+%   {
+%     \object_member_adr:Vn \l_myobj_str { myvar }
+%   }
+%   { \c_dollar_str{} ~ dollar ~ \c_dollar_str{} }
+% \object_member_use:Vn \l_myobj_str { myvar }
+% \end{verbatim}
+%
+% Output: \ExplSyntaxOn
+% \int_new:N \l_intc_int
+% \object_allocate_incr:NNVnNN \l_myobj_str \l_intc_int \l_myproxy_str
+%   { example } \c_object_local_str \c_object_public_str
+% \tl_set:cn
+%   {
+%     \object_member_adr:Vn \l_myobj_str { myvar }
+%   }
+%   { \c_dollar_str{} ~ dollar ~ \c_dollar_str{} }
+% \object_member_use:Vn \l_myobj_str { myvar }
+% \ExplSyntaxOff
+%
+% \section{Templated proxies}
+% At the current time there isn't a standardized approach to templated proxies. One problem of standardized templated proxies is how to define struct addresses for every kind of argument (token lists, strings, integer expressions, non expandable arguments, ...).
+%
+% Even if there isn't currently a function to define every kind of templated proxy you can anyway define your templated proxy with your custom parameters. You simply need to define at least two functions:
+% \begin{itemize}
+%   \item an expandable macro that, given all the needed arguments, fully expands to the address of your templated proxy. This address can be obtained by calling \cs{object_address} \marg{module} \marg{id} where \meta{id} starts with the name of your templated proxy and is followed by a composition of specified arguments;
+%   \item a not expandable macro that tests if the templated proxy with specified arguments is instantiated and, if not, instantiate it with different calls to \cs{proxy_create} and \cs{proxy_push_member}.
+% \end{itemize}
+%
+% In order to apply these concepts we'll provide a simple implementation of a linked list with a template parameter representing the type of variable that holds our data. A linked list is simply a sequence of nodes where each node contains your data and a pointer to the next node. For the moment we 'll show a possiple implementation of a template proxy class for such |node| objects. 
+%
+% First to all we define an expandable macro that fully expands to our node name:
+% \begin{verbatim}
+% \cs_new:Nn \node_address:n
+%   {
+%     \object_address:nn { linklist }{ node - #1 }
+%   }
+% \end{verbatim}
+% where the |#1| argument is simply a string representing the type of data held by our linked list (for example |tl|, |str|, |int|, ...). Next we need a functions that instantiate our proxy address if it doesn't exist:
+% \begin{verbatim}
+% \cs_new_protected:Nn \node_instantiate:n 
+%   {
+%     \object_if_exist:nF {\node_address:n { #1 } }
+%       {
+%         \proxy_create:nnN { linklist }{ node - #1 }
+%           \c_object_public_str
+%         \proxy_push_member:nnn {\node_address:n { #1 } }
+%           { next }{ str }
+%         \proxy_push_member:nnn {\node_address:n { #1 } }
+%           { data }{ #1 } 
+%       }  
+%   }
+% \end{verbatim}  
+% As you can see when \cs{node_instantiate} is called it first test if the proxy object exists. If not then it creates a new proxy with that name and populates it with the specifications of two members: a |next| member variable of type |str| that points to the next node, and a |data| member of the specified type that holds your data.
+%
+% Clearly you can define new functions to work with such nodes, for example to test if the next node exists or not, to add and remove a node, search inside a linked list, ...
+%
+%
+%\end{documentation}
+%
+%\begin{implementation}
+%
+%\section{Implementation}
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%<@@=rawobjects>
+%    \end{macrocode}
+%
+%
+%
+%\begin{variable}{\c_object_local_str, \c_object_global_str, \c_object_public_str, \c_object_private_str}
+%    \begin{macrocode}
+\str_const:Nn \c_object_local_str {loc}
+\str_const:Nn \c_object_global_str {glo}
+\str_const:Nn \c_object_public_str {pub}
+\str_const:Nn \c_object_private_str {pri}
+
+\str_const:Nn \c_@@_const_str {con}
+%    \end{macrocode}
+%\end{variable}
+%
+%\begin{macro}{\object_address:nn}
+%Get address of an object
+%    \begin{macrocode}
+\cs_new:Nn \object_address:nn {
+  \tl_to_str:n { #1  _  #2 }
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_address_set:Nnn, \object_address_gset:Nnn}
+% Saves the address of an object into a string variable
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \object_address_set:Nnn {
+  \str_set:Nn #1 { #2  _  #3 }
+}
+
+\cs_new_protected:Nn \object_address_gset:Nnn {
+  \str_gset:Nn #1 { #2  _  #3 }
+}
+
+%    \end{macrocode}
+%\end{macro}
+%
+%    \begin{macrocode}
+\cs_new:Nn \@@_object_modvar:n{
+  c __ #1 _ MODULE _ str
+}
+
+\cs_new:Nn \@@_object_pxyvar:n{
+  c __ #1 _ PROXY _ str
+}
+
+\cs_new:Nn \@@_object_scovar:n{
+  c __ #1 _ SCOPE _ str
+}
+
+\cs_new:Nn \@@_object_visvar:n{
+  c __ #1 _ VISIB _ str
+}
+
+\cs_generate_variant:Nn \@@_object_modvar:n { V }
+\cs_generate_variant:Nn \@@_object_pxyvar:n { V }
+\cs_generate_variant:Nn \@@_object_scovar:n { V }
+\cs_generate_variant:Nn \@@_object_visvar:n { V }
+%    \end{macrocode}
+%
+
+%
+%\begin{macro}[pTF]{\object_if_exist:n}
+%Tests if object exists.
+%    \begin{macrocode}
+
+\prg_new_conditional:Nnn \object_if_exist:n { p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \@@_object_modvar:n { #1 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_if_exist:n { V }
+  { p, T, F, TF }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_get_module:n, \object_get_proxy_adr:n}
+%Retrieve the name, module and generating proxy of an object
+%    \begin{macrocode}
+\cs_new:Nn \object_get_module:n {
+  \str_use:c { \@@_object_modvar:n { #1 } }
+}
+\cs_new:Nn \object_get_proxy_adr:n {
+  \str_use:c { \@@_object_pxyvar:n { #1 } }
+}
+
+\cs_generate_variant:Nn \object_get_module:n { V }
+\cs_generate_variant:Nn \object_get_proxy_adr:n { V }
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}[pTF]{\object_if_local:n, \object_if_global:n, \object_if_public:n, \object_if_private:n}
+%Test the specified parameters.
+%    \begin{macrocode}
+\prg_new_conditional:Nnn \object_if_local:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \@@_object_scovar:n {#1} }
+    \c_object_local_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_new_conditional:Nnn \object_if_global:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \@@_object_scovar:n {#1} }
+    \c_object_global_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_new_conditional:Nnn \object_if_public:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \@@_object_visvar:n { #1 } }
+    \c_object_public_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_new_conditional:Nnn \object_if_private:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \@@_object_visvar:n {#1} }
+    \c_object_private_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_generate_conditional_variant:Nnn \object_if_local:n { V }
+  { p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_if_global:n { V }
+  { p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_if_public:n { V }
+  { p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_if_private:n { V }
+  { p, T, F, TF }
+%    \end{macrocode}
+%\end{macro}
+%
+%
+%\begin{macro}{\object_member_adr:nnn, \object_member_adr:nn}
+%Get the address of a member variable
+%    \begin{macrocode}
+
+\cs_new:Nn \@@_scope:n
+  {
+    \object_if_local:nTF { #1 }
+      {
+        l
+      }
+      {
+        \str_if_eq:cNTF { \@@_object_scovar:n { #1 } }
+          \c_@@_const_str
+          {
+            c
+          }
+          {
+            g
+          }
+      }
+  }
+
+\cs_new:Nn \@@_scope_pfx:n
+  {
+    \object_if_local:nF { #1 }
+      { g }
+  }
+
+\cs_new:Nn \@@_vis_var:n
+  {
+    \object_if_private:nTF { #1 }
+      {
+        __
+      }
+      {
+        _
+      }
+  }
+
+\cs_new:Nn \@@_vis_fun:n
+  {
+    \object_if_private:nT { #1 }
+      {
+        __
+      }
+  }
+
+\cs_new:Nn \object_member_adr:nnn
+  {
+    \@@_scope:n { #1 }
+    \@@_vis_var:n { #1 }
+    #1 \tl_to_str:n { _ MEMBER _ #2 _ #3 }
+  }
+
+\cs_generate_variant:Nn \object_member_adr:nnn { Vnn, vnn, nnv }
+
+\cs_new:Nn \object_member_adr:nn
+  {
+    \object_member_adr:nnv { #1 }{ #2 }
+      {
+        \object_rcmember_adr:nnn { #1 }
+          { #2 _ type }{ str }
+      }
+  }
+
+\cs_generate_variant:Nn \object_member_adr:nn { Vn }
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_member_type:nn}
+%Deduce the member type from the generating proxy.
+%    \begin{macrocode}
+
+\cs_new:Nn \object_member_type:nn
+  {
+    \object_rcmember_use:nnn { #1 }
+      { #2 _ type }{ str }
+  }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%    \begin{macrocode}
+
+\msg_new:nnnn { rawobjects }{ scoperr }{ Nonstandard ~ scope }
+  {
+    Operation ~ not ~ permitted ~ on ~ object ~ #1 ~
+    ~ since ~ it ~ wasn't ~ declared ~ local ~ or ~ global
+  }
+
+\cs_new_protected:Nn \@@_force_scope:n
+  {
+    \bool_if:nF
+      {
+        \object_if_local_p:n { #1 } || \object_if_global_p:n { #1 }
+      }
+      {
+        \msg_error:nnx { rawobjects }{ scoperr }{ #1 }
+      }
+  }
+
+%    \end{macrocode}
+%
+% \begin{macro}[pTF]{\object_member_if_exist:nnn, \object_member_if_exist:nn}
+% Tests if the specified member exists
+%    \begin{macrocode}
+
+\prg_new_conditional:Nnn \object_member_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_member_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_member_if_exist:nn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_member_adr:nn { #1 }{ #2 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_member_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_member_if_exist:nn
+  { Vn }{ p, T, F, TF }
+
+%    \end{macrocode}
+% \end{macro}
+
+%\begin{macro}{\object_new_member:nnn}
+%Creates a new member variable
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \object_new_member:nnn
+  {
+    \@@_force_scope:n { #1 }
+    \cs_if_exist_use:cT { #3 _ new:c }
+      {
+        { \object_member_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_generate_variant:Nn \object_new_member:nnn { Vnn, nnv }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_member_use:nnn, \object_member_use:nn}
+%Uses a member variable
+%    \begin{macrocode}
+
+\cs_new:Nn \object_member_use:nnn
+  {
+    \cs_if_exist_use:cT { #3 _ use:c }
+      {
+        { \object_member_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_new:Nn \object_member_use:nn
+  {
+    \object_member_use:nnv { #1 }{ #2 }
+      {
+        \object_rcmember_adr:nnn { #1 }
+          { #2 _ type }{ str }
+      }
+  }
+
+\cs_generate_variant:Nn \object_member_use:nnn { Vnn, vnn, nnv }
+\cs_generate_variant:Nn \object_member_use:nn { Vn }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_member_set_eq:nnnN, \object_member_set_eq:nnN}
+% Set the value of a variable to a member.
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \object_member_set_eq:nnnN
+  {
+    \@@_force_scope:n { #1 }
+    \cs_if_exist_use:cT
+      {
+        #3 _ \@@_scope_pfx:n { #1 } set _ eq:cN
+      }
+      {
+        { \object_member_adr:nnn { #1 }{ #2 }{ #3 } } #4
+      }
+  }
+
+\cs_generate_variant:Nn \object_member_set_eq:nnnN { VnnN, nnnc, Vnnc, nnvN }
+
+\cs_new_protected:Nn \object_member_set_eq:nnN
+  {
+    \object_member_set_eq:nnvN { #1 }{ #2 }
+      {
+        \object_rcmember_adr:nnn { #1 }
+          { #2 _ type }{ str }
+      } #3
+  }
+
+\cs_generate_variant:Nn \object_member_set_eq:nnN { VnN, nnc, Vnc }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_ncmember_adr:nnn, \object_rcmember_adr:nnn}
+% Get the address of a near/remote constant.
+%    \begin{macrocode}
+
+\cs_new:Nn \object_ncmember_adr:nnn
+  {
+    c _ #1 \tl_to_str:n { _ CONST _ #2 _ #3 }
+  }
+
+\cs_generate_variant:Nn \object_ncmember_adr:nnn { Vnn, vnn }
+
+\cs_new:Nn \object_rcmember_adr:nnn
+  {
+    \object_ncmember_adr:vnn { \@@_object_pxyvar:n { #1 } }
+      { #2 }{ #3 }
+  }
+
+\cs_generate_variant:Nn \object_rcmember_adr:nnn { Vnn }
+%    \end{macrocode}
+%\end{macro}
+%
+% \begin{macro}[pTF]{\object_ncmember_if_exist:nnn, \object_rcmember_if_exist:nnn}
+% Tests if the specified member constant exists.
+%    \begin{macrocode}
+
+\prg_new_conditional:Nnn \object_ncmember_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_ncmember_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_rcmember_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_rcmember_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_ncmember_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_rcmember_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+
+%    \end{macrocode}
+% \end{macro}
+%
+%\begin{macro}{\object_ncmember_use:nnn, \object_rcmember_use:nnn}
+% Uses a near/remote constant.
+%    \begin{macrocode}
+
+\cs_new:Nn \object_ncmember_use:nnn
+  {
+    \cs_if_exist_use:cT { #3 _ use:c }
+      {
+        { \object_ncmember_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_new:Nn \object_rcmember_use:nnn
+  {
+    \cs_if_exist_use:cT { #3 _ use:c }
+      {
+        { \object_rcmember_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_generate_variant:Nn \object_ncmember_use:nnn { Vnn }
+\cs_generate_variant:Nn \object_rcmember_use:nnn { Vnn }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%
+% \begin{macro}{\object_newconst_tl:nnn, \object_newconst_str:nnn, \object_newconst_int:nnn, \object_newconst_clist:nnn, \object_newconst_dim:nnn, \object_newconst_skip:nnn, \object_newconst_fp:nnn}
+% Create constants
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \@@_const_create:nnnn
+  {
+    \use:c { #1 _ const:cn }
+      {
+        \object_ncmember_adr:nnn { #2 }{ #3 }{ #1 }
+      }
+      { #4 }
+  }
+
+\cs_new_protected:Nn \object_newconst_tl:nnn
+  {
+    \@@_const_create:nnnn { tl }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_str:nnn
+  {
+    \@@_const_create:nnnn { str }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_int:nnn
+  {
+    \@@_const_create:nnnn { int }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_clist:nnn
+  {
+    \@@_const_create:nnnn { clist }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_dim:nnn
+  {
+    \@@_const_create:nnnn { dim }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_skip:nnn
+  {
+    \@@_const_create:nnnn { skip }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_fp:nnn
+  {
+    \@@_const_create:nnnn { fp }{ #1 }{ #2 }{ #3 }
+  }
+
+\cs_generate_variant:Nn \object_newconst_tl:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_str:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_int:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_clist:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_dim:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_skip:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_fp:nnn { Vnn }
+
+%    \end{macrocode}
+%\end{macro}
+%
+% \begin{macro}{\object_newconst_seq_from_clist:nnn}
+%  Creates a |seq| constant.
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \object_newconst_seq_from_clist:nnn
+  {
+    \seq_const_from_clist:cn
+      {
+        \object_ncmember_adr:nnn { #1 }{ #2 }{ seq }
+      }
+      { #3 }
+  }
+
+\cs_generate_variant:Nn \object_newconst_seq_from_clist:nnn { Vnn }
+
+%    \end{macrocode}
+%\end{macro}
+%
+% \begin{macro}{\object_newconst_prop_from_keyval:nnn}
+%  Creates a |prop| constant.
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \object_newconst_prop_from_keyval:nnn
+  {
+    \prop_const_from_keyval:cn
+      {
+        \object_ncmember_adr:nnn { #1 }{ #2 }{ prop }
+      }
+      { #3 }
+  }
+
+\cs_generate_variant:Nn \object_newconst_prop_from_keyval:nnn { Vnn }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%
+% \begin{macro}{\object_ncmethod_adr:nnn, \object_rcmethod_adr:nnn}
+% Fully expands to the method address.
+%    \begin{macrocode}
+
+\cs_new:Nn \object_ncmethod_adr:nnn
+  {
+    #1 \tl_to_str:n { _ CMETHOD _ #2 : #3 }
+  }
+
+\cs_generate_variant:Nn \object_ncmethod_adr:nnn { Vnn , vnn }
+
+\cs_new:Nn \object_rcmethod_adr:nnn
+  {
+    \object_ncmethod_adr:vnn
+      {
+        \@@_object_pxyvar:n { #1 }
+      }
+      { #2 }{ #3 }
+  }
+
+\cs_generate_variant:Nn \object_ncmethod_adr:nnn { Vnn , vnn }
+\cs_generate_variant:Nn \object_rcmethod_adr:nnn { Vnn }
+
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}[pTF]{\object_ncmethod_if_exist:nnn, \object_rcmethod_if_exist:nnn}
+% Tests if the specified member constant exists.
+%    \begin{macrocode}
+
+\prg_new_conditional:Nnn \object_ncmethod_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_ncmethod_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_rcmethod_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_rcmethodr_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_ncmethod_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_rcmethod_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\object_new_cmethod:nnnn}
+% Creates a new method
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \object_new_cmethod:nnnn
+  {
+    \cs_new:cn
+	  {
+	    \object_ncmethod_adr:nnn { #1 }{ #2 }{ #3 }
+	  }
+	  { #4 }
+  }
+  
+\cs_generate_variant:Nn \object_new_cmethod:nnnn { Vnnn }
+
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\object_ncmethod_call:nnn, \object_rcmethod_call:nnn}
+% Calls the specified method.
+%    \begin{macrocode}
+
+\cs_new:Nn \object_ncmethod_call:nnn
+  {
+    \use:c
+	  {
+	    \object_ncmethod_adr:nnn { #1 }{ #2 }{ #3 }
+	  }
+  }
+
+\cs_new:Nn \object_rcmethod_call:nnn
+  {
+    \use:c
+	  {
+	    \object_rcmethod_adr:nnn { #1 }{ #2 }{ #3 }
+	  }
+  }
+  
+\cs_generate_variant:Nn \object_ncmethod_call:nnn { Vnn }
+\cs_generate_variant:Nn \object_rcmethod_call:nnn { Vnn }
+
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+%\begin{variable}{\c_proxy_address_str}
+%The address of the \verb|proxy| object.
+%    \begin{macrocode}
+\str_const:Nx \c_proxy_address_str
+  { \object_address:nn { rawobjects }{ proxy } }
+%    \end{macrocode}
+%\end{variable}
+%
+%
+% Source of \verb|proxy| object
+%    \begin{macrocode}
+\str_const:cn { \@@_object_modvar:V \c_proxy_address_str }
+  { rawobjects }
+\str_const:cV { \@@_object_pxyvar:V \c_proxy_address_str }
+  \c_proxy_address_str
+\str_const:cV { \@@_object_scovar:V \c_proxy_address_str }
+  \c_@@_const_str
+\str_const:cV { \@@_object_visvar:V \c_proxy_address_str }
+  \c_object_public_str
+
+\seq_const_from_clist:cn
+  {
+    \object_member_adr:Vnn \c_proxy_address_str { varlist }{ seq }
+  }
+  { varlist }
+
+\object_newconst_str:Vnn \c_proxy_address_str { varlist_type }{ seq }
+
+%    \end{macrocode}
+%
+%\begin{macro}[pTF]{\object_if_proxy:n}
+%Test if an object is a proxy.
+%    \begin{macrocode}
+
+\prg_new_conditional:Nnn \object_if_proxy:n {p, T, F, TF}
+  {
+    \object_test_proxy:nNTF { #1 } 
+	  \c_proxy_address_str
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}[pTF]{\object_test_proxy:nn, \object_test_proxy:nN}
+%Test if an object is generated from selected proxy.
+%    \begin{macrocode}
+
+\prg_generate_conditional_variant:Nnn \str_if_eq:nn { ve }{ TF }
+
+\prg_new_conditional:Nnn \object_test_proxy:nn {p, T, F, TF}
+  {
+    \str_if_eq:veTF { \@@_object_pxyvar:n { #1 } } 
+	  { #2 }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_test_proxy:nN {p, T, F, TF}
+  {
+    \str_if_eq:cNTF { \@@_object_pxyvar:n { #1 } } 
+	  #2
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+  
+\prg_generate_conditional_variant:Nnn \object_test_proxy:nn
+  { Vn }{p, T, F, TF}
+\prg_generate_conditional_variant:Nnn \object_test_proxy:nN
+  { VN }{p, T, F, TF}
+
+%    \end{macrocode}
+%\end{macro}
+%
+% \begin{macro}{\object_create:nnnNN, \object_create_set:NnnnNN, \object_create_gset:NnnnNN}
+% Creates an object from a proxy
+%    \begin{macrocode}
+
+\msg_new:nnn { aa }{ mess }{ #1 }
+
+\msg_new:nnnn { rawobjects }{ notproxy }{ Fake ~ proxy }
+  {
+    Object ~ #1 ~ is ~ not ~ a ~ proxy.
+  }
+
+\cs_new_protected:Nn \@@_force_proxy:n
+  {
+    \object_if_proxy:nF { #1 }
+      {
+        \msg_error:nnn { rawobjects }{ notproxy }{ #1 }
+      }
+  }
+
+\cs_new_protected:Nn \@@_create_anon:nnnNN
+  {
+
+    \@@_force_proxy:n { #1 }
+
+    \str_const:cn { \@@_object_modvar:n { #2 } }{ #3 }
+    \str_const:cx { \@@_object_pxyvar:n { #2 } }{ #1 }
+    \str_const:cV { \@@_object_scovar:n { #2 } } #4
+    \str_const:cV { \@@_object_visvar:n { #2 } } #5
+
+    \seq_map_inline:cn
+      {
+        \object_member_adr:nnn { #1 }{ varlist }{ seq }
+      }
+      {
+        \object_new_member:nnv { #2 }{ ##1 }
+          {
+            \object_ncmember_adr:nnn { #1 }{ ##1 _ type }{ str }
+          }
+      }
+  }
+
+\cs_new_protected:Nn \object_create:nnnNN
+  {
+    \@@_create_anon:nnnNN { #1 }{ \object_address:nn { #2 }{ #3 } }
+      { #2 } #4 #5
+  }
+
+\cs_new_protected:Nn \object_create_set:NnnnNN
+  {
+    \object_create:nnnNN { #2 }{ #3 }{ #4 } #5 #6
+    \str_set:Nx #1 { \object_address:nn { #3 }{ #4 } }
+  }
+
+\cs_new_protected:Nn \object_create_gset:NnnnNN
+  {
+    \object_create:nnnNN { #2 }{ #3 }{ #4 } #5 #6
+    \str_gset:Nx #1 { \object_address:nn { #3 }{ #4 } }
+  }
+
+\cs_generate_variant:Nn \object_create:nnnNN { VnnNN }
+\cs_generate_variant:Nn \object_create_set:NnnnNN { NVnnNN, NnnfNN }
+\cs_generate_variant:Nn \object_create_gset:NnnnNN { NVnnNN, NnnfNN }
+
+%    \end{macrocode}
+%\end{macro}
+%
+% \begin{macro}{\object_allocate_incr:NNnnNN, \object_gallocate_incr:NNnnNN, \object_allocate_gincr:NNnnNN, \object_gallocate_gincr:NNnnNN}
+% Create an address and use it to instantiate an object
+%    \begin{macrocode}
+
+\cs_new:Nn \@@_combine_aux:nnn
+  {
+    anon . #3 . #2 . #1
+  }
+  
+\cs_generate_variant:Nn \@@_combine_aux:nnn { Vnf }
+
+\cs_new:Nn \@@_combine:Nn
+  {
+    \@@_combine_aux:Vnf #1 { #2 }
+	  {
+	    \cs_to_str:N #1
+	  }
+  }
+
+\cs_new_protected:Nn \object_allocate_incr:NNnnNN
+  {
+    \object_create_set:NnnfNN #1 { #3 }{ #4 }
+      {
+        \@@_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_incr:N #2
+  }
+
+\cs_new_protected:Nn \object_gallocate_incr:NNnnNN
+  {
+    \object_create_gset:NnnfNN #1 { #3 }{ #4 }
+      {
+        \@@_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_incr:N #2
+  }
+
+\cs_generate_variant:Nn \object_allocate_incr:NNnnNN { NNVnNN }
+
+\cs_generate_variant:Nn \object_gallocate_incr:NNnnNN { NNVnNN }
+
+\cs_new_protected:Nn \object_allocate_gincr:NNnnNN
+  {
+    \object_create_set:NnnfNN #1 { #3 }{ #4 }
+      {
+        \@@_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_gincr:N #2
+  }
+
+\cs_new_protected:Nn \object_gallocate_gincr:NNnnNN
+  {
+    \object_create_gset:NnnfNN #1 { #3 }{ #4 }
+      {
+        \@@_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_gincr:N #2
+  }
+
+\cs_generate_variant:Nn \object_allocate_gincr:NNnnNN { NNVnNN }
+
+\cs_generate_variant:Nn \object_gallocate_gincr:NNnnNN { NNVnNN }
+
+%    \end{macrocode}
+% \end{macro}
+%
+%\begin{macro}{\proxy_create:nnN, \proxy_create_set:NnnN, \proxy_create_gset:NnnN}
+%Creates a new proxy object
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \proxy_create:nnN
+  {
+    \object_create:VnnNN \c_proxy_address_str { #1 }{ #2 }
+      \c_object_global_str #3
+  }
+
+\cs_new_protected:Nn \proxy_create_set:NnnN
+  {
+    \object_create_set:NVnnNN #1 \c_proxy_address_str { #2 }{ #3 }
+      \c_object_global_str #4
+  }
+
+\cs_new_protected:Nn \proxy_create_gset:NnnN
+  {
+    \object_create_gset:NVnnNN #1 \c_proxy_address_str { #2 }{ #3 }
+      \c_object_global_str #4
+  }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\proxy_push_member:nnn}
+% Push a new member inside a proxy.
+%    \begin{macrocode}
+\cs_new_protected:Nn \proxy_push_member:nnn
+  {
+    \@@_force_scope:n { #1 }
+    \object_newconst_str:nnn { #1 }{ #2 _ type }{ #3 }
+    \seq_gput_left:cn
+      {
+        \object_member_adr:nnn { #1 }{ varlist }{ seq }
+      }
+      { #2 }
+  }
+
+\cs_generate_variant:Nn \proxy_push_member:nnn { Vnn }
+
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\object_assign:nn}
+%Copy an object to another one.
+%    \begin{macrocode}
+\cs_new_protected:Nn \object_assign:nn
+  {
+    \seq_map_inline:cn
+      {
+        \object_member_adr:vnn
+          {
+            \@@_object_pxyvar:n { #1 }
+          }
+          { varlist }{ seq }
+      }
+      {
+        \object_member_set_eq:nnc { #1 }{ ##1 }
+          {
+            \object_member_adr:nn{ #2 }{ ##1 }
+          }
+      }
+  }
+
+\cs_generate_variant:Nn \object_assign:nn { nV, Vn, VV }
+%    \end{macrocode}
+%\end{macro}
+%
+% A simple forward list proxy
+%    \begin{macrocode}
+
+\cs_new_protected:Nn \rawobjects_fwl_inst:n
+  {
+    \object_if_exist:nF
+      {
+        \object_address:nn { rawobjects }{ fwl ! #1 }
+      }
+      {
+        \proxy_create:nnN { rawobjects }{ fwl ! #1 } \c_object_private_str
+        \proxy_push_member
+          {
+            \object_address:nn { rawobjects }{ fwl ! #1 }
+          }
+          { next }{ str }
+      }
+  }
+
+\cs_new_protected:Nn \rawobjects_fwl_newnode:nnnNN
+  {
+    \rawobjects_fwl_inst:n { #1 }
+    \object_create:nnnNN
+      {
+        \object_address:nn { rawobjects }{ fwl ! #1 }
+      }
+      { #2 }{ #3 } #4 #5
+  }
+
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+%\end{implementation}
+%
+%\PrintIndex
+
+
+

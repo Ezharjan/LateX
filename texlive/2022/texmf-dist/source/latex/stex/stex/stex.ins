@@ -1,0 +1,46 @@
+ %%
+%% This file generates files required to use the ed package.
+%% At your command prompt write
+%%
+%%     latex stex.ins
+%%
+%% Copyright (c) 2021 Michael Kohlhase
+%%
+%% This file is distributed under the terms of the LaTeX Project Public
+%% License from CTAN archives in directory  macros/latex/base/lppl.txt.
+%% Either version 1.0 or, at your option, any later version.
+%%
+\input docstrip
+\preamble
+\endpreamble
+
+\keepsilent
+\askforoverwritefalse
+
+\generate{
+	\file{stex.cls}{\from{stex-basics.dtx}{cls}}
+	\file{stex.sty}{
+		\from{stex-basics.dtx}{package}
+		\from{stex-mathhub.dtx}{package}
+		\from{stex-references.dtx}{package}
+		\from{stex-modules.dtx}{package}
+		\from{stex-inheritance.dtx}{package}
+		\from{stex-symbols.dtx}{package}
+		\from{stex-terms.dtx}{package}
+		\from{stex-features.dtx}{package}
+		\from{stex-statements.dtx}{package}
+		\from{stex-proofs.dtx}{package}
+		% ...
+		\from{stex-metatheory.dtx}{package}
+		\from{stex-others.dtx}{package}
+	}
+}
+
+\Msg{*}
+\Msg{* You probably need to move the generated style files into a directory searched by TeX.}
+\Msg{*}
+\Msg{* And don't forget to refresh your filename database}
+\Msg{* if your TeX distribution uses such a database.}
+\Msg{*}
+
+\endbatchfile

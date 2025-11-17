@@ -1,0 +1,45 @@
+%% Copyright (C) 2021 Dennis Chen <proofprogram@gmail.com>
+%%
+%% This work may be distributed and/or modified under
+%% the conditions the LaTeX Project Public License (LPPL),
+%% either version 1.3 of this license or (at your option)
+%% any later version. The latest version of this license
+%% can be found in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+
+\input docstrip.tex
+\keepsilent
+
+\usedir{tex/latex/ifallfalse}
+
+\preamble
+This work may be distributed and/or modified under
+the conditions the LaTeX Project Public License (LPPL),
+either version 1.3 of this license or (at your option)
+any later version. The latest version of this license
+can be found in
+    http://www.latex-project.org/lppl.txt
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+\endpreamble
+
+\generate{\file{ifallfalse.sty}{\from{ifallfalse.dtx}{package}}}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* files into a directory searched by TeX:                   *}
+\Msg{*                                                           *}
+\Msg{*     ifallfalse.sty                                        *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation, run the file                *}
+\Msg{* ifallfalse.dtx through LaTeX.                             *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+\endbatchfile

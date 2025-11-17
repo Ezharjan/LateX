@@ -1,0 +1,153 @@
+%%
+%% This is file `smfbib.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% smflatex.dtx  (with options: `smfbib')
+%% 
+%%  This is smflatex v1.6 (released 2021/05/01)
+%%  LaTeX bundle for the SMF publications
+%%  (c) 1999-2021 Société mathématique de France
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\ProvidesPackage{smfbib}[2000/10/13 v1.3d
+  Automatisation des notices biblio pour la SMF]
+
+\AtEndDocument{\@makesmfbib}
+
+\newwrite\smfbib@out
+\newtoks\smfbib@toks
+
+\bgroup
+ \catcode`\%=11
+ \catcode`\{=11\catcode`\}=11
+ \catcode`\[=1\catcode`\]=2
+ \global\def\smf@pc[%]
+ \global\def\smf@com[%\smf@space\smf@space\smf@space]
+ \global\def\smf@lb[{]
+ \global\def\smf@rb[}]
+\egroup
+
+\def\@makesmfbib{%
+\bgroup
+  \def\smf@space{ }
+  \def\smf@tab{\smf@space\smf@space\smf@space\smf@space}
+  \def\do##1##2{\smfbib@toks=\@xp{##2}%
+     \immediate\write\smfbib@out{%
+     \smf@tab ##1 = \smf@lb\the\smfbib@toks\smf@rb,}}%
+  \def\language{french}%
+  \immediate\openout\smfbib@out=\jobname.smfbib
+
+  \immediate\write\smfbib@out{%
+\smf@pc&smfbib^^J%
+\smf@com bib_file\smf@lb^^J%
+\smf@com nom    =\smf@lb\jobname.smfbib\smf@rb,^^J%
+\smf@com date   =\smf@lb\number\year/\number\month/\number\day\smf@rb,^^J%
+\smf@com auteur =\smf@lb smfbib\smf@rb,^^J%
+\smf@com note   =\smf@lb\smf@rb^^J%
+\smf@com \smf@rb^^J^^J%
+}
+  \newif\ifsmf@article
+  \def\smf@tempb{smfart}\ifx\@classname\smf@tempb \smf@articletrue\fi
+  \ifsmf@article
+  \immediate\write\smfbib@out {@Article%
+\smf@lb\smf@plaintitre:\@setyear:\smf@volume:\smf@firstpage--\smf@lastpage,}
+  \else
+  \immediate\write\smfbib@out{@Book%
+\smf@lb\smf@plaintitre:\@setyear:\smf@volume, }\fi
+  \do{publisher }\smf@logo
+    \ifsubventionCNRS
+\do{sponsor   }{Centre National de la Recherche Scientifique}
+    \else\ifsubventionMCC
+\do{sponsor   }{Minist\`ere de la Culture et de la Communication}
+    \else\ifsubventionCNRSMCC
+\do{sponsor   }{Centre National de la Recherche Scientifique et
+    Minist\`ere de la Culture et de la Communication}
+    \else
+\do{sponsor   }\@empty
+    \fi\fi\fi
+\ifsmf@article
+  \do{type      }{article}\else
+  \do{type      }{monographie}\fi
+\ifx\smf@language\language
+  \do{language  }{fre}
+  \do{titre     }\@title
+  \do{title     }\@alttitle
+  \do{resume    }\@abstract
+  \do{abstract  }\@altabstract
+  \ifsmf@article\else
+    \do{shortresume    }\@shortabstract
+    \do{shortabstract  }\@shortaltabstract
+  \fi
+  \do{mots_clefs}\@keywords
+  \do{keywords  }\@altkeywords
+\else
+  \do{language  }{eng}
+  \do{titre  }\@alttitle
+  \do{title     }\@title
+  \do{resume    }\@altabstract
+  \do{abstract  }\@abstract
+  \ifsmf@article\else
+    \do{shortresume    }\@shortaltabstract
+    \do{shortabstract  }\@shortabstract
+  \fi
+  \do{keywords  }\@keywords
+  \do{mots_clefs}\@altkeywords
+\fi
+\ifsmf@editor
+  \do{editor    }\authors
+\else
+  \do{author    }\authors
+\fi
+\do{shortauthor}\shortauthors
+\edef\tmp@year{\@setyear}
+\do{year      }\tmp@year
+\do{collection}\smf@titre
+\do{volume    }\smf@volume
+\do{number    }\smf@fascicule
+\xdef\@pages{\smf@pages}
+\do{pages     }\@pages
+\do{class_math}\@subjclass
+\do{issn      }\@issn
+\do{isbn      }\@isbn
+\xdef\@pseudodoi{smf:%
+   \ifx\@issn\@empty\@isbn\else\@issn\ifx\@isbn\@empty\else/\@isbn\fi\fi:%
+   \@setyear:%
+   \smf@volume:%
+   \smf@pages:}
+\do{id        }\@pseudodoi
+\immediate\write\smfbib@out{%
+\smf@rb^^J%
+}%
+\ifsmf@tarifs
+ \newcount\@prixmembre\@prixmembre \@tarifNum
+ \newcount\@reductionmembre\@reductionmembre\@prixmembre
+ \multiply\@reductionmembre by 30\divide\@reductionmembre by 100
+ \advance\@prixmembre by -\@reductionmembre
+ \immediate\write\smfbib@out{%
+  \smf@com prix_public_euros  = \smf@lb \@tarifNum\smf@rb,  ^^J%
+  \smf@com prix_membre_euros = \smf@lb \the\@prixmembre\smf@rb,
+         \smf@com 70 \smf@pc\smf@space  du prix public%
+ }%
+\fi
+\immediate\closeout\smfbib@out
+\egroup}
+\endinput
+%%
+%% End of file `smfbib.sty'.

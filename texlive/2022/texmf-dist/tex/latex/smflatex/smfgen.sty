@@ -1,0 +1,619 @@
+%%
+%% This is file `smfgen.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% smflatex.dtx  (with options: `smfgen')
+%% 
+%%  This is smflatex v1.6 (released 2021/05/01)
+%%  LaTeX bundle for the SMF publications
+%%  (c) 1999-2021 Société mathématique de France
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\ProvidesPackage{smfgen}[2012/10/03 v1.9b
+  Fichier additionnel pour les Publications de la SMF]
+  \newif\ifsmf@nopackage
+  \DeclareOption{nopackage}{\smf@nopackagetrue}
+\newif\ifsmf@ec
+\newif\ifsmf@ae
+\newif\ifsmf@bask
+  \DeclareOption{ec}{\smf@ectrue\smf@aefalse}
+  \DeclareOption{mltex}{\smf@ecfalse\smf@aefalse}
+  \DeclareOption{ae}{\smf@ecfalse\smf@aetrue}
+  \DeclareOption{bask}{\smf@ecfalse\smf@aefalse\smf@basktrue}
+\newif\ifsmf@upitparen
+  \DeclareOption{upitparen}{\smf@upitparentrue}
+  \DeclareOption{noupitparen}{\smf@upitparenfalse}
+\newif\ifsmf@xy
+  \DeclareOption{xy}{\smf@xytrue}
+  \DeclareOption{noxy}{\smf@xyfalse}
+  \DeclareOption{euro}{\def\@FrenchCurrency{\texteuro}}
+  \DeclareOption{FF}{\def\@FrenchCurrency{FF}}
+\ExecuteOptions{ae,xy,euro,noupitparen}
+\ProcessOptions\relax
+\ifsmf@nopackage\else
+  \ifsmf@ec\RequirePackage[T1]{fontenc}\else
+%% \changes{v1.7b}{2001/10/10}{D\'efinition des guillemets retard\'ee au
+%% begin document}
+  \ifsmf@ae
+      \RequirePackage{ae}
+      \AtBeginDocument{%
+  \def\selectguillfont{\fontencoding{T1}\fontfamily{ptm}\selectfont}
+  \def\guillemotleft{{\selectguillfont\symbol{19}}}
+  \def\guillemotright{{\selectguillfont\symbol{20}}}}
+  \else
+  \ifsmf@bask
+      \RequirePackage{smfbask}
+  \else
+      \PackageWarning{smfgen}{Requiring MlTeX...}
+      \RequirePackage{mltex}
+  \fi\fi\fi
+  \ifsmf@ec
+    \RequirePackage{textcomp} % T1...
+  \else
+    \RequirePackage{europs}
+    \let\texteuro\EURofc % Adobe, modele officiel de la CE
+  \fi
+  \RequirePackage[english,frenchb]{babel}
+  \ifsmf@upitparen
+\declare@shorthand{french}{;}{%
+    \ifhmode
+      \ifdim\lastskip>\z@\unskip\penalty\@M\thinspace\else\FDP@thinspace\fi
+    \fi
+    \ifmmode\string;\else\textup{\string;}\fi}
+\declare@shorthand{french}{!}{%
+    \ifhmode
+      \ifdim\lastskip>\z@\unskip\penalty\@M\thinspace\else\FDP@thinspace\fi
+    \fi
+    \ifmmode\string!\else\textup{\string!}\fi}
+\declare@shorthand{french}{?}{%
+    \ifhmode
+      \ifdim\lastskip>\z@\unskip\penalty\@M\thinspace\else\FDP@thinspace\fi
+    \fi
+    \ifmmode\string?\else \textup{\string?}\fi}
+\declare@shorthand{french}{:}{%
+    \ifhmode
+      \ifdim\lastskip>\z@\unskip\penalty\@M\Fcolonspace\else\FDP@colonspace\fi
+    \fi
+    \ifmmode\string:\else\textup{\string:}\fi}
+\initiate@active@char{(}
+\initiate@active@char{)}
+\declare@shorthand{french}{(}{%
+    \ifmmode\string(\else\textup{\string(}\penalty\@M\fi}
+\declare@shorthand{french}{)}{%
+    \ifmmode\string)\else\penalty\@M\textup{\string)}\fi}
+\declare@shorthand{system}{(}{\string(}
+\declare@shorthand{system}{)}{\string)}
+\addto\extrasfrench{\bbl@activate{(}\bbl@activate{)}}
+\addto\noextrasfrench{\bbl@deactivate{(}\bbl@deactivate{)}}
+  \fi
+  \ifsmf@xy
+  \makeatother
+  \RequirePackage[all,ps,cmtip]{xy}\def\labelstyle{\textstyle}
+  \makeatletter
+  \let\old@xymatrixcompile\xymatrixcompile
+  \xdef\xymatrixcompile{%
+   \catcode`!=12 \catcode`;=12 \catcode`:=12 \catcode`?=12
+   \ifsmf@upitparen \catcode`)=12 \catcode`(=12\fi
+   \noexpand \old@xymatrixcompile}
+  \fi
+  \ifsmf@upitparen \catcode`)=13 \catcode`(=13 \fi
+  \catcode`!=13 \catcode`;=13 \catcode`:=13 \catcode`?=13
+  \RequirePackage{url,xspace}
+  \RequirePackage{amssymb,amscd}
+  \ifsmf@upitparen \catcode`)=12 \catcode`(=12 \fi
+  \catcode`!=12 \catcode`;=12 \catcode`:=12 \catcode`?=12
+\fi
+\def\smf@restorecmr{%
+  \renewcommand{\rmdefault}{cmr}
+  \renewcommand{\sfdefault}{cmss}
+  \renewcommand{\ttdefault}{cmtt}}
+\newif\ifsmf@editor
+\def\editor{\global\smf@editortrue\author}
+\newif\ifsubventionCNRS\subventionCNRSfalse
+\newif\ifsubventionMCC\subventionMCCfalse
+\newif\ifsubventionCNRSMCC\subventionCNRSMCCfalse
+\def\smf@year{}
+\def\smfyear#1{\def\smf@year{#1}\year#1\relax}
+\def\@setyear{\ifx\smf@year\@empty\number\year\else\smf@year\fi}
+\def\comitedered#1{\def\@comitedered{#1}}
+\let\@comitedered\@empty
+\def\comitedir#1{\def\@comitedir{#1\unskip\ (dir.)}}
+\let\@comitedir\@empty
+\let\smf@commparitaire\@empty
+\newif\ifEDP
+\def\tarifAbo#1#2#3{%            %% Europe, Hors Europe (euros), Hors Europe ($)
+  \def\@tarifAboEurope{#1}%
+  \def\@tarifAboHors{#2}%
+  \def\@tarifAboDolHors{#3}}
+\let\@tarifAboEurope\@empty
+\newif\ifsmf@tarifs
+\def\tarifNum#1#2{%              %% Euro, $
+  \smf@tarifstrue
+  \def\@tarifNum{#1}%
+  \def\@tarifNumDol{#2}}
+\let\@tarifNum\@empty
+\let\@tarifNumDol\@empty
+\def\secretariatSMF#1{\def\@secretariatSMF{#1}}
+\let\@secretariatSMF\@empty
+\def\telSMF#1{\def\@telSMF{#1}}
+\let\@telSMF\@empty
+\def\emailSMF#1{\def\@emailSMF{#1}}
+\let\@emailSMF\@empty
+\def\ISBN#1{\def\@isbn{#1}}
+\let\@isbn\@empty
+\def\ISSN#1{\def\@issn{#1}}
+\let\@issn\@empty
+\def\smf@Directeur{Directeur\xspace}
+\def\smf@logo{Soci\'et\'e Math\'ematique de France}
+\def\smf@LOGO{SOCI\'ET\'E MATH\'EMATIQUE DE FRANCE}
+\def\ps@copyright{\ps@empty
+  \def\@oddfoot{\normalfont\Small\hfil {\smf@copyright}}}
+\def\smfvolume#1{\gdef\smf@volume{#1}}
+\def\smffascicule#1{\gdef\smf@fascicule{#1}}
+\def\smffirstpage#1{\gdef\smf@firstpage{#1}}
+\def\smflastpage#1{\gdef\smf@lastpage{#1}}
+\def\smf@volume{}
+\def\smf@fascicule{}
+\def\smf@firstpage{}
+\def\smf@lastpage{}
+\def\smf@journalhead{{\normalfont\itshape \smf@titrecourt\/}\\
+ \ifx\smf@volume\@empty \else {\bfseries\smf@volume}\unskip \fi
+ \ifx\smf@fascicule\@empty \else {\ (\smf@fascicule\unskip)}\fi
+ , \@setyear
+ \ifx\smf@firstpage\@empty \else
+ , p.\ \smf@firstpage --\smf@lastpage\fi}
+\def\@tempb{smfbook}
+\ifx\@classname\@tempb
+ \def\smf@frontpages{}
+ \def\smf@pages{\ifx\smf@frontpages\@empty\else\smf@frontpages+\fi\smf@lastpage}
+ \def\mainmatter{\cleardoublepage
+   {\advance\c@page -1\xdef\smf@frontpages{\roman{page}}}%
+   \setcounter{page}{1}\def\baselinestretch{1.1}\normalfont
+   \pagenumbering{arabic}}
+ \def\ps@headings{\ps@empty
+  \def\@oddfoot{\normalfont\Tiny\hfil
+     {\smf@LOGO\ \@setyear}}%
+  \def\@evenfoot{\normalfont\tiny
+     {\MakeUppercase\smf@titrecourt
+      \ifx\smf@volume\@empty\else{\unskip\ \smf@volume}\fi\hfil}}%
+  \def\@evenhead{\normalfont\scriptsize
+     \rlap{\bfseries\thepage}\hfil \leftmark{}{}\hfil}%
+  \def\@oddhead{\normalfont\scriptsize
+     \hfil \rightmark{}{}\hfil \llap{\bfseries\thepage}}%
+  \let\@mkboth\org@markboth
+  \def\partmark    {\@secmark\markboth\partrunhead\partname}%
+  \def\chaptermark {\@secmark\markboth\chapterrunhead\chaptername}%
+  \def\sectionmark {\@secmark\markright\sectionrunhead\sectionname}%
+  \def\indexmark   {\@secmark\markboth\indexrunhead\indexname}%
+}
+\def\@shortabstract{}
+\def\@shortabstractlanguage{\@smflanguage}
+\newenvironment{shortabstract}{%
+  \begin{@genabstract}{shortabstract}%
+}{}
+\def\@setshortabstracthead{}
+\def\@setshortabstract{%
+  \ifx\@shortabstract\@empty\let\@shortabstract\@abstract\fi
+  \ifx\@shortabstract\@empty
+      \PackageWarning{smfgen}{An abstract is missing for the last page.}%
+    \else
+      \skippointrait
+      \@setgenabstract{shortabstract}
+  \fi
+  \global\let\@setshortabstract\relax}
+\def\@shortaltabstract{}
+\def\@shortaltabstractlanguage{\@smfaltlanguage}
+\newenvironment{shortaltabstract}{%
+  \begin{@genabstract}{shortaltabstract}%
+}{}
+\def\@setshortaltabstracthead{}
+\def\@setshortaltabstract{%
+  \ifx\@shortaltabstract\@empty\let\@shortaltabstract\@altabstract\fi
+  \ifx\@shortaltabstract\@empty
+      \PackageWarning{smfgen}{An alt-abstract is missing for the last page.}%
+    \else
+      \skippointrait
+      \@setgenabstract{shortaltabstract}
+  \fi
+  \global\let\@setshortaltabstract\relax}
+\if@draft\else
+\def\AMS{$\mathcal{AMS}$}
+\def\@maketitle{\cleardoublepage
+  \begingroup
+    \smf@restorecmr
+     \parindent\z@
+     \c@page-1
+     \smf@gardei\smf@gardeii
+     \smf@titlei \smf@titleii \@setdedicatory \smf@titleiii
+     \cleardoublepage
+  \endgroup}
+\def\smf@gardei{\clearpage\thispagestyle{empty}\bgroup
+  \vspace*{-2cm}\enlargethispage{2cm}
+  \topskip\z@skip
+  \begin{raggedleft}
+  \bfseries
+  \ifsmf@editor{\Large \smfedbyname \par\medskip}\fi
+  \huge
+  \def\and{\par\medskip}\authors\par
+  \end{raggedleft}
+  \vfil
+  \hrule height 1pt
+  \vfil
+  \begin{raggedright}
+  \huge\bfseries\smf@boldmath
+  \baselineskip=1.2\baselineskip
+  \MakeUppercase\@title\par
+  \vfil
+  \hrule height 1pt
+  \vfil
+  {\large \MakeUppercase\smf@titre\nobreak
+    \ifx\smf@volume\@empty\else{\unskip\ \smf@volume}\fi\par}%
+  \end{raggedright}
+  \vfil\vfil
+  {\centering\large\bfseries \smf@logo\ \@setyear\par}
+  \vfilneg\egroup}
+\def\smf@gardeii{\clearpage\thispagestyle{empty}\bgroup
+\vspace*{-2cm}\enlargethispage{2cm}
+\sffamily
+\multicolsep0pt
+\ifx\smf@commparitaire\@empty\else
+  {\hrule height1pt\vfil
+   \leftskip .1\textwidth plus 1fil minus .1\textwidth
+   \rightskip\leftskip\parfillskip0pt\relax
+   \smf@commparitaire\par\vfil}
+\fi
+\hrule height 1pt\vfil
+\begin{center}
+  {\bfseries\itshape Comit\'e de r\'edaction}\\ \bigskip
+   \begin{multicols}{2} \@comitedered \end{multicols}\par
+   \@comitedir\par
+  \vfil
+  {\bfseries\itshape Diffusion}\par\bigskip
+  \mbox {%
+   \vbox{\hsize=\ifEDP.32\else.5\fi\textwidth
+     Maison de la SMF \\ B.P. 67 \\ 13274 Marseille Cedex 9 \\ France \\
+     \texttt{smf@smf.univ-mrs.fr}}
+   \hss
+   \vbox{\hsize=\ifEDP.28\else.5\fi\textwidth
+     AMS \\ P.O. Box 6248 \\ Providence RI 02940 \\ USA \\
+     \texttt{www.ams.org}}
+   \ifEDP
+   \hss
+   \vbox{\hsize=.4\textwidth
+     EDP Sciences\\ 17, avenue du Hoggar\\ 91944 les Ulis cedex A\\ France\\
+     \texttt{www.edpsciences.com}}
+   \fi }\\
+  \vfil
+  {\bfseries\itshape Tarifs \@setyear}\par\medskip
+    {\itshape Vente au num\'ero :} \@tarifNum~\@FrenchCurrency\space
+                 (\$\,\@tarifNumDol)\\
+    \ifx\@tarifAboEurope\@empty\else
+    {\itshape Abonnement}
+      \quad Europe : \@tarifAboEurope~\@FrenchCurrency,
+            hors Europe : \@tarifAboHors~\@FrenchCurrency\space
+                  (\$\,\@tarifAboDolHors)\\\fi
+    \smallskip
+    Des conditions sp\'eciales sont accord\'ees aux membres de la SMF.\\
+  \vfil
+  {\bfseries\itshape Secr\'etariat
+   \ifx\@secretariatSMF\@empty\else : \@secretariatSMF\fi} \\
+   \smallskip
+   \smf@titre  \\
+   Soci\'et\'e Math\'ematique de France \\
+   Institut Henri Poincar\'e, 11, rue Pierre et Marie Curie \\
+   75231 Paris Cedex 05, France \\
+   \begin{tabular}{ccc}
+     T\'el : \@telSMF & $\bullet$& Fax : (33) 01 40 46 90 96\\
+     \texttt{\@emailSMF}& $\bullet$&\url{http://smf.emath.fr/}
+  \end{tabular}
+  \vfil
+  {\itshape
+   {\normalfont\copyright}\ \smf@logo\ \@setyear}\\
+\end{center}
+\medskip
+{\itshape\footnotesize\noindent
+   Tous droits r\'eserv\'es (article L~122--4 du Code de la propri\'et\'e
+   intellectuelle). Toute repr\'esentation ou reproduction int\'egrale ou
+   partielle faite sans le consentement de l'\'editeur est illicite.
+   Cette repr\'esentation ou reproduction par quelque proc\'ed\'e que ce soit
+   constituerait une contrefa\c con sanctionn\'ee par les articles L~335--2
+   et suivants du CPI. \par}
+\vfil
+\begin{center}
+  \ifx\@issn\@empty\else ISSN \@issn \\ \medskip\fi
+  \ifx\@isbn\@empty\else ISBN \@isbn \\ \fi
+\vfil
+  \smf@Directeur de la publication : \@dirpub\\
+\end{center}
+\vfil\hrule height 1pt
+\vfilneg\egroup}
+\def\smf@titlei{\clearpage\thispagestyle{empty}
+\vspace*{-2cm}\enlargethispage{2cm}
+\bgroup
+\begin{center}\bfseries\smf@boldmath
+  {\Large \MakeUppercase\smf@titre\nobreak\ \smf@volume\par}
+  \vfil\vfil
+  {\huge\MakeUppercase\@title\par}
+  \vfil
+  \ifsmf@editor{\large \smfedbyname\par\medskip}\fi
+  \def\and{\par\medskip}\centering
+  {\LARGE\authors\par}
+  \vfil\vfil
+  {\Large \smf@logo\ \@setyear\par}
+  \ifsubventionCNRS
+     \smallskip{\small
+      Publi\'e avec le concours du Centre National
+      de la Recherche Scientifique\par}\fi
+  \ifsubventionMCC
+     \smallskip{\small
+     Publi\'e avec le concours du Minist\`ere de la
+     Culture et de la Communication\par}\fi
+  \ifsubventionCNRSMCC
+     \smallskip{\small
+     Publi\'e avec le concours du Centre National
+     de la Recherche Scientifique\\
+     et du Minist\`ere de la Culture et de
+     la Communication\par}\fi
+\end{center}
+\vfilneg
+\egroup}
+\def\smf@titleiii{\clearpage\thispagestyle{copyright}
+  \markboth{\@nx\shortauthors}{\@nx\shorttitle}
+  %% INSERER UNE IMAGE
+  \null
+  \vskip 12\medskipamount plus 8\medskipamount
+  \begin{center}\Large\bfseries\smf@boldmath
+  {\MakeUppercase\@title\par}
+  \vskip 4\medskipamount plus 2\medskipamount
+  \ifsmf@editor{\smfedbyname\ }\fi
+  \def\and{,\ \penalty-1}\authors\par
+  \end{center}
+  \vskip 8\medskipamount plus 4 \medskipamount
+  \@setabstract\par
+  \vskip 1\medskipamount plus 1\medskipamount
+     \penalty-100
+  \@setaltabstract\par
+}
+\def\smf@gardeiii{%
+  \thispagestyle{empty}\bgroup
+  \vspace*{-2cm}\enlargethispage{2cm}
+  \smf@restorecmr
+  \sffamily\footnotesize
+  \columnseprule.4pt\multicolsep\z@
+  \hrule height 1pt\vfil
+  {\centering\itshape\bfseries Instructions aux auteurs\par}
+  \bigskip
+  \begin{multicols}{2}
+  \selectlanguage{french}
+  \texteplaquettefrancais\par \medskip
+  \instructionsfrancais\par
+  \end{multicols}
+  \vfil\hrule\vfil
+  {\centering \itshape\bfseries Instructions to Authors\par}
+  \bigskip
+  \begin{multicols}{2}
+  \selectlanguage{english}
+  \texteplaquetteenglish \par\medskip
+  \instructionsenglish\par
+  \end{multicols}
+  \vfil\hrule height 1pt\vfilneg\egroup}
+\def\smf@gardeiv{\clearpage\thispagestyle{empty}\bgroup\large
+  \smf@restorecmr
+  \mbox{}\vfil
+  \@setshortabstract
+  \bigskip
+  \@setshortaltabstract
+  \vfil\egroup}
+\let\specialaddresses\@empty
+\newcommand{\specialaddress}[2][]
+   {\g@addto@macro\specialaddresses{\specialaddress{#1}{#2}}}
+\def\@setspecialaddresses{\par\nobreak
+  \begingroup
+  \normalfont
+  \def\author##1{\par\bigskip}%
+  \long\def\address##1##2{\par
+       \begin{quote}\itshape
+       \ignorespaces##2\par\end{quote}}%
+  \def\curraddr##1##2{}%
+  \let\email\curraddr
+  \let\urladdr\curraddr
+  \addresses
+  \endgroup
+}
+\def\smf@curyear{0}
+\def\smf@curvol{0}
+\def\smf@printvol[#1/#2/#3]{#1#2}
+\def\smflabel#1{%          %%%  exemple : {241/***}, ou {68}
+  \setbox0=\hbox{\smf@printvol[#1//].\ }\leftskip=\wd0}
+\def\smf@revue #1#2#3#4{%
+%% {annee}{numero/etoiles}{auteur}{titre}
+   \def\smf@newyear{#1}\def\smf@newvol{#2}%
+   \ifx\smf@curyear\smf@newyear\else
+        \smallskip \penalty -100
+        {\centering {\bfseries #1\par\nobreak\smallskip\nobreak}}
+   \fi
+   \ifx\smf@curvol\smf@newvol\else
+       \leavevmode\llap{\smf@printvol [#2//].\ }\fi
+   \@ifempty{#3}{#4}{#3~--\ {\itshape #4}}
+   \par\nobreak
+   \def\smf@curyear{#1}\def\smf@curvol{#2}}
+\def\smf@liste{}
+\def\smf@pubfinale{}
+\def\smf@endbook{\smf@restorecmr
+  \clearpage
+  {\advance\c@page -1\xdef\smf@lastpage{\thepage}}%
+  \cleardoublepage \c@page 997
+        \smf@liste
+  \cleardoublepage \c@page 999
+        \smf@pubfinale
+  \cleardoublepage \c@page 1001
+        \smf@gardeiii \smf@gardeiv}
+\AtEndDocument{\smf@endbook}
+\def\smf@combien{double}\def\smf@howmany{Two}
+\def\instructionsfrancais{%
+Le manuscrit doit \^etre envoy\'e en {\itshape \smf@combien} exemplaire au
+secr\'etariat des publications en pr\'ecisant le nom de la revue.
+
+Le fichier \emph{source} \TeX\ (un seul fichier par article ou
+monographie) peut aussi \^etre envoy\'e par courrier \'electronique ou
+ftp, \emph{sous r\'eserve} que sa compilation par le secr\'etariat SMF
+soit possible. Contacter le secr\'etariat \`a l'adresse \'electronique
+\texttt{\@emailSMF} pour obtenir des pr\'ecisions.
+
+La SMF recommande \emph{vivement} l'utilisation d'\AMS-\LaTeX\ avec les
+classes \texttt{smfart} ou \texttt{smfbook}, disponibles ainsi que leur
+documentation sur le serveur \url{http://smf.emath.fr/} ou sur demande au
+secr\'etariat des publications SMF.
+
+Les fichiers \AMS-\LaTeX\ au format \texttt{amsart} ou \texttt{amsbook},
+ainsi que les fichiers \LaTeX\ au format \texttt{article} ou
+\texttt{book} sont aussi les bienvenus. Ils seront saisis suivant
+les normes suivantes:
+\begin{itemize}
+\item taille des caract\`eres \'egale \`a 10~points (option \texttt{10pt});
+\item largeur du texte (\texttt{textwidth}) de 13~cm;
+\item hauteur du texte (\texttt{textheight}) \'egale \`a 21.5~cm;
+\item le texte \'etant en outre centr\'e sur une feuille A4
+(option \texttt{a4paper}).
+\end{itemize}
+
+Les autres formats \TeX\ et les autres types de traitement de texte
+ne sont pas utilisables par le secr\'etariat et sont \emph{fortement}
+d\'econseill\'es.
+
+Avant de saisir leur texte, les auteurs sont invit\'es \`a prendre
+connaissance du document \emph{Recommandations aux auteurs\/} disponible
+au secr\'etariat des publications de la SMF ou sur le serveur de la SMF.}
+
+\def\instructionsenglish{%
+{\itshape \smf@howmany} copies of the original ma\-nu\-script
+should be sent to the
+editorial board of the SMF, indicating to which publication the paper is
+being submitted.
+
+The \TeX\ \emph{source} file (a single file for each article or monograph)
+may also be sent by electronic mail or ftp, in a format suitable for
+typsesetting by the secretary.
+Please, send an email to \texttt{\@emailSMF} for precise information.
+
+The SMF has a \emph{strong} preference for \AMS-\LaTeX\ together with
+the documentclasses \texttt{smfart} or \texttt{smfbook}, available with
+their user's guide at \url{http://smf.emath.fr/} (Internet) or on request
+from the editorial board of the SMF.
+
+The \AMS-\LaTeX\ files using the documentclasses \texttt{amsart} or
+\texttt{amsbook}, or the \LaTeX\ files using the documentclasses
+\texttt{article} or \texttt {book} are also encouraged.
+They will be prepared  following the rules below:
+\begin{itemize}
+\item font size equal to 10~points (\texttt{10pt} option);
+\item text width (\texttt{textwidth}): 13~cm;
+\item text height (\texttt{textheight}): 21.5~cm;
+\item the text being centered on a A4 page (\texttt{a4paper} option).
+\end{itemize}
+
+Files prepared with other \TeX\ dialects or other word processors cannot be
+used by the editorial board and are \emph{not} encouraged.
+
+Before preparing their electronic manuscript, the authors should read the
+\emph{Advice to authors\/}, available on request from the
+editorial board of the SMF or from the  web site of the SMF.}
+\fi
+\else
+\def\@tempb{smfart}\ifx\@classname\@tempb
+\def\ps@headings{\ps@empty
+  \def\@oddfoot{\normalfont\Tiny\hfil
+     {\smf@LOGO\ {\@setyear}}}%
+  \def\@evenfoot{\normalfont\tiny
+     {\MakeUppercase\smf@titrecourt
+      \ifx\smf@volume\@empty\else{\unskip\ \smf@volume}\fi\hfil}}%
+  \def\@evenhead{\normalfont\scriptsize
+     \rlap{\bfseries\thepage}\hfil \leftmark{}{}\hfil}%
+  \def\@oddhead{\normalfont\scriptsize
+     \hfil \rightmark{}{}\hfil \llap{\bfseries\thepage}}%
+  \let\@mkboth\@gobbletwo}
+\AtBeginDocument{\smf@getfirstpage}
+\AtEndDocument{\smf@getlastpage}
+\def\smf@getfirstpage{\gdef\smf@firstpage{1}}
+\def\smf@getlastpage{\clearpage
+  {\advance\c@page-1 \xdef\smf@lastpage{\arabic{page}}}}
+\def\smf@pages{\smf@firstpage-\smf@lastpage}
+\fi\fi
+\ps@headings
+\def\th@plain{%
+  \let\thm@indent\noindent
+  \thm@headfont{\fontfamily{ptm}\bfseries\itshape}%
+  \thm@notefont{\fontfamily{ptm}\bfseries\upshape}%
+  \thm@preskip.5\linespacing \@plus .5\linespacing
+  \thm@postskip\thm@preskip
+  \thm@headpunct{\MakePointrait}
+  \let\thmheadnl\relax
+  \itshape }
+\def\abstractheadfont{\fontfamily{ptm}\bfseries\itshape}
+\def\@savehyphenpenalty{\xdef\@tmphyphpenalty{\the\hyphenpenalty}}
+\def\@restorehyphenpenalty{%
+  \expandafter\expandafter\global\expandafter\hyphenpenalty\@tmphyphpenalty}
+\DeclareRobustCommand{\emergencyhyphenate}{\global\hyphenpenalty9999\relax}
+\def\@tocline#1#2#3#4#5#6#7{\relax
+  \@savehyphenpenalty
+  \ifnum #1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty\addvspace{#2}%
+    \begingroup \hyphenpenalty\tochyphenpenalty
+    \@ifempty{#4}{%
+      \@tempdima\csname r@tocindent\number#1\endcsname\relax
+    }{%
+      \@tempdima#4\relax
+    }%
+    \parindent\z@ \leftskip#3\relax
+      \advance\leftskip\@tempdima\relax
+    \advance\rightskip\@pnumwidth % plus1em
+    \parfillskip-\@pnumwidth
+    {#5{\leavevmode\hskip-\@tempdima #6}}%
+    \hskip 1ex\nobreak
+    \xleaders\hbox to1ex{\normalfont\hss.\hss}\hfil\nobreak
+    \hbox to\@pnumwidth{\@tocpagenum{#7}}\par
+    \nobreak
+    \endgroup
+  \fi
+  \@restorehyphenpenalty}
+\def\smfmargin#1{\if@draft\marginpar{\ ? #1}\else\fi}
+\def\smfchange#1#2{\if@draft{\boldmath\bfseries #1}\smfmargin{#2}\else {#1}\fi}
+\def\smfredac#1#2{\smfmargin{R\'edaction de \og #1 \dots #2\fg}}
+\def\smfok{\smfmargin{OK}}
+%%\let\smfchangen\@firstoftwo
+%%\let\smfchangeo\@secondoftwo
+\def\smfchangen#1#2{#1}
+\def\smfchangeo#1#2{#2}
+\let\ldots\dots
+\let\emptyset\varnothing
+\let\skpt\skippointrait
+\let\dpl\displaystyle
+\def\sfrac#1#2{{#1}/{#2}}
+\def\manualbibitems{%
+  \let\oldbibitem\bibitem
+  \def\bibitem##1{\oldbibitem[##1]{##1}}}
+\def\manualbibitems{%
+  \let\oldbibitem\bibitem
+  \def\bibitem##1{\oldbibitem[##1]{##1}}}
+  \RequirePackage{smfbib}
+\endinput
+%%
+%% End of file `smfgen.sty'.

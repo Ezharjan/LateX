@@ -1,0 +1,206 @@
+% $Id: tex4ht-mathjax.tex 1190 2022-08-29 10:21:19Z michal_h21 $
+% compile: latex tex4ht-mathjax
+%
+% Copyright 2018-2022 TeX Users Group
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
+
+\ifx \HTML\UnDef
+   \def\HTML{mathjax-latex-4ht} 
+   \def\CONFIG{\jobname}
+   \def\MAKETITLE{\author{Michal Hoftich}}
+   \def\next{\input mktex4ht.4ht  \endinput}
+   \expandafter\next
+\fi
+
+\input{common-code}
+\input{common}
+\input{tex4ht-cpright}
+
+\<mathjax-latex-4ht\><<<
+% mathjax-latex-4ht.4ht (|version), generated from |jobname.tex
+% Copyright 2018-2022 TeX Users Group
+|<TeX4ht copywrite|>
+|<required packages|>
+|<defined commands|>
+\AtBeginDocument{%
+|<configurations|>
+}
+\endinput
+>>>
+
+We don't require additional packages anymore, as everything necessary is included
+in LaTeX kernel now.
+% \RequirePackage{etoolbox,expl3,environ}
+\<required packages\><<<
+>>>
+
+The \verb|\alteqtoks| command saves the used command in HTML. It uses detokenize command
+to insert arguments verbatim. The side effect of this is that detokeize inserts space
+after each control sequence. This is completely valid TeX code, but earlier versions of
+MathJax didn't like that, rendering resulted in error.
+
+Fortunatelly, MathJax 3 supports these spaces, so we can remove regular expressions for space handling.
+The original code was this:
+
+% % convert \ { to \:{ 
+% \regex_replace_all:nnN { \x{5C} \x{20} \x{7B} } { \x{5C} \x{3A} \x{7B} } \l_tmpa_tl
+% % delete spaces before left brackets
+% \regex_replace_all:nnN { \x{20} \x{7B} } { \x{7B} } \l_tmpa_tl
+% % replace \\:{ back to \\ { -- this can be introduced by the previous regex
+% \regex_replace_all:nnN { \x{5C} \x{5C}  \x{3A} \x{7B} } { \x{5C} \x{5C} \x{20} \x{7B} } \l_tmpa_tl
+
+
+We still use regula expressions to escape invalid XML characters to entities, so it works only with LaTeX.
+
+\<defined commands\><<<
+\ExplSyntaxOn
+\cs_new_protected:Npn \alteqtoks #1
+{
+  \tl_set:Nx \l_tmpa_tl {\detokenize{#1}}
+  % % replace < > and & with xml entities
+  \regex_replace_all:nnN { \x{26} } { &amp; } \l_tmpa_tl
+  \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl 
+  \regex_replace_all:nnN { \x{3E} } { &gt; } \l_tmpa_tl
+  % replace \par command with blank lines
+  \regex_replace_all:nnN { \x{5C}par\b } {\x{A}\x{A}} \l_tmpa_tl
+  \tl_set:Nx \l_tmpb_tl{ \l_tmpa_tl }
+  \HCode{\l_tmpb_tl}
+}
+\ExplSyntaxOff
+
+>>>
+
+Provide configuratio for MathJax
+
+\<defined commands\><<<
+\NewConfigure{MathJaxConfig}{1}
+>>>
+
+The following commands are used for patching of the standard math commands and
+environments. They will then keep the LaTeX code unchanged.
+
+\<defined commands\><<<
+
+\long\def\AltlMath#1\){\expandafter\alteqtoks{\(#1\)}\)}
+\long\def\AltlDisplay#1\]{\alteqtoks{\[#1\]}\]}
+\long\def\AltMathOne#1${\alteqtoks{\(#1\)}$}
+% this seems a bit hacky -- we need to skip some code inserted at the 
+% beginning of each display math
+\long\def\AltlDisplayDollars#1$${\alteqtoks{\[#1\]}$$}
+
+\newcommand\VerbMathToks[2]{%
+  \alteqtoks{\begin{#2}
+    #1
+  \end{#2}}%
+}
+>>>
+
+The \verb|\VerbMath| command redefines environments to pass their content
+verbatim to the HTML output.
+
+\<defined commands\><<<
+\ExplSyntaxOn
+\newcommand\VerbMath[1]{%
+  \cs_if_exist:cTF{#1}{
+    \RenewDocumentEnvironment{#1}{+!b}{%
+      \NoFonts\expandafter\VerbMathToks\expandafter{\detokenize{##1}}{#1}\EndNoFonts%
+    }{}
+  }{}%
+}
+\ExplSyntaxOff
+>>>
+
+The \verb|\fixmathjaxtoc| command is used for patching commands which should
+keep their verbatim appearance in the TOC
+
+\<defined commands\><<<
+\def\fixmathjaxtoc#1{\Configure{writetoc}{\def#1{\detokenize{#1}}}}
+>>>
+
+Some math commands cause issues when used in sections, so we will deactivate them.
+
+\<defined commands\><<<
+\def\fixmathjaxsec#1{\def#1{\detokenize{#1}}}
+>>>
+
+Require verbatim math environments.
+
+\<configurations\><<<
+\VerbMath{subarray}
+\VerbMath{smallmatrix}
+\VerbMath{matrix}
+\VerbMath{pmatrix}
+\VerbMath{bmatrix}
+\VerbMath{Bmatrix}
+\VerbMath{vmatrix}
+\VerbMath{Vmatrix}
+\VerbMath{cases}
+\VerbMath{subequations}
+\VerbMath{aligned}
+\VerbMath{alignedat}
+\VerbMath{gathered}
+\VerbMath{gather}
+\VerbMath{gather*}
+\VerbMath{alignat}
+\VerbMath{alignat*}
+\VerbMath{xalignat}
+\VerbMath{xalignat*}
+\VerbMath{xxalignat}
+\VerbMath{align}
+\VerbMath{align*}
+\VerbMath{flalign}
+\VerbMath{flalign*}
+\VerbMath{split}
+\VerbMath{multline}
+\VerbMath{multline*}
+\VerbMath{equation}
+\VerbMath{equation*}
+\VerbMath{math}
+\VerbMath{displaymath}
+\VerbMath{eqnarray}
+\VerbMath{eqnarray*}
+>>>
+
+It is necessary to reset env configurations for multiline 
+environments, because default TeX4ht configurations turn
+them into pictures.
+
+\<configurations\><<<
+\ConfigureEnv{gather}{}{}{}{}
+\ConfigureEnv{gather*}{}{}{}{}
+\ConfigureEnv{multline}{}{}{}{}
+\ConfigureEnv{multline*}{}{}{}{}
+>>>
+
+
+Fixes for tables of contents.
+
+\<configurations\><<<
+\fixmathjaxsec\left
+\fixmathjaxsec\right
+\fixmathjaxtoc\int
+\fixmathjaxtoc\,
+\fixmathjaxtoc\sin
+\fixmathjaxtoc\cos
+\fixmathjaxtoc\tan
+\fixmathjaxtoc\arcsin
+\fixmathjaxtoc\arccos
+\fixmathjaxtoc\arctan
+\fixmathjaxtoc\csc
+\fixmathjaxtoc\sec
+\fixmathjaxtoc\cot
+\fixmathjaxtoc\sinh
+\fixmathjaxtoc\cosh
+\fixmathjaxtoc\tanh
+\fixmathjaxtoc\coth
+\fixmathjaxtoc\log
+\fixmathjaxtoc\ln
+\fixmathjaxtoc\sum
+\fixmathjaxtoc\(
+\fixmathjaxtoc\)
+\fixmathjaxtoc\begin
+\fixmathjaxtoc\end
+\fixmathjaxtoc\\
+\fixmathjaxtoc\exp
+>>>

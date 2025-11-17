@@ -1,0 +1,274 @@
+%%
+%% This is file `hep-math-font.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% hep-math-font-implementation.dtx  (with options: `package')
+%% This is a generated file.
+%% Copyright (C) 2019-2020 by Jan Hajer
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3c of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{hep-math-font}[2021/09/01 v1.0 selection of math fonts for latin modern]
+
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+  family=hepmathfont,
+  prefix=hepmathfont@
+}
+\DeclareStringOption[true]{symbols}
+\ProcessKeyvalOptions*
+\RequirePackage{ifluatex}
+\RequirePackage{ifxetex}
+\newif\ifxetexorluatex
+\ifxetex\xetexorluatextrue
+\else\ifluatex\xetexorluatextrue
+  \else\xetexorluatexfalse\fi
+\fi
+\RequirePackage{pdftexcmds}
+\newif\ifhepmathfont@symbols
+\ifnum\pdf@strcmp{\hepmathfont@symbols}{false}=0\else\hepmathfont@symbolstrue\fi
+\newif\ifhep@ams
+\ifnum\pdf@strcmp{\hepmathfont@symbols}{ams}=0 \hep@amstrue\fi
+\newif\ifhep@minion
+\ifnum\pdf@strcmp{\hepmathfont@symbols}{minion}=0 \hep@miniontrue\fi
+\newif\ifhepmathfont@serif
+\RequirePackage{xstring}
+\IfStrEq{\familydefault}{\sfdefault}{%
+  \hepmathfont@seriffalse}{\hepmathfont@seriftrue%
+}
+\ifhepmathfont@serif
+  \newcommand\hep@font@sf{cmssm}
+  \DeclareMathAlphabet{\mathsf}{OML}{\hep@font@sf}{m}{it}
+  \SetMathAlphabet{\mathsf}{bold}{OML}{\hep@font@sf}{b}{it}
+\else
+  \newcommand\hep@font@sf{lmr}
+  \newcommand\hep@font@text{lmss}
+  \newcommand\hep@font@math{cmssm}
+  \newcommand\hep@font@symbol{cmsssy}
+  \newcommand\hep@font@extra{cmssex}
+  \DeclareFontSubstitution{OML}{\hep@font@math}{m}{it}
+  \ifhepmathfont@symbols\ifhep@minion\else
+    \DeclareFontSubstitution{OMS}{\hep@font@symbol}{m}{n}
+    \DeclareFontSubstitution{OMX}{\hep@font@extra}{m}{n}
+  \fi\fi
+  \DeclareSymbolFont{operators}{OT1}{\hep@font@text}{m}{n}
+  \DeclareSymbolFont{letters}{OML}{\hep@font@math}{m}{it}
+  \ifhepmathfont@symbols\ifhep@minion\else
+    \DeclareSymbolFont{symbols}{OMS}{\hep@font@symbol}{m}{n}
+    \DeclareSymbolFont{largesymbols}{OMX}{\hep@font@extra}{m}{n}
+  \fi\fi
+  \SetSymbolFont{operators}{bold}{OT1}{\hep@font@text}{b}{n}
+  \SetSymbolFont{letters}{bold}{OML}{\hep@font@math}{b}{it}
+  \ifhepmathfont@symbols\ifhep@minion\else
+    \SetSymbolFont{symbols}{bold}{OMS}{\hep@font@symbol}{b}{n}
+  \fi\fi
+  \ifhepmathfont@symbols\ifhep@minion\else
+    \DeclareSymbolFont{AMSa}{U}{ssmsa}{m}{n}
+    \DeclareSymbolFont{AMSb}{U}{ssmsb}{m}{n}
+  \fi\fi
+  \AtBeginDocument{%
+    \@ifpackageloaded{esint}{%
+      \DeclareSymbolFont{largesymbolsA}{U}{ssesint}{m}{n}
+    }{}
+  }
+  \DeclareSymbolFontAlphabet{\mathrm}{operators}
+  \DeclareSymbolFontAlphabet{\mathnormal}{letters}
+  \ifhep@minion\else
+    \DeclareSymbolFontAlphabet{\mathcal}{symbols}
+  \fi
+  \DeclareMathAlphabet{\mathit}{OML}{\hep@font@text}{m}{it}
+  \SetMathAlphabet\mathit{bold}{OML}{\hep@font@text}{bx}{it}
+  \DeclareMathAlphabet{\mathsf}{OML}{\hep@font@sf}{m}{it}
+  \SetMathAlphabet{\mathsf}{bold}{OML}{\hep@font@sf}{bx}{it}
+\fi
+\ifhepmathfont@symbols
+  \RequirePackage{amssymb}
+  \RequirePackage{amstext}
+  \RequirePackage{fixmath}
+  \RequirePackage{textalpha}
+  \def\hep@Greek#1#2#3{
+    \def#1{\TextOrMath{#3}{\ifnum\fam=0 \text{#3}\else#2\fi}}%
+  }
+  \def\hep@greek#1#2#3{\let#2=#1\hep@Greek#1#2#3}
+  \providecommand*{\Alpha}{\textAlpha}
+  \providecommand*{\Beta}{\textBeta}
+  \hep@greek\Gamma\mathGamma\textGamma
+  \hep@greek\Delta\mathDelta\textDelta
+  \providecommand*{\Epsilon}{\textEpsilon}
+  \providecommand*{\Zeta}{\textZeta}
+  \providecommand*{\Eta}{\textEta}
+  \hep@greek\Theta\mathTheta\textTheta
+  \providecommand*{\Iota}{\textIota}
+  \providecommand*{\Kappa}{\textKappa}
+  \hep@greek\Lambda\mathLambda\textLambda
+  \providecommand*{\Mu}{\textMu}
+  \providecommand*{\Nu}{\textNu}
+  \hep@greek\Xi\mathXi\textXi
+  \providecommand*{\Omicron}{\textOmicron}
+  \hep@greek\Pi\mathPi\textPi
+  \providecommand*{\Rho}{\textRho}
+  \hep@greek\Sigma\mathSigma\textSigma
+  \providecommand*{\Tau}{\textTau}
+  \hep@greek\Upsilon\mathUpsilon\textUpsilon
+  \hep@greek\Phi\mathPhi\textPhi
+  \providecommand*{\Chi}{\textChi}
+  \hep@greek\Psi\mathPsi\textPsi
+  \hep@greek\Omega\mathOmega\textOmega
+  \hep@greek\alpha\mathalpha\textalpha
+  \hep@greek\beta\mathbeta\textbeta
+  \hep@greek\gamma\mathgamma\textgamma
+  \hep@greek\delta\mathdelta\textdelta
+  \hep@greek\epsilon\mathepsilon\textepsilon
+  \hep@greek\zeta\mathzeta\textzeta
+  \hep@greek\eta\matheta\texteta
+  \hep@greek\theta\maththeta\texttheta
+  \hep@greek\iota\mathiota\textiota
+  \hep@greek\kappa\mathkappa\textkappa
+  \hep@greek\lambda\mathlambda\textlambda
+  \hep@greek\mu\mathmu\textmu
+  \hep@greek\nu\mathnu\textnu
+  \hep@greek\xi\mathxi\textxi
+  \providecommand*{\omicron}{\textomicron}
+  \hep@greek\pi\mathpi\textpi
+  \hep@greek\rho\mathrho\textrho
+  \hep@greek\sigma\mathsigma\textsigma
+  \hep@greek\varsigma\mathvarsigma\textvarsigma
+  \providecommand*{\finalsigma}{\varsigma}
+  \hep@greek\tau\mathtau\texttau
+  \hep@greek\upsilon\mathupsilon\textupsilon
+  \hep@greek\phi\mathphi\textphi
+  \hep@greek\chi\mathchi\textchi
+  \hep@greek\psi\mathpsi\textpsi
+  \hep@greek\omega\mathomega\textomega
+  \hep@greek\digamma\mathdigamma\textdigamma
+  \providecommand*{\Digamma}{\textDigamma}
+  \providecommand*{\stigma}{\textstigma}
+  \providecommand*{\varstigma}{\textvarstigma}
+  \providecommand*{\koppa}{\textkoppa}
+  \providecommand*{\Koppa}{\textKoppa}
+  \providecommand*{\qoppa}{\textqoppa}
+  \providecommand*{\Qoppa}{\textQoppa}
+  \providecommand*{\Stigma}{\textStigma}
+  \providecommand*{\Sampi}{\textSampi}
+  \providecommand*{\sampi}{\textsampi}
+  \hep@greek\varpi\mathvarpi\textpisymbol
+  \providecommand*{\pisymbol}{\varpi}
+  \hep@greek\varrho\mathvarrho\textrhosymbol
+  \hep@greek\rhosymbol\mathvarrho\textrhosymbol
+  \hep@greek\vartheta\mathvartheta\textthetasymbol
+  \providecommand*{\thetasymbol}{\vartheta}
+  \hep@greek\varepsilon\mathvarepsilon\textepsilon
+  \hep@Greek\epsilonsymbol\mathepsilon\textepsilonsymbol
+  \hep@greek\varphi\mathvarphi\textphi
+  \hep@Greek\phisymbol\mathphi\textphisymbol
+  \ifdefined\varbeta
+    \hep@greek\varbeta\mathvarbeta\textbetasymbol
+  \else
+    \providecommand*{\varbeta}{\textbetasymbol}
+  \fi
+  \providecommand*{\betasymbol}{\varbeta}
+  \ifdefined\varkappa
+    \hep@greek\varkappa\mathvarkappa\textkappasymbol
+  \else
+    \providecommand*{\varkappa}{\textkappasymbol}
+  \fi
+  \providecommand*{\kappasymbol}{\varkappa}
+  \providecommand*{\Thetasymbol}{\textThetasymbol}
+  \@ifl@aded{def}{tuenc-greek}{\input{alphabeta-tuenc.def}}{}
+  \@ifl@aded{def}{lgrenc}{\input{alphabeta-lgr.def}}{}
+  \ifdefined\DeclareUnicodeCharacter
+    \DeclareUnicodeCharacter{0393}{\Gamma}
+    \DeclareUnicodeCharacter{0394}{\Delta}
+    \DeclareUnicodeCharacter{0398}{\Theta}
+    \DeclareUnicodeCharacter{039B}{\Lambda}
+    \DeclareUnicodeCharacter{039E}{\Xi}
+    \DeclareUnicodeCharacter{03A0}{\Pi}
+    \DeclareUnicodeCharacter{03A3}{\Sigma}
+    \DeclareUnicodeCharacter{03A5}{\Upsilon}
+    \DeclareUnicodeCharacter{03A6}{\Phi}
+    \DeclareUnicodeCharacter{03A8}{\Psi}
+    \DeclareUnicodeCharacter{03A9}{\Omega}
+    \DeclareUnicodeCharacter{03B1}{\alpha}
+    \DeclareUnicodeCharacter{03B2}{\beta}
+    \DeclareUnicodeCharacter{03B3}{\gamma}
+    \DeclareUnicodeCharacter{03B4}{\delta}
+    \DeclareUnicodeCharacter{03B5}{\varepsilon}
+    \DeclareUnicodeCharacter{03B6}{\zeta}
+    \DeclareUnicodeCharacter{03B7}{\eta}
+    \DeclareUnicodeCharacter{03B8}{\theta}
+    \DeclareUnicodeCharacter{03B9}{\iota}
+    \DeclareUnicodeCharacter{03BA}{\kappa}
+    \DeclareUnicodeCharacter{03BB}{\lambda}
+    \DeclareUnicodeCharacter{03BC}{\mu}
+    \DeclareUnicodeCharacter{03BD}{\nu}
+    \DeclareUnicodeCharacter{03BE}{\xi}
+    \DeclareUnicodeCharacter{03C0}{\pi}
+    \DeclareUnicodeCharacter{03C1}{\rho}
+    \DeclareUnicodeCharacter{03C2}{\varsigma}
+    \DeclareUnicodeCharacter{03C3}{\sigma}
+    \DeclareUnicodeCharacter{03C4}{\tau}
+    \DeclareUnicodeCharacter{03C5}{\upsilon}
+    \DeclareUnicodeCharacter{03C6}{\varphi}
+    \DeclareUnicodeCharacter{03C7}{\chi}
+    \DeclareUnicodeCharacter{03C8}{\psi}
+    \DeclareUnicodeCharacter{03C9}{\omega}
+    \DeclareUnicodeCharacter{03D1}{\thetasymbol}
+    \DeclareUnicodeCharacter{03D5}{\phisymbol}
+    \DeclareUnicodeCharacter{03D6}{\pisymbol}
+    \DeclareUnicodeCharacter{03DD}{\digamma}
+    \DeclareUnicodeCharacter{03F1}{\rhosymbol}
+    \DeclareUnicodeCharacter{03F5}{\epsilonsymbol}
+  \fi
+
+  \ifxetexorluatex
+    % missing code
+  \else
+    \RequirePackage{substitutefont}
+    \substitutefont{LGR}{\rmdefault}{lmr}
+    \DeclareFontFamily{LGR}{\rmdefault}{}
+    \DeclareFontShape{LGR}{\rmdefault}{b}{n}{<->ssub*lmr/bx/n}{}
+    \DeclareFontShape{LGR}{\rmdefault}{b}{sc}{<->ssub*lmr/bx/sc}{}
+    \substitutefont{LGR}{\ttdefault}{lmtt}
+    \DeclareFontFamily{LGR}{\ttdefault}{}
+    \DeclareFontShape{LGR}{\ttdefault}{b}{n}{<->ssub*lmtt/bx/n}{}
+    \substitutefont{LGR}{\sfdefault}{lmss}
+    \DeclareFontFamily{LGR}{\sfdefault}{}
+    \DeclareFontShape{LGR}{\sfdefault}{b}{n}{<->ssub*lmss/bx/n}{}
+    \DeclareFontShape{LGR}{\sfdefault}{b}{sc}{<->ssub*lmss/bx/sc}{}
+  \fi
+  \ifhep@minion
+    \RequirePackage{MnSymbol}
+  \else
+    \RequirePackage{exscale}
+    \RequirePackage{amssymb}
+  \fi
+  \RequirePackage{bm}
+  \AtBeginDocument{\let\mathbf\bm}
+  \g@addto@macro\bfseries{\boldmath}
+  \DeclareMathAlphabet{\mathtt}{OT1}{lmtt}{m}{n}
+  \SetMathAlphabet{\mathtt}{bold}{OT1}{lmtt}{bx}{n}
+  \DeclareMathAlphabet{\mathscr}{U}{rsfs}{m}{n}
+  \ifhep@minion
+    \DeclareMathAlphabet{\mathbb}{U}{%
+      \ifhepmathfont@serif dsrom\else dsss\fi%
+    }{m}{n}
+  \else
+    \ifhep@ams\else
+      \SetMathAlphabet{\mathbb}{normal}{U}{%
+        \ifhepmathfont@serif dsrom\else dsss\fi%
+      }{m}{n}
+    \fi
+  \fi
+\fi
+
+\endinput
+%%
+%% End of file `hep-math-font.sty'.

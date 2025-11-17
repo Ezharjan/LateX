@@ -1,0 +1,921 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2009–2018 by Guido Diepen <guido@guidodiepen.nl>
+% Parts provided by Edson Valle
+% Copyright (C) 2021–2022 Marei Peischl <marei@peitex.de>
+% ---------------------------------------------------------------------------
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+% http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008/05/04 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainers of this work are
+% Marei Peischl <marei@peitex.de>
+% Guido Diepen <guido@guidodiepen.nl>
+%
+% The development respository can be found at
+% https://github.com/gdiepen/latexbeamer-handoutWithNotes
+% Please use the issue tracker for feedback!
+%
+% This work consists of the files handoutWithNotes.dtx and handoutWithNotes.ins
+% and the derived filebase handoutWithNotes.sty.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{handoutWithNotes.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+%<package>\ProvidesPackage{handoutWithNotes}
+%<*package>
+    [2022/02/22 v1.3 pgfpages layouts to print beamer slides with notes]
+%</package>
+%
+%<*driver>
+\documentclass{l3doc}
+\usepackage{tikz}
+\usepackage{handoutWithNotes}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\DisableImplementation
+
+\begin{document}
+	\ExplSyntaxOn
+	\begingroup
+	\def\pgfpageoptionwidth{16cm}
+	\def\pgfpageoptionheight{9cm}
+	\def\pgfpageoptionborder{5mm}
+	\def\paperwidth{\pgfpageoptionwidth}
+	\cs_set:Nn \__handoutWithNotes_pageheight: {\pgfpageoptionheight}
+	\use:c {__handoutWithNotes@initNotesBox} {0}
+	\hbox_gset_to_wd:Nnn \g_handoutWithNotes_notes_box {\box_wd:N \g_handoutWithNotes_notes_box} {\hspace*{1in-\parindent}\vbox{\unvbox\g_handoutWithNotes_notes_box}\hss}
+	\endgroup
+	\ExplSyntaxOff
+  \DocInput{handoutWithNotes.dtx}
+  \PrintChanges
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{592}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{1.1}{2021/11/07}{Converted to use l3build}
+% \changes{1.1}{2021/11/07}{Add PDF documentation}
+%
+% \providecommand*{\url}{\texttt}
+% \providecommand*\hook[1]{\texttt{#1}}
+% \GetFileInfo{handoutWithNotes.dtx}
+% \title{The \textsf{handoutWithNotes} package}
+% \author{Guido Diepen <guido@guidodiepen.nl> \and Marei Peischl <marei@peitex.de>}
+% \date{\fileversion (\filedate)}
+%
+% \maketitle
+% \begin{documentation}
+% \begin{abstract}
+%	This package provides page layouts based on \pkg{pagepages} to allow users to create printable handouts with note pages for their \pkg{beamer} presentation.
+%
+% It allows to place ruled note pages for handwritten notes or include beamers note pages directly.
+% \end{abstract}
+% \section{Quickstart}
+% \label{sec:quickstart}
+%	\pkg{handoutWithNotes} only defines pgfpages layout. The users have to activate it afterwards.
+% A minimal example to use the package would like the following listing:
+% \begin{verbatim}
+% \documentclass{beamer}
+% \usepackage{handoutWithNotes}% load the package
+% \pgfpagesuselayout{3 on 1 with notes}% select the layout
+% \begin{document}
+% Place your beamer content in here
+% \end{document}
+% \end{verbatim}
+% Without additional options the paper size will stay the same in contrast to the document without using \pkg{handoutWithNotes}.
+% In most cases a printable layout might be more usefull and some margin might also be nice.
+% This can be achieved by using \pkg{pgfpages} options:
+% \begin{verbatim}
+% \pgfpagesuselayout{3 on 1 with notes}[a4paper,border shrink=5mm]
+% \end{verbatim}
+% To see all available options have a look at the \pkg{pgfpages} part of the pgf manual \cite{pgfpages}.
+%
+% \section{Package options}
+% \pkg{handoutWithNotes} support package options to modify the note boxes.
+%  There are some general options but also others which depend on the setting to use handwritten or beamer notes.
+%
+% \DescribeOption{slide-frame}
+% \DescribeOption{note-frame}
+% By default the scaled pages are not framed. Depending on the beamer layout it might be usefull to add a frame around the slides. This can be done by the two booleans options \cs{slide-frame} and \cs{note-frame}.
+%
+% \subsection{Handwritten notes}
+% By default the note box consists of 8 lines for handwritten notes.
+% Beamer notes are ignored.
+%
+% \DescribeOption{lines} The \cs{lines} option accepts an integer value. It can be zero. The space between the lines will be filled. The size of the box will not change.
+%
+% \changes{1.1}{2021/11/07}{Add support for graph ruled paper}
+% \DescribeOption{graph}  The \cs{graph} option allows to switch from the ruled boxes to a graph ruled box layout. Here the scaling is done differently, because it might be usefull to select the size of the resulting grid manually. In case a boolean value is used for this opton it will simply switch between ruled and graph ruled paper layouts. The default grid size is 5mm. To change this size \cs{graph} also can accept dimen values like \cs{graph=1cm}. This size will be the resulting size. Conversion and scaling is done automatically.
+%
+% \DescribeOption{rule} The \cs{rule} option can be used to adjust the thickness of drawing for graph ruled paper. Please pay attention that this value depends on the scaling.
+%
+% \subsection{Beamer notes}
+% \DescribeOption{beamer-notes} The \cs{beamer-notes} option allows to use \pkg{beamer}s note pages directly.
+% It's a boolean option which uses “true” if no value is given.
+% Have a look at the \pkg{beamer} documentation for guidance on how to use it \cite{beameruserguide}.
+% The template for these slides will be set to plain automatically to leave as much as space as possible for the notes.
+% This option will also set beamers mode to handout to ensure the order of the note pages and the slides will match.
+% Scaling will be identical to the content slide.
+%
+% \section{Customization}
+% \subsection{Title}
+% The package useds the translator package \cite{translator} (as it's beamer's default) to translate the title of the notes box.
+% By default \pkg{handoutWithNotes} supports English, German and French.
+% Additional languages can be added by using a similar structure.
+% \begin{verbatim}
+% \providetranslation[to=English]{Notes}{Notes}
+% \providetranslation[to=German]{Notes}{Notizen}
+% \providetranslation[to=French]{Notes}{Notes}
+% \end{verbatim}
+%
+% \subsection{Hooks}
+% \pkg{handoutWithNotes} provides hooks to add \LaTeX-Code to be executed in specific positions while creating the notes box.
+% These hooks only are available with the ruled or graph ruled boxes. To modify the layout of the layout of the beamer note pages use beamer templates \cite{beameruserguide}.
+% The implementation is based on the kernels hook management for details have a look at the corresponding documentation \cite{lthooks-doc}.
+%
+% \begin{description}
+% \item[\hook{handoutWithNotes/notesbox}]
+%      This hook will be executed at the beginning of each notsbox. One can use it to change color or add font modifications.
+% \item[\hook{handoutWithNotes/notesbox/title}]
+% 		 This hook will be used right before the title of the notes box is typeset. It's inside a group including only the title. This will (except if global changes are enforced) not affect the box content.
+% \item[\hook{handoutWithNotes/notesbox/content}]
+%			 This hook is added after the Title. It can be used to add text or additional layout options. It's executed in inner vertical mode. For horizontal content there might be some adjustments necessary.
+% \end{description}
+%
+% \section{Layouts provided by this package}
+% This section shows scaled drafts of the layouts provided by \pkg{handoutsWithNotes}.
+% The illustration is using a4paper a 16:9 aspect ration for the slides and a border shrink of 5mm as described in \ref{sec:quickstart}.
+% \begin{itemize}
+% \item 1 on 1 with notes landscape\par\nopagebreak
+% \ExplSyntaxOn
+% \box_resize_to_wd:Nn \g_handoutWithNotes_notes_box {\dimexpr.5\paperheight-1cm}
+% \cs_new:Nn \print_demo_slide_and_layout:nnn {
+% \node[anchor=west,fill=blue!15,inner~sep=0pt,minimum~height=\dim_eval:n {\box_ht:N \g_handoutWithNotes_notes_box},minimum~width=\dim_eval:n {\box_wd:N \g_handoutWithNotes_notes_box}] at (.5,#1) {\Huge Slide~#2};
+% \node[anchor=east,inner~sep=5mm] at (#3,#1) {\box_use:N \g_handoutWithNotes_notes_box};
+% }
+% \noindent\resizebox{\linewidth}{!}{%
+% \begin{tikzpicture}
+%	\draw(0,-.5\paperwidth)rectangle(\paperheight,.5\paperwidth);
+% \print_demo_slide_and_layout:nnn  {0} {} {\paperheight}
+% \end{tikzpicture}
+% }
+% \ExplSyntaxOff
+% \item 2 on 1 with notes landscape\par\nopagebreak
+% \ExplSyntaxOn
+% \resizebox{\linewidth}{!}{%
+% \begin{tikzpicture}
+%	\draw(0,-.5\paperwidth)rectangle(\paperheight,.5\paperwidth);
+% \print_demo_slide_and_layout:nnn {.25\paperwidth} {1} {\paperheight}
+% \print_demo_slide_and_layout:nnn {-.25\paperwidth} {2} {\paperheight}
+% \end{tikzpicture}
+% }
+% \ExplSyntaxOff
+% \item 1 on 1 with notes\par\nopagebreak
+% \ExplSyntaxOn
+% \box_resize_to_wd:Nn \g_handoutWithNotes_notes_box {\dimexpr\paperwidth-1cm}
+% \centerline{
+% \resizebox{.5\linewidth}{!}{%
+% \begin{tikzpicture}
+%	\draw(0,-.5\paperheight)rectangle(\paperwidth,.5\paperheight);
+% \node[anchor=west,fill=blue!15,inner~sep=0pt,minimum~height=\dim_eval:n {\box_ht:N \g_handoutWithNotes_notes_box},minimum~width=\dim_eval:n {\box_wd:N \g_handoutWithNotes_notes_box}] at (.5,.25\paperheight) {\Huge Slide};
+% \node[anchor=east,inner~sep=5mm] at (\paperwidth,-.25\paperheight) {\box_use:N \g_handoutWithNotes_notes_box};
+% \end{tikzpicture}
+% }
+% }
+% \ExplSyntaxOff
+% \item 2 on 1 with notes\par\nopagebreak
+% \ExplSyntaxOn
+% \box_resize_to_wd:Nn \g_handoutWithNotes_notes_box {\dimexpr.5\paperwidth-1cm}
+% \centerline{
+% \noindent\resizebox{.5\linewidth}{!}{%
+% \begin{tikzpicture}
+%	\draw(0,-.5\paperheight)rectangle(\paperwidth,.5\paperheight);
+% \print_demo_slide_and_layout:nnn {.25\paperheight} {1} {\paperwidth}
+% \print_demo_slide_and_layout:nnn {-.25\paperheight} {2} {\paperwidth}
+% \end{tikzpicture}
+% }
+% }
+% \ExplSyntaxOff
+% \item 3 on 1 with notes\par\nopagebreak
+% \ExplSyntaxOn
+% \centerline{
+% \noindent\resizebox{.5\linewidth}{!}{%
+% \begin{tikzpicture}
+%	\draw(0,-.5\paperheight)rectangle(\paperwidth,.5\paperheight);
+% \print_demo_slide_and_layout:nnn {.33\paperheight} {1} {\paperwidth}
+% \print_demo_slide_and_layout:nnn {0} {2} {\paperwidth}
+% \print_demo_slide_and_layout:nnn {-.33\paperheight} {3} {\paperwidth}
+% \end{tikzpicture}
+% }
+% }
+% \ExplSyntaxOff
+% \item 4 on 1 with notes\par\nopagebreak
+% \ExplSyntaxOn
+% \centerline{
+% \box_resize_to_wd:Nn \g_handoutWithNotes_notes_box {\dimexpr.5\paperwidth-1cm}
+% \noindent\resizebox{.5\linewidth}{!}{%
+% \begin{tikzpicture}
+%	\draw(0,-.5\paperheight)rectangle(\paperwidth,.5\paperheight);
+% \print_demo_slide_and_layout:nnn {.375\paperheight} {1} {\paperwidth}
+% \print_demo_slide_and_layout:nnn {.125\paperheight} {2} {\paperwidth}
+% \print_demo_slide_and_layout:nnn {-.125\paperheight} {3} {\paperwidth}
+% \print_demo_slide_and_layout:nnn {-.375\paperheight} {4} {\paperwidth}
+% \end{tikzpicture}
+% }
+% }
+% \ExplSyntaxOff
+% \end{itemize}
+%
+% \begin{thebibliography}{1}
+% \bibitem{pgfpages} Till Tantau. TikZ \& PGF, Manual for Version 3.1.9a. 2021-05-15. \url{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}
+% \bibitem{beameruserguide} Till Tantau, Joseph Wright, Vedran Miletić. The beamer class, User Guide for version 3.64. 2021-10-19. \url{http://mirrors.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}
+% \bibitem{translator} Joseph Wright. translator – Easy translation of strings in \LaTeX, v1.12d. 2021-05-31. \url{http://mirrors.ctan.org/macros/latex/contrib/translator/translator.pdf}
+% \bibitem{lthooks-doc} Franz Mittelbach. The lthooks package, v1.0n. 2021-06-15. \url{http://mirrors.ctan.org/macros/latex/base/lthooks-doc.pdf}
+% \end{thebibliography}
+%
+% \end{documentation}
+% \begin{implementation}
+% \section{Implementation}
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%<@@=handoutWithNotes>
+%    \end{macrocode}
+%    \begin{macrocode}
+\ProvidesPackage{handoutWithNotes}[2022/02/02 v1.2
+  pgfpages layouts to print beamer slides with notes]
+\RequirePackage{l3keys2e}
+\ExplSyntaxOn
+\dim_new:N \g_handoutWithNotes_gridsize_dim
+\dim_gset:Nn \g_handoutWithNotes_gridsize_dim {5mm}
+\keys_define:nn {handoutWithNotes} {
+  slide-frame .bool_gset:N =  \g_handoutWithNotes_print_slide_frame_bool,
+  slide-frame .initial:n = false,
+  slide-frame .default:n = true,
+  note-frame .bool_gset:N =  \g_handoutWithNotes_print_note_frame_bool,
+  note-frame .initial:n = false,
+  note-frame .default:n = true,
+  beamer-notes .bool_gset:N = \g_handoutWithNotes_beamer_notes_bool,
+  beamer-notes .initial:n = false,
+  beamer-notes .default:n = true,
+  lines .int_gset:N = \g_handoutWithNotes_lines_int,
+  lines .initial:n = 8,
+  rule .dim_gset:N = \g_handoutWithNotes_rule_dim,
+  rule .initial:n = \fboxrule,
+  graph .bool_gset:N = \g_handoutWithNotes_graph_bool,
+  graph .default:n = true,
+  graph .initial:n = false,
+  graph / unknown .code:n = \bool_gset:N \g_handoutWithNotes_graph_bool
+    \dim_gset:Nn \g_handoutWithNotes_gridsize_dim {#1},
+}
+\ProcessKeysOptions{handoutWithNotes}
+%    \end{macrocode}
+%
+% \begin{macro}{\handoutWithNotes@@@@conditionalFrame}
+%    \begin{macrocode}
+\newcommand*{\handoutWithNotes@@@@conditionalFrame}[1]{
+  \bool_if:cT {g_handoutWithNotes_print_#1_frame_bool} {\pgfusepath{stroke}}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\ExplSyntaxOff
+\RequirePackage{pgfpages}
+\RequirePackage{translator}
+\providetranslation[to=English]{Notes}{Notes}
+\providetranslation[to=German]{Notes}{Notizen}
+\providetranslation[to=French]{Notes}{Notes}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \changes{1.2}{2022/02/02}{Add support for dvipspdf workflows}
+%    \begin{macrocode}
+\sys_if_output_dvi:TF {
+  \cs_set:Nn \@@_pageheight: {\paperheight}
+}{
+  \cs_if_exist:NTF \pageheight {
+    \cs_set:Nn \@@_pageheight: {\pageheight}
+  } {
+    \cs_set:Nn \@@_pageheight: {\pdfpageheight}
+  }
+}
+\box_new:N  \g_handoutWithNotes_notes_box
+\tl_new:N \l_handoutWithNotes_title_tl
+\hook_new:n {handoutWithNotes/notesbox}
+\hook_new:n {handoutWithNotes/notesbox/title}
+\hook_new:n {handoutWithNotes/notesbox/content}
+\dim_new:N \l_handoutWithNotes_notes_dim
+\dim_new:N \l_handoutWithNotes_scaled_gridsize_dim
+%    \end{macrocode}
+%
+% \begin{macro}{\@@@initNotesBox}
+%    \begin{macrocode}
+\newcommand{\@@@initNotesBox}[1]{
+  \bool_if:NTF  \g_handoutWithNotes_beamer_notes_bool {
+    \beamer@twoscreensnotestrue
+    \setbeameroption{show~notes}
+    \gdef\beamer@currentmode{handout}
+    \setbeamertemplate{note~page}[plain]
+    \let\beamer@outsideframenote
+      \@@@beamer@outsideframenote
+    \msg_new:nnn {handoutWithNotes} {patch-beamer@outsideframenote}
+      {I~am~patching~the~note~mechanism~to~be~able~to~place
+         ~multiple~note~pages~on~one~physical~page.}
+    \msg_info:nn {handoutWithNotes} {patch-beamer@outsideframenote}
+  }{
+    \dim_set:Nn \l_tmpa_dim {\pgfpageoptionwidth}
+    \dim_set:Nn \l_tmpb_dim {\pgfpageoptionborder}
+    \dim_set:Nn \l_handoutWithNotes_scaled_gridsize_dim {
+      \g_handoutWithNotes_gridsize_dim
+      * \dim_ratio:nn {\paperwidth}{.5\l_tmpa_dim - 2\l_tmpb_dim}
+    }
+    \vbox_gset:Nn \g_handoutWithNotes_notes_box {
+      \hsize=\paperwidth
+      \translatelet{\l_handoutWithNotes_title_tl}{Notes}%
+      \hook_use:n {handoutWithNotes/notesbox}
+      \tl_if_empty:NF \l_handoutWithNotes_title_tl {
+        \noindent\hook_use:n {handoutWithNotes/notesbox/title}
+        \l_handoutWithNotes_title_tl
+      }
+    }
+    \dim_set:Nn \l_handoutWithNotes_notes_dim {
+      \@@_pageheight:
+      -\box_ht:N \g_handoutWithNotes_notes_box
+      -\box_dp:N \g_handoutWithNotes_notes_box
+      -\topskip
+      -\medskipamount
+    }
+    \vbox_gset:Nn \g_handoutWithNotes_notes_box {
+      \vbox_to_ht:nn {\@@_pageheight:} {
+        \hsize=\paperwidth
+        \skip_vertical:n {-1in}
+        \skip_horizontal:n {-1in}
+        \vbox_to_ht:nn {\@@_pageheight:} {
+          \skip_vertical:n {\topskip}
+          \hook_use:n {handoutWithNotes/notesbox}
+          \vbox_unpack_drop:N \g_handoutWithNotes_notes_box
+          \skip_vertical:n {\fill}
+          \hook_use:n {handoutWithNotes/notesbox/content}
+          \skip_vertical:n {\fill}
+          \bool_if:NTF \g_handoutWithNotes_graph_bool {
+            \vbox_to_ht:nn {\l_handoutWithNotes_notes_dim} {
+              \smash{
+                \rule[-\l_handoutWithNotes_notes_dim]
+                  {\g_handoutWithNotes_rule_dim}
+                  {\l_handoutWithNotes_notes_dim}
+                \dim_step_inline:nnnn
+                  {
+                    \l_handoutWithNotes_scaled_gridsize_dim
+                    +\g_handoutWithNotes_rule_dim
+                  }
+                  {\l_handoutWithNotes_scaled_gridsize_dim+1sp}
+                  {\paperwidth}
+                  {
+                    \skip_horizontal:n {
+                      \l_handoutWithNotes_scaled_gridsize_dim
+                      -\g_handoutWithNotes_rule_dim
+                    }
+                    \rule[-\l_handoutWithNotes_notes_dim]
+                      {\g_handoutWithNotes_rule_dim}
+                      {\l_handoutWithNotes_notes_dim}
+                  }
+              }
+              \par\nointerlineskip
+              \rule{\paperwidth}{\g_handoutWithNotes_rule_dim}\par
+              \dim_step_inline:nnnn
+                {
+                  \g_handoutWithNotes_rule_dim
+                  +\l_handoutWithNotes_scaled_gridsize_dim
+                  +1sp
+                }
+                {\l_handoutWithNotes_scaled_gridsize_dim+1sp}
+                {\l_handoutWithNotes_notes_dim}
+                {
+                  \nointerlineskip
+                  \skip_vertical:n {
+                    \l_handoutWithNotes_scaled_gridsize_dim
+                    -\g_handoutWithNotes_rule_dim
+                  }
+                  \rule{\paperwidth}{\g_handoutWithNotes_rule_dim}
+                  \par\nointerlineskip
+                }
+              \skip_vertical:n {\fill}
+            }
+          }{
+            \int_step_inline:nn {\g_handoutWithNotes_lines_int} {
+              \hrule width\paperwidth\skip_vertical:n {\fill}
+            }
+          }
+        }
+      }
+    }
+    \int_step_inline:nnn {#1+1} {2*#1} {
+      \pgfpagesshipoutlogicalpage{##1}
+      \box_use:N \g_handoutWithNotes_notes_box
+    }
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%backwards compatibility
+%    \begin{macrocode}
+\let\notesbox\g_handoutWithNotes_notes_box
+\ExplSyntaxOff
+%    \end{macrocode}
+% 1 on 1 with notes landscape
+%    \begin{macrocode}
+\pgfpagesdeclarelayout{1 on 1 with notes landscape} {
+  \edef\pgfpageoptionheight{\the\paperwidth}
+  \edef\pgfpageoptionwidth{\the\paperheight}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \setkeys{pgfpagesuselayoutoption}{landscape}
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=2,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
+    last logical shipout=1%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.5\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.5\pgfphysicalheight},%
+    copy from=2,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+    \AtBeginDocument{
+      \@@@initNotesBox{1}
+    }
+}
+%    \end{macrocode}
+% 4 on 1 with notes
+%    \begin{macrocode}
+ \pgfpagesdeclarelayout{4 on 1 with notes} {
+    \edef\pgfpageoptionheight{\the\paperheight}
+    \edef\pgfpageoptionwidth{\the\paperwidth}
+    \edef\pgfpageoptionborder{0pt}
+ }
+ {
+    \pgfpagesphysicalpageoptions
+    {%
+    logical pages=8,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
+    last logical shipout=4%
+    }
+
+    \pgfpageslogicalpageoptions{1}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.875\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+    }%
+    \pgfpageslogicalpageoptions{2}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.625\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+    }%
+    \pgfpageslogicalpageoptions{3}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.375\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+    }%
+    \pgfpageslogicalpageoptions{4}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.125\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+    }%
+
+  \pgfpageslogicalpageoptions{5}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.875\pgfphysicalheight},%
+    copy from=5,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+    }%
+    \pgfpageslogicalpageoptions{6}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.625\pgfphysicalheight},%
+    copy from=6,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+    }%
+    \pgfpageslogicalpageoptions{7}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.375\pgfphysicalheight},%
+    copy from=7,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+    }%
+    \pgfpageslogicalpageoptions{8}
+    {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.25\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.125\pgfphysicalheight},%
+    copy from=8,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+    }%
+
+  \AtBeginDocument{
+    \csname @@@initNotesBox\endcsname{4}
+  }
+}
+%    \end{macrocode}
+% 2 on 1 with notes
+%    \begin{macrocode}
+\pgfpagesdeclarelayout{2 on 1 with notes} {
+  \edef\pgfpageoptionheight{\the\paperheight}
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
+    last logical shipout=2%
+  }
+
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight},%
+    copy from=3,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight},%
+    copy from=4,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \AtBeginDocument{
+    \csname @@@initNotesBox\endcsname{2}
+  }
+}
+%    \end{macrocode}
+% 3 on 1 with notes
+%    \begin{macrocode}
+\pgfpagesdeclarelayout{3 on 1 with notes} {
+  \edef\pgfpageoptionheight{\the\paperheight}
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=6,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
+    last logical shipout=3%
+  }
+
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.33\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.83\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.33\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.50\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.33\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.17\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.33\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.83\pgfphysicalheight},%
+    copy from=4,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \pgfpageslogicalpageoptions{5}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.33\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.50\pgfphysicalheight},%
+    copy from=5,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \pgfpageslogicalpageoptions{6}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.33\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.17\pgfphysicalheight},%
+    copy from=6,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \AtBeginDocument{
+    \csname @@@initNotesBox\endcsname{3}
+  }
+}
+%    \end{macrocode}
+% 2 on 1 with notes landscape
+%    \begin{macrocode}
+ \pgfpagesdeclarelayout{2 on 1 with notes landscape} {
+    \edef\pgfpageoptionheight{\the\paperheight}
+    \edef\pgfpageoptionwidth{\the\paperwidth}
+    \edef\pgfpageoptionborder{0pt}
+ }
+ {
+    \setkeys{pgfpagesuselayoutoption}{landscape}
+
+    \pgfpagesphysicalpageoptions
+    {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
+    last logical shipout=2%
+    }
+
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight},%
+    copy from=3,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight},%
+    copy from=4,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+  \AtBeginDocument{
+    \csname @@@initNotesBox\endcsname{2}
+  }
+}
+%    \end{macrocode}
+% 1 on 1 with notes
+%    \begin{macrocode}
+\pgfpagesdeclarelayout{1 on 1 with notes} {
+  \edef\pgfpageoptionheight{\the\paperwidth}
+  \edef\pgfpageoptionwidth{\the\paperheight}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=2,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth,%
+    last logical shipout=1%
+  }
+
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.75\pgfphysicalheight},%
+    border code=\handoutWithNotes@@@@conditionalFrame{slide},%
+  }%
+
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border shrink=\pgfpageoptionborder,%
+    resized width=\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.25\pgfphysicalheight},%
+    copy from=2,%
+    border code=\handoutWithNotes@@@@conditionalFrame{note},%
+  }%
+
+  \AtBeginDocument{
+    \csname @@@initNotesBox\endcsname{1}
+  }
+}
+%    \end{macrocode}
+% if print-beamer-notes is enable the note frame has to be patched
+%    \begin{macrocode}
+\ExplSyntaxOn
+\int_new:N \g_handoutWithNotes_last_shipout_int
+\int_new:N \g_handoutWithNotes_current_note_page_int
+%    \end{macrocode}
+%
+% \begin{macro}{\@@@beamer@outsideframenote}
+%Modified variant of beamer@outsideframenote
+%the patch allows multi page layouts with pgfpages
+%based on the definition in beamerbasenotes.sty
+% Copyright 2003--2007 by Till Tantau
+% Copyright 2010 by Vedran Mileti\'c
+% Copyright 2012,2015 by Vedran Mileti\'c, Joseph Wright
+% Copyright 2017,2018 by Louis Stuart, Joseph Wright
+%    \begin{macrocode}
+\newcommand\@@@beamer@outsideframenote[2][]{%
+  \beamer@savemode%
+  \ifbeamer@inlecture%
+  \def\beamer@noteenvstart{}%
+  \def\beamer@noteenvend{}%
+  \setkeys{beamernotes}{#1}%
+  \ifbeamer@notes
+  \begingroup
+  \setbeamertemplate{itemize~item}{\textbullet}
+  \setbeamertemplate{itemize~subitem}{--}
+  \setbeamertemplate{enumerate~item}{\insertenumlabel.}
+  \setbeamertemplate{enumerate~subitem}{\insertenumlabel.\insertsubenumlabel}
+  \def\@oddhead{}
+  \def\@oddfoot{}
+  \let\@evenhead\@oddhead
+  \let\@evenfoot\@oddfoot
+  \def\beamer@backgroundtemplate{}%
+  \setbeamercolor{item}{fg=black,bg=white}
+  \color{black}%
+  \nointerlineskip
+  \hbox{\hskip-\Gm@lmargin\hskip1cm\vbox to\textheight{%
+      %pretend to have ``standard'' margins
+      \edef\beamer@origlmargin{\Gm@lmargin}%
+      \edef\beamer@origrmargin{\Gm@rmargin}%
+      \def\Gm@lmargin{1cm}%
+      \def\Gm@rmargin{1cm}%
+      \textwidth=\dimexpr\paperwidth-\Gm@lmargin-\Gm@rmargin\relax%
+      \hsize=\textwidth%
+      \@arrayparboxrestore%
+      \vskip-\headheight%
+      \def\insertnote{\vbox{}%
+        \beamer@noteenvstart#2\beamer@noteenvend%
+      }%
+      \usebeamertemplate*{note~page}%
+      \vfil%
+      \vskip-4pt% foot separator
+      \vskip-\footheight}\hskip-\Gm@lmargin\hskip1cm}%
+  \ifbeamer@twoscreensnotes%
+    \int_compare:nF
+      {\the\pgf@currentshipout = \g_handoutWithNotes_last_shipout_int}
+      {
+        \int_gset:Nn \g_handoutWithNotes_last_shipout_int
+          {\the\pgf@currentshipout}
+        \int_compare:nTF
+          {\g_handoutWithNotes_current_note_page_int=\the\pgf@lastshipout}
+          {
+%    \end{macrocode}
+% \changes{1.2}{2022/02/22}{Clear leftover beamer Notes when starting a new page}
+%    \begin{macrocode}
+            \int_step_variable:nNn {\pgf@lastshipout} \l_tmpa_int {
+              \box_gclear:c { pgfpages@box@ \int_eval:n {\l_tmpa_int + \the\pgf@lastshipout}}
+            }
+            \int_gset:Nn \g_handoutWithNotes_current_note_page_int {1}
+          } {
+            \int_gincr:N \g_handoutWithNotes_current_note_page_int
+          }
+      }
+    \pgfpagescurrentpagewillbelogicalpage
+      {\int_eval:n {
+        \g_handoutWithNotes_current_note_page_int
+        +\the\pgf@lastshipout
+      }}
+    \advance\c@page by-1\relax%
+  \fi%
+  \clearpage
+  \endgroup
+  \fi%
+  \fi%
+  \beamer@resumemode
+}
+\ExplSyntaxOff
+\endinput
+%    \end{macrocode}
+% \end{macro}
+%
+
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \end{implementation}

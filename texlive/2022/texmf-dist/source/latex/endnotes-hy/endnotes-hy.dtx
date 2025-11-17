@@ -1,0 +1,249 @@
+% \iffalse
+% makeindex -s gglo.ist -o endnotes-hy.gls endnotes-hy.glo
+% makeindex -s gind.ist -o endnotes-hy.ind endnotes-hy.idx
+%<*copyright>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% endnotes-hy.sty package,                              %%
+%% Copyright (C) 2020                                    %%
+%%   dpstory@uakron.edu  dpstory@acrotex.net             %%
+%%                                                       %%
+%% This program can redistributed and/or modified under  %%
+%% the terms of the LaTeX Project Public License         %%
+%% Distributed from CTAN archives in directory           %%
+%% macros/latex/base/lppl.txt; either version 1.2 of the %%
+%% License, or (at your option) any later version.       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</copyright>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{endnotes-hy}
+%<package> [2020/04/08 v0.1 Enables hypertext links for endnotes]
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[colorlinks,hyperindex=false,linktocpage,bookmarksnumbered]{hyperref}
+\usepackage{calc}
+\usepackage{endnotes-hy}
+%\def\texorpdfstring#1#2{#1}
+%\pdfstringdefDisableCommands{\let\\\textbackslash}
+\OnlyDescription  % comment out for implementation details
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\gdef\brpr#1{\texttt{\char123\relax#1\char125\relax}}
+\let\darg\brpr
+\let\env\texttt
+\let\opt\texttt
+\let\app\textsf
+\let\pkg\textsf
+\def\EXCL{!}
+\def\visispace{\symbol{32}}
+\def\ameta#1{\ensuremath{\langle\textit{\texttt{#1}}\rangle}}
+\def\meta#1{\textsl{\texttt{#1}}}
+\def\SUB#1{\ensuremath{{}_{\mbox{\scriptsize\ttfamily#1}}}}
+\def\CMD#1{\textbackslash#1}
+\makeatletter
+\renewcommand\theparagraph{\texorpdfstring{\protect\P\protect\ }{\textparagraph}}
+\renewcommand\thesubparagraph{\texorpdfstring{\protect\P\protect\P\protect\ }{\textparagraph\textparagraph}}
+\renewcommand{\section}
+  {\renewcommand{\@seccntformat}[1]{\thesection\quad}%
+  \@startsection {section}{1}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus.2ex}%
+    {\normalfont\Large\bfseries}}
+\renewcommand{\paragraph}
+  {\renewcommand{\@seccntformat}[1]{\theparagraph\unskip\,}%
+  \@startsection{paragraph}{4}{0pt}{6pt}{-3pt}{\bfseries}}
+\renewcommand{\subparagraph}
+    {\renewcommand{\@seccntformat}[1]{\thesubparagraph\unskip\,}%
+    \@startsection{subparagraph}{5}{\parindent}{6pt}{-3pt}{\bfseries}}
+\makeatother
+\newbox\enbox
+\InputIfFileExists{aebdocfmt.def}{\PackageWarning{endnotes-hy}{Inputting aebdocfmt.def}}
+    {\def\IndexOpt{\DescribeMacro}\def\IndexKey{\DescribeMacro}\let\setupFullwidth\relax
+     \PackageInfo{endnotes-hy}{aebdocfmt.def cannot be found}}
+\begin{document}
+\addtolength{\marginparwidth}{3pt}
+  \GetFileInfo{endnotes-hy.sty}
+  \title{The  \textsf{endnotes-hy} Package}
+  \author{D. P. Story\\
+    Email: \texttt{dpstory@uakron.edu}}
+  \date{processed \today}
+  \maketitle
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\bgroup
+\value{secnumdepth}=3
+\value{tocdepth}=3
+  \tableofcontents
+\egroup
+  \DocInput{endnotes-hy.dtx}
+\IfFileExists{\jobname.ind}{\newpage\setupFullwidth\par\PrintIndex}{\paragraph*{Index} The index goes here. Execute
+    \begin{quote}\texttt{makeindex -s gind.ist -o endnotes-hy.ind endnotes-hy.idx}\end{quote}
+    on the command line and recompile
+    \texttt{endnotes-hy.dtx}.}
+\IfFileExists{\jobname.gls}{\PrintChanges}{\paragraph*{Change History} The list of changes goes here. Execute
+    \begin{quote}
+    \texttt{makeindex -s gglo.ist -o endnotes-hy.gls endnotes-hy.glo}
+    \end{quote}
+    on the command line and recompile \texttt{endnotes-hy.dtx}.}
+\end{document}
+%</driver>
+% \fi
+% \MakeShortVerb{|}
+% \InputIfFileExists{aebdonotindex.def}{\PackageInfo{web}{Inputting aebdonotindex.def}}
+%    {\PackageInfo{web}{cannot find aebdonotindex.def}}
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+% \section{Introduction}
+% This package is an extension of \href{https://ctan.org/pkg/endnotes}{\pkg{endnotes}}.
+% \changes{v0.1}{2020/04/08}{First published version of this package.}
+%
+% \paragraph*{Background:} A colleague---a dedicated user of the
+% \href{https://ctan.org/pkg/endnotes}{\pkg{endnotes}} package---complained to me
+% (for some reason) that links created by \pkg{hyperref} do not point to the
+% endnotes at the end of the file; for example, if we say
+%\begin{quote}\ttfamily
+%   \string\endnote\darg{\string\label\darg{\ameta{name}}\ameta{text}}
+%\end{quote}
+% then any link, such as
+% \cs{hyperref[\ameta{name}]\darg{endnote\string~\string\ref*\darg{\ameta{name}}}} jumps
+% to the most recent anchor (\texttt{Doc-Start}, for example); no hypertext
+% anchor is created where the endnote is inserted into the document. This short
+% package is an attempt to rectify this problem.
+%
+%\paragraph*{Syntax:}
+% The \cs{endnote} command has been modified to conform to the following syntax:
+%\begin{quote}
+% \cs{endnote*[\ameta{num}]\darg{\ameta{text}}\string\label\darg{\ameta{name}}}
+%\end{quote}
+% Refer to the documentation of the \href{https://ctan.org/pkg/endnotes}{\pkg{endnotes}} package for a description of the \cs{endnote}
+% command and its \ameta{num} and \ameta{text} arguments.
+% If the \texttt*-option (new syntax) is used, the endnote mark is not placed, but the endnote
+% is written to the \texttt{ENT} file.\endnote*{An endnote created with \texttt*-option}\label{en:en*}
+% Such a ``secret'' endnote can be referred to using standard \pkg{hyperref} commands,
+% see the \autoref{en:en*} on page~\pageref{en:en*} for more information. The placement of the \cs{label} has
+% changed for this package as well. To define an endnote label, place \cs{label\darg{name}} following
+% the \cs{endnote} command, a more traditional location. This was done to get access to the \ameta{name}, if it exist.
+% This enables the package to place a hypertext link around the endnote mark.\endnote{This is normal endnote}\label{en:normal}
+% The optional \ameta{num} can be used
+% to write special endnotes.{\def\theendnote{N\arabic{endnote}}\endnote[1]{This is special endnote}\label{en:specen}}
+% As a side benefit to this new syntax, you can place verbatim text into an
+% endnote.\setbox\enbox\hbox{\verb!%^$^&$%^&!}\edef\VertTxti{\unhbox\enbox}\endnote{Some verbatim text \VertTxti}\label{en:verb}
+% If there is no \cs{label} following \cs{endnote}, no hypertext link is created.\endnote{No hypertext link created}
+%
+% \paragraph*{Note:} This package will work correctly without the \pkg{hyperref} package (of course, no links).
+% The advantage of using \pkg{endnotes-hy} without \pkg{hyperref} is to use the extended syntax:
+% \cs{endnote*[\ameta{num}]\darg{\ameta{text}}\string\label\darg{\ameta{name}}}
+%
+% \section{Required packages}
+%
+%    \begin{macrocode}
+\RequirePackage{endnotes}
+%    \end{macrocode}
+%    Require \pkg{etoolbox} because we redefine several commands using \cs{patchcmd}; this is not
+%    really necessary, we could have redefined the whole command instead.
+%    \begin{macrocode}
+\RequirePackage{etoolbox}
+%    \end{macrocode}
+% \section{Package code}
+%    We allow the author not to use \pkg{hyperref}; this enables the use of the extended
+%    syntax of the \cs{endnote} command.
+%    \begin{macrocode}
+\newcommand\hyperref@nohy[2][]{#2}
+\AtBeginDocument{\@ifundefined{hyperref}{\let\hyperref@en\hyperref@nohy
+  \let\phantomendnote\relax}
+  {\let\hyperref@en\hyperref}}
+%    \end{macrocode}
+%    \begin{macro}{\phantomendnote}
+%    The key is to create an hyperref anchor to reference; this definition is based on
+%    \cs{phantomsection} of \pkg{hyperref}. This is used internally.
+%    \begin{macrocode}
+\def\phantomendnote{%
+  \Hy@MakeCurrentHrefAuto{endnote}%
+  \Hy@raisedlink
+    {\hyper@anchorstart{endnote.\@theenmark}\hyper@anchorend}}
+\def\endnoteautorefname{endnote}
+%    \end{macrocode}
+%    \end{macro}
+% Redefinition of \DescribeMacro{\theendnotes}\cs{theendnotes}
+%    \begin{macrocode}
+\patchcmd{\theendnotes}{\enoteformat}
+  {\phantomendnote\def\@currentHref{endnote.\@theenmark}%
+   \enoteformat}{}{}
+%    \end{macrocode}
+% Redefine \DescribeMacro\endnote\cs{endnote} to take an optional \texttt{*}, if this option is used, the mark does not appear
+% in the text. This enables us to easily define an endnote and refer to it even with multiple paragraphs.
+% I didn't like the syntax of inserting the \cs{label} within the argument of \cs{endnote}, this seems to have
+% problems. The new syntax is as follows:\begin{quote}
+% Syntax: \cs{endnote*[\ameta{num}]\darg{\ameta{text}}\string\label\darg{\ameta{name}}}\end{quote}
+% This new syntax could be a problem if an author has already used \pkg{endnotes} and then converts
+% to \pkg{endnotes-hy}. In \pkg{endnotes} the \texttt*-option is note defined and the \cs{label}
+% command is typically placed within the argument of the \darg{\ameta{text}}. Labels would have to be moved
+% to a position following \darg{\ameta{text}}.
+%
+% To obtain this syntax, we need several stages of parsing. The major problem is to get the
+% label name in time to build a hyperref link around \cs{@endnotemark}.
+%    \begin{macrocode}
+\newtoks\@entoks
+\def\endnote{\let\@encurrlabelname\@empty
+  \@ifstar{\let\@noMrk1\endnote@i}{\let\@noMrk0\endnote@i}}
+\def\endnote@i{\@ifnextchar[%]
+  {\@xendnote}
+  {\stepcounter{endnote}%
+   \protected@xdef\@theenmark{\theendnote}%
+%    \end{macrocode}
+%    We placed the \darg{text} argument into a token register, this removes
+%    that argument from the input stream, and allows us to see of the next token
+%    is \cs{label}, if so, we get the label name argument.
+%    \begin{macrocode}
+   \afterassignment\endnote@ii\@entoks}}
+%    \end{macrocode}
+%    If the next token is \cs{label}, get the label name with \cs{endnote@iii},
+%    otherwise, move on to \cs{endnote@iv}, the final step.
+%    \begin{macrocode}
+\def\endnote@ii{\@ifnextchar\label{\endnote@iii}{\endnote@iv}}
+\def\endnote@iii\label#1{\def\@encurrlabelname{#1}\endnote@iv}
+%    \end{macrocode}
+%     If the flag \cs{@noMrk} is 0 (mark is typeset), and if there
+%     is a label name, we make an hypertext link.
+%    \begin{macrocode}
+\def\endnote@iv{%
+  \if\@noMrk0\relax
+    \ifx\@encurrlabelname\@empty
+      \@endnotemark
+    \else
+      \hyperref@en[\@encurrlabelname]{\@endnotemark}%
+    \fi
+  \fi
+%    \end{macrocode}
+%    Finish by expanding \cs{@endnotetext} with its argument
+%    that was saved in the \cs{@entoks} register.
+%    \begin{macrocode}
+  \expandafter\@endnotetext\expandafter{\the\@entoks}}
+%    \end{macrocode}
+%    We patch into \DescribeMacro\@endnotetext\cs{@endnotetext} just after \verb~\def\next{#1}~.
+%    If there was a \cs{label}, we insert it back into the argument
+%    of \cs{endnote}.
+%    \begin{macrocode}
+\patchcmd{\@endnotetext}
+  {\def\next{#1}}
+  {\ifx\@encurrlabelname\@empty
+    \def\next{#1}\else
+    \edef\x{\noexpand\label{\@encurrlabelname}}%
+    \expandafter\def\expandafter\next\expandafter{\x#1}\fi}{}{}
+%    \end{macrocode}
+%    If \cs{endnote} has an optional argument, the flow passes to
+%    \DescribeMacro\xendnote\cs{xendnote}. We replace
+%    \verb~\@endnotemark\@endnotetext~ by redirecting flow to
+%    to \cs{endnote@ii}, after saving the argument in \cs{@entoks}.
+%    \begin{macrocode}
+\patchcmd{\@xendnote}
+  {\@endnotemark\@endnotetext}
+  {\afterassignment\endnote@ii\@entoks}
+  {}{}
+%    \end{macrocode}
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%\theendnotes
+%\Finale

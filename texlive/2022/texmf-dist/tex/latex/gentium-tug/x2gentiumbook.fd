@@ -1,0 +1,87 @@
+\ProvidesFile{x2gentiumbook.fd}
+    [2022/05/30 Font definitions for gentiumbook.]
+
+\expandafter\ifx\csname gentiumbook@scale\endcsname\relax
+    \let\gentiumbook@@scale\@empty
+\else
+    \edef\gentiumbook@@scale{s*[\csname gentiumbook@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{X2}{gentiumbook}{}
+
+\DeclareFontShape{X2}{gentiumbook}{m}{n}{
+            <->     \gentiumbook@@scale x2-gentiumbook-regular
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{m}{it}{
+            <->     \gentiumbook@@scale x2-gentiumbook-italic
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{b}{n}{
+            <->     \gentiumbook@@scale x2-gentiumbook-bold
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{b}{it}{
+            <->     \gentiumbook@@scale x2-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sl}{n}{
+            <->     \gentiumbook@@scale x2-gentiumplus-regular
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sl}{it}{
+            <->     \gentiumbook@@scale x2-gentiumplus-italic
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sb}{n}{
+            <->     \gentiumbook@@scale x2-gentiumplus-bold
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sb}{it}{
+            <->     \gentiumbook@@scale x2-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{m}{sc}{
+            <->     \gentiumbook@@scale x2-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{m}{scit}{
+            <->     \gentiumbook@@scale x2-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{b}{sc}{
+            <->     \gentiumbook@@scale x2-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{b}{scit}{
+            <->     \gentiumbook@@scale x2-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sl}{sc}{
+            <->     \gentiumbook@@scale x2-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sl}{scit}{
+            <->     \gentiumbook@@scale x2-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sb}{sc}{
+            <->     \gentiumbook@@scale x2-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{sb}{scit}{
+            <->     \gentiumbook@@scale x2-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{X2}{gentiumbook}{m}{sl}{<->ssub * gentiumbook/m/it}{}
+\DeclareFontShape{X2}{gentiumbook}{b}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{X2}{gentiumbook}{bx}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{X2}{gentiumbook}{bx}{it}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{X2}{gentiumbook}{bx}{n}{<->ssub * gentiumbook/b/n}{}
+\DeclareFontShape{X2}{gentiumbook}{sl}{sl}{<->ssub * gentiumbook/sl/it}{}
+\DeclareFontShape{X2}{gentiumbook}{sb}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{X2}{gentiumbook}{sbx}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{X2}{gentiumbook}{sbx}{it}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{X2}{gentiumbook}{sbx}{n}{<->ssub * gentiumbook/sb/n}{}
+
+\endinput

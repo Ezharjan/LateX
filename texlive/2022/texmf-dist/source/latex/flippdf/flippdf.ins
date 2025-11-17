@@ -1,0 +1,94 @@
+%% flippdf.ins
+%% Copyright 2006, 2020
+%% Sergio Callegari <sergio.callegari@gmail.com>
+%%
+%% ---------------------------------------------
+%% This file is part of the flippdf package,
+%% a contribution to the LaTeX2e system.
+%% ---------------------------------------------
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, version 1.3c.
+%% This license is in
+%%   https://www.latex-project.org/lppl/lppl-1-3c/
+%% and is part of all distributions of LaTeX later than
+%% 2008-05-04.
+%%
+%% This work has the LPPL maintenance status "maintained".
+%%
+%% This program consists of the files listed in the README.md file
+%% included in the package.
+%%
+%% This file will generate fast loadable files and documentation
+%% from the dtx file when run through LaTeX.
+%%
+%%
+%% --------------- start of docstrip commands ------------------
+%%
+\input docstrip.tex
+
+\preamble
+
+ IMPORTANT NOTICE:
+
+Copyright 2006, 2020
+Sergio Callegari <sergio.callegari@gmail.com>
+
+---------------------------------------------
+This file is part of the flippdf package,
+a contribution to the LaTeX2e system.
+---------------------------------------------
+
+This program consists of the files listed in the README file included
+in the package.
+
+Any modified versions of this file must be renamed with new filenames
+distinct from \outFileName.
+
+For distribution of the original source see the terms for copying and
+modification in the file \inFileName.
+
+This generated file may be distributed as long as the original source files, as
+listed above, are part of the same distribution. (The sources need not
+necessarily be in the same archive or directory.)
+
+\endpreamble
+
+\keepsilent
+\Msg{*** Generating the LaTeX2e package files ***}
+\usedir{tex/latex/flippdf}
+\generate{\file{flippdf.sty}{\from{flippdf.dtx}{flippdf}}}
+\generate{\file{flippdf-1x.sty}{\from{flippdf.dtx}{flippdf-1x}}}
+
+\preamble
+\endpreamble
+
+\Msg{*** Generating the LaTeX2e test/example files ***}
+\usedir{doc/latex/flippdf/examples}
+\generate{\file{test-flippdf-1}{\from{flippdf.dtx}{test-1}}}
+\generate{\file{test-flippdf-2}{\from{flippdf.dtx}{test-2}}}
+
+\ReportTotals
+
+\Msg{***********************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the following}
+\Msg{* file(s) into a directory searched by TeX:}
+\Msg{*}
+\Msg{* \space\space flippdf.sty}
+\Msg{*}
+\Msg{*}
+\Msg{* To produce the documentation:}
+\Msg{*  - run flippdf.dtx through LaTeX}
+\Msg{*  - process flippdf.idx by:}
+\Msg{* \space\space\space\space makeindex -s gind.ist flippdf}
+\Msg{* - process flippdf.glo by:}
+\Msg{* \space\space\space\space makeindex -s gglo.ist -o flippdf.gls flippdf.glo}
+\Msg{* - re run through LaTeX the flippdf.dtx as necessary}
+\Msg{* You may then want to move the test-flippdf*.tex files produced by}
+\Msg{* processing this ins file together with the documentation (e.g., in an}
+\Msg{* examples subdirectory}
+\Msg{*}
+\Msg{***********************************************************}
+
+\endbatchfile

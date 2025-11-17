@@ -1,0 +1,323 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2020 by Sascha Frank <menucard@sascha-frank.com>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{menucard.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{menucard}
+%<*package>
+    [2020/06/17 v0.1 menucards ]
+\RequirePackage[x11names]{xcolor}
+\RequirePackage{soul}
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{menucard}[2020/06/17]
+\usepackage{hyperref}
+\usepackage{parskip}
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{menucard.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{162}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v0.1}{2020/06/17}{Initial version}
+%
+% \GetFileInfo{menucard.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+% 
+%
+% \title{The \textsf{menucard} package\thanks{This document
+%   corresponds to \textsf{menucard}~\fileversion, dated \filedate.}}
+% \author{Sascha Frank \\ \texttt{menucard@sascha-frank.com}}
+%
+% \maketitle
+% \begin{abstract}
+% The reason for this package was that I did not find a package for creating menus.
+% \end{abstract}
+%
+% \section{Introduction}
+% The usepackage is based on the answer of Gonzalo Medina\footnote{See also \href{https://tex.stackexchange.com/questions/38091}{https://tex.stackexchange.com/questions/38091}} to the question about a document class for restaurant menus.\cite{medina}
+% 
+%
+% \section{What you need}
+% It requires the usepackages soul and xcolor. 
+% \section{Loading}
+% Load the package with: \verb+\usepackage{menucard}+ 
+% 
+% \section{Usage}
+% \DescribeMacro{\ColTextColor}
+% This macro sets the color of the menu heading. Default is Goldenrod3. Change color: 
+% \begin{verbatim}
+%   \definecolor{plumt}{rgb}{0.56, 0.27, 0.52}
+%   \renewcommand{\ColTextColor}{plumt}
+%  \end{verbatim}
+%
+% \DescribeMacro{\ColSubTextColor} 
+% To set the color for the second heading. By default 50\% opacity of the first color.
+%
+% \DescribeMacro{\zapf}
+% With the command \verb+\zapf+ the font for the numbering can be changed. For example change to sans serif font \verb+\renewcommand{\zapf}{\sffamily}+ or to use normalfont \verb+\renewcommand{\zapf}{}+.
+%
+% \DescribeMacro{\Allergens}
+% To label allergenes and additives.
+% \begin{verbatim}
+%   \Allergens{A,B,C}
+%  \end{verbatim}
+%
+%
+% \subsection{menugroup}
+% There are three new environments, for each there is an additional star alternative.  The variant without a star is intended for the case that the menus are to be numbered consecutively. In the variant with a star, the menus are not numbered consecutively. For this reason there are two different commands to insert entries. One is the command \verb+\Entry+ for the star environments and \verb+\Entrycount+ for the others.
+%
+% The environments Group and Group* have one parameter. 
+%
+% \DescribeEnv{Group*}
+% Creates a two-column table over the width of the text, with the first column left-aligned (p-column) and the second column right-aligned.
+%
+%    \begin{verbatim}
+%    \begin{Group*}{heading}
+%      ...
+%    \end{Group*}
+%    \end{verbatim}
+%    
+% \DescribeEnv{Group} 
+%Creates a three-column table of the width of the text, with the first two columns left-aligned (p-columns) and the third column right-aligned. The first column is intended for numbering.
+%
+%    \begin{verbatim}
+%    \begin{Group}{heading}
+%      ...
+%    \end{Group}
+%    \end{verbatim}
+% 
+% The following environments have two parameters.
+%
+% \DescribeEnv{menugroup*}
+%Creates a two-column table over the width of the column, where the first two columns are left-aligned (p-column) and the second column is right-aligned. The text size is \verb+\huge+ for the first heading and \verb+\LARGE+ for the second heading. The colors of the heading are Goldenrod3 respectively 50\% of it by default. A horizontal line is drawn after the headings.
+%
+%    \begin{verbatim}
+%    \begin{menugroup*}{first heading}{second heading}
+%      ...
+%    \end{menugroup*}
+%    \end{verbatim}
+% 
+% \DescribeEnv{menugroup}
+%Like menugroup* but with an additional third column for numbering.
+%
+%    \begin{verbatim}
+%    \begin{menugroup}{first heading}{second heading}
+%      ...
+%    \end{menugroup}
+%    \end{verbatim}
+% 
+% \DescribeEnv{menugroupsc*}
+%Like menugroup* only that the headings are set in small caps.
+%
+%    \begin{verbatim}
+%    \begin{menugroupsc*}{first heading}{second heading}
+%      ...
+%    \end{menugroupsc*}
+%    \end{verbatim}
+% 
+% \DescribeEnv{menugroupsc}
+%Like menugroup only that the headings are set in small caps.
+%
+%    \begin{verbatim}
+%    \begin{menugroupsc}{first heading}{second heading}
+%      ...
+%    \end{menugroupsc}
+%    \end{verbatim}
+% 
+% To set the menu entries within the environments the commands \verb+\Entry+ or \verb+\Entrycount+. Within these commands, the command \verb+\Expl+ can be used to insert additional explanations.
+%
+% \DescribeMacro{\Entry}
+% Used within the star environments with \verb+\Entry{left}{right}+ respectively with \verb+\Entry{left, \Expl{more}}{right}+. 
+%
+% \DescribeMacro{\Entrycount}
+% Used within the no star environments with \verb+\Entrycount{left}{right}+ respectively with \verb+\Entrycount{left, \Expl{more}}{right}+. 
+%
+% \DescribeMacro{\Expl}
+% Can be used within \verb+\Entry+ respectively \verb+\Entrycount+ to write sub entries.
+%
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% Setting color
+% \begin{macro}{\ColTextColor}
+%   \begin{macrocode}
+\newcommand{\ColTextColor}{Goldenrod3}
+%    \end{macrocode}
+%  \end{macro}
+%
+% \begin{macro}{\ColSubTextColor}
+%   \begin{macrocode}
+\newcommand{\ColSubTextColor}{\ColTextColor!50}
+%    \end{macrocode}
+%  \end{macro}
+% Text color first heading 
+% \begin{macro}{\ColText}
+%   \begin{macrocode}
+\newcommand*\ColText[1]{\textcolor{\ColTextColor}{#1}}
+%    \end{macrocode}
+%  \end{macro}
+% Text color second heading
+% \begin{macro}{\ColSubText}
+%   \begin{macrocode}
+\newcommand*\ColSubText[1]{\textcolor{\ColSubTextColor}{#1}}
+%    \end{macrocode}
+%  \end{macro}
+% Counter
+% \begin{macro}{menucount}
+%   \begin{macrocode}
+\newcounter{menucount}
+%    \end{macrocode}
+%  \end{macro}
+% New font for numbers
+% \begin{macro}{\zapf}
+%   \begin{macrocode}
+\newcommand{\zapf}{\fontfamily{pzc}\selectfont}
+%    \end{macrocode}
+%  \end{macro}
+% Allergens
+% \begin{macro}{\Allergens}
+%   \begin{macrocode}
+\newcommand{\Allergens}[1]{\textsuperscript{\tiny\sffamily #1}}
+%    \end{macrocode}
+%  \end{macro}
+%  to format each entry in ENV*
+% \begin{macro}{\Entry}
+%   \begin{macrocode}
+\newcommand*\Entry[2]{%
+  \sffamily#1 & #2}
+%    \end{macrocode}
+%  \end{macro}
+% to format each subentry
+% \begin{macro}{\Expl}
+%   \begin{macrocode}
+\newcommand*\Expl[1]{%
+  \hspace*{1em}\footnotesize #1}
+%    \end{macrocode}
+%  \end{macro}
+% to format each entry in ENV
+% \begin{macro}{\Entrycount}
+%   \begin{macrocode}
+\newcommand*\Entrycount[2]{\stepcounter{menucount} %
+  \zapf{\themenucount}\hspace*{1em} & \sffamily#1 & #2 }
+%    \end{macrocode}
+%  \end{macro}
+%
+% \begin{environment}{Group*}
+% a tabular* for each food group
+%    \begin{macrocode}
+\newenvironment{Group*}[1]{
+  \noindent\begin{tabular*}{\textwidth}{@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    {\fontsize{24}{29}\selectfont\ColText{#1}}\\[0.8em]}
+  {\end{tabular*}}
+%    \end{macrocode}
+% \end{environment}
+% adding an extra column for counting
+% \begin{environment}{Group}
+%    \begin{macrocode}
+\newenvironment{Group}[1]
+  {\noindent\begin{tabular*}{\textwidth}{p{2em}@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    \multicolumn{3}{l}{{\fontsize{24}{29}\selectfont\ColText{#1}}}\\[0.8em]}
+  {\end{tabular*}}
+%    \end{macrocode}
+%\end{environment}
+% Change width and font size and added two headings
+% \begin{environment}{menugroup*}
+%    \begin{macrocode}
+\newenvironment{menugroup*}[2]
+  {
+\noindent\begin{tabular*}{\columnwidth}{@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    {\huge\textcolor{\ColTextColor}{#1}\hspace*{0.1em} 
+    \LARGE\textcolor{\ColSubTextColor}{#2}}\\[0.2em] 
+ \noindent\rule{\columnwidth}{0.4pt} & \\[0.8em]}
+  {\end{tabular*}}
+%    \end{macrocode}
+%\end{environment}
+%  Adding an extra column for counting
+% \begin{environment}{menugroup}
+%    \begin{macrocode}
+\newenvironment{menugroup}[2]
+  {
+\noindent\begin{tabular*}{\columnwidth}{p{2em}@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    \multicolumn{3}{l}{\hspace*{-0.5em}{\huge\textcolor{\ColTextColor}{#1}\hspace*{0.1em} \LARGE\textcolor{\ColSubTextColor}{#2}}}\\[0.2em] 
+ \noindent\hspace*{-0.55em}\rule{\columnwidth}{0.4pt} & \\[0.8em]}
+  {\end{tabular*}}
+%    \end{macrocode}
+% \end{environment}
+% Adding caps for headings
+% \begin{environment}{menugroupsc*}
+%    \begin{macrocode}
+\newenvironment{menugroupsc*}[2]
+  {
+\noindent\begin{tabular*}{\columnwidth}{@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    {\huge\textcolor{\ColTextColor}{\caps{#1}}\hspace*{0.1em} \LARGE\textcolor{\ColSubTextColor}{\caps{#2}}}\\[0.2em] 
+ \noindent\rule{\columnwidth}{0.4pt} & \\[0.8em]}
+  {\end{tabular*}}
+%    \end{macrocode}
+%\end{environment}
+%  Adding an extra column for counting
+% \begin{environment}{menugroupsc}
+%    \begin{macrocode}
+\newenvironment{menugroupsc}[2]
+  {
+\noindent\begin{tabular*}{\columnwidth}{p{2em}@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    \multicolumn{3}{l}{\hspace*{-0.5em}{\huge\textcolor{\ColTextColor}{\caps{#1}}\hspace*{0.1em} \LARGE\textcolor{\ColSubTextColor}{\caps{#2}}}}\\[0.2em] 
+ \noindent\hspace*{-0.55em}\rule{\columnwidth}{0.4pt} & \\[0.8em]}
+  {\end{tabular*}}
+%    \end{macrocode}
+%\end{environment}
+%
+%
+%\begin{thebibliography}{9}
+%\bibitem{medina}{Gonzalo Medina, 2011/12/13, class for a restaurant menu,\\ \href{https://tex.stackexchange.com/questions/38091/document-class-for-a-restaurant-menu}{https://tex.stackexchange.com/questions/38091/document-class-for-a-restaurant-menu}}
+%\end{thebibliography}
+%\bibliographystyle{unsrtdin}
+% \Finale
+\endinput

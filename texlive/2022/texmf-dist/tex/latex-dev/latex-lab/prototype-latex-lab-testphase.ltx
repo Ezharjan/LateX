@@ -1,0 +1,301 @@
+%%
+%% This is file `prototype-latex-lab-testphase.ltx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% latex-lab-prototype.dtx  (with options: `2ekernel')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright 2021,2022 LaTeX Project
+%% 
+%% This file was generated from file(s) of the  `LaTeX-lab Bundle'.
+%% ------------------------------------------------------------------------------------
+%% 
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008 or later.
+%% 
+%% This file may only be distributed together with a copy of the LaTeX
+%% `LaTeX-lab Bundle'. You may however distribute the `LaTeX-lab Bundle'
+%% without such generated files.
+%% 
+%% The newest sources can be found below
+%% 
+%%    https://github.com/latex3/latex2e/required/latex-lab
+%% 
+%% where one can also log issues in case there are any.
+%% 
+%% 
+%% File: latex-lab-prototype.dtx
+\ExplSyntaxOn
+\tl_if_exist:NF \l__keys_precompile_tl
+  {
+    \bool_new:N \l__keys_precompile_bool
+    \tl_new:N \l__keys_precompile_tl
+  }
+\cs_gset_protected:Npn \__keys_precompile:n #1
+  {
+    \bool_if:NTF \l__keys_precompile_bool
+      { \tl_put_right:Nn \l__keys_precompile_tl }
+      { \use:n }
+        {#1}
+  }
+\cs_gset_protected:Npn \__keys_bool_set:Nnnn #1#2#3#4
+  {
+    \bool_if_exist:NF #1 { \bool_new:N #1 }
+    \__keys_choice_make:
+    \__keys_cmd_set:nx { \l_keys_path_str / true }
+      { \exp_not:c { bool_ #2 set_ #3 :N } \exp_not:N #1 }
+    \__keys_cmd_set:nx { \l_keys_path_str / false }
+      { \exp_not:c { bool_ #2 set_ #4 :N } \exp_not:N #1 }
+    \__keys_cmd_set_direct:nn { \l_keys_path_str / unknown }
+      {
+        \msg_error:nnx { keys } { boolean-values-only }
+          \l_keys_key_str
+      }
+    \__keys_default_set:n { true }
+  }
+\cs_gset_protected:Npn \__keys_choice_make_aux:N #1
+  {
+    \cs_set_nopar:cpn { \c__keys_type_root_str \l_keys_path_str }
+      { choice }
+    \__keys_cmd_set_direct:nn \l_keys_path_str { #1 {##1} }
+    \__keys_cmd_set_direct:nn { \l_keys_path_str / unknown }
+      {
+        \msg_error:nnxx { keys } { choice-unknown }
+          \l_keys_path_str {##1}
+      }
+  }
+\cs_gset_protected:Npn \__keys_cmd_set:nn #1#2
+  {  \__keys_cmd_set_direct:nn {#1} { \__keys_precompile:n {#2} } }
+\cs_gset_protected:Npn \__keys_cmd_set_direct:nn #1#2
+  { \cs_set_protected:cpn { \c__keys_code_root_str #1 } ##1 {#2} }
+\cs_gset_protected:Npn \__keys_cs_set:NNpn #1#2#3#
+  {
+    \cs_set_protected:cpx { \c__keys_code_root_str \l_keys_path_str } ##1
+      {
+        \__keys_precompile:n
+          { #1 \exp_not:N #2 \exp_not:n {#3} {##1} }
+      }
+    \use_none:n
+  }
+\cs_gset_protected:Npn \__keys_meta_make:n #1
+  {
+    \exp_args:NVo \__keys_cmd_set_direct:nn \l_keys_path_str
+      {
+        \exp_after:wN \keys_set:nn \exp_after:wN
+          { \l__keys_module_str } {#1}
+      }
+  }
+\cs_gset_protected:Npn \__keys_meta_make:nn #1#2
+  {
+    \exp_args:NV \__keys_cmd_set_direct:nn
+      \l_keys_path_str { \keys_set:nn {#1} {#2} }
+  }
+\cs_gset_protected:Npn \keys_precompile:nnN #1#2#3
+  {
+    \bool_set_true:N \l__keys_precompile_bool
+    \tl_clear:N \l__keys_precompile_tl
+    \keys_set:nn {#1} {#2}
+    \bool_set_false:N \l__keys_precompile_bool
+    \tl_set_eq:NN #3 \l__keys_precompile_tl
+  }
+\cs_gset_protected:Npn \__keys_show:Nnn #1#2#3
+  {
+    #1 { keys } { show-key }
+      { \__keys_trim_spaces:n { #2 / #3 } }
+      {
+        \keys_if_exist:nnT {#2} {#3}
+          {
+            \exp_args:Nnf \msg_show_item_unbraced:nn { code }
+              {
+                \exp_args:Ne \__keys_show:n
+                  {
+                    \exp_args:Nc \cs_replacement_spec:N
+                    {
+                      \c__keys_code_root_str
+                      \__keys_trim_spaces:n { #2 / #3 }
+                    }
+                  }
+              }
+          }
+      }
+      { } { }
+  }
+\cs_gset:Npx \__keys_show:n #1
+  {
+    \exp_not:N \__keys_show:w
+      #1
+      \tl_to_str:n { \__keys_precompile:n }
+      #1
+      \tl_to_str:n { \__keys_precompile:n }
+      \exp_not:N \s__keys_stop
+  }
+\use:x
+  {
+    \cs_gset:Npn \exp_not:N \__keys_show:w
+      ##1 \tl_to_str:n { \__keys_precompile:n }
+      ##2 \tl_to_str:n { \__keys_precompile:n }
+      ##3 \exp_not:N \s__keys_stop
+  }
+  {
+    \tl_if_blank:nTF {#2}
+      {#1}
+      { \__keys_show:Nw #2 \s__keys_stop }
+  }
+\use:x
+  {
+    \cs_gset:Npn \exp_not:N \__keys_show:Nw ##1##2
+      \c_right_brace_str \exp_not:N \s__keys_stop
+  }
+  {#2}
+\tl_new:N \l__prototype_tmp_tl
+\prop_new:N \l__prototype_object_prop
+\cs_new_protected:Npn \prototype_declare_object:nn #1#2
+  {
+    \exp_args:Nx \__prototype_declare_object:nn { \int_eval:n {#2} } {#1}
+  }
+\cs_new_protected:Npn \__prototype_declare_object:nn #1#2
+  {
+    \int_compare:nTF { 0 <= #1 <= 9 }
+      {
+        \msg_info:nnnn { prototype } { declare-object-type } {#2} {#1}
+        \prop_put:Nnn \l__prototype_object_prop {#2} {#1}
+      }
+      { \msg_error:nnxx { prototype } { bad-number-of-arguments } {#2} {#1} }
+  }
+\tl_new:N \l__prototype_assignments_tl
+\cs_new_protected:Npn \prototype_declare_template:nnnn #1#2#3#4
+  {
+    \prop_get:NnNTF \l__prototype_object_prop {#1} \l__prototype_tmp_tl
+      {
+        \keys_define:nn { prototype / #1 / #2 } {#3}
+        \tl_clear_new:c { l__prototype_defaults_ #1 _ #2 _tl }
+        \cs_generate_from_arg_count:cNnn
+          { __prototype_template_ #1 _ #2 :w }
+          \cs_set_protected:Npn
+          { \l__prototype_tmp_tl }
+          {
+            \tl_use:N \l__prototype_assignments_tl
+            #4
+          }
+      }
+      { \msg_error:nnn { prototype } { unknown-object-type } {#1} }
+  }
+\cs_new_protected:Npn \prototype_declare_defaults:nnn #1#2#3
+  {
+    \cs_if_exist:cTF { __prototype_template_ #1 _ #2 :w }
+      { \tl_set:cn { l__prototype_defaults_ #1 _ #2 _tl } {#3} }
+      { \msg_error:nnn { prototype } { unknown-template } {#1} {#2} }
+  }
+\cs_generate_variant:Nn \keys_precompile:nnN { v , nv }
+\cs_new_protected:Npn \prototype_use_template:nnn #1#2#3
+  {
+    \__prototype_declare_aux:nnnn {#1} {#2} {#3}
+      { \use:c { __prototype_template_ #1 _ #2 :w } }
+  }
+\cs_new_protected:Npn \prototype_declare_instance:nnnn #1#2#3#4
+  {
+    \__prototype_declare_aux:nnnn {#1} {#2} {#4}
+      {
+        \tl_clear_new:c { l__prototype_instance_ #1 _ #3 _pars_tl }
+        \tl_set_eq:cN { l__prototype_instance_ #1 _ #3 _pars_tl }
+          \l__prototype_assignments_tl
+         \tl_clear_new:c { l__prototype_instance_ #1 _ #3 _template_tl }
+         \tl_set:cn { l__prototype_instance_ #1 _ #3 _template_tl } {#2}
+      }
+  }
+\cs_new_protected:Npn \__prototype_declare_aux:nnnn #1#2#3#4
+  {
+    \cs_if_exist:cTF { __prototype_template_ #1 _ #2 :w }
+      {
+        \keys_precompile:nvN
+          { prototype / #1 / #2 }
+          { l__prototype_defaults_ #1 _ #2 _tl }
+          \l__prototype_assignments_tl
+        \keys_precompile:nnN { prototype / #1 / #2 } {#3} \l__prototype_tmp_tl
+        \tl_put_right:NV \l__prototype_assignments_tl \l__prototype_tmp_tl
+        #4
+      }
+      { \msg_error:nnn { prototype } { unknown-template } {#1} {#2} }
+  }
+\cs_new_protected:Npn \prototype_use_instance:nn #1#2
+  { \prototype_use_instance:nnn {#1} {#2} { } }
+\cs_new_protected:Npn \prototype_use_instance:nnn #1#2#3
+  {
+    \tl_if_exist:cTF { l__prototype_instance_ #1 _ #2 _template_tl }
+      {
+        \tl_set_eq:Nc \l__prototype_assignments_tl
+          { l__prototype_instance_ #1 _ #2 _pars_tl }
+        \tl_if_blank:nF {#3}
+          {
+            \keys_precompile:vnN
+              {
+                prototype / #1 /
+                \tl_use:c { l__prototype_instance_ #1 _ #2 _template_tl }
+              }
+              {#3}
+              \l__prototype_tmp_tl
+            \tl_put_right:NV \l__prototype_assignments_tl
+              \l__prototype_tmp_tl
+          }
+        \use:c
+          {
+            __prototype_template_ #1 _
+            \tl_use:c { l__prototype_instance_ #1 _ #2 _template_tl }
+            :w
+          }
+      }
+      { \msg_error:nnn { prototype } { unknown-instance } {#1} {#2} }
+  }
+\cs_new_protected:Npn \prototype_show_template_code:nn #1#2
+  {
+    \prop_if_in:NnTF \l__prototype_object_prop {#1}
+      { \cs_show:c { __prototype_template_ #1 _ #2 :w } }
+      { \msg_error:nnn { prototype } { unknown-object-type } {#1} }
+  }
+\cs_new_protected:Npn \prototype_show_template_defaults:nn #1#2
+  {
+    \cs_if_exist:cTF { __prototype_template_ #1 _ #2 :w }
+      { \tl_show:c { l__prototype_defaults_ #1 _ #2 _tl } }
+      { \msg_error:nnn { prototype } { unknown-template } {#1} {#2} }
+  }
+\cs_new_protected:Npn \prototype_show_instance_values:nn #1#2
+  {
+    \tl_if_exist:cTF { l__prototype_instance_ #1 _ #2 _template_tl }
+      { \tl_show:c { l__prototype_instance_ #1 _ #2 _pars_tl } }
+      { \msg_error:nnn { prototype } { unknown-instance } {#1} {#2} }
+  }
+\msg_new:nnnn { prototype } { bad-number-of-arguments }
+  { Bad~number~of~arguments~for~object~type~'#1'. }
+  {
+    An~object~may~accept~between~0~and~9~arguments.\\
+    You~asked~to~use~#2~arguments:~this~is~not~supported.
+  }
+\msg_new:nnnn { prototype } { unknown-instance }
+  { The~instance~'#2'~of~type~'#1'~is~unknown. }
+  {
+    You~have~asked~to~use~an~instance~'#2',~
+    but~this~has~not~been~created.
+  }
+\msg_new:nnnn { prototype } { unknown-object-type }
+  { The~object~type~'#1'~is~unknown. }
+  { An~object~type~needs~to~be~declared~prior~to~using~it. }
+\msg_new:nnnn { prototype } { unknown-template }
+  { The~template~'#2'~of~type~'#1'~is~unknown. }
+  {
+    No~interface~has~been~declared~for~a~template~
+    '#2'~of~object~type~'#1'.
+  }
+\msg_new:nnn { prototype } { declare-object-type }
+  { Declaring~object~type~'#1'~taking~#2~argument(s). }
+\ExplSyntaxOff
+\endinput
+%%
+%% End of file `prototype-latex-lab-testphase.ltx'.

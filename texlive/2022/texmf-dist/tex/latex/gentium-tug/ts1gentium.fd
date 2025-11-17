@@ -1,0 +1,58 @@
+\ProvidesFile{ts1gentium.fd}
+    [2022/05/30 Font definitions for gentium.]
+
+\expandafter\ifx\csname gentium@scale\endcsname\relax
+    \let\gentium@@scale\@empty
+\else
+    \edef\gentium@@scale{s*[\csname gentium@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{TS1}{gentium}{}
+
+\DeclareFontShape{TS1}{gentium}{m}{n}{
+            <->     \gentium@@scale ts1-gentiumplus-regular
+}{}
+
+\DeclareFontShape{TS1}{gentium}{m}{it}{
+            <->     \gentium@@scale ts1-gentiumplus-italic
+}{}
+
+\DeclareFontShape{TS1}{gentium}{b}{n}{
+            <->     \gentium@@scale ts1-gentiumplus-bold
+}{}
+
+\DeclareFontShape{TS1}{gentium}{b}{it}{
+            <->     \gentium@@scale ts1-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{TS1}{gentium}{sb}{n}{
+            <->     \gentium@@scale ts1-gentiumbook-regular
+}{}
+
+\DeclareFontShape{TS1}{gentium}{sb}{it}{
+            <->     \gentium@@scale ts1-gentiumbook-italic
+}{}
+
+\DeclareFontShape{TS1}{gentium}{eb}{n}{
+            <->     \gentium@@scale ts1-gentiumbook-bold
+}{}
+
+\DeclareFontShape{TS1}{gentium}{eb}{it}{
+            <->     \gentium@@scale ts1-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{TS1}{gentium}{m}{sl}{<->ssub * gentium/m/it}{}
+\DeclareFontShape{TS1}{gentium}{b}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{TS1}{gentium}{bx}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{TS1}{gentium}{bx}{it}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{TS1}{gentium}{bx}{n}{<->ssub * gentium/b/n}{}
+\DeclareFontShape{TS1}{gentium}{sb}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{TS1}{gentium}{sbx}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{TS1}{gentium}{sbx}{it}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{TS1}{gentium}{sbx}{n}{<->ssub * gentium/sb/n}{}
+\DeclareFontShape{TS1}{gentium}{eb}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{TS1}{gentium}{ebx}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{TS1}{gentium}{ebx}{it}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{TS1}{gentium}{ebx}{n}{<->ssub * gentium/eb/n}{}
+
+\endinput

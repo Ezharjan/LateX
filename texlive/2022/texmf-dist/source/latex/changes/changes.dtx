@@ -1,0 +1,1939 @@
+% \CheckSum{1361}
+%
+% \iffalse meta-comment
+%
+%  Copyright (C) 2007-2021
+%  Ekkart Kleinod (ekleinod@edgesoft.de)
+% --------------------------------------------------------------------------
+%
+%  This work may be distributed and/or modified under the
+%  conditions of the \LaTeX\ Project Public License, either version~1.3
+%  of this license or any later version.
+%  The latest version of this license is in\\
+%   \url{http://www.latex-project.org/lppl.txt}\\
+%  and version~1.3 or later is part of all distributions of \LaTeX\
+%  version 2005/12/01 or later.
+%
+%  This work has the LPPL maintenance status "maintained".
+%  The current maintainer of this work is Ekkart Kleinod.
+%
+%  Some code for providing multilanguage documentation was
+%  used from the pst-pdf package by Rolf Niepraschk and Hubert Gaesslein.
+% \fi
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v0.1}{2007/01/16}{Initial version.}
+% \changes{v0.2}{2007/01/17}{new convenience commands, LPPL, bugfixes: missing babel package, ifthen-placement, loc, author markup}
+% \changes{v0.3}{2007/01/22}{english documentation, replaced command changed with command replaced}
+% \changes{v0.4}{2007/01/24}{pdfcolmk for improved markup, introduced author-ids, first CTAN version}
+% \changes{v0.5}{2007/08/26}{reimplementation without array package, UTF-8, grayed text, change pf command arguments}
+% \changes{v0.5.1}{2007/08/27}{deleted text is striked out again using package ulem, greying didn't work}
+% \changes{v0.5.2}{2007/10/10}{package options for ulem and xcolor}
+% \changes{v0.5.3}{2010/11/22}{use class options (final, draft) as well}
+% \changes{v0.5.4}{2011/04/25}{extract user documentation; default language changed to English; script for removal of commands}
+% \changes{v0.6.0}{2012/01/11}{redefined user interface for setting options, markup, authors; newly structured documentation}
+% \changes{v1.0.0}{2012/04/25}{key-value-interface for change commands; special characters in list of changes}
+% \changes{v2.0.0}{2013/06/30}{fixed problem with special characters in tabbing environment (loc), real list of changes, authormarkup}
+% \changes{v2.0.1}{2013/08/10}{no changes in behavior or code; fixed problems with CTAN upload}
+% \changes{v2.0.2}{2013/08/13}{again no changes in behavior or code; fixed CTAN upload - pdf files were corrupt; improved documentation}
+% \changes{v2.0.3}{2014/10/15}{bugfix when using with amsart}
+% \changes{v2.0.4}{2015/04/27}{unknown language does not lead to error: fallback English}
+% \changes{v2.1.0}{2018/10/10}{fixed problems with final option and additional spaces/blanks, warning for wrong list style}
+% \changes{v3.0.0}{2018/11/04}{commands for commenting and highlighting text, rewriting a lot of code, remark is now comment}
+% \changes{v3.1.0}{2018/12/17}{new script for markup removal, improved user manual}
+% \changes{v3.1.1}{2018/12/18}{bugfix: uneven dot fills in summaries}
+% \changes{v3.1.2}{2019/01/26}{bugfix: problems with amsart class}
+% \changes{v3.1.3}{2019/07/21}{bugfix: option clash for ulem and truncate; documentation of known problems and solutions}
+% \changes{v3.2.0}{2019/10/28}{Merge changes script (pyMergeChanges): Support nested brackets}
+% \changes{v3.2.1}{2019/11/17}{removed obsolete package pdfcolmk}
+% \changes{v3.2.2}{2020/06/16}{Merge changes script (pyMergeChanges): Correctly handle multiple different macros in the same line}
+% \changes{v4.0.0}{2021/01/28}{new: convenience macros, setlocextension, option commandnameprefix, defaultcolor; removed: xifthen, remark}
+% \changes{v4.0.1}{2021/02/14}{bugfix: Command do undefined}
+% \changes{v4.0.2}{2021/04/05}{bugfix: documentation with ifthenelse references}
+% \changes{v4.0.3}{2021/05/09}{bugfix: compile error with cite command in change markup with final option}
+% \changes{v4.0.4}{2021/05/13}{bugfix: added missing regression.dtx to ctan archive; no code change}
+% \changes{v4.1.0}{2021/05/30}{clickable list of changes}
+% \changes{v4.2.0}{2021/07/07}{new macro for setting anonymous name; french translations}
+% \changes{v4.2.1}{2021/07/15}{bugfix: missing babel package produces error}
+% \GetFileInfo{changes.dtx}
+% \RecordChanges
+%
+%^^A --------------------------------------------------------------------------
+%
+% \maketitle
+%
+% \tableofcontents
+% \cleardoublepage
+%
+% \ifENGLISH
+% 	\input{userdoc/changes.en}
+% \fi
+% \ifGERMAN
+% 	\input{userdoc/changes.de}
+% \fi
+%
+%^^A -- source code
+%
+% \StopEventually
+%
+% \selectlanguage{english}
+%
+% \cleardoublepage
+% \section{The documented sourcecode}
+%
+% The sourcecode is documented in English only.
+% This is intended, please do not provide translations for the text below, just corrections or improvements.
+%
+%    \begin{macrocode}
+%<*changes>
+%    \end{macrocode}
+%
+% \subsection{Package information and options}
+%
+% Set needed \hologo{LaTeX}-format to \hologo{LaTeXe}, provide name, date, version.
+% Type some information to the console.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{changes}[2021/07/15 v4.2.1 changes package]
+\typeout{*** changes package 2021/07/15 v4.2.1 ***}
+%    \end{macrocode}
+%
+% Package \docpackage{xkeyval} provides options with key-value-pairs.
+%    \begin{macrocode}
+\RequirePackage{xkeyval}
+%    \end{macrocode}
+%
+% Package \docpackage{etoolbox} provides improved \emph{if}, \emph{bools} as well as a \emph{list} operations.
+% todo
+%    \begin{macrocode}
+\RequirePackage{etoolbox}
+%    \end{macrocode}
+%
+% Package \docpackage{xstring} provides improved string test and handling methods.
+%    \begin{macrocode}
+\RequirePackage{xstring}
+%    \end{macrocode}
+%
+% \begin{macro}{\IfIsInList}
+%
+% Helper macro: tests if one of the pipe separated values is in the second list of pipe separated values (boolean or).
+%
+% Corresponds to the if macros of \docpackage{etoolbox}, so it can be used in it's boolean tests.
+% Mainly the last two parameters are the results of \emph{true} and \emph{false} computation.
+%
+% Declare list parsers.
+%    \begin{macrocode}
+\DeclareListParser{\dopsvlist}{|}
+\DeclareListParser*{\forpsvlist}{|}
+%    \end{macrocode}
+%
+% A temporary list and flag.
+%    \begin{macrocode}
+\newcommand{\Changes@tmplist}{}
+\newbool{Changes@inlist}
+%    \end{macrocode}
+%
+% Fill list with values, then check if one of the values of the first list is in the second one.
+%    \begin{macrocode}
+\newrobustcmd{\IfIsInList}[4]{%
+	\renewcommand{\Changes@tmplist}{}%
+%    \end{macrocode}
+%
+% I could not get
+% \doccommand{forpsvlist}\{\doccommand{listadd}\doccommand{Changes@tmplist}\}\{\#2\}
+% to work if \#2 is a macro, so I used the code below.
+%
+% Thanks to Ulrike Fischer for the fix of the macro call of \doccommand{dopsvlist} with \doccommand{expandafter}.
+%
+% To make sure \doccommand{do} can be renewed, we define it first, some macros, such as \doccommand{chapter} undefine it.
+%    \begin{macrocode}
+	\def\do{}%
+	\renewcommand*{\do}[1]{%
+		\listadd{\Changes@tmplist}{##1}%
+	}%
+	\expandafter\dopsvlist\expandafter{#2}%
+%    \end{macrocode}
+% End fo the workaround for \doccommand{forpsvlist}.
+%    \begin{macrocode}
+	\setbool{Changes@inlist}{false}%
+	\renewcommand*{\do}[1]{%
+		\ifinlist{##1}{\Changes@tmplist}%
+			{\setbool{Changes@inlist}{true}}%
+			{}%
+	}%
+	\expandafter\dopsvlist\expandafter{#1}%
+	\ifbool{Changes@inlist}%
+		{#3}%
+		{#4}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Package options}
+%
+% Option \docoption{draft}, \emph{default} is \emph{true}.
+%    \begin{macrocode}
+\newbool{Changes@optiondraft}
+\setbool{Changes@optiondraft}{true}
+\DeclareOptionX{draft}{
+	\setbool{Changes@optiondraft}{true}
+	\typeout{changes-option '\CurrentOption'}
+}
+%    \end{macrocode}
+%
+% Option \docoption{final}, sets \docoption{draft} to \emph{false}.
+%    \begin{macrocode}
+\DeclareOptionX{final}{
+	\setbool{Changes@optiondraft}{false}
+	\typeout{changes-option '\CurrentOption'}
+}
+%    \end{macrocode}
+%
+% Declare storage for authormarkup option and store option value or set to default value \emph{superscript}.
+%    \begin{macrocode}
+\newcommand{\Changes@optioncommandnameprefix}{none}
+\DeclareOptionX{commandnameprefix}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{none|always|ifneeded}
+				{\renewcommand{\Changes@optioncommandnameprefix}{#1}}
+				{\PackageWarning{changes}{commandnameprefix '#1' unknown, using '\Changes@optioncommandnameprefix'}}
+		}
+	\typeout{changes-option 'commandnameprefix=\Changes@optioncommandnameprefix'}
+}
+%    \end{macrocode}
+%
+% Declare storage for markup options, they are set by the markup option but can be changed with the more special options, therefore they have to be declared at this place.
+% Replacement markup is a combination of added and deleted markup, thus there is no special markup storage.
+%    \begin{macrocode}
+\newcommand{\Changes@optionaddedmarkup}{colored}
+\newcommand{\Changes@optiondeletedmarkup}{sout}
+\newcommand{\Changes@optionhighlightmarkup}{background}
+\newcommand{\Changes@optioncommentmarkup}{todo}
+%    \end{macrocode}
+%
+% Option \docoption{markup}, sets markup options accordingly.
+%    \begin{macrocode}
+\newcommand{\Changes@optionmarkup}{default}
+\DeclareOptionX{markup}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{bfit|default|nocolor|underlined}
+				{\renewcommand{\Changes@optionmarkup}{#1}}
+				{\PackageWarning{changes}{markup '#1' unknown, using '\Changes@optionmarkup'}}
+		}
+	\IfStrEq{\Changes@optionmarkup}{default}
+		{
+			% nothing to do, included for symmetry and potential later use
+		}
+		{}
+	\IfStrEq{\Changes@optionmarkup}{underlined}
+		{
+			\renewcommand{\Changes@optionaddedmarkup}{uline}
+			\renewcommand{\Changes@optionhighlightmarkup}{uwave}
+		}
+		{}
+	\IfStrEq{\Changes@optionmarkup}{bfit}
+		{
+			\renewcommand{\Changes@optionaddedmarkup}{bf}
+			\renewcommand{\Changes@optiondeletedmarkup}{it}
+		}
+		{}
+	\IfStrEq{\Changes@optionmarkup}{nocolor}
+		{
+			\renewcommand{\Changes@optionaddedmarkup}{uline}
+			\renewcommand{\Changes@optionhighlightmarkup}{uwave}
+		}
+		{}
+	\typeout{changes-option 'markup=\Changes@optionmarkup'}
+}
+%    \end{macrocode}
+%
+% Option \docoption{addedmarkup}, stored or set to default value \emph{colored}.
+%    \begin{macrocode}
+\DeclareOptionX{addedmarkup}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{bf|colored|dashuline|dotuline|em|it|sl|uline|uuline|uwave}
+				{\renewcommand{\Changes@optionaddedmarkup}{#1}}
+				{\PackageWarning{changes}{addedmarkup '#1' unknown, using '\Changes@optionaddedmarkup'}}
+		}
+	\typeout{changes-option 'addedmarkup=\Changes@optionaddedmarkup'}
+}
+%    \end{macrocode}
+%
+% Option \docoption{deletedmarkup}, stored or set to default value \emph{sout}.
+%    \begin{macrocode}
+\DeclareOptionX{deletedmarkup}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{bf|colored|dashuline|dotuline|em|it|sl|sout|uline|uuline|uwave|xout}
+				{\renewcommand{\Changes@optiondeletedmarkup}{#1}}
+				{\PackageWarning{changes}{deletedmarkup '#1' unknown, using '\Changes@optiondeletedmarkup'}}
+		}
+	\typeout{changes-option 'deletedmarkup=\Changes@optiondeletedmarkup'}
+}
+%    \end{macrocode}
+%
+% Option \docoption{highlightmarkup}, stored or set to default value \emph{background}.
+%    \begin{macrocode}
+\DeclareOptionX{highlightmarkup}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{background|uuline|uwave}
+				{\renewcommand{\Changes@optionhighlightmarkup}{#1}}
+				{\PackageWarning{changes}{highlightmarkup '#1' unknown, using '\Changes@optionhighlightmarkup'}}
+		}
+	\typeout{changes-option 'highlightmarkup=\Changes@optionhighlightmarkup'}
+}
+%    \end{macrocode}
+%
+% Option \docoption{commentmarkup}, stored or set to default value \emph{todo}.
+%    \begin{macrocode}
+\DeclareOptionX{commentmarkup}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{footnote|margin|todo|uwave}
+				{\renewcommand{\Changes@optioncommentmarkup}{#1}}
+				{\PackageWarning{changes}{commentmarkup '#1' unknown, using '\Changes@optioncommentmarkup'}}
+		}
+	\typeout{changes-option 'commentmarkup=\Changes@optioncommentmarkup'}
+}
+%    \end{macrocode}
+%
+% Declare storage for authormarkup option and store option value or set to default value \emph{superscript}.
+%    \begin{macrocode}
+\newcommand{\Changes@optionauthormarkup}{superscript}
+\DeclareOptionX{authormarkup}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{brackets|footnote|none|subscript|superscript}
+				{\renewcommand{\Changes@optionauthormarkup}{#1}}
+				{\PackageWarning{changes}{authormarkup '#1' unknown, using '\Changes@optionauthormarkup'}}
+		}
+	\typeout{changes-option 'authormarkup=\Changes@optionauthormarkup'}
+}
+%    \end{macrocode}
+%
+% Declare storage for authormarkupposition option and store option value or set to default value \emph{right}.
+%    \begin{macrocode}
+\newcommand{\Changes@optionauthormarkupposition}{right}
+\DeclareOptionX{authormarkupposition}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{left|right}
+				{\renewcommand{\Changes@optionauthormarkupposition}{#1}}
+				{\PackageWarning{changes}{authormarkupposition '#1' unknown, using '\Changes@optionauthormarkupposition'}}
+		}
+	\typeout{changes-option 'authormarkupposition=\Changes@optionauthormarkupposition'}
+}
+%    \end{macrocode}
+%
+% Declare storage for authormarkuptext option and store option value or set to default value \emph{id}.
+%    \begin{macrocode}
+\newcommand{\Changes@optionauthormarkuptext}{id}
+\DeclareOptionX{authormarkuptext}{
+	\ifblank{#1}
+		{}
+		{
+			\IfIsInList{#1}{id|name}
+				{\renewcommand{\Changes@optionauthormarkuptext}{#1}}
+				{\PackageWarning{changes}{authormarkuptext '#1' unknown, using '\Changes@optionauthormarkuptext'}}
+		}
+	\typeout{changes-option 'authormarkuptext=\Changes@optionauthormarkuptext'}
+}
+%    \end{macrocode}
+%
+%
+% Store default author color.
+%    \begin{macrocode}
+\newcommand{\Changes@optiondefaultcolor}{blue}
+\DeclareOptionX{defaultcolor}{
+	\ifblank{#1}
+		{}
+		{
+			\renewcommand{\Changes@optiondefaultcolor}{#1}
+		}
+	\typeout{changes-option 'defaultcolor=\Changes@optiondefaultcolor'}
+}
+%    \end{macrocode}
+%
+%
+% Options for package \docpackage{todonotes} are directly passed to the package.
+%    \begin{macrocode}
+\DeclareOptionX{todonotes}{
+	\typeout{todonotes-option '#1', passed to package todonotes}
+	\PassOptionsToPackage{#1}{todonotes}
+}
+%    \end{macrocode}
+%
+% Options for package \docpackage{truncate} are directly passed to the package.
+%    \begin{macrocode}
+\DeclareOptionX{truncate}{
+	\typeout{truncate-option '#1', passed to package truncate}
+	\PassOptionsToPackage{#1}{truncate}
+}
+%    \end{macrocode}
+%
+% Options for package \docpackage{ulem} are directly passed to the package.
+%    \begin{macrocode}
+\DeclareOptionX{ulem}{
+	\typeout{ulem-option '#1', passed to package ulem}
+	\PassOptionsToPackage{#1}{ulem}
+}
+%    \end{macrocode}
+%
+% Options for package \docpackage{xcolor} are directly passed to the package.
+%    \begin{macrocode}
+\DeclareOptionX{xcolor}{
+	\typeout{xcolor-option '#1', passed to package xcolor}
+	\PassOptionsToPackage{#1}{xcolor}
+}
+%    \end{macrocode}
+%
+% Unknown options generate a package warning.
+%    \begin{macrocode}
+\DeclareOptionX*{
+	\PackageWarning{changes}{Unknown option '\CurrentOption'}
+}
+%    \end{macrocode}
+%
+% \subsubsection{Command options}
+%
+% All options for commands (e.g. \doccommand{definechangesauthor}) have to be declared before option processing.
+%
+% \minisec{\doccommand{definechangesauthor}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@definechangesauthor>{name}{\def\Changes@definechangesauthor@name{#1}}
+\DeclareOptionX<Changes@definechangesauthor>{color}{\def\Changes@definechangesauthor@color{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@definechangesauthor}{
+	name=\@empty,
+	color=\Changes@optiondefaultcolor
+}{}
+%    \end{macrocode}
+%
+% \minisec{\doccommand{added}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@added>{id}{\def\Changes@added@id{#1}}
+\DeclareOptionX<Changes@added>{comment}{\def\Changes@added@comment{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@added}{
+	id=\@empty,
+	comment=\@empty,
+}{}
+%    \end{macrocode}
+%
+% \minisec{\doccommand{deleted}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@deleted>{id}{\def\Changes@deleted@id{#1}}
+\DeclareOptionX<Changes@deleted>{comment}{\def\Changes@deleted@comment{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@deleted}{
+	id=\@empty,
+	comment=\@empty,
+}{}
+%    \end{macrocode}
+%
+% \minisec{\doccommand{replaced}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@replaced>{id}{\def\Changes@replaced@id{#1}}
+\DeclareOptionX<Changes@replaced>{comment}{\def\Changes@replaced@comment{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@replaced}{
+	id=\@empty,
+	comment=\@empty,
+}{}
+%    \end{macrocode}
+%
+% \minisec{\doccommand{highlight}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@highlight>{id}{\def\Changes@highlight@id{#1}}
+\DeclareOptionX<Changes@highlight>{comment}{\def\Changes@highlight@comment{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@highlight}{
+	id=\@empty,
+	comment=\@empty,
+}{}
+%    \end{macrocode}
+%
+% \minisec{\doccommand{comment}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@comment>{id}{\def\Changes@comment@id{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@comment}{
+	id=\@empty,
+}{}
+%    \end{macrocode}
+%
+% \minisec{\doccommand{listofchanges}}
+%
+% Declare available options of the command, define value storage.
+%    \begin{macrocode}
+\DeclareOptionX<Changes@loc>{style}{\def\Changes@loc@style{#1}}
+\DeclareOptionX<Changes@loc>{title}{\def\Changes@loc@title{#1}}
+\DeclareOptionX<Changes@loc>{show}{\def\Changes@loc@show{#1}}
+%    \end{macrocode}
+%
+% Set the default values of the options.
+%    \begin{macrocode}
+\presetkeys{Changes@loc}{
+	style=list,
+	title=\@empty,
+	show=all,
+}{}
+%    \end{macrocode}
+%
+% \subsubsection{Package options}
+%
+% In order to avoid option clashes for options, state them here instead at the moment of requiring the package.
+% Thanks for Markus Pahlow for pointing this out and providing the solution.
+%    \begin{macrocode}
+\ExecuteOptionsX{
+	ulem={normalem,normalbf},
+	truncate={breakall,fit}
+}
+%    \end{macrocode}
+%
+% \subsubsection{Option processing}
+%
+% Process the options.
+%    \begin{macrocode}
+\ProcessOptionsX*\relax
+%    \end{macrocode}
+%
+% \subsection{Utility tests}
+%
+% \begin{macro}{\IfIsColored}
+%
+% Check if text should be colored.
+%
+% Corresponds to the if macros of \docpackage{etoolbox}, so it can be used in it's boolean tests.
+% Mainly the last two parameters are the results of \emph{true} and \emph{false} computation.
+%    \begin{macrocode}
+\newrobustcmd{\IfIsColored}[2]{%
+	\IfStrEq{\Changes@optionmarkup}{nocolor}%
+		{#2}%
+		{#1}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\IfIsEmpty}
+%
+% Checks if text in \docoption{\#1} is empty, executes \docoption{\#2} if empty, \docoption{\#3} otherwise.
+%
+% Corresponds to the if macros of \docpackage{etoolbox}, so it can be used in it's boolean tests.
+% Mainly the last two parameters are the results of \emph{true} and \emph{false} computation.
+%
+% I cannot add the test with \doccommand{IfStrEq} to \doccommand{IfIsEmpty} because it breaks e.g. with a \doccommand{cite} command in the final option, see issue \#102.
+% This test does not work (yet) with \doccommand{csuse} as parameter, see \doccommand{Changes@output@author} for the problem.
+%    \begin{macrocode}
+\newrobustcmd{\IfIsEmpty}[3]{%
+	\ifboolexpr{%
+		test {\ifblank{#1}} or%
+		test {\ifstrempty{#1}} or%
+		test {\ifdefstring{#1}{}} or%
+		test {\ifdefstring{#1}{\@empty}}%
+	}%
+		{#2}%
+		{#3}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\IfIsAnonymous}
+%
+% Check if author id is empty, therefore the author is anonymous.
+%
+% Corresponds to the if macros of \docpackage{etoolbox}, so it can be used in it's boolean tests.
+% Mainly the last two parameters are the results of \emph{true} and \emph{false} computation.
+%    \begin{macrocode}
+\newrobustcmd{\IfIsAnonymous}[3]{%
+	\IfIsEmpty{#1}{#2}{#3}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\IfIsAuthorEmptyAtPosition}
+%
+% Check if author is anonymous or position does not equal needed position, therefore the author text is empty.
+%
+% This test could be removed if the test for empty \doccommand{Changes@output@author} would work. % todo
+%
+% Corresponds to the if macros of \docpackage{etoolbox}, so it can be used in it's boolean tests.
+% Mainly the last two parameters are the results of \emph{true} and \emph{false} computation.
+%    \begin{macrocode}
+\newrobustcmd{\IfIsAuthorEmptyAtPosition}[4]{%
+	\ifboolexpr{%
+		test {\IfIsAuthorOutputEmpty{#1}} or%
+		not test {\IfStrEq{\Changes@optionauthormarkupposition}{#2}}%
+	}%
+		{#3}%
+		{#4}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\IfIsAuthorOutputEmpty}
+%
+% Check if author output is empty.
+%
+% This test could be removed if the test for empty \doccommand{Changes@output@author} would work. % todo
+%
+% Corresponds to the if macros of \docpackage{etoolbox}, so it can be used in it's boolean tests.
+% Mainly the last two parameters are the results of \emph{true} and \emph{false} computation.
+%    \begin{macrocode}
+\newrobustcmd{\IfIsAuthorOutputEmpty}[3]{%
+	\ifboolexpr{%
+		test {\IfIsAnonymous{#1}} and%
+		not test {\IfStrEq{\Changes@optionauthormarkuptext}{name}}%
+	}%
+		{#2}%
+		{#3}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Packages}
+%
+% Package \docpackage{xcolor} provides colored text.
+%    \begin{macrocode}
+\IfIsColored
+	{\RequirePackage{xcolor}}
+	{}
+%    \end{macrocode}
+%
+% Package \docpackage{ulem} provides commands for striking out text.
+% Providing the needed package options via \doccommand{ExecuteOptionsX}.
+%    \begin{macrocode}
+\ifboolexpr{
+	test {\IfIsInList{\Changes@optionaddedmarkup}{dashuline|dotuline|sout|uline|uuline|uwave|xout}} or
+	test {\IfIsInList{\Changes@optiondeletedmarkup}{dashuline|dotuline|sout|uline|uuline|uwave|xout}} or
+	test {\IfIsInList{\Changes@optionhighlightmarkup}{dashuline|dotuline|sout|uline|uuline|uwave|xout}}
+}
+	{\RequirePackage{ulem}}
+	{}
+%    \end{macrocode}
+%
+% Package \docpackage{todonotes} provides commands for todo notes in the margin.
+%    \begin{macrocode}
+\IfStrEq{\Changes@optioncommentmarkup}{todo}
+	{\RequirePackage{todonotes}}
+	{}
+%    \end{macrocode}
+%
+% \subsection{Language dependent texts}
+%
+% If the \docpackage{babel} package is not loaded, the default language is English, in order to use another language, the user has to redefine the variables.
+% If the \docpackage{babel} or the \docpackage{polyglossia} package is loaded, the default language is English too for undefined languages.
+%    \begin{macrocode}
+\def\listofchangesname{List of changes}
+\def\summaryofchangesname{Changes}
+\def\compactsummaryofchangesname{Changes (compact)}
+\def\changesaddedname{Added}
+\def\changesdeletedname{Deleted}
+\def\changesreplacedname{Replaced}
+\def\changeshighlightname{Highlighted}
+\def\changescommentname{Commented}
+\def\changesauthorname{Author}
+\def\changesanonymousname{anonymous}
+\def\changesnochanges{No changes.}
+\def\changesnoloc{List of changes is available after the next \LaTeX\ run.}
+\def\changesnosoc{Summary of changes is available after the next \LaTeX\ run.}
+%    \end{macrocode}
+%
+% The check for \docpackage{babel} or \docpackage{polyglossia}, define language dependent texts afterwards.
+%    \begin{macrocode}
+\ifboolexpr{
+	test {\@ifpackageloaded{babel}} or
+	test {\@ifpackageloaded{polyglossia}}
+}
+	{
+		\addto\captionsngerman{\def\listofchangesname{Liste der \"Anderungen}}
+		\addto\captionsngerman{\def\summaryofchangesname{\"Anderungen}}
+		\addto\captionsngerman{\def\compactsummaryofchangesname{\"Anderungen (kompakt)}}
+		\addto\captionsngerman{\def\changesaddedname{Eingef\"ugt}}
+		\addto\captionsngerman{\def\changesdeletedname{Gel\"oscht}}
+		\addto\captionsngerman{\def\changesreplacedname{Ersetzt}}
+		\addto\captionsngerman{\def\changeshighlightname{Hervorgehoben}}
+		\addto\captionsngerman{\def\changescommentname{Kommentiert}}
+		\addto\captionsngerman{\def\changesauthorname{Autor:in}}
+		\addto\captionsngerman{\def\changesanonymousname{Anonym}}
+		\addto\captionsngerman{\def\changesnochanges{Keine \"Anderungen.}}
+		\addto\captionsngerman{\def\changesnoloc{Liste der \"Anderungen nach dem n\"achsten \LaTeX-Lauf verf\"ugbar.}}
+		\addto\captionsngerman{\def\changesnosoc{\"Anderungen nach dem n\"achsten \LaTeX-Lauf verf\"ugbar.}}
+
+		\addto\captionsgerman{\def\listofchangesname{Liste der \"Anderungen}}
+		\addto\captionsgerman{\def\summaryofchangesname{\"Anderungen}}
+		\addto\captionsgerman{\def\compactsummaryofchangesname{\"Anderungen (kompakt)}}
+		\addto\captionsgerman{\def\changesaddedname{Eingef\"ugt}}
+		\addto\captionsgerman{\def\changesdeletedname{Gel\"oscht}}
+		\addto\captionsgerman{\def\changesreplacedname{Ersetzt}}
+		\addto\captionsgerman{\def\changeshighlightname{Hervorgehoben}}
+		\addto\captionsgerman{\def\changescommentname{Kommentiert}}
+		\addto\captionsgerman{\def\changesauthorname{Autor:in}}
+		\addto\captionsgerman{\def\changesanonymousname{Anonym}}
+		\addto\captionsgerman{\def\changesnochanges{Keine \"Anderungen.}}
+		\addto\captionsgerman{\def\changesnoloc{Liste der \"Anderungen nach dem n\"achsten \LaTeX-Lauf verf\"ugbar.}}
+		\addto\captionsgerman{\def\changesnosoc{\"Anderungen nach dem n\"achsten \LaTeX-Lauf verf\"ugbar.}}
+
+		\addto\captionsenglish{\def\listofchangesname{List of changes}}
+		\addto\captionsenglish{\def\summaryofchangesname{Changes}}
+		\addto\captionsenglish{\def\compactsummaryofchangesname{Changes (compact)}}
+		\addto\captionsenglish{\def\changesaddedname{Added}}
+		\addto\captionsenglish{\def\changesdeletedname{Deleted}}
+		\addto\captionsenglish{\def\changesreplacedname{Replaced}}
+		\addto\captionsenglish{\def\changeshighlightname{Highlighted}}
+		\addto\captionsenglish{\def\changescommentname{Commented}}
+		\addto\captionsenglish{\def\changesauthorname{Author}}
+		\addto\captionsenglish{\def\changesanonymousname{anonymous}}
+		\addto\captionsenglish{\def\changesnochanges{No changes.}}
+		\addto\captionsenglish{\def\changesnoloc{List of changes is available after the next \LaTeX\ run.}}
+		\addto\captionsenglish{\def\changesnosoc{Summary of changes is available after the next \LaTeX\ run.}}
+
+		\addto\captionsbritish{\def\listofchangesname{List of changes}}
+		\addto\captionsbritish{\def\summaryofchangesname{Changes}}
+		\addto\captionsbritish{\def\compactsummaryofchangesname{Changes (compact)}}
+		\addto\captionsbritish{\def\changesaddedname{Added}}
+		\addto\captionsbritish{\def\changesdeletedname{Deleted}}
+		\addto\captionsbritish{\def\changesreplacedname{Replaced}}
+		\addto\captionsbritish{\def\changeshighlightname{Highlighted}}
+		\addto\captionsbritish{\def\changescommentname{Commented}}
+		\addto\captionsbritish{\def\changesauthorname{Author}}
+		\addto\captionsbritish{\def\changesanonymousname{anonymous}}
+		\addto\captionsbritish{\def\changesnochanges{No changes.}}
+		\addto\captionsbritish{\def\changesnoloc{List of changes is available after the next \LaTeX\ run.}}
+		\addto\captionsbritish{\def\changesnosoc{Summary of changes is available after the next \LaTeX\ run.}}
+
+		\addto\captionsitalian{\def\listofchangesname{Lista delle modifiche}}
+		\addto\captionsitalian{\def\summaryofchangesname{Modifiche}}
+		\addto\captionsitalian{\def\compactsummaryofchangesname{Modifiche (coerente)}} % translation by me (EK), please provide correct translation
+		\addto\captionsitalian{\def\changesaddedname{Aggiunte}}
+		\addto\captionsitalian{\def\changesdeletedname{Cancellazioni}}
+		\addto\captionsitalian{\def\changesreplacedname{Sostituzioni}}
+		\addto\captionsitalian{\def\changeshighlightname{Accentare}} % translation by me (EK), please provide correct translation
+		\addto\captionsitalian{\def\changescommentname{Commenti}} % translation by me (EK), please provide correct translation
+		\addto\captionsitalian{\def\changesauthorname{Autore}}
+		\addto\captionsitalian{\def\changesanonymousname{anonimo}}
+		\addto\captionsitalian{\def\changesnochanges{Nessuna modifica.}} % translation by me (EK), please provide correct translation
+		\addto\captionsitalian{\def\changesnoloc{La lista delle modifiche sar\`a disponibile alla prossima esecuzione di \LaTeX.}}
+		\addto\captionsitalian{\def\changesnosoc{Le modifiche sar\`a disponibile alla prossima esecuzione di \LaTeX.}}
+
+		\addto\captionsfrench{\def\listofchangesname{Liste des modifications}}
+		\addto\captionsfrench{\def\summaryofchangesname{Modifications}}
+		\addto\captionsfrench{\def\compactsummaryofchangesname{Modifications (compact)}}
+		\addto\captionsfrench{\def\changesaddedname{Ajout\'e}}
+		\addto\captionsfrench{\def\changesdeletedname{Supprim\'e}}
+		\addto\captionsfrench{\def\changesreplacedname{Remplac\'e}}
+		\addto\captionsfrench{\def\changeshighlightname{Mis en \'evidence}}
+		\addto\captionsfrench{\def\changescommentname{Comment\'e}}
+		\addto\captionsfrench{\def\changesauthorname{Auteur}}
+		\addto\captionsfrench{\def\changesanonymousname{Anonyme}}
+		\addto\captionsfrench{\def\changesnochanges{Pas de modification}}
+		\addto\captionsfrench{\def\changesnoloc{Liste des modifications disponible apr\`es la prochaine ex\'ecution de \LaTeX.}}
+		\addto\captionsfrench{\def\changesnosoc{Résumé des modifications disponible apr\`es la prochaine ex\'ecution de \LaTeX.}}
+	}
+	{}
+%    \end{macrocode}
+%
+% \subsection{File extensions}
+%
+% \begin{macro}{\Changes@locextension}
+% Store file extension for list of changes, set default to \emph{loc}.
+%    \begin{macrocode}
+\newcommand{\Changes@locextension}{loc}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setlocextension}
+% Sets a new file extension for list of changes.
+%    \begin{macrocode}
+\newcommand{\setlocextension}[1]{
+	\renewcommand{\Changes@locextension}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@socextension}
+% Store file extension for summary of changes, set default to \emph{soc}.
+%    \begin{macrocode}
+\newcommand{\Changes@socextension}{soc}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setsocextension}
+% Sets a new file extension for summary of changes.
+%    \begin{macrocode}
+\newcommand{\setsocextension}[1]{
+	\renewcommand{\Changes@socextension}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Authors}
+%
+% \subsubsection{Author management}
+%
+% Author counter.
+%    \begin{macrocode}
+\newcounter{Changes@AuthorCount}
+\setcounter{Changes@AuthorCount}{0}
+\newcounter{Changes@Author}
+%    \end{macrocode}
+%
+% \begin{macro}{\definechangesauthor}
+%  Define a new author.
+%  Mandatory argument: author's id.
+%  Optional arguments (key-value): author's name (default: empty) and author's color (default: \doccommand{Changes@optiondefaultcolor} (blue)).
+%
+%  Store id, name and color using named variables.
+%  Define counter and color per author.
+%    \begin{macrocode}
+\newcommand*\definechangesauthor[2][]{
+%    \end{macrocode}
+%
+% Call \emph{setkeys} in order to evaluate the key-value-options and fill the value storage.
+%    \begin{macrocode}
+	\setkeys{Changes@definechangesauthor}{#1}
+%    \end{macrocode}
+%
+% Increment author counter, later needed for \emph{while} loop of authors.
+%    \begin{macrocode}
+	\stepcounter{Changes@AuthorCount}
+%    \end{macrocode}
+%
+% Store the id in a name with the given counter/index.
+% All other storage refers to the id.
+%    \begin{macrocode}
+	\@namedef{Changes@AuthorID\theChanges@AuthorCount}{#2}
+%    \end{macrocode}
+%
+% Store the author's definition in according variables/colors, create change counters.
+%    \begin{macrocode}
+	\expandafter\let\csname Changes@AuthorName#2\endcsname=\Changes@definechangesauthor@name
+	\expandafter\let\csname Changes@AuthorColor#2\endcsname=\Changes@definechangesauthor@color
+	\newcounter{Changes@addedCount#2}
+	\newcounter{Changes@deletedCount#2}
+	\newcounter{Changes@replacedCount#2}
+	\newcounter{Changes@highlightCount#2}
+	\newcounter{Changes@commentCount#2}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% Define default-author (anonymous) with empty id and default color.
+%    \begin{macrocode}
+\definechangesauthor{\@empty}
+%    \end{macrocode}
+%
+%
+% \begin{macro}{\setanonymousname}
+%  Sets the anonymous author name.
+%    \begin{macrocode}
+\newrobustcmd{\setanonymousname}[1]{
+	\AtBeginDocument{
+		\def\changesanonymousname{#1}
+	}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Author markup}
+%
+% \begin{macro}{\Changes@Markup@author}
+% Store markup for authors.
+%    \begin{macrocode}
+\newcommand{\Changes@Markup@author}[1]{%
+	\IfStrEq{\Changes@optionauthormarkup}{superscript}%
+		{\textsuperscript{#1}}%
+		{}%
+	\IfStrEq{\Changes@optionauthormarkup}{subscript}%
+		{\textsubscript{#1}}%
+		{}%
+	\IfStrEq{\Changes@optionauthormarkup}{brackets}%
+		{(#1)}%
+		{}%
+	\IfStrEq{\Changes@optionauthormarkup}{footnote}%
+		{\footnote{#1}}%
+		{}%
+	\IfStrEq{\Changes@optionauthormarkup}{none}%
+		{}%
+		{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setauthormarkup}
+% Set markup for authors.
+%    \begin{macrocode}
+\newcommand{\setauthormarkup}[1]{
+	\renewcommand{\Changes@Markup@author}[1]{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setauthormarkupposition}
+% Set position for author markup text.
+%    \begin{macrocode}
+\newcommand{\setauthormarkupposition}[1]{
+	\renewcommand{\Changes@optionauthormarkupposition}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setauthormarkuptext}
+% Set author markup text to be displayed.
+%    \begin{macrocode}
+\newcommand{\setauthormarkuptext}[1]{
+	\renewcommand{\Changes@optionauthormarkuptext}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Change management commands}
+%
+% \subsubsection{Text markup definition}
+%
+% Replaced text is always typeset as follows: \meta{added text}\meta{deleted text}.
+% Therefore no extra command for markup of replaced text is given.
+%
+% \begin{macro}{\Changes@Markup}
+% Predefined markups for text.
+%    \begin{macrocode}
+\newcommand{\Changes@Markup}[2]{%
+	\IfStrEq{#1}{background}%
+		{%
+			\IfIsColored%
+				{\colorbox{authorcolor!30}{#2}}%
+				{#2}%
+		}%
+		{}%
+	\IfStrEq{#1}{bf}%
+		{\textbf{#2}}%
+		{}%
+	\IfStrEq{#1}{colored}%
+		{#2}%
+		{}%
+	\IfStrEq{#1}{dashuline}%
+		{\dashuline{#2}}%
+		{}%
+	\IfStrEq{#1}{dotuline}%
+		{\dotuline{#2}}%
+		{}%
+	\IfStrEq{#1}{em}%
+		{\emph{#2}}%
+		{}%
+	\IfStrEq{#1}{it}%
+		{\textit{#2}}%
+		{}%
+	\IfStrEq{#1}{sl}%
+		{\textsl{#2}}%
+		{}%
+	\IfStrEq{#1}{sout}%
+		{\sout{#2}}%
+		{}%
+	\IfStrEq{#1}{uline}%
+		{\uline{#2}}%
+		{}%
+	\IfStrEq{#1}{uuline}%
+		{\uuline{#2}}%
+		{}%
+	\IfStrEq{#1}{uwave}%
+		{\uwave{#2}}%
+		{}%
+	\IfStrEq{#1}{xout}%
+		{\xout{#2}}%
+		{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@Markup@added}
+% Store markup for added text.
+%    \begin{macrocode}
+\newcommand{\Changes@Markup@added}[1]{%
+	\Changes@Markup{\Changes@optionaddedmarkup}{#1}{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setaddedmarkup}
+% Set markup for added text.
+%    \begin{macrocode}
+\newcommand{\setaddedmarkup}[1]{
+	\renewcommand{\Changes@Markup@added}[1]{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@Markup@deleted}
+% Store markup for deleted text.
+%    \begin{macrocode}
+\newcommand{\Changes@Markup@deleted}[1]{%
+	\Changes@Markup{\Changes@optiondeletedmarkup}{#1}{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setdeletedmarkup}
+% Set markup for deleted text.
+%    \begin{macrocode}
+\newcommand{\setdeletedmarkup}[1]{
+	\renewcommand{\Changes@Markup@deleted}[1]{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@Markup@highlight}
+%
+% Store markup for highlighted text.
+%    \begin{macrocode}
+\newcommand{\Changes@Markup@highlight}[1]{%
+	\Changes@Markup{\Changes@optionhighlightmarkup}{#1}{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\sethighlightmarkup}
+% Set markup for highlighted text.
+%    \begin{macrocode}
+\newcommand{\sethighlightmarkup}[1]{
+	\renewcommand{\Changes@Markup@highlight}[1]{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@Markup@comment}
+% Store markup for comments.
+%
+% Parameters:
+% \begin{enumerate}
+%  \item text
+%  \item author's id
+%  \item author's id/name output
+% \end{enumerate}
+%    \begin{macrocode}
+\newcommand{\Changes@Markup@comment}[3]{%
+	\IfStrEq{\Changes@optioncommentmarkup}{todo}%
+		{%
+			\IfIsColored%
+				{\colorlet{Changes@todocolor}{authorcolor}}%
+				{\colorlet{Changes@todocolor}{black}}%
+			\todo[color=Changes@todocolor!10, bordercolor=Changes@todocolor, linecolor=Changes@todocolor!70, nolist]{%
+				\textbf{[\IfIsAuthorOutputEmpty{#2}{}{#3~}\arabic{authorcommentcount}]} #1%
+			}%
+		}{}%
+	\IfStrEq{\Changes@optioncommentmarkup}{margin}%
+		{%
+			\marginpar{%
+				\IfIsColored%
+					{\leavevmode\color{authorcolor}}%
+					{}%
+				\textbf{[\IfIsAuthorOutputEmpty{#2}{}{#3~}\arabic{authorcommentcount}]:} #1%
+			}%
+		}{}%
+	\IfStrEq{\Changes@optioncommentmarkup}{footnote}%
+		{%
+			\footnote{%
+				\textbf{[\IfIsAuthorOutputEmpty{#2}{}{#3~}\arabic{authorcommentcount}]:} #1%
+			}%
+		}{}%
+	\IfStrEq{\Changes@optioncommentmarkup}{uwave}%
+		{%
+			{%
+				\IfIsColored%
+					{\color{authorcolor}}%
+					{}%
+				\allowbreak%
+				\uwave{%
+					\textbf{[\IfIsAuthorOutputEmpty{#2}{}{#3~}\arabic{authorcommentcount}]:} #1%
+				}%
+			}%
+		}{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setcommentmarkup}
+% Set markup for comments.
+%    \begin{macrocode}
+\newcommand{\setcommentmarkup}[1]{
+	\renewcommand{\Changes@Markup@comment}[3]{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Change management command definition}
+%
+% \begin{macro}{\Changes@check@author}
+%
+% Check if author id is valid.
+% An empty id is valid by default.
+%
+% If the id is not valid, a package error is raised.
+%
+% Loop code is taken from \url{https://texfaq.org/FAQ-repeat-num}
+%
+% This command has the following arguments:
+% \begin{enumerate}
+%		\item author's id
+% \end{enumerate}
+%
+%    \begin{macrocode}
+\newbool{Changes@WrongID}
+\newcommand{\Changes@check@author}[1]{%
+	\IfIsEmpty{#1}%
+		{}%
+		{%
+			\setbool{Changes@WrongID}{true}%
+			\setcounter{Changes@Author}{0}%
+			\loop%
+				\stepcounter{Changes@Author}%
+				\IfStrEq{#1}{\csuse{Changes@AuthorID\theChanges@Author}}%
+					{\setbool{Changes@WrongID}{false}}%
+					{}%
+				\ifnum\theChanges@Author<\theChanges@AuthorCount%
+			\repeat%
+			\ifbool{Changes@WrongID}%
+				{%
+					\PackageError{changes}%
+						{Undefined changes author: #1}%
+						{You have to define the author #1 with e.g.: \definechangesauthor{#1}}%
+				}%
+				{}%
+		}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@output@author}
+%
+% Output command for the author: id or name.
+%
+% This command has the following arguments:
+% \begin{enumerate}
+%		\item author's id
+% \end{enumerate}
+%    \begin{macrocode}
+\newrobustcmd{\Changes@output@author}[1]{%
+	\IfStrEq{\Changes@optionauthormarkuptext}{id}%
+		{#1}%
+		{}%
+	\IfStrEq{\Changes@optionauthormarkuptext}{name}%
+		{%
+			\IfIsAnonymous{#1}%
+				{\changesanonymousname}%
+				{%
+					%    \end{macrocode}
+					%
+					%	I cannot use \doccommand{IfIsEmpty} here, because it does not work in this case.
+					% I cannot add the test with \doccommand{IfStrEq} to \doccommand{IfIsEmpty} because
+					% it breaks e.g. with a \doccommand{cite} command in the final option.
+					%    \begin{macrocode}
+					\IfStrEq{\csuse{Changes@AuthorName#1}}{}%
+						{#1}%
+						{\csuse{Changes@AuthorName#1}}%
+			}%
+		}%
+		{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@output@author@position}
+%
+% Output command for the author at the given position.
+%
+% This command has the following arguments:
+% \begin{enumerate}
+%		\item author's id
+%		\item position to output the author to (left or right)
+% \end{enumerate}
+%
+% \doccommand{DeclareRobustCommand} is used for not breaking the todo note definition.
+%    \begin{macrocode}
+\newrobustcmd{\Changes@output@author@position}[2]{%
+	\IfIsAuthorEmptyAtPosition{#1}{#2}%
+		{}%
+		{%
+			\Changes@output@author{#1}%
+		}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@set@color}
+%
+% Sets the author's color.
+%
+% This command has the following argument:
+% \begin{enumerate}
+%		\item author's id
+% \end{enumerate}
+%
+%    \begin{macrocode}
+\newrobustcmd{\Changes@set@color}[1]{%
+	\IfIsColored%
+		{\colorlet{authorcolor}{\csuse{Changes@AuthorColor#1}}}%
+		{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@set@commentcount}
+%
+% Sets the author's comment count.
+%
+% This command has the following argument:
+% \begin{enumerate}
+%		\item author's id
+% \end{enumerate}
+%
+%    \begin{macrocode}
+\newcounter{authorcommentcount}
+\newrobustcmd{\Changes@set@commentcount}[1]{%
+	\setcounter{authorcommentcount}{\value{Changes@commentCount#1}}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@set@commandname}
+%
+% Sets the command name according to setting of \docoption{commandname}.
+%    \begin{macrocode}
+\def\Changes@commandprefix{ch}
+\newrobustcmd{\Changes@set@commandname}[1]{
+	\def\Changes@commandname{#1}
+	\IfStrEq{\Changes@optioncommandnameprefix}{always}
+		{
+			\def\Changes@commandname{\Changes@commandprefix#1}
+			\typeout{changes-package option commandnameprefix=always: using prefix on #1, new command name is \Changes@commandname.}
+		}{
+			\ifcsdef{#1}
+				{
+					\IfStrEq{\Changes@optioncommandnameprefix}{none}
+						{
+							\PackageError{changes}
+								{Command #1 is already defined.}
+								{Try package option commandnameprefix with "always" or "ifneeded", e.g. usepackage[commandnameprefix=always]{changes}}
+						}{}
+					\IfStrEq{\Changes@optioncommandnameprefix}{ifneeded}
+						{
+							\def\Changes@commandname{\Changes@commandprefix#1}
+							\PackageWarning{changes}{Command #1 is already defined, using \Changes@commandname}
+						}{}
+				}
+				{}
+		}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@output}
+%
+% Output command for the changed text.
+%
+% This command has the following arguments:
+% \begin{enumerate}
+%		\item change id (added, deleted, replaced, highlight, comment)
+%		\item author's id
+%		\item final text
+%		\item deleted/replaced text
+%		\item comment
+%		\item change type name for list of changes
+%		\item text for list of changes
+% \end{enumerate}
+%    \begin{macrocode}
+\newrobustcmd{\Changes@output}[7]{%
+%    \end{macrocode}
+%
+%	Output changed text if option \docoption{draft} is set, otherwise output unchanged text.
+%    \begin{macrocode}
+	\ifbool{Changes@optiondraft}%
+		{%
+%    \end{macrocode}
+%
+%	Check if author's id is valid and set author's color.
+%    \begin{macrocode}
+			\Changes@check@author{#2}%
+			\Changes@set@color{#2}%
+%    \end{macrocode}
+%
+%	Start output.
+%    \begin{macrocode}
+			{%
+%    \end{macrocode}
+%
+%	Output for change commands: added, deleted, replaced, highlight.
+%
+% I think this code is not elegant but it gets the work done for now.
+%    \begin{macrocode}
+				\IfIsInList{#1}{added|deleted|replaced|highlight}%
+					{%
+%    \end{macrocode}
+%
+%	Author text for left positioning (only without comment).
+%    \begin{macrocode}
+						\IfIsEmpty{#5}%
+							{%
+								\IfIsAuthorEmptyAtPosition{#2}{left}%
+									{}%
+									{{%
+										\IfIsColored%
+											{\color{authorcolor}}%
+											{}%
+										\Changes@Markup@author{\Changes@output@author@position{#2}{left}}%
+									}}%
+							}{}%
+%    \end{macrocode}
+%
+%	Changed/highlighted text.
+%    \begin{macrocode}
+						{%
+							\IfStrEq{#1}{highlight}%
+								{}{%
+									\IfIsColored%
+										{\color{authorcolor}}%
+										{}%
+								}%
+							\IfStrEq{#1}{added}{\Changes@Markup@added{#3}}{}%
+							\IfStrEq{#1}{deleted}{\Changes@Markup@deleted{#4}}{}%
+							\IfStrEq{#1}{replaced}{{\Changes@Markup@added{#3}}\allowbreak\Changes@Markup@deleted{#4}}{}%
+							\IfStrEq{#1}{highlight}{\Changes@Markup@highlight{#3}}{}%
+						}%
+%    \end{macrocode}
+%
+%	Author text for right positioning (only without comment).
+%    \begin{macrocode}
+						\IfIsEmpty{#5}%
+							{%
+								\IfIsAuthorEmptyAtPosition{#2}{right}%
+									{}%
+									{{%
+										\IfIsColored%
+											{\color{authorcolor}}%
+											{}%
+										\Changes@Markup@author{\Changes@output@author@position{#2}{right}}%
+									}}%
+							}{}%
+%    \end{macrocode}
+%
+%	Update counters.
+%    \begin{macrocode}
+						\stepcounter{Changes@#1Count#2}%
+					}{}%
+%    \end{macrocode}
+%
+%	Comments.
+%    \begin{macrocode}
+				\IfIsEmpty{#5}%
+					{}%
+					{%
+						\stepcounter{Changes@commentCount#2}%
+						\Changes@set@commentcount{#2}%
+						\Changes@Markup@comment%
+							{#5}%
+							{#2}%
+							{\Changes@output@author{#2}}%
+					}%
+			}%
+%    \end{macrocode}
+%	Store line for list of changes.
+%    \begin{macrocode}
+			\IfIsEmpty{#2}%
+				{\def\Changes@locid{}}%
+				{\def\Changes@locid{~(#2)}}%
+			\phantomsection\addcontentsline{\Changes@locextension}{#1}{#6\Changes@locid: \truncate{\Changestruncatewidth}{#7}}%
+		}%
+%    \end{macrocode}
+%
+%	Output unchanged text (option \docoption{final} was set).
+%    \begin{macrocode}
+		{%
+			\IfIsEmpty{#3}%
+					{\@bsphack\@esphack}%
+					{#3}%
+		}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\added}
+%  The command formats text as new text.
+%
+%  Mandatory argument: added text.
+%  Optional argument (key-value): author's id, comment
+%    \begin{macrocode}
+\Changes@set@commandname{added}
+\expandafter\newcommand\expandafter{\csname\Changes@commandname\endcsname}[2][\@empty]{%
+%    \end{macrocode}
+% Call \emph{setkeys} in order to evaluate the key-value-options and fill the value storage.
+%    \begin{macrocode}
+	\setkeys{Changes@added}{#1}%
+	\Changes@output%
+		{added}%
+		{\Changes@added@id}%
+		{#2}%
+		{}%
+		{\Changes@added@comment}%
+		{\changesaddedname}%
+		{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\deleted}
+%  The command formats text as deleted text.
+%
+%  The definition of the empty text for unchanged text is provided by Frank Mittelbach, slightly modified by me.
+%  It solves the problem of additional space caused by an empty command (e.g. when using the \docoption{final} option).
+%  Before that, there was a slightly erroneous version from \texttt{de.comp.text.tex} (issue \#2).
+%
+%  Mandatory argument: deleted text.
+%  Optional argument (key-value): author's id, comment
+%    \begin{macrocode}
+\Changes@set@commandname{deleted}
+\expandafter\newcommand\expandafter{\csname\Changes@commandname\endcsname}[2][\@empty]{%
+%    \end{macrocode}
+% Call \emph{setkeys} in order to evaluate the key-value-options and fill the value storage.
+%    \begin{macrocode}
+	\setkeys{Changes@deleted}{#1}%
+	\Changes@output%
+		{deleted}%
+		{\Changes@deleted@id}%
+		{}%
+		{#2}%
+		{\Changes@deleted@comment}%
+		{\changesdeletedname}%
+		{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\replaced}
+%  The command formats text as replaced text.
+%
+%  Mandatory arguments: new text and old text.
+%  Optional argument (key-value): author's id, comment
+%    \begin{macrocode}
+\Changes@set@commandname{replaced}
+\expandafter\newcommand\expandafter{\csname\Changes@commandname\endcsname}[3][\@empty]{%
+%    \end{macrocode}
+% Call \emph{setkeys} in order to evaluate the key-value-options and fill the value storage.
+%    \begin{macrocode}
+	\setkeys{Changes@replaced}{#1}%
+	\Changes@output%
+		{replaced}%
+		{\Changes@replaced@id}%
+		{#2}%
+		{#3}%
+		{\Changes@replaced@comment}%
+		{\changesreplacedname}%
+		{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\highlight}
+%  The command formats text as highlighted text.
+%
+%  Mandatory argument: highlighted text.
+%  Optional argument (key-value): author's id, comment
+%    \begin{macrocode}
+\Changes@set@commandname{highlight}
+\expandafter\newcommand\expandafter{\csname\Changes@commandname\endcsname}[2][\@empty]{%
+%    \end{macrocode}
+%
+% Call \emph{setkeys} in order to evaluate the key-value-options and fill the value storage.
+%    \begin{macrocode}
+	\setkeys{Changes@highlight}{#1}%
+	\Changes@output%
+		{highlight}%
+		{\Changes@highlight@id}%
+		{#2}%
+		{}%
+		{\Changes@highlight@comment}%
+		{\changeshighlightname}%
+		{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\comment}
+%  The command formats text as comment.
+%
+%  Mandatory argument: comment text.
+%  Optional argument (key-value): author's id
+%    \begin{macrocode}
+\Changes@set@commandname{comment}
+\expandafter\newcommand\expandafter{\csname\Changes@commandname\endcsname}[2][\@empty]{%
+%    \end{macrocode}
+%
+% Call \emph{setkeys} in order to evaluate the key-value-options and fill the value storage.
+%    \begin{macrocode}
+	\setkeys{Changes@comment}{#1}%
+	\Changes@output%
+		{comment}%
+		{\Changes@comment@id}%
+		{}%
+		{}%
+		{#2}%
+		{\changescommentname}%
+		{#2}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{List of changes}
+%
+% The list of changes truncates text, therefore the \docpackage{truncate} package is used.
+% (Using fit and redefining the marker: suggestion and code by Frank Mittelbach)
+% Providing the needed package options via \doccommand{ExecuteOptionsX}.
+%    \begin{macrocode}
+\RequirePackage{truncate}
+\renewcommand\TruncateMarker{ [\dots\negthinspace]\ }
+%    \end{macrocode}
+%
+% \begin{macro}{\changes@chopline}
+%  Auxiliary command for reading the content of the loc-files.
+%  The content is read line by line.
+%  One line is parsed with this macro, the order of entries is: id, color, name, added, deleted, replaced, highlighted, comment.
+%  The contents have to be separated by a semicolon.
+%    \begin{macrocode}
+\def\changes@chopline#1;#2;#3;#4;#5;#6;#7;#8 \\{%
+	\def\Changes@Inid{#1}%
+	\def\Changes@Incolor{#2}%
+	\def\Changes@Inname{#3}%
+	\def\Changes@Inadded{#4}%
+	\def\Changes@Indeleted{#5}%
+	\def\Changes@Inreplaced{#6}%
+	\def\Changes@Inhighlight{#7}%
+	\def\Changes@Incomment{#8}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\ChangesListline}
+%
+% Output of a list line, calls \doccommand{contentsline} for output which uses \doccommand{l@change}.
+%
+% This command has the following arguments:
+% \begin{enumerate}
+%		\item change type (added, ...)
+%		\item change description with author
+%		\item page
+%		\item page reference for hyperref
+% \end{enumerate}
+%
+%    \begin{macrocode}
+\newcommand{\ChangesListline}[4]{%
+	\IfIsInList{#1}{\Changes@loc@show}{%
+		\@ifundefined{@dotsep}%
+			{\def\@dotsep{4.5}}%
+			{}%
+		\origcontentsline{change}{#2}{#3}{#4}
+	}{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l@change}
+%
+% Output of a loc entry.
+%
+%    \begin{macrocode}
+\newcommand*\l@change{\@dottedtocline{1}{0pt}{2em}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\settruncatewidth}
+%
+% Set the width of the truncation.
+% Argument: new width.
+%    \begin{macrocode}
+\newcommand{\settruncatewidth}[1]{
+	\setlength{\Changestruncatewidth}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changestruncatewidth}
+%
+% Length for the width of the truncation.
+%
+% Default: two third of the text width
+%
+% Normally, the name would be separated by @, as all internal macros are, but this leads
+% to compile errors when processing the list of changes, therefore the @ were omitted.
+%
+%    \begin{macrocode}
+\newlength{\Changestruncatewidth}
+\settruncatewidth{.6\textwidth}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setsummarywidth}
+%
+% Set the width of the change summary.
+% Argument: new width.
+%    \begin{macrocode}
+\newcommand{\setsummarywidth}[1]{
+	\setlength{\Changes@summary@width}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setsummarytowidth}
+%
+% Set the width of the change summary to width of given text.
+% Argument: text.
+%    \begin{macrocode}
+\newcommand{\setsummarytowidth}[1]{
+	\settowidth{\Changes@summary@width}{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\Changes@summary@width}
+%
+% Length for the width of the change summary.
+%
+% Default: one third of the text width
+%
+%    \begin{macrocode}
+\newlength{\Changes@summary@width}
+\setsummarywidth{.3\textwidth}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\phantomsection}
+%
+% Provide command in case \docpackage{hyperref} is not loaded.
+%    \begin{macrocode}
+\providecommand\phantomsection{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\listofchanges}
+%
+%	This command outputs the list of changes.
+% Options: \docoption{title}, \docoption{style} and \docoption{show}.
+%
+% The following styles are available:
+% \begin{description}
+% 	\item [\docoption{list}] prints the list of changes like a list of figures
+% 	\item [\docoption{summary}] prints the number of changes grouped by author
+% 	\item [\docoption{compactsummary}] same as \docoption{summary} but entries with count 0 are omitted
+% \end{description}
+%
+% The following show values are available:
+% \begin{description}
+% 	\item [\docoption{all}] all kinds of changes
+% 	\item [\docoption{added}] print only additions (same for delete, replace, highlight, comment)
+% 	\item [\docoption{added|deleted}] print additions and deletions (and other combinations with |)
+% \end{description}
+%
+% For the lists, the values are read from the auxiliary files (loc and soc).
+%	If no loc/soc-files exists, an according message is generated.
+%    \begin{macrocode}
+\newcommand{\listofchanges}[1][\@empty]{%
+	\setkeys{Changes@loc}{#1}%
+%    \end{macrocode}
+%	All work is done only in draft mode.
+%    \begin{macrocode}
+	\ifbool{Changes@optiondraft}%
+		{%
+%    \end{macrocode}
+%
+% Check if style is known, otherwise use \docoption{list} by default.
+%    \begin{macrocode}
+			\IfIsInList{\Changes@loc@style}{list|summary|compactsummary}%
+				{}%
+				{%
+					\PackageWarning{changes}{Wrong style for list of changes: '\Changes@loc@style', using 'list' instead.}%
+					\def\Changes@loc@style{}%
+				}%
+			\IfIsEmpty{\Changes@loc@style}%
+				{\def\Changes@loc@style{list}}%
+				{}%
+%    \end{macrocode}
+%
+% Check if show-value is known, otherwise use \docoption{all} by default.
+%    \begin{macrocode}
+			\IfStrEq{\Changes@loc@show}{all}%
+				{\def\Changes@loc@show{added|deleted|replaced|highlight|comment}}%
+				{}%
+			\IfIsInList{\Changes@loc@show}{added|deleted|replaced|highlight|comment}%
+				{}%
+				{%
+					\PackageWarning{changes}{Wrong show-value for list of changes: '\Changes@loc@show', using 'all' instead.}%
+					\def\Changes@loc@show{}%
+				}%
+			\IfIsEmpty{\Changes@loc@show}%
+				{\def\Changes@loc@show{added|deleted|replaced|highlight|comment}}%
+				{}%
+%    \end{macrocode}
+%
+%	Print heading.
+%    \begin{macrocode}
+			\IfIsEmpty{\Changes@loc@title}%
+				{%
+					\IfStrEq{\Changes@loc@style}{list}%
+						{\def\Changes@heading{\listofchangesname}}{}%
+					\IfStrEq{\Changes@loc@style}{summary}%
+						{\def\Changes@heading{\summaryofchangesname}}{}%
+					\IfStrEq{\Changes@loc@style}{compactsummary}%
+						{\def\Changes@heading{\compactsummaryofchangesname}}{}%
+				}%
+				{\def\Changes@heading{\Changes@loc@title}}%
+			\section*{\Changes@heading}
+%    \end{macrocode}
+%
+%	Print list.
+%
+% The \doccommand{ifeof} command is neccessary in the loop too, otherwise there are problems with the last (empty) line of the file.
+%
+% The output is done with \doccommand{contentsline}, in order to filter the output I have to redefine the command.
+% I did not find a better solution than the \doccommand{let} command.
+%    \begin{macrocode}
+			\IfIsInList{\Changes@loc@style}{list}%
+				{%
+					\IfFileExists{\jobname.\Changes@locextension}%
+						{%
+							\let\origcontentsline\contentsline%
+							\let\contentsline\ChangesListline%
+							\newread\Changes@InFile%
+							\openin\Changes@InFile=\jobname.\Changes@locextension%
+							\loop\unless\ifeof\Changes@InFile%
+								\read\Changes@InFile to \Changes@Line%
+								\ifeof\Changes@InFile\else%
+									\Changes@Line%
+								\fi
+							\repeat
+							\closein\Changes@InFile%
+							\let\contentsline\origcontentsline%
+						}{%
+							\emph{\changesnoloc}%
+							\PackageWarning{changes}{LaTeX rerun needed for list of changes}%
+						}%
+				}{}%
+%    \end{macrocode}
+%
+%	Print summary or compact summary.
+%
+% The \doccommand{ifeof} command is neccessary in the loop too, otherwise there are problems with the last (empty) line of the file.
+%    \begin{macrocode}
+			\IfIsInList{\Changes@loc@style}{summary|compactsummary}%
+				{%
+					\IfFileExists{\jobname.\Changes@socextension}%
+						{%
+%    \end{macrocode}
+% Deactivate semicolon as shorthand in order to avoid problems reading the semicolon separated lines.
+%    \begin{macrocode}
+							\ifdef{\ifbabelshorthand}{%
+								\ifbabelshorthand{;}{\shorthandoff{;}}{}%
+							}{}%
+							\newread\Changes@InFile%
+							\openin\Changes@InFile = \jobname.\Changes@socextension%
+%    \end{macrocode}
+% Every line contains the author's id, color and number of changes.
+%    \begin{macrocode}
+							\loop\unless\ifeof\Changes@InFile%
+								\read\Changes@InFile to \Changes@Line%
+								\ifeof\Changes@InFile\else%
+									\expandafter\changes@chopline\Changes@Line\\%
+									\textbf{%
+										\IfIsColored%
+											{\color{\Changes@Incolor}}%
+											{}%
+										\IfIsAnonymous{\Changes@Inid}%
+											{\changesauthorname: \changesanonymousname}%
+											{%
+												\changesauthorname: \Changes@Inid%
+												\IfIsEmpty{\Changes@Inname}%
+													{}%
+													{ (\Changes@Inname)}%
+											}%
+									}\\%
+%    \end{macrocode}
+% Compute the relevant sum of changes in order to print "no changes" correctly.
+%
+% To make sure \doccommand{do} can be renewed, we define it first, some macros, such as \doccommand{chapter} undefine it.
+%    \begin{macrocode}
+									\numdef{\Changes@InSum}{0}%
+									\def\do{}%
+									\renewcommand*{\do}[1]{%
+										\numdef{\Changes@InSum}{\Changes@InSum + \csuse{Changes@In########1}}%
+									}%
+									\expandafter\dopsvlist\expandafter{\Changes@loc@show}%
+%    \end{macrocode}
+% Print summary.
+%    \begin{macrocode}
+									\ifnumcomp{\Changes@InSum}{=}{0}%
+										{%
+											\parbox{\Changes@summary@width}{\changesnochanges}\\[1ex]%
+										}%
+										{%
+											\numdef{\Changes@InCount}{0}%
+											\renewcommand*{\do}[1]{%
+												\numdef{\Changes@InCount}{\Changes@InCount + \csuse{Changes@In########1}}%
+												\ifboolexpr{%
+													not test {\IfStrEq{\Changes@loc@style}{compactsummary}} or%
+													test {\ifnumgreater{\csuse{Changes@In########1}}{0}}%
+												}%
+													{%
+														\parbox{\Changes@summary@width}{\csuse{changes########1name}~\let\cleaders\leaders\dotfill~\csuse{Changes@In########1}}%
+														\ifnumless{\Changes@InCount}{\Changes@InSum}%
+															{\\}%
+															{\\[1ex]}%
+													}%
+													{}%
+											}%
+											\expandafter\dopsvlist\expandafter{\Changes@loc@show}%
+										}%
+								\fi%
+%    \end{macrocode}
+% File read loop.
+%    \begin{macrocode}
+							\repeat
+							\closein\Changes@InFile%
+%    \end{macrocode}
+% Reactivate semicolon as shorthand.
+%    \begin{macrocode}
+							\ifdef{\ifbabelshorthand}{%
+								\ifbabelshorthand{;}{\shorthandon{;}}{}%
+							}{}%
+						}{%
+							\emph{\changesnosoc}%
+							\PackageWarning{changes}{LaTeX rerun needed for summary of changes}%
+						}%
+				}{}%
+%    \end{macrocode}
+%	In final mode print nothing.
+%    \begin{macrocode}
+		}{}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%  At the end of the document: write the list of changes in the loc-file, therefore open file, write values, close file.
+%  Changes are written as \hologo{LaTeX}-formatted text, so they can simply be read via \doccommand{input}.
+%
+%  The order of entries is: id, color, name, added, deleted, replaced, comment, highlight.
+%  The contents have to be separated by a semicolon.
+%    \begin{macrocode}
+\AtEndDocument{%
+%    \end{macrocode}
+% Open output file.
+%    \begin{macrocode}
+	\newwrite\Changes@OutFile
+	\immediate\openout\Changes@OutFile = \jobname.\Changes@socextension
+%    \end{macrocode}
+% Redefine expandable of \doccommand{protect} in order to write correct special characters.
+% Store original definition for resetting \doccommand{protect}.
+%    \begin{macrocode}
+	\let\Changes@protect\protect
+	\let\protect\@unexpandable@protect
+%    \end{macrocode}
+% Output data for list of changes.
+%    \begin{macrocode}
+	\setcounter{Changes@Author}{0}
+	\loop\unless\ifnum\theChanges@Author = \value{Changes@AuthorCount}
+		\stepcounter{Changes@Author}%
+		\def\Changes@ID{\csuse{Changes@AuthorID\theChanges@Author}}%
+		\immediate\write\Changes@OutFile{\Changes@ID;%
+			\csuse{Changes@AuthorColor\Changes@ID};%
+			\csuse{Changes@AuthorName\Changes@ID};%
+			\the\value{Changes@addedCount\Changes@ID};%
+			\the\value{Changes@deletedCount\Changes@ID};%
+			\the\value{Changes@replacedCount\Changes@ID};%
+			\the\value{Changes@highlightCount\Changes@ID};%
+			\the\value{Changes@commentCount\Changes@ID}}%
+	\repeat
+%    \end{macrocode}
+% Close output file.
+%    \begin{macrocode}
+	\immediate\closeout\Changes@OutFile
+%    \end{macrocode}
+% Restore original definition of \doccommand{protect}.
+%    \begin{macrocode}
+	\let\protect\Changes@protect
+%    \end{macrocode}
+%
+% Write content of listofchanges to file.
+%    \begin{macrocode}
+	\if@filesw
+		\@ifundefined{tf@\Changes@locextension}{
+			\expandafter\newwrite\csname tf@\Changes@locextension\endcsname
+			\immediate\openout \csname tf@\Changes@locextension\endcsname \jobname.\Changes@locextension\relax
+		}{}
+	\fi
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</changes>
+%    \end{macrocode}
+%
+% \PrintChanges
+% \PrintIndex
+%
+%\Finale
+\endinput

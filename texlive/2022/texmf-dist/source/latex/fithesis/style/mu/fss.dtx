@@ -1,0 +1,82 @@
+% \file{style/mu/fithesis-fss.sty}
+% \changes{v1.0.0}{2021/02/21}{Files were renamed after
+%   breaking changes in package loading after PR 438 in \LaTeXe. [VN]}
+% \changes{v1.0.0}{2021/03/19}{Updated urls to show the most recent
+%   requirements and recommendations used in preparation of the
+%   template. [TV]}
+% This is the style file for the theses written at the Faculty of
+% Social Studies at the Masaryk University in Brno. It has been
+% prepared in accordance with the MS template of the faculty
+% \footnote{See \url{https://is.muni.cz/auth/do/fss/sablona_^^A
+% zaverecne_prace/sablonaDP-MUNI-FSS.dotx}}.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fithesis/style/mu/fithesis-mu-fss}[2021/04/24]
+%    \end{macrocode}
+% The file defines the color scheme of the respective faculty. Note
+% the the color definitions are in RGB, which makes the resulting
+% files generally unsuitable for printing.
+%    \begin{macrocode}
+\thesis@color@setup{
+  links={HTML}{58EDD7},
+  tableEmph={HTML}{69D6C6},
+  tableOdd={HTML}{E3F1EE},
+  tableEven={HTML}{C5E3DF}}
+%    \end{macrocode}
+% The bibliography support is enabled. The |iso-authoryear| citations
+% are used and the bibliography is sorted by name, title, and year.
+%    \begin{macrocode}
+\thesis@bibliography@setup{
+  style=iso-authoryear,
+  sorting=nty}
+\thesis@bibliography@load
+%    \end{macrocode}
+% \changes{v1.0.0}{2021/05/06}{Added redefinition of the conditional
+%    to exclude the study field from the title page. [TV]}
+%    \begin{macrocode}
+\thesis@blocks@titlePage@field@false
+%    \end{macrocode}
+% \begin{macro}{\thesis@blocks@frontMatter}
+% The |\thesis@blocks@frontMatter| macro sets up the style
+% of the front matter of the thesis.
+% \begin{macrocode}
+\def\thesis@blocks@frontMatter{%
+  \pagestyle{plain}
+  \parindent 1.5em
+  \setcounter{page}{1}
+  \pagenumbering{roman}}
+%    \end{macrocode}
+% \end{macro}
+% Note that there is no direct support for the seminar paper and
+% thesis proposal types.  If you would like to change the contents
+% of the preamble and the postamble, you should modify the
+% |\thesis@blocks@preamble| and |\thesis@blocks@postamble| macros.
+%
+% All blocks within the autolayout preamble and postamble that are
+% not defined within this file are defined in the
+% \texttt{style/mu/fithesis-base.sty} file.
+% \changes{v1.0.0}{2021/03/22}{Reorganised the blocks to fit the
+%   faculty's requirements. [TV]}
+% \changes{v1.0.0}{2021/04/24}{^^A
+%   Change \cs{thesis@facultyLogo},
+%   \cs{thesis@blocks@facultyLogo@monochrome}, and
+%   \cs{thesis@blocks@facultyLogo@color} to use the new logotype
+%   of the Masaryk University in Brno in the correct size and
+%   localization. Add \cs{thesis@blocks@seal}. [VN]}
+%    \begin{macrocode}
+\def\thesis@blocks@preamble{%
+  \thesis@blocks@coverMatter
+    \thesis@blocks@cover
+  \thesis@blocks@frontMatter
+    \thesis@blocks@titlePage
+    \thesis@blocks@seal
+    \thesis@blocks@bibEntry
+    \thesis@blocks@abstract
+    \thesis@blocks@bibEntryEn
+    \thesis@blocks@abstractEn
+    \thesis@blocks@declaration
+    \thesis@blocks@thanks
+    \thesis@blocks@tables}
+\def\thesis@blocks@postamble{%
+  \thesis@blocks@bibliography}
+%    \end{macrocode}

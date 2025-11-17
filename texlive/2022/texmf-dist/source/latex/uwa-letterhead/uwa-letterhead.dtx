@@ -1,0 +1,923 @@
+% \iffalse meta-comment
+% Copyright 2019, 2021 Anthony Di Pietro
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Anthony Di Pietro.
+%
+% This work consists of the files uwa-letterhead.dtx, uwa-letterhead.ins, and
+% uwa-letterhead-example.tex and the derived files uwa-letterhead.sty and
+% uwa-letterhead.pdf.
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{uwa-letterhead.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{uwa-letterhead}
+%<*package>
+    [2021/09/13 1.0.1 UWA Letterhead]
+%</package>
+%
+%<*driver>
+\documentclass[
+        a4paper,
+        10pt
+]{ltxdoc}
+\usepackage{hypdoc}
+\PassOptionsToPackage{scale=0.9}{sourcecodepro}
+\usepackage[
+        regular,
+        nouwafont,
+        noarial
+]{uwa-letterhead}[2021/09/13]
+\GetFileInfo{uwa-letterhead.dtx}
+\setcounter{secnumdepth}{3}
+\geometry{
+        left=5cm,
+        right=2cm
+}
+\hypersetup{colorlinks=true}
+\date{}
+\makeatletter
+\title{%
+        {The UWA Letterhead Package} \\
+        {\Large uwa-letterhead \fileversion{} (\filedate{})}%
+}
+\renewcommand{\uwalh@makeletterhead}{}
+\c@IndexColumns = 2
+\makeatother
+\DoNotIndex{\newcommand, \newenvironment}
+\DisableCrossrefs
+\CodelineIndex
+\RecordChanges
+\CheckSum{561}
+\begin{document}
+        \DocInput{uwa-letterhead.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{1.0.0}{2019/08/31}{Initial version}
+% \changes{1.0.1}{2021/09/13}{Make first-page footer optional}
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% This package generates the letterhead of The University of Western Australia.
+%
+% \section{Usage}
+%
+% \subsection{External Dependencies}
+%
+% You must supply the university logo (as |uwacrest-blue.pdf| by default).
+% It is available in SVG format at
+% \href{https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}
+% {https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}.
+%
+% The letterhead uses the
+% \href{https://docs.microsoft.com/en-us/typography/font-list/arial}{Arial}
+% typeface for the first-page footer and the
+% \href{https://www.brand.uwa.edu.au/}{UWA Slab} typeface for headings.
+% The fonts must be installed on the system for this to work. Arial is
+% available as part of Microsoft's TrueType core fonts for the web
+% (\url{https://sourceforge.net/projects/mscorefonts2/}), and UWA Slab is
+% available from the UWA website
+% (\url{https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/fonts/uwa/}).
+% Alternatively, you can use the |noarial| and |nouwafont| package options
+% to substitute these with the body text typeface.
+%
+% \subsection{Package Options}
+%
+% \DescribeMacro{\usepackage}
+% To load the package, add this to your preamble:
+% \begin{quote}
+% |\usepackage{uwa-letterhead}|
+% \end{quote}
+%
+% You can pass the following options to specify the font weights:
+% \begin{itemize}
+%         \item |light|: Use light and semibold fonts (default).
+%         \item |regular|: Use regular and bold fonts.
+% \end{itemize}
+%
+% You can pass the following options to specify whether to use UWA Slab
+% for headings:
+% \begin{itemize}
+%         \item |uwafont|: Use UWA Slab for headings (default).
+%         \item |nouwafont|: Use the body text typeface for headings.
+% \end{itemize}
+%
+% You can pass the following options to specify whether to include the
+% first-page footer:
+% \begin{itemize}
+%         \item |footer|: Include the first-page footer.
+%         \item |nofooter|: Do not include the first-page footer (default).
+% \end{itemize}
+%
+% You can pass the following options to specify whether to use Arial
+% for the first-page footer:
+% \begin{itemize}
+%         \item |arial|: Use Arial for the first-page footer (default).
+%         \item |noarial|: Use the body text typeface for the first-page footer.
+% \end{itemize}
+%
+% \subsection{Letterhead Fields}
+%
+% Use the following commands in the preamble to set the letterhead fields:
+%
+% \DescribeMacro{\author}
+% \begin{minipage}[t]{\textwidth}
+% |\author|\marg{author} \\
+% The author of the document. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\school}
+% \begin{minipage}[t]{\textwidth}
+% |\school|\marg{school} \\
+% The author's school within the university. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\mbdp}
+% \begin{minipage}[t]{\textwidth}
+% |\mbdp|\marg{mbdp} \\
+% The author's
+% \href{https://www.uniprint.uwa.edu.au/mail/mailbag-delivery-points}
+% {mailbag delivery point (MBDP)}. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\university}
+% \begin{minipage}[t]{\textwidth}
+% |\university|\marg{university} \\
+% The name of the university. \\
+% Default: \textit{The University of Western Australia}
+% \end{minipage}
+%
+% \DescribeMacro{\address}
+% \begin{minipage}[t]{\textwidth}
+% |\address|\marg{address} \\
+% The university's address. \\
+% Default: \textit{35 Stirling Highway, Crawley WA 6009}
+% \end{minipage}
+%
+% \DescribeMacro{\phone}
+% \begin{minipage}[t]{\textwidth}
+% |\phone|\marg{phone} \\
+% The author's phone number. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\mobile}
+% \begin{minipage}[t]{\textwidth}
+% |\mobile|\marg{mobile} \\
+% The author's mobile number. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\email}
+% \begin{minipage}[t]{\textwidth}
+% |\email|\marg{email} \\
+% The author's email address. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\website}
+% \begin{minipage}[t]{\textwidth}
+% |\website|\marg{website} \\
+% The author's website, or their school's website. \\
+% Omit the scheme (|https://|) and path (|/|). \\
+% Default: \textit{www.uwa.edu.au}
+% \end{minipage}
+%
+% \DescribeMacro{\footeraddress}
+% \begin{minipage}[t]{\textwidth}
+% |\footeraddress|\marg{footeraddress} \\
+% The university's address, shortened for the first-page footer. \\
+% Default: \textit{Perth WA 6009 Australia}
+% \end{minipage}
+%
+% \DescribeMacro{\cricos}
+% \begin{minipage}[t]{\textwidth}
+% |\cricos|\marg{cricos} \\
+% The university's
+% \href{http://cricos.education.gov.au/}{CRICOS} provider code. \\
+% Default: \textit{00126G}
+% \end{minipage}
+%
+% \DescribeMacro{\uwacrest}
+% \begin{minipage}[t]{\textwidth}
+% |\uwacrest|\marg{uwacrest} \\
+% The filename of the UWA crest in PDF format (available in SVG format at
+% \href{https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}
+% {https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}). \\
+% Default: \textit{uwacrest-blue.pdf}
+% \end{minipage}
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \section{Implementation}
+%
+% \subsection{Package Options}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwalh@uwafont}
+% \begin{macro}{\uwalh@footer}
+% \begin{macro}{\uwalh@arialfont}
+% Define conditionals for the package options.
+%    \begin{macrocode}
+\newif\ifuwalh@uwafont
+\newif\ifuwalh@footer
+\newif\ifuwalh@arialfont
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% The |uwafont| and |nouwafont| options respectively enable and disable
+% using the UWA Slab for headings.
+%    \begin{macrocode}
+\DeclareOption{uwafont}{
+        \uwalh@uwafonttrue
+}
+\DeclareOption{nouwafont}{
+        \uwalh@uwafontfalse
+}
+%    \end{macrocode}
+%
+% The |footer| and |nofooter| options respectively enable and disable
+% the first-page footer.
+%    \begin{macrocode}
+\DeclareOption{footer}{
+        \uwalh@footertrue
+}
+\DeclareOption{nofooter}{
+        \uwalh@footerfalse
+}
+%    \end{macrocode}
+%
+% The |arial| and |noarial| options respectively enable and disable
+% using Arial for the first-page footer.
+%    \begin{macrocode}
+\DeclareOption{arial}{
+        \uwalh@arialfonttrue
+}
+\DeclareOption{noarial}{
+        \uwalh@arialfontfalse
+}
+%    \end{macrocode}
+%
+% The |light| option uses light and semibold fonts.
+%    \begin{macrocode}
+\DeclareOption{light}{
+        \PassOptionsToPackage{
+                default,
+                light,
+                semibold
+        }{sourcesanspro}
+        \PassOptionsToPackage{
+                light,
+                semibold
+        }{sourcecodepro}
+}
+%    \end{macrocode}
+% The |regular| option uses regular and bold fonts.
+%    \begin{macrocode}
+\DeclareOption{regular}{
+        \PassOptionsToPackage{
+                default,
+                regular,
+                bold
+        }{sourcesanspro}
+        \PassOptionsToPackage{
+                regular,
+                bold
+        }{sourcecodepro}
+}
+%    \end{macrocode}
+%
+% Use the |uwafont|, |nofooter|, |arial|, and |light| options by default.
+%    \begin{macrocode}
+\ExecuteOptions{
+        uwafont,
+        nofooter,
+        arial,
+        light
+}
+%    \end{macrocode}
+%
+% Complete option processing.
+%    \begin{macrocode}
+\ProcessOptions\relax
+%    \end{macrocode}
+%
+% \subsection{Page Configuration}
+%
+% Use |geometry| to configure the page margins.
+%    \begin{macrocode}
+\RequirePackage[
+        margin=1cm,
+        top=1.7cm,
+        left=2.5cm,
+        bottom=2.2cm,
+        right=2.5cm
+]{geometry}
+%    \end{macrocode}
+% Disable page numbering.
+%    \begin{macrocode}
+\pagestyle{empty}
+%    \end{macrocode}
+%
+% \subsection{Font Configuration}
+%
+% Use |fontspec| for access to OpenType and TrueType fonts.
+%    \begin{macrocode}
+\RequirePackage[no-math]{fontspec}
+%    \end{macrocode}
+%
+% Set default fonts.
+%    \begin{macrocode}
+\RequirePackage{sourcesanspro}
+\RequirePackage{sourcecodepro}
+%    \end{macrocode}
+%
+% Set font for headings.
+%    \begin{macrocode}
+\ifuwalh@uwafont
+        \newfontfamily{\uwalh@uwa}{UWA}
+\else
+        \newcommand*{\uwalh@uwa}{\sffamily}
+\fi
+%    \end{macrocode}
+%
+% Set font for first-page footer.
+%    \begin{macrocode}
+\ifuwalh@footer
+        \ifuwalh@arialfont
+                \newfontfamily{\uwalh@arial}{Arial}
+        \else
+                \newcommand*{\uwalh@arial}{\sffamily}
+        \fi
+\else
+        \newcommand*{\uwalh@arial}{\sffamily}
+\fi
+%    \end{macrocode}
+%
+% \subsection{Paragraph Configuration}
+%
+% Use |microtype| to enable microtypographic extensions.
+%    \begin{macrocode}
+\RequirePackage{microtype}
+%    \end{macrocode}
+%
+% Delineate paragraphs with vertical space rather than indentation.
+%    \begin{macrocode}
+\parindent0pt
+\setlength{\parskip}{0.8\baselineskip}
+%    \end{macrocode}
+%
+% \subsection{Heading Configuration}
+%
+% Use |titlesec| to configure headings.
+%    \begin{macrocode}
+\RequirePackage[sf]{titlesec}
+\titleformat{\section}{\color{black}\Large\uwalh@uwa}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{black}\large\uwalh@uwa}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0em}{2\baselineskip}{0em}
+\titlespacing*{\subsection}{0em}{\baselineskip}{0em}
+%    \end{macrocode}
+%
+% Disable section numbering.
+%    \begin{macrocode}
+\setcounter{secnumdepth}{0}
+%    \end{macrocode}
+%
+% \subsection{Hyperlink Configuration}
+%
+% Use |hyperref| for hyperlinks, disabling visual indicators by default.
+%    \begin{macrocode}
+\RequirePackage{hyperref}
+\hypersetup{
+        colorlinks=false,
+        pdfborder={0 0 0}
+}
+%    \end{macrocode}
+% Do not typeset URLs in a different font by default.
+%    \begin{macrocode}
+\urlstyle{same}
+%    \end{macrocode}
+%
+% \subsection{Colour Configuration}
+%
+% Use |xcolor| for colour support, and enable |hyperref| compatibility.
+%    \begin{macrocode}
+\RequirePackage[hyperref]{xcolor}
+%    \end{macrocode}
+% Define letterhead colours.
+%    \begin{macrocode}
+\definecolor{UWALetterheadBlue}{RGB}{33, 64, 154}
+\definecolor{UWALetterheadGold}{RGB}{221, 177, 10}
+\definecolor{UWALetterheadFooter}{RGB}{77, 77, 79}
+%    \end{macrocode}
+%
+% \subsection{Miscellaneous Packages}
+%
+% Use |stringstrings| to remove spaces from phone numbers.
+%    \begin{macrocode}
+\RequirePackage{stringstrings}
+%    \end{macrocode}
+%
+% Use |textpos| in |absolute| mode to place letterhead elements
+% at arbitrary positions on the page.
+%    \begin{macrocode}
+\RequirePackage[absolute]{textpos}
+%    \end{macrocode}
+%
+% Use |graphicx| to add the university logo.
+%    \begin{macrocode}
+\RequirePackage{graphicx}
+%    \end{macrocode}
+%
+% \subsection{Letterhead Layout}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwalh@bluewidth}
+% \begin{macro}{\uwalh@goldwidth}
+% \begin{macro}{\uwalh@barheight}
+% \begin{macro}{\uwalh@barleft}
+% \begin{macro}{\uwalh@bartop}
+% Define dimensions and positions for the coloured bar at the top
+% of the letterhead.
+%    \begin{macrocode}
+\newlength{\uwalh@bluewidth}
+\setlength{\uwalh@bluewidth}{4.79cm}
+\newlength{\uwalh@goldwidth}
+\setlength{\uwalh@goldwidth}{14.41cm}
+\newlength{\uwalh@barwidth}
+\setlength{\uwalh@barwidth}{\uwalh@bluewidth}
+\addtolength{\uwalh@barwidth}{\uwalh@goldwidth}
+\newlength{\uwalh@barheight}
+\setlength{\uwalh@barheight}{0.59cm}
+\newlength{\uwalh@barleft}
+\setlength{\uwalh@barleft}{\paperwidth}
+\addtolength{\uwalh@barleft}{-1\uwalh@barwidth}
+\newlength{\uwalh@bartop}
+\setlength{\uwalh@bartop}{0cm}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwalh@logowidth}
+% \begin{macro}{\uwalh@logoheight}
+% \begin{macro}{\uwalh@logoleft}
+% \begin{macro}{\uwalh@logotop}
+% Define dimensions and position of the university logo.
+%    \begin{macrocode}
+\newlength{\uwalh@logowidth}
+\setlength{\uwalh@logowidth}{5cm}
+\newlength{\uwalh@logoheight}
+\setlength{\uwalh@logoheight}{1.64cm}
+\newlength{\uwalh@logoleft}
+\setlength{\uwalh@logoleft}{1.78cm}
+\newlength{\uwalh@logotop}
+\setlength{\uwalh@logotop}{1.58cm}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwalh@addresswidth}
+% \begin{macro}{\uwalh@addresstop}
+% \begin{macro}{\uwalh@addressleft}
+% Define width and position of the address block.
+%    \begin{macrocode}
+\newlength{\uwalh@addresswidth}
+\setlength{\uwalh@addresswidth}{6.25cm}
+\newlength{\uwalh@addresstop}
+\setlength{\uwalh@addresstop}{1.71cm}
+\newlength{\uwalh@addressleft}
+\setlength{\uwalh@addressleft}{12.25cm}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \begin{macro}{\uwalh@vspaceatstart}
+% The vertical space at the start of the document before the title.
+%    \begin{macrocode}
+\newlength{\uwalh@vspaceatstart}
+\setlength{\uwalh@vspaceatstart}{3.34cm}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Internal Macros}
+%
+% \begin{macro}{\uwalh@noadvance}
+% \begin{macro}{\uwalh@noadvancewidth}
+% Add text without advancing the current position.
+%    \begin{macrocode}
+\newlength{\uwalh@noadvancewidth}
+\newcommand{\uwalh@noadvance}[1]{%
+        \settowidth{\uwalh@noadvancewidth}{#1}%
+        #1\hspace*{-1\uwalh@noadvancewidth}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Template Fields}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwalh@school}
+% \begin{macro}{\uwalh@mbdp}
+% \begin{macro}{\uwalh@footermbdp}
+% \begin{macro}{\uwalh@university}
+% \begin{macro}{\uwalh@footeruniversity}
+% \begin{macro}{\uwalh@address}
+% \begin{macro}{\uwalh@footeraddress}
+% \begin{macro}{\uwalh@cricos}
+% \begin{macro}{\uwalh@uwacrest}
+% \begin{macro}{\uwalh@phone}
+% \begin{macro}{\uwalh@footerphone}
+% \begin{macro}{\uwalh@mobile}
+% \begin{macro}{\uwalh@email}
+% \begin{macro}{\uwalh@footeremail}
+% \begin{macro}{\uwalh@website}
+% Set default values for the template fields.
+%    \begin{macrocode}
+\newcommand*{\uwalh@school}{}
+\newcommand*{\uwalh@mbdp}{}
+\newcommand*{\uwalh@footermbdp}{}
+\newcommand*{\uwalh@university}{The University of Western Australia}
+\newcommand*{\uwalh@footeruniversity}{The University of Western Australia}
+\newcommand*{\uwalh@address}{35 Stirling Highway, Crawley WA 6009}
+\newcommand*{\uwalh@footeraddress}{Perth WA 6009 Australia}
+\newcommand*{\uwalh@cricos}{00126G}
+\newcommand*{\uwalh@uwacrest}{uwacrest-blue.pdf}
+\newcommand*{\uwalh@phone}{}
+\newcommand*{\uwalh@footerphone}{}
+\newcommand*{\uwalh@mobile}{}
+\newcommand*{\uwalh@email}{}
+\newcommand*{\uwalh@footeremail}{}
+\newcommand*{\uwalh@website}{www.uwa.edu.au}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\school}
+% \begin{macro}{\mbdp}
+% \begin{macro}{\university}
+% \begin{macro}{\address}
+% \begin{macro}{\phone}
+% \begin{macro}{\mobile}
+% \changes{1.0.1}{2021/09/13}{Make mobile optional without first-page footer}
+% \begin{macro}{\email}
+% \begin{macro}{\website}
+% \begin{macro}{\footeraddress}
+% \begin{macro}{\cricos}
+% \begin{macro}{\uwacrest}
+% Define macros to set the template fields.
+%    \begin{macrocode}
+\newcommand*{\school}[1]{\renewcommand*{\uwalh@school}{#1}}
+\newcommand*{\mbdp}[1]{%
+        \renewcommand*{\uwalh@mbdp}{#1}%
+        \renewcommand*{\uwalh@footermbdp}{#1}%
+}
+\newcommand*{\university}[1]{%
+        \renewcommand*{\uwalh@university}{#1}%
+        \renewcommand*{\uwalh@footeruniversity}{#1}%
+}
+\newcommand*{\address}[1]{\renewcommand*{\uwalh@address}{#1}}
+\newcommand*{\footeraddress}[1]{\renewcommand*{\uwalh@footeraddress}{#1}}
+\newcommand*{\phone}[1]{%
+        \renewcommand*{\uwalh@phone}{#1}%
+        \renewcommand*{\uwalh@footerphone}{#1}%
+}
+\newcommand*{\mobile}[1]{\renewcommand*{\uwalh@mobile}{#1}}
+\newcommand*{\email}[1]{%
+        \renewcommand*{\uwalh@email}{#1}%
+        \renewcommand*{\uwalh@footeremail}{#1}%
+}
+\newcommand*{\website}[1]{\renewcommand*{\uwalh@website}{#1}}
+\newcommand*{\cricos}[1]{\renewcommand*{\uwalh@cricos}{#1}}
+\newcommand*{\uwacrest}[1]{\renewcommand*{\uwalh@uwacrest}{#1}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \subsection{Document Title}
+%
+% \begin{macro}{\@maketitle}
+% The default |\@maketitle| forces a new page, adds vertical space
+% at the top of the page, and includes the author and date, all of
+% which are inappropriate when using the letterhead; so redefine
+% |\@maketitle| without those parts.
+%    \begin{macrocode}
+\def\@maketitle{%
+        \begin{center}%
+                \let\footnote\thanks
+                {\LARGE \uwalh@uwa \@title \par}%
+        \end{center}%
+        \par
+        \vskip 1.5em%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\maketitle}
+% The default |\maketitle| handles the |twocolumn| and |title page| options,
+% both of which are inappropriate when using the letterhead, so redefine
+% |\maketitle| without those parts.
+%    \begin{macrocode}
+\renewcommand\maketitle{\par
+        \begingroup
+        \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+        \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+        \long\def\@makefntext##1{\parindent 1em\noindent
+                \hb@xt@1.8em{%
+                        \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+        \global\@topnum\z@
+        \@maketitle
+        \thispagestyle{empty}\@thanks
+        \endgroup
+        \setcounter{footnote}{0}%
+        \global\let\thanks\relax
+        \global\let\maketitle\relax
+        \global\let\@maketitle\relax
+        \global\let\@thanks\@empty
+        \global\let\@author\@empty
+        \global\let\@date\@empty
+        \global\let\@title\@empty
+        \global\let\title\relax
+        \global\let\author\relax
+        \global\let\date\relax
+        \global\let\and\relax
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Letterhead Components}
+%
+% \begin{macro}{\uwalh@bar@blue}
+% The blue part of the coloured bar at the top of the letterhead.
+%    \begin{macrocode}
+\newcommand{\uwalh@bar@blue}{%
+        \colorbox{UWALetterheadBlue}{%
+                \parbox[b][\uwalh@barheight]{\uwalh@bluewidth}{\vfill\hfill}%
+        }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@bar@gold}
+% The gold part of the coloured bar at the top of the letterhead.
+%    \begin{macrocode}
+\newcommand{\uwalh@bar@gold}{%
+        \colorbox{UWALetterheadGold}{%
+                \parbox[b][\uwalh@barheight]{\uwalh@goldwidth}{\vfill\hfill}%
+        }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@bar}
+% Add the coloured bar at the top of the letterhead.
+%    \begin{macrocode}
+\newcommand{\uwalh@bar}{%
+        \addtolength{\uwalh@barwidth}{12pt}
+        \begin{textblock*}{\uwalh@barwidth}(\uwalh@barleft, \uwalh@bartop)
+                \uwalh@bar@blue{}%
+                \uwalh@bar@gold{}%
+        \end{textblock*}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@logo}
+% Add the university logo.
+%    \begin{macrocode}
+\newcommand{\uwalh@logo}{%
+        \begin{textblock*}{\uwalh@logowidth}(\uwalh@logoleft, \uwalh@logotop)
+                \includegraphics[
+                        width=\uwalh@logowidth,
+                        height=\uwalh@logoheight
+                ]{\uwalh@uwacrest}
+        \end{textblock*}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@addressblock}
+% Add the address block.
+%    \begin{macrocode}
+\newcommand{\uwalh@addressblock}{%
+        \begin{textblock*}%
+                {\uwalh@addresswidth}(\uwalh@addressleft, \uwalh@addresstop)
+                \begin{minipage}[t]{\uwalh@addresswidth}
+                        \sffamily\fontsize{11.19}{13.49}\selectfont%
+                        \@author{} \\
+                        \uwalh@school{}, M\uwalh@mbdp{} \\
+                        \uwalh@university{} \\
+                        \uwalh@address{} \\
+                        \noblanks[q]{\uwalh@phone}%
+                        Tel: \href{tel:\thestring}{\uwalh@phone} \\
+                        Email: \href{mailto:\uwalh@email}{\uwalh@email} \\
+                        \href{https://\uwalh@website/}{\uwalh@website}
+                \end{minipage}
+        \end{textblock*}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@fpf@address}
+% The address component of the first-page footer.
+%    \begin{macrocode}
+\newcommand{\uwalh@fpf@address}{%
+        \begin{minipage}[t]{4.94cm}
+                \vspace*{-1\parskip}%
+                \rule{\textwidth}{1pt}%
+                \vspace{-1\baselineskip}\vspace{0.45cm} \\
+                \hspace*{0.005cm}\uwalh@footeruniversity{} \\
+                \hspace*{0.005cm}M\uwalh@footermbdp{} \uwalh@footeraddress{}
+        \end{minipage}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@fpf@phone}
+% The phone component of the first-page footer.
+%    \begin{macrocode}
+\newcommand{\uwalh@fpf@phone}{%
+        \begin{minipage}[t]{4.945cm}
+                \vspace*{-1\parskip}%
+                \rule{\textwidth}{1pt}%
+                \vspace{-1\baselineskip}\vspace{0.45cm} \\
+                \uwalh@noadvance{\textcolor{UWALetterheadBlue}{\textbf{T}}}%
+                \hspace{0.375cm}%
+                \noblanks[q]{\uwalh@footerphone}%
+                \href{tel:\thestring}{\uwalh@footerphone} \\
+                \uwalh@noadvance{\textcolor{UWALetterheadBlue}{\textbf{M}}}%
+                \hspace{0.375cm}%
+                \noblanks[q]{\uwalh@mobile}%
+                \href{tel:\thestring}{\uwalh@mobile}
+        \end{minipage}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@fpf@email}
+% The email component of the first-page footer.
+%    \begin{macrocode}
+\newcommand{\uwalh@fpf@email}{%
+        \begin{minipage}[t]{5.31cm}
+                \vspace*{-1\parskip}%
+                \rule{\textwidth}{1pt}%
+                \vspace{-1\baselineskip}\vspace{0.45cm} \\
+                \uwalh@noadvance{\textcolor{UWALetterheadBlue}{\textbf{E}}}%
+                \hspace{0.38cm}%
+                \href{mailto:\uwalh@footeremail}{\uwalh@footeremail} \\
+                \vspace{-1\baselineskip}\vspace{-0.018cm} \\
+                {\uwalh@arial\fontsize{5}{6.7}\selectfont%
+                        CRICOS Provider Code \uwalh@cricos{}%
+                }%
+        \end{minipage}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@firstpagefooter}
+% Add the first-page footer.
+%    \begin{macrocode}
+\newcommand{\uwalh@firstpagefooter}{%
+        \begin{textblock*}{16cm}(2.5cm, 27.35cm)
+                {%
+                        \microtypesetup{activate=false}%
+                        \vspace*{-1\parskip}\vspace*{10.88pt}%
+                        \uwalh@arial\fontsize{7.5}{8.7}\selectfont%
+                        \color{UWALetterheadFooter}%
+                        \uwalh@fpf@address{}%
+                        \hspace{0.402cm}%
+                        \uwalh@fpf@phone{}%
+                        \hspace{0.402cm}%
+                        \uwalh@fpf@email{}%
+                        \microtypesetup{activate=true}%
+                }%
+        \end{textblock*}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Field Validation}
+%
+% \begin{macro}{\uwalh@checkfield}
+% Check that a required template field is set.
+%    \begin{macrocode}
+\newcommand{\uwalh@checkfield}[2]{%
+        \setbox0=\hbox{#1\unskip}\ifdim\wd0=0pt
+                \@latex@warning@no@line{No #2given}
+        \else
+                \relax%
+        \fi%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwalh@checkfields}
+% Check that the required template fields are set.
+%    \begin{macrocode}
+\newcommand{\uwalh@checkfields}{%
+        \uwalh@checkfield{\uwalh@school}{\noexpand\school}
+        \uwalh@checkfield{\uwalh@mbdp}{\noexpand\mbdp}
+        \uwalh@checkfield{\uwalh@phone}{\noexpand\phone}
+        \ifuwalh@footer\uwalh@checkfield{\uwalh@mobile}{\noexpand\mobile}\fi
+        \uwalh@checkfield{\uwalh@email}{\noexpand\email}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Letterhead Generation}
+%
+% \begin{macro}{\uwalh@makeletterhead}
+% Generate the letterhead.
+%    \begin{macrocode}
+\newcommand{\uwalh@makeletterhead}{%
+        \uwalh@checkfields{}%
+        \uwalh@bar{}%
+        \uwalh@logo{}%
+        \uwalh@addressblock{}%
+        \ifuwalh@footer\uwalh@firstpagefooter{}\fi%
+        \vspace*{\uwalh@vspaceatstart}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% Automatically generate the letterhead at the beginning of the document.
+%    \begin{macrocode}
+\AtBeginDocument{\uwalh@makeletterhead}
+%    \end{macrocode}
+%
+% \Finale
+\endinput

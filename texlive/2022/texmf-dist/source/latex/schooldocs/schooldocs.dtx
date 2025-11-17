@@ -1,0 +1,988 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2020-2021 by Antoine Missier <antoine.missier@ac-toulouse.fr>
+% ----------------------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{schooldocs.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{schooldocs}
+%<*package>
+    [2021/09/18 v1.1 .dtx schooldocs file]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{boxedminipage2e}
+\usepackage{schooldocs}
+%\usepackage{geometry}
+\geometry{textwidth=355pt,vmarginratio=1:1,hmarginratio=3:2}
+% modified by schoodocs loading, very close from the default geometry used by ltxdoc
+
+\newcommand{\bs}{\textbackslash}
+\setlength{\fboxsep}{13pt}
+\newlength{\mpwd} \setlength{\mpwd}{5.25cm}
+\newenvironment{stylex}{\begin{boxedminipage}[c][1.3\mpwd][t]{\mpwd}\tiny
+    }{\end{boxedminipage}}
+\newcommand*{\centered}[1]{{\setlength{\parskip}{0pt}\par\noindent\hfill
+    #1\hfill\mbox{}}}
+\providecommand\headtitlestyle{\scshape}
+\providecommand\headsubjectstyle{\scshape}
+\providecommand\schoolstyle{\scshape}
+
+%\EnableCrossrefs         
+%\CodelineIndex
+%\RecordChanges
+
+\title{The \textsf{schooldocs} package}%\thanks{This document
+%    corresponds to \textsf{schooldocs}~\fileversion, dated \filedate.}}
+\subject{Antoine Missier \\ % 
+    \texttt{antoine.missier@ac-toulouse.fr}}
+\date{\filedate, \fileversion}
+
+\hypersetup{%
+    colorlinks, 
+    linkcolor=blue,
+    pdftitle={schoodocs}, 
+    pdfsubject={LaTeX package}, 
+    pdfauthor={Antoine Missier}
+    }
+
+\begin{document}
+  \DocInput{schooldocs.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{766}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v0.0}{2010/09/01}{Initial personal version}
+% \changes{v0.1}{2020/01/05}{Initial documentation in French}
+% \changes{v0.2}{2020/05/04}{Examples file}
+% \changes{v1.0}{2020/07/13}{Initial public version with documentation in English}
+% \changes{v1.1}{2021/09/18}{Using the translations package for internationalization}
+%
+% \GetFileInfo{schooldocs.dtx}
+% 
+% \maketitle
+% 
+% \section{Introduction}
+%
+% The purpose of this package is to provide several layout styles for school documents.
+% It can be used for exercises sheets, exams, course materials.
+% The package sets the page geometry (dimensions of text and margins)
+% and the title typesetting;
+% the various \emph{styles} define the header, footer and title formatting, 
+% Many features are freely configurable.
+% Six different styles are proposed which are named:
+% \begin{center} \bfseries
+% \hfill classic \hfill elegant \hfill modern \hfill soft 
+% \hfill exam \hfill collection \hfill \mbox{}
+% \end{center}
+% If the document is an exam subject to be completed and returned,
+% we have a particular style, \textbf{identity}, in which
+% left and center parts of the header are replaced by the words 
+% \textsf{\identityname} and \textsf{\identityforename}.
+%
+% \medskip
+% The styles are presented in paragraph \ref{par:styles}
+% and the file \href{run:schooldocs-examples.pdf}{\textsf{schooldocs-examples.pdf}}
+% shows the result of each.
+%
+% \section{Usage}
+%
+% \subsection{Choosing a style}
+% After loading the package with |\usepackage{schooldocs}|,
+% we define the style by placing |\pagestyle|\marg{style} in the preamble.
+% This command comes from the package \textsf{fancyhdr} by Piet van Oostrum.
+% It can be placed before of after entering information described in the next subsection.
+%
+% \medskip
+% In the text body, you can change the style of a particular page by placing 
+% |\thispagestyle|\marg{style} at the page you want.
+% For example, you can place the command |\thispagestyle{identity}|
+% in an appendix page to render.
+% \subsection{Information fields}
+%
+% \DescribeMacro{\title}
+% Usually a \LaTeX\ document title is made up of information
+% provided by the macros
+% |\title|, |\date| and |\author|.
+% The |\title| macro has been redefined with an enriched syntax: 
+% |\title|\oarg{head}\marg{title}.
+% The optional parameter \meta{head} corresponds to the text displayed in the header
+% instead of \meta{title}.
+% When not provided, the mandatory argument \meta{title} will be used in headers.
+%
+% The macros |\date| and |\author| have not been redefined but the information provided
+% is also used in titles, headers or footers
+% (depending on the style used)\footnote{The macro \texttt{\bslash and},
+% sometimes used in \texttt{\bslash author} 
+% to typeset a title with several authors, doesn't work here, 
+% except in the \textbf{collection} style. It produced a compilation error.
+% The macro \texttt{\bslash thanks} also doesn't work but without producing error.}.
+% 
+% \pagebreak
+% \medskip
+% \DescribeMacro{\subject} \DescribeMacro{\school} \DescribeMacro{\institute}
+% In addition to the previous ones, we provide two other information macros,
+% used in the title, or the headers or the footers, depending on the style:
+% |\subject| and |\school| (or its alias |\institute|).
+% The macro |\subject| has an optional argument, like in |\title|: 
+% |\subject|\oarg{head}\marg{title} which allows to place an alternative text
+% in header, different from the one displayed in the title.
+%
+% \medskip 
+% The information macros, that have to be called in the preamble\footnote{%
+% Nevertheless, the macros \texttt{\bslash date} and \texttt{\bslash author}
+% can be used in the document body.},
+% are optional. If omitted the corresponding field will be empty,
+% except for the date which will display today's date.
+% So, if you do not want any date, just write |\date{}|.
+% When title elements like subject, date are missing, the title height will be reduced accordingly.
+%
+% Except |\date|, all these information macros accept multi-line arguments,
+% for example  |\school{Royal College of Pataphysics\\London}|.
+% To typeset the main title on two (or more) lines, use |\\[1ex]|
+% for a good vertical spacing.
+%
+% When using the \textsf{hyperref} package (by Sebastian Rahtz and Heiko Oberdiek)
+% to produce a pdf output, information provided by |\title|, |\subject| and |\author| 
+% (and |\school|\footnote{The \emph{author} field of the pdf properties will be filled
+% like this: \textsf{author (school)},
+% but \texttt{\bs author} should be called before \texttt{\bs school} in the preamble.
+% })
+% will be written in the pdf properties also.
+%
+% \medskip
+% The file \textsf{schooldocs-examples.pdf} uses the examples of the following table.
+% \begin{center}
+% \begin{tabular}{ll}
+% \hline
+% macro & example \\
+% \hline
+% |\title| & |\title[The classic style]{The classic style layout}| \\
+% |\subject| & |\subject[Pathography / M2A]{Pathography / Master 2A}| \\
+% |\author| & |\author{Antoine Missier}| \\
+% |\school| & |\school{Royal College of Pataphysics}| \\
+% |\date| & |\date{May 4, 2020}| \\
+% \hline
+% \end{tabular}
+% \end{center}
+%
+% \DescribeMacro{\subtitle}
+% In the \textbf{exam} style, the title uses an additional field
+% provided by the macro |\subtitle|\marg{text}. The parameter \meta{text}
+% will be placed under the other title elements and before the separation rule,
+% if there is one. For instance |\subtitle{Duration of the test: 2\,h}|.
+% For a multi-line argument, the line break instruction must be
+% |\par| and not |\\|.
+%
+% \subsection{Making the title}
+%
+% \DescribeMacro{\maketitle}
+% As in \LaTeX\ standard classes, the title is produced 
+% by the macro |\maketitle|, which should be placed after |\begin{document}|.
+% This command has been redefined by the package.
+% Indeed, the standard title produced by the \LaTeX\ class \texttt{article},
+% seems inappropriate for school documents like an exercise sheet for example.
+% The macro redefinition reduces the vertical space before the title
+% and typesets an horizontal rule to separate the title from the following text.
+% By default, the title is centered but we can change this, 
+% as presented in section \ref{par:title-set}, to get 
+% a left or right-aligned title (an also boxed).
+% Various titles are presented in the file 
+% \href{run:schooldocs-examples.pdf}{\textsf{schooldocs-examples.pdf}}.
+% 
+% The macro has on optional parameter |\maketitle|\oarg{rulelength}
+% to set the length of the separation rule, by default 2.5\,cm.
+% The rule can be totally removed by setting the
+% optional argument to 0\,cm; we can also make a rule of
+% whole line width with |\maketitle[\linewidth]| or |\maketitle[\textwidth]|.
+%
+% Each style has its own title formatting. Nevertheless the package provides
+% a ``standard'' title when no style is loaded or with
+% the \LaTeX\ styles \textbf{empty} or \textbf{plain}. 
+% The \textbf{elegant} style keeps also this ``standard'' style.
+%
+% \medskip
+% \DescribeMacro{\seprule}
+% As in the title, a rule can also be used in the text body to make separations.
+% This is done by the macro |\seprule|\oarg{length} which
+% produces an horizontal centered rule of (optional) \meta{length}, by default 2.5\,cm.
+% 
+% \medskip
+% \DescribeMacro{\correct}
+% For typesetting a correct version of an exercise sheet, we provide the macro |\correct|,
+% which adds \textsf{-- Correct Version} to the title. 
+% It should be placed in the preamble.
+% Combined with packages that deal with multiple versions of a document,
+% this macro avoids to define different titles for a an exercise sheet an its correct version.
+% However in the \textbf{exam} style, the text \textsf{Correct version}
+% will not be added in the title (except in headers), but will be substituted for
+% the subtitle.
+% 
+% \medskip
+% \DescribeMacro{\makesmalltitle}
+% As in the package \textsf{phfnote} by Philippe Faist, it seems wisely
+% to propose a compact title, where information
+% provided by |\title|, |\subject| and |\date| are presented
+% on a single line (see \textsf{schooldocs-examples.pdf}).
+% The rule is always displayed and expands on the whole line width.
+% 
+% \subsection{Style layouts} \label{par:styles}
+%
+% According to good typographic practice, the header on the title page should be empty
+% (see The \LaTeX\ Companion).
+% This ``rule'' is seldom observed in school documents,
+% and, on the first page, we find often information (author, school, etc.)
+% on top left and the date on top right, as for a letter.
+% Except for the \textbf{classic} style, that we present first, 
+% we wanted to comply with good practice,
+% but we keep some information in the footer yet.
+%
+% We present below miniature views to show the layout of the different styles. 
+% The file \href{run:schooldocs-examples.pdf}{\textsf{schooldocs-examples.pdf}}
+% gives a real view of them.
+% The rule (width) under the header or over the footer
+% is freely configurable, as well as the format of each element and 
+% also some space settings, see section \ref{par:head-settings}.
+%
+% \medskip
+% \begin{stylex}
+% {\schoolstyle School} \hfill {Author}\\[-0.3ex]
+% {\headsubjectstyle Subject} \hfill {date}\\
+% \vspace{0.04\mpwd}
+% \centered{\footnotesize\sffamily\bfseries The classic style}
+% \vspace{-0.25ex}\centered{\rule{0.15\mpwd}{0.1pt}}
+% \vspace{0.85\mpwd}
+% \centered{1/2}
+% \end{stylex}
+% \qquad
+% \begin{stylex}
+%  \mbox{}\\[1ex]
+% {\headtitlestyle Title} \hfill {\headsubjectstyle Subject}\\
+% \vspace{0.97\mpwd}
+% \centered{2/2} 
+% \end{stylex}
+% \medskip
+%
+% \begin{stylex}
+% \mbox{}\vspace{0.03\mpwd}
+% \begin{center}
+% {\footnotesize\sffamily\bfseries The elegant style}\\[1.7ex]
+% {\scriptsize Subject} \\[0.5ex]
+% {\scriptsize date} \\
+% \vspace{-0.5ex}\rule{0.15\mpwd}{0.1pt}
+% \end{center}
+% \vspace{0.72\mpwd}
+% {\schoolstyle School} \hfill Author
+% \end{stylex}
+% \qquad
+% \begin{stylex}
+% {\headtitlestyle Title} \hfill Page
+% \end{stylex}
+% \medskip
+%
+% \begin{stylex}
+% \mbox{}\vspace{0.03\mpwd}
+% \begin{center}
+% {\footnotesize\sffamily\bfseries The modern style}\\[1.7ex]
+% {\scriptsize Subject} \\
+% \vspace{-0.5ex}\rule{0.15\mpwd}{0.1pt}
+% \end{center}
+% \vspace{0.75\mpwd}
+% {\schoolstyle School} \hfill \begin{tabular}[c]{r@{}}Author\\[-0.5ex] date\end{tabular}
+% \end{stylex}
+% \qquad
+% \begin{stylex}
+% {\headtitlestyle Title} \hfill {\headsubjectstyle Subject} \par
+% \vspace{-1.9ex}\rule{0.82\mpwd}{0.1pt}
+%
+% \vspace{1.01\mpwd}
+% \centered{2/2}
+% \end{stylex}
+% \medskip
+%
+% \begin{stylex}
+% \mbox{}\vspace{0.03\mpwd}
+% \begin{center}
+% {\footnotesize\sffamily\bfseries The soft style}\\
+% \vspace{-0.5ex}\rule{0.15\mpwd}{0.1pt}
+% \end{center}
+% \vspace{0.83\mpwd}
+% {\schoolstyle School} \hfill {\headsubjectstyle Subject}\\
+% Author \hfill date
+% \end{stylex}
+% \qquad
+% \begin{stylex}
+% {\headtitlestyle Title} \hfill Page \par
+% \vspace{-1.9ex}\rule{0.82\mpwd}{0.1pt}
+% \vspace{0.97\mpwd}
+%
+% \schoolstyle School \hfill \headsubjectstyle Subject
+% \end{stylex}
+% \medskip
+%
+% \begin{stylex}
+% \mbox{}\vspace{0.1\mpwd}
+% \begin{center}
+% {\footnotesize THE EXAM STYLE}\\[3.2ex]
+% {\scriptsize\bfseries Subject} \\[2.8ex]
+% {\scriptsize date} \\[2ex]
+% {\scriptsize\slshape subtitle} \\
+% \rule{0.15\mpwd}{0.1pt}
+% \end{center}
+% \vspace{0.51\mpwd}
+% \begin{tabular}[c]{@{}l}Author\\[-0.5ex] \schoolstyle School\end{tabular} \hfill {Page}
+% \end{stylex}
+% \qquad
+% \begin{stylex}
+% {\headtitlestyle TITLE} \hfill {\headsubjectstyle Subject} \par
+% \vspace{-1.9ex}\rule{0.82\mpwd}{0.1pt}
+% 
+% \vspace{1.01\mpwd}
+% \begin{tabular}[c]{@{}l}Author\\[-0.5ex] \schoolstyle School\end{tabular} \hfill {Page}
+% \end{stylex}
+% \medskip
+%
+% \begin{stylex}
+% \mbox{}\vspace{0.1\mpwd}
+% \begin{center}
+% {\footnotesize THE COLLECTION STYLE}\\[3.2ex]
+% {\scriptsize\bfseries Subject} \\[2.8ex]
+% {\scriptsize Author} \\[1.5ex]
+% {\scriptsize School} \\[1.5ex]
+% {\scriptsize date} \\
+% \rule{0.15\mpwd}{0.1pt}
+% \end{center}
+% \end{stylex}
+% \qquad
+% \begin{stylex}
+% {\headtitlestyle TITLE} \hfill {\headsubjectstyle Section} \par
+% \vspace{-1.9ex}\rule{0.82\mpwd}{0.1pt}
+% 
+% \vspace{1.01\mpwd}
+% {\schoolstyle School} \hfill {2}
+% \end{stylex}
+% \bigskip
+%
+% In the \textbf{collection} style, usefull for longer documents,
+% the name of the current section appears in the right header 
+% and changes as things progress
+% as in the \LaTeX\ \textbf{book} class.
+%
+% \section{Settings}
+%
+% \subsection{Page layout}
+%
+% The page layout is set in the same way, for all styles.
+% It is defined by the macro |\geometry| of the package
+% \textsf{geometry} (by Hideo Umeki and David Carlisle).
+% According to good typographic practice (see the \LaTeX\ Companion,
+% the \textsf{typearea} package or \textsf{KOMA-Script} bundle documentation)
+% the ratio between the text body (the type area as named by typographers)
+% and the page size must be the same horizontally and vertically. 
+% This ratio gauges the ``shades of gray'' of a page.
+% The default scale in the \textsf{geometry} package is 0.7.
+% For school documents, it seems that this setting leaves too much white space in the margins, thus this ratio has been set to 0.75.
+% Of course, it can be freely redefined with the |\geometry| command.
+% Furthermore, according to ``canons of page construction'', in a one-sided document,
+% the ratio between the left and right margins should be 1:1,
+% while the ratio between the top and bottom margins should be 1:2.
+% It seems that this recommended ratio of 1:2 is seldom observed
+% and it produces a very wide bottom margin.
+% Besides, when loading the \textsf{geometry} package, the default vertical ratio is 2:3 and not 1:2.
+% To get more balanced margins, we have prefer to set it at 3:4:
+% |\geometry{scale=0.75,vmarginratio=3:4,heightrounded}|\footnote{The option
+% \texttt{heightrounded} rounds text height to $n$-times ($n$ an integer) the height of a line, to avoid ``underfull vbox'' in some cases.}.
+%
+% \subsection{Title settings} \label{par:title-set}
+%
+% Several parameters allow to customize the title composition.
+% They are presented in the following table with their default value.
+% Colors are changed with |\definecolor|, macros with |\renewcommand|
+% and lengths with |\setlength|.
+% Most of command names are explicit enough to give some information about their use.
+% 
+% Let us specify nevertheless that |\titleflush| manages the alignment: 
+% centered by default, it can be left-aligned with
+% |\renewcommand{\titleflush}{flushleft}| or right-aligned with
+% |\renewcommand{\titleflush}{flushright}|\footnote{This macro has no effect 
+% with the \textbf{exam} and \textbf{collection} styles, 
+% the title is always centered.}.
+%
+% The length |\titlesep| sets the vertical spacing between the fields \emph{title}
+% and \emph{subject}, except for the \textbf{classic} and \textbf{soft} styles,
+% witch contain only the field \emph{title}, or if the field \emph{subject}
+% is not given. 
+% Vertical spaces between other title fields are defined in relation to
+% |\titlesep| (|0.5\titlesep| for most).
+%
+% Unless otherwise stated, the column ``special settings'' of the following table
+% applies to the \textbf{exam} and \textbf{collection} styles.
+%
+% \begin{center} \small
+% \begin{tabular}{ccc}
+% \hline
+% parameter & default settings & special settings \\
+% \hline
+% |titlecolor| & |black| & \\
+% |\titlestyle| & |\LARGE\sffamily\bfseries| & |\LARGE\MakeUppercase| \\
+% |\subjectstyle| & |\large| & |\Large\bfseries|\\
+% |\datestyle| &  |\large| \\
+% |\smalltitledatestyle| & |\large\slshape| & \\
+% |\titleflush| & |center| & \\
+% |\titletopskip| & -1.32\,cm  & -0.67\,cm (\textbf{classic}), 0.67\,cm \\
+% |\titlebottomskip| & |\medskipamount| \\
+% |\titlesep| & |2\medskipamount| & |2\bigskipamount| \\
+% |\seprulewidth| & 0.3\,pt &\\
+% |\seprulelength| & 2.5\,cm  &\\
+% \hline
+% \end{tabular}
+% \end{center}
+%
+% \DescribeMacro{\subtitlestyle}\DescribeMacro{\titlecorrectstyle}
+% The \textbf{exam} style has two additional setting macros: 
+% |\subtitlestyle|, set by default to  |\large\slshape|,
+% and |\titlecorrectstyle|, for the composition of \textsf{Correct Version}
+% produced by |\correct|, set by default to |\color{red}\large\scshape|.
+%
+% In the \textbf{collection} style, the fields
+% \emph{school} and \emph{author} are included into the title. Their features are then 
+% controlled by |\authorstyle|\footnote{For other styles, the macro
+% \texttt{\bs authorstyle} belongs to headers or footers parameters.} set to |\Large|.
+%
+% If we want to create a separate page for the title, in particular for the 
+% \textbf{exam} or \textbf{collection} styles, we can place |\maketitle| into
+% an environment |titlepage| provided by \LaTeX.
+%
+% \medskip
+% \DescribeMacro{\boxedshape}
+% A particular formatting has been predefined to produce a slightly shaded box around the title: |\boxedshape|\marg{text}
+% (thanks to the \textsf{fancybox} package by Timothy Van Zandt).
+% It is not activated by default but it can be used within the
+% command |\titlestyle| if we want to get this kind of effect, e.g.
+% |\renewcommand{\titlestyle}{\LARGE\sffamily\bfseries\boxedshape}|.
+%
+% \subsection{Headers and footers} \label{par:head-settings}
+%
+% Headers and footers typeset is produced thanks to 
+% dedicated macros\footnote{The \textsf{fancyhdr} package
+% provides the commands \texttt{\bs lhead}, \texttt{\bs chead}, \texttt{\bs rhead}
+% for the left, center and right parts of the header, and the same for the footer:
+% \texttt{\bs lfoot}, \texttt{\bs cfoot} and \texttt{\bs rfoot}.}
+% of the \textsf{fancyhdr} package.
+% As for the title, several macros allow to customize certain settings.
+% They are presented in the table below.
+% Let us specify that |\pagenamestyle| defines the format of the word \emph{page} 
+% used in front of the page number.
+%
+% The |\headstyle| and |\footstyle| commands are generic for all elements 
+% of headers and footers. They are combined with macros giving
+% specific settings for each field.
+% \begin{center}
+% \begin{tabular}{cc}
+% \hline
+% parameter & default setting \\
+% \hline
+% |headingcolor| & |black| \\
+% |\headstyle| & |\small\color{headingcolor}| \\
+% |\footstyle| & |\small\color{headingcolor}| \\
+% |\headtitlestyle| & |\scshape| \\
+% |\headsubjectstyle| & |\scshape| \\
+% |\schoolstyle| & |\scshape| \\
+% |\headdatestyle| & |\textnormal| \\
+% |\authorstyle| & |\textnormal| \\
+% |\pagenamestyle| & |\textnormal| \\
+% \hline
+% \end{tabular}
+% \end{center}
+%
+% The \textbf{exam} and \textbf{collection} styles have a specific setting for
+% |\headtitlestyle|, defined by |\renewcommand{\headtitlestyle}{\MakeUppercase}|.
+%
+% \medskip
+% Macros that allow to display (or remove) the rule in the header\footnote{Indeed 
+% we have redefined the \texttt{\bs headrule} macro
+% such that the rule never appears
+% on the first page.}
+% or the footer
+% come from the \textsf{fancyhdr} package. For example, in any style,
+% we remove the rule in the header with:
+% |\renewcommand{\headrulewidth}{0pt}|,
+% and display it in the footer with:
+% |\renewcommand\footrulewidth{0.4pt}|
+%
+% \subsection{Internationalization}
+% Four keywords are used by the package: \emph{page}, \emph{Correct version}, 
+% \emph{Name} and \emph{Forename},
+% defined by the macros |\pagename|, |\correctname|, |\identityname| and |\identityforename|.
+% |\pagename| is used in header or footer, |\correctname| by the macro |\correct|
+% and both others by the \textbf{identity} style.
+% These keywords get automatic translation in a few languages\footnote{Translation
+% is currently integrated into the package for the following languages:
+% French, German, Spanish, Italian, Portuges.}
+% according to the selected language by \textsf{babel} package or \textsf{polyglossia}.
+% They can be redefined, with |\renewcommand|,
+% which should be placed \emph{after} |\begin{document}|,
+% or else we can use macros from the \textsf{translations} package by Clemens Niederberger
+% (allowing dynamic language change), e.g.\\
+% |\DeclareTranslation{romanian}{pagin\u{a}}| (in the preamble).
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \subsection{Required packages and geometry settings}
+%
+%    \begin{macrocode}
+\ProvidesPackage{schooldocs}
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{geometry}
+\let\footruleskip\relax % because memoir class uses it
+\RequirePackage{fancyhdr}
+\RequirePackage{ifthen}
+\RequirePackage{lastpage}
+\RequirePackage{fancybox}
+\RequirePackage{xcolor}
+\RequirePackage{translations}
+
+\geometry{scale=0.75,vmarginratio=3:4,heightrounded}
+
+%    \end{macrocode}
+% It is recommended to define the settings with the command |\geometry|
+% rather than as option when loading the package \textsf{geometry}, to avoid option clash.
+% 
+% To change the scale factor, if the |\geometry| command doesn't work, use |\newgeometry|.
+%\medskip
+% \subsection{Internationalization}
+%
+%    \begin{macrocode}
+\DeclareTranslationFallback{schooldocs-pagename}{page}
+\DeclareTranslationFallback{schooldocs-correct}{Correct version}
+\DeclareTranslationFallback{schooldocs-name}{Name:}
+\DeclareTranslationFallback{schooldocs-forename}{Forename:}
+
+\DeclareTranslation{english}{schooldocs-pagename}{page}
+\DeclareTranslation{english}{schooldocs-correct}{Correct version}
+\DeclareTranslation{english}{schooldocs-name}{Name:}
+\DeclareTranslation{english}{schooldocs-forename}{Forename:}
+
+\DeclareTranslation{french}{schooldocs-pagename}{page}
+\DeclareTranslation{french}{schooldocs-correct}{Corrigé}
+\DeclareTranslation{french}{schooldocs-name}{Nom :}
+\DeclareTranslation{french}{schooldocs-forename}{Prénom :}
+
+\DeclareTranslation{german}{schooldocs-pagename}{Seite}
+\DeclareTranslation{german}{schooldocs-correct}{Musterlösung}
+\DeclareTranslation{german}{schooldocs-name}{Name:}
+\DeclareTranslation{german}{schooldocs-forename}{Vorname:}
+
+\DeclareTranslation{spanish}{schooldocs-pagename}{página}
+\DeclareTranslation{spanish}{schooldocs-correct}{Correccion}
+\DeclareTranslation{spanish}{schooldocs-name}{Apellido:}
+\DeclareTranslation{spanish}{schooldocs-forename}{Nombre:}
+
+\DeclareTranslation{italian}{schooldocs-pagename}{pagina}
+\DeclareTranslation{italian}{schooldocs-correct}{Corretto}
+\DeclareTranslation{italian}{schooldocs-name}{Nome:}
+\DeclareTranslation{italian}{schooldocs-forename}{Conome:}
+
+\DeclareTranslation{portuges}{schooldocs-pagename}{página}
+\DeclareTranslation{portuges}{schooldocs-correct}{Corrigiu}
+\DeclareTranslation{portuges}{schooldocs-name}{Nome:}
+\DeclareTranslation{portuges}{schooldocs-forename}{Primeiro nome:}
+
+\newcommand*\pagename{\GetTranslation{schooldocs-pagename}}
+\newcommand*\correctname{\GetTranslation{schooldocs-correct}}
+\newcommand*\identityname{\GetTranslation{schooldocs-name}}
+\newcommand*\identityforename{\GetTranslation{schooldocs-forename}}
+
+%    \end{macrocode}
+%
+% \subsection{Information fields}
+%
+% After being defined, information fields are set to empty,
+% to make tests with them work well.
+%
+%    \begin{macrocode}
+\renewcommand{\title}[2][]{\long\def\@title{#2} 
+    \ifthenelse{\equal{#1}{}}{\def\@headtitle{#2}}{\def\@headtitle{#1}}
+    \@ifpackageloaded{hyperref}{\hypersetup{pdftitle={\@headtitle}}}{} 
+} 
+\title{}
+\author{}
+
+\newcommand\school[1]{\long\def\@school{#1}
+    \@ifpackageloaded{hyperref}{
+        \hypersetup{pdfauthor={\@author\ (\@school)}}}{}
+} 
+\school{}
+\newcommand{\institute}{\school}
+
+\let\subject\relax
+\newcommand{\subject}[2][]{\long\def\@subject{#2} 
+    \ifthenelse{\equal{#1}{}}{\def\@headsubject{#2}}{\def\@headsubject{#1}}
+    \@ifpackageloaded{hyperref}{\hypersetup{pdfsubject={\@headsubject}}}{}
+}
+\def\@subject{}
+\def\@headsubject{}
+%    \end{macrocode}
+% Because \textsf{KOMA-Script} package also uses the |\subject| macro,
+% we make a |\relax| on this command.
+%
+% |\subject{}| doesn't work with the |\@empty| test used below in |\maketitle|, thus
+% we define |\@subject| and |\@headsubject| as empty by default.
+%
+% \subsection{Settings}
+%
+% First we present the title settings.
+%    \begin{macrocode}
+\definecolor{titlecolor}{named}{black} 
+\newcommand{\titlestyle}{\LARGE\sffamily\bfseries}
+\newcommand{\subjectstyle}{\large}
+\newcommand{\datestyle}{\large}
+\newcommand{\smalltitledatestyle}{\large\slshape}
+\newcommand{\titleflush}{center}
+\newlength{\titletopskip} \setlength{\titletopskip}{-1.32cm}
+\newlength{\titlesep} \setlength{\titlesep}{2\medskipamount}
+\newlength{\titlebottomskip} \setlength{\titlebottomskip}{\medskipamount}
+\newlength{\seprulewidth} \setlength{\seprulewidth}{0.3pt}
+\newlength{\seprulelength} \setlength{\seprulelength}{2.5cm}
+
+\newcommand{\boxedshape}[1]{%
+    \color{gray} % no effect
+    \setlength{\fboxsep}{4.5pt} 
+    \setlength{\shadowsize}{3pt}
+    \shadowbox{\quad\textcolor{titlecolor}{\rule{0pt}{2ex}#1}\quad} 
+}
+
+%    \end{macrocode}
+% Default value for |\fboxsep| is 3\,pt and for |\shadowsize| is 4\,pt.
+% These settings are local.
+%
+% \medskip
+% Next the headers and footers settings.
+%    \begin{macrocode}
+\definecolor{headingcolor}{named}{black}
+\newcommand{\headstyle}{\small\color{headingcolor}}
+\newcommand{\footstyle}{\small\color{headingcolor}}
+\newcommand{\headtitlestyle}{\scshape}
+\newcommand{\headsubjectstyle}{\scshape}
+\newcommand{\schoolstyle}{\scshape}
+\newcommand{\headdatestyle}{\textnormal}
+\newcommand{\authorstyle}{\textnormal}
+\newcommand{\pagenamestyle}{\textnormal}
+\setlength{\headheight}{\baselineskip} 
+\renewcommand{\headrule}{\ifthenelse{\thepage=1}%
+    {\vspace{-2ex}\rule{\headwidth}{0pt}}%
+    {\vspace{-2ex}\rule{\headwidth}{\headrulewidth}}
+}
+    
+%    \end{macrocode}
+% The |\headrule| macro redefinition allow to remove the rule on the first page.
+%
+% The header height is set to |\baselineskip| to avoid
+% error messages (``headheight too small'') when the text size is 
+% greater than or equal to |\small|.
+%
+% \subsection{Title composition}
+%
+%    \begin{macrocode}
+\renewcommand{\maketitle}[1][\seprulelength]{
+    \mbox{}\par\vspace{\titletopskip}
+    \begin{\titleflush}
+        {\color{titlecolor}
+        {\titlestyle{\@title}}
+        \ifx\@subject\@empty\else
+            \par\vspace{\titlesep}\subjectstyle\@subject
+        \fi
+        \ifthenelse{\equal{\@date}{}}{}{%
+            \par\vspace{0.5\titlesep} \datestyle\@date}
+        \par\vspace{0.5\titlesep}
+        }
+        \ifthenelse{\lengthtest{#1 > 0cm}}{\rule{#1}{\seprulewidth}}{}
+    \end{\titleflush}
+    \vspace{\titlebottomskip} 
+}
+
+\newcommand{\makesmalltitle}{
+    \mbox{}\par\vspace{1.5\titletopskip}
+    \begin{center}
+        {\color{titlecolor}
+        {\titlestyle{\@title}}
+        \hfill \subjectstyle\@subject
+        \ifthenelse{\equal{\@date}{}}{}{%
+            \enskip --\enskip \smalltitledatestyle\@date}
+        }
+        \rule{\linewidth}{\seprulewidth}
+    \end{center}
+    \vspace{\titlebottomskip}
+}
+
+\newcommand\correct{%
+    \let\@originalheadtitle\@headtitle
+    \def\@headtitle{\@originalheadtitle ~--~\correctname}
+    \@ifpackageloaded{hyperref}{%
+        \AtBeginDocument{\hypersetup{pdftitle={\@headtitle}}}}{}
+    \let\@originaltitle\@title
+    \def\@title{\@originaltitle ~--~\correctname}
+}
+
+\newcommand{\seprule}[1][\seprulelength]{\begin{center}
+    \raisebox{0.25\baselineskip}{\rule{#1}{\seprulewidth}}\end{center}}
+    
+%    \end{macrocode} 
+% |\AtBeginDocument| is necessary in the |\correct| macro because 
+%|\correctname| can be redefined by \textsf{babel} at |\begin{document}|.
+%
+% \medskip
+% \subsection{The basic styles}
+%
+% The header in the \textbf{classic} style is displayed on two lines, therefore we have to increase the height
+% |\headheight|.
+%
+% If we want to include header or footer in the total body,
+% we can add the command |\geometry{includehead}| respectively 
+% |\geometry{includefoot}| in the preamble.
+%    \begin{macrocode}
+\fancypagestyle{classic}{%
+    \renewcommand{\headrulewidth}{0pt}
+    \addtolength{\headheight}{\baselineskip}
+    \lhead{\headstyle\ifthenelse{\thepage=1}{\schoolstyle\@school\mbox{}\\
+        \headsubjectstyle\@subject}{\headtitlestyle\@headtitle} } 
+    \rhead{\headstyle\ifthenelse{\thepage=1}{\authorstyle\@author\mbox{}\\ 
+        \headdatestyle\@date}{\headsubjectstyle\@headsubject}}
+    \cfoot{\footstyle \thepage /\pageref{LastPage}}
+    \setlength{\titletopskip}{-0.67cm}
+    \renewcommand{\maketitle}[1][\seprulelength]{%
+        \mbox{}\par\vspace{\titletopskip}
+        \begin{\titleflush}
+            {\color{titlecolor}\titlestyle{\@title}}
+            \par\vspace{0.5\titlesep}
+            \ifthenelse{\lengthtest{##1>0cm}}{\rule{##1}{\seprulewidth}}{}            
+        \end{\titleflush}
+        \vspace{\titlebottomskip} 
+    }    
+}
+
+\fancypagestyle{elegant}{%
+    \renewcommand{\headrulewidth}{0pt}
+    \lhead{\headstyle
+        \ifthenelse{\thepage=1}{}{\headtitlestyle\@headtitle}}
+    \rhead{\headstyle
+        \ifthenelse{\thepage=1}{}{%
+        \pagenamestyle\pagename~\thepage /\pageref{LastPage}}}
+    \lfoot{\ifthenelse{\thepage=1}{\footstyle\schoolstyle\@school}{}}
+    \cfoot{} 
+    \rfoot{\ifthenelse{\thepage=1}{\footstyle\authorstyle\@author}{}}
+}
+
+\fancypagestyle{modern}{%
+    \lhead{\headstyle
+        \ifthenelse{\thepage=1}{}{\headtitlestyle\@headtitle}}
+    \rhead{\headstyle
+        \ifthenelse{\thepage=1}{}{\headsubjectstyle\@headsubject}}
+    \lfoot{\ifthenelse{\thepage=1}{\footstyle\schoolstyle\@school}{}}
+    \cfoot{\ifthenelse{\thepage=1}{}{
+        \footstyle\thepage /\pageref{LastPage}}}
+    \rfoot{\footstyle\ifthenelse{\thepage=1}{%
+        \authorstyle\@author
+        \ifx\@author\empty\else\\ \fi
+        \headdatestyle\@date\ignorespaces}{}
+    }
+    \renewcommand{\maketitle}[1][\seprulelength]{% 
+        \mbox{}\par\vspace{\titletopskip}
+        \begin{\titleflush}
+            {\color{titlecolor}
+            {\titlestyle{\@title}}
+            \ifx\@subject\@empty\else
+                \par\vspace{\titlesep}\subjectstyle\@subject
+            \fi
+            \par\vspace{0.5\titlesep}
+            }
+            \ifthenelse{\lengthtest{##1>0cm}}{\rule{##1}{\seprulewidth}}{}
+        \end{\titleflush}
+        \vspace{\titlebottomskip} 
+    }
+}
+
+\fancypagestyle{soft}{%
+    \lhead{\headstyle
+        \ifthenelse{\thepage=1}{}{\headtitlestyle\@headtitle}}
+    \rhead{\headstyle
+        \ifthenelse{\thepage=1}{}{%
+        \pagenamestyle\pagename~\thepage /\pageref{LastPage}}}
+    \lfoot{\footstyle{\schoolstyle\@school}
+        \ifthenelse{\thepage=1}{\ifx\@author\empty\else\\ \fi
+            \authorstyle\@author}{}
+    }
+    \cfoot{}
+    \rfoot{\footstyle{\headsubjectstyle\@headsubject}
+        \ifthenelse{\thepage=1}{\ifx\@date\empty\else\\ \fi
+            \headdatestyle\@date\ignorespaces}{}
+    }
+    \setlength{\titletopskip}{-0.67cm}
+    \renewcommand{\maketitle}[1][\seprulelength]{%
+        \mbox{}\par\vspace{\titletopskip}
+        \begin{\titleflush}
+            {\color{titlecolor}\titlestyle{\@title}}
+            \par\vspace{0.5\titlesep}
+            \ifthenelse{\lengthtest{##1>0cm}}{\rule{##1}{\seprulewidth}}{}            
+        \end{\titleflush}
+        \vspace{\titlebottomskip} 
+    }    
+}
+
+\fancypagestyle{identity}{%
+    \lhead{\headstyle\headtitlestyle \identityname} 
+    \chead{\headstyle\headtitlestyle \identityforename}
+    \rhead{}
+    }
+    
+%    \end{macrocode}       
+%
+% \subsection{The extended styles}
+%
+%    \begin{macrocode}
+\fancypagestyle{exam}{%
+    \let\subtitle\relax % because KOMA-Script uses it
+    \newcommand\subtitle[1]{\long\def\@subtitle{##1}}
+    \subtitle{}
+    \renewcommand{\headtitlestyle}{\MakeUppercase}
+    \lhead{\headstyle
+        \ifthenelse{\thepage=1}{}{\headtitlestyle{\@headtitle}}}
+    \rhead{\headstyle
+        \ifthenelse{\thepage=1}{}{\headsubjectstyle\@headsubject}}
+    \lfoot{\footstyle
+        \authorstyle\@author
+        \ifx\@author\empty\else\\ \fi
+        \schoolstyle\@school
+    }
+    \cfoot{}        
+    \rfoot{\footstyle \pagenamestyle\pagename~\thepage/\pageref{LastPage}}
+    \setlength{\titletopskip}{0.67cm}
+    \setlength{\titlesep}{2\bigskipamount}
+    \renewcommand{\titlestyle}{\LARGE\MakeUppercase}
+    \renewcommand{\subjectstyle}{\Large\bfseries}
+    \newcommand{\subtitlestyle}{\large\slshape}
+    \newcommand*{\titlecorrectstyle}{\color{red}\large\scshape}
+    \renewcommand\correct{%
+        \let\@originalheadtitle\@headtitle
+        \def\@headtitle{\@originalheadtitle ~--~\correctname}
+        \@ifpackageloaded{hyperref}{%
+            \AtBeginDocument{\hypersetup{pdftitle={\@headtitle}}}}{}
+        \renewcommand{\subtitlestyle}{\titlecorrectstyle}
+        \subtitle{\correctname}
+    }
+    \renewcommand{\maketitle}[1][\seprulelength]{%
+        \mbox{}\par\vspace{\titletopskip}
+        \begin{center}
+            {\color{titlecolor}
+            {\titlestyle{\@title}}
+            \par\vspace{\titlesep}{\subjectstyle \@subject}
+            \par\vspace{\titlesep}
+            \ifthenelse{\equal{\@date}{}}{}{%
+                \datestyle\@date\par\vspace{0.5\titlesep}}
+            \ifthenelse{\equal{\@subtitle}{}}{}{%
+                \subtitlestyle\@subtitle\par\vspace{0.5\titlesep}
+            }
+            }
+            \ifthenelse{\lengthtest{##1>0cm}}{\rule{##1}{\seprulewidth}}{}                 
+        \end{center}
+        \vspace{\titlebottomskip}
+    }    
+}
+
+\fancypagestyle{collection}{%
+    \renewcommand{\headtitlestyle}{\MakeUppercase}
+    \lhead{\headstyle\headtitlestyle\@headtitle}
+    \AtBeginDocument{\renewcommand{\sectionmark}[1]{\markboth{##1}{}}}
+    \rhead{\headstyle\headsubjectstyle\leftmark} %\@section
+    \lfoot{\footstyle\schoolstyle \@school}
+    \cfoot{}
+    \rfoot{\footstyle\thepage}
+    \setlength{\titletopskip}{0.67cm}
+    \setlength{\titlesep}{2\bigskipamount}
+    \renewcommand{\titlestyle}{\LARGE\MakeUppercase}
+    \renewcommand{\subjectstyle}{\Large\bfseries}
+    \renewcommand{\authorstyle}{\Large}
+    \renewcommand{\datestyle}{\Large}
+    \renewcommand{\maketitle}[1][\seprulelength]{%
+        \thispagestyle{empty}
+        \mbox{}\par\vspace{\titletopskip}
+        \begin{center}
+            {\color{titlecolor}
+            {\titlestyle{\@title}}
+            \par\vspace{\titlesep} {\subjectstyle{\@subject}}
+            \par\vspace{\titlesep} 
+            \ifx\@author\empty
+            \else \authorstyle
+                \begin{tabular}[t]{c}\@author\end{tabular}
+                \ifx\@school\empty\else\par\vspace{1ex} \@school\fi
+                \par\vspace{0.5\titlesep}
+            \fi
+            \ifthenelse{\equal{\@date}{}}{}{%
+                \datestyle\@date \par\vspace{0.5\titlesep}}
+            }
+            \ifthenelse{\lengthtest{##1>0cm}}{\rule{##1}{\seprulewidth}}{}     
+        \end{center}
+        \vspace{\titlebottomskip}     
+    }
+}
+%    \end{macrocode}
+%
+% In the \textbf{collection} style, 
+% we redefine |\sectionmark| with |\AtBeginDocument| to prevent |\MakeUppercase| 
+% from eliminating the section number 
+% (or you can use |\nouppercase| here).
+%
+% |\ifthenelse| doesn't work when |\and| is used within |\author|.
+%
+% Notice the |\pagestyle{empty}| in |\maketitle| which prevents
+% any header on the first page.
+%
+% \Finale
+\endinput

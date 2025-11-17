@@ -1,0 +1,331 @@
+%%
+%% This is file `gamebooklib.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% gamebooklib.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2021 by Robert J Lee
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+\ProvidesPackage{gamebooklib}[2022/05/25 Gamebook by R Lee latex@rjlee.homelinux.org]
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\newcommand{\gamebook@info}[1]{}%
+\DeclareOption{verbose}{%
+  \renewcommand{\gamebook@info}[1]{\PackageInfo{gamebooklib}{#1}}%
+  \gamebook@info{Gamebook Library package is logging}}%
+\newcommand\gamebook@beforelast{}
+\DeclareOption{endpage}{%
+  \renewcommand\gamebook@beforelast{\eject}%
+}%
+\DeclareOption{jukebox}{%
+  \newcommand\gamebook@jukebox{}%
+  \gamebook@info{Gamebook Library to perform jukebox index reshuffle
+    pass}%
+}%
+\def\if@gamebook@footnotes{\iffalse}
+\DeclareOption{footnote}{%
+  \gdef\if@gamebook@footnotes{\iftrue}%
+  \gamebook@info{Gamebook Library footnotes per gamebook entry}%
+}%
+\def\if@gamebook@shuffle{\iftrue}
+\DeclareOption{noshuffle}{%
+  \gdef\if@gamebook@shuffle{\iffalse}%
+  \gamebook@info{Gamebook Library entries output in order}%
+}%
+\DeclareOption*{%
+  \PassOptionsToClass{\CurrentOption}{lcg}%
+}%
+\ProcessOptions\relax%
+\RequirePackage{environ}%
+\RequirePackage{macroswap}%
+\RequirePackage{ifthen}
+\RequirePackage{lcg}%
+\RequirePackage[debrief]{silence}%
+\newcounter{gentryctr}%
+\setcounter{gentryctr}{0}%
+\newcommand{\gentry}[1][]{\@gentry{#1}}%
+\newenvironment{@gentry}[2]{%
+  \xdef\gentryidx{#1}%
+  \xdef\gentrycode{#2}%
+  \@@gentry%
+}{\ignorespacesandallpars%
+  \global\let\gentryidx\@undefined%
+  \global\let\gentrycode\@undefined%
+  \global\let\gentryidxu\@undefined%
+  \global\let\gentryidxs\@undefined%
+}%
+\newcommand{\@@gentry}[1][]{%
+  \def\gentrytitle{#1}%
+  \stepcounter{gentryctr}%
+  \ifthenelse{\equal{\gentryidx}{}}{}{%
+    \expandafter\xdef\csname fixedat\arabic{gentryctr}%
+    \endcsname{\gentryidx}%
+  }%
+  \expandafter\global\expandafter\newtoks\expandafter{%
+    \csname paratok\arabic{gentryctr}\endcsname}{ }%
+  \Collect@Body\gentry@store%
+}
+\newcommand{\gentry@store}[1]{%
+  \edef\head{\noexpand\begingroup\noexpand\gentryheader%
+    {\arabic{gentryctr}}{\gentryidx}{\gentrycode}{\gentrytitle}%
+    \noexpand\label{gentry:\gentrycode}%
+  }%
+  \global\expandafter\csname paratok\arabic{gentryctr}\endcsname=%
+  \expandafter{\head #1%
+    \outputfootnotes@endgentry%
+    \gentryfooter\endgroup}%
+}%
+\newcommand{\gentry@footnotespergentry}{}
+\newcommand{\thegentries}{%
+\begingroup%
+  \if@gamebook@footnotes\gentry@footnotespergentry\fi%
+  \xdef\gentrycount{\arabic{gentryctr}}%
+  \WarningFilter{lcg}{Using an already existing counter rand}%
+\newtoks\gentry@oldoutput{}%
+\edef\mytmp@{\noexpand\gentry@oldoutput={\the\output}}\mytmp@%
+\if@gamebook@footnotes\output={%
+  \def\gentry@deferoutput{\the\gentry@oldoutput}%
+  \ifnum\outputpenalty<-\@M\else%
+    \if\gentryshouldoutput0%
+      \unvbox255\def\gentry@deferoutput{}%
+    \else%
+      \expandafter\ifcsname footnotetoks\botmark\endcsname%
+      \expandafter\if\expandafter\relax\expandafter%
+      \detokenize\expandafter{\csname footnotetoks\botmark\endcsname}\relax\else%
+      \global\setbox255=\vbox to \vsize{%
+        \unvbox255\vfill\outputfootnotes@endpage}%
+    \fi\fi%
+  \fi\fi%
+  \gentry@deferoutput%
+}\fi%
+  \xdef\gentrycount{\arabic{gentryctr}}%
+  \setcounter{gentryctr}{0}%
+  \ifthenelse{\gentrycount<3}{}{%SHUFFLE START
+  \whiledo{\not{\value{gentryctr}>\gentrycount}}{%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \expandafter\xdef\csname paraIdx\gentryidxu\endcsname{\gentryidxu}%
+    \typeout{DEFINED paraIdx\gentryidxu}%
+    \stepcounter{gentryctr}%
+  }%
+  \if@gamebook@shuffle%
+  \setcounter{rand}{\gentrycount}%
+  \addtocounter{rand}{-1}\edef%
+  \stoppoint{\arabic{rand}}%
+  \setcounter{gentryctr}{2}%
+  \chgrand[last=\stoppoint]%
+  \whiledo{\value{gentryctr}<\stoppoint}{%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \expandafter\ifcsname fixedat\gentryidxu\endcsname%
+      \gamebook@info{Not shuffling \gentryidxu; fixed pos}%
+      \stepcounter{gentryctr}%
+    \else%
+      \gamebook@info{Shuffling \gentryidxu}%
+      \stepcounter{gentryctr}%
+      \edef\nextidx{\arabic{gentryctr}}%
+      \chgrand[first=\nextidx]%
+      \rand%
+      \expandafter\ifcsname fixedat\arabic{rand}\endcsname\else%
+        \gamebook@info{Shuffling \gentryidxu to \arabic{rand}}%
+        \macroswap{paraIdx\gentryidxu}{paraIdx\arabic{rand}}%
+      \fi%
+    \fi%
+  }%
+  \setcounter{gentryctr}{2}%
+  \whiledo{\not{\value{gentryctr}>\stoppoint}}{%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \expandafter\ifcsname fixedat\gentryidxu\endcsname%
+      \expandafter\edef\expandafter\mydest\expandafter%
+        {\expandafter\csname fixedat\gentryidxu\endcsname}%
+        \gamebook@info{MOVING FIXED GAMEBOOK ENTRY INTO PLACE: \gentryidxu -> \mydest}%
+        \macroswap{paraIdx\gentryidxu}%
+                {paraIdx\expandafter\csname fixedat\gentryidxu\endcsname}%
+      \expandafter\ifcsname fixedat\mydest\endcsname%
+        \macroswap{fixedat\gentryidxu}{fixedat\mydest}%
+        \expandafter\global\expandafter\let\csname fixedat\mydest\endcsname\@undefined%
+        \addtocounter{gentryctr}{-1}%
+      \fi%
+      \ifcsname gamebook@jukebox\endcsname%
+        \expandafter\def\csname fixedto\mydest\endcsname{}%
+      \fi%
+    \fi%
+    \stepcounter{gentryctr}%
+  }%
+  \ifcsname gamebook@jukebox\endcsname%
+  \ifnum\gentrycount<6%
+    \gamebook@info{Jukebox pass skipped; too few entries}%
+  \else%
+  \setcounter{gentryctr}{2}%
+  \whiledo{\not{\value{gentryctr}=\stoppoint}}{%
+    \edef\gentryidxt{\arabic{gentryctr}}%
+    \edef\curpos{\csname paraIdx\gentryidxt\endcsname}%
+    \stepcounter{gentryctr}%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \edef\nextpos{\csname paraIdx\gentryidxu\endcsname}%
+    \edef\pdiff{\the\numexpr\curpos+\nextpos}%
+    \ifnum\pdiff<0\edef\pdiff{\the\numexpr-\pdiff}\fi%
+    \edef\sdiff{\the\numexpr\curpos-\nextpos}%
+    \ifnum\sdiff<0\edef\sdiff{\the\numexpr-\sdiff}\fi%
+    \ifnum\pdiff<\sdiff\relax\def\thediff{\pdiff}\else\def\thediff{\sdiff}\fi%
+    \ifnum\thediff=1%
+      \gamebook@info{Jukebox: entries are too close: %
+        \gentryidxt,\gentryidxu\space (original \curpos,\nextpos)}%
+      \chgrand[first=\numexpr\gentryidxu+1]%
+      \rand%
+      \expandafter\ifcsname fixedto\arabic{rand}\endcsname\rand\fi%
+      \expandafter\ifcsname fixedto\arabic{rand}\endcsname\rand\fi%
+      \expandafter\ifcsname fixedto\arabic{rand}\endcsname%
+        \gamebook@info{Can't reshuffle: failed to find non-fixed index}%
+      \else%
+        \ifcsname fixedto\gentryidxu\endcsname%
+          \ifcsname fixedto\gentryidxt\endcsname%
+          \gamebook@info{Can't reshuffle: \curpos\space and %
+            \nextpos\space are both fixed.}%
+          \else%
+            \gamebook@info{Reshuffling \gentryidxt\space to \arabic{rand}}%
+            \macroswap{paraIdx\gentryidxt}{paraIdx\arabic{rand}}%
+          \fi%
+        \else%
+          \gamebook@info{Reshuffling \gentryidxu\space to%
+            \arabic{rand} (alt)}%
+          \macroswap{paraIdx\gentryidxu}{paraIdx\arabic{rand}}%
+    \fi\fi\fi%
+  }%
+  \fi\fi%
+  }\fi%SHUFFLE END
+  \gamebook@info{Shuffled! Gentry order:}%
+  \setcounter{gentryctr}{1}%
+  \whiledo{\not{\value{gentryctr}>\gentrycount}}{%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \gamebook@info{\gentryidxu -> \csname paraIdx\gentryidxu\endcsname}%
+    \stepcounter{gentryctr}%
+  }%
+  \setcounter{gentryctr}{0}%
+  \gamebook@info{Outputting \gentrycount\space gamebook entries}%
+  \whiledo{\value{gentryctr}<\gentrycount}{%
+    \refstepcounter{gentryctr}%
+    \ifthenelse{\value{gentryctr}=\gentrycount}{%
+      \gamebook@beforelast%
+    }{}%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \xdef\gentryidxs{\csname paraIdx\gentryidxu\endcsname}%
+    \gamebook@info{Output gentry \gentryidxu\ of \gentrycount,%
+      original idx \gentryidxs}%
+    \the\csname paratok\gentryidxs\endcsname%
+  }%
+  \gamebook@info{All gamebook entries added to main vertical list}%
+  \setcounter{gentryctr}{1}%
+  \whiledo{\not{\value{gentryctr}>\gentrycount}}{%
+    \edef\gentryidxu{\arabic{gentryctr}}%
+    \expandafter\global\expandafter\let%
+      \csname paratok\gentryidxu\endcsname\@undefined%
+    \expandafter\ifcsname fixedat\gentryidxu\endcsname%
+      \expandafter\global\expandafter\let%
+        \csname fixedat\gentryidxu\endcsname\@undefined%
+    \fi%
+    \stepcounter{gentryctr}%
+  }%
+  \setcounter{gentryctr}{0}%
+  \eject%
+  \endgroup%
+}%
+\newcommand{\gentryheader}[4]{%
+  \noindent\textbf{\Huge\arabic{gentryctr}\large\ #4}%
+  \nopagebreak%
+  \vspace{0.3em}%
+  \nopagebreak%
+  \par%
+  \marginpar{#3}%
+}%
+\newcommand{\gentryshouldoutput}{1}
+\newcommand{\gentryfooter}{%
+  \par\vspace{2em}\centerline{---}\vspace{2em plus 1in}\par%
+}%
+\def\ignorespacesandallpars@{%
+  \@ifnextchar\par%
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}%
+\g@addto@macro{\@makefnmark}{%
+  \ifcsname in@out\endcsname\else%
+    \mark{\arabic{\@mpfn}}%
+  \fi%
+}%
+\g@addto@macro{\gentry@footnotespergentry}{%
+\newcommand{\@footnotetext@save}[3]{%
+  \global\newtoks#2{}%
+  \global#2={\noindent\@footnotemark{}#3}%
+}}%
+\g@addto@macro{\gentry@footnotespergentry}{%
+\newcommand{\@footnotetext@save@}[2]{%
+  \edef\@tmp@{\expandafter\arabic{\@mpfn}}%
+  \expandafter\@footnotetext@save\expandafter{\@tmp@}{#1}{#2}%
+}}%
+\g@addto@macro{\gentry@footnotespergentry}{%
+\renewcommand{\@footnotetext}[1]{%
+  \begingroup%
+  \def\in@out{}% flag that we're building footnotes
+  \edef\@tmp{\expandafter\csname footnotetoks\arabic{\@mpfn}\endcsname}%
+  \expandafter\@footnotetext@save@\expandafter{\@tmp}{%
+    % This fixes up the use of \cs{footnotemark} within footnotes:
+    #1}%
+  \endgroup%
+}}%
+\newcounter{fncounter}%
+\newcommand{\outputfootnotes}[1]{%
+  \begingroup%
+  \def\in@out{}% flag that footnotes are outputting; suppresses marks
+  \setcounter{fncounter}{1}%
+  \def\footnote@rule{%
+    \leftskip=0pt\rightskip=0pt\interlinepenalty=1000%
+    \penalty-1000%
+    \vspace{1pt plus 2pt minus 0.5pt}%
+    \hspace{-0.5in}\rule{1.5in}{0.4pt}\\%
+  }%
+    \outputpenalty=-\@MM\break%
+    \vbox{%
+      \whiledo{\not{\value{fncounter}>#1}}{%
+        \expandafter\ifcsname footnotetoks\arabic{fncounter}\endcsname%
+        \edef\tmp@@{\csname footnotetoks\arabic{fncounter}\endcsname}%
+        \expandafter\if\expandafter\relax\expandafter%
+          \detokenize\expandafter{\the\tmp@@}\relax\else%
+        \footnote@rule\gdef\footnote@rule{\ifvmode\else\par\fi}%
+        \interlinepenalty\interfootnotelinepenalty%
+        \expandafter\the\tmp@@%
+        \global\expandafter\tmp@@={}%
+        \expandafter\let\tmp@@\@undefined%
+      \fi\fi%
+      \stepcounter{fncounter}%
+      }%
+  }%
+  \endgroup%
+}%
+\newcommand{\outputfootnotes@endgentry}{%
+  \if@gamebook@footnotes%
+  \nopagebreak\ifhmode\\\fi% get into vertical mode
+  \nopagebreak\outputfootnotes{\arabic{\@mpfn}}%
+  \fi%
+}%
+\newcommand{\noentryfoot}{\def\outputfootnotes@endgentry{}}
+\g@addto@macro{\gentry@footnotespergentry}{%
+\newcommand{\outputfootnotes@endpage}{%
+  \expandafter\if\expandafter\relax\expandafter%
+  \detokenize\expandafter{\botmark}\relax\else%
+  \outputfootnotes{\botmark}%
+  \fi%
+}}%
+\endinput
+%%
+%% End of file `gamebooklib.sty'.

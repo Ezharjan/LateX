@@ -1,0 +1,2191 @@
+% \iffalse meta-comment
+%<*internal>
+\begingroup
+\input docstrip
+\preamble
+
+The 'fontsize' package
+Copyright (C) 2020-2021 Ivan Valbusa
+<ivan dot valbusa at gmail dot com> 
+
+All rights reserved.
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in
+   http://www.latex-project.org/lppl.txt
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work consists of all files listed in README
+
+This work has the LPPL maintenance status "author-maintained".
+
+\endpreamble
+\keepsilent
+\askforoverwritefalse
+
+\Msg{*** Generating the package file ***}
+\generate{
+  \file{fontsize.sty}{\from{fontsize.dtx}{package}}
+  \nopreamble\nopostamble
+  \file{fontsize.bib}{\from{fontsize.dtx}{bib}}} 
+
+\Msg{***********************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the following}
+\Msg{* files into a directory searched by TeX:}
+\Msg{*}
+\Msg{* \space\space fontsize.sty}
+\Msg{*}
+\Msg{*}
+\Msg{* To produce the documentation on fontsize's code run}
+\Msg{* the file ending with `.dtx' through (pdf)LaTeX. See the}
+\Msg{* README file for more details.}
+\Msg{*}
+\Msg{* Happy TeXing}
+\Msg{***********************************************************}
+\endgroup
+%</internal>
+% \fi
+% \iffalse
+%<*driver>
+\ProvidesFile{fontsize.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{fontsize}
+%<*package>
+  [2021/08/04 v0.8.5 'fontsize' package. Set main font sizes (Ivan Valbusa)]
+%</package>
+%<*driver>
+\documentclass[12pt]{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[fontsize=12]{fontsize}  
+%--------------------------------------------------------
+% GRAPHICS
+%--------------------------------------------------------
+\usepackage[svgnames,table]{xcolor}
+\definecolor{philA}{named}{DarkRed}
+\definecolor{philB}{named}{NavyBlue}
+\definecolor{sufred}{rgb}{0.5,0,0}
+\definecolor{sufgray}{rgb}{0.5,0.5,0.5}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{roundcorner=3pt,linecolor=white,backgroundcolor=gray!10}
+%--------------------------------------------------------
+% DOC FACILITIES
+%--------------------------------------------------------
+\usepackage{metalogo,hologo}
+\usepackage{guit}% before ltxdockit but after xcolor!
+\usepackage[final]{microtype}
+\let\cs\relax
+\let\cmd\relax
+\usepackage{ltxdockit}
+%--------------------------------------------------------
+% FONTS
+%--------------------------------------------------------
+\usepackage{cochineal}
+\usepackage[varqu,varl,var0]{inconsolata}
+\usepackage{biolinum}
+\usepackage{amsthm}
+\usepackage[cochineal,bigdelims,cmintegrals,vvarbb]{newtxmath}
+\usepackage[cal=boondoxo]{mathalfa}
+\usepackage{manfnt}
+%--------------------------------------------------------
+% LAYOUT
+%--------------------------------------------------------
+\usepackage[skip=1.5ex]{parskip}
+\setcounter{tocdepth}{3}
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  margin=3cm,
+  headheight=15pt,
+  ignoreall,
+  heightrounded}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+% --------------------------------------------------------
+% OTHER PACKAGES
+% --------------------------------------------------------
+\usepackage[autostyle]{csquotes}
+\usepackage[style=philosophy-classic]{biblatex}
+\addbibresource{fontsize.bib}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{caption}
+%--------------------------------------------------------
+% COMMANDS AND ENVIRONMENTS
+%--------------------------------------------------------
+\newcommand{\new}{\marginpar{\textcolor{red}{\textbf{NEW!}}}}
+\newcommand{\argstyle}{\itshape}
+\DeclareRobustCommand*{\ar}[1]{\texttt{\char`\{}\textrm{\argstyle#1}\texttt{\char`\}}}
+\DeclareRobustCommand*{\oar}[1]{\texttt{[}\textrm{\argstyle#1}\texttt{]}}
+\DeclareRobustCommand*{\meta}[1]{%
+  $\langle${\argstyle\rmfamily#1\kern0.12em}$\rangle$}
+\DeclareRobustCommand*{\arm}[1]{\ar{\meta{\argstyle#1}}}
+\DeclareRobustCommand*{\oarm}[1]{\oar{\meta{\argstyle#1}}}
+\newcommand*{\OR}{${}\mid{}$}
+\makeatletter
+\newlength\CLett
+\newcommand*\alert{
+ \par\noindent
+ \setbox\z@\hbox{\textdbend}\CLett=\wd\z@%
+ \raisebox{-1.05\baselineskip}[0pt][0pt]{%
+  \llap{\box\z@\kern6pt}}} 
+\makeatother
+%
+% New environments
+%
+\newenvironment{ttquote}{%
+  \begin{mdframed}\ttfamily\microtypesetup{activate=false}}{\end{mdframed}}
+\newenvironment{latexcode}{\begin{mdframed}}{\end{mdframed}}
+\makeatletter
+% Customizing option and value list:
+\patchcmd{\ltxsyntax}{\marglistwidth}{0pt}{}{}
+\patchcmd{\ltd@option@i}{=}{\ = }{}{}
+\patchcmd{\ltd@option@ii}{=}{\ = }{}{}
+% New color for items
+\renewcommand*{\optionlistfont}{%
+  \color{philA}\sffamily\displayverbfont}
+\renewcommand*{\ltxsyntaxlabelfont}{%
+  \color{philA}\sffamily\displayverbfont}
+\renewcommand*{\marglistfont}{%
+  \color{philA}\sffamily\displayverbfont}
+%
+% Table of contents
+%
+\renewcommand\tableofcontents{%
+  \setlength{\columnsep}{1cm}
+  {\centering      
+    \section*{\contentsname}%
+    \@mkboth{\contentsname}{\contentsname}}   
+  \thispagestyle{empty}
+  \begin{multicols}{2}
+    \@starttoc{toc}%
+\end{multicols}}
+\makeatother
+%
+% Commands for table 1 and 2
+%
+\def\tabonefontsize{\fontsize{12}{14.2}\selectfont}
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\getsize}{O{5}m}
+{
+ \fp_eval:n { round(#2,#1) }
+}
+\ExplSyntaxOff
+\makeatletter
+\def\tabfontsize{\fontsize{12}{14}\selectfont}
+\def\fs@getsize#1{%
+ \edef\fs@value{%
+  \SI[
+  detect-all = true,
+  round-mode = places, 
+  round-precision = 2, 
+  ]{\getsize[2]{#1}}{}%
+ }%
+ \tabfontsize%
+ \fs@value%
+}
+\newcommand{\tabrowone}[1]{%
+ \tabfontsize
+ \texttt{\symbol{92}#1} 
+ &
+ \changefontsize[9.6]{8}\csname#1\endcsname\fs@getsize{\f@size}          &
+ \changefontsize[10.2]{8.5}\csname#1\endcsname\fs@getsize{\f@size}       &
+ \changefontsize[10.8]{9}\csname#1\endcsname\fs@getsize{\f@size}         &
+ \changefontsize[11.4]{9.5}\csname#1\endcsname\fs@getsize{\f@size}       &
+ \changefontsize[12]{10}\csname#1\endcsname\fs@getsize{\f@size}          &
+ \changefontsize[12.6]{10.5}\csname#1\endcsname\fs@getsize{\f@size}      &
+ \changefontsize[13.2]{11}\csname#1\endcsname\fs@getsize{\f@size}        &
+ \changefontsize[13.8]{11.5}\csname#1\endcsname\fs@getsize{\f@size}      &
+ \changefontsize[14,4]{12}\csname#1\endcsname\fs@getsize{\f@size}       
+ \\*
+ \rowfont{\color{black!70}}
+ &
+ \changefontsize[9.6]{8}\csname#1\endcsname\fs@getsize{\baselineskip}    &
+ \changefontsize[10.2]{8.5}\csname#1\endcsname\fs@getsize{\baselineskip} &
+ \changefontsize[10.8]{9}\csname#1\endcsname\fs@getsize{\baselineskip}   &
+ \changefontsize[11.4]{9.5}\csname#1\endcsname\fs@getsize{\baselineskip} &
+ \changefontsize[12]{10}\csname#1\endcsname\fs@getsize{\baselineskip}    &
+ \changefontsize[12.6]{10.5}\csname#1\endcsname\fs@getsize{\baselineskip}&
+ \changefontsize[13.2]{11}\csname#1\endcsname\fs@getsize{\baselineskip}  &
+ \changefontsize[13.8]{11.5}\csname#1\endcsname\fs@getsize{\baselineskip}&
+ \changefontsize[14.4]{12}\csname#1\endcsname\fs@getsize{\baselineskip}    
+} 
+
+\newcommand{\tabrowtwo}[2]{%
+ \tabfontsize
+ \texttt{\symbol{92}#1}#2 
+ &
+ \changefontsize[12]{10.0}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.1}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.2}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.3}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.4}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.5}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.6}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.7}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.8}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{10.9}\fs@getsize{\csname#1\endcsname}        &
+ \changefontsize[12]{11}\fs@getsize{\csname#1\endcsname}        
+} 
+\makeatother
+%
+% Commands for code 
+%
+\def\baddition{\color{DarkBlue}}
+\def\eaddition{\color{black}}
+% --------------------------------------------------------
+% HYPERREF SETUP
+% --------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{%
+  hidelinks,
+  pdftitle={User's guide to \textsf{fontsize}},
+  pdfsubject={A small package to change the font size},
+  pdfauthor={Ivan Valbusa},
+  pdfkeywords={latex, fonts}}   
+% --------------------------------------------------------
+% FINAL SETTINGS
+% --------------------------------------------------------
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+
+\begin{document}
+  \DocInput{fontsize.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{3068}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v0.8.5}{2021/08/04}{Updated documentation.}
+% \changes{v0.8.4}{2021/05/21}{Maintenance release.}
+% \changes{v0.8.3}{2021/04/18}{Corrected a bug in the \cmd{parindent} option. 
+% Updated documentation.}
+% \changes{v0.8.2}{2021/04/17}{New \cmd{parindent} option. Updated documentation.}
+% \changes{v0.8.1}{2021/03/14}{New \cmd{sampletext} command. 
+% Some lengths are now defined via \sty{xfp} package. Removed \cmd{headheight} definition. Updated documentation.}
+% \changes{v0.8}{2021/03/04}{Corrected a bug occuring when the line spacing is grater than \SI{163.84}{pt}.}
+% \changes{v0.7}{2021/02/10}{New font sizing commands \cmd{HUGE}, \cmd{HUGEr}, \cmd{HUGErr}, \cmd{HUGErrr}. Changed default name for the \file{.clo} file to \opt{fontsize}. Updated documentation.}
+% \changes{v0.6}{2021/02/06}{New font sizing commands from \cmd{small} down. Updated documentation.}
+% \changes{v0.5}{2021/01/31}{New font sizing commands from \cmd{normalsize} up. New command \cmd{printsamples}. Updated documentation.}
+% \changes{v0.4}{2021/01/25}{Maintenance release. Updated documentation.}
+% \changes{v0.3}{2020/12/19}{Added definitions of some lengths omitted from KOMA-script files: \cmd{smallskiamount}, \cmd{medskiamount}, \cmd{bigskiamount}. Redefined \cmd{parindent} and \cmd{headheight}.}
+% \changes{v0.2}{2020/05/24}{Updated documentation and code comments.}
+% \changes{v0.1}{2020/02/20}{First public release}
+% \GetFileInfo{fontsize.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment,\def,\begin,\vskip,\ }
+% \DoNotIndex{\DeclareOption,\ExecuteOptions,\RequirePackage}
+% \DoNotIndex{\@@end,\@empty,\@ifclassloaded,\@nameuse,\@nil}
+% \DoNotIndex{\@undefined,\\,\`,\addtocounter,\advance,\bfseries}
+% \DoNotIndex{\centering,\closeout,\define@key,\documentclass}
+% \DoNotIndex{\edef,\else,\end,\endinput,\endtitlepage,\expandafter}
+% \DoNotIndex{\extracolsep,\fi,\fill,\fontsize,\g@addto@macro,\toks}
+% \DoNotIndex{\hrule,\hspace,\if,\if@twoside,\ifcase,\ifdefined}
+% \DoNotIndex{\iffalse,\IfFileExists,\ifnum,\ifx,\immediate,\setcounter}
+% \DoNotIndex{\jobname,\let,\long,\MakeUppercase,\MessageBreak}
+% \DoNotIndex{\newcount,\newif,\newpage,\newtoks,\newwrite,\next}
+% \DoNotIndex{\noexpand,\nofiles,\normalfont,\normalsize,\null}
+% \DoNotIndex{\openout,\or,\Package,\PackageError,\PackageWarning}
+% \DoNotIndex{\PackageWarningNoLine,\paperheight,\paperwidth,\par}
+% \DoNotIndex{\parbox,\parindent,\relax,\scshape,\selectfont,\setkeys}
+% \DoNotIndex{\sffamily,\space,\stretch,\string,\textheight,\textwidth}
+% \DoNotIndex{\the,\thispagestyle,\unexpanded,\unless,\unskip,\upshape}
+% \DoNotIndex{\usepackage,\vbox,\vfill,\vspace,\write,\z@}
+% \DoNotIndex{\CurrentOption,\AtEndDocument,\@ne,\c@page,\m@ne}
+% \DoNotIndex{\@firstofone,\@gobble,\@makeother,\begingroup,\endgroup}
+% \DoNotIndex{\eTeXversion,\hbox,\hsize,\includegraphics,\newlinechar}
+% \DoNotIndex{\titlepage,\vss,\vtop,\xdef,\@gobbletwo,\color,\dimexpr}
+% \DoNotIndex{\huge,\large,\makebox,\ProcessOptions,\renewcommand}
+%
+% \thispagestyle{empty}
+%
+% \begin{tikzpicture}[overlay,remember picture]
+% \draw[circular drop shadow,draw=none,fill=white] (current page.center) circle (6cm)
+% node[align=center,anchor=center] {%
+% Ivan Valbusa\\[1cm]
+% 
+% \Huge\color{gray}\bfseries \parbox{10cm}{\centering The
+% \\{{\color{philA}\fontsize{30}{32}\textsf{fontsize}}\\ package}}\\[1cm]
+% \color{black!60!Goldenrod}
+%
+% \normalsize \fileversion{} -- \filedate
+% 
+% };
+% \end{tikzpicture}
+% \clearpage\thispagestyle{empty}
+% \null\vspace{1cm}
+%
+%\hfill\begin{minipage}{.5\textwidth}
+% \raggedleft\footnotesize
+% The serif typeface is Cochineal, created by Michael Sharpe 
+% on the basis of Sebastian Kosch's Crimson. 
+% The \texttt{typewriter} font is Inconsolata, 
+% designed by Raph Levien and the \textsf{sans serif} text 
+% is typeset in Linux Biolinum, created by Philipp H.~Poll. 
+%\end{minipage}
+%
+% \vfill
+%
+% ^^A ----------------------------------------------------------------
+% ^^A
+%        \section*{Legalese}
+% ^^A
+% ^^A ----------------------------------------------------------------
+%
+% \noindent Copyright \copyright\ 2020-\the\year\ Ivan Valbusa
+% \smallskip
+%
+% \noindent This package is author-maintained. 
+% Permission is granted to copy, distribute and/or modify this software 
+% under the terms of the \hologo{LaTeX} Project Public License, version 1.3 or 
+% later (\url{http://latex-project.org/lppl}). 
+% This software is provided ``as is'', without warranty of any kind, 
+% either expressed or implied, including, but not limited to, the implied 
+% warranties of merchantability and fitness for a particular purpose.
+%
+% ^^A ----------------------------------------------------------------
+% ^^A
+%        \section*{Feedback}
+% ^^A
+% ^^A ----------------------------------------------------------------
+% 
+% If you have any questions, feedback or requests please email 
+% me at \texttt{ivan dot valbusa at gmail dot com}. If you need specific 
+% features not already implemented, remember to attach the example files.
+%
+% \clearpage
+%
+% \begin{center}
+% {\color{philA}\bfseries\sffamily 
+%   \huge User's guide to \texttt{fontsize}\\[3mm]}
+% {\large\bfseries\sffamily A small package to change the font size}
+% \vspace{.8cm}
+%
+% \normalsize\fileversion{} -- \filedate
+% \vspace{.7cm}
+%
+% Ivan Valbusa\\[2mm]
+%  \footnotesize\texttt{ivan dot valbusa at gmail dot com}
+% \vspace{1cm}
+% \end{center} 
+% 
+% \begin{abstract}
+% \noindent The \sty{fontsize} package allows you to set arbitrary sizes 
+% for the main font of the document and to adjust the line spacing accordingly. 
+% It also provides new font sizing commands and lets you generate your own \file{.clo} file for better tuning.
+% \end{abstract}
+%
+% \tableofcontents
+%
+%^^A---------------------------------------------------------------------
+% \section*{Credits}
+%^^A---------------------------------------------------------------------
+%
+% The code is an excerpt of the \sty{scrextend} and 
+% \sty{scrfontsizes} packages \parencite{koma}, with few minor 
+% changes to make it completely independent of the KOMA-script bundle and with 
+% a couple of new features. The package is updated to version 
+%|3390 2019-11-18 17:09:35Z| of the \file{scrkernel-fonts.dtx} file.
+%
+%^^A---------------------------------------------------------------------
+% \section*{Caveat}
+%^^A---------------------------------------------------------------------
+%
+% Although effective with any value of the font size (as long as the font 
+% is scalable), the package is meant for small font size changes. 
+% For truly optimal results you should (re)define your own \file{.clo} file. 
+% In fact note that the file generated with \cmd{generateclofile}, 
+% as well as the  macros redefined via \cmd{changefontsize}, 
+% are a subset of the standard \file{.clo} files.
+%^^A---------------------------------------------------------------------
+% \section{Usage}
+%^^A---------------------------------------------------------------------
+% \enlargethispage{\baselineskip}
+%
+% The package can be loaded, as usual, with:
+% \begin{ttquote}
+% \noindent\cmd{usepackage}\oarg{options}|{fontsize}|
+% \end{ttquote}
+% 
+%^^A The \sty{geometry} package and the settings to change the page layout
+%^^A must follow \sty{fontsize} to avoid errors in the layout
+%
+%^^A---------------------------------------------------------------------
+% \subsection{Options}
+%^^A---------------------------------------------------------------------
+%
+% \begin{optionlist*}
+%
+% \optitem[10pt]{fontsize}{\meta{fontsize}} 
+%
+% Sets the normal size to \meta{fontsize} and the normal line spacing 
+% to 1.2\meta{fontsize}. The other sizes (\cmd{tiny}, \cmd{scriptsize},
+%  ecc.) and line spacings are set proportionally. 
+% You can use any unit recognized by \TeX\ and you can 
+% omit the unit as well (in which case it defaults to \texttt{pt}).
+%
+% \begin{footnotesize}
+%
+% Note that \sty{fontsize} does not redefine some commands of the standard 
+% \textit{.clo} files such as those related to the page layout and few others. 
+% For example the \opt{12pt} class option redefine \cmd{Huge} (via |\let\Huge=\huge|) 
+% which is not redefined by \opt{fontsize=12pt}. For these reasons, if possible, you 
+% should always set a font size class option that comes close to the one 
+% loaded by the package. For example with \opt{fontsize=12.2pt} 
+% you should load the \opt{12pt} class option.
+%
+% \end{footnotesize}
+% 
+% \optitem[1.5\meta{fontsize}]{parindent}{\meta{dimen}}
+%
+% Sets the value of \cmd{parindent}. You can use any unit recognized by 
+% \TeX\ but for consistency it is preferable to use a
+% font-dependent unit such as em. 
+%
+% \begin{footnotesize}
+%
+% Note that the "em" is simply an arbitrary unit that comes with a particular font.
+% The value of \cmd{parindent} given in ems depends on both the font used and 
+% on how or where it is set: whether before or after
+% |\begin{document}|. For this reason, don't expect \SI{1}{em} to always be equivalent 
+% to the currently specified \meta{fontsize}. If you don't like this behavior, 
+% use absolute units such as pt, cm or mm.
+%
+% \end{footnotesize}
+% 
+% \optitem[fontsize]{cloname}{\meta{name}}
+%  
+% If declared \textit{before} \opt{fontsize}, it loads the file named
+% \file{\meta{name}\meta{fontsize}.clo} to setup the font sizes.
+% This file can be generated through the \cmd{generateclofile}
+% command (see below).
+%
+%^^A If \opt{cloname=fontsize-std} and \opt{fontsize=10\OR 11\OR 12} 
+%^^A a file which emulate the standard bk*.clo files will be used. 
+%^^A \file{fontsize-std10pt.clo}, 
+%^^A \file{fontsize-std11pt.clo} or 
+%^^A \file{fontsize-std11pt.clo} will be used, 
+%
+% \end{optionlist*}
+%
+%^^A---------------------------------------------------------------------
+% \subsection{Commands}\label{sec:commands}
+%^^A---------------------------------------------------------------------
+%
+% \begin{ltxsyntax}
+%
+% \cmditem{changefontsize}[baselineskip]{fontsize} \hfill iff \meta{baselineskip} $\geq$\meta{fontsize}
+%
+% Sets the normal size to \meta{fontsize} and the normal line spacing to
+% \meta{baselineskip}. The other sizes (\cmd{tiny}, \cmd{scriptsize},
+% ecc.) and line spacings are set proportionally.
+% If the first optional argument is omitted, the command has the same effect 
+% of the \opt{fontsize} option. You can use any unit recognized by \TeX\ and 
+% you can omit the unit as well (in which case it defaults to \texttt{pt}).  
+%
+%\begin{latexcode}
+%\begin{verbatim}
+%\changefontsize[13.5pt]{11.5pt}
+%\end{verbatim}
+%\end{latexcode}
+%
+% \cmditem{generateclofile}{name}[baselineskip]{fontsize} \hfill iff \meta{baselineskip} $\geq$\meta{fontsize}
+%
+% Generates a file named \file{\meta{name}\meta{fontsize}.clo} in which the
+% normal size is \meta{fontsize} and the normal line spacing is \meta{baselineskip}.
+% The other sizes (\cmd{tiny}, \cmd{scriptsize},
+% \cmd{small}, ecc.) and line spacings are set proportionally. 
+% You can use any unit recognized 
+% by \TeX\ and you can omit the unit as well (in which case it defaults 
+% to \texttt{pt}).
+% If \opt{cloname=\meta{name}} \textit{and} \opt{fontsize=\meta{fontsize}},  
+% the generated file will be automatically used to setup the main sizes. 
+%
+% \emph{In fact the \file{.clo} file is only needed if you intend to modify it. 
+%  In this case remember to comment the command, otherwise the edited 
+% file will be overwritten.}
+%
+%\begin{latexcode}
+%\begin{verbatim}
+%\usepackage[cloname=fs,fontsize=11.5]{fontsize}    % loads fs11.5.clo
+% \generateclofile{fs}[13.5]{11.5}                  % creates fs11.5.clo
+%\end{verbatim}
+%\end{latexcode}
+%
+% \cmditem{printsamples}{baselineskip}{fontsize}[sizes] \hfill iff \meta{baselineskip} $\geq$\meta{fontsize}
+%
+% A command thought to test the \sty{fontsize} settings. 
+% It prints a text sample for every size given in the third optional argument.
+% If this argument is omitted, it prints a sample for each available size. 
+% See the examples on page \pageref{sec:example}.
+%
+%\begin{latexcode}
+%\begin{verbatim}
+%\printsamples{13pt}{11pt}[normalsizer,normalsizerr,normalsizerrr]
+%\printsamples{13.5pt}{12pt}
+%\end{verbatim}
+%\end{latexcode}
+%
+% \cmditem{sampletext}{text} 
+%
+% Defines the \meta{text} to be used by \cmd{printsamples}.
+% 
+% \end{ltxsyntax}
+%
+%^^A---------------------------------------------------------------------
+% \subsection{New font sizing commands}\label{sec:sizingcmd}
+%^^A--------------------------------------------------------------------
+%
+% The package provides three additional font sizing commands 
+% for each standard size (plus the new \cmd{HUGE} command).
+% See table \ref{tab:sizes} for details.
+% \medskip
+%
+%\def\fshw{Lipsum}
+%\newcommand{\tcmd}[1]{\textcolor{philA}{\cmd{#1}}}
+% \centerline{
+%  \begin{tabular}[b]{ll}
+%   \cmd{tiny}             & \tiny             \fshw \\
+%   \tcmd{tinyr}           & \tinyr            \fshw \\
+%   \tcmd{tinyrr}          & \tinyrr           \fshw \\
+%   \tcmd{tinyrrr}         & \tinyrrr          \fshw \\
+%   \cmd{scriptsize}       & \scriptsize       \fshw \\
+%   \tcmd{scriptsizer}     & \scriptsizer      \fshw \\
+%   \tcmd{scriptsizerr}    & \scriptsizerr     \fshw \\
+%   \tcmd{scriptsizerrr}   & \scriptsizerrr    \fshw \\
+%   \cmd{footnotesize}     & \footnotesize     \fshw \\
+%   \tcmd{footnotesizer}   & \footnotesizer    \fshw \\
+%   \tcmd{footnotesizerr}  & \footnotesizerr   \fshw \\
+%   \tcmd{footnotesizerrr} & \footnotesizerrr  \fshw \\
+%   \cmd{small}            & \small            \fshw \\
+%   \tcmd{smallr}          & \smallr           \fshw \\
+%   \tcmd{smallrr}         & \smallrr          \fshw \\
+%   \tcmd{smallrrr}        & \smallrrr         \fshw \\
+%   \cmd{normalsize}       & \normalsize       \fshw \\
+%   \tcmd{normalsizer}     & \normalsizer      \fshw \\
+%   \tcmd{normalsizerr}    & \normalsizerr     \fshw \\
+%   \tcmd{normalsizerrr}   & \normalsizerrr    \fshw \\
+%   \cmd{large}            & \large            \fshw \\
+%   \tcmd{larger}          & \larger           \fshw \\
+%   \tcmd{largerr}         & \largerr          \fshw \\
+%   \tcmd{largerrr}        & \largerrr         \fshw \\
+%   \cmd{Large}            & \Large            \fshw \\
+%   \tcmd{Larger}          & \Larger           \fshw \\
+%   \tcmd{Largerr}         & \Largerr          \fshw \\
+%   \tcmd{Largerrr}        & \Largerrr         \fshw 
+%  \end{tabular}
+% \hskip5mm
+%  \begin{tabular}[b]{ll}
+%   \cmd{LARGE}            & \LARGE            \fshw \\
+%   \tcmd{LARGEr}          & \LARGEr           \fshw \\
+%   \tcmd{LARGErr}         & \LARGErr          \fshw \\
+%   \tcmd{LARGErrr}        & \LARGErrr         \fshw \\
+%   \cmd{huge}             & \huge             \fshw \\
+%   \tcmd{huger}           & \huger            \fshw \\
+%   \tcmd{hugerr}          & \hugerr           \fshw \\
+%   \tcmd{hugerrr}         & \hugerrr          \fshw \\
+%   \cmd{Huge}             & \Huge             \fshw \\
+%   \tcmd{Huger}           & \Huger            \fshw \\
+%   \tcmd{Hugerr}          & \Hugerr           \fshw \\
+%   \tcmd{Hugerrr}         & \Hugerrr          \fshw \\
+%   \cmd{HUGE}             & \HUGE             \fshw \\
+%   \tcmd{HUGEr}           & \HUGEr            \fshw \\
+%   \tcmd{HUGErr}          & \HUGErr           \fshw \\
+%   \tcmd{HUGErrr}         & \HUGErrr          \fshw
+%  \end{tabular}
+% }
+%\bigskip
+%
+%\alert  If you want these commands to work as expected, the font must be 
+% smoothly scalable. 
+% This is the case of many Type 1 and Open Type fonts such as Cochineal 
+% used in this document \parencite{cochineal}, but 
+% if the font has optical sizes, unusual things can happen: 
+% some larger sizes may appear smaller. 
+% For example, with the Latin Modern typeface \parencite{lm} 
+% a similar situation can be encountered when normal size is set 
+% to 12\,pt:\medskip
+%
+% \begingroup
+% \centering
+% \fontfamily{lmr}\selectfont
+%
+%\begin{minipage}[b]{8cm}
+% \begin{tabular}[b]{lll}
+% \tcmd{largerr} & \texttlf{15.84\,pt} &\largerr Hello world \\
+% \tcmd{larger}  & \texttlf{15.12\,pt} &\larger Hello world \\
+% \tcmd{large}   & \texttlf{14.40\,pt} &\large Hello world 
+% \end{tabular}
+%\end{minipage}
+% \tikz[overlay]{\draw[->,draw=red,thick,dashed] (0.19,1.25) -- (3.7,1.4);}
+% \scalebox{3}{\large H} \scalebox{3}{\larger H} \scalebox{3}{\largerr H} 
+%
+% \endgroup
+% \medskip
+%
+% In fact the font used for the \cmd{larger} `Hello world' is bigger than 
+% that used for the \cmd{large} one. This optical effect is due to the minor
+% thickness of the stems, which makes the words appear shorter and clearer, 
+% but not less high (as you can see in the figure on the
+% right which shows the letter H appropriately scaled to see the 
+% differences better). 
+%
+%^^A In any case, if you use this package with the \LaTeX\ 
+%^^A default font (i.e. Computer Modern)  I recommend loading 
+%^^A \cmd{RequirePackage}|{fix-cm}| just before \cmd{documentclass}. 
+%
+%
+%^^A\newgeometry{top=2cm,bottom=3cm}
+%
+%^^A\begin{smallrrr}
+%
+%\def\grayrule{\\\tabucline[0.4pt black!40 off 2pt]{-}\\[-2ex]\rowfont{\color{philA}}}
+%
+%\begin{longtabu}{m{3.4cm}@{}*{8}{@{}r@{}}r}
+%  \caption{The value of all available sizes (rounded to the second decimal place)
+%    relative to \cmd{normalsize} ranging from 8\,pt to 12\,pt with increments of 
+%    0.5\,pt. The first row of each size shows the font size; the second row (colored in 
+%    gray) shows the default line spacing}\label{tab:sizes}\\[1ex]
+%  \toprule
+%  \endfirsthead
+%
+%  \multicolumn{10}{l}{\scriptsize\itshape \ldots continues from previous page}\\*[1ex]
+%  \endhead
+%
+%  \multicolumn{10}{r}{\scriptsize\itshape continues on next page\ldots}
+%  \endfoot
+%
+%  \arrayrulecolor{black}
+%  \bottomrule
+%  \endlastfoot
+%
+%  \rowfont{\color{philA}}
+%  \tabrowone{tiny}\\
+%  \tabrowone{tinyr}\\
+%  \tabrowone{tinyrr}\\
+%  \tabrowone{tinyrrr}\grayrule
+%  \tabrowone{scriptsize}\\
+%  \tabrowone{scriptsizer}\\
+%  \tabrowone{scriptsizerr}\\
+%  \tabrowone{scriptsizerrr}\grayrule
+%  \tabrowone{footnotesize}\\
+%  \tabrowone{footnotesizer}\\
+%  \tabrowone{footnotesizerr}\\
+%  \tabrowone{footnotesizerrr}\grayrule
+%  \tabrowone{small}\\
+%  \tabrowone{smallr}\\
+%  \tabrowone{smallrr}\\
+%  \tabrowone{smallrrr}\grayrule
+%  \tabrowone{normalsize}\\
+%  \tabrowone{normalsizer}\\
+%  \tabrowone{normalsizerr}\\
+%  \tabrowone{normalsizerrr}\grayrule
+%  \tabrowone{large}\\
+%  \tabrowone{larger}\\
+%  \tabrowone{largerr}\\
+%  \tabrowone{largerrr}\grayrule
+%  \tabrowone{Large}\\
+%  \tabrowone{Larger}\\
+%  \tabrowone{Largerr}\\
+%  \tabrowone{Largerrr}\grayrule
+%  \tabrowone{LARGE}\\
+%  \tabrowone{LARGEr}\\
+%  \tabrowone{LARGErr}\\
+%  \tabrowone{LARGErrr}\grayrule
+%  \tabrowone{huge}\\
+%  \tabrowone{huger}\\
+%  \tabrowone{hugerr}\\
+%  \tabrowone{hugerrr}\grayrule
+%  \tabrowone{Huge}\\
+%  \tabrowone{Huger}\\
+%  \tabrowone{Hugerr}\\
+%  \tabrowone{Hugerrr}\grayrule
+%  \tabrowone{HUGE}\\
+%  \tabrowone{HUGEr}\\
+%  \tabrowone{HUGErr}\\
+%  \tabrowone{HUGErrr}\\
+%\end{longtabu}
+%
+%^^A\end{smallrrr}
+%
+%^^A\restoregeometry
+%
+%^^A---------------------------------------------------------------------
+%
+% \subsection{Some text samples}\label{sec:example}
+%
+%^^A--------------------------------------------------------------------
+% The following samples are obtained with the \cmd{printsamples} 
+% command (see section \ref{sec:commands}):
+%\begin{verbatim}
+% \printsamples{12.6pt}{10.6pt}[normalsize,normalsizer,normalsizerr,
+%   normalsizerrr,large,larger,largerr,largerrr]
+%\end{verbatim}
+% \printsamples{12.6pt}{10.6pt}[%
+%   normalsize,normalsizer,normalsizerr,
+%   normalsizerrr,large,larger,largerr,largerrr]
+%
+%^^A---------------------------------------------------------------------
+%
+% \section{Known issues}
+%
+%^^A--------------------------------------------------------------------
+%
+% The \opt{parindent} option does not work with classes and packages which sets \cmd{parindent}
+% inside the \cmd{AtBeginDocument} hook (and other hooks). Among these is the \sty{tufte} 
+% class \parencite{tufte}. In such cases you can set the default 
+% indentation, for example, with \cmd{setlength}|{parindent}|\arm{dimen} 
+% declared \textit{after} |\begin{document}|.
+%
+% \StopEventually{%
+% \printbibliography[heading=bibintoc]
+% \PrintChanges\PrintIndex}
+%
+% \iffalse
+%<*package>
+% \fi
+%^^A---------------------------------------------------------------------
+% \section{The Code}
+%^^A---------------------------------------------------------------------
+% \textcolor{DarkBlue}{The parts added to the basic code of \file{scrextend} 
+% and \file{scrfontsizes} are highlighted in blue.}
+%
+% \noindent All the options of the package are defined via 
+% \sty{xkeyval} \parencite{xkeyval}, 
+% while the \sty{xfp} package \parencite{xfp} provides the \cmd{fpeval} command 
+% to use instead of \cmd{dimexpr} for some size calculations. 
+% Only two new package options, called \opt{cloname} and \opt{parindent} 
+% are defined.
+%
+% \baddition
+%    \begin{macrocode}
+\@ifpackageloaded{xkeyval}{}{\RequirePackage{xkeyval}}
+\@ifpackageloaded{xfp}{}{\RequirePackage{xfp}}
+\DeclareOptionX{cloname}[fontsize]{\def\@fontsizefilebase{#1}}
+\DeclareOptionX{parindent}[1.5\@tempdimb]{\def\@fontsizeparindent{#1}}
+%    \end{macrocode}
+% \eaddition
+%
+% \paragraph{Excerpt from \file{scrextend.sty}}
+%
+% Here the \sty{scrextend} code begins. All the KOMA related codes have 
+% been removed and only a few names have been changed.
+% The value of \cmd{|@|fontsizefilebase} is set to \texttt{fontsize} 
+% instead of \texttt{scrsize}.
+%    \begin{macrocode}
+\DeclareOptionX{fontsize}[10]{%
+  \expandafter\@defaultunits\expandafter\@tempdima#1 pt\relax\@nnil
+  \edef\@tempa{#1}%
+  \setlength{\@tempdimb}{\@tempdima}%
+  \edef\@tempb{\strip@pt\@tempdimb}%
+  \addtolength{\@tempdimb}{-10\p@}%
+  \edef\@ptsize{\strip@pt\@tempdimb}%
+  \edef\@tempa{%
+    \noexpand\makeatletter
+      \noexpand\InputIfFileExists{\@fontsizefilebase\@tempa.clo}{%
+   \noexpand\PackageInfo{fontsize}{%
+     File `\@fontsizefilebase\@tempa.clo' used to setup font sizes}%
+   }{%
+   \noexpand\InputIfFileExists{\@fontsizefilebase\@tempb pt.clo}{%
+    \noexpand\PackageInfo{fontsize}{%
+     File `\@fontsizefilebase\@tempb pt.clo' used instead of%
+   \noexpand\MessageBreak
+     file `\@fontsizefilebase\@tempa.clo' to setup font sizes}%
+   }{%
+    \noexpand\changefontsize{#1}%
+   }%
+  }%
+ \noexpand\catcode`\noexpand\@=\the\catcode`\@
+ }%
+  \expandafter\AtEndOfPackage\expandafter{\@tempa}%
+}
+%    \end{macrocode}
+% Now we can execute and process the new options defined above. 
+% As \opt{cloname} is responsible for defining \cmd{|@|fontsizefilebase} 
+% it must precede \opt{fontsize} which uses this command. 
+% The \cmd{ctm@setlength} and \cmd{changefontsize} commands 
+% are simply new names, respectively, for \cmd{scr@setlength} 
+% and  \cmd{changefontsizes} used in \file{scrextend.sty}.
+% \baddition
+%    \begin{macrocode}
+\ExecuteOptionsX{cloname,fontsize,parindent}
+\ProcessOptionsX*\relax
+%    \end{macrocode}
+% \eaddition
+%    \begin{macrocode}
+\newcommand*\ctm@setlength[4]{%
+  \ifdim #2<\ifdim #2=\z@ \z@ \else \p@\fi
+  \ifdim #3<\ifdim #3=\z@ \z@ \else \p@\fi
+  \ifdim #4<\ifdim #4=\z@ \z@ \else \p@\fi
+  \setlength{#1}{\p@ \@plus\p@ \@minus\p@}%
+  \else
+  \setlength{#1}{\p@ \@plus\p@ \@minus#4}%
+  \fi
+  \else
+  \ifdim #4<\ifdim #4=\z@ \z@ \else \p@\fi
+  \setlength{#1}{\p@ \@plus#3 \@minus\p@}%
+  \else
+  \setlength{#1}{\p@ \@plus#3 \@minus#4}%
+  \fi
+  \fi
+  \else
+  \ifdim #3<\ifdim #3=\z@ \z@ \else \p@\fi
+  \ifdim #4<\ifdim #4=\z@ \z@ \else \p@\fi
+  \setlength{#1}{#2 \@plus\p@ \@minus\p@}%
+  \else
+  \setlength{#1}{#2 \@plus\p@ \@minus#4}%
+  \fi
+  \else
+  \ifdim #4<\ifdim #4=\z@ \z@ \else \p@\fi
+  \setlength{#1}{#2 \@plus#3 \@minus\p@}%
+  \else
+  \setlength{#1}{#2 \@plus#3 \@minus#4}%
+  \fi
+  \fi
+  \fi
+}
+\providecommand*{\changefontsize}[2][1.2\@tempdima]{%
+  \@defaultunits\@tempdima#2pt\relax\@nnil
+  \setlength{\@tempdimc}{\@tempdima}%
+  \addtolength{\@tempdimc}{-10\p@}%
+  \edef\@ptsize{\strip@pt\@tempdimc}%
+  \@defaultunits\@tempdimb#1pt\relax\@nnil
+%    \end{macrocode}
+% The value of \cmd{@tempdimc} set in \sty{scrextend.sty}
+% \begin{center}\footnotesize
+% |\setlength{\@tempdimc}{\dimexpr (100\@tempdimb / \@tempdima * \p@)}|
+% \end{center}
+% returns an error when the the line spacing is greater than \SI{163.84}{pt} 
+% or the value passed to the \opt{fontsize} option is grater than \SI{136.53}{pt}.
+% This is due to the intermediate calculation:  
+% $100 \verb!\@tempdimb! = \SI{16384}{pt}$, which is 
+% the maximum dimension that may be stored in plain 
+% \TeX\ and \LaTeX.
+% The problem, which is probably more theoretical than practical, 
+% can be solved simply by replacing
+% the above code with this (thanks to Claudio Beccari):
+% \baddition
+%    \begin{macrocode}
+  \setlength{\@tempdimc}{\fpeval{100*\@tempdimb/\@tempdima}pt}%
+%    \end{macrocode}
+% \eaddition
+%    \begin{macrocode}
+  \edef\@tempb{\the\@tempdimc}%
+  \setlength{\@tempdimc}{\@tempdima}%
+  \def\@tempa##1##2##3##4##5\@nnil{\def##1{##2.##3##4}}%
+  \expandafter\@tempa\expandafter\@tempb\@tempb\@nnil%
+  \ctm@setlength{\abovedisplayskip}%
+  {.8333\@tempdimb}{.1667\@tempdimb}{.5\@tempdimb}%
+  \ctm@setlength{\abovedisplayshortskip}{\z@}{.25\@tempdimb}{\z@}%
+  \ctm@setlength{\belowdisplayshortskip}%
+  {.5\@tempdimb}{.25\@tempdimb}{.25\@tempdimb}%
+  \setlength{\belowdisplayskip}{\abovedisplayskip}%
+  \edef\normalsize{%
+    \noexpand\@setfontsize\noexpand\normalsize
+    {\the\@tempdima}{\the\@tempdimb}%
+    \abovedisplayskip \the\abovedisplayskip
+    \abovedisplayshortskip \the\abovedisplayshortskip
+    \belowdisplayskip \the\belowdisplayskip
+    \belowdisplayshortskip \the\belowdisplayshortskip
+    \let\noexpand\@listi\noexpand\@listI
+  }%
+  \setlength{\@tempdima}{0.9125\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \ctm@setlength{\abovedisplayskip}%
+  {.8333\@tempdimb}{.1667\@tempdimb}{.5\@tempdimb}%
+  \ctm@setlength{\abovedisplayshortskip}{\z@}{.25\@tempdimb}{\z@}%
+  \ctm@setlength{\belowdisplayshortskip}%
+  {.5\@tempdimb}{.25\@tempdimb}{.25\@tempdimb}%
+  \setlength{\belowdisplayskip}{\abovedisplayskip}%
+  \edef\small{%
+    \noexpand\@setfontsize\noexpand\small
+    {\the\@tempdima}{\the\@tempdimb}%
+    \abovedisplayskip \the\abovedisplayskip
+    \abovedisplayshortskip \the\abovedisplayshortskip
+    \belowdisplayskip \the\belowdisplayskip
+    \belowdisplayshortskip \the\belowdisplayshortskip
+    \let\noexpand\@listi\noexpand\@listi@small
+  }%
+  \setlength{\@tempdima}{.83334\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \ctm@setlength{\abovedisplayskip}%
+  {.8333\@tempdimb}{.1667\@tempdimb}{.5\@tempdimb}%
+  \ctm@setlength{\abovedisplayshortskip}{\z@}{.25\@tempdimb}{\z@}%
+  \ctm@setlength{\belowdisplayshortskip}%
+  {.5\@tempdimb}{.25\@tempdimb}{.25\@tempdimb}%
+  \setlength{\belowdisplayskip}{\abovedisplayskip}%
+ \edef\footnotesize{%
+    \noexpand\@setfontsize\noexpand\footnotesize
+    {\the\@tempdima}{\the\@tempdimb}%
+    \abovedisplayskip \the\abovedisplayskip
+    \abovedisplayshortskip \the\abovedisplayshortskip
+    \belowdisplayskip \the\belowdisplayskip
+    \belowdisplayshortskip \the\belowdisplayshortskip
+    \let\noexpand\@listi\noexpand\@listi@footnotesize
+  }%
+  \setlength{\@tempdima}{.66667\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\scriptsize{%
+    \noexpand\@setfontsize\noexpand\scriptsize
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{.5\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\tiny{%
+    \noexpand\@setfontsize\noexpand\tiny
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.2\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\large{%
+    \noexpand\@setfontsize\noexpand\large
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.44\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Large{%
+    \noexpand\@setfontsize\noexpand\Large
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.728\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\LARGE{%
+    \noexpand\@setfontsize\noexpand\LARGE
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{2.074\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\huge{%
+    \noexpand\@setfontsize\noexpand\huge
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{2.488\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Huge{%
+    \noexpand\@setfontsize\noexpand\Huge
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% We will now define some new font sizing commands. There are three variants 
+% for each  standard command:
+% \cmd{\meta{cmd}r} > \cmd{\meta{cmd}rr} > \cmd{\meta{cmd}rrr}. 
+% Every level is scaled proportionally in order to preserve the default 
+% value of the corresponding standard command.
+% \baddition
+%    \begin{macrocode}
+ \def\fontsize@pre{%
+  \ctm@setlength{\abovedisplayskip}%
+  {.8333\@tempdimb}{.1667\@tempdimb}{.5\@tempdimb}%
+  \ctm@setlength{\abovedisplayshortskip}{\z@}{.25\@tempdimb}{\z@}%
+  \ctm@setlength{\belowdisplayshortskip}%
+  {.5\@tempdimb}{.25\@tempdimb}{.25\@tempdimb}%
+  \setlength{\belowdisplayskip}{\abovedisplayskip}%
+ }
+ \def\fontsize@app{%
+  \abovedisplayskip \the\abovedisplayskip%
+  \abovedisplayshortskip \the\abovedisplayshortskip%
+  \belowdisplayskip \the\belowdisplayskip%
+  \belowdisplayshortskip \the\belowdisplayshortskip%
+ }
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{smallr}, \cmd{smallrr}, \cmd{smallrrr}.\\
+% Scale factor: 0,021875.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{0.934375\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \fontsize@pre
+  \edef\smallr{%
+   \noexpand\@setfontsize\noexpand\smallr
+   {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listi@small
+  }%
+  \setlength{\@tempdima}{0.95625\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \fontsize@pre
+  \edef\smallrr{%
+   \noexpand\@setfontsize\noexpand\smallrr
+   {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listi@small
+  }%
+  \setlength{\@tempdima}{0.978125\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \fontsize@pre
+  \edef\smallrrr{%
+   \noexpand\@setfontsize\noexpand\smallrrr
+   {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listi@small
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{footnotesizer}, \cmd{footnotesizerr},
+%  \cmd{footnotesizerrr}.\\
+% Scale factor: 0.01979.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{0.85313\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \fontsize@pre
+  \edef\footnotesizer{%
+   \noexpand\@setfontsize\noexpand\footnotesizer
+   {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listi@footnotesize
+  }%
+  \setlength{\@tempdima}{0.87292\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \fontsize@pre
+  \edef\footnotesizerr{%
+   \noexpand\@setfontsize\noexpand\footnotesizerr
+   {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listi@footnotesize
+  }%
+  \setlength{\@tempdima}{0.89271\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \fontsize@pre
+  \edef\footnotesizerrr{%
+   \noexpand\@setfontsize\noexpand\footnotesizerrr
+   {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listi@footnotesize
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{scriptsizer}, \cmd{scriptsizerr}, 
+% \cmd{scriptsizerrr}.\\
+% Scale factor: 0,0416675.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{0.7083375\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\scriptsizer{%
+   \noexpand\@setfontsize\noexpand\scriptsizer
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{0.750005\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\scriptsizerr{%
+   \noexpand\@setfontsize\noexpand\scriptsizerr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{0.7916725\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\scriptsizerrr{%
+   \noexpand\@setfontsize\noexpand\scriptsizerrr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{tinyr}, \cmd{tinyrr}, \cmd{tinyrrr}.\\
+% Scale factor: 0.0416675.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{0.5416675\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\tinyr{%
+   \noexpand\@setfontsize\noexpand\tinyr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{0.583335\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\tinyrr{%
+   \noexpand\@setfontsize\noexpand\tinyrr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{0.6250025\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\tinyrrr{%
+   \noexpand\@setfontsize\noexpand\tinyrrr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{normalsizer}, \cmd{normalsizerr}, 
+% \cmd{normalsizerrr}.\\
+% Scale factor: 0.05.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{1.05\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+   \fontsize@pre
+  \edef\normalsizer{%
+    \noexpand\@setfontsize\noexpand\normalsizer
+    {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listI
+  }%
+  \setlength{\@tempdima}{1.1\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+   \fontsize@pre
+  \edef\normalsizerr{%
+    \noexpand\@setfontsize\noexpand\normalsizerr
+    {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listI
+  }%
+  \setlength{\@tempdima}{1.15\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+   \fontsize@pre
+  \edef\normalsizerrr{%
+    \noexpand\@setfontsize\noexpand\normalsizerrr
+    {\the\@tempdima}{\the\@tempdimb}%
+   \fontsize@app
+   \let\noexpand\@listi\noexpand\@listI
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{larger}, \cmd{largerr}, \cmd{largerrr}.\\
+% Scale factor: 0,06.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{1.26\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\larger{%
+    \noexpand\@setfontsize\noexpand\larger
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.32\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\largerr{%
+    \noexpand\@setfontsize\noexpand\largerr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.38\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\largerrr{%
+    \noexpand\@setfontsize\noexpand\largerrr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{Larger}, \cmd{Largerr}, \cmd{Largerrr}.\\
+% Scale factor: 0,072.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{1.512\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Larger{%
+    \noexpand\@setfontsize\noexpand\Larger
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.584\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Largerr{%
+    \noexpand\@setfontsize\noexpand\Largerr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.656\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Largerrr{%
+    \noexpand\@setfontsize\noexpand\Largerrr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{LARGEr}, \cmd{LARGErr}, \cmd{LARGErrr}.\\
+% Scale factor: 0,0865.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{1.8145\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\LARGEr{%
+    \noexpand\@setfontsize\noexpand\LARGEr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.901\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\LARGErr{%
+    \noexpand\@setfontsize\noexpand\LARGErr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{1.9875\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\LARGErrr{%
+    \noexpand\@setfontsize\noexpand\LARGErrr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{huger}, \cmd{hugerr}, \cmd{hugerrr}.\\
+% Scale factor: 0,1035.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{2.1775\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\huger{%
+    \noexpand\@setfontsize\noexpand\huger
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{2.281\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\hugerr{%
+    \noexpand\@setfontsize\noexpand\hugerr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{2.3845\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\hugerrr{%
+    \noexpand\@setfontsize\noexpand\hugerrr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{Huger}, \cmd{Hugerr}, \cmd{Hugerrr}.\\
+% Scale factor: 0.123.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{2.611\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Huger{%
+    \noexpand\@setfontsize\noexpand\Huger
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{2.734\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Hugerr{%
+    \noexpand\@setfontsize\noexpand\Hugerr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{2.857\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\Hugerrr{%
+    \noexpand\@setfontsize\noexpand\Hugerrr
+    {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% {\color{black}Definition of \cmd{HUGE}, \cmd{HUGER}, \cmd{HUGERR},
+% \cmd{HUGERRR}.\\
+% Scale factor: 0,149.}
+%    \begin{macrocode}
+  \setlength{\@tempdima}{3.006\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\HUGE{%
+   \noexpand\@setfontsize\noexpand\HUGE
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{3.155\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\HUGEr{%
+   \noexpand\@setfontsize\noexpand\HUGEr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{3.304\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\HUGErr{%
+   \noexpand\@setfontsize\noexpand\HUGErr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+  \setlength{\@tempdima}{3.453\@tempdimc}%
+  \setlength{\@tempdimb}{\@tempb\@tempdima}%
+  \edef\HUGErrr{%
+   \noexpand\@setfontsize\noexpand\HUGErrr
+   {\the\@tempdima}{\the\@tempdimb}%
+  }%
+%    \end{macrocode}
+% \eaddition
+%    \begin{macrocode}
+  \normalsize%
+%    \end{macrocode}
+% The KOMA files do not define \cmd{parindent} and other lengths that are
+% are strictly linked to the font rather than to the dimensions of the page
+% and the text. So we first define \cmd{parindent} which defaults to 1.5\meta{fontsize}:
+% \baddition
+%    \begin{macrocode}
+\setlength\parindent{\@fontsizeparindent}%
+%    \end{macrocode}
+% \eaddition
+% For the following lengths, all values are calculated proportionally to the main font. 
+% I took the \file{bk11.clo} file as a reference point. Note that the differences 
+% in the lengths affected by \sty{fontsize} inside the \file{bk*.clo} files only concern
+% \cmd{headheight}, \cmd{headsep}, \cmd{topskip} and \cmd{footskip}.
+% \baddition
+%    \begin{macrocode}
+\setlength\smallskipamount{
+  \fpeval{1.090909091\@tempdimb/4}pt \@plus 1\p@ \@minus 1\p@}%
+\setlength\medskipamount{
+  \fpeval{1.090909091\@tempdimb/2}pt \@plus 2\p@ \@minus 2\p@}%
+\setlength\bigskipamount{
+  \fpeval{1.090909091\@tempdimb}pt \@plus 4\p@ \@minus 4\p@}%
+%    \end{macrocode}
+% \eaddition
+% \def\tabfontsize{\fontsize{10.5}{12.5}\selectfont}
+% \def\plusminus{\hskip.5pt\parbox[b]{4mm}{\fontsize{5}{5}\itshape plus\\minus}\hskip1pt}
+% \begin{table}\tabfontsize\centering
+% \caption{The values of some specific lengths set by the package, 
+% in relation to some significant settings of the normal size. 
+% The values are expressed in pt and rounded to the second
+% decimal place.}\label{tab:skips}
+% \begin{tabu}{@{\hskip2pt}m{4.5cm}@{\hskip2mm}*{11}{@{\hskip-1pt}r}@{\hskip2pt}}
+% \toprule
+% \rowfont{\tabfontsize}Normal size 
+% & 10.00 & 10.10 & 10.20 & 10.30 & 10.40 & 10.50 
+% & 10.60 & 10.70 & 10.80 & 10.90 & 11.00 \\\midrule
+% \tabrowtwo{parindent}{}\\
+% \tabrowtwo{smallskipamount}{\ \hfill (\plusminus\SI{1}{pt})}\\
+% \tabrowtwo{medskipamount}{\ \hfill (\plusminus\SI{2}{pt})}\\
+% \tabrowtwo{bigskipamount}{\ \hfill (\plusminus\SI{4}{pt})}\\ 
+% \bottomrule
+% \end{tabu}
+%\end{table}
+%    \begin{macrocode}
+  \setlength{\@tempdimb}{\f@baselineskip}%
+  \ctm@setlength{\parsep}%
+  {.3333\@tempdimb}{.1667\@tempdimb}{.0833\@tempdimb}%
+  \ctm@setlength{\topsep}%
+  {.6667\@tempdimb}{.1667\@tempdimb}{.3333\@tempdimb}%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listi\endcsname
+  \endgroup
+  \edef\@listi{\leftmargin\leftmargini
+    \topsep \the\topsep
+    \parsep \the\parsep
+    \itemsep \parsep
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \let\@listI\@listi
+  \ctm@setlength{\parsep}%
+  {.1667\@tempdimb}{.0833\@tempdimb}{.0833\@tempdimb}%
+  \ctm@setlength{\topsep}%
+  {.3333\@tempdimb}{.1667\@tempdimb}{.1667\@tempdimb}%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listi\endcsname
+  \endgroup
+  \edef\@listi@small{\leftmargin\leftmargini
+    \topsep \the\topsep
+    \parsep \the\parsep
+    \itemsep \parsep
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \ctm@setlength{\parsep}%
+  {.125\@tempdimb}{.0625\@tempdimb}{.0625\@tempdimb}%
+  \ctm@setlength{\topsep}%
+  {.25\@tempdimb}{.125\@tempdimb}{.125\@tempdimb}%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listi\endcsname
+  \endgroup
+  \edef\@listi@footnotesize{\leftmargin\leftmargini
+    \topsep \the\topsep
+    \parsep \the\parsep
+    \itemsep \parsep
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \ctm@setlength{\parsep}%
+  {.1667\@tempdimb}{.0833\@tempdimb}{.0833\@tempdimb}%
+  \ctm@setlength{\topsep}%
+  {.3333\@tempdimb}{.1667\@tempdimb}{.0833\@tempdimb}%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listii\endcsname
+  \endgroup
+  \edef\@listii{\leftmargin\leftmarginii
+    \labelwidth=\dimexpr \leftmargin-\labelsep
+    \topsep \the\topsep
+    \parsep \the\parsep
+    \itemsep \parsep
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \ctm@setlength{\topsep}%
+  {.1667\@tempdimb}{.0833\@tempdimb}{.0833\@tempdimb}%
+  \setlength{\partopsep}{\z@ \@plus\z@ \@minus\p@}%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listiii\endcsname
+  \endgroup
+  \edef\@listiii{\leftmargin\leftmarginiii
+    \labelwidth=\dimexpr \leftmargin-\labelsep
+    \topsep \the\topsep
+    \parsep \z@
+    \partopsep \the\partopsep
+    \itemsep \topsep
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listiv\endcsname
+  \endgroup
+  \edef\@listiv{\leftmargin\leftmarginiv
+    \labelwidth=\dimexpr \leftmargin-\labelsep\relax
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listv\endcsname
+  \endgroup
+  \edef\@listv{\leftmargin\leftmarginv
+    \labelwidth=\dimexpr \leftmargin-\labelsep\relax
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \@tempswafalse
+  \begingroup
+  \def\@list@extra{\aftergroup\@tempswatrue}%
+  \csname @listvi\endcsname
+  \endgroup
+  \edef\@listvi{\leftmargin\leftmarginvi
+    \labelwidth=\dimexpr \leftmargin-\labelsep\relax
+    \if@tempswa\noexpand\@list@extra\fi
+  }%
+  \@listi
+  \setlength{\@tempdimb}{\f@baselineskip}%
+  \setlength{\footnotesep}{.555\@tempdimb}%
+  \ctm@setlength{\skip\footins}%
+  {.75\@tempdimb}{.3333\@tempdimb}{.1667\@tempdimb}%
+  \ctm@setlength{\floatsep}%
+  {\@tempdimb}{.1667\@tempdimb}{.1667\@tempdimb}%
+  \ctm@setlength{\textfloatsep}%
+  {1.6667\@tempdimb}{.1667\@tempdimb}{.3333\@tempdimb}%
+  \setlength{\intextsep}{\floatsep}%
+  \setlength{\dblfloatsep}{\floatsep}%
+  \setlength{\dbltextfloatsep}{\textfloatsep}%
+  \setlength{\@fptop}{\z@ \@plus 1fil}%
+  \setlength{\@fpsep}{.6667\@tempdimb \@plus 2fil}%
+  \setlength{\@fpbot}{\@fptop}%
+  \setlength{\@dblfptop}{\@fptop}%
+  \setlength{\@dblfpsep}{\@fpsep}%
+  \setlength{\@dblfpbot}{\@fptop}%
+  \ctm@setlength{\partopsep}{.2\@tempdimb}{.1\@tempdimb}{.1\@tempdimb}%
+}
+%    \end{macrocode}
+%
+% \paragraph{Excerpt from \file{scrfontsizes.sty}}
+%
+% Here is a portion of the \sty{scrfontsizes} package. It simply provides the
+% \cmd{generateclofile} command, without the KOMA related definitions. 
+% There are no reserved names for the \file{.clo} files. The name of the command is 
+% a new name for the KOMA \cmd{generatefontfile}. In fact what the command 
+% generates is a \file{.clo} file.
+%    \begin{macrocode} 
+\newcommand*{\generateclofile}[1]{%
+ \kernel@ifnextchar [{\@generatefontfile{#1}}{\@@generatefontfile{#1}}%
+}
+\newcommand*{\@generatefontfile}{}
+\def\@generatefontfile#1[#2]#3{%
+ \begingroup
+%    \end{macrocode}
+% At least starting from version 3.31 of \sty{scrfontsizes}, 
+% the code of the \cmd{@generatefontfile} and \cmd{@@generatefontfile} 
+% commands sets the \cmd{parskip} value to |0pt|. We also use |[#2]| 
+% in place of |[{#2}]| for the optional argument of \cmd{changefontsize}
+% used immediately below.
+%    \begin{macrocode} 
+ \setlength{\parskip}{0pt}%
+ \changefontsize[#2]{#3}%
+ \generate@fontfile{#1}{#3}%
+ \endgroup
+}
+\newcommand\@@generatefontfile[2]{%
+ \begingroup
+ \setlength{\parskip}{0pt}%
+ \changefontsize{#2}%
+ \generate@fontfile{#1}{#2}%
+ \endgroup
+}
+\newcommand*{\@@@generatefontfile}[2][]{}
+\newcommand*{\@fontfile}{}
+\let\@fontfile\@mainaux
+\newcommand*{\generate@fontfile}[2]{%
+ \def\@ind{\space\space}%
+ \immediate\openout\@fontfile #1#2.clo
+ \immediate\write\@fontfile{\@percentchar^^J%
+  \@percentchar\space This is file `#1#2.clo', generated with^^J%
+%    \end{macrocode}
+% In the next three lines we only replace `scrfontsizes' with `fontsize'
+% and `Markus Kohm' with `Ivan Valbusa', in order to get the correct information
+% in the .log file.
+%    \begin{macrocode}  
+  \@percentchar\space fontsize
+  \csname ver@fontsize.\@pkgextension\endcsname,^^J%
+  \@percentchar\space Copyright (c) Ivan Valbusa.^^J%
+  \@percentchar^^J%
+  \string\ProvidesFile{#1#2.clo}[%
+  \the\year/\ifnum\month<10 0\fi\the\month/\ifnum\day<10 0\fi\the\day%
+  \space generated font size class option (#2)]}%
+ \immediate\write\@fontfile{%
+  \string\def\string\normalsize{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\normalsize{\f@size}{\f@baselineskip}%
+   \@percentchar^^J%
+   \@ind\string\abovedisplayskip\space \the\abovedisplayskip^^J%
+   \@ind\string\abovedisplayshortskip\space \the\abovedisplayshortskip^^J%
+   \@ind\string\belowdisplayskip\space \the\belowdisplayskip^^J%
+   \@ind\string\belowdisplayshortskip\space \the\belowdisplayshortskip^^J%
+   \@ind\string\let\string\@listi\string\@listI^^J%
+  }\@percentchar%
+ }%
+ \begingroup\small\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\small{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\small{\f@size}{\f@baselineskip}%
+   \@percentchar^^J%
+   \@ind\string\abovedisplayskip\space \the\abovedisplayskip^^J%
+   \@ind\string\abovedisplayshortskip\space \the\abovedisplayshortskip^^J%
+   \@ind\string\belowdisplayskip\space \the\belowdisplayskip^^J%
+   \@ind\string\belowdisplayshortskip\space \the\belowdisplayshortskip^^J%
+   \@ind\string\def\string\@listi{\@percentchar^^J%
+    \@ind\@ind\string\leftmargin\string\leftmargini^^J%
+    \@ind\@ind\string\topsep \the\topsep^^J%
+    \@ind\@ind\string\parsep \the\parsep^^J%
+    \@ind\@ind\string\itemsep \string\parsep^^J%
+    \@ind}\@percentchar^^J%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\footnotesize\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\footnotesize{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\footnotesize{\f@size}{\f@baselineskip}%
+   \@percentchar^^J%
+   \@ind\string\abovedisplayskip\space \the\abovedisplayskip^^J%
+   \@ind\string\abovedisplayshortskip\space \the\abovedisplayshortskip^^J%
+   \@ind\string\belowdisplayskip\space \the\belowdisplayskip^^J%
+   \@ind\string\belowdisplayshortskip\space \the\belowdisplayshortskip^^J%
+   \@ind\string\def\string\@listi{\@percentchar^^J%
+    \@ind\@ind\string\leftmargin\string\leftmargini^^J%
+    \@ind\@ind\string\topsep \the\topsep^^J%
+    \@ind\@ind\string\parsep \the\parsep^^J%
+    \@ind\@ind\string\itemsep \string\parsep^^J%
+    \@ind}\@percentchar^^J%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\scriptsize
+ \immediate\write\@fontfile{%
+  \string\def\string\scriptsize{%
+   \string\@setfontsize\string\scriptsize{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\tiny
+ \immediate\write\@fontfile{%
+  \string\def\string\tiny{%
+   \string\@setfontsize\string\tiny{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\large
+ \immediate\write\@fontfile{%
+  \string\def\string\large{%
+   \string\@setfontsize\string\large{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Large
+ \immediate\write\@fontfile{%
+  \string\def\string\Large{%
+   \string\@setfontsize\string\Large{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\LARGE
+ \immediate\write\@fontfile{%
+  \string\def\string\LARGE{%
+   \string\@setfontsize\string\LARGE{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\huge
+ \immediate\write\@fontfile{%
+  \string\def\string\huge{%
+   \string\@setfontsize\string\huge{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Huge
+ \immediate\write\@fontfile{%
+  \string\def\string\Huge{%
+   \string\@setfontsize\string\Huge{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+%    \end{macrocode}
+% The new sizing commands previously defined are recalled here and 
+% written in the .clo file if the \cmd{generateclofile} command is used. 
+% \baddition
+%    \begin{macrocode}
+ \begingroup\tinyr
+\immediate\write\@fontfile{%
+ \string\def\string\tinyr{%
+  \string\@setfontsize\string\tinyr{\f@size}{\f@baselineskip}%
+ }\@percentchar%
+}%
+\endgroup
+\begingroup\tinyrr
+\immediate\write\@fontfile{%
+ \string\def\string\tinyrr{%
+  \string\@setfontsize\string\tinyrr{\f@size}{\f@baselineskip}%
+ }\@percentchar%
+}%
+\endgroup
+\begingroup\tinyrrr
+\immediate\write\@fontfile{%
+ \string\def\string\tinyrrr{%
+  \string\@setfontsize\string\tinyrrr{\f@size}{\f@baselineskip}%
+ }\@percentchar%
+}%
+ \endgroup
+ \begingroup\scriptsizer
+ \immediate\write\@fontfile{%
+  \string\def\string\scriptsizer{%
+   \string\@setfontsize\string\scriptsizer{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\scriptsizerr
+ \immediate\write\@fontfile{%
+  \string\def\string\scriptsizerr{%
+   \string\@setfontsize\string\scriptsizerr{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+\endgroup
+ \begingroup\scriptsizerrr
+ \immediate\write\@fontfile{%
+  \string\def\string\scriptsizerrr{%
+   \string\@setfontsize\string\scriptsizerrr{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+\def\fs@appnormal{
+ \@percentchar^^J%
+ \@ind\string\abovedisplayskip\space \the\abovedisplayskip^^J%
+ \@ind\string\abovedisplayshortskip\space \the\abovedisplayshortskip^^J%
+ \@ind\string\belowdisplayskip\space \the\belowdisplayskip^^J%
+ \@ind\string\belowdisplayshortskip\space \the\belowdisplayshortskip^^J%
+ \@ind\string\let\string\@listi\string\@listI^^J%
+}
+\def\fs@appsmall{%
+ \@percentchar^^J%
+ \@ind\string\abovedisplayskip\space \the\abovedisplayskip^^J%
+ \@ind\string\abovedisplayshortskip\space \the\abovedisplayshortskip^^J%
+ \@ind\string\belowdisplayskip\space \the\belowdisplayskip^^J%
+ \@ind\string\belowdisplayshortskip\space \the\belowdisplayshortskip^^J%
+ \@ind\string\def\string\@listi{\@percentchar^^J%
+  \@ind\@ind\string\leftmargin\string\leftmargini^^J%
+  \@ind\@ind\string\topsep \the\topsep^^J%
+  \@ind\@ind\string\parsep \the\parsep^^J%
+  \@ind\@ind\string\itemsep \string\parsep^^J%
+  \@ind}\@percentchar^^J%
+}
+ \begingroup\smallr\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\smallr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\smallr{\f@size}{\f@baselineskip}%  
+   \fs@appsmall%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\smallrr\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\smallrr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\smallrr{\f@size}{\f@baselineskip}%  
+   \fs@appsmall%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\smallrrr\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\smallrrr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\smallrrr{\f@size}{\f@baselineskip}%  
+   \fs@appsmall%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\footnotesizer\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\footnotesizer{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\footnotesizer{\f@size}{\f@baselineskip}%  
+   \fs@appsmall%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\footnotesizerr\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\footnotesizerr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\footnotesizerr{\f@size}{\f@baselineskip}%  
+   \fs@appsmall%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\footnotesizerrr\@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\footnotesizerrr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\footnotesizerrr{\f@size}{\f@baselineskip}%  
+   \fs@appsmall%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\normalsizer
+ \immediate\write\@fontfile{%
+ \string\def\string\normalsizer{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\normalsizer{\f@size}{\f@baselineskip}%
+  \fs@appnormal% 
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\normalsizerr
+ \immediate\write\@fontfile{%
+  \string\def\string\normalsizerr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\normalsizerr{\f@size}{\f@baselineskip}%
+   \fs@appnormal% 
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\normalsizerrr
+ \immediate\write\@fontfile{%
+ \string\def\string\normalsizerrr{\@percentchar^^J%
+   \@ind\string\@setfontsize\string\normalsizerrr{\f@size}{\f@baselineskip}%
+   \fs@appnormal% 
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\larger
+ \immediate\write\@fontfile{%
+   \string\def\string\larger{%
+     \string\@setfontsize\string\larger{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\largerr
+ \immediate\write\@fontfile{%
+   \string\def\string\largerr{%
+     \string\@setfontsize\string\largerr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\largerrr
+ \immediate\write\@fontfile{%
+   \string\def\string\largerrr{%
+     \string\@setfontsize\string\largerrr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Large
+ \immediate\write\@fontfile{%
+   \string\def\string\Large{%
+     \string\@setfontsize\string\Large{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Larger
+ \immediate\write\@fontfile{%
+   \string\def\string\Larger{%
+     \string\@setfontsize\string\Larger{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Largerr
+ \immediate\write\@fontfile{%
+   \string\def\string\Largerr{%
+     \string\@setfontsize\string\Largerr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Largerrr
+ \immediate\write\@fontfile{%
+   \string\def\string\Largerrr{%
+     \string\@setfontsize\string\Largerrr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+\endgroup
+ \begingroup\LARGEr
+ \immediate\write\@fontfile{%
+   \string\def\string\LARGEr{%
+     \string\@setfontsize\string\LARGEr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\LARGErr
+ \immediate\write\@fontfile{%
+   \string\def\string\LARGErr{%
+     \string\@setfontsize\string\LARGErr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\LARGErrr
+ \immediate\write\@fontfile{%
+   \string\def\string\LARGErrr{%
+     \string\@setfontsize\string\LARGErrr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+\endgroup
+ \begingroup\huger
+ \immediate\write\@fontfile{%
+   \string\def\string\huger{%
+     \string\@setfontsize\string\huger{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\hugerr
+ \immediate\write\@fontfile{%
+   \string\def\string\hugerr{%
+     \string\@setfontsize\string\hugerr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\hugerrr
+ \immediate\write\@fontfile{%
+   \string\def\string\hugerrr{%
+     \string\@setfontsize\string\hugerrr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+\endgroup
+ \begingroup\Huger
+ \immediate\write\@fontfile{%
+   \string\def\string\Huger{%
+     \string\@setfontsize\string\Huger{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Hugerr
+ \immediate\write\@fontfile{%
+   \string\def\string\Hugerr{%
+     \string\@setfontsize\string\Hugerr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\Hugerrr
+ \immediate\write\@fontfile{%
+   \string\def\string\Hugerrr{%
+     \string\@setfontsize\string\Hugerrr{\f@size}{\f@baselineskip}%
+   }\@percentchar%
+ }%
+\endgroup
+  \begingroup\HUGE
+ \immediate\write\@fontfile{%
+  \string\def\string\HUGE{%
+   \string\@setfontsize\string\HUGE{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+  \begingroup\HUGEr
+ \immediate\write\@fontfile{%
+  \string\def\string\HUGEr{%
+   \string\@setfontsize\string\HUGEr{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\HUGErr
+ \immediate\write\@fontfile{%
+  \string\def\string\HUGErr{%
+   \string\@setfontsize\string\HUGErr{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+ \endgroup
+ \begingroup\HUGErrr
+ \immediate\write\@fontfile{%
+  \string\def\string\HUGErrr{%
+   \string\@setfontsize\string\HUGErrr{\f@size}{\f@baselineskip}%
+  }\@percentchar%
+ }%
+\endgroup
+%    \end{macrocode} 
+% \eaddition
+%    \begin{macrocode}
+ \immediate\write\@fontfile{\string\normalsize}%
+%    \end{macrocode}
+% The new lengths previously defined are recalled here and written in the .clo file
+% if the \cmd{generateclofile} command is used. 
+% \baddition
+%    \begin{macrocode}
+\begingroup 
+\immediate\write\@fontfile{%
+  \string\setlength{\string\parindent}{\the\parindent}^^J%
+  \string\setlength{\string\headheight}{\the\headheight}^^J%
+  \string\setlength{\string\smallskipamount}{\the\smallskipamount}^^J%
+  \string\setlength{\string\medskipamount}{\the\medskipamount}^^J%
+  \string\setlength{\string\bigskipamount}{\the\bigskipamount}^^J%
+}%
+\endgroup
+%    \end{macrocode}
+% \eaddition
+%    \begin{macrocode}
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\footnotesep}{\the\footnotesep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\skip\string\footins}{\the\skip\footins}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\floatsep}{\the\floatsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\textfloatsep}{\the\textfloatsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\intextsep}{\the\intextsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\dblfloatsep}{\the\dblfloatsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\dbltextfloatsep}{\the\dbltextfloatsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\@fptop}{\the\@fptop}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\@fpsep}{\the\@fpsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\@fpbot}{\the\@fpbot}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\@dblfptop}{\the\@dblfptop}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\@dblfpsep}{\the\@dblfpsep}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\@dblfpbot}{\the\@dblfpbot}\@percentchar
+ }%
+ \immediate\write\@fontfile{%
+  \string\setlength{\string\partopsep}{\the\partopsep}\@percentchar
+ }%
+ \begingroup
+ \@listi
+ \immediate\write\@fontfile{%
+  \string\def\string\@listi{\@percentchar^^J%
+   \@ind\string\leftmargin\string\leftmargini^^J%
+   \@ind\string\topsep \the\topsep^^J%
+   \@ind\string\parsep \the\parsep^^J%
+   \@ind\string\itemsep \string\parsep^^J%
+  }\@percentchar
+ }%
+ \endgroup
+ \immediate\write\@fontfile{%
+  \string\let\string\@listI\string\@listi
+ }%
+ \begingroup
+ \@listii
+ \immediate\write\@fontfile{%
+  \string\def\string\@listii{\@percentchar^^J%
+   \@ind\string\leftmargin\string\leftmarginii^^J%
+   \@ind\string\labelwidth\string\leftmarginii^^J%
+   \@ind\string\advance\string\labelwidth-\string\labelsep^^J%
+   \@ind\string\topsep \the\topsep^^J%
+   \@ind\string\parsep \the\parsep^^J%
+   \@ind\string\itemsep \string\parsep^^J%
+  }\@percentchar
+ }%
+ \endgroup
+ \begingroup
+ \@listiii
+ \immediate\write\@fontfile{%
+  \string\def\string\@listiii{\@percentchar^^J%
+   \@ind\string\leftmargin\string\leftmarginiii^^J%
+   \@ind\string\labelwidth\string\leftmarginiii^^J%
+   \@ind\string\advance\string\labelwidth-\string\labelsep^^J%
+   \@ind\string\topsep \the\topsep^^J%
+   \@ind\string\parsep \the\parsep^^J%
+   \@ind\string\partopsep \the\partopsep^^J%
+   \@ind\string\itemsep \string\topsep^^J%
+  }\@percentchar
+ }%
+ \endgroup
+ \begingroup
+ \@listiv
+ \immediate\write\@fontfile{%
+  \string\def\string\@listiv{\@percentchar^^J%
+   \@ind\string\leftmargin\string\leftmarginiv^^J%
+   \@ind\string\labelwidth\string\leftmarginiv^^J%
+   \@ind\string\advance\string\labelwidth-\string\labelsep^^J%
+  }\@percentchar
+ }%
+ \endgroup
+ \begingroup
+ \@listv
+ \immediate\write\@fontfile{%
+  \string\def\string\@listv{\@percentchar^^J%
+   \@ind\string\leftmargin\string\leftmarginv^^J%
+   \@ind\string\labelwidth\string\leftmarginv^^J%
+   \@ind\string\advance\string\labelwidth-\string\labelsep^^J%
+  }\@percentchar
+ }%
+ \endgroup
+ \begingroup
+ \@listvi
+ \immediate\write\@fontfile{%
+  \string\def\string\@listvi{\@percentchar^^J%
+   \@ind\string\leftmargin\string\leftmarginvi^^J%
+   \@ind\string\labelwidth\string\leftmarginvi^^J%
+   \@ind\string\advance\string\labelwidth-\string\labelsep^^J%
+  }\@percentchar
+ }%
+ \endgroup
+ \immediate\write\@fontfile{%
+ \string\@listi^^J%
+ \string\endinput^^J%
+ \@percentchar^^J%
+ \@percentchar\space End of file `#1#2.clo'.
+}
+\immediate\closeout\@fontfile
+}
+\@onlypreamble\generateclofile
+%    \end{macrocode}
+% We will now define some internal commands to test the package functions.
+% Since version 0.6 I have been using the \LaTeX 3 solution provided by 
+% Enrico Gregorio in place of the old macros based on 
+% \sty{etoolbox} \parencite{etoolbox}.
+% \baddition
+%    \begin{macrocode}
+\newcommand{\sampletext}[1]{\def\fs@sampletext{#1}}
+\def\fs@sampletext{%
+  As any dedicated reader can clearly see, the Ideal of practical reason 
+  is a representation of, as far as I know, the things in themselves; as 
+  I have shown elsewhere, the phenomena should only be used as a canon for 
+  our understanding. The paralogisms of practical reason are what first give 
+  rise to the architectonic of practical reason. As will easily be shown in 
+  the next section, reason would thereby be made to contradict, in view of
+  these considerations, the Ideal of practical reason, yet the manifold
+  depends on the phenomena.}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{\printsamples}
+{
+ m
+ m
+ O{tiny,tinyr,tinyrr,tinyrrr,
+   scriptsize,scriptsizer,scriptsizerr,scriptsizerrr,
+   footnotesize,footnotesizer,footnotesizerr,footnotesizerrr,
+   small,smallr,smallrr,smallrrr,
+   normalsize,normalsizer,normalsizerr,normalsizerrr,
+   large,larger,largerr,largerrr,
+   Large,Larger,Largerr,Largerrr,
+   LARGE,LARGEr,LARGErr,LARGErrr,
+   huge,huger,hugerr,hugerrr,
+   Huge,Huger,Hugerr,Hugerrr,
+   HUGE,HUGEr,HUGErr,HUGErrr,
+  }
+}
+{
+ \fontsize_printsamples:nnn { #1 } { #2 } { #3 }
+}
+
+% helper function to print the rounded sizes
+\cs_new:Nn \__fontsize_round_f:n
+{
+ \fp_eval:n { round(\use:c{f@#1},1) } pt
+}
+
+% the main function
+\cs_new_protected:Nn \fontsize_printsamples:nnn
+{
+ % group to bound the font changes
+ \group_begin:
+ % set the size
+ \changefontsize[#1]{#2}\selectfont
+ % header
+ \subsubsection*{Text~samples~for~\symbol{92}normalsize~#2~on~#1}
+ % map through the desired sizes
+ \clist_map_inline:nn { #3 }
+ {
+  \use:c{##1}                             % set the font size
+  \noindent\texttt{\symbol{92}##1}:~      % print the font size command
+  \__fontsize_round_f:n {size}~on~        % print the size in points
+  \__fontsize_round_f:n {baselineskip}.~  % print the baseline skip in points
+  \fs@sampletext                          % sample text
+  \par\addvspace{\medskipamount}          % finish up
+ }
+ % close the group
+ \group_end:
+}
+\ExplSyntaxOff
+%    \end{macrocode}
+% \eaddition
+% \iffalse
+%</package>
+% \fi
+%
+% \iffalse
+%<*bib>
+@manual{xkeyval,
+  title = {The \sty{xkeyval} package},
+  subtitle = {Extension of the keyval package},
+  author = {Adriaens, Hendri},
+  url = {http://www.ctan.org/pkg/xkeyval},
+  urldate = {2020-07-05}, 
+  date = {2014-03-12},
+  version = {2.7a}
+}
+
+@manual{etoolbox,
+  title = {The \sty{etoolbox} Package. An e-\TeX{} Toolbox 
+    for Class and Package Authors},
+  author = {Philipp Lehman and Joseph Wright},
+  url = {http://www.ctan.org/pkg/etoolbox},
+  urldate = {2020-07-05}, 
+  date = {2019-09-21},
+  version = {2.5h}
+}
+
+@manual{koma,
+  title = {KOMA -- Script. A versatile \LaTeXe{} bundle},
+  author = {Frank Neukam and Markus Kohm and Axel Kielhorn},
+  url = {http://www.ctan.org/pkg/koma-script},
+  urldate = {2020-07-05}, 
+  date = {2020-04-19},
+  version = {3.30}
+}
+
+@manual{lm,
+ title = {The Latin Modern (LM) Family of Fonts},
+ author = {B. Jackowski and J.M. Nowacki},
+ url = {http://www.ctan.org/pkg/lm},
+ urldate = {2021-03-04}, 
+ date = {2009-10-30},
+ version = {2.004}
+}
+
+@manual{cochineal,
+ title = {The Cochineal Font Package},
+ author = {Michael Sharpe},
+ url = {http://www.ctan.org/pkg/cochineal},
+ urldate = {2021-03-04}, 
+ date = {2020-12-19},
+ version = {1.065 }
+}
+
+@manual{xfp,
+ title = {The \sty{xfp} package Floating Point Unit},
+ author = {{The \LaTeX\ Project}},
+ url = {https://www.ctan.org/pkg/xfp},
+ urldate = {2021-03-14}, 
+ date = {2021-03-12},
+}
+
+@manual{tufte,
+ title = {\sty{tufte-latex} – Document classes inspired by the work of Edward Tufte},
+ author = {Bil Kleb and Bill Wood and Kevin Godby},
+ url = {https://www.ctan.org/pkg/tufte-latex},
+ urldate = {2021-05-18}, 
+ date = {2015},
+ version = {3.5.2}
+}
+
+
+%</bib>
+% \fi
+% \Finale

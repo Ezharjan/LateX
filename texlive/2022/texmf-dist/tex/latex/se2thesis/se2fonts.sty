@@ -1,0 +1,134 @@
+%%
+%% This is file `se2fonts.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% se2thesis.dtx  (with options: `init')
+%% se2thesis.dtx  (with options: `fonts')
+%% Copyright (C) 2022 by Stephan Lukasczyk <tex@lukasczyk.me>
+%% 
+%% It may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License (LPPL), either version 1.3c of
+%% this license or (at your option) any later version.  The latest
+%% version of this license is in the file:
+%% 
+%%    https://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status by
+%%   Stephan Lukasczyk.
+%% 
+%% This work consists of the files se2thesis.dtx,
+%%                                 se2thesis.ins,
+%%           and the derived files se2thesis.pdf,
+%%                                 se2thesis.cls,
+%%                                 se2translations-english.trsl,
+%%                                 se2translations-german.trsl,
+%%                                 se2colors.sty, and
+%%                                 se2fonts.sty
+\@ifundefined{ExplLoaderFileDate}
+  { \RequirePackage{expl3} }
+  {}
+\@ifl@t@r\ExplLoaderFileDate{2020-01-09}
+  {}
+  {%
+    \PackageError{se2colors}{Support package expl3 too old}
+    {%
+      You need to update your installation of the bundles 'l3kernel' and
+      'l3packages'.\MessageBreak
+      Loading~se2colors~will~abort!%
+    }%
+    \endinput
+  }%
+\providecommand \IfFormatAtLeastTF { \@ifl@t@r \fmtversion }
+\ProvidesExplPackage {se2fonts} {2022-09-12} {1.1.0}
+  {A font-selection support package for the se2thesis bundle}
+\keys_define:nn { seiifonts }
+  {
+    fontmode .choice:,
+    fontmode / original .code:n = {
+      \tl_gset:Nn \l__slcd_fonts_fontmode_tl {original}
+    },
+    fontmode / replacement .code:n = {
+      \tl_gset:Nn \l__slcd_fonts_fontmode_tl {replacement}
+    },
+    fontmode / auto .code:n = {
+      \tl_gset:Nn \l__slcd_fonts_fontmode_tl {auto}
+    },
+    original .meta:n = {fontmode=original},
+    replacement .meta:n = {fontmode=replacement},
+    auto .meta:n = {fontmode=auto},
+  }
+\keys_set:nn { seiifonts } { fontmode = auto }
+\IfFormatAtLeastTF { 2022-06-01 }
+  { \ProcessKeyOptions [ seiifonts ] }
+  {
+    \RequirePackage{ l3keys2e }
+    \ProcessKeysOptions { seiifonts }
+  }
+\cs_new_eq:NN \pdftexengine \sys_if_engine_pdftex_p:
+\cs_new_eq:NN \xetexengine \sys_if_engine_xetex_p:
+\cs_new_eq:NN \luatexengine \sys_if_engine_luatex_p:
+\NewExpandableDocumentCommand \ifengineTF { mmm }
+  {
+    \bool_if:nTF { #1 } { #2 } { #3 }
+  }
+\NewExpandableDocumentCommand \ifengineT { mm }
+  {
+    \bool_if:nT { #1 } { #2 }
+  }
+\NewExpandableDocumentCommand \ifengineF { mm }
+  {
+    \bool_if:nF { #1 } { #2 }
+  }
+\ifengineT { \xetexengine }
+  {
+    \msg_set:nnnn { seiifonts } { xetex-not-supported }
+      { XeTeX~ is~ not~ supported~ by~ the~ se2fonts~ package. }
+      { Switch~ to~ pdfTeX~ or~ (preferably)~ LuaTeX. }
+    \msg_error:nn { seiifonts } { xetex-not-supported }
+  }
+\ifengineTF { \luatexengine }
+  {
+    \RequirePackage{fontspec}
+    \RequirePackage{unicode-math}
+    \tl_if_eq:NnT \l__slcd_fonts_fontmode_tl {original}
+      {
+        \setmainfont{Palatino}[Ligatures=TeX]
+        \setsansfont{Optima}[Ligatures=TeX]
+        \setmonofont{MesloLGS Nerd Font Mono}
+        \setmathfont{Neo Euler}[Ligatures=TeX]
+      }
+    \tl_if_eq:NnT \l__slcd_fonts_fontmode_tl {replacement}
+      {
+        \setmainfont{TeX Gyre Pagella}[Ligatures=TeX]
+        \setsansfont{TeX Gyre Heros}[Ligatures=TeX, Scale=0.9]
+        \setmonofont{Fira Code}[Ligatures=TeX]
+        \setmathfont{TeX Gyre Pagella Math}[Ligatures=TeX]
+        \setmathfont{Latin Modern Math}[range={\mathcal,\mathbb}]
+      }
+    \tl_if_eq:NnT \l__slcd_fonts_fontmode_tl {auto}
+      {
+        \IfFontExistsTF { Palatino }
+          { \setmainfont{Palatino}[Ligatures=TeX] }
+          { \setmainfont{TeX Gyre Pagella}[Ligatures=TeX] }
+        \IfFontExistsTF { Optima }
+          { \setsansfont{Optima}[Ligatures=TeX] }
+          { \setsansfont{TeXGyre Heros}[Ligatures=TeX] }
+        \IfFontExistsTF{ MesloLGS Nerd Font Mono }
+          { \setmonofont{MesloLGS Nerd Font Mono} }
+          { \setmonofont{Fira Code}[Scale=0.85] }
+        \IfFontExistsTF { Neo Euler }
+          { \setmathfont{Neo Euler}[Ligatures=TeX] }
+          {
+            \setmathfont{TeX Gyre Pagella Math}[Ligatures=TeX]
+            \setmathfont{Latin Modern Math}[range={\mathcal,\mathbb}]
+          }
+      }
+  } {
+    \PassOptionsToPackage{T1}{fontenc}
+    \RequirePackage{fontenc}
+    \RequirePackage{FiraMono}
+    \RequirePackage{tgheros}
+    \RequirePackage{tgpagella}
+  }

@@ -1,0 +1,515 @@
+% \iffalse meta-comment
+%<*internal>
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+----------------------------------------------------------------
+mynsfc --- A XeLaTeX template for writing the main body of NSFC proposals.
+Author:  Fei Qi
+E-mail:  fred.qi@ieee.org
+License: Released under the LaTeX Project Public License v1.3c or later
+See:     http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+\endpreamble
+\postamble
+
+Copyright (C) 2015-2021 by Fei Qi <fred.qi@ieee.org>
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Fei Qi.
+
+This work consists of the file mynsfc.dtx and a Makefile.
+Running "make" generates the derived files README, mynsfc.pdf and mynsfc.cls.
+Running "make inst" installs the files in the user's TeX tree.
+Running "make install" installs the files in the local TeX tree.
+
+\endpostamble
+
+\usedir{tex/latex/mynsfc}
+\generate{
+  \file{\jobname.cls}{\from{\jobname.dtx}{class}}
+}
+\usedir{doc/latex/mynsfc}
+\nopreamble\nopostamble
+\generate{
+  \file{examples/my-proposal-contents.tex}{\from{\jobname.dtx}{content}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/mynsfc}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{mynsfc.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<class>\ProvidesClass{mynsfc}
+%<*class>
+    [2020/08/18 v1.30 A XeLaTeX class for writing NSFC proposals.]
+%</class>
+%<*driver>
+\documentclass[subfig,boldtoc]{mynsfc}
+\usepackage{doc}
+\makeatletter
+\def\glossary@prologue{\section{修改记录}{}}%
+\def\index@prologue{\section{索引}{}}%
+\makeatother
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\bibliography{examples/my-proposal}
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.dtx}
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \changes{v1.00}{2015/08/18}{First public release}
+% \changes{v1.01}{2016/07/11}{Improved command \texttt{maketitle}}
+% \changes{v1.01}{2016/07/11}{Added an option \texttt{arabicpart}}
+% \changes{v1.01}{2016/07/11}{Author highlight with \texttt{biblatex} newer than
+% 3.3 (2016-03-01)}
+% \changes{v1.01}{2016/09/05}{Added options \texttt{tocfont} and
+% \texttt{boldtoc} to select font on headings}
+% \changes{v1.01}{2016/09/05}{Using kvoptions to handle package options}
+% \changes{v1.01}{2016/09/05}{Added an option \texttt{toccolor} to show outline
+% in a given color specified by a HTML/CSS style hex code}
+% \changes{v1.20}{2018/08/05}{Changed to support Chinese based on the CTeX package.}
+% \changes{v1.21}{2018/08/22}{Using xelatex for the FakeBold feature.}
+% \changes{v1.22}{2019/04/07}{Added macros render author annotations with biblatex.}
+% \changes{v1.22}{2019/04/09}{Added biblatex string \texttt{patentcn}.}
+% \changes{v1.30}{2021/08/18}{Release based on a newly funded proposal.}
+% 
+% \title{\textsf{mynsfc}---国家自然科学基金申请书正文模板\thanks{此文
+% 档描述的模板版本为 \fileversion, 最后修改日期为\filedate.} }
+% \author{Fred Qi\thanks{E-mail: fred.qi@ieee.org}}
+% \date{\filedate 发布}
+%
+% \maketitle
+%
+% \begin{abstract}
+% 用于自然基金申请书正文部分的撰写。
+% \end{abstract}
+%
+% \input{examples/my-proposal-contents.tex}
+%
+% \iffalse
+%<*content>
+%
+{\kaishu\zihao{4} 参照以下提纲撰写，要求内容翔实、清晰，层次分明，标题
+  突出。\cemph{请勿删除或改动下述提纲标题及括号中的文字。}}
+
+\part{立项依据与研究内容（建议8000字以下）：}
+\label{part:background}
+
+\section{项目的立项依据}{（研究意义、国内外研究现状及发展动态分析，需
+  结合科学研究发展趋势来论述科学意义；或结合国民经济和社会发展中迫切需
+  要解决的关键科技问题来论述其应用前景。附主要参考文献目录）；}
+\label{sec:background}
+
+\subsection{研究意义}
+\label{sec:motivation}
+
+略。
+
+\subsection{国内外研究现状}
+\label{sec:review}
+
+可以引用相关文献~\cite{bengio_representation_2013}对研究意义与国内外研究现状进行说明。
+
+\printbibliography[segment=\therefsegment,heading=reftype]
+
+\section{项目的研究内容、研究目标，以及拟解决的关键科学问题}{（此部分为重点阐述内容）；}
+\label{sec:proposals}
+
+\subsection{研究内容}
+
+略。
+
+\begin{figure}[h]
+  \centering
+  
+  \caption{测试图表标题。}
+  \label{fig:test}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{cc}
+    \hline
+    标题 & 内容 \\
+    \hline
+    科目1 & 内容1 \\
+    \hline
+  \end{tabular}
+  \caption{测试图表标题。}
+  \label{tab:test}
+\end{table}
+
+\subsection{研究目标}
+\label{sec:goals}
+
+略。
+
+\subsection{拟解决的关键科学问题}
+
+略。
+
+\section{拟采取的研究方案及可行性分析}{（包括研究方法、技术路线、实验手段、关键技术等说明）；}
+\label{sec:tech-feasibility}
+
+略。
+
+\section{本项目的特色与创新之处；}{}
+\label{sec:innovations}
+
+略。
+
+\section{年度研究计划及预期研究结果}{（包括拟组织的重要学术交流活动、国际合作与交流计划等）。}
+\label{sec:plans}
+
+略。
+
+% \clearpage
+
+\part{研究基础与工作条件}
+\label{part:foundations}
+
+\section{研究基础}{（与本项目相关的研究工作积累和已取得的研究工作成绩）；}
+\label{sec:foundatioins}
+
+\newrefsegment
+  
+  申请人针对\textbf{某问题}进行了研究~\cite{xia_saliency_2015}。
+
+  在使用\texttt{biblatex} 3.4以上版本的情况下，建议使用
+  \texttt{biblatex}提供数据标注功能。如第二个作者是自己，用粗体标记自己的姓
+  名；且为文章的通记作者，加上角标``*''进行标注。则仅需要在bibtex文
+  件的相应条目中增加以下标记：
+\begin{verbatim}
+  author = "Xia, C and Qi, F and Shi, G and Wang, P",
+  author+an = {2=self;2:family=corr},
+\end{verbatim}
+  
+  需要强调的作者列表有三种形式，分别适用于不同版本的\texttt{biblatex}。
+  \begin{description}
+  \item[3.4+ (20160301)] 请使用\texttt{biblatex}中提供的数据标注(Data
+    annotation)功能。
+  \item[3.3 (20160301)] 由于姓名处理的宏更新，请使用哈希字符串列表指定需要强调
+    的作者。
+\begin{verbatim}
+    \initauthors{{72b3cccfc646adeb1d6b20320b56fd7d}}
+\end{verbatim}
+  \item[3.2- (20151228)] 使用旧式的姓名处理宏，使用下列形式的作者列表。
+\begin{verbatim}
+    \forcsvlist{\listadd\boldnames}{{Qi, F\bibinitperiod}}
+\end{verbatim}
+  \end{description}
+  其中命令\texttt{initauthors}中的所需要的姓名的哈希字符串可以
+  在Biber/bibtex 生成的文件\texttt{*.bbl} 中找到。
+
+\printbibliography[segment=\therefsegment,heading=cvtype,title={相关工作}]
+  
+\section{工作条件}{（包括已具备的实验条件，尚缺少的实验条件和拟解决的
+  途径，包括利用国家实验室、国家重点实验室和部门重点实验室等研究基地的
+  计划与落实情况）；}
+\label{sec:condition}
+
+略。
+
+\section{正在承担的与本项目相关的科研项目情况}{（申请人和项目组主要参与
+  者正在承担的与本项目相关的科研项目情况，包括国家自然科学基金的项目和
+  国家其他科技计划项目，要注明项目的名称和编号、经费来源、起止年月、与
+  本项目的关系及负责的内容等）；}
+\label{sec:projects}
+
+略。
+
+\section{完成国家自然科学基金项目情况}{（对申请人负责的前一个已结题科学
+  基金项目（项目名称及批准号）完成情况、后续研究进展及与本申请项目的关
+  系加以详细说明。另附该已结题项目研究工作总结摘要（限500字）和相关成果
+  的详细目录）。}
+\label{sec:finished-project}
+
+\newrefsegment
+
+略。
+
+\part{其他需要说明的问题}
+\label{cha:others}
+
+\section{}{申请人同年申请不同类型的国家自然科学基金项目情况（列明同年
+  申请的其他项目的项目类型、项目名称信息，并说明与本项目之间的区别与联
+  系）。}
+
+无
+
+\section{}{具有高级专业技术职务（职称）的申请人或者主要参与者是否存在
+  同年申请或者参与申请国家自然科学基金项目的单位不一致的情况；如存在上
+  述情况，列明所涉及人员的姓名，申请或参与申请的其他项目的项目类型、项
+  目名称、单位名称、上述人员在该项目中是申请人还是参与者，并说明单位不
+  一致原因。}
+
+无
+
+\section{}{具有高级专业技术职务（职称）的申请人或者主要参与者是否存在与
+  正在承担的国家自然科学基金项目的单位不一致的情况；如存在上述情况，列
+  明所涉及人员的姓名，正在承担项目的批准号、项目类型、项目名称、单位名
+  称、起止年月， 并说明单位不一致原因。}
+
+无
+
+\section{}{其他。}
+
+无
+
+使用方法参见样例文件 \texttt{my-proposal.tex}。
+
+%</content>
+% \fi
+% 
+%\StopEventually{
+%  \PrintChanges
+%  \PrintIndex
+%}
+%
+% \part{附录}
+% \appendix
+% \section{实现}{}
+%
+%<*class>
+%    \begin{macrocode}
+\ExecuteOptions{}
+\ProcessOptions*
+%% Options
+\RequirePackage{kvoptions}
+\DeclareBoolOption[false]{subfig}
+\DeclareBoolOption[false]{boldtoc}
+\DeclareStringOption[zhkai]{tocfont}
+\DeclareStringOption[0070c0]{toccolor}
+\ProcessKeyvalOptions*
+%% Load default class
+\LoadClass[a4paper,UTF8,fontset=fandol,zihao=-4]{ctexart}
+%\setmainfont{Times New Roman}
+\setCJKmainfont{FandolSong}[%
+    Extension   = .otf,
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold]
+\setCJKfamilyfont{zhkai}{FandolKai-Regular.otf}[AutoFakeBold=2]
+\RequirePackage[hmargin=1.25in,vmargin=1in]{geometry}
+\setlength{\parskip}{0pt \@plus2pt \@minus0pt}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%% Load required packages
+\RequirePackage{titlesec}
+\RequirePackage{marvosym}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{paralist}
+\RequirePackage{graphicx}
+\ifmynsfc@subfig
+\RequirePackage[config]{subfig}
+\else
+\RequirePackage{caption,subcaption}
+\fi
+\RequirePackage{xcolor}
+\RequirePackage{calc}
+\RequirePackage{hyperref}
+\hypersetup{%
+  breaklinks=true,
+  colorlinks=true,
+  allcolors=black,
+  pdfpagelabels}
+\urlstyle{same}
+%    \end{macrocode}
+%    \begin{macrocode}
+%% Load and setup package biblatex
+\RequirePackage[backend=biber,
+                doi=false,
+                url=false,
+                isbn=false,
+                defernumbers=true,                
+                style=ieee]{biblatex}
+
+\setlength{\bibitemsep}{2pt}
+\appto{\bibfont}{\normalfont\zihao{5}\linespread{1}\selectfont}
+\defbibheading{reftype}[参考文献]{\subsection*{#1}}
+\defbibheading{cvtype}[\bibname]{\subsubsection*{#1}}
+\defbibfilter{conference}{type=inproceedings or type=incollection}
+
+\NewBibliographyString{patentcn}
+
+\DefineBibliographyStrings{english}{%
+  and      = {\&},
+  patentcn = {中国发明专利\adddot},
+}
+
+\RequirePackage{xpatch}% or use http://tex.stackexchange.com/a/40705
+
+\@ifpackagelater{biblatex}{2016/05/10}
+{
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{self}{\textbf{#1}}{#1}}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{self}{\textbf{#1}}{#1}%
+  \ifpartannotation{family}{corr}{\textsuperscript{*}}{}}
+}
+{
+\@ifpackagelater{biblatex}{2016/03/01}
+{
+\newcommand*{\list@bold@authors}{}
+\newcommand{\initauthors}[1]{
+  \renewcommand*{\list@bold@authors}{}
+  \forcsvlist{\listadd\list@bold@authors}{#1}}
+
+\newboolean{bold}
+\renewcommand*{\mkbibnamefamily}[1]{\ifthenelse{\boolean{bold}}{\textbf{#1}}{#1}}
+\renewcommand*{\mkbibnamegiven}[1]{\ifthenelse{\boolean{bold}}{\textbf{#1}}{#1}}
+
+\newbibmacro*{name:bold}{%
+  \setboolean{bold}{false}%
+  \def\do##1{\iffieldequalstr{hash}{##1}{\setboolean{bold}{true}\listbreak}{}}%
+  \dolistloop{\list@bold@authors}%
+}
+
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}}{}{}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}}{}{}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}}{}
+%\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:family}{\endgroup}{}{}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}{}{}
+% \xapptobibmacro{name:delim}{\endgroup}{}{}
+}
+{
+\newbibmacro*{name:bold}[2]{%
+  \def\do##1{\ifstrequal{#1, #2}{##1}{\bfseries\listbreak}{}}%
+  \dolistloop{\boldnames}}
+\newcommand*{\boldnames}{}
+
+\xpretobibmacro{name:last}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:first-last}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:last-first}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:last}{\endgroup}{}{}
+\xapptobibmacro{name:first-last}{\endgroup}{}{}
+\xapptobibmacro{name:last-first}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
+}
+}
+%    \end{macrocode}
+%
+% \begin{macro}{\tocformat}
+%    \begin{macrocode}
+\newcommand{\tocformat}{%
+  \CJKfamily{\mynsfc@tocfont}%
+  \color[HTML]{\mynsfc@toccolor}}
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
+% Define page styles      
+\def\ps@mynsfc@empty{%
+  \let\@oddhead\@empty%
+  \let\@evenhead\@empty%
+  \let\@oddfoot\@empty%
+  \let\@evenfoot\@empty}
+%    \end{macrocode}
+% \begin{macro}{\maketitle}
+%    \begin{macrocode}
+\renewcommand{\maketitle}{%
+  \begin{center}%
+    \kaishu\zihao{3}\bfseries\@title%
+  \end{center}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\part}
+%    \begin{macrocode}
+\ctexset{
+  part/name         = {（,）},
+  part/aftername    = {},
+  part/number       = \chinese{part},
+  part/format       = \tocformat\bfseries\zihao{4},
+  part/indent       = 2em,
+}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\section}
+%    \begin{macrocode}
+\titleformat{\section}[block]{\tocformat\zihao{4}}
+                             {\bfseries\hskip2em\thesection{.}}{1ex}{}
+\titlespacing{\section}{0em}{4ex}{2ex}
+\let\oldsection\section
+\renewcommand{\section}[2]{\oldsection{\textbf{#1}{#2}}}
+\@addtoreset{section}{part}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\subsection}
+%    \begin{macrocode}
+\titleformat{\subsection}{\tocformat\bfseries\zihao{-4}}
+                         {\thesubsection{.}}{0.25em}{}
+\titlespacing{\subsection}{0em}{2ex}{1ex}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\subsubsection}
+%    \begin{macrocode}
+\renewcommand{\thesubsubsection}{(\arabic{subsubsection})}
+\titleformat{\subsubsection}{\CJKfamily{\mynsfc@tocfont}\bfseries\zihao{-4}}
+                            {\thesubsubsection}{0.25em}{}
+\titlespacing{\subsubsection}{0ex}{2ex}{1ex}
+\captionsetup{font=small}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\cemph}
+%    \begin{macrocode}
+\newcommand{\cemph}[1]{\textbf{\color[HTML]{\mynsfc@toccolor}#1}}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macrocode}
+\let\mynsfc@begindocumenthook\@begindocumenthook
+\let\mynsfc@enddocumenthook\@enddocumenthook
+\def\AtBeginDocument{\g@addto@macro\mynsfc@begindocumenthook}
+\def\AtEndDocument{\g@addto@macro\mynsfc@enddocumenthook}
+\def\@begindocumenthook{\mynsfc@begindocumenthook}
+\def\@enddocumenthook{\mynsfc@enddocumenthook}
+\AtBeginDocument{\ps@mynsfc@empty}
+\endinput
+%</class>
+%    \end{macrocode}
+%\Finale

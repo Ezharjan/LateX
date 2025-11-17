@@ -1,0 +1,550 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2021 by Ziyue "Alan" Xiang <ziyue.alan.xiang@gmail.com>
+%
+% This file may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, either version 1.3c of this license
+% 28 or (at your option) any later version. The latest version of this
+% 29 license is in:
+%
+% http://www.latex-project.org/lppl.txt
+%
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2006/05/20 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{smart-eqn.dtx}
+%</driver>
+%<*package>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesExplPackage{smart-eqn}{08/05/2021}{1.0}{Automatic Math Symbol Styling}
+%</package>
+%
+%<*driver>
+\makeatletter
+\@namedef{ver@fourier.sty}{} % suppress the loading of fourier
+\makeatother
+\documentclass{ydoc}
+\usepackage[english]{babel}
+\usepackage{fontspec, unicode-math}
+\usepackage{smart-eqn}
+\usepackage{microtype}
+\usepackage{etoolbox}
+\usepackage{titlesec}
+\usepackage{chngcntr}
+\usepackage[skins,listings,xparse]{tcolorbox}
+\usepackage{hyperref}
+
+\ExplSyntaxOff
+
+\AlsoImplementation
+
+\setmainfont{ETbb-Regular}[
+    Extension=.otf,
+    BoldFont=ETbb-Bold,
+    ItalicFont=ETbb-Italic,
+    BoldItalicFont=ETbb-BoldItalic
+]
+\setsansfont{QTAvanti}[
+    Extension=.otf,
+    ItalicFont=QTAvanti-Italic,
+    Scale=0.8
+]
+\setmonofont{NewCMMono10-Regular}[
+    Extension=.otf,
+    BoldFont=NewCMMono10-Bold,
+    ItalicFont=NewCMMono10-Italic
+]
+\newfontfamily{\QTFloraline}{QTFloraline}[
+    Extension=.otf,
+    BoldFont=QTFloraline-Bold
+]
+\newfontfamily{\dejavumono}{DejaVuSansMono}[
+    Extension=.ttf,
+    BoldFont=DejaVuSansMono-Bold,
+    ItalicFont=DejaVuSansMono-Oblique,
+    BoldItalicFont=DejaVuSansMono-BoldOblique
+]
+\setmathfont{Asana-Math}[Extension=.otf]
+
+\newcommand{\thispkg}{\pkg{smart-eqn}}
+\title{\QTFloraline The \thispkg~Package:\\ Automatic Math Symbol Styling}
+\author{\href{https://www.alanshawn.com}{Ziyue ``Alan'' Xiang}}
+\date{\today}
+\repository{https://github.com/xziyue/smart-eqn}
+\email{ziyue.alan.xiang@gmail.com}
+
+\titleformat*{\section}{\QTFloraline\large\bfseries}
+\titleformat*{\subsection}{\QTFloraline\bfseries}
+
+%\newcounter{example}
+%\counterwithin{example}{section}
+
+\DeclareTCBListing{exbox}{soo}{
+    IfBooleanTF={#1}{listing only}{},
+    enhanced,
+    sharp corners,
+    boxrule=0pt,
+    attach boxed title to top left,
+    title={\sffamily\large EXAMPLE~\refstepcounter{example}\theexample%
+        \IfValueT{#2}{\label{#2}}%
+        \IfValueT{#3}{\space #3}
+    },
+    boxed title style={sharp corners, boxrule=0pt, colback=black!25},
+    listing options={
+        basicstyle={\dejavumono\scriptsize},
+        xleftmargin=0pt,
+        xrightmargin=0pt,
+        framesep=0pt,
+        aboveskip=0pt,
+        belowskip=0pt,
+        framexbottommargin=0pt,
+        breaklines=true,
+        breakatwhitespace=false
+    }
+}
+
+\def\PrintMacroCode{%
+  \begingroup
+  \dejavumono
+  \fontsize{6}{8}\selectfont
+  \noindent\themacrocode
+  \par
+  \endgroup
+}
+\def\linenumberbox{%
+  \hbox to 1.25em{}%
+  \llap{%
+    \stepcounter{linenumber}%
+    {\color{gray}\tiny\thelinenumber~}%
+  }%
+}
+\ExplSyntaxOn
+\def\PrintMacroImplName#1{%
+  \str_set:Nn \l_tmpa_str {#1}
+  \regex_replace_all:nnN {\s} {} \l_tmpa_str
+  \implstyle{\str_use:N \l_tmpa_str}%
+}
+\ExplSyntaxOff
+
+\begin{document}
+\DocInput{smart-eqn.dtx}
+\end{document}
+%</driver>
+% \fi
+% \maketitle
+% \tableofcontents
+% \section{Introduction}
+% \makeatmath
+% \smesetsym{symbfup}{A,v}
+% In \LaTeX~typesetting, it is usually the case that one needs to use different variants of a math symbol to clarify the meanings. For example, in linear algebra literature, it is common to use boldfaced symbols to represent vectors, and use normal symbols to represent scalars, which makes equations like @Av=\lambda v@ easier to understand. However, applying these variants by typing  |\mathbf|, |\mathrm| commands manually can be daunting. The \thispkg~package aims to provide an automatic and customizable approach for math symbol styling, which eliminates the need to enter style commands repeatedly.
+% \makeatother
+
+%\section{Usage}
+
+%\subsection{Style Configuration}
+
+% \DescribeMacro\smesetsym{<style csname>}{<symbols>}
+
+% The \meta{symbols} given in the form of comma separated list will be styled using \meta{style csname}. In Example \ref{ex:set-style}, the four symbols $A$, $v$, $Q$, and $\Lambda$ will be styled with the command |\symbfup| from the \pkg{unicode-math} package, which produces boldfaced symbols. If traditional \LaTeX~is used, one can use the |\mathbf| command instead.
+
+
+% \DescribeMacro\smeclearsym
+
+% Clear the style configuration associated with all symbols.
+
+
+% \subsection{Inline Math}
+
+% \makeatletter
+% In traditional \LaTeX, inline math is typeset with |$...$|. In \thispkg, we use |@...@| instead. For inline math demonstrations, see Examples \ref{ex:inl-1}, \ref{ex:inl-2}, \ref{ex:inl-3}, \ref{ex:inl-4}.
+
+% \DescribeMacro\makeatmath
+
+% The command changes the category code of |@| so that it can be used as the inline math environment. To revert the change, one can use |\makeatletter| or |\makeatother|.
+
+% \subsection{Display Math}
+
+% In order to use display math environments, we need to declare smart math environments using |\smenewenv|. The names of new math environments will be prefixed with ``sme''. The way of passing arguments to the math environment (e.g., \env{alignat}) will also be slightly different. For display math demonstrations, see Examples \ref{ex:disp-1}, \ref{ex:disp-2}, \ref{ex:disp-3}, \ref{ex:disp-4}, \ref{ex:disp-5}.
+
+% \DescribeMacro\smenewenv{<env name>}
+
+% Declares a ``smart'' math environment based on the traditional math environment provided in \meta{env name}. The name of the new math environment will be prefixed with ``sme''. For example, if one calls |\smenewenv{align}|, then the smart math environment \env{smealign} will be available.
+%\paragraph{Passing arguments} The arguments for math environments needed to be enclosed in square brackets. See Example \ref{ex:disp-5}.
+
+% \subsection{Raw Math Content}
+
+% \DescribeMacro\smeraw{<content>}
+% The \meta{content} of |\smeraw| will not be styled. This can be useful when one needs to style symbols manually in \thispkg~environments. See Examples \ref{ex:inl-4}, \ref{ex:disp-4}.
+
+% \section{Examples}
+
+% The following code snippet is executed before running the examples:
+% \iffalse
+%<*example>
+% \fi
+\begin{tcblisting}{listing only, sharp corners, boxrule=0pt}
+\makeatmath
+\smenewenv{align}
+\smenewenv{gather}
+\smenewenv{alignat}
+\end{tcblisting}
+% \iffalse
+%</example>
+% \fi
+
+% \makeatmath
+% \smenewenv{align}
+% \smenewenv{gather}
+% \smenewenv{alignat}
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}*[ex:set-style][(Setting styles for symbols)]
+\smesetsym{symbfup}{A, v, Q, \Lambda}
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:inl-1][(Inline math example 1)]
+\smesetsym{symbfup}{A, v}
+The eigenvalue @\lambda@ and eigenvector @v@ of matrix @A@ satisfy @Av=\lambda v@.
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:inl-2][(Inline math example 2)]
+\smesetsym{symbfup}{Q, \Lambda, I}
+A symmetric matrix @A@ can be orthogonally diagonalized, that is, @A=Q\Lambda Q^T@, where @Q^TQ=I@ and @\Lambda@ is diagonal.
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:inl-3][(Inline math example 3)]
+\smesetsym{mathcal}{S}
+For a set @S@, the power set of @S@ (denoted by @2^S@) is the set of all subsets of @S@.
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:inl-4][(Inline math example 4)]
+I just want to juxtapose @S \smeraw{S} \smeraw{\symbfup{S}} \smeraw{\symbfit{S}} \smeraw{\mathrm{S}}@.
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:disp-1][(Display math example 1)]
+\begin{smealign}
+Av_1&=\lambda_1 v_1\\
+Av_2&=\lambda_2 v_2
+\end{smealign}
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:disp-2][(Display math example 2)]
+\begin{smegather}
+k_1v_1 + k_2v_2 + \cdots + k_n v_n = \symbfup{0}\\
+l_1v_1 + l_2v_2 + \cdots + l_{n-1} v_{n-1} = \symbfup{1}
+\end{smegather}
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:disp-3][(Display math example 3)]
+\begin{smealign}
+e^{At} = I+\sum_{n=1}^{\infty} \frac{A^n t^n}{n!}
+\end{smealign}
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:disp-4][(Display math example 4)]
+\begin{smealign}
+S
+\smeraw{S}
+\smeraw{\symbfup{S}}
+\smeraw{\symbfit{S}}
+\smeraw{\mathrm{S}}
+\end{smealign}
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+
+
+% \iffalse
+%<*example>
+% \fi
+\begin{exbox}[ex:disp-5][(Display math example 5)]
+\smesetsym{symbfup}{x,b}
+\begin{smealignat}[{5}]
+&&\phantom{\Rightarrow} && (c_1^2 + \cdots + c_n^2) \lambda_n^{-2} &\leq \lVert \delta x \rVert^2 &&\leq (c_1^2 + \cdots + c_n^2) \lambda_1^{-2}\\
+&&\Rightarrow &&\lVert \delta b \rVert^2\lambda_n^{-2} &\leq \lVert \delta x \rVert^2 &&\leq \lVert \delta b \rVert^2\\
+&&\Rightarrow &&\lVert \delta b \rVert^2\lambda_n^{-2} &\leq \lVert \delta x \rVert^2 &&\leq \lVert \delta b \rVert^2
+\end{smealignat}
+\end{exbox}
+% \iffalse
+%</example>
+% \fi
+
+% \StopEventually{}
+% \makeatother
+
+% \section{Implementation}
+%    \begin{macrocode}
+\RequirePackage{fancyvrb}
+\RequirePackage{expl3, xparse}
+
+\makeatletter
+\ExplSyntaxOn
+
+\tl_new:N \g_sme_op_arg_tl
+\ior_new:N \g_sme_tmpa_ior
+\iow_new:N \g_sme_tmpa_iow
+\prop_new:N \g_sme_symbols_prop
+\clist_new:N \l_sme_tmpa_clist
+\tl_new:N \l_sme_tmpa_tl
+\tl_new:N \l_sme_tmpb_tl
+\tl_new:N \l_sme_tmpc_tl
+\tl_new:N \l_sme_cur_math_tl
+%    \end{macrocode}
+
+% \begin{macro}{\smeDefineVerbatimEnvironment}
+% This is a modified version of |\DefineVerbatimEnvironment| from \pkg{fancyvrb}. In this function, |\smeFV@Environment| is used insetad of |\FV@Environment|.
+%    \begin{macrocode}
+\def\smeDefineVerbatimEnvironment#1#2#3{%
+  \@namedef{#1}{\smeFV@Environment{#3}{#2}}%
+  \@namedef{end#1}{\@nameuse{FVE@#2}}%
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\smeFV@Environment}
+% This is a modified version of |\FV@Environment| from \pkg{fancyvrb}. In this function, |\smeFV@GetKeyValues| is used instead of |\FV@GetKeyValues|.
+%    \begin{macrocode}
+\def\smeFV@Environment#1#2{%
+  \def\FV@KeyValues{#1}%
+  \catcode`\^^M=\active
+  \tl_gclear:N \g_sme_op_arg_tl % clear optional arguments from previous calls
+  \@ifnextchar[%
+    {\catcode`\^^M=5 \smeFV@GetKeyValues{\@nameuse{FVB@#2}}}%
+    {\catcode`\^^M=5 \@nameuse{FVB@#2}}}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\smeFV@GetKeyValues}
+% This is a modified version of |FV@GetKeyValues| from \pkg{fancyvrb}. We directly save the optional parameters captured by \pkg{fancyvrb} to the variable |\g_sme_op_arg_tl|, which can be used later.
+%    \begin{macrocode}
+\def\smeFV@GetKeyValues#1[#2]{%
+  \tl_gset:Nn \g_sme_op_arg_tl {#2}#1}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\sme_declare_math_env:n}[1]{math environment name}
+% This function declares a ``smart'' math environment. It is based on the \env{VerbatimOut} environment from \pkg{fancyvrb}, which writes its content out to the file |\jobname-sme.vrb|. The content stored in the external file will be read back and processed.
+%    \begin{macrocode}
+\cs_set:Npn \sme_declare_math_env:n #1 {
+    \exp_args:Nc \def{sme#1}{\smeFV@Environment{}{sme#1}}
+
+    % this is a modified version of VerbatimOut environment which does not take any argument
+    \exp_args:Nc \def{FVB@sme#1}{%
+      \@bsphack
+      \begingroup
+        \FV@UseKeyValues
+        \FV@DefineWhiteSpace
+        \def\FV@Space{\space}%
+        \FV@DefineTabOut
+        \def\FV@ProcessLine{\immediate\write\FV@OutFile}%
+        \immediate\openout\FV@OutFile \jobname-sme.vrb\relax
+        \let\FV@FontScanPrep\relax
+    %% DG/SR modification begin - May. 18, 1998 (to avoid problems with ligatures)
+        \let\@noligs\relax
+    %% DG/SR modification end
+        \FV@Scan}
+
+    \exp_args:Nc\def{FVE@sme#1}{\immediate\closeout\FV@OutFile\endgroup\@esphack
+        % call the function to process the content when the environment ends
+        \sme_read_process_math:n {#1}
+    }
+
+    \smeDefineVerbatimEnvironment{sme#1}{sme#1}{}
+}
+
+% define the user function
+\let\smenewenv\sme_declare_math_env:n
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\sme_read_process_math:n}[1]{math environment name}
+% Read back and process the math content stored in the external file |\jobname-sme.vrb|. After processing, the new content will be stored in another file |\jobname-sme-in.vrb|. Eventually, the new content will be fed into \LaTeX~using |\input|.
+%    \begin{macrocode}
+\cs_set:Npn \sme_read_process_math:n #1 {
+    \ior_open:Nn \g_sme_tmpa_ior {\jobname-sme.vrb}
+    \iow_open:Nn \g_sme_tmpa_iow {\jobname-sme-in.vrb}
+
+    \iow_now:Nx \g_sme_tmpa_iow {\c_backslash_str begin{#1} \g_sme_op_arg_tl}
+    \ior_map_inline:Nn \g_sme_tmpa_ior {
+        \sme_process_math:n {##1}
+        \exp_args:NNV \iow_now:Nn \g_sme_tmpa_iow \l_sme_cur_math_tl
+    }
+    \iow_now:Nx \g_sme_tmpa_iow {\c_backslash_str end{#1}}
+    \iow_close:N \g_sme_tmpa_iow
+    \ior_close:N \g_sme_tmpa_ior
+    \input{\jobname-sme-in.vrb}
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\smesetsym}
+% stores the style information in |\g_sme_symbols_prop|
+%    \begin{macrocode}
+\newcommand{\smesetsym}[2]{
+    \clist_set:Nn \l_sme_tmpa_clist {#2}
+    \clist_map_inline:Nn \l_sme_tmpa_clist {
+        \prop_gput:Nnn \g_sme_symbols_prop {##1} {#1}
+    }
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\smeclearsym}
+% clear the style information stored in |\g_sme_symbols_prop|
+%    \begin{macrocode}
+\newcommand{\smeclearsym}{
+    \prop_gclear:N \g_sme_symbols_prop
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\smeraw}
+% used to apply custom styles in smart-eqn environments
+%    \begin{macrocode}
+\newcommand{\smeraw}[1]{#1}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\__sme_grouped:n}
+%    \begin{macrocode}
+\cs_set:Npn \__sme_grouped:n #1 {
+    \exp_not:n {#1}
+}
+\cs_generate_variant:Nn \__sme_grouped:n {e}
+\cs_generate_variant:Nn \__sme_grouped:n {V}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\sme_construct_bm:Nn}[2]{result variable}{current token list}
+% This function is the core of automatic math styling. It examines each token in \meta{current token list} and determines if it needs special styling. The function runs recursively and stores the result in \meta{result variable}.
+%    \begin{macrocode}
+\cs_set:Npn \sme_construct_bm:Nn #1#2 {
+    \tl_if_head_is_group:nTF {#2} {
+        % if head is group, apply the algorithm recursively
+        %\tl_put_right:Nx #1 {{\tl_head:n {#2}}}
+        \tl_put_right:NV #1 \c_left_brace_str
+        \exp_args:NNx \sme_construct_bm:Nn #1 {\tl_head:n {#2}}
+        \tl_put_right:NV #1 \c_right_brace_str
+        \tl_if_empty:nF {#2} {\exp_args:NNx \sme_construct_bm:Nn #1 {\tl_tail:n {#2}}}
+    }{
+        \tl_if_head_is_space:nTF {#2} {
+            % ignore spaces
+            \exp_args:NNx \sme_construct_bm:Nn #1 {\tl_trim_spaces:n {#2}}
+        } {
+            \tl_if_head_eq_meaning:nNTF {#2} \smeraw {
+                % for \smeraw, ignore the next group
+                \tl_put_right:Nn #1 {\smeraw}
+                \tl_set:Nx \l_sme_tmpa_tl {\tl_tail:n {#2}}
+                \tl_put_right:Nx #1 {\tl_head:N \l_sme_tmpa_tl}
+                \tl_set:Nx \l_sme_tmpa_tl {\tl_tail:N \l_sme_tmpa_tl}
+                \exp_args:NNV \sme_construct_bm:Nn #1 \l_sme_tmpa_tl
+            } {
+                % common case
+                % extract head
+                \exp_args:NNx \prop_get:NnNTF \g_sme_symbols_prop {\tl_head:n {#2}} \l_sme_tmpc_tl {
+                    % this symbol needs to be styled
+                    \tl_set:No \l_sme_tmpa_tl {\csname\l_sme_tmpc_tl\endcsname}
+                    \tl_put_right:Nx \l_sme_tmpa_tl {{\__sme_grouped:e {\tl_head:n {#2}}}}
+                    \tl_put_right:Nx #1 {{\__sme_grouped:V \l_sme_tmpa_tl}}
+                } {
+                    % otherwise, use the original symbol
+                    \tl_put_right:Nx #1 {\tl_head:n {#2}}
+                }
+                \tl_if_empty:nF {#2} {\exp_args:NNx \sme_construct_bm:Nn #1 {\tl_tail:n {#2}}}
+            }
+        }
+    }
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\sme_process_math:n}[1]{inline content}
+% used by inline math environment to process the content
+%    \begin{macrocode}
+\cs_set:Npn \sme_process_math:n #1 {
+    \tl_clear:N \l_sme_cur_math_tl
+    \sme_construct_bm:Nn \l_sme_cur_math_tl {#1}
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\makeatmath}
+% changes the catcode and definition of |@| so that we can use it for math typesetting
+%    \begin{macrocode}
+\begingroup
+\catcode`@=\active
+\gdef\makeatmath{%    note the global \gdef
+  \catcode`@=\active
+  \def@##1@{
+    \sme_process_math:n{##1}
+    $\exp_args:NnV \tl_rescan:nn {} \l_sme_cur_math_tl$
+  }%
+}
+\endgroup
+%    \end{macrocode}
+% \end{macro}
+
+%    \begin{macrocode}
+\makeatother
+\ExplSyntaxOff
+%    \end{macrocode}
+
+%\Finale
+\endinput

@@ -1,0 +1,32 @@
+\begingroup
+\input docstrip.tex
+\keepsilent
+\preamble
+ ___________________________________________________________
+  The grading-scheme package
+  Copyright (C) 2022 Maximilian Kessler
+  License information appended.
+
+\endpreamble
+\postamble
+
+Copyright 2022 Maximilian Kessler <ctan@maximilian-kessler.de>
+
+Distributable under the LaTeX Project Public License,
+version 1.3c or higher (your choice). The latest version of
+this license is at: http://www.latex-project.org/lppl.txt
+
+This work is "author-maintained"
+
+This work consists of the files grading-scheme.dtx, grading-scheme.ins,
+a README file
+and the derived files grading-scheme.sty and grading-scheme.pdf.
+
+\endpostamble
+\askforoverwritefalse
+
+\generate{\file{grading-scheme.sty}{\from{grading-scheme.dtx}{package}}}
+
+\def\tmpa{plain}
+\ifx\tmpa\fmtname\endgroup\expandafter\bye\fi
+\endgroup

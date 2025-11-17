@@ -1,0 +1,3055 @@
+% \iffalse
+%
+% Copyright 2017-2021 HEC Montreal
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+%
+% The latest version of this license is in
+% http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008/05/04 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Benoit Hamel
+% <benoit.2.hamel@hec.ca>.
+%
+% This work consists of the files hecthese.dtx and hecthese.ins
+% and the derived files listed in the README file.
+%
+% \fi
+% \iffalse
+%<*dtx>
+\ProvidesFile{hecthese.dtx}
+%</dtx>
+%<class>\NeedsTeXFormat{LaTeX2e}
+%<class>\ProvidesClass{hecthese}[2021/09/07 v1.5 Class for dissertations and theses at HEC Montreal]
+%<*driver>
+\documentclass[10pt,english,french]{ltxdoc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage[autolanguage]{numprint}
+\usepackage{fontawesome}
+\usepackage{framed}
+\usepackage{url}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{iflang}
+\usepackage{hyperref}
+
+\newcommand{\frenchdoc}{%
+	\IfLanguageName{english}{0}{1}
+}
+
+\DisableCrossrefs
+\CodelineIndex
+\RecordChanges
+\ifnum\frenchdoc=1
+	\GlossaryPrologue{\section*{Historique des versions}%
+		\addcontentsline{toc}{section}{Historique des versions}}
+\else
+	\GlossaryPrologue{\section*{Change History}%
+		\addcontentsline{toc}{section}{Change History}}
+\fi
+
+\definecolor{liens}{rgb}{0,0.35,0.65}
+\definecolor{shadecolor}{rgb}{0.93,0.97,0.99}
+\definecolor{TFFrameColor}{rgb}{0,0.235,0.443}
+\definecolor{TFTitleColor}{rgb}{1,1,1}
+\definecolor{bleuFoncePrimaire}{RGB}{0,60,113}
+\definecolor{rougeTertiaire}{RGB}{234,0,42}
+
+\hypersetup{
+	colorlinks=true,
+	allcolors=liens,
+	pdftitle={Guide d'utilisation de la classe hecthese},
+	pdfauthor={Benoit Hamel, HEC Montr\'{e}al}
+}
+
+\ifnum\frenchdoc=1
+	\frenchbsetup{
+		og=«, fg=»
+	}
+
+	\addto\captionsfrench{%
+		\renewcommand{\tablename}{Tableau}
+	}
+\fi
+
+\MakeShortVerb{\+}
+
+\newcommand{\hecthese}{\textsf{\bfseries hecthese}}
+\newcommand{\oui}{\color{green}\faCheck}
+\newcommand{\non}{\color{red}\faBan}
+\newcommand{\hectheseTitre}{%
+	\ifnum\frenchdoc=1
+		{\hecthese} : la classe {\LaTeX} pour les th\`{e}ses et m\'{e}moires de HEC Montr\'{e}al
+	\else
+		\hecthese: the \LaTeX\ document class for dissertations and theses at HEC Montr\'{e}al
+	\fi
+}
+\newcommand{\biblio}{%
+	\ifnum\frenchdoc=1
+		Biblioth\`{e}que
+	\else
+		Library
+	\fi
+}
+\newcommand{\lien}[2]{%
+	\href{#1}{\bfseries #2 \faExternalLink}
+}
+
+\newlist{HECcompilation}{itemize}{1}
+\setlist[HECcompilation]{label=\faCog}
+
+\newenvironment{HECwarning}[1]{%
+	\begin{leftbar}
+		\noindent{\Large {\color{rougeTertiaire}\faExclamationCircle} \textbf{#1}} \\
+	}{%
+	\end{leftbar}
+}
+\newenvironment{HECwhat}[1]{%
+	\begin{leftbar}
+		\noindent{\Large {\color{bleuFoncePrimaire}\faQuestionCircle} \textbf{#1}} \\
+	}{%
+	\end{leftbar}
+}
+
+\setlength{\parskip}{1ex}
+
+\begin{document}
+	\DocInput{hecthese.dtx}
+\end{document}
+%</driver>
+% \fi
+% \CheckSum{574}
+% \DoNotIndex{\RequirePackage,\ExecuteOptions,\ifthenelse,\ProcessOptions}
+% \DoNotIndex{\newcommand,\newcommand*,\newboolean,\setboolean}
+% \DoNotIndex{\emph,\cite,\LaTeX,\hecthese,\textbf,\item,\footnote}
+% \DoNotIndex{\label,\ref,\caption,\hline,\multicolumn,\oui,\non,\cmd}
+% \DoNotIndex{\dots,\url,\clearpage,\bibitem}
+% \DoNotIndex{\hectheseTitre,\biblio}
+% \changes{1.5}{2021-09-07}{Corrig\'e l'impl\'ementation de chapterbib. /
+%	Fixed the chapterbib implementation.}
+% \changes{1.4}{2020-08-24}{Beaucoup de corrections de bogues et de mises \`{a} jour (voir d\'{e}p\^{o}t Git). /
+%	Lots of bug fixes and updates (see Git repository).}
+% \changes{1.3.2}{2019-03-25}{Coquille dans la dtx et changement du lien vers le gabarit anglais pour MacOS.}
+% \changes{1.3.1}{2019-02-11}{Ajout d'une note pour les utilisateurs de MacOS en ce qui concerne
+%	l'installation de la classe. / Added a note to MacOS users concerning the class installation.}
+% \changes{1.3}{2018-04-27}{Premi\`{e}re version bilingue de la classe / First bilingual version of the class}
+% \changes{1.2}{2017-11-29}{Mise \`{a} jour des liens vers les capsules vid\'{e}os dans
+%	la documentation.}
+% \changes{1.1}{2017-10-20}{Uniformisation de la licence lppl dans tous les fichiers.
+%	Ajout de liens vers des capsules vid\'{e}os dans la documentation.}
+% \changes{1.0}{2017-10-06}{Premi\`{e}re version de production lanc\'{e}e publiquement.
+%	Ajout du pr\'{e}fixe HEC \`{a} toutes les commandes publiques. R\'{e}vision,
+%	correction et augmentation de la documentation. Ajout des sections non num\'{e}rot\'{e}es
+%	"mots cl\'{e}s" et "m\'{e}thodes de recherche" dans le r\'{e}sum\'{e} et l'abstract. Prise en charge
+%	de l'anglais pour les intitul\'{e}s de chapitres et sections. Correction du bogue d'affichage
+%	des citations "hors articles" dans les th\`{e}ses et m\'{e}moires par articles.}
+% \changes{0.4.1}{2017-06-08}{Ajout d'une condition pour v\'{e}rifier la pr\'{e}sence du sous-titre
+%	dans la mise en forme de la page d'identification du jury.}
+% \changes{0.4}{2017-06-01}{Retrait de la section «Mise en garde» de la documentation et
+%	ajout de l'encadr\'{e} «Phase de tests de la version b\^{e}ta. Lancement du package pour fins
+%	de tests.}
+% \changes{0.3}{2017-05-29}{Retrait du package +mathptmx+ des packages requis par la classe.
+% 	Ajout du choix de polices entre +mathptmx+ et +mathpazo+ dans les gabarits. Ajout des
+%	sections «R\'{e}daction» et «Compilation» dans la documentation.}
+% \changes{0.2}{2017-05-18}{Premi\`{e}re version b\^{e}ta lanc\'{e}e pour les tests usagers}
+% \title{\hectheseTitre}
+% \author{Benoit Hamel, \biblio, HEC Montr\'{e}al}
+% \date{\today}
+% \maketitle
+%
+% \begin{abstract}
+% \ifnum\frenchdoc=1
+%	La classe {\LaTeX} {\hecthese} a \'{e}t\'{e} con\c{c}ue pour permettre aux \'{e}tudiants de HEC Montr\'{e}al
+% 	de r\'{e}diger leur th\`{e}se ou leur m\'{e}moire \`{a} l'aide du syst\`{e}me de pr\'{e}paration de documents tout
+%	en se conformant aux r\`{e}gles de pr\'{e}sentation en vigueur \`{a} l'\'{E}cole. \`{A} ce titre, la classe
+%	r\'{e}pond en tous points aux normes de pr\'{e}sentation \'{e}nonc\'{e}es dans le 
+%	\emph{Guide pour la r\'{e}daction d'un travail universitaire de 1er, 2e et 3e cycles}\cite{guideRedaction}, ci-apr\`{e}s
+%	nomm\'{e} le \emph{Guide de r\'{e}daction}.
+% \else
+%	The \hecthese\ \LaTeX\ document class has been created to allow graduate students at HEC Montr\'{e}al
+%	to write their dissertation or thesis with the document preparation system while complying to all
+%	presentation standards required by the University. As such, the class complies entirely with the
+%	\emph{Guidelines for Writing an Academic Work at a Graduate Level}\cite{guidelines},
+%	hereafter called the \emph{Guidelines}.
+% \fi
+% \end{abstract}
+%
+% \ifnum\frenchdoc=1
+% \section{Installation de la classe}
+%
+% \subsection{Pr\'{e}requis}
+% \else
+% \section{Installing the class}
+%
+% \subsection{Prerequisites}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	L'utilisation de cette classe suppose que vous avez d\'{e}j\`{a} install\'{e} une distribution TeX et
+% 	un \'{e}diteur de code int\'{e}gr\'{e}. Pour la conception de {\hecthese}, la distribution TeXLive 2016\cite{texlive}
+% 	et l'\'{e}diteur de code TeXStudio\cite{texstudio} ont \'{e}t\'{e} utilis\'{e}s et ses fonctionnalit\'{e}s ont 
+%	\'{e}t\'{e} test\'{e}es avec les compilateurs +latex+, +pdflatex+, +bibtex+ et +makeindex+. La classe
+%	a \'{e}galement \'{e}t\'{e} test\'{e}e avec la distribution MiK\TeX\footnote{Un immense merci \`{a} Franck Jeannot pour avoir effectu\'{e} ces tests!},
+%   avec les versions 2017 à 2020 de TeXLive de m\^eme qu'avec l'application Web Overleaf.
+% 	Nous vous invitons \`{a} la tester avec vos propres distributions TeX et
+%	\'{e}diteurs de codes et \`{a} l'utiliser de la m\^{e}me mani\`{e}re dont vous vous servez de vos outils pour vos
+%	autres travaux en {\LaTeX}.
+% \else
+%	The use of this document class presumes that you have already installed a \TeX\ distribution and
+% 	a code editor. For the development of \hecthese, the \TeX Live 2016 distribution\cite{texlive}
+%	and the \TeX Studio code editor\cite{texstudio} were used. Its features were tested with the
+%	+latex+, +pdflatex+, +bibtex+ and +makeindex+ compilers. The class has also been tested with the
+%	MiK\TeX\ distribution\footnote{A big ``thank you!'' goes to Franck Jeannot for making the tests.}
+%	and WinEdt code editor, with the 2017 to 2020 versions of TeXLive as well as with the Overleaf
+%	web application.
+%	We invite you to test the class with your own distribution and code editor and to use it like
+%	you would with any other work you do with \LaTeX.
+% \fi
+%
+% \subsection{Installation}
+%
+% \ifnum\frenchdoc=1
+%	\begin{HECwarning}{Utilisateurs de Overleaf et de MacOS}
+%		Pour une raison encore non r\'{e}solue, le processus d'installation d\'{e}crit ci-dessous ne fonctionne
+%		pas sous MacOS. Vous devez donc \lien{https://www.overleaf.com/read/njbvvqtmytqk}{t\'{e}l\'{e}charger cette version
+%		pr\'{e}install\'{e}e} de la classe pour vous en servir.
+%
+%		Si vous \^{e}tes un utilisateur d'Overleaf, utilisez \'{e}galement la version pr\'{e}install\'{e}e mentionn\'{e}e ci-dessus 
+%		pour d\'{e}marrer un projet.
+%	\end{HECwarning}
+%
+% 	L'archive +.zip+ que vous avez t\'{e}l\'{e}charg\'{e}e contient les cinq fichiers et r\'{e}pertoire suivants :
+% \else
+%	\begin{HECwarning}{Overleaf and MacOS users}
+%		For a reason still unresolved, the installation process described hereunder doesn't work on
+%		MacOS. You must \lien{https://www.overleaf.com/read/yqybpzfqqhzx}{download this preinstalled version} of the
+%		class to work with it.
+%
+%		If you are an Overleaf user, please use the preinstalled version mentioned above to start a project.
+%	\end{HECwarning}
+%
+%	The +.zip+ archive you downloaded contains the following files and directory:
+% \fi
+%
+%	\begin{enumerate}
+% \ifnum\frenchdoc=1
+%		\item \textbf{hecthese-fr.ins} : le fichier d'installation de la version fran\c{c}aise de la classe;
+%		\item \textbf{hecthese-en.ins} : le fichier d'installation de la version anglaise de la classe;
+%		\item \textbf{hecthese.dtx} : le code source document\'{e} bilingue de la classe;
+%		\item \textbf{hecthese.pdf} : la version fran\c{c}aise de la documentation de la classe;
+%		\item \textbf{hecthese-en.pdf} : la version anglaise de la documentation de la classe;
+%		\item \textbf{README.md} : le fichier n\'{e}cessaire \`{a} l'affichage de la
+%			description de la classe sur le site ctan.org.
+% \else
+%		\item \textbf{hecthese-fr.ins}: the french class installation file;
+%		\item \textbf{hecthese-en.ins}: the english class installation file;
+%		\item \textbf{hecthese.dtx}: the bilingual documented source code;
+%		\item \textbf{hecthese.pdf}: the french version of the class documentation;
+%		\item \textbf{hecthese-en.pdf}: the english version of the class documentation;
+%		\item \textbf{README.md}: the file required to show the class description on
+%			the ctan.org Website.
+% \fi
+% 	\end{enumerate}
+%
+% \ifnum\frenchdoc=1
+%	Suivez les \'{e}tapes suivantes pour installer la classe
+%	\footnote{Une vid\'{e}o d'installation est aussi disponible au \url{https://www.youtube.com/watch?v=nfTEgcJbufs}.} :
+% \else
+%	Follow these steps to install the class
+%	\footnote{An installation tutorial is available at \url{https://www.youtube.com/watch?v=nfTEgcJbufs} (in French with English subtitles).}:
+% \fi
+%
+%	\begin{enumerate}
+% \ifnum\frenchdoc=1
+%		\item Cr\'{e}ez-vous un r\'{e}pertoire de travail.
+%		\item D\'{e}compressez l'archive +.zip+ dans votre r\'{e}pertoire de travail.
+%		\item Ouvrez un \'{e}diteur de ligne de commande.
+%		\item Changez de r\'{e}pertoire pour atteindre votre r\'{e}pertoire de travail.
+%		\item Saisissez la commande suivante dans l'\'{e}diteur : \\
+%			\begin{shaded*}
+%				+latex hecthese-fr.ins+
+%			\end{shaded*}
+% \else
+%		\item Create a working directory on your computer.
+%		\item Extract the +.zip+ archive in that directory.
+%		\item Open a command-line editor.
+%		\item Change directories until you reach your working directory.
+%		\item Type the following command in the editor:\\
+%			\begin{shaded*}
+%				+latex hecthese-en.ins+
+%			\end{shaded*}
+% \fi
+% 	\end{enumerate}
+%
+% \ifnum\frenchdoc=1
+%	La commande cr\'{e}era une s\'{e}rie de fichiers qui composeront votre travail, et la liste des
+% 	fichiers que vous aurez \`{a} utiliser d\'{e}pendra du type de travail que vous composerez.
+% \else
+%	The command will create a bunch of files that will become your document. The list of files
+%	needed will depend on the type of document you'll be writing.
+% \fi
+%
+% \ifnum\frenchdoc=1
+% 	\subsection{Liste des fichiers constitutifs d'un travail}
+% \else
+% 	\subsection{List of a document's required files}
+% \fi
+%	\label{liste-fichiers}
+%
+% \ifnum\frenchdoc=1
+% 	Le Tableau \ref{tableau:fichiers} montre la liste des fichiers composant chaque type de document. En fonction
+% 	du type de votre travail, vous devrez choisir l'un des quatre gabarits suivants :
+% \else
+%	Table \ref{tableau:fichiers} shows a list of all required files for each type of document.
+%	Depending on the type of work you'll be doing, you'll have to choose between one of these four
+%	templates:
+% \fi
+%	
+%	\begin{itemize}
+% \ifnum\frenchdoc=1
+%		\item \textbf{gabarit-these-classique.tex} : gabarit pour une th\`{e}se r\'{e}dig\'{e}e de mani\`{e}re classique;
+%		\item \textbf{gabarit-these-articles.tex} : gabarit pour une th\`{e}se r\'{e}dig\'{e}e par articles;
+%		\item \textbf{gabarit-memoire-classique.tex} : gabarit pour un m\'{e}moire r\'{e}dig\'{e} de mani\`{e}re classique;
+%		\item \textbf{gabarit-memoire-articles.tex} : gabarit pour un m\'{e}moire r\'{e}dig\'{e} par articles.
+% \else
+%		\item \textbf{template-phd-classic.tex} : template for writing a dissertation in a classic manner;
+%		\item \textbf{template-phd-articles.tex} : template for writing a dissertation with articles;
+%		\item \textbf{template-msc-classic.tex} : template for writing a thesis in a classic manner;
+%		\item \textbf{template-msc-articles.tex} : template for writing a thesis with articles.
+% \fi
+%	\end{itemize}
+%
+%	\begin{table}[tb]
+% \ifnum\frenchdoc=1
+%		\caption{Liste des fichiers constitutifs d'un travail}
+% \else
+%		\caption{List of a document's required files}
+% \fi
+%		\label{tableau:fichiers}
+%		\begin{center}
+%			\begin{tabular}{l|cc|cc}
+%				\hline\hline
+% \ifnum\frenchdoc=1
+%				& \multicolumn{2}{c|}{Th\`{e}ses} & \multicolumn{2}{c}{M\'{e}moires} \\
+%				\textbf{Fichier} & Classiques & Par articles & Classiques & Par articles \\
+%				\hline
+%				gabarit-these-*.tex & \oui & \oui & \non & \non \\
+%				gabarit-memoire-*.tex & \non & \non & \oui & \oui \\
+%				resume-francais.tex & \oui & \oui & \oui & \oui \\
+%				resume-anglais.tex & \oui & \oui & \oui & \oui \\
+%				liste-abreviations.tex & \oui & \oui & \oui & \oui \\
+%				dedicace.tex & \oui & \oui & \non & \non \\
+%				remerciements.tex & \oui & \oui & \oui & \oui \\
+%				avant-propos.tex & \oui & \oui & \oui & \oui \\
+%				introduction.tex & \oui & \oui & \oui & \oui \\
+%				cadre-theorique.tex & \non & \oui & \non & \non \\
+%				revue-litterature.tex & \non & \non & \oui & \oui \\
+%				chapitre-1.tex & \oui & \non & \oui & \non \\
+%				chapitre-2.tex & \oui & \non & \oui & \non \\
+%				chapitre-3.tex & \oui & \non & \oui & \non \\
+%				article-1.tex & \non & \oui & \non & \oui \\
+%				article-2.tex & \non & \oui & \non & \non \\
+%				article-3.tex & \non & \oui & \non & \non \\
+%				conclusion.tex & \oui & \oui & \oui & \oui \\
+%				annexe.tex & \oui & \oui & \oui & \oui \\
+% \else
+%				& \multicolumn{2}{c|}{Dissertations} & \multicolumn{2}{c}{Theses} \\
+%				\textbf{File} & Classic & With articles & Classic & With articles \\
+%				\hline
+%				template-phd-*.tex & \oui & \oui & \non & \non \\
+%				template-msc-*.tex & \non & \non & \oui & \oui \\
+%				abstract-french.tex & \oui & \oui & \oui & \oui \\
+%				abstract-english.tex & \oui & \oui & \oui & \oui \\
+%				acronym-list.tex & \oui & \oui & \oui & \oui \\
+%				dedication.tex & \oui & \oui & \non & \non \\
+%				acknowledgements.tex & \oui & \oui & \oui & \oui \\
+%				preface.tex & \oui & \oui & \oui & \oui \\
+%				introduction.tex & \oui & \oui & \oui & \oui \\
+%				theoretical-framework.tex & \non & \oui & \non & \non \\
+%				literature-revue.tex & \non & \non & \oui & \oui \\
+%				chapter-1.tex & \oui & \non & \oui & \non \\
+%				chapter-2.tex & \oui & \non & \oui & \non \\
+%				chapter-3.tex & \oui & \non & \oui & \non \\
+%				article-1.tex & \non & \oui & \non & \oui \\
+%				article-2.tex & \non & \oui & \non & \non \\
+%				article-3.tex & \non & \oui & \non & \non \\
+%				conclusion.tex & \oui & \oui & \oui & \oui \\
+%				appendix.tex & \oui & \oui & \oui & \oui \\
+% \fi
+%				\hline\hline
+%			\end{tabular}
+%		\end{center}
+%	\end{table}
+%
+% \ifnum\frenchdoc=1
+%	Une fois que vous aurez choisi un gabarit, supprimez les trois fichiers gabarits dont vous
+%	n'aurez pas besoin. Ce fichier constitue le fichier ma\^{i}tre \`{a} partir duquel vous lancerez les
+% 	diverses compilations n\'{e}cessaires \`{a} la g\'{e}n\'{e}ration de votre document final. C'est \'{e}galement dans le
+%	gabarit que vous saisirez les m\'{e}tadonn\'{e}es relatives \`{a} votre travail (auteur, titre, etc.) et que
+%	vous ajouterez les +packages+, commandes et environnements n\'{e}cessaires \`{a} votre r\'{e}daction.
+%
+%	La r\'{e}daction en tant que telle se fera dans les autres fichiers. Chaque fichier repr\'{e}sente une
+% 	section de votre travail. Leur nom est donc, comme on le dit en anglais, \emph{self-explanatory}.
+%	Vous pourrez en ajouter ou en supprimer \`{a} votre guise. Assurez-vous seulement
+%	d'inclure les fichiers ajout\'{e}s dans le gabarit avec la commande \cmd{\include}, de supprimer les
+%	\cmd{\include} relatifs aux fichiers supprim\'{e}s, mais surtout, de respecter les r\`{e}gles du
+%	\emph{Guide de r\'{e}daction} en ce qui concerne les sections obligatoires et
+% 	l'ordre de pr\'{e}sentation des sections.
+% \else
+%	Once you have chosen a template file, delete the three remaining ones as you won't need them.
+%	The template file is your document's master file, the one on which you will have to run all
+%	compilers needed to generate your final document. It is also in this file that you will write
+% 	all the metadata related to your work (title, author, etc.) and add all packages, user-defined 
+%	commands and environments you will need to complete your work.
+%
+%	Your work will be written in the other files. Each file represents a section of your work. Their
+%	name is, as such, self-explanatory. You can add and delete as many files as you wish. Just make
+%	sure to include the added files to your template file with \cmd{\include} commands, to erase the
+%	\cmd{\include} commands related to the deleted files and, most of all, to comply with all the
+%	\emph{Guidelines}' rules related to the mandatory sections of your work and their presentation
+% 	order.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\section{Utilisation de la classe}
+% \else
+%	\section{Using the class}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La classe {\hecthese} a \'{e}t\'{e} con\c{c}ue pour \^{e}tre la plus simple et la plus flexible possible. Le but premier
+%	de la classe \'{e}tant la mise en forme de votre th\`{e}se ou m\'{e}moire selon les normes du 
+%	\emph{Guide de r\'{e}daction}, vous aurez tout le loisir d'ajouter toutes les fonctionnalit\'{e}s
+%	que vous d\'{e}sirez.
+%
+%	{\hecthese} est bas\'{e}e sur la classe +memoir+\cite{memoir}, qui fournit d\'{e}j\`{a} de tr\`{e}s nombreuses
+%	fonctionnalit\'{e}s. Avant de programmer de nouvelles commandes ou de nouveaux environnements, nous
+% 	vous invitons donc \`{a} consulter l'imposante documentation de la classe
+%	\footnote{L'auteur de la pr\'{e}sente classe n'a d'ailleurs pas encore lu la documentation de la classe +memoir+ %
+%	au complet. \emph{Mea culpa}...}.
+% \else
+%	The \hecthese\ document class has been created to be as simple and as flexible as possible. The main
+%	goal of the class is to layout your dissertation or thesis according to the presentation standards
+%	required by the \emph{Guidelines} and to allow you to add as many features as you see fit.
+%
+%	\hecthese\ is based on the +memoir+ document class\cite{memoir} which already provides numerous features.
+%	Before programming any new commands or environments, you should read the class' exhaustive documentation
+%	\footnote{\ldots although\ldots\ the author of the present class did not read it himself entirely. \emph{Mea culpa}\ldots}.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Options de la classe}
+% \else
+%	\subsection{Class options}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La classe comporte tr\`{e}s peu d'options de base. Celles-ci ne concernent que la taille de la
+% 	police de caract\`{e}res, la langue du document ainsi que le type de document que vous r\'{e}digez. Elles se retrouvent toutes
+%	\`{a} l'int\'{e}rieur de la commande \cmd{\documentclass}.
+% \else
+%	The class has very few default options. They only concern font size, document language and type.
+%	They are all enclosed in the \cmd{\documentclass} command.
+% \fi
+%
+%	\begin{DescribeMacro}{10pt,11pt,12pt}
+% \ifnum\frenchdoc=1
+%		Le \emph{Guide de r\'{e}daction} mentionne \`{a} la page 15 que «[la] taille des caract\`{e}res
+% 		varie g\'{e}n\'{e}ralement entre 10 et 12 points pour le texte courant»\cite{guideRedaction}. Vous inscrivez
+%		donc l'une des trois options permises, soit +10pt+, +11pt+ ou +12pt+. Si vous n'inscrivez
+%		aucune taille de police de caract\`{e}res dans les options, la classe utilisera l'option
+%		+12pt+ par d\'{e}faut
+%		\footnote{\`{a} titre d'exemple, cette documentation a \'{e}t\'{e} \'{e}crite avec la taille +10pt+}.
+% \else
+%		The french edition of the \emph{Guidelines} mentions that ``font size usually varies between 10 and
+%		12 points in the text''\cite[p. 15]{guideRedaction}. You have to choose between one of these three
+%		options: +10pt+, +11pt+ or +12pt+. If none of the options is chosen, the default +12pt+ option will
+%		be used by the class
+%		\footnote{As an example, this documentation is written with a +10pt+ font size}.
+% \fi
+%	\end{DescribeMacro}
+%
+%	\begin{DescribeMacro}{english,french}
+% \ifnum\frenchdoc=1
+%		Les options +english+ et +french+ sont propres au +package+ +babel+\cite{babel} et servent \`{a} indiquer
+%		au compilateur la ou les langues utilis\'{e}es dans le document. La derni\`{e}re langue de la liste
+%		est la langue par d\'{e}faut du document. M\^{e}me si ces options sont propres \`{a} +babel+, nous
+%		les ins\'{e}rons dans les options de la classe pour qu'elles s'appliquent globalement \`{a}
+% 		tous les +packages+ qui pourraient en avoir besoin.
+% \else
+%		+french+ and +english+ options come from the +babel+ package\cite{babel} and they are used to
+%		indicate to the compiler in which language(s) the document is written. The last language in the
+%		options list is the document's default language. Even if these options come from the +babel+ package,
+%		they are inserted in the \cmd{\documentclass} command so they can be applied globally to all
+%		packages that could use them.
+% \fi
+%	\end{DescribeMacro}
+%
+%	\begin{DescribeMacro}{phdclassique}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{phdarticles}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{mscclassique}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{mscarticles}
+% \ifnum\frenchdoc=1
+%		Vous utilisez l'option +phdclassique+ lorsque vous r\'{e}digez une th\`{e}se de mani\`{e}re classique,
+%		+phdarticles+, une th\`{e}se par articles, +mscclassique+, un m\'{e}moire classique et +mscarticles+ %
+%		lorsque vous r\'{e}digez un m\'{e}moire par articles. Chacune de ces options est inscrite 
+%		automatiquement dans le fichier gabarit appropri\'{e} au type de
+%		document lorsque vous installez {\hecthese}. La classe consid\'{e}rant par d\'{e}faut que le travail
+%		que vous r\'{e}digez est une th\`{e}se classique, vous pourriez \`{a} la limite supprimer
+%		l'option +phdclassique+ de la commande \cmd{\documentclass} du fichier 
+%		\textbf{gabarit-these-classique.tex}, mais nous vous conseillons de
+%		la laisser dans la liste afin d'\'{e}viter des probl\`{e}mes.
+%
+%		En ce qui a trait aux trois autres options de types de document, 
+%		\textbf{ne supprimez pas l'option de la commande \cmd{\documentclass}}! Ce faisant,
+%		vous aurez des probl\`{e}mes lors de la compilation de votre document, notamment pour
+%		la g\'{e}n\'{e}ration des bibliographies et des pages titre.
+% \else
+%		You use +phdclassique+ when you write a dissertation in a classic manner, +phdarticles+ when
+%		you write a dissertation with articles, +mscclassique+ when you write a thesis in a classic
+%		manner and +mscarticles+ when you write a thesis with articles. Each of these options is
+%		automatically inserted in its corresponding template file when you install the \hecthese\
+%		document class. Since +phdclassique+ is the class' default document type option, you could
+%		erase this option from the \textbf{template-phd-classic.tex} file, but we advise you don't do
+%		that so you don't encounter problems while writing.
+%
+%		As for the three other document type options,
+%		\textbf{never erase them from the \cmd{\documentclass} command}! By doing so, you would
+%		encounter errors when compiling your document, especially during the BiB\TeX\ compilations
+%		and during the title page layout.
+% \fi
+%	\end{DescribeMacro}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Commandes de la classe}
+% \else
+%	\subsection{Class commands}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La classe {\hecthese} comprend quelques commandes qu'on pourrait r\'{e}partir en trois cat\'{e}gories :
+%	\begin{enumerate}
+%		\item les m\'{e}tadonn\'{e}es de votre document (auteur, titre, etc.) servant \`{a} g\'{e}n\'{e}rer la (les)
+%			page(s) titre ;
+%		\item les commandes de mise en forme du document ;
+%		\item les commandes li\'{e}es aux bibliographies des th\`{e}ses et m\'{e}moires par articles.
+%	\end{enumerate}
+% \else
+%	The \hecthese\ document class provides commands that can be separated into three categories:
+%	\begin{enumerate}
+	%		\item document metadata (author, title, etc.) used to generate the title pages;
+	%		\item document layout commands;
+	%		\item bibliography-related commands for dissertations and theses written with articles.
+	%	\end{enumerate}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{M\'{e}tadonn\'{e}es du document}
+% \else
+%	\subsubsection{Document metadata}
+% \fi
+%	\label{commandes:meta}
+%
+% \ifnum\frenchdoc=1
+%	Les commandes ci-dessous s'appliquent \`{a} tous les types de documents.
+% \else
+%	The following commands are used in all document types.
+% \fi
+%	
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECtitre}
+%		Il s'agit du titre de votre th\`{e}se ou m\'{e}moire. N'utilisez pas la commande {\LaTeX}
+%		\cmd{\title}, car la classe n'en tiendra pas compte. Si votre titre est tr\`{e}s long,
+%		s\'{e}parez-le en plusieurs lignes avec la commande \cmd{\\}.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECtitle}
+%		This is the title of your dissertation or thesis. Do not use the \LaTeX\ \cmd{\title}
+%		command as the class will not take it into account. If your title is very long, separate it
+%		in more than one line with the \cmd{\\} command.
+%	\end{DescribeMacro}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECsoustitre}
+%		Il s'agit du sous-titre de votre th\`{e}se ou m\'{e}moire, s'il y a lieu. Si votre travail
+%		comporte un sous-titre, un : s\'{e}parera automatiquement le titre du sous-titre et ce
+%		dernier s'affichera sous le titre sans qu'il soit n\'{e}cessaire d'ins\'{e}rer la commande
+%		\cmd{\\} dans le titre.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECsubtitle}
+%		This is the subtitle of your dissertation or thesis. If there is a subtitle, a colon (:)
+%		will automatically separate the title from the subtitle, and the latter will be laid out below
+%		the title without you having to add the \cmd{\\} command after the title.
+%	\end{DescribeMacro}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECauteur}
+%		L'auteur de la th\`{e}se ou du m\'{e}moire, c'est vous, \`{a} moins que vous n'ayez plagi\'{e} votre
+%		travail\dots \'{E}crivez votre nom sous la forme \emph{Pr\'{e}nom Nom}. N'utilisez pas la commande
+%		{\LaTeX} \cmd{\author}, car la classe n'en tiendra pas compte.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECauthor}
+%		This is the author of the dissertation or thesis, meaning you, unless you have plagiarized
+%		your work\ldots Write your name in the \emph{FirstName LastName} format. Do not use the
+%		\LaTeX\ \cmd{\author} command as the class will not take it into account.
+%	\end{DescribeMacro}
+% \fi
+%
+%	\begin{DescribeMacro}{\HECoption}
+% \ifnum\frenchdoc=1
+%		La commande \cmd{\HECoption} d\'{e}termine l'option de votre grade de ma\^{i}trise ou de doctorat.
+% \else
+%		The \cmd{\HECoption} determines your dissertation's or thesis' option.
+% \fi
+%	\end{DescribeMacro}
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECmoisDepot}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECanneeDepot}
+%		Les commandes \cmd{\HECmoisDepot} et \cmd{\HECanneeDepot} repr\'{e}sentent le mois et l'ann\'{e}e du
+%		\textbf{d\'{e}p\^{o}t final} de votre travail. Inscrivez le mois en toutes lettres et l'ann\'{e}e 
+%		au format AAAA.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECsubMonth}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECsubYear}
+%		\cmd{\HECsubMonth} and \cmd{\HECsubYear} represent the month and year of the final submission
+%		of your work. Write down the month in full letters and the year in the \emph{YYYY} format.
+%	\end{DescribeMacro}
+% \fi
+%
+%	\begin{DescribeMacro}{\HECpdfauteur}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECpdftitre}
+% \ifnum\frenchdoc=1
+%		Ces deux commandes sont des variantes de \cmd{\HECauteur} et \cmd{\HECtitre} et servent
+%		exclusivement \`{a} l'inclusion de m\'{e}tadonn\'{e}es dans le document pdf g\'{e}n\'{e}r\'{e}. Pour ce
+%		faire, elle sont utilis\'{e}es avec les options +pdftitle+ et +pdfauthor+ de la commande
+%		\cmd{\hypersetup} du +package+ +hyperref+\cite{hyperref}.
+% \else
+%		These are variants of the \cmd{\HECauthor} and \cmd{\HECtitle} commands and they are used for
+%		inserting metadata in the final .pdf document. They are included in the \cmd{\hypersetup}
+%		command's +pdftitle+ and +pdfauthor+ options provided by the +hyperref+
+%		package\cite{hyperref}.
+% \fi
+%	\end{DescribeMacro}	
+%
+% \ifnum\frenchdoc=1
+%	Les commandes qui suivent ne s'appliquent qu'aux th\`{e}ses. Si votre travail est un
+%	m\'{e}moire, vous pouvez passez \`{a} la Section \ref{commandes:layout}.
+% \else
+%	The following commands are used in dissertations only. If you are writing a thesis, you can
+%	skip to Section \ref{commandes:layout}.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECpresidentRapporteur}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECdirecteurRecherche}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECcodirecteurRecherche}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECexaminateurExterne}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECrepresentantDirecteur}
+%		Chacune de ces commandes repr\'{e}sentent un intervenant dans votre travail. Le premier
+%		argument est le nom de l'intervenant au format \emph{Pr\'{e}nom Nom}, tandis que le deuxi\`{e}me est le
+%		genre de l'intervenant, homme (M) ou femme (F). Il est important d'indiquer le genre
+%		de chacun des intervenants, car cela va affecter la mani\`{e}re dont sera affich\'{e} leur
+%		titre sur la page d'identification du jury, et la remise d'une th\`{e}se n'est pas tout \`{a}
+%		fait le bon moment pour heurter les sensibilit\'{e}s de ceux et celles qui vont vous
+%		\'{e}valuer\dots
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECrapporteurPresident}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECresearchDirector}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECresearchCodirector}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECexternalexaminator}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECdirectorRepresentative}
+%		Each of these commands identifies a person involved in your work. The commands take two arguments.
+%		The first argument is the person's name in the \emph{FirstName LastName} format. The second
+%		argument is the person's gender, male (M) or female (F). It is important to type in the person's
+%		gender as it will affect how the person's title is rendered on the title page, and it is not
+%		advisable to hurt your directors' feelings upon submission of your work\ldots
+%	\end{DescribeMacro}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECmembreJury}
+%		Cette commande a la m\^{e}me fonction que les cinq pr\'{e}c\'{e}dentes, c'est-\`{a}-dire nommer
+%		explicitement un intervenant dans votre th\`{e}se, mais elle ne prend qu'un seul
+%		argument, le nom au format \emph{Pr\'{e}nom Nom}, car le titre de la fonction est
+%		\'{e}pic\`{e}ne.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECjuryMember}
+%		This command has the same role as the five preceding ones, but it only takes one argument,
+%		the person's name, as the job title is in this case gender-neutral.
+%	\end{DescribeMacro}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECuniversiteCodirecteur}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECuniversiteMembreJury}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECuniversiteExaminateur}
+%		Par d\'{e}faut, la classe {\hecthese} indique que le codirecteur, le membre du jury ainsi
+%		que l'examinateur externe proviennent de HEC Montr\'{e}al, mais ils pourraient provenir
+%		d'une autre universit\'{e}. Modifiez le nom de l'universit\'{e} dans toutes les commandes
+%		n\'{e}cessaires, le cas \'{e}ch\'{e}ant.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECcodirectorUniversity}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECjuryMemberUniversity}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECexaminatorUniversity}
+%		By default, your codirector, jury member and external examinator are considered
+%		working at HEC Montr\'{e}al by the \hecthese\ document class, but they could be working
+%		at another university. You'll then have to modify the university's name is these commands
+%		when necessary.
+%	\end{DescribeMacro}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{Mise en forme}
+% \else
+%	\subsubsection{Document layout}
+% \fi
+%	\label{commandes:layout}
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeMacro}{\HECpagestitre}
+%		Les pages titre diff\`{e}rent en fonction du type de document, tel qu'il est montr\'{e} dans
+%		les mod\`{e}les de pages titre du \emph{Guide de r\'{e}daction}. De plus, une page d'identification
+%		du jury est ins\'{e}r\'{e}e \`{a} la suite de la page titre dans les th\`{e}ses. La commande
+%		\cmd{\HECpagestitre} met en forme automatiquement toutes les pages de titre en utilisant
+%		le contenu des commandes de la Section \ref{commandes:meta}.
+%	\end{DescribeMacro}
+% \else
+%	\begin{DescribeMacro}{\HECtitlepages}
+%		Title pages differ from one document type to the other as it is shown in the
+%		\emph{Guidelines}' title page templates. A jury identification page is also included after
+%		the title page in dissertations. The \cmd{\HECtitlepages} command automatically
+%		generates all title pages using the contents of the commands listes in Section \ref{commandes:meta}.
+%
+%		\begin{HECwhat}{Why are my title pages displayed in French?}
+%			The Universit\'{e} de Montr\'{e}al's \emph{R\`{e}glement p\'{e}dagogique de la facult\'{e} des \'{e}tudes sup\'{e}rieures et %
+%			postdoctorales}\cite[art. 88,89,134,135]{udem:reglements} states the language and presentation
+%			standards that prevail for dissertations and thesis, and refers to the
+%			\emph{Guide de pr\'{e}sentation des m\'{e}moires et des th\`{e}ses}\cite[p. 22]{udem:guide} where it is
+%			written that ``\emph{title pages must be written in French even when the dissertation or %
+%			thesis is written in English}''. Since HEC Montr\'{e}al is one of Universit\'{e} de Montr\'{e}al's
+%			affiliate universities, this rule prevails.
+%		\end{HECwhat}
+%	\end{DescribeMacro}
+% \fi
+%
+%	\begin{DescribeMacro}{\HECtitreIntroduction}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECtitreConclusion}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECgenererTitres}
+% \ifnum\frenchdoc=1
+%		Les commandes \cmd{\HECtitreIntroduction} et \cmd{\HECtitreConclusion} sont plac\'{e}es en
+%		tant qu'argument des commandes \cmd{\chapter*} situ\'{e}es au d\'{e}but des fichiers
+%		\textbf{introduction.tex} et \textbf{conclusion.tex} respectivement. Elles servent
+%		\`{a} indiquer le titre de ces parties de votre travail, titre g\'{e}n\'{e}r\'{e} \`{a} l'aide de la commande
+%		\cmd{\HECgenererTitres}. Si vous r\'{e}digez votre th\`{e}se ou m\'{e}moire de mani\`{e}re classique,
+%		les titres seront tout simplement «Introduction» et «Conclusion» ; dans le cas contraire,
+%		ces sections seront intitul\'{e}es «Introduction g\'{e}n\'{e}rale» et «Conclusion g\'{e}n\'{e}rale» pour les
+%		distinguer des introductions et des conclusions des articles.
+% \else
+%		The \cmd{\HECtitreIntroduction} and \cmd{\HECtitreConclusion} commands are placed as arguments in
+% 		the \textbf{introduction.tex} and \textbf{conclusion.tex} files' \cmd{\chapter*} command.
+%		They are used in the title generation with the \cmd{\HECgenererTitres} command. If you
+%		write a dissertation or thesis in a classical manner, the titles of your document's introduction
+%		and conclusion will be ``Introduction'' and ``Conclusion'', whereas if you write a dissertation
+%		or thesis with articles, the titles will be ``General Introduction'' and ``General Conclusion''.
+% \fi
+%	\end{DescribeMacro}
+%
+%	\begin{DescribeMacro}{\HECtdmAbreviations}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECtdmRemerciements}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECtdmAvantPropos}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECtdmCadreTheorique}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECtdmRevueLitterature}
+%	\end{DescribeMacro}
+%	\begin{DescribeMacro}{\HECtdmResumeArticle}
+% \ifnum\frenchdoc=1
+%		Plusieurs parties d'une th\`{e}se ou d'un m\'{e}moire \'{e}tant des sections et chapitres «maison»,
+%		il n'existe pas de traduction anglaise d'office pour celles-ci. La classe {\hecthese} pallie
+%		\`{a} cette situation en d\'{e}tectant la langue et en g\'{e}n\'{e}rant le titre appropri\'{e} pour de nombreuses
+%		sections du document : l'introduction et la conclusion g\'{e}n\'{e}rales des th\`{e}ses et m\'{e}moires par articles,
+%		la liste des abr\'{e}viations, les remerciements, l'avant-propos, le cadre th\'{e}orique, la revue de litt\'{e}rature
+%		et le r\'{e}sum\'{e} de chacun des articles.
+% \else
+%		Many parts of HEC Montr\'{e}al's dissertations and theses being ``homemade'' sections and chapters,
+%		no official english translations exist for their titles. The \hecthese\ class takes care of the
+%		problem by automatically detecting the document's default language and by generating the appropriate
+%		titles for these sections: general introduction and conclusion, acronym list, acknowledgements,
+%		preface, theoretical framework, literature revue and each article's abstract.
+% \fi
+%	\end{DescribeMacro}
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{Les bibliographies des th\`{e}ses et m\'{e}moires par articles}
+% \else
+%	\subsubsection{By-article dissertations' and theses' bibliographies}
+% \fi
+%
+%\ifnum\frenchdoc=1
+%		Dans les th\`{e}ses et m\'{e}moires r\'{e}dig\'{e}s par articles, il y a plusieurs bibliographies : une
+%		par article et une g\'{e}n\'{e}rale pour l'ensemble du travail. La classe {\hecthese} utilise
+%		le +package chapterbib+\cite{chapterbib} pour permettre la publication de ces nombreuses bibliographies.
+% \else
+%		In dissertations and theses written with articles, there are many bibliographies: one specific
+%		bibliography for each article and a general bibliography for the whole document. The
+%		\hecthese\ document class uses the +chapterbib+ package\cite{chapterbib} to generate
+%		multiple bibliographies in one document.
+% \fi
+%
+%	\begin{DescribeMacro}{\HECbibliographieArticle}
+% \ifnum\frenchdoc=1
+%		Le +package chapterbib+ ne s'accorde cependant pas tr\`{e}s bien avec la classe +memoir+ en ce qui
+%		concerne la place de chacune des bibliographies dans les divisions du document. La
+%		commande \cmd{\HECbibliographieArticle} s'assure donc que les bibliographies des articles
+%		seront positionn\'{e}es en tant que section non num\'{e}rot\'{e}es \`{a} l'int\'{e}rieur des articles. C'est
+%		pourquoi, dans les gabarits par articles, cette commande est plac\'{e}e apr\`{e}s la commande
+%		\cmd{\HECpagestitre}.
+% \else
+%		The +chapterbib+ package and +memoir+ class have conflicting issues concerning the bibliographies'
+%		place in a document's divisions. The \cmd{\HECbibliographieArticle} makes sure that the articles'
+%		bibliographies are positioned as unnumbered sections inside the articles. This is why, in the
+%		by-articles templates, this command is placed just after the \cmd{\HECtitlepages} command.
+% \fi
+%	\end{DescribeMacro}
+%
+%	\begin{DescribeMacro}{\HECbibliographieGenerale}
+% \ifnum\frenchdoc=1
+%		Cette commande sert	\`{a} positionner la bibliographie g\'{e}n\'{e}rale du travail en tant 
+%		que «chapitre» (au sens {\LaTeX} du terme) non num\'{e}rot\'{e}. Cette commande est plac\'{e}e 
+%		tout juste avant la commande \cmd{\bibliographystyle} du gabarit.
+% \else
+%		This command positions the document's general bibliography as an unnumbered ``chapter''
+%		(in the \LaTeX\ definition of the term). It is placed just before the template's
+%		\cmd{\bibliographystyle} command.
+% \fi
+%	\end{DescribeMacro}
+%
+%	\begin{DescribeMacro}{\HECreferences}
+% \ifnum\frenchdoc=1
+%		Le +package chapterbib+ remplit tr\`{e}s bien son r\^{o}le de cr\'{e}ation de bibliographies multiples. Le
+%		hic, c'est qu'il faut inclure la commande \cmd{\bibliography} dans chaque fichier inclus
+%		dans un document pour que les citations s'affichent correctement. Ce faisant, une bibliographie 
+%		est g\'{e}n\'{e}r\'{e}e pour chacun de ces fichiers. Or, dans des sections comme l'introduction, 
+%		les r\'{e}sum\'{e}s ou encore la conclusion, la bibliographie ne doit pas \^{e}tre affich\'{e}e, 
+%		car elle est incluse dans la bibliographie g\'{e}n\'{e}rale du document. La commande \cmd{\HECreferences}
+%		permet d'ins\'{e}rer des citations et de les voir s'afficher correctement sans qu'une bibliographie
+%		soit g\'{e}n\'{e}r\'{e}e dans une section donn\'{e}e. Sa syntaxe est la suivante :
+%
+%		\begin{shaded*}
+%			\cmd{\HECreferences\{<style bibliographique>\}\{<fichier.bib>\}}
+%		\end{shaded*}
+%
+%		M\^{e}me si la bibliographie d'une section ne s'affichera pas, il est important d'indiquer comme
+%		argument +style bibliographique+ le m\^{e}me style que celui utilis\'{e} partout ailleurs dans le
+%		document, car les r\'{e}f\'{e}rences seront au final incluses dans la bibliographie g\'{e}n\'{e}rale.
+% \else
+%		The +chapterbib+ package is pretty good at fulfilling its purpose, which is generating multiple
+%		bibliographies. The problem is that a \cmd{\bibliography} command must be included in each file
+%		if one wants her citations to appear in the document. And by including the command, a bibliography
+%		is generated for that part of the document. In sections of the document such as the introduction, the
+%		abstracts or the conclusion, a bibliography must not be generated as the references for these parts
+%		have to be included in the general bibliography. The \cmd{\HECreferences} command allows you
+%		to insert citations and see them displayed correctly in a given section without generating a
+%		bibliography for that section. Its syntax is as follows:
+%
+%		\begin{shaded*}
+%			\cmd{\HECreferences\{bibliographic style>\}\{<file.bib>\}}
+%		\end{shaded*}
+%
+%		Even if the bibliography of a given section won't be displayed, it is important to specify
+%		a bibliography style as the references will still appear in the general bibliography.
+% \fi
+%	\end{DescribeMacro}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Environnements de la classe}
+% \else
+%	\subsection{Class environments}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Les environnements de la classe {\hecthese}	ne servent qu'\`{a} la mise en forme de votre
+%	travail.
+% \else
+%	The \hecthese\ class' environments all share the same purpose : laying out your work.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeEnv}{HECdedicace}
+%		Cet environnement se retrouve dans le fichier \textbf{dedicace.tex}. C'est \`{a} l'int\'{e}rieur de
+%		+HECdedicace+ que vous r\'{e}digez\dots votre d\'{e}dicace. Celle-ci, au moment de la compilation,
+%		sera centr\'{e}e verticalement dans la page, justifi\'{e}e \`{a} droite et mise en italiques.
+%	\end{DescribeEnv}
+% \else
+%	\begin{DescribeEnv}{HECdedication}
+%		This environment can be found in the \textbf{dedication.tex} file. It is inside the
+%		+HECdedication+ environment that you will write\ldots\ your dedication. At the document's
+%		compilation, the dedication will be vertically centered, aligned at the right margin and
+%		emphasized.
+%	\end{DescribeEnv}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\begin{DescribeEnv}{HECabreviations}
+%		+HECabreviations+ est une variante de l'environnement +description+. Il sert \`{a} r\'{e}diger
+%		votre liste d'abr\'{e}viations. L'environnement prend comme argument la plus longue de
+%		vos abr\'{e}viations et se sert de cette longueur pour aligner la liste des abr\'{e}viations
+%		en deux colonnes. Les +packages+ +calc+\cite{calc} et +enumitem+\cite{enumitem} 
+%		servent \`{a} la mise en forme de la liste.
+%	\end{DescribeEnv}
+% \else
+%	\begin{DescribeEnv}{HECabbreviations}
+%		+HECabreviations+ is a variant of the +description+ environment. It is used to build
+%		your acronyms list. It takes as argument the longest of your acronyms and uses its
+%		length to align the list in two columns. The +calc+\cite{calc} and +enumitem+\cite{enumitem}
+%		packages are used to layout the list.
+%	\end{DescribeEnv}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\section{R\'{e}daction de la th\`{e}se ou du m\'{e}moire}
+% \else
+%	\section{Writing your dissertation or thesis}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Dans cette section, nous vous donnerons quelques conseils concernant la r\'{e}daction de votre
+%	th\`{e}se ou m\'{e}moire avec la classe \hecthese.
+% \else
+%	In this section, we will give you a few hints for writing your dissertation or thesis with
+%	the \hecthese\ document class.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Division du document en multiples fichiers}
+% \else
+%	\subsection{One document divided in multiple files}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Tel que mentionn\'{e} \`{a} la Section \ref{liste-fichiers}, votre document est r\'{e}parti dans une multitude
+%	de fichiers. Plusieurs objectifs sous-tendent ce choix :
+%	
+%	\begin{enumerate}
+%		\item S\'{e}parer votre code (+packages+, commandes, environnements, etc.) de votre r\'{e}daction;
+%		\item All\'{e}ger les fichiers;
+%		\item Faciliter votre rep\'{e}rage dans l'ensemble de votre texte;
+%		\item Vous offrir la plus grande flexibilit\'{e} pour ajouter ou supprimer des sections.
+%	\end{enumerate}
+%
+%	Chaque fichier contient des instructions sous forme de commentaires pour vous permettre de les
+%	utiliser sans commettre d'impairs ou briser la structure de votre document. Lisez-les attentivement tout
+%	au long de votre r\'{e}daction et supprimez-les au besoin.
+% \else
+%	As mentioned in Section \ref{liste-fichiers}, your document is divided in many files. A few reasons
+%	underlie the choice of such a division:
+%
+%	\begin{enumerate}
+%		\item Separate your code (packages, commands, environments, etc.) from your document;
+%		\item Reduce the files' size;
+%		\item Facilitate searching through your text;
+%		\item Offer better flexibility for adding or deleting sections.
+%	\end{enumerate}
+%
+%	Each file is heavily commented with instructions to make sure you don't make any mistake or mess
+%	with the document structure. Carefully read through the comments and delete them if necessary.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Bibliographie(s) et citations}
+% \else
+%	\subsection{Bibliographies and citations}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Nous vous recommandons fortement d'utiliser le style bibliographique +francais+ pour la compilation de
+%	votre (vos) bibliographie(s). Ce style a \'{e}t\'{e} con\c{c}u par le professeur Vincent Goulet de l'Universit\'{e} 
+%	Laval\cite{francaisbst} et est celui qui ressemble le plus au style bibliographique HEC Montr\'{e}al, \'{e}labor\'{e}
+%	par Caroline Archambault\cite{stylehec}. De plus, ce style supporte les citations au format \emph{auteur-ann\'{e}e}
+%	pr\'{e}conis\'{e} dans le \emph{Guide de r\'{e}daction}.
+%
+%	Si vous r\'{e}digez votre th\`{e}se ou m\'{e}moire en anglais, nous vous recommandons d'utiliser le style bibliographique
+%	+apalike+.
+%
+%	Afin de vous conformer au format de citation pr\'{e}conis\'{e} par le \emph{Guide de r\'{e}daction}, nous vous recommandons
+%	enfin d'utiliser la commande \cmd{\citep} lorsque vous citez vos sources.
+%
+%	Si vous choisissez d'utiliser d'autres styles bibliographiques et/ou d'autres formats de citations, assurez-vous
+%	qu'ils soient compatibles avec le +package+ +natbib+ qui est charg\'{e} avec la classe, \`{a} d\'{e}faut de quoi vous
+%	rencontrerez des probl\`{e}mes lors de la compilation de votre document.
+% \else
+%	If you plan on writing your dissertation or thesis in French, we suggest you use the +francais+ bibliography
+%	style when compiling your bibliographies. It has been built by Universit\'{e} Laval's professor Vincent Goulet\cite{francaisbst}
+%	and it is the bibliography style resembling the most HEC Montr\'{e}al's bibliography style, elaborated by
+%	Caroline Archambault\cite{stylehec}. This style also supports the \emph{author-year} citation format that is
+%	recommended for use in the \emph{Guidelines}.
+%
+%	If you write your dissertation or thesis in English, we suggest you use the +apalike+ bibliography style.
+%
+%	In order to fully comply with the \emph{Guidelines}, we recommend you use the \cmd{\citep} command when citing
+%	your sources.
+%
+%	If you choose to use other bibliography styles and/or citation formats, just make sure that they are
+%	compatible with the +natbib+ package loaded with the document class. Otherwise, you'll run into errors when you'll
+%	compile your document.
+% \fi
+%
+%	\section{Compilation}
+%
+% \ifnum\frenchdoc=1
+%	\begin{HECwarning}{Utilisateurs d'Overleaf}
+%		Overleaf ne vous offrant qu'un simple bouton «Compilation», cette section ne vous concerne pas.
+%	\end{HECwarning}
+%	Lorsque viendra le temps de compiler votre document, il ne vous suffira pas seulement de cliquer sur
+%	le bouton «Compilation» de votre \'{e}diteur de code pr\'{e}f\'{e}r\'{e}. Une suite pr\'{e}cise de compilations
+% 	s'av\`{e}rent n\'{e}cessaires si vous voulez que votre document soit g\'{e}n\'{e}r\'{e} de mani\`{e}re appropri\'{e}e, surtout
+% 	si vous compilez une th\`{e}se ou un m\'{e}moire par articles
+%	\footnote{Un tutoriel vid\'{e}o concernant la compilation est disponible \`{a} l'adresse
+%		\url{https://www.youtube.com/watch?v=hS3LMC3H55w}}.
+% \else
+%	\begin{HECwarning}{Overleaf users}
+%		Since Overleaf only has a single ``Compile'' button, this section doesn't concern you.
+%	\end{HECwarning}
+%	When the time comes for compiling your document, simply pressing ``Compile'' in your code editor
+%	won't suffice. A precise chain of compilations is necessary if you want your document to be
+%	rendered properly, most of all if you compile a dissertation or thesis written with articles
+%	\footnote{A video tutorial showing the compilation process is available at
+%		\url{https://www.youtube.com/watch?v=hS3LMC3H55w} (in French with English subtitles)}.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Th\`{e}ses et m\'{e}moires classiques}
+% \else
+%	\subsection{Classic dissertations and theses}
+% \fi
+%	\label{comp-phd-msc-cl}
+%
+% \ifnum\frenchdoc=1
+%	Voici l'ordre de compilations n\'{e}cessaires \`{a} la production de votre th\`{e}se ou m\'{e}moire classique,
+%	\`{a} faire \`{a} partir d'un \'{e}diteur de code ou d'un \'{e}diteur de ligne de commande. Dans la liste
+%	ci-dessous, remplacez +*+ par +these+ ou +memoire+ en fonction du document que vous r\'{e}digez.
+% \else
+%	Here is the compilation chain you need to do in order to generate your classic dissertation or
+%	thesis. You can perform these compilations from your code editor or from the command line. In the
+%	following list, replace +*+ by +msc+ or +phd+ depending of the type of document you're writing.
+% \fi
+%
+%	\begin{HECcompilation}
+% \ifnum\frenchdoc=1
+%		\item +pdflatex gabarit-*-classique.tex+
+%		\item +bibtex gabarit-*-classique.tex+
+%		\item +makeindex gabarit-*-classique.tex+
+%			\footnote{\label{comp-index}N\'{e}cessaire seulement si vous avez ins\'{e}r\'{e} des entr\'{e}es d'index 
+%				et la commande \cmd{\printindex} dans votre document.}
+%		\item +pdflatex gabarit-*-classique.tex+
+%		\item +pdflatex gabarit-*-classique.tex+
+% \else
+%		\item +pdflatex template-*-classic.tex+
+%		\item +bibtex template-*-classic.tex+
+%		\item +makeindex template-*-classic.tex+
+%			\footnote{\label{comp-index-en}Do this compilation only if you,ve inserted index entries
+%				and the \cmd{\printindex} command in your document.}
+%		\item +pdflatex template-*-classic.tex+
+%		\item +pdflatex template-*-classic.tex+
+% \fi
+%	\end{HECcompilation}
+%
+% \ifnum\frenchdoc=1
+%	La compilation d'une th\`{e}se ou d'un m\'{e}moire classique est assez simple. Toutes les \'{e}tapes se font
+%	\`{a} partir de votre fichier gabarit. Vous lancez une premi\`{e}re compilation avec +pdflatex+,
+%	vous g\'{e}n\'{e}rez votre bibliographie et votre index avec +bibtex+ et +makeindex+, puis vous recompilez
+%	au moins deux fois de suite votre fichier gabarit avec +pdflatex+ afin de permettre la g\'{e}n\'{e}ration
+%	ad\'{e}quate de la bibliographie, de l'index et de la table des mati\`{e}res.
+%
+%	Lorsque vous utilisez un \'{e}diteur de ligne de commandes, vous n'avez pas \`{a} inscrire l'extension du fichier
+%	(+.tex+) dans votre commande de compilation. Seul le nom du fichier est n\'{e}cessaire dans la commande.
+% \else
+%	Compiling a dissertation or thesis is pretty straightforward. All compilation steps are performed on
+%	your template file. You run a first compilation with +pdflatex+, you generate your bibliography
+%	and index with +bibtex+ and +makeindex+ and you recompile your template file at least twice with
+%	+pdflatex+ in order to output the bibliography, the index and the table of contents.
+%
+%	When compiling your document using the command line, you don't need to type the file extension (+tex+).
+%	Only the file name will suffice.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Th\`{e}ses et m\'{e}moires par articles}
+% \else
+%	\subsection{Dissertations and theses written with articles}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Voici l'ordre de compilations n\'{e}cessaires \`{a} la production de votre th\`{e}se ou m\'{e}moire par
+%	articles. Comme indiqu\'{e} \`{a} la Section \ref{comp-phd-msc-cl}, remplacez +*+ par +these+ ou +memoire+.
+% \else
+%	Here is the compilation chain you need to do in order to generate your dissertation or thesis
+%	written with articles. As mentioned in Section \ref{comp-phd-msc-cl}, replace +*+ by +dissertation+
+%	or +thesis+.
+% \fi
+%
+%	\begin{HECcompilation}
+% \ifnum\frenchdoc=1
+%		\item +pdflatex gabarit-*-articles.tex+
+%		\item +makeindex gabarit-*-articles.tex+
+%			\footnote{Voir note \ref{comp-index}.}
+%		\item +bibtex gabarit-*-articles.tex+
+%		\item +bibtex [fichier].aux+
+%		\item +pdflatex gabarit-*-articles.tex+
+%		\item +pdflatex gabarit-*-articles.tex+
+% \else
+%		\item +pdflatex template-*-articles.tex+
+%		\item +makeindex template-*-articles.tex+
+%			\footnote{See note \ref{comp-index-en}.}
+%		\item +bibtex template-*-articles.tex+
+%		\item +bibtex [file].aux+
+%		\item +pdflatex template-*-articles.tex+
+%		\item +pdflatex template-*-articles.tex+		
+% \fi
+%	\end{HECcompilation}
+%
+% \ifnum\frenchdoc=1
+%	La compilation d'une th\`{e}se ou d'un m\'{e}moire par articles est plus complexe, car vous
+%	devez g\'{e}n\'{e}rer chacune des bibliographies individuellement. Vous commencez par une
+%	premi\`{e}re compilation +pdflatex+ sur le fichier gabarit. Vous lancez ensuite +makeindex+ 
+%	et +bibtex+ sur ce m\^{e}me fichier. Une fois que la premi\`{e}re compilation +bibtex+ aura \'{e}t\'{e} compl\'{e}t\'{e}e,
+%	ouvrez chacun des fichiers avec l'extension +.aux+ dans lesquels vous avez ins\'{e}r\'{e} des citations,
+%	soit \textbf{article-1.aux}, \textbf{article-2.aux}, \textbf{article-3.aux}, etc.
+%	\footnote{N'ouvrez les fichiers +.aux+ que si vous compilez votre document avec un 
+% 	\'{e}diteur de code.}
+% 	Lancez une compilation +bibtex+ sur chacun de ces fichiers. Finalement, lancez au
+%	moins deux compilations +pdflatex+ sur votre fichier gabarit afin de g\'{e}n\'{e}rer
+%	les bibliographies, l'index et la table des mati\`{e}res.
+%
+%	Et comme indiqu\'{e} \`{a} la Section \ref{comp-phd-msc-cl}, seuls les noms de fichiers sont
+%	n\'{e}cessaires lorsque vous r\'{e}digez vos commandes dans un \'{e}diteur de ligne de commandes.
+% \else
+%	Compiling a dissertation or thesis written with articles is more complex because you have to
+%	generate each article's bibliography separately. You begin by compiling your template
+%	file with +pdflatex+. You then run +bibtex+ and +makeindex+ on this same file. Once
+% 	the first +bibtex+ compilation is over, open each +.aux+ file where you've inserted
+%	citations, i.e. \textbf{article-1.aux}, \textbf{article-2.aux}, \textbf{article-3.aux}, etc.
+%	\footnote{Open the +.aux+ files only if you compile your documents from the code editor.}
+%	Run a +bibtex+ compilation on each of these files. Finally, run +pdflatex+ at least twice
+%	on your template file to output all bibliographies, the index and the table of contents.
+%
+%	As mentioned at Section \ref{comp-phd-msc-cl}, only the file names are necessary for compiling
+% 	from the command line.
+% \fi
+%
+% \StopEventually{
+%	\clearpage
+%	\begin{thebibliography}{99}%	
+%	\bibitem{guideRedaction}
+%		Centre de formation en langues des affaires (2020).
+%		\emph{Guide pour la r\'{e}daction d'un travail universitaire de 1er, 2e et 3e cycles},
+%		HEC Montr\'{e}al. Consult\'{e} le 24 ao\^{u}t 2020 \`{a} 
+%		\href{https://www.hec.ca/cfla/francais/document/guide-redaction-travail-cycles.pdf}%
+%			{https://www.hec.ca/cfla/francais/document/guide-redaction-travail-cycles.pdf}
+%	\bibitem{guidelines}
+%		Centre de formation en langues des affaires (2014).
+%		\emph{Guidelines for writing and academic work at a graduate level},
+%		HEC Montr\'{e}al. Consult\'{e} le 24 avril 2018 \`{a}
+%		\href{https://www.hec.ca/cfla/anglais/document/guidelines\_academic\_work.pdf}%
+%			{https://www.hec.ca/cfla/anglais/document/guidelines\_academic\_work.pdf}
+%	\bibitem{texlive}
+%		\emph{TeX Live}, TeX Users Group. Consult\'{e} le 18 mai 2017 \`{a}
+%		\href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
+%	\bibitem{texstudio}
+%		van der Zander, Benito, Jan Sundermeyer, Daniel Braun et Tim Hoffmann (2017).
+%		\emph{TeXstudio : LaTeX made comfortable}, TeXstudio. Consult\'{e} le 18 mai 2017 \`{a}
+%		\href{http://www.texstudio.org/}{http://www.texstudio.org/}
+%	\bibitem{memoir}
+%		Wilson, Peter R., Lars Madsen (2016).
+%		\emph{Package memoir}, Comprehensive TeX Archive Network. Consult\'{e} le 19 mai 2017
+%		\`{a} \href{https://www.ctan.org/pkg/memoir}{https://www.ctan.org/pkg/memoir}
+%	\bibitem{babel}
+%		Bezos López, Javier, Johannes L. Braams (2017).
+%		\emph{Package babel}, Comprehensive TeX Archive Network. Consult\'{e} le 19 mai 2017
+%		\`{a} \href{https://www.ctan.org/pkg/babel}{https://www.ctan.org/pkg/babel}
+%	\bibitem{hyperref}
+%		Oberdiek, Heiko, Sebastian Rahtz (2017).
+%		\emph{Package hyperref}, Comprehensive TeX Archive Network. Consult\'{e} le 19 mai 2017
+%		\`{a} \href{https://www.ctan.org/pkg/hyperref}{https://www.ctan.org/pkg/hyperref}
+%	\bibitem{chapterbib}
+%		Arseneau, Donald (2010).
+%		\emph{Package chapterbib}, Comprehensive TeX Archive Network. Consult\'{e} le 23 mai 2017
+%		\`{a} \href{https://www.ctan.org/pkg/chapterbib}{https://www.ctan.org/pkg/chapterbib}
+%	\bibitem{calc}
+%		Thorup, Kresten Krab, Frank Jensen et The {\LaTeX} Team (2007).
+%		\emph{Package calc}, Comprehensive TeX Archive Network. Consult\'{e} le 23 mai 2017 \`{a}
+%		\href{https://www.ctan.org/pkg/calc}{https://www.ctan.org/pkg/calc}
+%	\bibitem{enumitem}
+%		Bezos López, Javier (2009).
+%		\emph{Package enumitem}, Comprehensive TeX Archive Network. Consult\'{e} le 23 mai 2017 \`{a}
+%		\href{https://www.ctan.org/pkg/enumitem}{https://www.ctan.org/pkg/enumitem}
+%	\bibitem{ifthen}
+%		Lamport, Leslie, David Carlisle et The {\LaTeX} Team (2014).
+%		\emph{Package ifthen}, Comprehensive TeX Archive Network. Consult\'{e} le 23 mai 2017 \`{a}
+%		\href{https://www.ctan.org/pkg/ifthen}{https://www.ctan.org/pkg/ifthen}
+%	\bibitem{francaisbst}
+%		Goulet, Vincent (2012).
+%		\emph{Package francais-bst}, Comprehensive TeX Archive Network. Consult\'{e} le 23 mai 2017 \`{a}
+%		\href{https://www.ctan.org/pkg/francais-bst}{https://www.ctan.org/pkg/francais-bst}
+%	\bibitem{natbib}
+%		Daly, Patrick W., Arthur Ogawa (2009).
+%		\emph{Package natbib}, Comprehensive TeX Archive Network. Consult\'{e} le 29 mai 2017 \`{a}
+%		\href{https://www.ctan.org/pkg/natbib}{https://www.ctan.org/pkg/natbib}
+%	\bibitem{iflang}
+%		Oberdiek, Heiko (2007).
+%		\emph{Package iflang}, Comprehensive TeX Archive Network. Consult\'{e} le 25 septembre 2017 \`{a}
+%		\href{https://www.ctan.org/pkg/iflang}{https://www.ctan.org/pkg/iflang}
+%	\bibitem{stylehec}
+%		Archambault, Caroline (2017).
+%		\emph{Bibliographie selon le style HEC Montr\'{e}al}, Biblioth\`{e}que HEC Montr\'{e}al. Consult\'{e} le 5 octobre 2017 \`{a}
+%		\href{http://libguides.hec.ca/style-hec}{http://libguides.hec.ca/style-hec}
+%	\bibitem{udem:reglements}
+%		Secr\'{e}tariat g\'{e}n\'{e}ral (2018).
+%		\emph{R\'{e}glement p\'{e}dagogique de la facult\'{e} des \'{e}tudes sup\'{e}rieures et postdoctorales},
+%		Universit\'{e} de Montr\'{e}al. Consult\'{e} le 23 avril 2018 \`{a}
+%		\href{http://secretariatgeneral.umontreal.ca/documents-officiels/reglements-et-politiques/reglement-pedagogique-de-la-faculte-des-etudes-superieures-et-postdoctorales/}%
+%			{http://secretariatgeneral.umontreal.ca/documents-officiels/reglements-et-politiques/reglement-pedagogique-de-la-faculte-des-etudes-superieures-et-postdoctorales/}
+%	\bibitem{udem:guide}
+%		Facult\'{e} des \'{e}tudes sup\'{e}rieures et postdoctorales (2015).
+%		\emph{Guide de pr\'{e}sentation des m\'{e}moires et des th\`{e}ses de l'Universit\'{e} de Montr\'{e}al}, Universit\'{e} de Montr\'{e}al.
+%		Consult\'{e} le 23 avril 2018 \`{a} \href{http://www.fesp.umontreal.ca/fileadmin/fesp/documents/Cheminement/GuidePresentationMemoiresTheses.pdf}%
+%			{http://www.fesp.umontreal.ca/fileadmin/fesp/documents/Cheminement/ GuidePresentationMemoiresTheses.pdf}
+%	\end{thebibliography}
+%	\clearpage
+%	\PrintChanges
+% }
+%
+% ^^A Debut du code de la classe
+%
+% \appendix
+%
+% \ifnum\frenchdoc=1
+% \section{Code source de la classe \hecthese}
+% \else
+% \section{\hecthese\ class source code}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Vous retrouverez dans cette annexe le code source de la classe {\LaTeX} {\hecthese}.
+%	Si vous avez envie de voir comment elle est program\'{e}e, d'aider \`{a} la d\'{e}boguer,
+%	\`{a} l'am\'{e}liorer, etc., cette section est pour vous.
+% \else
+%	You will find in this section the \LaTeX\ \hecthese\ document class' source code.
+%	If you want to see how it is programmed, help debug or enhance it, etc., this
+%	section is for you.
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Tests et valeurs bool\'{e}ennes}
+% \else
+%	\subsection{Boolean tests and values}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Pour effectuer les tests conditionnels, la classe utilise le +package+ +ifthen+\cite{ifthen}.
+%	Les variables bool\'{e}ennes servent \`{a} d\'{e}terminer si le travail est une th\`{e}se ou un
+% 	m\'{e}moire r\'{e}dig\'{e} de mani\`{e}re classique ou par articles, ainsi qu'\`{a} d\'{e}terminer le
+%	genre des intervenants dans la r\'{e}daction de la th\`{e}se. Une fois les variables cr\'{e}\'{e}es, 
+%	des valeurs par d\'{e}faut leur sont attribu\'{e}es.
+% \else
+%	To run conditional tests, the class uses the +ifthen+ package\cite{ifthen}. Boolean variables
+%	are used to determine what kind of document is being written (Ph.D. or M.Sc., classic or by articles) 
+%	and to determine each contributor's gender. Once the variables have been instantiated, default values
+%	are given to these variables.
+% \fi
+%
+%    \begin{macrocode}
+%<*class>
+\RequirePackage{ifthen}
+
+% Booleens
+\newboolean{HEC@isPhD}						% Le travail est une these ou non
+\newboolean{HEC@isClassique}				% Le travail est redige de maniere classique ou non
+\newboolean{HEC@isPresRappFemme}			% President rapporteur femme ou non
+\newboolean{HEC@isDirRechFemme}				% Directeur de la recherche femme ou non
+\newboolean{HEC@isCodirRechFemme}			% Codirecteur de la recherche femme ou non
+\newboolean{HEC@isExamExtFemme}				% Examinateur externe femme ou non
+\newboolean{HEC@isRepDirFemme}				% Representant du directeur femme ou non
+
+% Valeurs par defaut
+\setboolean{HEC@isPhD}{true}
+\setboolean{HEC@isClassique}{true}
+\setboolean{HEC@isPresRappFemme}{false}
+\setboolean{HEC@isDirRechFemme}{false}
+\setboolean{HEC@isCodirRechFemme}{false}
+\setboolean{HEC@isExamExtFemme}{false}
+\setboolean{HEC@isRepDirFemme}{false}
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Options de la classe}
+% \else
+%	\subsection{Class options}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Les quelques options de la classe sont d\'{e}clar\'{e}es ci-dessous. Notez que
+%	les options concernant le +package+ +babel+ ne sont pas d\'{e}clar\'{e}es ici.
+% \else
+%	The few options available with the class are declared hereunder. Note
+%	that the +babel+ package's options are not declared here.
+% \fi
+%
+%    \begin{macrocode}
+
+% Taille de la police de caractere
+\DeclareOption{10pt}{%
+	\PassOptionsToClass{10pt}{memoir}
+}
+\DeclareOption{11pt}{%
+	\PassOptionsToClass{11pt}{memoir}
+}
+\DeclareOption{12pt}{%
+	\PassOptionsToClass{12pt}{memoir}
+}
+
+% Type de document
+\DeclareOption{mscclassique}{%
+	\setboolean{HEC@isPhD}{false}
+	\setboolean{HEC@isClassique}{true}
+}
+\DeclareOption{mscarticles}{%
+	\setboolean{HEC@isPhD}{false}
+	\setboolean{HEC@isClassique}{false}
+}
+\DeclareOption{phdclassique}{%
+	\setboolean{HEC@isPhD}{true}
+	\setboolean{HEC@isClassique}{true}
+}
+\DeclareOption{phdarticles}{%
+	\setboolean{HEC@isPhD}{true}
+	\setboolean{HEC@isClassique}{false}
+}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Chargement de la classe}
+% \else
+%	\subsection{Class loading}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La classe est charg\'{e}e dans le document avec toutes les options
+%	d\'{e}clar\'{e}es par l'utilisateur. Si une taille de police de caract\`{e}res
+% 	n'a pas \'{e}t\'{e} sp\'{e}cifi\'{e}e, la classe utilise la taille +12pt+ par
+% 	d\'{e}faut.
+% \else
+%	The class is loaded in the document with all the options declared
+%	by the end user. If a font size is not specified, the classe loads
+%	the +12pt+ font size by default.
+% \fi
+%
+%    \begin{macrocode}
+
+% Chargement de la classe
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
+\ExecuteOptions{12pt}						% Taille par defaut
+\ProcessOptions
+\LoadClass{memoir}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Packages requis}
+% \else
+%	\subsection{Required packages}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Tr\`{e}s peu de +packages+ sont charg\'{e}s avec la classe afin de vous permettre
+%	de r\'{e}diger avec la plus grande flexibilit\'{e} possible.
+%
+%	La classe utilise le +package+ +natbib+\cite{natbib} pour permettre l'utilisation des citations
+%	textuelles \emph{auteur-ann\'{e}e}. Le +package+ +chapterbib+ n'est charg\'{e} que si
+% 	le travail est r\'{e}dig\'{e} par articles.
+%
+%	Les autres +packages+ charg\'{e}s sont typiques de la plupart des documents : encodage
+%	des fichiers, gestion des graphiques, des images et des couleurs, utilisation des
+% 	math\'{e}matiques, etc.
+% \else
+%	Very few packages are loaded in the class so you can write your document
+%	with a maximum flexibility.
+%
+%	The class uses the +natbib+ package\cite{natbib} so you can write your citations in the
+%	\emph{author-year} format. The +chapterbib+ package is loaded only if the dissertation or
+%	thesis is written with articles.
+%
+%	The other packages loaded are typical to any other document: file encoding, graphics,
+%	images and color management, math modes, etc.
+% \fi
+%
+%    \begin{macrocode}
+
+\RequirePackage[utf8]{inputenc}				% Pour ecrire les diacritiques directement
+\RequirePackage[T1]{fontenc}				% Utilisation des polices T1
+\RequirePackage{natbib}						% A inclure avant babel
+
+% Si le document est redige par articles, charger chapterbib.
+\ifthenelse{\boolean{HEC@isClassique}}{}{%
+	\RequirePackage{chapterbib}				% Bibliographies multiples pour les articles
+}
+\RequirePackage{babel}						% Support multilingue
+\RequirePackage[autolanguage]{numprint}
+\RequirePackage{calc}						% Necessaire pour la liste des abreviations
+\RequirePackage{enumitem}					% Necessaire pour la liste des abreviations
+\RequirePackage{tocvsec2}					% Pour determiner la profondeur de la TDM
+\RequirePackage{graphicx}					% Insertion de graphiques et d'images
+\RequirePackage{color}						% Gestion des couleurs
+\RequirePackage{amsmath}					% Package obligatoire pour les maths
+\RequirePackage{iflang}						% Detection de la langue
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Mise en page}
+% \else
+%	\subsection{Layout}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Toutes les normes de pr\'{e}sentation graphiques du \emph{Guide de r\'{e}daction} sont
+%	\'{e}tablies ci-dessous. \`{A} la compilation, {\LaTeX} se plaindra que
+%	les ent\^{e}tes sont trop petites pour son contenu, mais cela ne causera pas de
+%	probl\`{e}mes pour la g\'{e}n\'{e}ration de votre document (le compilateur retourne un avertissement,
+%	pas une erreur).
+% \else
+%	All the presentation standards required by the \emph{Guidelines} are programmed
+%	hereunder. During compilation, \LaTeX\ will complain that some headers are too small
+%	for your content, but this will not generate errors (the compiler only issues warnings).
+% \fi
+%
+%    \begin{macrocode}
+
+\pagestyle{plain}							% Numero de page centre au pied de page
+\renewcommand{\baselinestretch}{1.5}		% Interligne et demie
+\setlength{\topmargin}{0cm}					% Marge du haut
+\setlength{\oddsidemargin}{1.5cm}			% Marge de gauche des pages impaires
+\setlength{\evensidemargin}{1.5cm}			% Marge de gauche des pages paires
+\setlength{\textwidth}{15cm}				% Largeur du bloc de texte
+\setlength{\textheight}{21.9cm}				% Hauteur du bloc de texte
+\setlength{\marginparwidth}{0pt}			% Suppression des notes de marge
+\setlength{\marginparsep}{0pt}				% Suppression du separateur de marge
+\setlength{\headheight}{0pt}				% Suppression de l'entete
+\setlength{\headsep}{0pt}					% Suppression du separateur d'entete
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Commandes de la classe}
+% \else
+%	\subsection{Class commands}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{M\'{e}tadonn\'{e}es du document}
+% \else
+%	\subsubsection{Document metadata}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Chaque commande relative aux m\'{e}tadonn\'{e}es du document que vous retrouverez
+%	dans le pr\'{e}ambule a son \'{e}quivalent en commande interne. \`{A} titre d'exemple, la
+% 	commande \cmd{\HECtitre} a comme \'{e}quivalent \cmd{\HEC@titre}. Ce sont les
+%	commandes internes qui servent \`{a} construire les pages titre et la page
+% 	d'identification du jury.
+%
+%	Plusieurs commandes ont leur traduction anglaise afin de faciliter l'utilisation
+%	de la classe par les anglophones, mais ces versions anglaises ne sont que des
+%	coquilles qui appellent leur \'{e}quivalent fran\c{c}ais.
+% \else
+%	Every metadata-related command that you'll find in the document preamble has
+%	its internal command equivalent. Example given, the \cmd{\HECtitre} has
+%	\cmd{\HEC@titre} as equivalent. The internal commands are used to generate the
+%	document's title page and jury indentification page.
+%
+%	Many commands have their english translation so english-speaking students
+%	can work easily with the class, but these english translations are only
+%	placeholders that call their french equivalent.
+% \fi
+%
+%    \begin{macrocode}
+
+% Commandes internes
+\newcommand{\HEC@titre}{}
+\newcommand{\HEC@sousTitre}{}
+\newcommand{\HEC@auteur}{}
+\newcommand{\HEC@optionPhD}{}
+\newcommand{\HEC@optionMSc}{}
+\newcommand{\HEC@moisDepot}{}
+\newcommand{\HEC@anneeDepot}{}
+\newcommand{\HEC@presidentRapporteur}{}
+\newcommand{\HEC@directeurRecherche}{}
+\newcommand{\HEC@codirecteurRecherche}{}
+\newcommand{\HEC@universiteCodirecteur}{}
+\newcommand{\HEC@membreJury}{}
+\newcommand{\HEC@universiteMembreJury}{}
+\newcommand{\HEC@examinateurExterne}{}
+\newcommand{\HEC@universiteExaminateur}{}
+\newcommand{\HEC@representantDirecteur}{}
+
+% Commandes publiques
+\newcommand{\HECtitre}[1]{%
+	\renewcommand{\HEC@titre}{#1}
+}
+\newcommand{\HECtitle}[1]{\HECtitre{#1}}
+
+\newcommand{\HECsoustitre}[1]{%
+	\renewcommand{\HEC@sousTitre}{#1}
+}
+\newcommand{\HECsubtitle}[1]{\HECsoustitre{#1}}
+
+\newcommand{\HECauteur}[1]{%
+	\renewcommand{\HEC@auteur}{#1}
+}
+\newcommand{\HECauthor}[1]{\HECauteur{#1}}
+
+\newcommand{\HECoption}[1]{%
+	\ifthenelse{\boolean{HEC@isPhD}}{%
+		\renewcommand{\HEC@optionPhD}{#1}
+	}{%
+		\renewcommand{\HEC@optionMSc}{#1}
+	}
+}
+
+\newcommand{\HECmoisDepot}[1]{%
+	\renewcommand{\HEC@moisDepot}{#1}
+}
+\newcommand{\HECsubMonth}[1]{\HECmoisDepot{#1}}
+
+\newcommand{\HECanneeDepot}[1]{%
+	\renewcommand{\HEC@anneeDepot}{#1}
+}
+\newcommand{\HECsubYear}[1]{\HECanneeDepot{#1}}
+
+\newcommand{\HECpresidentRapporteur}[2]{%
+	\renewcommand{\HEC@presidentRapporteur}{#1}
+	\ifthenelse{\equal{#2}{F}}{%
+		\setboolean{HEC@isPresRappFemme}{true}
+	}{%
+		\setboolean{HEC@isPresRappFemme}{false}
+	}
+}
+
+\newcommand{\HECrapporteurPresident}[2]{\HECpresidentRapporteur{#1}{#2}}
+\newcommand{\HECdirecteurRecherche}[2]{%
+	\renewcommand{\HEC@directeurRecherche}{#1}
+	\ifthenelse{\equal{#2}{F}}{%
+		\setboolean{HEC@isDirRechFemme}{true}
+	}{%
+		\setboolean{HEC@isDirRechFemme}{false}
+	}
+}
+\newcommand{\HECresearchDirector}[2]{\HECdirecteurRecherche{#1}{#2}}
+
+\newcommand{\HECcodirecteurRecherche}[2]{%
+	\renewcommand{\HEC@codirecteurRecherche}{#1}
+	\ifthenelse{\equal{#2}{F}}{%
+		\setboolean{HEC@isCodirRechFemme}{true}
+	}{%
+		\setboolean{HEC@isCodirRechFemme}{false}
+	}
+}
+\newcommand{\HECresearchCodirector}[2]{\HECcodirecteurRecherche{#1}{#2}}
+
+\newcommand{\HECuniversiteCodirecteur}[1]{%
+	\renewcommand{\HEC@universiteCodirecteur}{#1}
+}
+\newcommand{\HECcodirectorUniversity}[1]{\HECuniversiteCodirecteur{#1}}
+
+\newcommand{\HECmembreJury}[1]{%
+	\renewcommand{\HEC@membreJury}{#1}
+}
+\newcommand{\HECjuryMember}[1]{\HECmembreJury{#1}}
+
+\newcommand{\HECuniversiteMembreJury}[1]{%
+	\renewcommand{\HEC@universiteMembreJury}{#1}
+}
+\newcommand{\HECjuryMemberUniversity}[1]{\HECuniversiteMembreJury{#1}}
+
+\newcommand{\HECexaminateurExterne}[2]{%
+	\renewcommand{\HEC@examinateurExterne}{#1}
+	\ifthenelse{\equal{#2}{F}}{%
+		\setboolean{HEC@isExamExtFemme}{true}
+	}{%
+		\setboolean{HEC@isExamExtFemme}{false}
+	}
+}
+\newcommand{\HECexternalExaminator}[2]{\HECexaminateurExterne{#1}{#2}}
+
+\newcommand{\HECuniversiteExaminateur}[1]{%
+	\renewcommand{\HEC@universiteExaminateur}{#1}
+}
+\newcommand{\HECexaminatorUniversity}[1]{\HECuniversiteExaminateur{#1}}
+
+\newcommand{\HECrepresentantDirecteur}[2]{%
+	\renewcommand{\HEC@representantDirecteur}{#1}
+	\ifthenelse{\equal{#2}{F}}{%
+		\setboolean{HEC@isRepDirFemme}{true}
+	}{%
+		\setboolean{HEC@isRepDirFemme}{false}
+	}
+}
+\newcommand{\HECdirectorRepresentative}[2]{\HECrepresentantDirecteur{#1}{#2}}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{M\'{e}tadonn\'{e}es du pdf}
+% \else
+%	\subsubsection{pdf metadata}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	En plus des m\'{e}tadonn\'{e}es relatives \`{a} votre travail, la classe d\'{e}finit
+%	des commandes pour ins\'{e}rer des m\'{e}tadonn\'{e}es dans le fichier +.pdf+ qui
+%	sera g\'{e}n\'{e}r\'{e} par la compilation de votre th\`{e}se ou m\'{e}moire. Ces commandes
+%	se retrouvent dans les options du +package+ +hyperref+.
+% \else
+%	Along with the metadata-related commands for your work, the class
+%	defines commands that will insert metadata in the +.pdf+ file
+%	generated after the compilation of your dissertation or thesis. These
+%	commands are placed in the +hyperref+ package's options.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HECpdfauteur}{\HEC@auteur}
+\newcommand{\HECpdftitre}{\HEC@titre}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{Pages de titre et d'identification du jury}
+% \else
+%	\subsubsection{Title and jury identification pages}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La classe utilise trois commandes internes pour g\'{e}n\'{e}rer les pages titre
+% 	et la page d'identification du jury. La commande \cmd{\HECpagestitre} est,
+%	quant \`{a} elle, ins\'{e}r\'{e}e au d\'{e}but de l'environnement +document+ pour
+%	g\'{e}n\'{e}rer la (les) page(s) en fonction du type de document r\'{e}dig\'{e}.
+% \else
+%	The class uses three internal commands to generate the title page and
+%	the jury identification page. The \cmd{\HECtitlepages} command is inserted
+%	at the beginning of the +document+ environment to generate the title pages
+%	related to each type of document written.
+% \fi
+%
+% \begin{macro}{\HEC@pageTitrePhD}
+%
+% \ifnum\frenchdoc=1
+%	La commande +\HEC@pageTitrePhD+ g\'{e}n\`{e}re la page titre des th\`{e}ses. Elle
+%	utilise d'abord l'environnement +titlingpage+ de la classe +memoir+, qui
+%	permet la cr\'{e}ation de pages titre personnalis\'{e}es plus flexibles que la commande
+%	{\LaTeX} \cmd{\maketitle}\cite{memoir}. L'environnement +titlingpage+ recommence
+% 	la num\'{e}rotation des pages \`{a} 1 apr\`{e}s la page titre, ce qui permet de num\'{e}roter
+%	virtuellement cette	derni\`{e}re sans compter la page blanche du verso.
+%
+%	L'insertion automatique du sous-titre se fait en v\'{e}rifiant la longueur de celui-ci.
+% 	S'il est vide, on n'ins\`{e}re qu'un saut de ligne ; dans le cas contraire, on ins\`{e}re un
+% 	: puis le sous-titre \`{a} la ligne suivante.
+%
+%	Plut\^{o}t que de d\'{e}finir des espacements de grandeur d\'{e}finies entre les diff\'{e}rents \'{e}l\'{e}ments
+%	de la page titre, la commande utilise la commande \cmd{\vfill}, ce qui permet de justifier
+%	verticalement les \'{e}l\'{e}ments de la page, peu importe la taille de ceux-ci.
+%
+%	R\'{e}f\'{e}rez-vous \`{a} l'Annexe F du \emph{Guide de r\'{e}daction} pour voir un mod\`{e}le de page titre
+% 	de th\`{e}se.
+% \else
+%	The +\HEC@pageTitrePhD+ command generates the dissertations' title page. It uses the
+%	+memoir+ class' +titlingpage+ environment, which gives more flexibility than \LaTeX's
+%	\cmd{\maketitle} command for the creation of title pages\cite{memoir}. The +titlingpage+
+%	environment resets the page numbering at 1 after the title page so it prevents the following
+%	blank page from being counted as a page.
+%
+%	Automatic insertion of the subtitle is made possible by calculating its length. If it is empty,
+%	only a new line is inserted. If it's not empty, a colon is inserted followed by the subtitle.
+%
+%	Instead of defining fixed vertical spaces between the title page elements, the command makes
+%	an extensive use of the \cmd{\vfill} command, which vertically justifies all elements in the page,
+% 	no matter what size they are.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HEC@pageTitrePhD}{%
+	\begin{titlingpage}
+		\centering
+		\begin{SingleSpace}
+			{\Large HEC MONTR\'{E}AL}\\
+			\'{E}cole affili\'{e}e \`{a} l'Universit\'{e} de Montr\'{e}al
+			\vfill
+			{\bfseries\HEC@titre
+				\ifthenelse{\equal{\HEC@sousTitre}{}}%
+					{ \\ }%
+					{~: \\ \HEC@sousTitre}				
+				\vfill
+				par \\
+				\HEC@auteur}
+			\vfill
+			Th\`{e}se pr\'{e}sent\'{e}e en vue de l'obtention du grade de Ph. D. en administration \\
+			(sp\'{e}cialisation \HEC@optionPhD)
+			\vfill
+			\HEC@moisDepot~\HEC@anneeDepot
+			\vfill
+			\copyright~\HEC@auteur, \HEC@anneeDepot
+		\end{SingleSpace}
+	\end{titlingpage}
+}
+
+%    \end{macrocode}
+%
+% \end{macro}
+%
+% \begin{macro}{\HEC@pageIdentificationJury}
+%
+% \ifnum\frenchdoc=1
+%	Cette commande utilise la version \'{e}toil\'{e}e de l'environnement +titlingpage+, car
+%	elle ne recommence pas la num\'{e}rotation des pages \`{a} 1, ce qui permet de d\'{e}marrer le
+%	r\'{e}sum\'{e} fran\c{c}ais de la th\`{e}se \`{a} la page iii.
+%
+%	La commande accorde aussi en genre tous les titres des intervenants de la th\`{e}se en
+%	\'{e}valuant individuellement les valeurs bool\'{e}ennes des variables +HEC@is*Femme+.
+%
+%	R\'{e}f\'{e}rez-vous \`{a} l'Annexe G du \emph{Guide de r\'{e}daction} pour voir un mod\`{e}le de page
+% 	d'identification du jury.
+% \else
+%	This command uses the +titlingpage+ environment's starred version which doesn't reset
+%	the page numbering at 1. In this way, the french abstract can start at page number iii,
+%	as requested.
+%
+%	The command also determines each contributor's job title spelling according to his or
+%	her gender. It is done by evaluating each +HEC@is*Femme+ boolean variable's value.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HEC@pageIdentificationJury}{%
+	\begin{titlingpage*}
+		\centering
+		\begin{SingleSpace}
+			{\Large HEC MONTR\'{E}AL}\\
+			\'{E}cole affili\'{e}e \`{a} l'Universit\'{e} de Montr\'{e}al
+			\vfill
+			Cette th\`{e}se intitul\'{e}e :
+			\vfill
+			{\bfseries\HEC@titre
+				\ifthenelse{\equal{\HEC@sousTitre}{}}%
+				{ \\ }%
+				{~: \\ \HEC@sousTitre}}
+			\vfill
+			Pr\'{e}sent\'{e}e par :
+			\vfill %
+			{\bfseries \HEC@auteur}
+			\vfill
+			a \'{e}t\'{e} \'{e}valu\'{e}e par un jury compos\'{e} des personnes suivantes :
+			\vfill
+			\HEC@presidentRapporteur \\
+			HEC Montr\'{e}al \\
+			\ifthenelse{\boolean{HEC@isPresRappFemme}}%
+				{Pr\'{e}sidente-rapportrice}%
+				{Pr\'{e}sident-rapporteur}
+			\vfill
+			\HEC@directeurRecherche \\
+			HEC Montr\'{e}al \\
+			\ifthenelse{\boolean{HEC@isDirRechFemme}}%
+				{Directrice de recherche}%
+				{Directeur de recherche}
+			\vfill
+			\HEC@codirecteurRecherche \\
+			\HEC@universiteCodirecteur \\
+			\ifthenelse{\boolean{HEC@isCodirRechFemme}}%
+				{Codirectrice de recherche}%
+				{Codirecteur de recherche}
+			\vfill
+			\HEC@membreJury \\
+			\HEC@universiteMembreJury \\
+			Membre du jury
+			\vfill
+			\HEC@examinateurExterne \\
+			\HEC@universiteExaminateur \\
+			\ifthenelse{\boolean{HEC@isExamExtFemme}}%
+				{Examinatrice externe}%
+				{Examinateur externe}
+			\vfill
+			\HEC@representantDirecteur \\
+			HEC Montr\'{e}al \\
+			\ifthenelse{\boolean{HEC@isRepDirFemme}}{%
+				Repr\'{e}sentante du directeur de HEC Montr\'{e}al}{%
+				Repr\'{e}sentant du directeur de HEC Montr\'{e}al}
+		\end{SingleSpace}
+	\end{titlingpage*}
+}
+
+%    \end{macrocode}
+%
+% \end{macro}
+%
+% \begin{macro}{\HEC@pageTitreMSc}
+%
+% \ifnum\frenchdoc=1
+%	La commande \cmd{\HEC@pageTitreMSc} utilise l'environnement +titlingpage+
+%	et ins\`{e}re automatiquement le sous-titre de la m\^{e}me mani\`{e}re que la commande 
+%	de page titre de th\`{e}se.
+%
+%	Cette commande est le seul endroit où on utilise un espacement d\'{e}fini pour
+%	s\'{e}parer les \'{e}l\'{e}ments du bloc titre-sous-titre-auteur de la page, et ce, afin de
+%	se conformer aux normes de pr\'{e}sentation d\'{e}montr\'{e}es \`{a} l'Annexe E du
+%	\emph{Guide de r\'{e}daction}.
+% \else
+% 	The \cmd{\HEC@pageTitreMSc} command uses the +titlingpage+ environment
+%	in the same manner as the dissertations' title page command.
+%
+%	This command is also the only place where a fixed vertical space is inserted
+%	between the title and the subtitle, in order to comply with the \emph{Guidelines}' 
+%	presentation standards.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HEC@pageTitreMSc}{%
+	\begin{titlingpage}
+		\centering
+		\begin{SingleSpace}
+			{\Large HEC MONTR\'{E}AL}
+			\vfill
+			{\bfseries\HEC@titre
+				\ifthenelse{\equal{\HEC@sousTitre}{}}%
+					{\\[12pt]}%
+					{~: \\ \HEC@sousTitre \\[12pt]}
+				par \\[12pt]
+				\HEC@auteur
+			\vfill
+			\HEC@directeurRecherche \\
+			HEC Montr\'{e}al \\
+			\ifthenelse{\boolean{HEC@isDirRechFemme}}%
+			{Directrice de recherche}%
+			{Directeur de recherche}
+				\vfill %
+				Sciences de la gestion \\%
+				(Sp\'{e}cialisation \HEC@optionMSc)}
+			\vfill
+			\emph{M\'{e}moire pr\'{e}sent\'{e} en vue de l'obtention \\ %
+				du grade de ma\^{i}trise \`{e}s sciences \\ %
+				(M. Sc.)}
+			\vfill
+			\HEC@moisDepot~\HEC@anneeDepot \\ %
+			\copyright~\HEC@auteur, \HEC@anneeDepot
+		\end{SingleSpace}
+	\end{titlingpage}
+}
+
+%    \end{macrocode}
+%
+% \end{macro}
+%
+% \ifnum\frenchdoc=1
+% \begin{macro}{\HECpagestitre}
+% \else
+% \begin{macro}{\HECtitlepages}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La commande \'{e}value la valeur de la variable bool\'{e}enne +HEC@isPhD+.
+%	Si le type de document est une th\`{e}se, la commande ins\`{e}re la page titre
+%	de th\`{e}se et la page d'identification du jury. Dans le cas contraire,
+%	elle ins\`{e}re la page titre d'un m\'{e}moire.
+% \else
+%	The command evaluates the +HEC@isPhD+ boolean variable's value.
+%	If the document is a dissertation, it inserts the dissertation's title
+%	page and the jury identification page. If the document is a thesis,
+%	the command inserts the thesis' title page. 
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HECpagestitre}{%
+	\ifthenelse{\boolean{HEC@isPhD}}{%
+		\HEC@pageTitrePhD
+		\HEC@pageIdentificationJury
+	}{%
+		\HEC@pageTitreMSc
+	}
+}
+\newcommand{\HECtitlepages}{\HECpagestitre}
+
+%    \end{macrocode}
+%
+% \end{macro}
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{Titres de l'introduction et de la conclusion}
+% \else
+%	\subsubsection{Introduction and conclusion titles}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Dans les th\`{e}ses et m\'{e}moires r\'{e}dig\'{e}s par articles, il y a plusieurs
+% 	introductions et conclusions, soit une introduction et une conclusion
+%	g\'{e}n\'{e}rales pour le travail, et une introduction et une conclusion par article.
+%	Pour distinguer les diff\'{e}rentes introductions et conclusions, la classe
+%	modifie le titre de ces sections pour «Introduction g\'{e}n\'{e}rale» et «Conclusion
+%	g\'{e}n\'{e}rale». Elle tient aussi compte de la langue par d\'{e}faut, comme pour tous
+%	les autres titres, comme on le verra en d\'{e}tail \`{a} la Section \ref{anglais}.
+% \else
+%	In dissertations and theses written with articles, there is more than
+%	one introduction and conclusion : a general introduction and conclusion for the
+%	whole document, and one introduction and conclusion for every article.
+%	To make a distinction between all of these introductions and conclusions, the
+%	class changes the document's introduction's and conclusion's titles to
+%	``General Introduction'' and ``General Conclusion''. The command also takes
+%	into account the document's default language, as for all other titles, as we'll
+%	see it in Section \ref{anglais}.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HECtitreIntroduction}{Introduction}
+\newcommand{\HECtitreConclusion}{Conclusion}
+\newcommand{\HECgenererTitres}{%
+	\ifthenelse{\boolean{HEC@isClassique}}{}{%
+		\IfLanguageName{english}{%
+			\renewcommand{\HECtitreIntroduction}{General Introduction}
+			\renewcommand{\HECtitreConclusion}{General Conclusion}
+		}{%
+			\renewcommand{\HECtitreIntroduction}{Introduction g\'{e}n\'{e}rale}
+			\renewcommand{\HECtitreConclusion}{Conclusion g\'{e}n\'{e}rale}
+		}
+	}
+}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{Prise en charge de l'anglais dans les titres et la table des mati\`{e}res}
+% \else
+%	\subsubsection{Automatic english translation of titles and table of contents}
+% \fi
+%	\label{anglais}
+%
+% \ifnum\frenchdoc=1
+%	Le +package+ +iflang+\cite{iflang} permet de d\'{e}tecter la langue par d\'{e}faut d'un document et
+%	d'effectuer des actions conditionnelles \`{a} la langue d\'{e}tect\'{e}e. La classe {\hecthese} prend en
+%	charge l'anglais et le fran\c{c}ais et se sert de +iflang+ pour g\'{e}n\'{e}rer les titres des sections
+%	«maison» des th\`{e}ses et m\'{e}moires.
+% \else
+%	The +iflang+ package\cite{iflang} enables the detection of a document's default language and
+%	allows the class to carry out conditional actions depending on the language. The \hecthese\
+%	class supports French and English and uses +iflang+ to generate ``homemade'' section titles
+%	for dissertations and theses.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HECtdmAbreviations}{%
+	\IfLanguageName{english}{List of acronyms}{Liste des abr\'{e}viations}
+}
+
+\newcommand{\HECtdmRemerciements}{%
+	\IfLanguageName{english}{Acknowledgements}{Remerciements}
+}
+
+\newcommand{\HECtdmAvantPropos}{%
+	\IfLanguageName{english}{Preface}{Avant-propos}
+}
+
+\newcommand{\HECtdmCadreTheorique}{%
+	\IfLanguageName{english}{Theoretical framework}{Cadre th\'{e}orique}
+}
+
+\newcommand{\HECtdmRevueLitterature}{%
+	\IfLanguageName{english}{Literature review}{Revue de la litt\'{e}rature}
+}
+
+\newcommand{\HECtdmResumeArticle}{%
+	\IfLanguageName{english}{Abstract}{R\'{e}sum\'{e}}
+}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsubsection{Bibliographies multiples dans les th\`{e}ses et m\'{e}moires par articles}
+% \else
+%	\subsubsection{Multiple bibliographies in by-articles dissertations and theses}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	La classe +memoir+ et le +package+ +chapterbib+ ne s'entendent pas
+% 	sur la place \`{a} accorder aux multiples bibliographies dans un document.
+%	La commande \cmd{\HECbibliographieArticle} fait en sorte que la
+%	bibliographie d'un article soit consid\'{e}r\'{e}e comme une section non num\'{e}rot\'{e}e
+% 	de cet article et renomme la section «R\'{e}f\'{e}rences».
+%
+%	La commande \cmd{\HECbibliographieGenerale} remet par la suite la
+%	bibliographie \`{a} sa place usuelle, soit au m\^{e}me niveau qu'un chapitre, encore
+%	une fois sans la num\'{e}roter. La commande renomme aussi la bibliographie
+%	«Bibliographie g\'{e}n\'{e}rale».
+%
+%	Les deux commandes tiennent compte de la langue par d\'{e}faut du document
+%	pour afficher la version anglaise ou fran\c{c}aise des titres des sections.
+% \else
+%	The +memoir+ class and +chapterbib+ package don't play along very well when the
+%	time comes when bibliographies have to be placed in a document. The
+%	\cmd{\HECbibliographieArticle} command makes sur that an article's 
+%	bibliography is considered like an unnumbered section and that its title
+%	is ``References''.
+%
+%	The \cmd{\HECbibliographieGenerale} command then puts back the document's
+%	bibliography at its usual place, which is an unnumbered chapter. The
+%	command also renames this chapter ``General Bibliography''.
+%
+%	The command finally detects the document's default language to automatically
+%	translate all titles.
+% \fi
+%
+%    \begin{macrocode}
+
+\newcommand{\HECbibliographieArticle}{%
+	\renewcommand{\bibsection}{%
+		\IfLanguageName{english}{%		
+			\renewcommand{\bibname}{References}
+		}{%
+			\renewcommand{\bibname}{R\'{e}f\'{e}rences}
+		}
+		\section*{\bibname}
+		\bibmark
+		\ifnobibintoc\else
+			\phantomsection\addcontentsline{toc}{section}{\bibname}
+		\fi
+		\prebibhook
+	}
+}
+
+\newcommand{\HECbibliographieGenerale}{%
+	\renewcommand{\bibsection}{%
+		\IfLanguageName{english}{%
+			\renewcommand{\bibname}{Bibliography}
+		}{%
+			\renewcommand{\bibname}{Bibliographie g\'{e}n\'{e}rale}
+		}
+		\chapter*{\bibname}
+		\bibmark
+		\ifnobibintoc\else
+			\phantomsection\addcontentsline{toc}{chapter}{\bibname}
+		\fi
+		\prebibhook
+	}
+}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	Pour que les citations s'affichent correctement dans tout le document,
+%	les commandes \cmd{\bibliographystyle} et \cmd{\bibliography} doivent
+%	\^{e}tre ins\'{e}r\'{e}es dans chaque fichier inclus. Cependant, les bibliographies
+%	ne doivent s'afficher que dans les articles et \`{a} la fin d'une th\`{e}se ou
+% 	d'un m\'{e}moire. La commande \cmd{\HECreferences} ins\`{e}re les deux commandes
+%	si le document est une th\`{e}se ou m\'{e}moire par articles,
+%	mais «cache» la bibliographie dans un conteneur, une +savebox+ qui ne
+%	sera jamais utilis\'{e}e.
+% \else
+%	In order to display your citations correctly in all the document,
+%	the \cmd{\bibliographystyle} and \cmd{\bibliography} command have to
+%	be inserted in each included file. However, the bibliographies must
+%	only be displayed in the articles and at the end of the document. The
+%	\cmd{\HECreferences} command inserts these two bibliography commands
+%	in the document if it is written with articles, but ``hides'' the
+%	unwanted bibliographies in a container, a +savebox+ that won't be
+%	ever used.
+%\fi
+%
+%    \begin{macrocode}
+
+\newsavebox{\bibliographieCachee}
+
+\newcommand{\HECreferences}[2]{%
+	\bibliographystyle{#1}
+	\savebox\bibliographieCachee{\parbox{\textwidth}{\bibliography{#2}}}
+}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Environnements de la classe}
+% \else
+%	\subsection{Class environments}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	L'environnement +HECdedicace+ cr\'{e}e un bloc de texte centr\'{e} verticalement
+%	dans la page et justifi\'{e} \`{a} droite, prenant au maximum la moiti\'{e} de la
+%	zone de texte normale d'une page. Le bloc de texte est \'{e}galement mis en italiques.
+%
+%	L'environnement +HECabreviations+ est une variante de  +description+
+% 	et sert \`{a} cr\'{e}er une liste d'abr\'{e}viations en deux colonnes align\'{e}es : une pour les abr\'{e}viations,
+%	une autre pour leur d\'{e}finition.
+% \else
+%	The +HECdedication+ environment creates a text block that is vertically centered,
+%	right-aligned horizontally and that takes only half of the page's regular text width.
+%	The text block is also emphasized.
+%
+%	The +HECabbreviations+ environment is a variation of the +description+ environment.
+%	It creates an acronyms list on two aligned columns : one for the acronyms and one
+%	for their definition.
+% \fi
+%
+%    \begin{macrocode}
+
+\newenvironment{HECdedicace}{%
+	\vfill
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+		\itshape}%
+	{%
+	\end{minipage}
+	\vfill%
+}
+\newenvironment{HECdedication}{\begin{HECdedicace}}{\end{HECdedicace}}
+
+\newenvironment{HECabreviations}[1]{%
+	\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries #1}]}%
+	{%
+	\end{description}%
+}
+\newenvironment{HECabbreviations}[1]{%
+	\begin{HECabreviations}{#1}}%
+	{\end{HECabreviations}}
+
+%    \end{macrocode}
+%
+% \ifnum\frenchdoc=1
+%	\subsection{Options des packages}
+% \else
+%	\subsection{Package options}
+% \fi
+%
+% \ifnum\frenchdoc=1
+%	Les traductions fran\c{c}aises de la \emph{List of figures} et de l'index ne
+%	correspondent pas aux expressions utilis\'{e}es dans le \emph{Guide de r\'{e}daction}.
+% 	Les traductions «Liste des figures» et «Index analytique» sont programm\'{e}es
+%	\`{a} m\^{e}me la classe pour corriger la situation.
+% \else
+%	The official French translations for the list of figures and the index
+%	don't correspond to those of the \emph{Guidelines}' French version.
+%	These translations are overridden by the class so they match with the
+%	university's official labels.
+% \fi
+%
+%    \begin{macrocode}
+
+\addto\captionsfrench{%
+	\renewcommand{\listfigurename}{Liste des figures}
+	\renewcommand{\indexname}{Index analytique}
+}
+%</class>
+%    \end{macrocode}
+%
+% ^^A Fin du code de la classe
+% \Finale
+%
+% \iffalse
+% ^^A Contenu des fichiers gabarits
+%<*gabarit>
+%<phd&classique&francais>%% GABARIT POUR UNE THESE CLASSIQUE
+%<phd&articles&francais>%% GABARIT POUR UNE THESE PAR ARTICLES
+%<msc&classique&francais>%% GABARIT POUR UN MEMOIRE CLASSIQUE
+%<msc&articles&francais>%% GABARIT POUR UN MEMOIRE PAR ARTICLES
+%<phd&classique&anglais>%% TEMPLATE FOR A CLASSIC DISSERTATION
+%<phd&articles&anglais>%% TEMPLATE FOR A DISSERTATION WRITTEN WITH ARTICLES
+%<msc&classique&anglais>%% TEMPLATE FOR A CLASSIC THESIS
+%<msc&articles&anglais>%% TEMPLATE FOR A THESIS WRITTEN WITH ARTICLES
+%%
+%<*francais>
+%% Ceci est le fichier maitre dans lequel vous inscrivez les m\'{e}tadonn\'{e}es
+%% relatives \`{a} votre travail, vous cr\'{e}ez vos commandes et environnements
+%% personnalis\'{e}s, et \`{a} partir duquel vous lancez vos compilations.
+%%
+%% NE REDIGEZ PAS VOTRE THESE OU MEMOIRE DANS CE FICHIER!
+%%
+%% Consultez la documentation de la classe hecthese pour de plus amples
+%% informations.
+%%
+%% DECLARATION DE LA CLASSE DE DOCUMENT
+%%
+%% La classe est declaree avec le type de document et les langues par
+%% defaut. Inscrivez dans la liste d'options la taille de police de
+%% caracteres (10pt, 11pt, 12pt) ou laissez la classe charger la taille
+%% par defaut : 12pt.
+%</francais>
+%<*anglais>
+%% This is the master file where you write all your work-related metadata,
+%% where you create your homemade commands and environments. It is from this
+%% file that you run your compilations.
+%%
+%% DO NOT WRITE YOUR DISSERTATION OR THESIS IN THIS FILE!
+%%
+%% Read the hecthese class documentation for more information.
+%%
+%% DOCUMENT CLASS DECLARATION
+%%
+%% The document class is declared with its default document type and
+%% language. Write in the options list the desired font size (10pt, 11pt,12pt)
+%% or let the class load the default font size: 12pt.
+%</anglais>
+%<phd&classique&francais>\documentclass[phdclassique,english,french]{hecthese}
+%<phd&articles&francais>\documentclass[phdarticles,english,french]{hecthese}
+%<msc&classique&francais>\documentclass[mscclassique,english,french]{hecthese}
+%<msc&articles&francais>\documentclass[mscarticles,english,french]{hecthese}
+%<phd&classique&anglais>\documentclass[phdclassique,french,english]{hecthese}
+%<phd&articles&anglais>\documentclass[phdarticles,french,english]{hecthese}
+%<msc&classique&anglais>\documentclass[mscclassique,french,english]{hecthese}
+%<msc&articles&anglais>\documentclass[mscarticles,french,english]{hecthese}
+%%
+%<*francais>
+%% PACKAGES DEJA CHARGES
+%%
+%% Voici la liste des packages qui viennent deja charges avec la classe
+%% hecthese. VOUS NE DEVEZ PAS LES RECHARGER A NOUVEAU! Si vous le faites,
+%% vous occasionnerez des bogues.
+%%
+%% Package[utf8]{inputenc}
+%% Package[T1]{fontenc}
+%% Package{natbib}
+%% Package{chapterbib}
+%% Package{babel}
+%% Package[autolanguage]{numprint}
+%% Package{calc}
+%% Package{enumitem}
+%% Package{tocvsec2}
+%% Package{graphicx}
+%% Package{color}
+%% Package{amsmath}
+%% Package{iflang}
+%% 
+%% PACKAGES A CHARGER
+%%
+%% Ajoutez tous les packages necessaires a la redaction de votre travail.
+%% Assurez-vous cependant de suivre les consignes suivantes :
+%%
+%% 1) Le package hyperref doit etre charge EN DERNIER si vous voulez qu'il
+%%		fonctionne correctement.
+%% 2) Le package geometry est INCOMPATIBLE avec la classe memoir. Vous ne
+%%		devez pas l'utiliser dans votre travail. Consultez la documentation
+%%		de la classe memoir pour de plus amples informations.
+%%
+%% CHOIX D'UNE POLICE DE CARACTERES
+%% 
+%% Choisissez le package mathptmx si vous voulez utiliser une police de type
+%% Times, avec empattements, et le package mathpazo si vous voulez utiliser
+%% une police de type Arial, sans empattements. Choisissez-en une et supprimez
+%% l'autre, ou mettez-la en commentaires.
+%</francais>
+%<*anglais>
+%% PRE-LOADED PACKAGES
+%%
+%% Here is the list of all the packages that come preloaded with the hecthese
+%% class. YOU MUST NOT RELOAD THEM! In doing so, you will create bugs.
+%%
+%% Package[utf8]{inputenc}
+%% Package[T1]{fontenc}
+%% Package{natbib}
+%% Package{chapterbib}
+%% Package{babel}
+%% Package[autolanguage]{numprint}
+%% Package{calc}
+%% Package{enumitem}
+%% Package{tocvsec2}
+%% Package{graphicx}
+%% Package{color}
+%% Package{amsmath}
+%% Package{iflang}
+%% 
+%% LOADING PACKAGES
+%%
+%% Add all the packages you need to write your dissertation or thesis.
+%% Read the class documentation so learn more about preloaded packages. Make
+%% sure to follow these instructions:
+%%
+%% 1) The hyperref MUST ALWAYS BE LOADED LAST if you want the package to work
+%%		correctly.
+%% 2) The geometry package et INCOMPATIBLE with the memoir class. You can't
+%%		use it in your work. Read the memoir class' documentation for more
+%%		information.
+%%
+%% CHOOSING A FONT
+%%
+%% Choose the mathptmx package if you want to use a serif-type font, like
+%% Times, and the mathpazo package if you want to use a sans serif-type font,
+%% like Arial. Choose one package and delete the other, or comment it out.
+%</anglais>
+\usepackage{mathptmx}
+%% \usepackage{mathpazo}
+
+\usepackage{hyperref}
+%%
+%<francais>%% PRODUCTION DE L'INDEX
+%<anglais>%% INDEX PRODUCTION
+%%
+\makeindex
+%<*articles>
+%%
+%<*francais>
+%% GENERATION DES TITRES
+%%
+%% On change les titres de l'introduction et de la conclusion generales.
+%</francais>
+%<*anglais>
+%% TITLE GENERATION
+%%
+%% We change the general introduction's and conclusion's titles.
+%</anglais>
+%%
+\HECgenererTitres
+%</articles>
+%%
+%%
+%<*francais>
+%% MISE EN FORME DE LA TABLE DES MATIERES
+%%
+%% On inclut dans la table des matieres toutes les divisions de document
+%% jusqu'aux sous-sections. Si vous desirez avoir une table des matieres
+%% plus detaillee, indiquez dans les deux commandes ci-dessous jusqu'a
+%% quel niveau vous voulez voir repertories dans la TDM.
+%</francais>
+%<*anglais>
+%% TABLE OF CONTENTS LAYOUT
+%% 
+%% All document divisions up to the subsections are included in the table
+%% of contents. If you want a more detailled table of contents, change
+%% the following two commands so they match the level of detail you want
+%% in your TOC.
+%</anglais>
+%%
+\setsecnumdepth{subsection}	% Numerotation des sous-sections / Subsection numbering
+\settocdepth{subsection} % Inclusion des sous-sections dans la TDM / Including subsections in the TOC
+%%
+%<*francais>
+%% METADONNEES DU DOCUMENT
+%%
+%% Le titre de votre travail. Si le titre est long, utilisez la commande \\
+%% pour le mettre sur plusieurs lignes.
+\HECtitre{Titre de la th\`{e}se ou du m\'{e}moire}
+%% Le sous-titre de votre travail. S'il ne comporte pas de sous-titre, videz
+%% le contenu des accolades.
+\HECsoustitre{Sous-titre de la th\`{e}se}
+%% L'auteur, c'est vous...
+\HECauteur{Pr\'{e}nom Nom}
+%% Nom de l'option de votre grade
+\HECoption{Nom de l'option}
+%% Mois du depot final de votre travail
+\HECmoisDepot{Mai}
+%% Annee du depot final de votre travail
+\HECanneeDepot{2017}
+%</francais>
+%<*anglais>
+%% DOCUMENT METADATA
+%%
+%% The title of your work. If the title is too long, use the \\ command
+%% to output the title in multiple lines.
+\HECtitle{Dissertation or thesis title}
+%% The subtitle of your work. If there is no subtitle, empty the contents
+%% from  the curly braces.
+\HECsubtitle{Dissertation or thesis subtitle}
+%% The author is you...
+\HECauthor{FirstName LastName}
+%% Name of the M.Sc. or Ph.D. option
+\HECoption{Option Name}
+%% Month of the work's final submission
+\HECsubMonth{May}
+%% Year of the work's final submission
+\HECsubYear{2018}
+%</anglais>
+%<*phd>
+%<*francais>
+%% Le nom complet du president rapporteur et son genre (M ou F)
+\HECpresidentRapporteur{Pr\'{e}nom Nom}{M ou F}
+%% Le nom complet de votre directeur de recherche et son genre (M ou F)
+\HECdirecteurRecherche{Pr\'{e}nom Nom}{M ou F}
+%% Le nom complet de votre codirecteur de recherche et son genre (M ou F)
+\HECcodirecteurRecherche{Pr\'{e}nom Nom}{M ou F}
+%% L'universite de provenance de votre codirecteur de recherche
+\HECuniversiteCodirecteur{HEC Montr\'{e}al}
+%% Le nom complet du membre du jury
+\HECmembreJury{Pr\'{e}nom Nom}
+%% L'universite de provenance du membre du jury
+\HECuniversiteMembreJury{HEC Montr\'{e}al}
+%% Le nom complet de l'examinateur externe et son genre (M ou F)
+\HECexaminateurExterne{Pr\'{e}nom Nom}{M ou F}
+%% L'universite de provenance de l'examinateur externe
+\HECuniversiteExaminateur{HEC Montr\'{e}al}
+%% Le nom complet du representant du directeur et son genre (M ou F)
+\HECrepresentantDirecteur{Pr\'{e}nom Nom}{M ou F}
+%</francais>
+%<*anglais>
+%% The complete name of the "rapporteur president" and her gender (M or F)
+\HECrapporteurPresident{FirstName LastName}{M or F}
+%% The complete name of the research director and her gender (M or F)
+\HECresearchDirector{FirstName LastName}{M or F}
+%% The complete name of the research codirector and her gender (M or F)
+\HECresearchCodirector{FirstName LastName}{M or F}
+%% The research codirector's university
+\HECcodirectorUniversity{HEC Montr\'{e}al}
+%% The complete name of the jury member
+\HECjuryMember{FirstName LastName}
+%% The jury member's university
+\HECjuryMemberUniversity{HEC Montr\'{e}al}
+%% The complete name of the external examinator and her gender (M or F)
+\HECexternalExaminator{FirstName LastName}{M or F}
+%% The external examinator's university
+\HECexaminatorUniversity{HEC Montr\'{e}al}
+%% The complete name of the director's representative and her gender (M or F)
+\HECdirectorRepresentative{FirstName LastName}{M or F}
+%</anglais>
+%</phd>
+%<*msc>
+%<*francais>
+%% Le nom complet de votre directeur de recherche et son genre (M ou F)
+\HECdirecteurRecherche{Pr\'{e}nom Nom}{M ou F}
+%</francais>
+%<*anglais>
+%% The complete name of the research director and her gender (M or F)
+\HECresearchDirector{FirstName LastName}{M or F}
+%</anglais>
+%</msc>
+%%
+%<*francais>
+%% OPTIONS DES PACKAGES CHARGES
+%%
+%% Si vos packages ont des options specifiques a charger avant le debut
+%% du document, inscrivez-les ci-dessous. Si vous voulez outrepasser les
+%% options des packages charges par defaut avec la classe hecthese,
+%% consultez la documentation pour en connaitre la procedure.
+%</francais>
+%<*anglais>
+%% PACKAGE OPTIONS
+%%
+%% If your packages need to have options loaded before the document's
+%% beginning, write them hereafter. If you want to override preloaded
+%% packages' options, read the class documentation to learn how.
+%</anglais>
+%%
+%% Options du package hyperref (inclure les metadonnees pdf dans les options) /
+%% hyperref package option (including pdf metadata)
+\hypersetup{%
+	colorlinks=true,
+	allcolors=black,
+	pdfauthor=\HECpdfauteur,
+	pdftitle=\HECpdftitre
+}
+%% Options de babel / babel options
+\frenchbsetup{%	
+	og=«, fg=» % caracteres « et » sont les guillemets
+}
+%%
+%<francais>%% DEBUT DE LA THESE OU DU MEMOIRE
+%<anglais>%% BEGINNING OF THE DISSERTATION OR THESIS
+%%
+\begin{document}
+%<*francais>
+%%
+%% STYLE BIBLIOGRAPHIQUE
+%%
+%% On utilise par defaut le style bibliographique francais issu du package 
+%% francais-bst. L'utilisation de ce style n'est pas obligatoire. Consultez
+%% la documentation pour connaitre la liste des styles compatibles avec la
+%% langue de redaction de votre these ou memoire.
+%%
+\bibliographystyle{francais}
+%</francais>
+%<*anglais>
+%%
+%% BIBLIOGRAPHY STYLE
+%%
+%% We use the default apalike bibliography style. Using this style isn't mandatory.
+%% Read the class' documentation to learn more about the styles compatible with
+%% the language of your dissertation or thesis.
+%%
+\bibliographystyle{apalike}
+%</anglais>
+	
+	%% Pages liminaires / frontmatter
+	\frontmatter
+	
+	%% Page de garde / cover page
+	\mbox{}
+	\thispagestyle{empty}
+	\cleardoublepage
+	
+	%% Page de titre
+%<francais>	\HECpagestitre
+%<anglais> \HECtitlepages
+	
+	%<*articles>
+	%% Configuration des bibliographies des articles /
+	%% Articles' bibliographies configuration
+	\HECbibliographieArticle
+	%</articles>
+
+	%% Resume francais / french abstract
+	%<francais>	\include{resume-francais}
+	%<anglais>	\include{abstract-french}
+	
+	%% Resume anglais / english abstract
+	%<francais>	\include{resume-anglais}
+	%<anglais>	\include{abstract-english}
+	
+	%% Table des matieres (* pour ne pas inclure la TDM dans la TDM) /
+	%% Table of contents (* for excluding the TOC from the TOC)
+	\tableofcontents*
+	\cleardoublepage
+	
+	%% Liste des tableaux / list of table
+	\listoftables
+	\cleardoublepage
+	
+	%% Liste des figures / list of figures
+	\listoffigures
+	\cleardoublepage
+	
+	%% Liste des abreviations / acronyms list
+	%<francais>	\include{liste-abreviations}
+	%<anglais>	\include{acronym-list}
+	
+	%<*phd>
+	%% Dedicace / dedication
+	%<francais>	\include{dedicace}
+	%<anglais>	\include{dedication}
+	
+	%% Remerciements / acknowledgements
+	%<francais>	\include{remerciements}
+	%<anglais>	\include{acknowledgements}
+	
+	%% Avant-propos / preface
+	%<francais>	\include{avant-propos}
+	%<anglais>	\include{preface}
+	%</phd>
+	%<*msc>
+	%% Avant-propos / preface
+	%<francais>	\include{avant-propos}	
+	%<anglais>	\include{preface}
+	
+	%% Remerciements / acknowledgements
+	%<francais>	\include{remerciements}
+	%<anglais>	\include{acknowledgements}
+	%</msc>
+	
+	%% Partie principale de la these ou du memoire / mainmatter
+	\mainmatter
+	
+	%% Introduction
+	\include{introduction}
+	
+	%<*phd&articles>
+	%% Cadre theorique / theoretical framework
+	%<francais>	\include{cadre-theorique}
+	%<anglais>	\include{theoretical-framework}
+	%</phd&articles>
+	%<*msc>
+	%% Revue de la litterature / literature review
+	%<francais>	\include{revue-litterature}
+	%<anglais>	\include{literature-review}
+	%</msc>
+	
+	%<*classique>
+	%% Chapitres de developpement / chapters
+	%<*francais>
+		\include{chapitre-1}
+		\include{chapitre-2}
+		\include{chapitre-3}
+	%</francais>
+	%<*anglais>
+		\include{chapter-1}
+		\include{chapter-2}
+		\include{chapter-3}
+	%</anglais>
+	%</classique>
+	%<*articles>
+	%% Articles de developpement / articles
+	\include{article-1}
+	%</articles>
+	%<*phd&articles>
+	\include{article-2}
+	\include{article-3}
+	%</phd&articles>
+	
+	%% Conclusion
+	\include{conclusion}
+	
+	%% Index analytique / analytical index
+	\printindex
+	
+	%% BIBLIOGRAPHIE / BIBLIOGRAPHY
+	%<*articles>
+	%<francais> %% Configuration de la bibliographie generale
+	%<anglais> %% General bibliography configuration
+	\HECbibliographieGenerale
+	%</articles>
+	%<francais>%% Inscrivez le nom de votre fichier .bib entre les accolades.
+	%<anglais>%% Write the name of your .bib file between the curly braces.
+	\bibliography{}
+	
+	\backmatter
+	
+	%% Retour a la pagination romaine / Back to roman page numbering
+	\pagenumbering{roman}
+	
+	%% Annexes / appendices
+	\appendix
+	%<francais>	\include{annexe}
+	%<anglais>	\include{appendix}
+	
+	%% Page de garde de fin / back cover page
+	\mbox{}
+	\thispagestyle{empty}
+	
+\end{document}
+%</gabarit>
+%
+% ^^A Resumes francais et anglais
+%<*resumefrancais>
+%<francais>%% Fichier contenant le resume francais, les mots-cles et les methodes de recherche.
+%<anglais>%% File containing the french abstract, keywords and research methods.
+\chapter*{R\'{e}sum\'{e}}
+\phantomsection\addcontentsline{toc}{chapter}{R\'{e}sum\'{e}}
+\thispagestyle{empty}	% Premiere page non paginee / Unnumbered first page
+
+%<francais>%% Redigez votre resume francais ici (350 a 500 mots). 
+%<anglais>%% Write your french abstract here (350 to 500 words).
+
+\section*{Mots-cl\'{e}s}
+
+%<francais>%% Inscrivez vos mots-cles ici (15 maximum, incluant les methodes de recherche ci-dessous).
+%<anglais>%% Write your french keywords here (15 max, including the research methods).
+
+\section*{M\'{e}thodes de recherche}
+
+%<*francais>
+%% Inscrivez vos methodes de recherche ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your research methods here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier-file-name}
+%</resumefrancais>
+%<*resumeanglais>
+%<francais>%% Fichier contenant le resume anglais, les mots-cles et les methodes de recherche.
+%<anglais>%% File containing the English abstract, keywords and research methods.
+\chapter*{Abstract}
+\phantomsection\addcontentsline{toc}{chapter}{Abstract}
+
+%<francais>%% Redigez votre resume anglais ici (350 a 500 mots).
+%<anglais>%% Write your english abstract hereafter (350 to 500 words).
+
+\section*{Keywords}
+
+%<francais>%% Inscrivez vos mots-cles en anglais ici (15 maximum, incluant les methodes de recherche ci-dessous).
+%<anglais>%% Write your english keywords here (15 max, including the research methods)
+
+\section*{Research methods}
+
+%<*francais>
+%% Inscrivez vos methodes de recherche en anglais ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your research methods here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier-file-name}
+%</resumeanglais>
+%
+% ^^A Liste des abreviations
+%<*listeabreviations>
+%<*francais>
+%% Fichier contenant la liste des abreviations. Vous retrouverez ci-dessous un exemple
+%% de liste. L'environnement HECabreviations prend en argument la plus longue des
+%% abreviations. A la compilation, une liste en deux colonnes alignees est generee.
+%</francais>
+%<*anglais>
+%% File containing the acronyms list. You'll find below and example list. The
+%% HECabbreviations environment takes as an argument the longest acronym. On
+%% compilation, a list with two aligned columns is generated.
+%</anglais>
+\chapter*{\HECtdmAbreviations}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtdmAbreviations}
+
+%<francais>\begin{HECabreviations}{ABBR}
+%<anglais>\begin{HECabbreviations}{ABBR}
+	\item[ABBR] Abr\'{e}viation
+	\item[BAA] Baccalaur\'{e}at en administration des affaires
+	\item[DESS] Dipl\^{o}me d'\'{e}tudes sup\'{e}rieures sp\'{e}cialis\'{e}es
+	\item[HEC] Hautes \'{e}tudes commerciales
+	\item[MBA] Ma\^{i}trise en administration des affaires
+	\item[MSc] Ma\^{i}trise
+	\item[PhD] Doctorat
+%<francais>\end{HECabreviations}
+%<anglais>\end{HECabbreviations}
+%</listeabreviations>
+%
+% ^^A Dedicace
+%<*dedicace>
+%<*francais>
+%% Fichier contenant la dedicace
+%% N'inscrivez rien entre les accolades de la commande \chapter*{},
+%% sauf si vous voulez voir la dedicace dans la table des matieres.
+
+\chapter*{}
+
+\begin{HECdedicace}
+	%% Redigez votre dedicace ici.
+\end{HECdedicace}
+%</francais>
+%<*anglais>
+%% File containing the dedication
+%% Do not write anything between the curly braces of the \chapter*
+%% command unless you want the dedication to show up in the table
+%% of contents.
+
+\chapter*{}
+
+\begin{HECdedication}
+	%% Write your dedication here.
+\end{HECdedication}
+%</anglais>
+%</dedicace>
+%
+% ^^A Remerciements
+%<*remerciements>
+%<francais>%% Fichier contenant les remerciements
+%<anglais>%% File containing the acknowledgements
+\chapter*{\HECtdmRemerciements}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtdmRemerciements}
+
+%<francais>%% Redigez vos remerciements ici.
+%<anglais>%% Write your acknowledgements here.
+%</remerciements>
+%
+% ^^A Avant-propos
+%<*avantpropos>
+%<francais>%% Fichier contenant l'avant-propos
+%<anglais>%% File containing the preface
+\chapter*{\HECtdmAvantPropos}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtdmAvantPropos}
+
+%<*francais>
+%% Redigez votre avant-propos ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your preface here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier-file-name}
+%</avantpropos>
+%
+% ^^A Introduction
+%<*introduction>
+%<francais>%% Fichier contenant l'introduction
+%<anglais>%% File containing the introduction
+\chapter*{\HECtitreIntroduction}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtitreIntroduction}
+\thispagestyle{empty}	% Premiere page non paginee / First page is unnumbered
+
+%<*francais>
+%% Redigez votre introduction ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your introduction here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier}
+%</introduction>
+%
+% ^^A Cadre theorique
+%<*cadretheorique>
+%<francais>%% Fichier contenant le cadre theorique
+%<anglais>%% File containing the theoretical framework
+\chapter*{\HECtdmCadreTheorique}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtdmCadreTheorique}
+\thispagestyle{empty}
+
+%<*francais>
+%% Redigez votre cadre theorique ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your theoretical framework here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier-file-name}
+%</cadretheorique>
+%
+% ^^A Revue de litterature
+%<*revuelitterature>
+%<francais>%% Fichier contenant la revue de la litterature
+%<anglais>%% File containing the literature review
+\chapter*{\HECtdmRevueLitterature}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtdmRevueLitterature}
+\thispagestyle{empty}	% Premiere page non paginee / First page unnumbered
+
+%<*francais>
+%% Redigez votre revue de litterature ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your literature review here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier}
+%</revuelitterature>
+%
+% ^^A Chapitres de developpement
+%<*chapitre>
+%<*francais>
+%% Fichier contenant un chapitre du developpement. La classe genere
+%% trois fichiers de chapitres par defaut. Si vous en avez besoin
+%% davantage, enregistrez ce fichier sous un autre nom et incluez
+%% le nouveau fichier dans votre gabarit avec la commande \include.
+%</francais>
+%<*anglais>
+%% File containing one of the main content's chapters. The class
+%% generates three chapter files by default. If you need more,
+%% save a file with another name and include it in your template file
+%% with the \include command.
+%</anglais>
+\chapter{Titre du chapitre / Chapter title}
+\thispagestyle{empty}	% Premiere page non paginee / First page is unnumbered
+
+%<francais>%% Ecrivez votre chapitre ici.
+%<anglais>%% Write your chapter here.
+%</chapitre>
+%<*articledeveloppement>
+%<*francais>
+%% Fichier contenant un article. La classe genere trois fichiers
+%% d'articles par defaut. Une these compte generalement trois articles
+%% et un memoire, un. Si vous en avez besoin davantage,
+%% enregistrez ce fichier sous un autre nom et incluez-le dans
+%% votre gabarit avec la commande \include.
+%%
+%% Les articles sont structures tel que vous le voyez ci-dessous :
+%% un resume non numerote, une introduction, des sections et une 
+%% conclusion numerotees, et une bibliographie. Vous pouvez ajouter
+%% ou supprimer des sections de developpement selon vos besoins.
+%</francais>
+%<*anglais>
+%% File containing an article. The class generates three articles
+%% by default. A dissertation normally has three articles and a
+%% thesis, one. If you need more articles, save a file with another
+%% name and include it in your template file with the \include
+%% command.
+%%
+%% Articles are structured as you can see hereafter: an unnumbered abstract,
+%% an introduction, numbered sections and conclusion, and a bibliography.
+%% You can add or delete sections according to your needs.
+%</anglais>
+\chapter{Titre de l'article / Article title}
+\thispagestyle{empty}	% Premiere page non paginee / First page is unnumbered
+
+\section*{\HECtdmResumeArticle}
+\phantomsection\addcontentsline{toc}{section}{\HECtdmResumeArticle}
+
+%<francais>%% Redigez votre resume ici.
+%<anglais>%% Write your article abstract here.
+
+\section{Introduction}
+
+%<francais>%% Redigez votre introduction d'article ici.
+%<anglais>%% Write your article introduction here.
+
+\section{Titre de la section de d\'{e}veloppement 1 / Section 1 title}
+
+%<francais>%% Redigez votre section de developpement ici.
+%<anglais>%% Write your section 1 here.
+
+\section{Titre de la section de d\'{e}veloppement 2 / Section 2 title}
+
+%<francais>%% Redigez votre section de developpement ici.
+%<anglais>%% Write your section 2 here.
+
+\section{Titre de la section de d\'{e}veloppement 3 / Section 3 title}
+
+%<francais>%% Redigez votre section de developpement ici.
+%<anglais>%% Write your section 3 here.
+
+\section{Conclusion}
+
+%<francais>%% Redigez votre conclusion d'article ici.
+%<anglais>%% Write your article conclusion here.
+
+%<*francais>
+\bibliographystyle{francais}
+%% Inscrivez le nom de votre fichier .bib entre les accolades.
+%</francais>
+%<*anglais>
+\bibliographystyle{apalike}
+%% Write the name of your .bib file between the curly braces.
+%</anglais>
+\bibliography{}
+%</articledeveloppement>
+%
+% ^^A Conclusion
+%<*conclusion>
+%<francais>%% Fichier contenant la conclusion
+%<anglais>%% File containing the conclusion
+\chapter*{\HECtitreConclusion}
+\phantomsection\addcontentsline{toc}{chapter}{\HECtitreConclusion}
+\thispagestyle{empty}	% Premiere page non paginee / First page is unnumbered
+
+%<*francais>
+%% Redigez votre conclusion ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% Write your conclusion here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier-file-name}
+%</conclusion>
+%<*annexe>
+%<*francais>
+%% Fichier contenant une annexe. La classe ne genere qu'un seul
+%% fichier annexe.tex par defaut. Si vous en avez besoin davantage,
+%% enregistrez ce fichier sous un autre nom et incluez-le dans votre
+%% gabarit avec la commande \include.
+%%
+%% Pour que la bibliographie et la (les) annexe(s) soient paginees
+%% correctement, c'est-a-dire en chiffres arabes pour la bibliographie
+%% et en chiffres romains pour les annexes, ces dernieres doivent etre
+%% placees apres la commande \backmatter. Ce faisant, la numerotation
+%% des annexes s'en trouve desactivee. Vous devrez donc numeroter
+%% vos annexes manuellement a l'interieur de la commande \chapter.
+\chapter{Annexe A -- Titre de l'annexe}
+
+%% Redigez votre annexe ici.
+
+%% THESES ET MEMOIRES PAR ARTICLES SEULEMENT
+%% Si vous avez insere des citations dans cette section, retirez les signes 
+%% de commentaires (%%) devant la commande ci-dessous et inscrivez le style
+%% bibliographique et le nom du fichier .bib utilises pour vos references.
+%</francais>
+%<*anglais>
+%% File containing an appendix. The class only generates one appendix by default.
+%% If you need more, save the file with another name and include in your
+%% template file with the \include command.
+%%
+%% For the bibliography and appendices to be paged correctly, meaning in arabic
+%% numbers for the bibliography and roman numbers for the appendices, the latter
+%% have to placed after the \backmatter command. But by doing so, the appendices'
+%% numbering will be disabled. You'll have to number your appendices manually
+%% inside the \chapter command.
+\chapter{Appendix A -- Appendix Title}
+
+%% Write your appendix here.
+
+%% DISSERTATIONS AND THESES WRITTEN WITH ARTICLES
+%% If you have inserted citations in this section, uncomment the following
+%% command and type in the bibliography style and the .bib file name
+%% used for your references.
+%</anglais>
+%% \HECreferences{style}{nom-du-fichier-file-name}
+%</annexe>
+% \fi

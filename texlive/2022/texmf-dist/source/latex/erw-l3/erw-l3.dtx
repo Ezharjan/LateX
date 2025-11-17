@@ -1,0 +1,973 @@
+% \iffalse meta-comment
+% !TEX program  = pdfLaTeX
+%<*internal> 
+\iffalse
+%</internal> 
+%<*readme> 
+-----------------------------------------------------------------
+##### erw-l3 --- Utilities based on LaTeX3, such as 'merge sort'
+- Source repository: https://github.com/rogard/erw-l3
+- Released under the LaTeX Project Public License v1.3c or later
+- See http://www.latex-project.org/lppl.txt
+-----------------------------------------------------------------
+%</readme> 
+%<*internal> 
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+\expandafter\begingroup
+\fi
+%</internal> 
+%<*install> 
+\input l3docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+-----------------------------------------------------------------------------
+erw-l3 --- Utilities based on LaTeX3, such as 'merge sort'
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2020-2022 by Erwann Rogard
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Erwann Rogard.
+
+This work consists of the file erw-l3.dtx and the derived files:
+erw-l3.sty, and erw-l3.pdf.
+
+\endpostamble
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install> 
+%<install> \endbatchfile
+%<*internal> 
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\generate{
+  \file{README.md}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+\expandafter\endbatchfile
+\else
+\expandafter\endgroup
+\fi
+%</internal> 
+%<package> \NeedsTeXFormat{LaTeX2e}[2021-06-01]
+%<package> \RequirePackage{xparse, l3keys2e, xtemplate}[2021-06-01]
+%<package> \ProvidesExplPackage
+%<package> {erw-l3}                                             % Package name
+%<package> {2022-01-28}                                        % Release date
+%<package> {4.2}                                               % Release version
+%<package> {erw-l3 --- Utilities based on LaTeX3, such as 'merge sort'  }       % Description
+%<*driver> 
+\documentclass%^^A[show-notes]
+% ^^A[draft]
+{l3doc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+% ^^A \listfiles
+\usepackage{amsmath, bookmark, enumitem, mathtools, microtype, tcolorbox, xparse}
+\usepackage[french, german, english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[bibencoding=auto, backend=biber, sorting=ynt]{biblatex}
+\begin{filecontents*}{\jobname.bib}
+@manual{interface3,
+  title        = {The \LaTeX3 interfaces},
+  author       = {The \LaTeX3 Project Team},
+  year         = {2019},
+  note         = {\url{https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/l3kernel/expl3.pdf}},
+  annote       = {} }
+\end{filecontents*}
+\addbibresource{\jobname.bib}
+\ExplSyntaxOn
+% ^^A *** Sectioning
+\tl_gset:Nn \partname {Part}%^^A allows to test w/o babel
+% ^^A *** Msg
+\msg_new:nnn{__erw-l3_doc}{unknown}{~#1:#2~unknown}
+% ^^A *** Expressions
+\ProvideDocumentCommand{\docrule}{}{\texttt{$\rightarrow$}}
+\ProvideDocumentCommand{\docpipe}{}{\textbar}
+% ^^A *** L3 package
+\ProvideDocumentCommand{\docparam}{m}{\texttt{\#}\meta{#1}}
+% ^^A *** Lists
+\newlist{arab-inl}{enumerate*}{1}
+\setlist[arab-inl]{label=\arabic*)}
+\newlist{colon-inl}{itemize*}{1}
+\setlist[colon-inl]
+{ %^^Abefore=\noindent,
+  label={},
+  itemjoin={{; }},
+  after={{.}}}
+\newlist{descr}{description}{2}
+\setlist[descr]{nosep, align=right, itemindent=0pt, font=\sffamily\tiny}
+% ^^A Sort--->
+\ProvideDocumentCommand{\docdescrf}{m}{{\sffamily\bfseries\tiny{}#1}}
+\ProvideDocumentCommand{\docfillblank}{}{\begin{minipage}[t]{\linewidth}\end{minipage}}
+% ^^A Sort<---
+\ExplSyntaxOff
+% ^^A *** listing
+\tcbuselibrary{listings, breakable}
+\newtcblisting[auto counter]
+{listing}[2][]{
+  noparskip,
+  breakable,
+  colback=white,
+  colframe=black,
+  opacitybacktitle=.8,%
+  fonttitle=\bfseries,
+  title={Listing~\thetcbcounter. #1},
+  arc=0pt,
+  outer arc=0pt,
+  boxrule=1pt,
+  listing and text,
+  #2}
+\usepackage{erw-l3}
+\usepackage{hyperref} %^^A comes last
+\begin{document}
+\DocInput{\jobname.dtx}
+\end{document}
+%</driver> 
+% \fi
+% 
+% \GetFileInfo{\jobname.sty}
+% \title{The \pkg{erw-l3} package\thanks{^^A
+% This file describes version \fileversion, last revised \filedate.^^A
+% }^^A
+% }
+%   \begin{documentation}
+%     \maketitle
+%     \begin{abstract}
+%       Utilities based on \LaTeX3\cite{interface3}, such as \cs{erw_merge_sort:nNn}.
+%     \end{abstract}
+%   \tableofcontents
+%     \part{Usage}
+%     \section{\textsf{boilerplate}}
+%     \begin{function}{\erw_keys_set:n,\erw_keys_set:nn}
+%       \cs{erw_keys_set:n}\Arg{keyval list}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\erw_identity:n,
+%       \erw_int_incr:n,
+%       \erw_swap:nn,
+%       \erw_swap:ne,
+%       \erw_name_signature_cs:N}
+%     \end{function}
+%     \section{\textsf{quark}}
+%     \begin{function}
+%       {\erw_all_q:w,
+%       \erw_remove_first_q:w,
+%       \erw_first_q:w,
+%       \erw_remove_last_q:w,
+%       \erw_last_q:w}
+%       \begin{syntax}
+%         \cs{erw_remove_last_q:w}\meta{tokenlist} \cs[no-index]{q_recursion_tail}\cs[no-index]{q_recursion_stop}
+%       \end{syntax}
+%     \end{function}
+%     \section{\textsf{predicate}}
+%     \begin{function}{new_compare_p}
+%       \cs{erw_keys_set:n}|{ new_compare_p = |\Arg{name}\Arg{signature}\Arg{predicate}| }|
+%       \begin{descr}
+%       \item[Instance]\docfillblank
+%         \begin{descr}
+%         \item[erw_compare_p:nNnNn]
+%         \item[erw_int_incr_p:nn]
+%         \end{descr}
+%       \end{descr}
+%     \end{function}
+% \section{\textsf{op's on lists}}
+% \begin{function}
+%   {\erw_remove_first:n,
+%   \erw_remove_last:n,
+%   \erw_first:n,
+%   \erw_last:n,
+%   \erw_adjacent_insert:nn,
+%   \erw_adjacent_insert:en}
+% \end{function}
+% \section{\textsf{algo}}
+% \begin{function}
+%   {\erw_split_even:n,
+%   \erw_split_even:e,
+%   \erw_merge_sort:nNn,
+%   \thread_sort:nnNn,
+%   \erw_filter_uniq:nn,
+%   \erw_filter_uniq:n
+% }
+%   \begin{syntax}
+%     \cs{erw_thread_sort:nnNn}\Arg{first sorted list}\Arg{second sorted list}\Arg{compare predicate name}|<|\docpipe|>|
+%     \cs{erw_merge_sort:nNn}\Arg{compare predicate name}|<|\docpipe|>|\Arg{unsorted list}
+%     \cs{erw_filter_uniq:nn}\Arg{compare predicate}\Arg{tokenlist}
+%     \cs{erw_filter_uniq:n}\Arg{ascending intergers}
+%   \end{syntax}
+% \end{function}
+% \section{\textsf{code}}
+% \begin{function}{\erw_parameter:n,
+%   \erw_parameter:nn,\argument:nn,}
+%   \begin{syntax}
+%     \cs{erw_parameter:n}\Arg{arity}
+%     \cs{erw_parameter:nn}\Arg{start pos}\Arg{arity}
+%     \cs{erw_argument:nn}\Arg{start pos}\Arg{signature}
+%   \end{syntax}
+% \end{function}
+%
+% \part{Other}
+% \section{Bibliograhy}
+% \printbibliography[heading=none]
+% \section{Support}\label{other:support}
+% 
+% This package is available from \url{https://github.com/rogard/erw-l3}.
+% \changes{v4.0}{2022/01/27}
+%{Replacing 3.2 altogether (not used by any packages but mine that have been updated accordingly} 
+% \changes{v4.1}{2022/01/27}
+% {Removed commented portion labeled trash (thread), code_analyze, erw_compare_recurse_p:nnN[N], and keyval, as not used.}
+% \changes{v4.2}{2022/01.28}
+% {Removed \cs[no-index]{__erw_keyval_dispatch_build:nn}}
+% \StopEventually{
+% \clearpage
+% \PrintChanges
+% \PrintIndex %^^A https://tex.stackexchange.com/q/610349/112708
+% }
+%^^A%
+%   \end{documentation}
+%   \begin{implementation}
+%     \part{Implementation}\label{part:impl}
+%    \begin{macrocode}
+%<*package>      
+%<@@=erw>      
+%      \ExplSyntaxOn
+%    \end{macrocode}
+% \section{\textsf{kernel}}
+%    \begin{macrocode}
+\cs_generate_variant:Nn\int_compare_p:nNn{eNe}
+\cs_generate_variant:Nn\int_eval:n{e}
+\cs_generate_variant:Nn\prg_new_conditional:Nnn{c}
+\cs_generate_variant:Nn\prg_replicate:nn{e}
+\cs_generate_variant:Nn\regex_gset:Nn{c}
+\cs_generate_variant:Nn\regex_log:N{c}
+\cs_generate_variant:Nn\regex_match:NnTF{c}
+\cs_generate_variant:Nn\tl_to_str:n{e}
+\cs_generate_variant:Nn\prop_put:Nnn{Nne}
+%    \end{macrocode}
+% \section{\textsf{boilerplate}}
+%    \begin{macrocode}
+\msg_new:nnnn{@@}{text}{text~is~not~loaded}{load~amsmath}
+\cs_new:Npn \@@_text:n #1
+{\cs_if_exist:NTF\text{\text{#1}}{\msg_error:nn{@@}{text}}}
+\cs_new:Npn\@@_empty:w #1 \q_recursion_stop {\c_empty_tl}
+\cs_new_protected:Nn\erw_keys_set:n{ \keys_set:nn{@@}{#1} }
+\cs_new_protected:Nn\erw_keys_set:nn{ \keys_set:nn{@@ / #1}{#2} }
+\cs_generate_variant:Nn\erw_apply:Nw{c}
+\cs_new:Npn \erw_identity:n#1{#1}
+\cs_new:Npn \erw_int_incr:n#1{\int_eval:n{#1+1}}
+\cs_new:Npn \erw_swap:nn#1#2{#2#1}
+\cs_generate_variant:Nn \erw_swap:nn{e}
+\cs_new:Npn \erw_name_signature_cs:N #1
+{ \exp_last_unbraced:Ne
+  \@@_name_signature_cs:nnn{\cs_split_function:N#1}}
+\cs_new:Nn \@@_name_signature_cs:nnn{{#1}{#2}}
+%    \end{macrocode}
+% \section{\textsf{quark}}
+%    \begin{macrocode}
+\msg_new:nnn{erw}{quark-only-tail}
+{requires~tail;~got~'#1';~\msg_line_context:}
+\cs_new:Npn
+\erw_all_q:w
+#1
+\q_recursion_stop
+{%
+  \erw_remove_last_q:w#1\q_recursion_stop
+  \erw_last_q:w#1\q_recursion_stop
+}
+\cs_new:Npn
+\erw_remove_first_q:w
+#1 % <tokenlist ending with recursion tail>
+\q_recursion_stop
+{\quark_if_recursion_tail_stop:n{#1}
+  \@@_remove_first_q:nw#1\q_recursion_stop}
+\cs_new:Npn
+\@@_remove_first_q:nw
+#1 % <head>
+#2 % <rest>
+\q_recursion_stop
+{\erw_remove_last_q:w#2\q_recursion_stop
+  \erw_last_q:w#2\q_recursion_stop}
+\cs_new:Npn
+\erw_first_q:w
+#1
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#1}
+  \@@_first_q:enw{ \tl_if_head_is_group_p:n{#1}}#1\q_recursion_stop }
+\cs_new:Npn
+\@@_first_q:nnw
+#1 % <head is group>
+#2 % <head>
+#3 % <rest>
+\q_recursion_stop
+{%
+  \bool_if:nTF{#1}{{#2}}{#2}
+}
+\cs_generate_variant:Nn\@@_first_q:nnw{e}
+\cs_new:Npn
+\erw_remove_last_q:w #1 \q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#1}
+  \@@_remove_last_q:ew{\tl_if_head_is_group_p:n{#1}}#1\q_recursion_stop }
+\cs_new:Npn
+\@@_remove_last_q:nw
+#1 % <head is group>
+#2 % <tokenlist>
+\q_recursion_stop
+{ \@@_remove_last_q:nnw{#1}#2\q_recursion_stop }
+\cs_generate_variant:Nn\@@_remove_last_q:nw{e}
+\cs_new:Npn
+\@@_remove_last_q:nnw
+#1 % <head is group>
+#2 % <head>
+#3 % <rest>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#3}
+  \bool_if:nTF{#1}{{#2}}{#2}
+  \@@_remove_last_q:ew {\tl_if_head_is_group_p:n{#3}} #3 \q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_remove_last_q:nnw{e}
+\cs_new:Npn
+\erw_last_q:w #1 \q_recursion_stop
+{\quark_if_recursion_tail_stop:n{#1}
+  \@@_last_q:ew{\tl_if_head_is_group_p:n{#1}}#1\q_recursion_stop}
+\cs_new:Npn
+\@@_last_q:nw
+#1 % <head is group>
+#2 % <tokenlist>
+\q_recursion_stop
+{ \@@_last_q:nnw{#1}#2\q_recursion_stop }
+\cs_generate_variant:Nn\@@_last_q:nw{e}
+\cs_new:Npn
+\@@_last_q:nnw
+#1 % <head is group>
+#2 % <head>
+#3 % <rest>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#3}{ \bool_if:nTF{#1}{{#2}}{#2} }
+  \@@_last_q:ew {\tl_if_head_is_group_p:n{#3}} #3 \q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_last_q:nnw{e}
+%    \end{macrocode}
+% \section{\textsf{predicate}}
+%    \begin{macrocode}
+\msg_new:nnn{@@}{predicate-empty}
+{empty~expression~in~predicate}
+\prg_new_conditional:Npnn
+\erw_and_tl:nn
+#1 % <predicate expression>
+#2 % <tokens>
+{p}
+{%^^A
+  \@@_and_tl:nw {#1}#2 \q_recursion_tail\q_recursion_stop
+}
+\cs_new:Npn
+\@@_and_tl:nw
+#1 % <predicate expression>
+#2 % <value>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#2}
+  {  \prg_return_true: }
+  \@@_and_tl:nnw
+  {#1} % <predicate expression>
+  #2 % <value>
+  \q_recursion_stop
+}
+\cs_new:Npn
+\@@_and_tl:nnw
+#1 % <predicate expression>
+#2 % <value>
+#3 % <rest>
+\q_recursion_stop
+{%
+  \bool_if:nTF
+  {#1{#2}}
+  {\@@_and_tl:nw{#1}#3\q_recursion_stop}
+  { \prg_return_false: }
+}
+\cs_new:Npn \@@_new_compare_p:nnn
+#1 % <name>
+#2 % <signature>
+#3 % <code>
+{%
+  \prg_new_conditional:cnn{#1:#2}
+  {p}
+  {%
+    \bool_if:nTF
+    {#3}
+    {\prg_return_true:}
+    {\prg_return_false:}
+  }
+}
+\keys_define:nn{ @@ }
+{
+  new_compare_p.code:n = {\@@_new_compare_p:nnn#1}
+}
+\erw_keys_set:n
+{%
+  new_compare_p = 
+  {erw_compare} % <name>
+  {nNnNn}
+  { \@@_compare:eecN{ #2{#3} }{ #2{#5} }{ #1:nNn }#4 }
+}
+\cs_new:Npn
+\@@_compare:nnNN
+#1 % <first>
+#2 % <second>
+#3 % <predicate>
+#4 % <operator>
+{ #3{ #1 }#4{ #2 } }
+\cs_generate_variant:Nn\@@_compare:nnNN{eec}
+\erw_keys_set:n
+{%
+  new_compare_p =
+  {erw_int_incr}
+  {nn}
+  {\exp_args:Ne
+    \int_compare_p:nNn{ \int_eval:n{#1+1} } = {#2} }
+}
+%    \end{macrocode}
+% \section{\textsf{keyval}}
+%    \begin{macrocode}
+\cs_new:Npn\@@_keyval_key:w #1 = #2 \q_recursion_stop{#1}
+\cs_new:Npn\@@_keyval_value:w #1 = #2 \q_recursion_stop{#2}
+\cs_new:Npn \erw_keyval_key:n#1{\@@_keyval_key:w #1 \q_recursion_stop}
+\cs_new:Npn \erw_keyval_value:n#1{\@@_keyval_value:w #1 \q_recursion_stop}
+\cs_new:Npn \erw_keyval:nn#1#2{ #1 = #2 }
+\erw_keys_set:n
+{
+  new_compare_p = {erw_key_compare}
+  {nNn}{ \erw_compare_p:nNnNn
+    {int_compare_p}\erw_keyval_key:n{#1}#2{#3} },
+  new_compare_p = {erw_key_compare}
+  {n}{ \erw_compare_recurse_p:nnNN{#1}
+    {int_compare_p}\erw_keyval_key:n< }
+}
+%    \end{macrocode}
+% \section{\textsf{op's on list}}
+%    \begin{macrocode}
+\cs_new:Npn
+\erw_remove_first:n
+#1 % <tokenlist>
+{\erw_remove_first_q:w#1\q_recursion_tail\q_recursion_stop}
+\cs_generate_variant:Nn\erw_remove_first:n{e}
+\cs_new:Npn
+\erw_remove_last:n
+#1 % <tokenlist>
+{\erw_remove_last_q:w#1\q_recursion_tail\q_recursion_stop}
+\cs_generate_variant:Nn\erw_remove_last:n{e}
+\cs_new:Npn
+\erw_first:n
+#1
+{\erw_first_q:w#1\q_recursion_tail\q_recursion_stop}
+\cs_generate_variant:Nn\erw_first:n{e}
+\cs_new:Npn
+\erw_last:n
+#1 % <tokenlist>
+{\erw_last_q:w#1\q_recursion_tail\q_recursion_stop}
+\cs_generate_variant:Nn\erw_last:n{e}
+\cs_new:Npn
+\erw_adjacent_insert:nn
+#1 % <list>
+#2 % <separator>
+{%
+  \erw_first:n{#1}
+  \erw_swap:en
+  { \erw_remove_first:n{#1} }
+  {%
+    \@@_adjacent_insert:nw
+    {#2} % <separator>
+  }
+  \q_recursion_tail
+  \q_recursion_stop
+}
+\cs_generate_variant:Nn\erw_adjacent_insert:nn{e}
+\cs_new:Npn
+\@@_adjacent_insert:nw
+#1 % <separator>
+#2 % <rest>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#2}
+  \@@_adjacent_insert:new {#1}{\tl_if_head_is_group_p:n{#2}}#2 \q_recursion_stop
+}
+\cs_new:Npn
+\@@_adjacent_insert:nnw
+#1 % <separator>
+#2 % <head is group>
+#3 % <head>
+#4 % <rest>
+\q_recursion_stop
+{%
+  #1\bool_if:nTF{#2}{{#3}}{#3}
+  \@@_adjacent_insert:nw{#1}#4\q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_adjacent_insert:nnw{ne}
+%    \end{macrocode}
+%    \begin{macrocode}
+\cs_new:Npn
+\erw_clist_tl:nn
+#1 % <bool>
+#2 % <list>
+{ \erw_clist_tl:nnw {#1} #2 \q_recursion_tail\q_recursion_stop }
+\cs_new:Npn
+\erw_clist_tl:nnw #1 #2\q_recursion_stop
+{\quark_if_recursion_tail_stop:n{#2}
+  \erw_clist_tl:nenw {#1}
+  {\tl_if_head_is_group_p:n{#2}} #2 \q_recursion_stop}
+\cs_generate_variant:Nn\erw_clist_tl:nnw{ne}
+\cs_new:Npn
+\erw_clist_tl:nnnw
+#1 % <bool>
+#2 % <head is group>
+#3 % <head>
+#4 % <rest>
+\q_recursion_stop
+{
+  \quark_if_recursion_tail_stop_do:nn{#4}
+  {%
+    \bool_if:nTF
+    {\bool_lazy_and_p:nn{#1}{#2}}
+    {{#3}}{#3}
+  }
+  \bool_if:nTF{\bool_lazy_and_p:nn{#1}{#2}}
+  {{#3}}{#3},
+  \erw_clist_tl:nnw {#1} #4 \q_recursion_stop
+}
+\cs_generate_variant:Nn\erw_clist_tl:nnnw{ne}
+\prg_new_conditional:Npnn
+\erw_if_in_clist:nn
+#1 % <value>
+#2 % <clist>
+{p}
+{ \@@_clist_if_in:nw {#1} #2, \q_recursion_tail \q_recursion_stop }
+\cs_new:Npn
+\@@_clist_if_in:nw #1 #2 \q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#2}
+  \@@_clist_if_in:nnw {#1} #2 \q_recursion_stop
+}
+\cs_new:Nn
+\@@_clist_if_in:nn
+{\@@_clist_if_in:nw{#1} #2 \q_recursion_stop}
+\cs_new:Npn
+\@@_clist_if_in:nnw #1 #2, #3 \q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#3}
+  {%
+    \str_if_eq:nnTF{#1}{#2}
+    {\prg_return_true:}{\prg_return_false:}
+  }
+  \str_if_eq:nnTF{#1}{#2}
+  {\prg_return_true:}
+  {\@@_clist_if_in:nw {#1} #3 \q_recursion_stop}
+  \@@_empty:w\q_recursion_stop
+}
+%    \end{macrocode}
+% \section{\textsf{algo}}
+% \subsection{\textsf{split}}
+%    \begin{macrocode}
+\cs_new:Npn
+\erw_split_even:n
+#1 % <tokenlist>
+{%
+  \tl_if_empty:nF{#1}
+  {%
+    \exp_last_unbraced:Ne
+    \@@_split_even:nnnw
+    {%
+      {\@@_split_even_threshold:n{#1}} % <count>
+      {\tl_if_head_is_group_p:n{#1}} % <head is group>
+    }
+    #1 % <tokenlist>
+    \q_recursion_tail
+    \q_recursion_stop
+  }
+}
+\cs_generate_variant:Nn\erw_split_even:n{e}
+\cs_new:Npn
+\@@_split_even_threshold:n
+#1 % <tokenlist>
+{\exp_args:Ne
+  \int_div_round:nn{\tl_count:n{#1}}{2}}
+\cs_new:Npn
+\@@_split_even:nnnw
+#1 % <threshold>
+#2 % <head is group>
+#3 % <head>
+#4 % <rest>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#4}
+  { { \bool_if:nTF{#2}{{#3}}{#3} }{} }
+  \exp_last_unbraced:Ne
+  \@@_split_even:nnnnw
+  {%
+    {1} % <left size>
+    { \tl_if_head_is_group_p:n{#4} }
+    {#1} % <threshold count>
+    { \bool_if:nTF{#2}{{#3}}{#3} } % <left list>
+  }
+  #4 % <right list>
+  \q_recursion_stop
+}
+\cs_new:Npn
+\@@_split_even:nnnnw
+#1 % <left size>
+#2 % <right head is group>
+#3 % <threshold count>
+#4 % <left list>
+#5 % <right head>
+#6 % <right rest>
+\q_recursion_stop
+{%
+  \bool_if:nTF
+  { \int_compare_p:nNn {#1}<{#3} }
+  {%
+    \exp_last_unbraced:Ne
+    \@@_split_even:nnnnw
+    {
+      { \int_eval:n{#1+1} } % <left size>
+      { \tl_if_head_is_group_p:n{#6} } % <right head is group>
+      {#3} % <threshold count>
+      {#4\bool_if:nTF{#2}{{#5}}{#5}} % <left list>
+    }
+    #6
+    \q_recursion_stop
+  }
+  {%
+    {#4}
+    {%
+      \bool_if:nTF{#2}{{#5}}{#5}
+      \erw_remove_last_q:w#6\q_recursion_stop\erw_last_q:w#6\q_recursion_stop}
+  }
+}
+%    \end{macrocode}
+% \subsection{\textsf{thread sort}}
+%    \begin{macrocode}
+\cs_new:Npn
+\erw_thread_sort:nnNn
+#1 % <first sorted list>
+#2 % <second sorted list>
+#3 % <compare predicate name>
+#4 % <compare operator>
+{%
+  \@@_thread_sort:nNnnn
+  {#3} % <compare predicate name>
+  #4 % <compare operator>
+  {\c_empty_tl} % <accum>
+  {#1}
+  {#2}
+}
+\cs_generate_variant:Nn\erw_thread_sort:nnNn{ee}
+\cs_new:Npn
+\@@_thread_sort:nNnnn
+#1 % <compare predicate name>
+#2 % <compare operator>
+#3 % <sorted>
+#4 % <first>
+#5 % <second>
+{%
+  \@@_thread_sort:nNnww
+  {#1} % <compare predicate name>
+  {#2} % <compare operator>
+  {#3} % <sorted>
+  #4 \q_recursion_tail% <first>
+  \q_stop
+  #5 \q_recursion_tail% <second>
+  \q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_thread_sort:nNnnn{nNeee}
+\cs_new:Npn
+\@@_thread_sort:nNnww
+#1 % <compare predicate name>
+#2 % <compare operator>
+#3 % <sorted>
+#4 % <first>
+\q_stop
+#5 % <second>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#4}
+  { #3 \erw_all_q:w #5 \q_recursion_stop }
+  \quark_if_recursion_tail_stop_do:nn{#5}
+  { #3 \erw_all_q:w #4 \q_recursion_stop }
+  \@@_thread_sort:nNneeww
+  {#1}#2{#3}
+  { \tl_if_head_is_group_p:n{#4} }
+  { \tl_if_head_is_group_p:n{#5} }
+  #4\q_stop
+  #5\q_recursion_stop
+}
+\cs_new:Npn
+\@@_thread_sort:nNnnnww
+#1 % <compare predicate name>
+#2 % <compare operator>
+#3 % <sorted>
+#4 % <head is begin>
+#5 % <head is begin>
+#6 % <first head>
+#7 % <first rest>
+\q_stop
+#8 % <second head>
+#9 % <second rest>
+\q_recursion_stop
+{%
+  \bool_if:nTF
+  { \use:c{#1:nNn}{#6}#2{#8} }
+  {%
+    \@@_thread_sort:nNeee
+    {#1}
+    #2
+    {#3\bool_if:nTF{#4}{{#6}}{#6}}
+    {\erw_all_q:w#7\q_recursion_stop}
+    {\bool_if:nTF{#5}{{#8}}{#8}\erw_all_q:w#9\q_recursion_stop}
+  }
+  {%
+    \@@_thread_sort:nNeee
+    {#1}
+    #2
+    {#3\bool_if:nTF{#5}{{#8}}{#8}}
+    {\bool_if:nTF{#4}{{#6}}{#6}\erw_all_q:w#7\q_recursion_stop}
+    {\erw_all_q:w#9\q_recursion_stop}
+  }
+}
+\cs_generate_variant:Nn\@@_thread_sort:nNnnnww{nNnee}
+%    \end{macrocode}
+% \subsection{\textsf{merge sort}}
+%    \begin{macrocode}
+\cs_new:Npn
+\erw_merge_sort:nNn
+#1 % <compare predicate name>
+#2 % <compare operator>
+#3 % <unsorted list>
+{%
+  \tl_if_empty:nF{#3}
+  {% 
+    \@@_sort_merge:enNw
+    {\tl_if_head_is_group_p:n{#3}} % <head is group>
+    {#1} % <compare predicate name>
+    #2 % <compare operator>
+    #3 % <unsorted list>
+    \q_recursion_tail
+    \q_recursion_stop
+  }
+}
+\cs_generate_variant:Nn\erw_merge_sort:nNn{nNe}
+\cs_new:Npn
+\@@_sort_merge:nnNw
+#1 % <head is group>
+#2 % <compare predicate name>
+#3 % <compare operator>
+#4 % <unsorted list head>
+#5 % <unsorted list rest>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#5}
+  { \bool_if:nTF{#1}{{#4}}{#4} }
+  \exp_last_unbraced:Ne
+  \@@_sort_merge:nnnN
+  {%
+    \erw_split_even:e
+    {%
+      \bool_if:nTF{#1}{{#4}}{#4}
+      \erw_all_q:w#5\q_recursion_stop
+    }
+  } % {<first sorted list>}{<second sorted list>}
+  {#2} % <compare predicate name>
+  #3 % <compare operator>
+  \@@_empty:w \q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_sort_merge:nnNw{e}
+\cs_new:Npn
+\@@_sort_merge:nnnN
+#1 % <left unsorted list>
+#2 % <right unsorted list>
+#3 % <compare predicate name>
+#4 % <compare operator>
+{%
+  \erw_thread_sort:eeNn
+  {%
+    \@@_sort_merge:enNw
+    {\tl_if_head_is_group_p:n{#1}}
+    {#3} % <compare predicate name>
+    #4 % <compare operator>
+    #1 % <unsorted list>
+    \q_recursion_tail
+    \q_recursion_stop
+  } % <first sorted list>
+  {%
+    \@@_sort_merge:enNw
+    {\tl_if_head_is_group_p:n{#2}}
+    {#3} % <compare predicate name>
+    #4 % <compare operator>
+    #2 % <unsorted list>
+    \q_recursion_tail
+    \q_recursion_stop
+  } % <second sorted list>
+  {#3} % <compare predicate name>
+  #4 % <operator>
+}
+%    \end{macrocode}
+% \subsection{\textsf{filter}}
+%    \begin{macrocode}
+\msg_new:nnn{@@}{tokenlist-incr}
+{expecting~an~ascending~tokenlist~got~#1~followed~by~#2}
+\cs_new:Npn
+\@@_filter_uniq:nnw
+#1 % <compare predicate>
+#2 % <greatest>
+#3 % <tokenlist>
+\q_recursion_stop
+{ %
+  \quark_if_recursion_tail_stop:n{#3}
+  \@@_filter_uniq_aux:nnw{#1}{#2}#3\q_recursion_stop}
+\cs_new:Npn
+\@@_filter_uniq_aux:nw
+#1 % <compare predicate>
+#2 % <tokenlist head>
+#3 % <tokenlist rest>
+\q_recursion_stop
+{%
+  {#2}
+  \@@_filter_uniq:nnw
+  {#1} % <compare predicate>
+  {#2} #3 % <tokenlist>
+  \q_recursion_stop }
+\cs_new:Npn
+\@@_filter_uniq_aux:nnw
+#1 % <compare predicate>
+#2 % <last>
+#3 % <head token>
+#4 % <rest token>
+\q_recursion_stop
+{ %
+  \bool_if:nTF{\use:c{#1:nNn}{#3}<{#2}}
+  {\msg_error:nnnn{@@}{tokenlist-incr}{#2}{#3}}
+  {%
+    \bool_if:nF
+    {\use:c{#1:nNn}{#3}={#2}}
+% ^^A    {{#3}}
+{\tl_if_single_token:nTF{#3}{#3}{{#3}}}
+}
+\quark_if_recursion_tail_stop:n{#4}
+% ^^A  \@@_filter_uniq:nnw{#1}{#3}#4\q_recursion_stop }
+\@@_filter_uniq:nnw{#1}{#3}#4\q_recursion_stop }
+\cs_new:Npn
+\@@_filter_uniq:nw
+#1 % <compare predicate>
+#2 % <tokenlist>
+{%
+  \quark_if_recursion_tail_stop_do:nn{#2}{\c_empty_tl}
+  \@@_filter_uniq_aux:nw {#1}#2 \q_recursion_stop}
+\cs_new:Npn
+\erw_filter_uniq:nn
+#1 % <compare predicate>
+#2 % <tokenlist>
+{%
+  \@@_filter_uniq_aux:nw
+  {#1} % <compare predicate>
+  #2
+  \q_recursion_tail % <head token>
+  \q_recursion_stop}
+\cs_new:Npn
+\erw_filter_uniq:n
+#1 % <ascending integers>
+{ \erw_filter_uniq:nn{int_compare_p}{#1} }
+\cs_generate_variant:Nn\erw_filter_uniq:nn{ne}
+%    \end{macrocode}
+% \section{\textsf{code}}
+%    \begin{macrocode}
+\keys_define:nn{@@}
+{ clist_map_inline.code:n = \@@_map_inline_clist:nnn#1 }
+\cs_new_protected:Npn
+\@@_map_inline_clist:nnn
+#1 % <clist>
+#2 % <signature>
+#3 % <code>
+{
+  \cs_new_protected:cn
+  {@@_do:#2}{#3}
+  \clist_map_inline:nn
+  {#1}
+  {\use:c{@@_do:#2}##1}  
+}
+\cs_new:Npn
+\erw_parameter:n
+#1 %^^A  <arity>
+{## #1}
+\cs_new:Npn
+\@@_parameter_aux:nn
+#1 % <finish>
+#2 % <start>
+{ \int_step_function:nnN {#2}{#1}\erw_parameter:n}
+\cs_new:Npn
+\erw_parameter:nn
+#1 % <start>
+#2 % <count>
+{%
+  \exp_args:Ne
+  \@@_parameter_aux:nn
+  {\int_eval:n{#1+#2-1}}{#1}}
+\cs_new:Npn
+\erw_argument:nn
+#1 % <position>
+#2 % <signature>
+{\@@_argument:nw{#1}#2\q_recursion_tail\q_recursion_stop}
+\cs_new:Npn
+\@@_argument_unit:nn
+#1 % <position>
+#2 % <n|N>
+{\use:c{@@_argument_#2:w} #1 \q_recursion_stop}
+\cs_new:Npn\@@_argument_n:w #1 \q_recursion_stop{{## #1}}
+\cs_new:Npn\@@_argument_N:w #1 \q_recursion_stop{## #1}
+\cs_new:Npn
+\@@_argument:nw
+#1 % <position>
+#2 % <signature list>
+\q_recursion_stop
+{ \quark_if_recursion_tail_stop:n{#2}
+  \@@_argument:nnw{#1}#2\q_recursion_stop }
+\cs_new:Npn
+\@@_argument:nnw
+#1 % <position>
+#2 % <n|N>
+#3 % <signature rest>
+\q_recursion_stop
+{%
+  \@@_argument_unit:nn{#1}{#2}
+  \exp_args:Ne
+  \@@_argument:nw
+  {\erw_int_incr:n{#1}}#3\q_recursion_stop }
+%    \end{macrocode}
+% ^^A ---
+%    \begin{macrocode}
+\ProcessKeysOptions{@@}
+\ExplSyntaxOff
+%</package> 
+%    \end{macrocode}
+% \end{implementation}
+% \Finale
+\endinput

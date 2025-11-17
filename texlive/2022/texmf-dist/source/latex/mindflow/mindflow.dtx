@@ -1,0 +1,607 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2021-2022 by Jinwen XU 
+% -------------------------------
+% 
+% This file may be distributed and/or modified under the conditions of the LaTeX
+% Project Public License, either version 1.3c of this license or (at your option)
+% any later version. The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{mindflow.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{mindflow}
+%<*package>
+    [2022/01/31 The mindflow environment]
+%</package>
+%
+%<*driver>
+\documentclass{article}
+\usepackage{doc}
+\usepackage[a4paper,top=1.2in,bottom=1.2in,left=1.6in,right=1.2in]{geometry}
+\usepackage{titlesec}
+\titleformat{\section}{\large\scshape\centering}{\textcolor{black!55}{$\thesection$}}{.5em}{}
+\titleformat{\subsection}{\normalsize\scshape}{\textcolor{black!55}{$\thesubsection$}}{.5em}{}
+\titlespacing{\section}{0pt}{.75pc}{.5pc}
+\titlespacing{\subsection}{0pt}{.75pc}{.5pc}
+\usepackage{titling}
+\setlength{\droptitle}{-.75in}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\setlist[itemize,1]{label=\textcolor{black!55}{$\bullet$}}
+\usepackage{newpxtext}
+\useosf
+\usepackage{amssymb}
+\usepackage[euler-digits]{eulervm}
+% \usepackage{ebgaramond,ebgaramond-maths}
+\usepackage[symbol]{footmisc}
+\usepackage{microtype}
+\usepackage[mathlines,linenumber,rightmarker]{mindflow}
+\usepackage{parskip}
+\usepackage{listings}
+\definecolor{maintheme}{RGB}{50,100,150}
+\definecolor{forestgreen}{RGB}{21,122,81}
+\definecolor{lightergray}{gray}{0.99}
+\lstset{language=[LaTeX]TeX,
+    keywordstyle=\color{maintheme},
+    basicstyle=\ttfamily,
+    commentstyle=\color{forestgreen}\ttfamily,
+    stringstyle=\rmfamily,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{lightergray},
+    flexiblecolumns=true,
+    escapeinside={(*}{*)},
+    % numbers=left,
+    % numberstyle=\scriptsize, stepnumber=1, numbersep=5pt,
+    % firstnumber=last,
+} 
+\providecommand{\meta}[1]{$\langle${\normalfont\itshape#1}$\rangle$}
+\lstset{moretexcs=%
+    {linenumbers,nolinenumbers,mindflowLeft,mindflowRight,mindflowTextFont,mindflowNumFont,mindflowMarkerFont,mindflowLineHeight,setlength,colorlet,color,
+    RequirePackage,SetupKeyvalOptions,DeclareBoolOption,ProcessKeyvalOptions,PassOptionsToPackage,
+    PackageWarning,MessageBreak,
+    @mindflow@incolumntrue,if@mindflow@linenumber,@mindflow@leftlinenumbertrue,if@mindflow@on,if@mindflow@off,@mindflow@offfalse,if@mindflow@incolumn,if@mindflow@leftlinenumber,if@mindflow@rightlinenumber,if@mindflow@leftmarker,if@mindflow@rightmarker,if@mindflow@nonbreakable,if@mindflow@mathlines,
+    mindflow@parindent,mindflow@parskip,
+    ifLNturnsON,LNturnsONtrue,LNturnsONfalse,ifLineNumbers,
+    mindflowset,
+    mindflow,endmindflow,comment,endcomment,
+    mindflowON,endmindflowON,mindflowOFF,endmindflowOFF,
+    mfSepLine,makeLineNumber,LineNumber,
+    mindflow@makeLineNumber,LocallyStopLineNumbers,ResumeLineNumbers,
+    if@twocolumn,
+    ifICturnsON,ICturnsONtrue,ICturnsONfalse,AutoIncolumn,ResumeIncolumn,
+    newtcolorbox,
+    ifdefined,linenomathpatch,cspreto,csappto,patchcmd,linenomathpatchAMS,linenomathAMS,linenomathWithnumbers,linenomath,endlinenomath,linenomathNonumbers,linenopenalty,
+    define@key,setkeys,
+    nowidow,
+    }
+}
+\lstnewenvironment{code*}% 
+{\setkeys{lst}{columns=fullflexible,keepspaces=true}}{}
+\lstnewenvironment{code}% 
+{\setkeys{lst}{columns=fullflexible,keepspaces=true,numbers=left,numberstyle=\scriptsize, stepnumber=1, numbersep=5pt,lastline=236}}{}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{mindflow.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \GetFileInfo{mindflow.dtx}
+%
+%
+% \title{{\huge\scshape\textsf{mindflow}}\\[.15\baselineskip]\itshape\large write your ideas in a clear way\smallskip}
+% \author{\scshape Jinwen XU}
+% \footnotetext{\hspace*{-1em}Corresponding to: \textsf{mindflow} \ttfamily\filedate}
+% \date{\normalsize January 2022, in Paris}
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% The \textsf{mindflow} package provides you a way to write your ideas 
+% and annotations clearly. For example, with the options \verb|linenumber|
+% and \verb|rightmarker|, you will get something like this:
+% \begin{mindflow}
+%     What to write next:
+%     \begin{itemize}
+%         \item usage: the initialization, options and configuration;
+%         \item an example maybe;
+%         \item some word on the line numbering feature;
+%         \item some internal macros and the complete code.
+%     \end{itemize}
+% \end{mindflow}
+% This example only shows the default effect. You can customize it further according to the instructions in the next section.
+%
+% \section{The usage}
+%
+% \subsection{How to load it\,?}
+% Simply load the package with
+% \iffalse
+%<*example>
+% \fi
+\begin{code*}
+\usepackage{mindflow}
+\end{code*}
+% \iffalse
+%</example>
+% \fi
+%
+% By default, there are no decorations like line numbers or markers. To enable 
+% them, you can use the following options (they can be specified directly, like 
+% \verb|off|, or as a boolean optional, like \verb|off=false|):
+%
+% \begin{center}
+% \begin{tabular}{ll}
+%     \verb|linenumber|\hspace{5em} & Enable line numbering feature, same as \verb|leftlinenumber|\\
+%     \verb|mathlines| & Enable line numbers for displayed equations\\
+%     \verb|leftlinenumber| & Enable left line numbers\\
+%     \verb|rightlinenumber| & Enable right line numbers\\
+%     \verb|leftmarker| & Enable left marker, by default it is an asterisk ``\verb|*|''\\
+%     \verb|rightmarker| & Enable right marker, by default it is an asterisk ``\verb|*|''\\
+%     \verb|incolumn| & The separation line would fit in the column \\&(\emph{automatically applied in two-column documents})\\
+%     \verb|off|, \verb|on| & Turn the \verb|mindflow| environments \emph{off} or \emph{on}
+% \end{tabular}
+% \end{center}
+%
+% There is also an option \verb|nonbreakable|, which enables the \textsf{tcolorbox} version, permitting a background color, but is not breakable and does not support line numbering quite well.
+%
+% \subsection{How to use it\,?}
+% \DescribeEnv{\{mindflow\}}
+% You can then use the \verb|mindflow| environment as
+% \iffalse
+%<*example>
+% \fi
+\begin{code*}
+\begin{mindflow}
+    (*{\normalfont\meta{text}}*)
+\end{mindflow}
+\end{code*}
+% \iffalse
+%</example>
+% \fi
+%
+% \subsection{Further configurations}
+%
+% \DescribeMacro{\mindflowset}
+% You can use \lstinline|\mindflowset{|\meta{configuration}\lstinline|}| to
+% further configure the \texttt{mindflow} environment. The available keys are
+% listed at the top of the next page.
+% \clearpage
+%
+% \begin{center}
+% \begin{tabular}{ll|ll}
+%	  \hline
+%     \verb|left| & The left marker & \verb|right| & The right marker\\
+%     \verb|textcolor| & Color of the text & \verb|textfont| & Font of the text\\
+%     \verb|numcolor| & Color of line numbers & \verb|numfont| & Font of line numbers\\
+%     \verb|markercolor| & Color of the markers & \verb|markerfont| & Font of the marker\\
+%     \verb|linecolor| & Color of the separation line & \verb|lineheight| & Height of the separation line\\
+%	  \hline
+% \end{tabular}
+% \end{center}
+%
+% Additionally, most of the options mentioned in the previous section (except for \verb|nonbreakable| and \verb|mathlines|) can be set with \lstinline|\mindflowset|.%
+% \footnote{If the package option \texttt{nonbreakable} is enabled, then there is also a key \texttt{backgroundcolor}, similar to \texttt{textcolor}, for configuring the background color of the \texttt{mindflow} environments.}
+%
+% \section{An example}
+% With the following settings:
+% \iffalse
+%<*example>
+% \fi
+\begin{code*}
+\mindflowset{
+    leftlinenumber, rightlinenumber, leftmarker, rightmarker,
+    linecolor   = green!50!black,
+    textcolor   = blue!50!cyan,
+    numcolor    = red!50!orange,
+    markercolor = orange,
+    textfont    = \footnotesize\sffamily\itshape,
+    numfont     = \small\footnotesize\ttfamily,
+    markerfont  = \footnotesize\sffamily,
+    left        = \hspace{1em}\(\succ\),
+    right       = \(\prec\)\hspace{1em},
+    lineheight  = 1pt
+}
+\end{code*}
+% \iffalse
+%</example>
+% \fi
+% \vspace{-.5\baselineskip}
+% One will get something like this (a little bit exaggerated, to be honest):
+% \begingroup
+% \makeatletter
+% \@mindflow@leftmarkertrue
+% \@mindflow@rightlinenumbertrue
+% \makeatother
+% \colorlet{mindflowLine}{green!50!black}
+% \colorlet{mindflowText}{blue!50!cyan}
+% \colorlet{mindflowNum}{red!50!orange}
+% \colorlet{mindflowMarker}{orange}
+% \renewcommand{\mindflowTextFont}{\footnotesize\sffamily\itshape}
+% \renewcommand{\mindflowNumFont}{\small\footnotesize\ttfamily}
+% \renewcommand{\mindflowMarkerFont}{\footnotesize\sffamily}
+% \renewcommand{\mindflowLeft}{\hspace{1em}\(\succ\)}
+% \renewcommand{\mindflowRight}{\(\prec\)\hspace{1em}}
+% \setlength{\mindflowLineHeight}{1pt}
+% \begin{mindflow}
+%     Hello, here is some text without a meaning. This text should show what a printed text will look like at this place. If you read this text, you will get no information. Really? Is there no information? Is there a difference between this text and some nonsense like “Huardest gefburn”? Kjift – not at all! A blind text like this gives you information about the selected font, how the letters are written and an impression of the look. 
+% \end{mindflow}
+% \endgroup
+%
+% \section{About the line numbers}
+% \linenumbers
+%
+% You can also add line numbers to the other part of your document in the usual
+% way. For example, line numbers have been turned on for this paragraph with
+% \lstinline|\linenumbers|.
+%
+% \begin{mindflow}
+%   Line numbers within the \textsf{mindflow} environments are independent from
+%   those of the main text.
+% \end{mindflow}
+% (\emph{I recommend that you put an empty line before and after the mindflow
+% environments, i.e.~make the \emph{\textsf{mindflow}} environment a paragraph
+% of its own. This way, your paragraph structure won't get changed when you use
+% the} \verb|off|\emph{ option.})
+%
+% \nolinenumbers
+%
+% The line numbering feature is provided by package \textsf{lineno}. For
+% more details, please refer to its documentation. Notice that
+% displayed equations are not numbered by default. To enable the line numbers for them, you can use the option \verb|mathlines|. The result would be like:
+%
+% \begin{mindflow}\vspace{-\baselineskip}
+% \begin{align*}
+%     \sum_{i_1 < \cdots < i_n} \prod_{1 \leqslant j \leqslant n} i_j^{-2}  &= \frac{\pi^{2n}}{(2n+1)!}\\
+%     \implies \frac{e^{\pi}-e^{-\pi}}{2\pi} &= 1+ \sum_{n \geqslant 1} \sum_{i_1 < \cdots < i_n} \prod_{1 \leqslant j \leqslant n} i_j^{-2}
+% \end{align*}
+% \end{mindflow}
+%
+% \clearpage
+% {\color{black!55}
+% \makebox[\linewidth]{\rule{4\paperwidth}{\mindflowLineHeight}}%
+% \centerline{\itshape ---~~Readers who are not interested in technical details can skip the rest~~---}
+%
+% \vspace{-\baselineskip}
+% \makebox[\linewidth]{\rule{4\paperwidth}{\mindflowLineHeight}}%
+% }
+%
+% \section{Some \TeX{}nical details}
+%
+% \subsection{Internal macros for text elements}
+% \DescribeMacro{\mindflowTextFont}
+% \DescribeMacro{\mindflowNumFont}
+% \DescribeMacro{\mindflowMarkerFont}
+% The font for text, line numbers and markers within the \verb|mindflow|
+% environments can be specified by redefining \lstinline|\mindflowTextFont|,
+% \lstinline|\mindflowNumFont| and \lstinline|\mindflowMarkerFont|. By default, 
+% they are defined as:
+% \iffalse
+%<*example>
+% \fi
+\begin{code*}
+\newcommand{\mindflowTextFont}{\footnotesize}
+\newcommand{\mindflowNumFont}{\scriptsize\ttfamily}
+\newcommand{\mindflowMarkerFont}{\scriptsize\ttfamily}
+\end{code*}
+% \iffalse
+%</example>
+% \fi
+% \vspace{-.5\baselineskip}
+%
+% \DescribeMacro{\mindflowLeft}
+% \DescribeMacro{\mindflowRight}
+% The left and right markers is defined by
+% \lstinline|\mindflowLeft| and \lstinline|\mindflowRight|. Both have the default
+% value ``\verb|*|''.
+%
+% \DescribeMacro{\mindflowLineHeight}
+% The height of the separation lines is a length macro named \lstinline|\mindflowLineHeight|, 
+% with default value \verb|0.4pt|. You can change this with \lstinline|\setlength|.
+%
+% \subsection{Internal names of the colors}
+% \DescribeMacro{mindflowLine}
+% \DescribeMacro{mindflowText}
+% \DescribeMacro{mindflowNum}
+% \DescribeMacro{mindflowMarker}
+% And finally, the colors for the separation lines, text, line numbers and
+% markers within the \verb|mindflow| environments are called
+% \verb|mindflowLine|, \verb|mindflowText|, \verb|mindflowNum| and
+% \verb|mindflowMarker|, respectively. By default, they have the same color as
+% the context, with opacity 40\% for the separation lines and text, 20\% for 
+% the markers, and 8\% for line numbers. 
+% 
+% \DescribeMacro{*mindflowBackground}
+% If the package option \verb|nonbreakable| is enabled, then there is also the background color \verb|mindflowBackground|, which by default is white.
+%
+% \section{The same example revisited}
+% With option \verb|leftlinenumber, rightlinenumber, leftmarker, rightmarker| 
+% and the following settings:
+% \iffalse
+%<*example>
+% \fi
+\begin{code*}
+\colorlet{mindflowLine}{green!50!black}
+\colorlet{mindflowText}{blue!50!cyan}
+\colorlet{mindflowNum}{red!50!orange}
+\colorlet{mindflowMarker}{orange}
+\renewcommand{\mindflowTextFont}{\footnotesize\sffamily\itshape}
+\renewcommand{\mindflowNumFont}{\small\footnotesize\ttfamily}
+\renewcommand{\mindflowMarkerFont}{\footnotesize\sffamily}
+\renewcommand{\mindflowLeft}{\hspace{1em}\(\succ\)}
+\renewcommand{\mindflowRight}{\(\prec\)\hspace{1em}}
+\setlength{\mindflowLineHeight}{1pt}
+\end{code*}
+% \iffalse
+%</example>
+% \fi
+% \vspace{-.5\baselineskip}
+% One will get the same result as in the previous example.
+%
+% \section{Known issues}
+% 
+% \begin{itemize}
+%     \item There is no absolute guarantee that the separation lines will not fall alone at the top or bottom of the page, though great effort has been made to reduce the occurrence of such situation.
+%     \item The \texttt{nonbreakable} version does not support line numbering quite well, especially for displayed equations. This is due to the usage of \verb|internallinenumbers|.
+% \end{itemize}
+%
+% \StopEventually{}
+%
+% \clearpage
+% \section{Implementation}
+% Below is the complete source code of this package.
+%
+% \begin{code}
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{%
+    family = @mindflow,
+    prefix = @mindflow@
+}
+\DeclareBoolOption[true]{on}               % Turn on mindflow
+\DeclareBoolOption[false]{off}             % Turn off mindflow
+\DeclareBoolOption[false]{leftmarker}      % Left marker
+\DeclareBoolOption[false]{rightmarker}     % Right marker
+\DeclareBoolOption[false]{linenumber}      % Left line numbers
+\DeclareBoolOption[false]{leftlinenumber}  % Left line numbers
+\DeclareBoolOption[false]{rightlinenumber} % Right line numbers
+\DeclareBoolOption[false]{incolumn}        % Separation line fits in column
+\DeclareBoolOption[false]{nonbreakable}    % Use the tcolorbox version
+\DeclareBoolOption[false]{mathlines}       % Add line numbers to equations
+
+\ProcessKeyvalOptions*\relax
+
+\if@mindflow@on
+  \@mindflow@offfalse
+\fi
+\if@mindflow@linenumber
+  \@mindflow@leftlinenumbertrue
+\fi
+\if@mindflow@mathlines
+  \PassOptionsToPackage{mathlines}{lineno}
+\fi
+
+%%================================
+%% Initialization
+%%================================
+\RequirePackage{linenoamsmath}
+\RequirePackage{xcolor}
+
+\colorlet{mfSavedColor}{.}
+\colorlet{mindflowLine}{mfSavedColor!40}
+\colorlet{mindflowText}{mfSavedColor!40}
+\colorlet{mindflowMarker}{mfSavedColor!20}
+\colorlet{mindflowNum}{mfSavedColor!8}
+
+\newcommand{\mindflowTextFont}{\footnotesize}
+\newcommand{\mindflowNumFont}{\scriptsize\ttfamily}
+\newcommand{\mindflowMarkerFont}{\scriptsize\ttfamily}
+\newcommand{\mindflowLeft}{*}
+\newcommand{\mindflowRight}{*}
+\newlength{\mindflowLineHeight}
+\setlength{\mindflowLineHeight}{0.4pt}
+
+%%================================
+%% The mindflow environment
+%%================================
+\PassOptionsToPackage{all}{nowidow}
+\RequirePackage{nowidow}
+\RequirePackage{verbatim}
+
+\newif\ifLNturnsON
+\def\LocallyStopLineNumbers{\LNturnsONfalse%
+    \ifLineNumbers\LNturnsONtrue\fi\nolinenumbers}
+\def\ResumeLineNumbers{\ifLNturnsON\linenumbers\fi}
+
+\newif\ifICturnsON
+\def\AutoIncolumn{\ICturnsONfalse%
+    \if@mindflow@incolumn\ICturnsONtrue\fi%
+    \if@twocolumn\@mindflow@incolumntrue\fi%
+}
+\def\ResumeIncolumn{\ifICturnsON\@mindflow@incolumntrue\fi}
+
+\newcounter{recordLN}
+\newcounter{mfLN}
+\setcounter{mfLN}{1}
+
+\newcommand*{\mfSepLine}{%
+  \par%\nobreak%
+  \LocallyStopLineNumbers%
+  \vspace*{-.5\baselineskip}%
+  \noindent%
+  \if@mindflow@incolumn%
+    \makebox[\linewidth]{\color{mindflowLine}\rule{\linewidth}{\mindflowLineHeight}}%
+  \else%
+    \hspace*{-\paperwidth}%
+    \makebox[\linewidth]{\color{mindflowLine}\rule{4\paperwidth}{\mindflowLineHeight}}%
+  \fi%
+  \par%\nobreak%
+  \ResumeLineNumbers%
+}
+
+\newcommand{\mindflow@makeLineNumber}{%
+  \hss%
+  \if@mindflow@leftlinenumber%
+    \normalfont\mindflowNumFont\color{mindflowNum}\LineNumber\hspace{1em}%
+  \fi%
+  \color{mindflowMarker}%
+  \if@mindflow@leftmarker%
+    \normalfont\mindflowMarkerFont\mindflowLeft\hspace{1em}%
+  \fi%
+  \rlap{\hskip\textwidth%
+    \if@mindflow@rightmarker%
+      \hspace{1em}\mindflowRight%
+    \fi%
+    \if@mindflow@rightlinenumber%
+      \hspace{1em}%
+      \normalfont\mindflowNumFont\color{mindflowNum}\LineNumber%
+    \fi%
+  }%
+}%
+
+\let\mindflowOFF=\comment
+\let\endmindflowOFF=\endcomment
+
+\def\mindflowON{%
+  \postdisplaypenalty=10000
+  \parskip=0pt
+  \medskip%
+  \setcounter{recordLN}{\value{linenumber}}%
+  \setcounter{linenumber}{\value{mfLN}}%
+  \AutoIncolumn%
+  \mfSepLine%
+  \normalfont\mindflowTextFont\color{mindflowText}%
+  \linenumbers%
+  \let\makeLineNumber\mindflow@makeLineNumber%
+  \nopagebreak%
+}
+\def\endmindflowON{%
+  \nowidow[3]%
+  \mfSepLine%
+  \setcounter{mfLN}{\value{linenumber}}%
+  \setcounter{linenumber}{\value{recordLN}}%
+  \ResumeIncolumn%
+  \medskip%
+}
+
+\colorlet{mindflowBackground}{white}
+
+\if@mindflow@nonbreakable
+\PassOptionsToPackage{many}{tcolorbox}
+\RequirePackage{tcolorbox}
+\newlength{\mindflow@parindent}
+\newlength{\mindflow@parskip}
+\newtcolorbox{mindflow@nonbreakable}[1]{
+  enhanced jigsaw,
+  colback=mindflowBackground,colframe=mindflowLine,
+  leftrule=0pt, rightrule=0pt, sharp corners,
+  toprule=\mindflowLineHeight, bottomrule=\mindflowLineHeight,
+  boxsep=0pt, top=.3\baselineskip, bottom=.3\baselineskip,
+  fontupper=\mindflowTextFont,extras={colupper={mindflowText}},
+  before upper={
+    \setlength{\parindent}{\mindflow@parindent}%
+    \setlength{\parskip}{\mindflow@parskip}%
+  },#1
+}
+\def\mindflowON{%
+  \LocallyStopLineNumbers%
+  \setcounter{recordLN}{\value{linenumber}}%
+  \setcounter{linenumber}{\value{mfLN}}%
+  \AutoIncolumn%
+  \setlength{\mindflow@parindent}{\parindent}%
+  \setlength{\mindflow@parskip}{\parskip}%
+  \if@mindflow@incolumn%
+    \begin{mindflow@nonbreakable}{left=0pt,right=0pt}
+  \else%
+    \begin{mindflow@nonbreakable}{%
+      grow to left by=\linewidth,left=\linewidth,
+      grow to right by=\linewidth,right=\linewidth}
+  \fi
+    \begin{internallinenumbers}%
+      \let\makeLineNumber\mindflow@makeLineNumber%
+}
+\def\endmindflowON{%
+      \nowidow[3]%
+    \end{internallinenumbers}%
+  \end{mindflow@nonbreakable}\par%
+  \ResumeLineNumbers%
+  \setcounter{mfLN}{\value{linenumber}}%
+  \setcounter{linenumber}{\value{recordLN}}%
+  \ResumeIncolumn%
+}
+\fi
+
+\if@mindflow@off
+  \let\mindflow=\mindflowOFF
+  \let\endmindflow=\endmindflowOFF
+\else
+  \let\mindflow=\mindflowON
+  \let\endmindflow=\endmindflowON
+\fi
+
+%%================================
+%% \mindflowset
+%%================================
+\define@key{mindflow}{on}[true]{%
+  \csname @mindflow@on#1\endcsname%
+  \if@mindflow@off%
+    \let\mindflow=\mindflowOFF%
+    \let\endmindflow=\endmindflowOFF%
+  \else%
+    \let\mindflow=\mindflowON%
+    \let\endmindflow=\endmindflowON%
+  \fi%
+}
+\define@key{mindflow}{off}[true]{%
+  \csname @mindflow@off#1\endcsname%
+  \if@mindflow@off%
+    \let\mindflow=\mindflowOFF%
+    \let\endmindflow=\endmindflowOFF%
+  \else%
+    \let\mindflow=\mindflowON%
+    \let\endmindflow=\endmindflowON%
+  \fi%
+}
+\define@key{mindflow}{leftmarker}[true]{\csname @mindflow@leftmarker#1\endcsname}
+\define@key{mindflow}{rightmarker}[true]{\csname @mindflow@rightmarker#1\endcsname}
+\define@key{mindflow}{linenumber}[true]{\csname @mindflow@leftlinenumber#1\endcsname}
+\define@key{mindflow}{leftlinenumber}[true]{\csname @mindflow@leftlinenumber#1\endcsname}
+\define@key{mindflow}{rightlinenumber}[true]{\csname @mindflow@rightlinenumber#1\endcsname}
+\define@key{mindflow}{incolumn}[true]{\csname @mindflow@incolumn#1\endcsname}
+\define@key{mindflow}{linecolor}{\colorlet{mindflowLine}{#1}}
+\define@key{mindflow}{textcolor}{\colorlet{mindflowText}{#1}}
+\define@key{mindflow}{numcolor}{\colorlet{mindflowNum}{#1}}
+\define@key{mindflow}{markercolor}{\colorlet{mindflowMarker}{#1}}
+\define@key{mindflow}{backgroundcolor}{
+  \if@mindflow@nonbreakable
+    \colorlet{mindflowBackground}{#1}
+  \else
+    \PackageWarning{mindflow}{The key ``backgroundcolor'' is only available when the package option\MessageBreak ``nonbreakable'' is enabled.}
+  \fi
+}
+\define@key{mindflow}{textfont}{\renewcommand{\mindflowTextFont}{#1}}
+\define@key{mindflow}{numfont}{\renewcommand{\mindflowNumFont}{#1}}
+\define@key{mindflow}{markerfont}{\renewcommand{\mindflowMarkerFont}{#1}}
+\define@key{mindflow}{left}{\renewcommand{\mindflowLeft}{#1}}
+\define@key{mindflow}{right}{\renewcommand{\mindflowRight}{#1}}
+\define@key{mindflow}{lineheight}{\setlength{\mindflowLineHeight}{#1}}
+
+\newcommand{\mindflowset}[1]{%
+  \setkeys{mindflow}{#1}%
+}
+% \end{code}
+%
+% \Finale
+\endinput

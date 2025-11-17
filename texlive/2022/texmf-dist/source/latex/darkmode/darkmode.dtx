@@ -1,0 +1,191 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2022 by Ruben Deisenroth <rdeisenroth@gmail.com>
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or (at your option) any later
+% version. The latest version of this license is in:
+%
+% http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\RequirePackage{expl3,l3keys2e}
+%<package>\ProvidesExplPackage {darkmode} {2022-09-01} {1.0.1}
+%<package>{Provide general dark mode support for any LaTeX document.}
+%
+%<*driver>
+\documentclass{l3doc}
+\hypersetup{
+    hidelinks,
+}
+\usepackage{etoolbox}
+\usepackage{darkmode}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{1em}%
+\begin{document}
+\DocInput{darkmode.dtx}
+\end{document}
+%</driver>
+% \fi
+% \CheckSum{0}
+% \GetFileInfo{darkmode.sty}
+% \title{The \pkg{darkmode} package\thanks{This document
+% corresponds to \textsf{darkmode}~\fileversion,
+% dated~\filedate.}}
+% \author{Ruben Deisenroth \\ \texttt{rdeisenroth@gmail.com}}
+% \maketitle
+% \tableofcontents
+%
+% \begin{documentation}
+% \section{Introduction}
+% The \pkg{darkmode} Package provides an API for template and package developers to create dynamic color schemes for light- and darkmodes. For those unaware: We refer to \emph{dark mode} when a document has a dark background with a light font and to light mode if it has a dark font with a light background.
+% \subsection{Why}
+% Now you might think: Why would anyone even need to use a dark mode for PDF files?\\ While for the common task of printing a dark mode has a lot of disadvantages and would take a lot of ink, theese days it becomes more and more common to view PDF files directly on a Screen. And Screens emit a lot of Blue light, which - especially in the evening - can be really annoying to stare at when working on a large text document. Also modern displays can get so bright that a stark black and white contrast is too strong for most lighting scenarios.
+% \section{Usage}
+
+% \subsection{Basic usage}
+% The basic Idea behind this package is that the dark mode is enabled in the preamble once, either by passing the package option \verb+enable+ or via the command \tn{enabledarkmode}, and applies to the rest of the document. 
+% \subsection{Adopting the Darkmode}
+% When defining custom colors and commands, we can check if the dark mode is active or not to dynamically adjust the Colors.\par
+% Example: \begin{verbatim}
+% \DeclareDocumentCommand{\bluecode}{m}{%
+%     \texttt{\textcolor{\IfDarkModeTF{cyan}{blue}}{#1}}%
+% }
+% \end{verbatim}
+% Note that in most scenarios it is possible to use the \tn{IfDarkModeTF} command inline without any sideeffects. If cases where this doesn't work, an alternative is to wrap the entire definition of a macro in the switch:
+% \begin{verbatim}
+% \IfDarkModeTF{%
+%     \definecolor{accentcolor}{RGB}{0, 157, 129}%
+% }{%
+%     \definecolor{accentcolor}{RGB}{0, 122, 93}%
+% }
+% \end{verbatim} 
+% Another usefull trick is the usage of the colors \cs{thepagecolor} from the \pkg{pagecolor}-Package and the color \texttt{fgcolor} which is defined to the default font color. You can mix any color with these two colors to easily derive fitting colors:
+% \begin{verbatim}
+% % Fancy Altering Table Row Colors
+% \rowcolors{2}{\thepagecolor}{fgcolor!10!\thepagecolor}
+% \end{verbatim}
+% Note that \verb+yellow!10!\thepagecolor+ is not the same as \verb+yellow!10+ because the second one would just default to \verb+yellow!10!white+.
+% \section{Detailed documentation}
+% \subsection{Package options}
+% There following options can be passed to the package:
+% \begin{itemize}
+%    \item \texttt{enable} - boolean input, enables or disables the dark mode for the entire document
+% \item \texttt{defaulthook} - boolean input, whether to enable or disable the default hook (\tn{@darkmode@on@enable} or \tn{\@darkmode@on@disable})
+% \item \texttt{nodefaulthook} - meta key for disabeling the default hook
+%\end{itemize}
+% \subsection{User Commands}
+% \begin{function}{\enabledarkmode,\disabledarkmode}
+%    \tn{enabledarkmode} enables the dark Mode at the current position, while \tn{disabledarkmode} disables the dark mode at the current position.\\\textbf{Note:} that this is only intended to be used in the preamble for an entire document mainly with a CI/CD. Trying to toggle the dark mode between different pages may lead to unexpected behavior and is not recommended. For regular use to pass the \emph{enabled} option to the package.
+% \end{function}
+% \begin{function}[EXP]{\IfDarkModeT,\IfDarkModeF,\IfDarkModeTF}
+%    \begin{syntax}
+%        \tn{IfDarkModeT} \Arg{true code}
+%        \tn{IfDarkModeF} \Arg{false code}
+%        \tn{IfDarkModeTF} \Arg{true code} \Arg{false code}
+%    \end{syntax}
+%    Checks whether the dark mode is enabled or not. If so, \meta{true code} is executed, otherwise \meta{false code} is executed. These macros are fully expandable.
+% \end{function}
+% \subsection{Commands for developers}
+% This functionality is mostly aimed at package developers and template creators, for the end user it should not be necessary to manually fixup the Switching with compatible Packages and Classes.
+% \begin{function}[added = 2022-08-30]{\@darkmode@set@enabled,\@darkmode@set@disabled}
+%      Functions for template developers that want to implement dark mode toggling with \LaTeXe{}.
+% \end{function}
+% \end{documentation}
+% \clearpage
+% \begin{implementation}
+%     \section{implementation}
+% \begin{variable}{\g_@@_dark_mode_bool}
+%    First we define the package Options. The usage of initial ensures that the boolean \cs{g_@@_dark_mode_bool} always exists.
+%    \begin{macrocode}
+\RequirePackage{xcolor,pagecolor}
+\keys_define:nn {darkmode} {
+    enable .bool_gset:N = \g_@@_dark_mode_bool,
+    enable .initial:n = false,
+    enable .default:n = true,
+    defaulthook .bool_gset:N = \g_@@_dark_mode_hook_bool,
+    defaulthook .initial:n = true,
+    defaulthook .default:n = true,
+    nodefaulthook .meta:n = {defaulthook=false},
+}
+%    \end{macrocode}
+%   Now we process the package options.
+%    \begin{macrocode}
+\ProcessKeysOptions{darkmode}
+%    \end{macrocode}
+% \end{variable}
+
+% \begin{macro}[pTF]{\__darkmode_if_dark_mode:}
+%    We need a global Conditional to decide whether the dark mode is currently active or not   
+%    \begin{macrocode}
+\prg_new_conditional:Nnn \__darkmode_if_dark_mode: {T,F,TF} {
+    \bool_if:NTF \g_@@_dark_mode_bool
+    {\prg_return_true:}
+    {\prg_return_false:}
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\IfDarkModeT,\IfDarkModeF,\IfDarkModeTF}
+%    \begin{macrocode}
+\cs_set_eq:NN\IfDarkModeT \__darkmode_if_dark_mode:T
+\cs_set_eq:NN\IfDarkModeF \__darkmode_if_dark_mode:F
+\cs_set_eq:NN\IfDarkModeTF \__darkmode_if_dark_mode:TF
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\enabledarkmode,\@darkmode@set@enabled,\@darkmode@on@enable}
+%    \begin{macrocode}
+\definecolor{darkmode@anthrazitgrau}{HTML}{293133}
+\colorlet{fgcolor}{.}
+\DeclareDocumentCommand{\@darkmode@set@enabled}{}{
+    \bool_set_true:c {g_@@_dark_mode_bool} 
+}
+\DeclareDocumentCommand{\@darkmode@on@enable}{}{
+    \pagecolor{darkmode@anthrazitgrau}
+    \color{white}
+    \selectcolormodel{RGB}
+    \colorlet{fgcolor}{.}
+}
+\DeclareDocumentCommand{\enabledarkmode}{}{
+    \@darkmode@set@enabled
+    \bool_if:cT {g_@@_dark_mode_hook_bool} {\@darkmode@on@enable}
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\disabledarkmode, \@darkmode@set@disabled, \@darkmode@on@disabled}
+%    \begin{macrocode}
+\DeclareDocumentCommand{\@darkmode@set@disabled}{}{
+    \bool_set_false:c {g_@@_dark_mode_bool}
+}
+\DeclareDocumentCommand{\@darkmode@on@disable}{}{
+    \pagecolor{white}
+    \color{black}
+    \colorlet{fgcolor}{.}
+}
+\DeclareDocumentCommand{\disabledarkmode}{}{
+    \@darkmode@set@disabled
+    \bool_if:cT {g_@@_dark_mode_hook_bool} {\@darkmode@on@disable}
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\__darkmode_update_from_bool}
+%    \begin{macrocode}
+\DeclareDocumentCommand{\__darkmode_update_from_bool}{}{
+    \IfDarkModeTF{\enabledarkmode}{\disabledarkmode}
+}
+\__darkmode_update_from_bool
+%    \end{macrocode}
+% \end{macro}
+% \end{implementation}
+% \clearpage
+% \PrintIndex
+\endinput

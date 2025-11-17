@@ -1,0 +1,1506 @@
+%%
+%% This is file `scripture.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% scripture.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (c) 2022 David Purton <dcpurton@marshwiggle.net>
+%% 
+%% This work may be distributed and/or modified under the conditions of
+%% the LaTeX Project2 Public License, either version 1.3c of this license
+%% or (at your option) any later version. The latest version of this
+%% license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work is "maintained" (as per the LPPL maintenance status)
+%% by David Purton.
+%% 
+%% This work consists of the files scripture.ins, scripture.dtx, README.md,
+%% and the derived files scripture.sty and scripture.pdf
+%% 
+\NeedsTeXFormat{LaTeX2e}[2021-11-15]
+\ProvidesExplPackage{scripture}{2022/08/27}{1.1}
+  {Format Scripture Quotations (DCP)}
+\RequirePackage{l3keys2e}
+\msg_new:nnnn { scripture } { nested-environment }
+  { Nesting~of~scripture~environments~not~supported. }
+  { You~have~tried~to~nest~a~scripture~environment~or \\
+    one~of~its~internal~environments,~which~is~not~supported. }
+\keys_define:nn { scripture }
+  {
+    , aboveskip                .tl_set:N           = \l__scripture_aboveskip_tl
+    , aboveskip                .value_required:n   = true
+    , aboveskip                .initial:n          = \c_zero_skip
+    , belowskip                .tl_set:N           = \l__scripture_belowskip_tl
+    , belowskip                .value_required:n   = true
+    , belowskip                .initial:n          = \c_zero_skip
+    , compact                  .bool_set:N         = \l__scripture_compact_bool
+    , compact                  .default:n          = true
+    , compact                  .initial:n          = false
+    , leftmargin               .tl_set:N           = \l__scripture_leftmargin_tl
+    , leftmargin               .value_required:n   = true
+    , leftmargin               .initial:n          = \c_zero_dim
+    , rightmargin              .tl_set:N           = \l__scripture_rightmargin_tl
+    , rightmargin              .value_required:n   = true
+    , rightmargin              .initial:n          = \c_zero_dim
+    , chapter / font           .tl_set:N           = \l__scripture_chap_font_tl
+    , chapter / font           .value_required:n   = true
+    , chapter / font           .initial:n          = \bfseries
+    , chapter / drop           .bool_set:N         = \l__scripture_chap_drop_bool
+    , chapter / drop           .default:n          = true
+    , chapter / drop           .initial:n          = true
+    , chapter / format         .cs_set:Np          = \__scripture_chap_format:n #1
+    , chapter / format         .value_required:n   = true
+    , chapter / format         .initial:n          = #1
+    , chapter / hide           .bool_set_inverse:N = \l__scripture_chap_show_bool
+    , chapter / hide           .default:n          = true
+    , chapter / nodrop         .bool_set_inverse:N = \l__scripture_chap_drop_bool
+    , chapter / nodrop         .default:n          = true
+    , chapter / sep            .tl_set:N           = \l__scripture_chap_sep_tl
+    , chapter / sep            .value_required:n   = true
+    , chapter / sep            .initial:n          = 0.5 em
+    , chapter / show           .bool_set:N         = \l__scripture_chap_show_bool
+    , chapter / show           .default:n          = true
+    , chapter / show           .initial:n          = true
+    , extraskip                .tl_set:N           = \l__scripture_extraskip_tl
+    , extraskip                .value_required:n   = true
+    , extraskip                .initial:n          = \medskipamount
+    , font                     .tl_set:N           = \l__scripture_font_tl
+    , font                     .value_required:n   = true
+    , font                     .initial:n          =
+    , indent                   .bool_set:N         = \l__scripture_indent_bool
+    , indent                   .default:n          = true
+    , indent                   .initial:n          = true
+    , noindent                 .bool_set_inverse:N = \l__scripture_indent_bool
+    , noindent                 .default:n          = true
+    , parindent                .tl_set:N           = \l__scripture_parindent_tl
+    , parindent                .value_required:n   = true
+    , parindent                .initial:n          = \parindent
+    , parskip                  .tl_set:N           = \l__scripture_parskip_tl
+    , parskip                  .value_required:n   = true
+    , parskip                  .initial:n          = \parskip
+    , reference / delim        .tl_set:N           = \l__scripture_ref_delim_tl
+    , reference / delim        .value_required:n   = true
+    , reference / delim        .initial:n          = \hfill
+    , reference / font         .tl_set:N           = \l__scripture_ref_font_tl
+    , reference / font         .value_required:n   = true
+    , reference / font         .initial:n          = \bfseries
+    , reference / format       .cs_set:Np          = \__scripture_ref_format:n #1
+    , reference / format       .value_required:n   = true
+    , reference / format       .initial:n          = #1
+    , reference / sep          .tl_set:N           = \l__scripture_ref_sep_tl
+    , reference / sep          .value_required:n   = true
+    , reference / sep          .initial:n          = 2 em
+    , selah / text             .tl_set:N           = \l__scripture_selah_text_tl
+    , selah / text             .value_required:n   = true
+    , selah / text             .initial:n          = Selah
+    , selah / font             .tl_set:N           = \l__scripture_selah_font_tl
+    , selah / font             .value_required:n   = true
+    , selah / font             .initial:n          = \itshape
+    , selah / format           .cs_set:Np          = \__scripture_selah_format:n #1
+    , selah / format           .value_required:n   = true
+    , selah / format           .initial:n          = #1
+    , selah / sep              .tl_set:N           = \l__scripture_selah_sep_tl
+    , selah / sep              .value_required:n   = true
+    , selah / sep              .initial:n          = 1 em
+    , verse / font             .tl_set:N           = \l__scripture_verse_font_tl
+    , verse / font             .value_required:n   = true
+    , verse / font             .initial:n          =
+    , verse / format           .cs_set:Np          = \__scripture_verse_format:n #1
+    , verse / format           .value_required:n   = true
+    , verse / format           .initial:n          = \textsuperscript{#1}
+    , verse / hide             .bool_set_inverse:N = \l__scripture_verse_show_bool
+    , verse / hide             .default:n          = true
+    , verse / sep              .tl_set:N           = \l__scripture_verse_sep_tl
+    , verse / sep              .value_required:n   = true
+    , verse / sep              .initial:n          = 0.05 em
+    , verse / show             .bool_set:N         = \l__scripture_verse_show_bool
+    , verse / show             .default:n          = true
+    , verse / show             .initial:n          = true
+    , version                  .tl_set:N           = \l__scripture_version_tl
+    , version                  .value_required:n   = true
+    , version                  .initial:n          =
+    , version / delim          .tl_set:N           = \l__scripture_version_delim_tl
+    , version / delim          .value_required:n   = true
+    , version / delim          .initial:n          = \c_space_tl
+    , version / format         .cs_set:Np          = \__scripture_version_format:n #1
+    , version / format         .value_required:n   = true
+    , version / format         .initial:n          = (#1)
+    , center / aboveskip       .tl_set:N           = \l__scripture_center_aboveskip_tl
+    , center / aboveskip       .value_required:n   = true
+    , center / aboveskip       .initial:n          = \medskipamount
+    , center / belowskip       .tl_set:N           = \l__scripture_center_belowskip_tl
+    , center / belowskip       .value_required:n   = true
+    , center / belowskip       .initial:n          = \medskipamount
+    , center / leftmargin      .tl_set:N           = \l__scripture_center_leftmargin_tl
+    , center / leftmargin      .value_required:n   = true
+    , center / leftmargin      .initial:n          = \c_zero_dim
+    , center / rightmargin     .tl_set:N           = \l__scripture_center_rightmargin_tl
+    , center / rightmargin     .value_required:n   = true
+    , center / rightmargin     .initial:n          = \c_zero_dim
+    , flushright / aboveskip   .tl_set:N           = \l__scripture_flushright_aboveskip_tl
+    , flushright / aboveskip   .value_required:n   = true
+    , flushright / aboveskip   .initial:n          = \medskipamount
+    , flushright / belowskip   .tl_set:N           = \l__scripture_flushright_belowskip_tl
+    , flushright / belowskip   .value_required:n   = true
+    , flushright / belowskip   .initial:n          = \medskipamount
+    , flushright / leftmargin  .tl_set:N           = \l__scripture_flushright_leftmargin_tl
+    , flushright / leftmargin  .value_required:n   = true
+    , flushright / leftmargin  .initial:n          = \c_zero_dim
+    , flushright / rightmargin .tl_set:N           = \l__scripture_flushright_rightmargin_tl
+    , flushright / rightmargin .value_required:n   = true
+    , flushright / rightmargin .initial:n          = \c_zero_dim
+    , hanging / aboveskip      .tl_set:N           = \l__scripture_hanging_aboveskip_tl
+    , hanging / aboveskip      .value_required:n   = true
+    , hanging / aboveskip      .initial:n          = \medskipamount
+    , hanging / belowskip      .tl_set:N           = \l__scripture_hanging_belowskip_tl
+    , hanging / belowskip      .value_required:n   = true
+    , hanging / belowskip      .initial:n          = \medskipamount
+    , hanging / hang           .tl_set:N           = \l__scripture_hanging_hang_tl
+    , hanging / hang           .value_required:n   = true
+    , hanging / hang           .initial:n          = 2 em
+    , hanging / leftmargin     .tl_set:N           = \l__scripture_hanging_leftmargin_tl
+    , hanging / leftmargin     .value_required:n   = true
+    , hanging / leftmargin     .initial:n          = 1 em
+    , hanging / rightmargin    .tl_set:N           = \l__scripture_hanging_rightmargin_tl
+    , hanging / rightmargin    .value_required:n   = true
+    , hanging / rightmargin    .initial:n          = \c_zero_dim
+    , midparachap / hideverse  .bool_set_inverse:N = \l__scripture_midparachap_show_verse_bool
+    , midparachap / hideverse  .default:n          = true
+    , midparachap / showverse  .bool_set:N         = \l__scripture_midparachap_show_verse_bool
+    , midparachap / showverse  .default:n          = true
+    , midparachap / showverse  .initial:n          = true
+    , narrow / aboveskip       .tl_set:N           = \l__scripture_narrow_aboveskip_tl
+    , narrow / aboveskip       .value_required:n   = true
+    , narrow / aboveskip       .initial:n          = \medskipamount
+    , narrow / belowskip       .tl_set:N           = \l__scripture_narrow_belowskip_tl
+    , narrow / belowskip       .value_required:n   = true
+    , narrow / belowskip       .initial:n          = \medskipamount
+    , narrow / leftmargin      .tl_set:N           = \l__scripture_narrow_leftmargin_tl
+    , narrow / leftmargin      .value_required:n   = true
+    , narrow / leftmargin      .initial:n          = 1 em
+    , narrow / rightmargin     .tl_set:N           = \l__scripture_narrow_rightmargin_tl
+    , narrow / rightmargin     .value_required:n   = true
+    , narrow / rightmargin     .initial:n          = 1 em
+    , poetry / aboveskip       .tl_set:N           = \l__scripture_poetry_aboveskip_tl
+    , poetry / aboveskip       .value_required:n   = true
+    , poetry / aboveskip       .initial:n          = \medskipamount
+    , poetry / belowskip       .tl_set:N           = \l__scripture_poetry_belowskip_tl
+    , poetry / belowskip       .value_required:n   = true
+    , poetry / belowskip       .initial:n          = \medskipamount
+    , poetry / bigindent       .tl_set:N           = \l__scripture_poetry_big_indent_tl
+    , poetry / bigindent       .value_required:n   = true
+    , poetry / bigindent       .initial:n          = 4 em
+    , poetry / indent          .tl_set:N           = \l__scripture_poetry_indent_tl
+    , poetry / indent          .value_required:n   = true
+    , poetry / indent          .initial:n          = 1 em
+    , poetry / leftmargin      .tl_set:N           = \l__scripture_poetry_leftmargin_tl
+    , poetry / leftmargin      .value_required:n   = true
+    , poetry / leftmargin      .initial:n          = 1 em
+    , poetry / rightmargin     .tl_set:N           = \l__scripture_poetry_rightmargin_tl
+    , poetry / rightmargin     .value_required:n   = true
+    , poetry / rightmargin     .initial:n          = \c_zero_dim
+    , poetry / verse / left    .bool_set_inverse:N = \l__scripture_poetry_verse_right_bool
+    , poetry / verse / left    .default:n          = true
+    , poetry / verse / right   .bool_set:N         = \l__scripture_poetry_verse_right_bool
+    , poetry / verse / right   .default:n          = true
+    , poetry / verse / right   .initial:n          = true
+    , poetry / verse / sep     .tl_set:N           = \l__scripture_poetry_verse_sep_tl
+    , poetry / verse / sep     .value_required:n   = true
+    , poetry / verse / sep     .initial:n          = 0.05 em
+  }
+\ProcessKeysOptions { scripture }
+\hook_new_pair:nn { scripture / chap / before } { scripture / chap / after }
+\hook_new_pair:nn { scripture / verse / before } { scripture / verse / after }
+\bool_new:N \l__scripture_active_bool
+\bool_new:N \l__scripture_active_inner_bool
+\int_new:N \l__scripture_clubpenalty_saved_int
+\cs_new_protected:Nn \__scripture_extra_skip:
+  {
+    \int_compare:nNnT
+      \g__scripture_chap_par_prevgraf_int = 1
+      {
+        \dim_compare:nNnT
+          { \parskip + \l__scripture_extraskip_tl } < \baselineskip
+          {
+            \addvspace { \baselineskip }
+          }
+        \int_gzero:N \g__scripture_chap_par_prevgraf_int
+      }
+    \addvspace { \l__scripture_extraskip_tl }
+  }
+\cs_new_protected:Nn \__scripture_text_right:nn
+  {
+    {
+      \unskip
+      \hfil
+      \penalty 50
+      \skip_horizontal:n { #1 }
+      \hbox:n {}
+      \nobreak
+      \hfill
+      #2
+      \skip_zero:N \parfillskip
+      \int_zero:N \finalhyphendemerits
+      \para_end:
+    }
+  }
+\box_new:N \l__scripture_ref_box
+\cs_new_protected:Nn \__scripture_format_full_ref:n
+  {
+    \group_begin:
+    \l__scripture_ref_font_tl
+    \__scripture_ref_format:n { #1 }
+    \tl_if_empty:NF \l__scripture_version_tl
+      {
+        \l__scripture_version_delim_tl
+        \__scripture_version_format:n { \l__scripture_version_tl }
+      }
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_reference:n
+  {
+    \hbox_set:Nn \l__scripture_ref_box
+      {
+        \__scripture_format_full_ref:n { #1 }
+      }
+    \bool_if:NT \g__scripture_poetry_end_bool
+      { \skip_vertical:n { -\parskip } }
+    \dim_compare:nNnT
+      { \box_wd:N \l__scripture_ref_box + \g__scripture_final_line_dim + \l__scripture_ref_sep_tl }
+      >
+      \linewidth
+      { \skip_vertical:N \baselineskip }
+    \int_compare:nNnT \prevgraf = \c_zero_int
+      { \skip_vertical:n { -\baselineskip } }
+    \l__scripture_ref_delim_tl
+    \box_use:N \l__scripture_ref_box
+  }
+\box_new:N \l__scripture_chap_box
+\box_new:N \l__scripture_chap_tmp_box
+\dim_new:N \l__scripture_chap_fontsize_dim
+\dim_new:N \l__scripture_chap_height_dim
+\dim_new:N \l__scripture_chap_width_dim
+\int_new:N \g__scripture_chap_par_prevgraf_int
+\dim_new:N \l__scripture_chap_X_height_dim
+\cs_new_protected:Nn \__scripture_drop_chap_set_up:n
+  {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \hbox_set:Nn \l__scripture_chap_tmp_box { X }
+    \dim_set:Nn \l__scripture_chap_X_height_dim
+      { \box_ht:N \l__scripture_chap_tmp_box }
+    \dim_set:Nn \l__scripture_chap_height_dim
+      { \baselineskip + \l__scripture_chap_X_height_dim }
+    \dim_set:Nn \l__scripture_chap_fontsize_dim
+      {
+        \f@size pt *
+        \dim_ratio:nn
+          { \l__scripture_chap_height_dim }
+          { \l__scripture_chap_X_height_dim }
+      }
+    \hbox_set:Nn \l__scripture_chap_tmp_box
+      {
+        \l__scripture_chap_font_tl
+        \fontsize
+          { \l__scripture_chap_fontsize_dim }
+          { \l__scripture_chap_fontsize_dim }
+          \selectfont
+        \__scripture_chap_format:n { #1 }
+      }
+    \dim_set:Nn \l__scripture_chap_width_dim
+      { \box_wd:N \l__scripture_chap_tmp_box }
+    \int_set_eq:NN \l__scripture_clubpenalty_saved_int \clubpenalty
+    \clubpenalty 10000
+    \hook_gput_next_code:nn { para / after }
+      {
+        \int_gset_eq:NN \g__scripture_chap_par_prevgraf_int \prevgraf
+        \int_compare:nNnT
+          \g__scripture_chap_par_prevgraf_int = 1
+          { \penalty 10000 }
+        \hook_gput_next_code:nn { para / before }
+          { \int_set_eq:NN \clubpenalty \l__scripture_clubpenalty_saved_int }
+      }
+  }
+\cs_new_protected:Nn \__scripture_drop_chap_output:
+  {
+    \noindent
+    \parshape 3 ~
+      \dim_eval:n
+        { \@totalleftmargin + \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl } ~
+      \dim_eval:n
+        { \linewidth - \l__scripture_chap_width_dim - \l__scripture_chap_sep_tl } ~
+      \dim_eval:n
+        { \@totalleftmargin + \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl } ~
+      \dim_eval:n
+        { \linewidth - \l__scripture_chap_width_dim - \l__scripture_chap_sep_tl } ~
+      \@totalleftmargin ~
+      \linewidth
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
+    \box_use:N \l__scripture_chap_box
+    \hook_use:n { scripture / chap / after }
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_nodrop_chap:n
+  {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \group_begin:
+    \bool_if:NTF \l__scripture_chap_show_bool
+      {
+        \hook_use:n { scripture / chap / before }
+        \group_begin:
+        \l__scripture_chap_font_tl
+        #1
+        \group_end:
+        \skip_horizontal:N \l__scripture_chap_sep_tl
+        \hook_use:n { scripture / chap / after }
+      }
+      {
+        \hook_use:n { scripture / chap / before }
+        \hook_use:n { scripture / chap / after }
+        \vs { 1 }
+      }
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_chap:n
+  {
+    \__scripture_drop_chap_set_up:n { #1 }
+    \hbox_set:Nn \l__scripture_chap_box
+      {
+        \box_move_down:nn
+          { \baselineskip }
+          {
+            \hbox_overlap_left:n
+              {
+                \box_use:N \l__scripture_chap_tmp_box
+                \skip_horizontal:N \l__scripture_chap_sep_tl
+              }
+          }
+      }
+    \box_set_ht:Nn \l__scripture_chap_box { \c_zero_dim }
+    \box_set_dp:Nn \l__scripture_chap_box { \c_zero_dim }
+    \bool_if:NTF \l__scripture_mid_para_chap_bool
+      { \__scripture_mid_para_drop_chap_output: }
+      {
+        \par
+        \__scripture_drop_chap_output:
+      }
+    \hook_gput_next_code:nn { para / before }
+      {
+        \int_compare:nNnT
+          \g__scripture_chap_par_prevgraf_int = 1
+          { \extraskip }
+        \int_gzero:N \g__scripture_chap_par_prevgraf_int
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+      }
+  }
+\cs_new_protected:Nn \__scripture_verse_output:n
+  {
+    \cs_gset_nopar:Npn \scripturecurrentverse { #1 }
+    \mode_if_vertical:T
+      { \mode_leave_vertical: }
+    \group_begin:
+    \hook_use:n { scripture / verse / before }
+    \bool_if:NT \l__scripture_verse_show_bool
+      {
+        \l__scripture_verse_font_tl
+        \__scripture_verse_format:n { #1 }
+        \kern \l__scripture_verse_sep_tl
+      }
+    \hook_use:n { scripture / verse / after }
+    \group_end:
+  }
+\dim_new:N \g__scripture_final_line_dim
+\cs_new_protected:Nn \__scripture_calc_final_line_length:
+  {
+    \skip_set:Nn \abovedisplayshortskip { -\baselineskip }
+    \skip_set_eq:NN \abovedisplayskip \abovedisplayshortskip
+    \skip_zero:N \belowdisplayshortskip
+    \skip_zero:N \belowdisplayskip
+    $$
+      \dim_compare:nNnT \predisplaysize > \c_zero_dim
+        {
+          \dim_gset:Nn \g__scripture_final_line_dim
+            { \predisplaysize - 2 em }
+        }
+      \cs_gset_nopar:Nx \__scripture_reset_spacing:
+        {
+          \dim_set:Nn \predisplaysize { \dim_use:N \predisplaysize }
+          \int_set:Nn \prevgraf { \int_use:N \prevgraf }
+        }
+    $$
+    \__scripture_reset_spacing:
+    \dim_compare:nNnT \g__scripture_final_line_dim > \linewidth
+      {
+        \dim_gset_eq:NN \g__scripture_final_line_dim \linewidth
+      }
+    \dim_compare:nNnT \g__scripture_final_line_dim > { \c_zero_dim - 1 sp }
+      {
+        \skip_vertical:n { -\baselineskip - \parskip }
+      }
+  }
+\str_new:N \l__scripture_currenvir_str
+\skip_new:N \l__scripture_parskip_correction_skip
+\bool_new:N \g__scripture_start_bool
+\cs_new_protected:Nn \__scripture_begin:n
+  {
+    \bool_if:NT \l__scripture_active_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l__scripture_active_bool
+    \tl_set:Nn \l__scripture_currenvir_str { scripture }
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn { scripture } { #1 }
+      }
+    \legacy_if:nT { @newlist }
+      {
+        \strut
+        \par
+        \vspace* { \dim_eval:n { -\baselineskip - \parskip } }
+      }
+    \mode_if_vertical:T
+      {
+        \addvspace { \l__scripture_aboveskip_tl }
+      }
+    \DeclareDocumentCommand { \ch } { sm }
+      {
+        \bool_if:NTF \l__scripture_chap_show_bool
+          {
+            \bool_if:NTF \l__scripture_chap_drop_bool
+              {
+                \__scripture_chap:n { ##2 }
+                \bool_if:nT { ##1 }
+                  {
+                    \hook_gput_next_code:nn { para / after }
+                      { \int_gzero:N \g__scripture_chap_par_prevgraf_int }
+                  }
+              }
+              { \__scripture_nodrop_chap:n { ##2 } }
+          }
+          { \__scripture_nodrop_chap:n { ##2 } }
+      }
+    \everydisplay { }
+    \int_set:Nn \predisplaypenalty { 10000 }
+    \int_set_eq:NN \postdisplaypenalty \@lowpenalty
+    \bool_gset_true:N \g__scripture_start_bool
+    \bool_gset_false:N \g__scripture_poetry_end_bool
+    \dim_set_eq:NN \parindent \l__scripture_parindent_tl
+    \cs_set_eq:NN \extraskip \__scripture_extra_skip:
+    \cs_set_eq:NN \vs \__scripture_verse_output:n
+    \hook_gclear_next_code:n { para / before }
+    \skip_set:Nn \l__scripture_parskip_correction_skip { \parskip - \l__scripture_parskip_tl }
+    \mode_if_vertical:T
+      {
+        \addvspace { \l__scripture_parskip_correction_skip }
+      }
+    \skip_set_eq:NN \parskip \l__scripture_parskip_tl
+    \l__scripture_font_tl
+    \bool_lazy_or:nnT
+      { \dim_compare_p:n { \l__scripture_leftmargin_tl > 0pt } }
+      { \dim_compare_p:n { \l__scripture_rightmargin_tl > 0pt } }
+      {
+        \dim_sub:Nn \linewidth
+          { \l__scripture_leftmargin_tl + \l__scripture_rightmargin_tl }
+        \int_compare:nNnTF
+          \@listdepth > \c_zero_int
+          {
+            \dim_add:Nn \@totalleftmargin \l__scripture_leftmargin_tl
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+          {
+            \dim_add:Nn \leftskip \l__scripture_leftmargin_tl
+            \dim_add:Nn \rightskip \l__scripture_rightmargin_tl
+          }
+      }
+    \bool_if:NF \l__scripture_indent_bool
+      {
+        \hook_gput_next_code:nn { para / begin }
+          {
+            \bool_lazy_any:nT
+              {
+                { \str_if_eq_p:Vn \l__scripture_currenvir_str { midparachap } }
+                { \str_if_eq_p:Vn \l__scripture_currenvir_str { narrow } }
+                { \str_if_eq_p:Vn \l__scripture_currenvir_str { scripture } }
+              }
+              { \para_omit_indent: }
+          }
+      }
+  }
+\cs_new_protected:Nn \__scripture_end:n
+  {
+    \mode_if_vertical:TF
+      {
+        \unskip
+        \unskip
+      }
+      {
+        \tl_if_novalue:nTF { #1 }
+          { \int_zero:N \postdisplaypenalty }
+          { \int_set_eq:NN \postdisplaypenalty \@highpenalty }
+        \__scripture_calc_final_line_length:
+      }
+    \bool_lazy_or:nnTF
+      { \dim_compare_p:n { \l__scripture_leftmargin_tl > 0pt } }
+      { \dim_compare_p:n { \l__scripture_rightmargin_tl > 0pt } }
+      {
+        \dim_add:Nn \linewidth \l__scripture_leftmargin_tl
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          {
+            \dim_sub:Nn \@totalleftmargin \l__scripture_leftmargin_tl
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+      }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+    \tl_if_novalue:nF { #1 }
+      {
+        \__scripture_reference:n { #1 }
+      }
+    \par
+    \bool_lazy_or:nnT
+      { \dim_compare_p:n { \l__scripture_leftmargin_tl > 0pt } }
+      { \dim_compare_p:n { \l__scripture_rightmargin_tl > 0pt } }
+      {
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          {
+            \dim_add:Nn \linewidth \l__scripture_rightmargin_tl
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+      }
+    \dim_compare:nNnTF
+      \l__scripture_belowskip_tl > \parskip
+      {
+        \addvspace
+          {
+            \skip_eval:n { \l__scripture_belowskip_tl - \parskip }
+          }
+      }
+      {
+        \addvspace { \l__scripture_belowskip_tl }
+      }
+  }
+\skip_new:N \l__scripture_delta_below_skip
+\cs_new_protected:Nn \__scripture_center_begin:n
+  {
+    \bool_if:NT \l__scripture_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l__scripture_active_inner_bool
+    \tl_set:Nn \l__scripture_currenvir_str { center }
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / center }
+          { #1 }
+      }
+    \mode_if_horizontal:T
+      { \par }
+    \list { }
+      {
+        \skip_set_eq:NN \l__scripture_delta_below_skip \l__scripture_center_belowskip_tl
+        \bool_if:NTF \g__scripture_start_bool
+          {
+            \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l__scripture_delta_below_skip \parskip
+            \bool_gset_false:N \g__scripture_start_bool
+          }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l__scripture_center_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l__scripture_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l__scripture_center_aboveskip_tl
+                \skip_sub:Nn \l__scripture_delta_below_skip \l__scripture_center_aboveskip_tl
+              }
+            \int_compare:nNnT \g__scripture_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g__scripture_chap_par_prevgraf_int
+          }
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \leftmargin
+        \dim_zero:N \labelsep
+      }
+    \centering
+    \item
+    \relax
+  }
+\cs_new_protected:Nn \__scripture_center_end:
+  {
+    \__scripture_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l__scripture_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \endlist
+  }
+\cs_new_protected:Nn \__scripture_flushright_begin:n
+  {
+    \bool_if:NT \l__scripture_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l__scripture_active_inner_bool
+    \tl_set:Nn \l__scripture_currenvir_str { flushright }
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / flushright }
+          { #1 }
+      }
+    \mode_if_horizontal:T
+      { \par }
+    \list { }
+      {
+        \skip_set_eq:NN \l__scripture_delta_below_skip \l__scripture_flushright_belowskip_tl
+        \bool_if:NTF \g__scripture_start_bool
+          {
+            \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l__scripture_delta_below_skip \parskip
+            \bool_gset_false:N \g__scripture_start_bool
+          }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l__scripture_flushright_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l__scripture_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l__scripture_flushright_aboveskip_tl
+                \skip_sub:Nn \l__scripture_delta_below_skip \l__scripture_flushright_aboveskip_tl
+              }
+            \int_compare:nNnT \g__scripture_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g__scripture_chap_par_prevgraf_int
+          }
+        \dim_set_eq:NN \leftmargin \l__scripture_flushright_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l__scripture_flushright_rightmargin_tl
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \leftmargin
+        \dim_zero:N \labelsep
+      }
+    \raggedleft
+    \item
+    \relax
+  }
+\cs_new_protected:Nn \__scripture_flushright_end:
+  {
+    \__scripture_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l__scripture_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \endlist
+  }
+\dim_new:N \l__scripture_hanging_parindent_saved_dim
+\cs_new_protected:Nn \__scripture_hanging_chap:n
+  {
+    \__scripture_drop_chap_set_up:n { #1 }
+    \dim_compare:nNnTF
+      \l__scripture_chap_width_dim < \leftmargin
+      {
+        \tl_set:Nx \l__scripture_chap_sep_tl
+          {
+            \dim_eval:n { \leftmargin - \l__scripture_chap_width_dim }
+          }
+      }
+      {
+        \parshape 3 ~
+          \dim_eval:n
+            {
+              \@totalleftmargin - \leftmargin + \l__scripture_chap_width_dim +
+              \l__scripture_chap_sep_tl
+            } ~
+          \dim_eval:n
+            {
+              \linewidth + \leftmargin - \l__scripture_chap_width_dim -
+              \l__scripture_chap_sep_tl
+            } ~
+          \dim_eval:n
+            {
+              \@totalleftmargin - \leftmargin + \l__scripture_chap_width_dim +
+              \l__scripture_chap_sep_tl
+            } ~
+          \dim_eval:n
+            {
+              \linewidth + \leftmargin - \l__scripture_chap_width_dim -
+              \l__scripture_chap_sep_tl
+            } ~
+          \@totalleftmargin ~ \linewidth
+      }
+    \mode_if_vertical:T
+      {
+        \tl_set:Nx \l__scripture_chap_sep_tl
+          {
+            \dim_eval:n
+              {
+                \l__scripture_chap_sep_tl + \l__scripture_hanging_parindent_saved_dim
+              }
+          }
+        \__scripture_nohang:
+      }
+    \hbox_set:Nn \l__scripture_chap_box
+      {
+        \box_move_down:nn
+          { \baselineskip }
+          {
+            \hbox_overlap_left:n
+              {
+                \box_use:N \l__scripture_chap_tmp_box
+                \skip_horizontal:N \l__scripture_chap_sep_tl
+              }
+          }
+      }
+    \box_set_ht:Nn \l__scripture_chap_box { \c_zero_dim }
+    \box_set_dp:Nn \l__scripture_chap_box { \c_zero_dim }
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
+    \box_use:N \l__scripture_chap_box
+    \hook_use:n { scripture / chap / after }
+    \group_end:
+    \hook_gput_next_code:nn { para / begin }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+  }
+\cs_new_protected:Nn \__scripture_hanging_verse:n
+  {
+    \mode_if_vertical:TF
+      {
+        \strut
+        \hbox_overlap_left:n
+          {
+            \__scripture_verse_output:n { #1 }
+          }
+      }
+      { \__scripture_verse_output:n { #1 } }
+  }
+\cs_new_protected_nopar:Nn \__scripture_nohang:
+  {
+    \para_raw_noindent:
+    \hbox_to_wd:nn { \l__scripture_hanging_parindent_saved_dim } { }
+  }
+\cs_new_protected:Nn \__scripture_hanging_begin:n
+  {
+    \bool_if:NT \l__scripture_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l__scripture_active_inner_bool
+    \tl_set:Nn \l__scripture_currenvir_str { hanging }
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / hanging }
+          { #1 }
+      }
+    \mode_if_horizontal:T
+      { \par }
+    \list { }
+      {
+        \skip_set_eq:NN \l__scripture_delta_below_skip \l__scripture_hanging_belowskip_tl
+        \bool_if:NTF \g__scripture_start_bool
+          {
+            \dim_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l__scripture_delta_below_skip \parskip
+            \bool_gset_false:N \g__scripture_start_bool
+          }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l__scripture_hanging_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l__scripture_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l__scripture_hanging_aboveskip_tl
+                \skip_sub:Nn \l__scripture_delta_below_skip \l__scripture_hanging_aboveskip_tl
+              }
+            \int_compare:nNnT \g__scripture_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g__scripture_chap_par_prevgraf_int
+          }
+        \dim_set:Nn \leftmargin
+          { \l__scripture_hanging_leftmargin_tl + \l__scripture_hanging_hang_tl }
+        \dim_set_eq:NN \rightmargin \l__scripture_hanging_rightmargin_tl
+        \dim_set:Nn \itemindent { -\l__scripture_hanging_hang_tl }
+        \dim_set:Nn \listparindent { -\l__scripture_hanging_hang_tl }
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \labelsep
+        \dim_set_eq:NN \l__scripture_hanging_parindent_saved_dim \parindent
+      }
+    \DeclareDocumentCommand { \ch } { sm }
+      {
+        \bool_if:NTF \l__scripture_chap_show_bool
+          {
+            \bool_if:NTF \l__scripture_chap_drop_bool
+              { \__scripture_hanging_chap:n { ##2 } }
+              { \__scripture_nodrop_chap:n { ##2 } }
+          }
+          { \__scripture_nodrop_chap:n { ##2 } }
+      }
+    \cs_set_eq:NN \vs \__scripture_hanging_verse:n
+    \cs_set_eq:NN \nohang \__scripture_nohang:
+    \item
+    \relax
+  }
+\cs_new_protected:Nn \__scripture_hanging_end:
+  {
+    \__scripture_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l__scripture_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \endlist
+  }
+\cs_new_protected:Npn \__scripture_vbox_set_top:Nw #1
+  {
+    \tex_setbox:D #1 \tex_vtop:D
+      \c_group_begin_token
+        \color_group_begin:
+  }
+\bool_new:N \l__scripture_mid_para_chap_bool
+\box_new:N \l__scripture_mid_para_chap_line_box
+\dim_new:N \g__scripture_mid_para_chap_prevdepth_dim
+\int_new:N \g__scripture_mid_para_chap_prevgraf_int
+\box_new:N \l__scripture_mid_para_chap_snap_box
+\int_new:N \l__scripture_mid_para_chap_spacefactor_int
+\box_new:N \l__scripture_mid_para_chap_box
+\box_new:N \l__scripture_mid_para_chap_split_box
+\box_new:N \l__scripture_mid_para_chap_split_top_box
+\cs_new_protected:Nn \__scripture_mid_para_drop_chap_output:
+  {
+    \unskip
+    \int_set_eq:NN \l__scripture_mid_para_chap_spacefactor_int \spacefactor
+    \strut
+    \par
+    \box_set_to_last:N \l__scripture_mid_para_chap_line_box
+    \hbox_set:Nn \l__scripture_mid_para_chap_snap_box
+      {
+        \hbox_unpack_drop:N \l__scripture_mid_para_chap_line_box
+        \unskip
+        \unskip
+        \unpenalty
+      }
+    \nointerlineskip
+    \dim_compare:nNnTF
+      {
+        \box_wd:N \l__scripture_mid_para_chap_snap_box +
+        \l__scripture_chap_width_dim +
+        \l__scripture_chap_sep_tl
+      }
+      <
+      { \linewidth - \leftskip - \rightskip - 3 em }
+      {
+        \__scripture_drop_chap_output:
+        \hbox_unpack_drop:N \l__scripture_mid_para_chap_snap_box
+        \int_set_eq:NN \spacefactor \l__scripture_mid_para_chap_spacefactor_int
+        \c_space_tl
+        \__scripture_verse_output:n { 1 }
+      }
+      {
+        \group_begin:
+        \noindent
+        \skip_horizontal:n { -\leftskip }
+        \hbox_unpack_drop:N \l__scripture_mid_para_chap_snap_box
+        \skip_zero:N \parfillskip
+        \par
+        \group_end:
+        \__scripture_drop_chap_output:
+        \bool_if:NT \l__scripture_midparachap_show_verse_bool
+          {
+            \__scripture_verse_output:n { 1 }
+          }
+      }
+  }
+\cs_new_protected:Nn \__scripture_mid_para_chap_begin:n
+  {
+    \tl_set:Nn \l__scripture_currenvir_str { midparachap }
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / midparachap }
+          { #1 }
+      }
+    \par
+    \bool_set_true:N \l__scripture_mid_para_chap_bool
+    \__scripture_vbox_set_top:Nw \l__scripture_mid_para_chap_box
+    \skip_zero:N \parskip
+  }
+\cs_new_protected:Nn \__scripture_mid_para_chap_end:
+  {
+    \par
+    \int_gset_eq:NN \g__scripture_mid_para_chap_prevgraf_int \prevgraf
+    \dim_gset_eq:NN \g__scripture_mid_para_chap_prevdepth_dim \prevdepth
+    \box_set_to_last:N \l__scripture_mid_para_chap_line_box
+    \hbox_set:Nn \l__scripture_mid_para_chap_snap_box
+      {
+        \hbox_unpack:N \l__scripture_mid_para_chap_line_box
+        \unskip
+        \unskip
+        \unpenalty
+      }
+    \dim_gset:Nn \g__scripture_final_line_dim { \box_wd:N \l__scripture_mid_para_chap_snap_box }
+    \box_clear:N \l__scripture_mid_para_chap_snap_box
+    \nointerlineskip
+    \int_compare:nNnT
+      \prevgraf < 3
+      {
+        \noindent
+        \skip_horizontal:n { \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl }
+        \dim_gadd:Nn \g__scripture_final_line_dim { \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl }
+      }
+    \box_use_drop:N \l__scripture_mid_para_chap_line_box
+    \vbox_set_end:
+    \mode_if_inner:TF
+      {
+        \noindent
+        \box_use_drop:N \l__scripture_mid_para_chap_box
+      }
+      {
+        \dim_compare:nNnTF
+          { \box_ht_plus_dp:N \l__scripture_mid_para_chap_box }
+          >
+          { \pagegoal - \pagetotal - \baselineskip }
+          {
+            \int_set:Nn \vbadness { 10000 }
+            \vbox_set_split_to_ht:NNn
+              \l__scripture_mid_para_chap_split_box \l__scripture_mid_para_chap_box
+              { \pagegoal - \pagetotal - \baselineskip }
+            \vbox_set_top:Nn \l__scripture_mid_para_chap_split_top_box
+              { \vbox_unpack_drop:N \l__scripture_mid_para_chap_split_box }
+            \noindent
+            \box_use_drop:N \l__scripture_mid_para_chap_split_top_box
+            \goodbreak
+            \box_use_drop:N \l__scripture_mid_para_chap_box
+          }
+          {
+            \noindent
+            \box_use_drop:N \l__scripture_mid_para_chap_box
+          }
+      }
+    \par
+    \dim_set_eq:NN \prevdepth \g__scripture_mid_para_chap_prevdepth_dim
+    \int_zero:N \prevgraf
+    \skip_vertical:n { -\parskip - \baselineskip }
+    \noindent
+    \skip_horizontal:N \g__scripture_final_line_dim
+    \int_gset_eq:NN \g__scripture_chap_par_prevgraf_int \g__scripture_mid_para_chap_prevgraf_int
+    \hook_gput_next_code:nn { para / before }
+      {
+        \int_gzero:N \g__scripture_chap_par_prevgraf_int
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+      }
+  }
+\cs_new_protected:Nn \__scripture_narrow_begin:n
+  {
+    \bool_if:NT \l__scripture_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l__scripture_active_inner_bool
+    \tl_set:Nn \l__scripture_currenvir_str { narrow }
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / narrow }
+          { #1 }
+      }
+    \mode_if_horizontal:T
+      { \par }
+    \list { }
+      {
+        \skip_set_eq:NN \l__scripture_delta_below_skip \l__scripture_narrow_belowskip_tl
+        \bool_if:NTF \g__scripture_start_bool
+          {
+            \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l__scripture_delta_below_skip \parskip
+            \bool_gset_false:N \g__scripture_start_bool
+          }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l__scripture_narrow_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l__scripture_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l__scripture_narrow_aboveskip_tl
+                \skip_sub:Nn \l__scripture_delta_below_skip \l__scripture_narrow_aboveskip_tl
+              }
+            \int_compare:nNnT \g__scripture_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g__scripture_chap_par_prevgraf_int
+          }
+        \dim_set_eq:NN \leftmargin \l__scripture_narrow_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l__scripture_narrow_rightmargin_tl
+        \dim_set_eq:NN \listparindent \parindent
+        \dim_set_eq:NN \itemindent \parindent
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \labelsep
+      }
+    \item
+    \relax
+  }
+\cs_new_protected:Nn \__scripture_narrow_end:
+  {
+    \__scripture_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l__scripture_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \endlist
+  }
+\hook_new:n { scripture / poetry / para / after }
+\bool_new:N \g__scripture_poetry_end_bool
+\bool_new:N \g__scripture_poetry_midparachap_show_verse_bool
+\dim_new:N \l__scripture_poetry_chap_indent_dim
+\dim_new:N \l__scripture_poetry_chap_sep_dim
+\dim_new:N \l__scripture_poetry_chap_parshape_correction_dim
+\int_new:N \l__scripture_poetry_prevgraf_int
+\cs_new_protected:Nn \__scripture_poetry_extra_skip:
+  {
+    \skip_vertical:n { \l__scripture_extraskip_tl - \baselineskip - \parskip }
+    \bool_gset_false:N \g__scripture_poetry_midparachap_show_verse_bool
+    \strut
+    \hook_gput_next_code:nn { para / after }
+      {
+        \hook_gput_next_code:nn { para / after }
+          {
+            \bool_gset_eq:NN
+              \g__scripture_poetry_midparachap_show_verse_bool
+              \l__scripture_midparachap_show_verse_bool
+          }
+      }
+  }
+\cs_new_protected:Nn \__scripture_poetry_text_right:nn
+  {
+    {
+      \unskip
+      \hfil
+      \penalty 50
+      \skip_horizontal:n { #1 }
+      \hbox:n {}
+      \nobreak
+      \hfill
+      #2
+      \skip_zero:N \parfillskip
+      \int_zero:N \finalhyphendemerits
+    }
+  }
+\cs_new_protected:Nn \__scripture_selah_output:
+  {
+    \group_begin:
+    \l__scripture_selah_font_tl
+    \__scripture_poetry_text_right:nn
+      { \l__scripture_selah_sep_tl }
+      { \__scripture_selah_format:n { \l__scripture_selah_text_tl } }
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_poetry_chap:n
+  {
+    \__scripture_drop_chap_set_up:n { #1 }
+    \mode_if_vertical:TF
+      {
+        \dim_set_eq:NN \l__scripture_poetry_chap_indent_dim \l__scripture_poetry_indent_tl
+        \mode_leave_vertical:
+      }
+      { \dim_zero:N \l__scripture_poetry_chap_indent_dim }
+    \dim_set_eq:NN \l__scripture_poetry_chap_sep_dim \l__scripture_chap_sep_tl
+    \dim_compare:nNnT
+      { \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl }
+      <
+      { \l__scripture_poetry_leftmargin_tl + \l__scripture_poetry_chap_indent_dim }
+      {
+        \dim_set:Nn \l__scripture_poetry_chap_sep_dim
+          {
+            \l__scripture_poetry_leftmargin_tl + \l__scripture_poetry_chap_indent_dim -
+            \l__scripture_chap_width_dim
+          }
+      }
+    \hbox_set:Nn \l__scripture_chap_box
+      {
+        \box_move_down:nn
+          { \baselineskip }
+          {
+            \hbox_overlap_left:n
+              {
+                \box_use:N \l__scripture_chap_tmp_box
+                \skip_horizontal:N \l__scripture_poetry_chap_sep_dim
+              }
+          }
+      }
+    \box_set_ht:Nn \l__scripture_chap_box { \c_zero_dim }
+    \box_set_dp:Nn \l__scripture_chap_box { \c_zero_dim }
+    \dim_set:Nn \l__scripture_poetry_chap_parshape_correction_dim
+      {
+        \l__scripture_chap_width_dim + \l__scripture_poetry_chap_sep_dim -
+        \l__scripture_poetry_leftmargin_tl - \l__scripture_poetry_chap_indent_dim
+      }
+    \parshape 2 ~
+      \dim_eval:n
+        { \@totalleftmargin + \l__scripture_poetry_chap_parshape_correction_dim } ~
+      \dim_eval:n
+        { \linewidth - \l__scripture_poetry_chap_parshape_correction_dim } ~
+      \dim_eval:n
+        { \@totalleftmargin + \l__scripture_poetry_big_indent_tl } ~
+      \dim_eval:n
+        { \linewidth - \l__scripture_poetry_big_indent_tl }
+    \dim_compare:nNnT
+      { \l__scripture_chap_width_dim + \l__scripture_poetry_chap_sep_dim }
+      >
+      \l__scripture_poetry_leftmargin_tl
+      {
+        \hook_gput_next_code:nn { scripture / poetry / para / after }
+          {
+            \int_compare:nNnT \l__scripture_poetry_prevgraf_int = 1
+              {
+                \dim_compare:nNnTF
+                  { \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl }
+                  <
+                  { \l__scripture_poetry_leftmargin_tl + \l__scripture_poetry_indent_tl }
+                  { \dim_zero:N \l__scripture_poetry_chap_parshape_correction_dim }
+                  {
+                    \dim_set:Nn \l__scripture_poetry_chap_parshape_correction_dim
+                      {
+                        \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl -
+                        \l__scripture_poetry_leftmargin_tl - \l__scripture_poetry_indent_tl
+                      }
+                  }
+                \parshape 2 ~
+                  \dim_eval:n
+                    { \@totalleftmargin + \l__scripture_poetry_chap_parshape_correction_dim } ~
+                  \dim_eval:n
+                    { \linewidth - \l__scripture_poetry_chap_parshape_correction_dim } ~
+                  \dim_eval:n
+                    { \@totalleftmargin + \l__scripture_poetry_big_indent_tl } ~
+                  \dim_eval:n
+                    { \linewidth - \l__scripture_poetry_big_indent_tl }
+                \hook_gput_next_code:nn { para / after }
+                  {
+                    \hook_gclear_next_code:n { scripture / poetry / para / after }
+                  }
+                \hook_gput_next_code:nn { scripture / poetry / para / after }
+                  {
+                    \dim_compare:nNnTF
+                      { \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl }
+                      <
+                      \l__scripture_poetry_leftmargin_tl
+                      { \dim_zero:N \l__scripture_poetry_chap_parshape_correction_dim }
+                      {
+                        \dim_set:Nn \l__scripture_poetry_chap_parshape_correction_dim
+                          {
+                            \l__scripture_chap_width_dim + \l__scripture_chap_sep_tl -
+                            \l__scripture_poetry_leftmargin_tl
+                          }
+                      }
+                    \parshape 2 ~
+                      \dim_eval:n
+                        { \@totalleftmargin + \l__scripture_poetry_chap_parshape_correction_dim } ~
+                      \dim_eval:n
+                        { \linewidth - \l__scripture_poetry_chap_parshape_correction_dim } ~
+                      \dim_eval:n
+                        { \@totalleftmargin + \l__scripture_poetry_big_indent_tl } ~
+                      \dim_eval:n
+                        { \linewidth - \l__scripture_poetry_big_indent_tl }
+                  }
+              }
+          }
+      }
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
+    \box_use:N \l__scripture_chap_box
+    \hook_use:n { scripture / chap / after }
+    \group_end:
+    \bool_if:NT \g__scripture_poetry_midparachap_show_verse_bool
+      {
+        \__scripture_verse_output:n { 1 }
+      }
+  }
+\cs_new_protected:Nn \__scripture_poetry_nodrop_chap:n
+  {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \group_begin:
+    \bool_if:NTF \l__scripture_chap_show_bool
+      {
+        \hbox_overlap_left:n
+          {
+            \hook_use:n { scripture / chap / before }
+            \group_begin:
+            \l__scripture_chap_font_tl
+            #1
+            \group_end:
+            \skip_horizontal:N \l__scripture_chap_sep_tl
+            \hook_use:n { scripture / chap / after }
+          }
+        \bool_if:NT \g__scripture_poetry_midparachap_show_verse_bool
+          {
+            \__scripture_verse_output:n { 1 }
+          }
+      }
+      {
+        \hook_use:n { scripture / chap / before }
+        \hook_use:n { scripture / chap / after }
+        \vs { 1 }
+      }
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_poetry_mode_vertical_verse:n
+  {
+    \group_begin:
+    \tl_set_eq:NN \l__scripture_verse_sep_tl \l__scripture_poetry_verse_sep_tl
+    \strut
+    \bool_if:NTF \l__scripture_poetry_verse_right_bool
+      {
+        \hbox_overlap_left:n
+          {
+            \__scripture_verse_output:n { #1 }
+          }
+      }
+      {
+        \hbox_overlap_left:n
+          {
+            \hbox_overlap_right:n
+              {
+                \__scripture_verse_output:n { #1 }
+              }
+            \skip_horizontal:N \l__scripture_poetry_leftmargin_tl
+          }
+      }
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_poetry_mode_horizontal_verse:n
+  {
+    \group_begin:
+    \tl_set_eq:NN \l__scripture_verse_sep_tl \l__scripture_poetry_verse_sep_tl
+    \skip_horizontal:n { -\listparindent }
+    \__scripture_poetry_mode_vertical_verse:n { #1 }
+    \skip_horizontal:N \listparindent
+    \group_end:
+  }
+\cs_new_protected:Nn \__scripture_poetry_par:
+  {
+    \mode_if_vertical:TF
+      {
+        \cs_set_eq:NN \vs \__scripture_poetry_mode_vertical_verse:n
+        \noindent
+      }
+      {
+        \cs_set_eq:NN \vs \__scripture_poetry_mode_horizontal_verse:n
+        \__scripture_tmp_para_end:
+        \int_set_eq:NN \l__scripture_poetry_prevgraf_int \prevgraf
+      }
+    \parshape 2 ~
+      \@totalleftmargin ~
+      \linewidth ~
+      \dim_eval:n
+        { \@totalleftmargin + \l__scripture_poetry_big_indent_tl } ~
+      \dim_eval:n
+        { \linewidth - \l__scripture_poetry_big_indent_tl }
+    \hook_use:n { scripture / poetry / para / after }
+  }
+\group_begin:
+  \char_set_catcode_active:N \^^M
+  \cs_gset_protected_nopar:Nn \__scripture_obeylines: %
+    {%
+      \char_set_catcode_active:N \^^M%
+      \cs_set_eq:NN ^^M \__scripture_obeylines_end:%
+    }%
+\group_end:
+\cs_new_protected:Nn \__scripture_obeylines_end:
+  {
+    \peek_meaning:NF \end
+      {
+        \par
+        \int_set:Nn \l__scripture_poetry_prevgraf_int { \int_use:N \prevgraf }
+      }
+  }
+\cs_new_protected:Nn \__scripture_poetry_begin:
+  {
+    \bool_if:NT \l__scripture_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l__scripture_active_inner_bool
+    \tl_set:Nn \l__scripture_currenvir_str { poetry }
+    \mode_if_horizontal:T
+      { \par }
+    \list { }
+      {
+        \skip_set_eq:NN \l__scripture_delta_below_skip \l__scripture_poetry_belowskip_tl
+        \bool_if:NTF \g__scripture_start_bool
+          {
+            \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l__scripture_delta_below_skip \parskip
+            \bool_gset_false:N \g__scripture_start_bool
+          }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l__scripture_poetry_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l__scripture_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l__scripture_poetry_aboveskip_tl
+                \skip_sub:Nn \l__scripture_delta_below_skip \l__scripture_poetry_aboveskip_tl
+              }
+            \int_compare:nNnT \g__scripture_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g__scripture_chap_par_prevgraf_int
+          }
+        \dim_set_eq:NN \leftmargin \l__scripture_poetry_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l__scripture_poetry_rightmargin_tl
+        \dim_set_eq:NN \itemindent \l__scripture_poetry_indent_tl
+        \dim_set_eq:NN \listparindent \l__scripture_poetry_indent_tl
+        \skip_zero:N \parsep
+        \skip_zero:N \partopsep
+        \dim_zero:N \labelsep
+      }
+    \raggedright
+    \dim_set_eq:NN \listparindent \l__scripture_poetry_indent_tl
+    \dim_set_eq:NN \parindent \l__scripture_poetry_indent_tl
+    \bool_gset_false:N \g__scripture_poetry_midparachap_show_verse_bool
+    \DeclareDocumentCommand { \ch } { sm }
+      {
+        \bool_if:NTF \l__scripture_chap_show_bool
+          {
+            \bool_if:NTF \l__scripture_chap_drop_bool
+              { \__scripture_poetry_chap:n { ##2 } }
+              { \__scripture_poetry_nodrop_chap:n { ##2 } }
+          }
+          { \__scripture_poetry_nodrop_chap:n { ##2 } }
+      }
+    \cs_set_eq:NN \vs \__scripture_poetry_mode_vertical_verse:n
+    \cs_set_eq:NN \extraskip \__scripture_poetry_extra_skip:
+    \cs_set_eq:NN \selah \__scripture_selah_output:
+    \item
+    \relax
+    \cs_set_eq:NN \__scripture_tmp_para_end: \par
+    \cs_set_eq:NN \par \__scripture_poetry_par:
+    \hook_gput_next_code:nn { para / after }
+      { \bool_gset_eq:NN \g__scripture_poetry_midparachap_show_verse_bool \l__scripture_midparachap_show_verse_bool }
+  }
+\cs_new_protected:Nn \__scripture_poetry_end:
+  {
+    \__scripture_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l__scripture_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \endlist
+    \bool_gset_true:N \g__scripture_poetry_end_bool
+    \hook_gput_next_code:nn { para / begin }
+      { \bool_gset_false:N \g__scripture_poetry_end_bool }
+  }
+\cs_set_nopar:Npn \scripturecurrentchapter { }
+\cs_set_nopar:Npn \scripturecurrentverse { }
+\NewDocumentCommand { \scripturesetup } { m }
+  {
+    \keys_set:nn { scripture } { #1 }
+  }
+\NewDocumentEnvironment { scripture } { oo }
+  {
+    \__scripture_begin:n { #2 }
+    \DeclareDocumentEnvironment { center } { o }
+      {
+        \__scripture_center_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \__scripture_center_end: }
+    \DeclareDocumentEnvironment { flushright } { o }
+      {
+        \__scripture_flushright_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \__scripture_flushright_end: }
+    \DeclareDocumentEnvironment { hanging } { o }
+      {
+        \__scripture_hanging_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \__scripture_hanging_end: }
+    \DeclareDocumentEnvironment { midparachap } { o }
+      {
+        \__scripture_mid_para_chap_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \__scripture_mid_para_chap_end: }
+    \DeclareDocumentEnvironment { narrow } { o }
+      {
+        \__scripture_narrow_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \__scripture_narrow_end: }
+    \DeclareDocumentEnvironment { poetryaux } { o }
+      {
+        \tl_if_novalue:nF { ##1 }
+        {
+          \keys_set:nn
+            { scripture / poetry }
+            { ##1 }
+        }
+        \__scripture_poetry_begin:
+        \ignorespaces
+      }
+      { \__scripture_poetry_end: }
+    \DeclareDocumentEnvironment { poetry } { }
+      {
+        \__scripture_obeylines:
+        \poetryaux
+      }
+      { \endpoetryaux }
+    \bool_if:NT \l__scripture_compact_bool
+      {
+        \scripturesetup { chapter / nodrop }
+        \RenewDocumentEnvironment { center } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { flushright } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { hanging } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { narrow } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { poetry } { o } { \ignorespaces } { }
+        \cs_set_eq:NN \par \relax
+        \cs_set_eq:NN \extraskip \relax
+        \cs_set_eq:NN \nohang \relax
+        \cs_set:Npn \selah
+          {
+            \group_begin:
+            \l__scripture_selah_font_tl
+            \c_space_tl
+            \__scripture_selah_format:n { \l__scripture_selah_text_tl }
+            \c_space_tl
+            \group_end:
+          }
+        \mode_leave_vertical:
+      }
+    \peek_remove_spaces:n
+      {
+        \peek_meaning:NF \begin
+          { \bool_gset_false:N \g__scripture_start_bool }
+      }
+  }
+  {
+    \bool_if:NT \l__scripture_compact_bool
+      { \cs_set_eq:NN \par \endgraf }
+    \__scripture_end:n { #1 }
+  }
+%% 
+%%
+%% End of file `scripture.sty'.

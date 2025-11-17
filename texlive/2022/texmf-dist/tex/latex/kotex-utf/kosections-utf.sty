@@ -1,0 +1,145 @@
+%% File `kosections-utf.tex`
+%%
+%% (C) Copyright 2007-2022 Dohyun Kim <nomos at ktug org>
+%%                    2022 Kangsoo Kim 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%  http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2006/05/20 or later.
+%%
+\ProvidesFile{kosections-utf}
+  [2022/06/20 hangul option to kotex/utf]
+
+%\def\hNum#1{\@hNum{\@nameuse{c@#1}}}
+%\def\@hNum#1{\ifcase#1\or 일\or 이\or 삼\or 사\or 오\or 육\or 칠\or
+%  팔\or 구\or 십\or 십일\or 십이\or 십삼\or 십사\or 십오\or 십육\or
+%  십칠\or 십팔\or 십구\or 이십\or 이십일\or 이십이\or 이십삼\or
+%  이십사\else\@ctrerr\fi}
+%\def\hanjanum#1{\@hanjanum{\@nameuse{c@#1}}}
+%\def\@hanjanum#1{\ifcase#1\or 一\or 二\or 三\or
+%  四\or 五\or 六\or 七\or 八\or 九\or 十\or
+%  十一\or 十二\or 十三\or 十四\or 十五\or
+%  十六\or 十七\or 十八\or 十九\or 二十\or
+%  二十一\or 二十二\or 二十三\or 二十四\else\@ctrerr\fi}
+%\def\HArabic#1{\@HArabic{\@nameuse{c@#1}}}
+%\def\@HArabic#1{\ifcase#1\or 1\rieul\or 2\jung\or 3\jong\or 4\jung\or 5\jung\or
+%  6\jong\or 7\rieul\or 8\rieul\or 9\jung\or 10\jong\or 11\rieul\or 12\jung\or
+%  13\jong\or 14\jung\or 15\jung\or 16\jong\or 17\rieul\or 18\rieul\or 19\jung\or
+%  20\jong\or 21\rieul\or 22\jung\or 23\jong\or 24\jung\else\@ctrerr\fi}
+
+%% 한글 기호문자 처리를 위한 정의들.
+%% 일부 클래스(예: memoir)에서 \textsubscript를 정의하고 있으므로,
+%% 여기서는 \TEXTsubscript로 정의한다. 만약 이 정의를 문서에서
+%% 사용하고 싶으면 \let\textsubscript\TEXTsubscript로 할 것.
+\protected\def\TEXTsubscript#1{%
+  \@TEXTsubscript{\selectfont#1}}
+\newcommand{\@TEXTsubscript}[1]{%
+  {\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}%
+\DeclareUnicodeCharacter{00BC}% 1/4
+  {\textsuperscript1\kern-.45em\unihangulchar{65295}\kern-.45em\TEXTsubscript4}
+\DeclareUnicodeCharacter{00BD}% 1/2
+  {\textsuperscript1\kern-.45em\unihangulchar{65295}\kern-.45em\TEXTsubscript2}
+\DeclareUnicodeCharacter{00BE}% 3/4
+  {\textsuperscript3\kern-.45em\unihangulchar{65295}\kern-.45em\TEXTsubscript4}
+\DeclareUnicodeCharacter{02D0}% ː
+  {\unihangulchar{"02D0}}% 8251=0x203B
+\DeclareUnicodeCharacter{2025}% ‥
+  {\unihangulchar{"2025}}% 8251=0x203B
+\DeclareUnicodeCharacter{2015}% ―
+  {\nobreak\hskip\dhucs@hu\unihangulchar{"2015}\hskip\dhucs@hu\relax}% 8251=0x203B
+\DeclareUnicodeCharacter{2312}% ⌒
+  {\unihangulchar{"2312}}% 8251=0x203B
+\DeclareUnicodeCharacter{203B}% ※
+  {\unihangulchar{8251}}% 8251=0x203B
+
+%% konames-utf
+\RequirePackage{konames-utf}
+
+%% bangjom emphasis : extension. (inspired by hangul.sty)
+
+\def\circemphchar{˚}
+\def\dotemphchar{˙}
+\let\useremphchar\circemphchar
+\newdimen\raisedotdim\raisedotdim\z@
+\newdimen\dhucs@emph@width
+
+\def\put@dhucs@mphch@r#1{%
+  \ifnum\thish@ngul>\z@ %\ifnum\thish@ngul<\thr@@ % hangul or hanja
+    \rlap{\raise\dhucs@emph@raise
+      \hb@xt@\dhucs@emph@width{\normalfont\hss#1\hss}}%
+  \fi %\fi
+}
+\def\get@dhucs@mphheight#1{%
+  \ifdim\raisedotdim=\z@\relax
+    \settoheight{\dhucs@emph@raise}{#1}%
+    \addtolength{\dhucs@emph@raise}{-.4em}%
+  \else\let\dhucs@emph@raise\raisedotdim\fi
+}
+
+\protected\def\dotemph#1{\begingroup
+  \get@dhucs@mphheight{#1}%
+  \let\dhucs@emph\dhucs@dot@emph
+  #1\endgroup}
+
+\def\dhucs@dot@emph#1{%
+  \settowidth{\dhucs@emph@width}{#1}%
+  \put@dhucs@mphch@r{\dotemphchar}%
+}
+
+\protected\def\circemph#1{\begingroup
+  \get@dhucs@mphheight{#1}%
+  \let\dhucs@emph\dhucs@circ@emph
+  #1\endgroup}
+
+\def\dhucs@circ@emph#1{\leavevmode
+  \settowidth{\dhucs@emph@width}{#1}%
+  \put@dhucs@mphch@r{\circemphchar}%
+}
+
+\newdimen\useremphraisedim\useremphraisedim\z@
+
+\protected\def\useremph#1{\begingroup
+  \ifdim\useremphraisedim=\z@\relax
+     \settoheight{\dhucs@emph@raise}{#1}%
+     \addtolength{\dhucs@emph@raise}{-.4em}%
+  \else\let\dhucs@emph@raise\useremphraisedim\fi
+  \let\dhucs@emph\dhucs@user@emph
+  #1\endgroup}
+
+\def\dhucs@user@emph#1{\leavevmode
+  \settowidth{\dhucs@emph@width}{#1}%
+  \put@dhucs@mphch@r{\useremphchar}%
+}
+
+\g@addto@macro\pdfstringdefPreHook{%
+  \let\circemph\@firstofone
+  \let\useremph\@firstofone
+}
+
+%%% xspaceskip
+\@ifpackageloaded{dhucs-setspace}{}{\linespread{1.333}}
+\if@nonfrench
+ \xspaceskip=.5em plus .111em minus .1em
+\fi
+\skip\footins=\glueexpr\skip\footins/72*100\relax
+
+%%% interhchar
+%\setInterHangulSkip{-0.55pt}
+
+%%% makeidx를 쓰면 \see와 \seealso가 정의된다.
+%%% modified from kosections-euc.tex
+%%% See http://www.ktug.or.kr/jsboard/read.php?table=operate&no=22789
+\AtBeginDocument{%
+  \@ifundefined{see}{}{%
+    \renewcommand*\see[2]{#1\emph{\seename}}%
+  }
+  \@ifundefined{seealso}{}{%
+    \renewcommand*\seealso[2]{#1\emph{\alsoname}}%
+  }
+}
+
+\endinput

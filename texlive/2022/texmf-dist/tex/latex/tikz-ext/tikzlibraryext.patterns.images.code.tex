@@ -1,0 +1,53 @@
+% This is the TikZ library patterns.images
+% Load with \usetikzlibrary{patterns.images}
+%
+% Macro:
+%  - \pgfSetupImageAsPattern[<opt arguments for \pgfdeclareimage>]{<name>}{<path/file>}
+%
+% Keys are:
+%  - use image as pattern=<name>
+%  - image as pattern=<opt arguments for \pgftext>
+
+\def\pgfsetupimageaspattern{\pgfutil@ifnextchar[\qrr@pgfsetupimageaspattern{\qrr@pgfsetupimageaspattern[]}}
+\def\qrr@pgfsetupimageaspattern[#1]#2#3{% #1 = options
+                                        % #2 = image name
+                                        % #3 = file name
+  \pgfdeclareimage[#1]{qrr@pgf@iap@#2}{#3}%
+  \sbox\pgfutil@tempboxa{\pgfuseimage{qrr@pgf@iap@#2}}%
+  \expandafter\edef\csname qrr@pgf@iap@#2@\endcsname{{\the\wd\pgfutil@tempboxa}{\the\ht\pgfutil@tempboxa}}%
+}
+\tikzset{
+  image as pattern/name/.initial=,
+  image as pattern/option/.style=,
+  image as pattern/options/.style={/tikz/image as pattern/option/.append style={#1}},
+  image as pattern/.default=,
+  image as pattern/.code={
+    \tikzset{image as pattern/.cd,#1}
+    \pgfkeysgetvalue{/tikz/image as pattern/name}\tikz@temp
+    \pgfutil@ifxempty\tikz@temp{%
+      \tikzerror{You need to specify a name for the ``image-pattern'' to be used.}%
+    }{%
+      \edef\tikz@tempa{\expandafter\expandafter\expandafter\pgfutil@firstoftwo\csname qrr@pgf@iap@\tikz@temp @\endcsname}%
+      \edef\tikz@tempb{\expandafter\expandafter\expandafter\pgfutil@secondoftwo\csname qrr@pgf@iap@\tikz@temp @\endcsname}%
+      \pgfkeysalso{/tikz/path picture={%
+        \pgf@process{\pgfpointanchor{path picture bounding box}{north east}}%
+        \pgf@xa\pgf@x\pgf@ya\pgf@y
+        \pgf@process{\pgfpointanchor{path picture bounding box}{south west}}%
+        \pgf@xb\pgf@x\pgf@yb\pgf@y\pgf@yc\pgf@yb
+        \pgfutil@loop
+          {%
+          \pgfutil@loop
+            \expandafter\pgftext\expandafter[/tikz/image as pattern/option,at=\pgfqpoint{\pgf@xb}{\pgf@yb}]{\pgfuseimage{qrr@pgf@iap@\tikz@temp}}%
+            \ifdim\pgf@yb<\pgf@ya
+            \advance\pgf@yb\tikz@tempb
+          \pgfutil@repeat
+          }%
+          \ifdim\pgf@xb<\pgf@xa
+          \advance\pgf@xb\tikz@tempa
+          \pgf@yb\pgf@yc
+        \pgfutil@repeat
+      }}%
+    }
+  }
+}
+\endinput

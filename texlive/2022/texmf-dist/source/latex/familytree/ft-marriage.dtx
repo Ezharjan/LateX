@@ -1,0 +1,374 @@
+% \iffalse
+% Copyright 2022 Jiro Senju
+%
+% This package is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% any later version.
+%
+% This package is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this package.  If not, see <http://www.gnu.org/licenses/>.
+% \fi
+%
+% \section{Marriage Box (\texttt{ft-marriage.dtx})}
+%
+% \DescribeMacro{\mrrgdef}
+% \cmd{\mrrgdef
+%   \marg{new box name}
+%   \marg{spouse list A}
+%   \marg{oneself}
+%   \marg{spouse list B}
+%   \oarg{childline xlength}
+% }
+% \medskip
+%
+% Defines a marriage box with a specified name \meta{new box name}.
+% To support remarrying and the concubines, the spouses are specified by
+% a list. The element of the list is a box name defined by |\indvdldef|.
+% \meta{spouse list A} is placed upper side of \meta{oneself}, and
+% \meta{spouse list B} is lower side.
+% All box names are NOT \CS{} (no backslash).
+% \smallskip
+%
+% Aligns them in the same column, and connects them by a double line if the
+% marriage is official. If the marriage is not official (|\private|
+% attribute), uses a dashed double line.
+% Those double line is placed at the center of the length of the name of
+% \meta{oneself}.
+% \smallskip
+%
+% If a spouse has a child (|\haschild| attribute),
+% then the line to their child is drawn from the center of the
+% double line.
+% \smallskip
+%
+% Like |\sblngdef|, the interval box can be inserted if you want more
+% spaces.
+% \bigskip
+%
+% Like |\indvdldef|, some connection points are defined. Their origin
+% is left-bottom of the box and the unit is |pt|.
+%
+% \begin{itemize}
+% \item \meta{box name}|nameCY|
+%
+% the center of the height of the name of \meta{oneself}
+%
+% \item \meta{box name}\meta{individual box name}|nameCY|
+%
+% the center of the height of the name of who has any child-mark
+%
+% \item \meta{box name}\meta{individual box name}|mrrgCY|
+%
+% the center of the double line when any spouse has |\haschild| attribute
+% \end{itemize}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Customization}
+%
+% \DescribeMacro{\mrrgboxcfg}
+% \cmd{\mrrgboxcfg
+%   \marg{space between two lines}
+%   \marg{space between name and the line}
+%   \marg{line length}
+% }
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+% \subsection{Example}
+%
+% \begin{enumerate}
+% \item
+% \srcfig{fig4Robert}
+%
+% \clearpage
+% \item
+% \srcfig{fig4HenryVIII}
+% \end{enumerate}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Layout and connecting in a same generation}
+%
+% It is not a good idea to put everything in a single family tree.
+%
+% For example, see King Henry VIII and his wives. Catherine of Aragon,
+% his first wife was actually a wife of Henry's brother, Arthur. If we
+% put King's siblings to this tree, how would it be looked? It's just
+% ugly and hard to understand in a glance. Let's think more using an
+% example from \refnm{sec:Lily1} again.
+%
+% How can we represent the Petunia -- Lily sisters tree including their husbands.
+% As a first step, define two marriage boxes, and then define the
+% sibling box.
+% \medskip
+%
+% \srcfig{fig4Lily1}
+% \medskip
+%
+% Why is this tree so ugly? There are three points to consider.
+% \begin{enumerate}
+% \item The position of two double lines differ from each other.
+% \item The length of a line to their child differs too.  If we connected
+% the child, the ugliness would be improved.
+% \item James interrupts into between Petunia and Lily. It makes the
+% understandability worse.
+% \end{enumerate}
+%
+% On fixing the first point, the position of the double line, the second
+% point will be fixed automatically.
+% The solution is the one already suggested in \refnm{sec:Lily1}, set
+% the width of Lily box to Petunia's.
+% For the third point, the position of James, how about expanding the
+% space as a first step?
+% \medskip
+%
+% \srcfig{fig4Lily2}
+% \medskip
+%
+% Even spreading the space wider, James is still interrupting those two
+% sisters. Does it look better?
+% If we want more, the last way is to switch the position of James and Lily.
+% \medskip
+%
+% \srcfig{fig4Lily3}
+% \medskip
+%
+% Moreover spreading the blank is a good option.
+% \medskip
+%
+% \srcfig{fig4Lily4}
+% \medskip
+%
+% Is this best looking?
+% The easiness of looking is subject to one's opinion or taste.
+% Personally I feel resistance in the order of husband and wife. But also I
+% admit that as long as the main purpose of this tree is to represent those
+% sisters, this position of James is not bad.
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsectImpl
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \parag{Customization}
+%
+% \DescribeMacro{\ftmrrgboxcfg}
+% \DescribeMacro{\mrrgboxcfg}
+%
+%    \begin{macrocode}
+\newlength{\ft@mrrgline@sep}
+\setlength{\ft@mrrgline@sep}{4pt}
+\newlength{\ft@mrrgline@sp}
+\setlength{\ft@mrrgline@sp}{.5\ft@unit}
+\newlength{\ft@mrrgline@length}
+\setlength{\ft@mrrgline@length}{1.5\ft@unit}
+\newcommand{\ftmrrgboxcfg}[3]{% sep space length
+  \ifx#1\empty\else%
+    \setlength{\ft@mrrgline@sep}{#1}%
+  \fi%
+  \ifx#2\empty\else%
+    \setlength{\ft@mrrgline@sp}{#2}%
+  \fi%
+  \ifx#3\empty\else%
+    \setlength{\ft@mrrgline@length}{#3}%
+  \fi%
+}
+\ft@alias{mrrgboxcfg}
+%    \end{macrocode}
+%
+% \parag{Parsing}
+%
+%    \begin{macrocode}
+\newcommand{\ft@mrrg@parse}[1]{% spouse-list
+  \global\ft@height=0pt%
+  \global\ft@width=0pt%
+  \global\ft@box@has@malelinefalse%
+  \@for\@temptokena:=#1\do{%
+    \ifx\@temptokena\empty\else%
+      \xdef\ft@spouse{\@temptokena}%
+      \@ifundefined{\@temptokena ival}{%
+        \@ifundefined{\ft@spouse haschild}{}{%
+          \global\ft@box@has@malelinetrue%
+        }%
+        \setlength{\ft@len}{\wd\@nameuse{\ft@spouse}}%
+        \ifdim\ft@width<\ft@len%
+          \global\ft@width=\ft@len%
+        \fi%
+        \ft@dbgmsg{\ft@spouse, W \the\wd\@nameuse{\ft@spouse},%
+          H \the\ht\@nameuse{\ft@spouse},%
+          D \the\dp\@nameuse{\ft@spouse}}%
+        \global\advance\ft@height \dimexpr\ft@mrrgline@length%
+          + 2\ft@mrrgline@sp\relax%
+        \ft@dbgmsg{\ft@spouse, H \the\ft@height}%
+      }{}%
+      \global\advance\ft@height \dimexpr\ht\@nameuse{\ft@spouse}%
+        + \dp\@nameuse{\ft@spouse}\relax%
+      \ft@dbgmsg{\ft@spouse, h H \the\ft@height}%
+    \fi%
+  }%
+  %
+  \ifft@box@has@maleline%
+    \global\advance\ft@width \ft@namebox@maleline@length%
+  \fi%
+  %
+  \global\ft@depth=\dp\@nameuse{\ft@spouse}%
+  \global\advance\ft@height \dimexpr -2\ft@mrrgline@sp%
+    - \ft@mrrgline@length - \ft@depth\relax%
+  \ft@dbgmsg{final H \the\ft@height, D \the\ft@depth}%
+}
+%    \end{macrocode}
+%
+% \parag{The double line}
+%
+% \DescribeMacro{\ft@mrrg@line}
+%
+%    \begin{macrocode}
+\newlength{\ft@mrrg@chlen}
+\newcommand{\ft@mrrg@line}[5]{% box-name spouse cx sp length
+  \ft@x=#3%
+  \global\advance\ft@height -#4%
+  \@tempskipb=\dimexpr\ft@mrrgline@sep/2\relax%
+  \edef\@y{\strip@pt\ft@height}%
+  \@ifundefined{#2private}{%
+    \ft@len=#5\relax%
+    \edef\@l{\strip@pt\ft@len}%
+    \put(\strip@pt\dimexpr\ft@x - \@tempskipb, \@y){\line(0,-1){\@l}}%
+    \put(\strip@pt\dimexpr\ft@x + \@tempskipb, \@y){\line(0,-1){\@l}}%
+  }{%
+    % this divisor should match the delta_y for multiput
+    \ft@len=#5\relax%
+    \ft@len=\dimexpr\ft@len/2 + .5pt\relax%
+    \@tempcnta=\dimexpr\ft@len/65536\relax%
+    \multiput(\strip@pt\dimexpr\ft@x - \@tempskipb, \@y)%
+      (0,-2){\@tempcnta}{\line(0,-1){.5}}%
+    \multiput(\strip@pt\dimexpr\ft@x + \@tempskipb, \@y)%
+      (0,-2){\@tempcnta}{\line(0,-1){.5}}%
+  }%
+  \@ifundefined{#2haschild}{}{%
+    \ft@len=#5\relax%
+    \ft@y=\dimexpr\ft@height - \ft@len/2\relax%
+    \put(\strip@pt\dimexpr\ft@x + \@tempskipb,\strip@pt\ft@y)%
+        {\line(1,0){\strip@pt\ft@mrrg@chlen}}%
+    \ft@dbgplot{\strip@pt\ft@x,\strip@pt\ft@y}%
+    \ft@namexdefstrip{#1#2mrrgCY}{\ft@y}%
+  }%
+  \ft@len=#5\relax%
+  \@tempskipa=#4\relax%
+  \global\advance\ft@height \dimexpr -\ft@len - \@tempskipa\relax%
+  \ft@dbgmsg{line #2 H \the\ft@height}%
+}
+%    \end{macrocode}
+%
+% \parag{Layout the names}
+%
+% \DescribeMacro{\ft@mrrg@name}
+%
+%    \begin{macrocode}
+\newcommand{\ft@mrrg@name}[2]{% box-name individual-name
+  \global\advance\ft@height -\ht\@nameuse{#2}%
+  \put(0,\strip@pt\ft@height){\usebox{\@nameuse{#2}}}%
+  \ft@dbgframe[0,\strip@pt\ft@height]%
+              {\strip@pt\wd\@nameuse{#2},\strip@pt\ht\@nameuse{#2}}%
+  %
+  \@ifundefined{#2hasmaleline}{}{%
+    \ft@x=\@nameuse{#2nameX}pt%
+    \ft@y=\dimexpr\ft@height + \@nameuse{#2nameCY}pt\relax%
+    \ft@len=\dimexpr\ft@width - \@nameuse{#2nameX}pt%
+      %- \ft@namebox@maleline@sp%
+      \relax%
+    \put(\strip@pt\ft@x,\strip@pt\ft@y){\line(1,0){\strip@pt\ft@len}}%
+    \ft@namexdefstrip{#1#2nameCY}{\ft@y}%
+  }%
+  %
+  \@ifundefined{#2hascmark}{}{%
+    \ft@len=\dimexpr\ft@height + \@nameuse{#2nameCY}pt\relax%
+    \ft@namexdefstrip{#1#2nameCY}{\ft@len}%
+    \ft@dbgplot{0,\strip@pt\ft@len}%
+  }%
+  \global\advance\ft@height -\dp\@nameuse{#2}%
+  \ft@dbgmsg{name #2 H \the\ft@height}%
+}
+%    \end{macrocode}
+%
+% \subsubsection{Layout and connect the individuals --- core}
+%
+% \DescribeMacro{\ft@mrrg@spouse}
+%
+%    \begin{macrocode}
+\newlength{\ft@mrrg@ival}
+\newcommand{\ft@mrrg@spouse}[2]{% box-name list
+  \global\ft@mrrg@ival=0pt%
+  \@for\@temptokena:=#2\do{%
+    \@ifundefined{\@temptokena ival}{%
+      \@tempskipa=\dimexpr\ft@mrrgline@length + \ft@mrrg@ival\relax%
+      \if@tempswa%
+        \ft@mrrg@name{#1}{\@temptokena}%
+        \ft@mrrg@line{#1}{\@temptokena}{\ft@xx}{\ft@mrrgline@sp}%
+                     {\@tempskipa}%
+      \else%
+        \ft@mrrg@line{#1}{\@temptokena}{\ft@xx}{\ft@mrrgline@sp}%
+                     {\@tempskipa}%
+        \ft@mrrg@name{#1}{\@temptokena}%
+      \fi%
+      \global\ft@mrrg@ival=0pt%
+    }{%
+      \global\advance\ft@mrrg@ival%
+        \dimexpr\ht\@nameuse{\@temptokena}%
+        + \dp\@nameuse{\@temptokena}\relax%
+    }%
+  }%
+}
+%    \end{macrocode}
+%
+% \subsubsection{Marriage box --- interface}
+%
+% \DescribeMacro{\ftmrrgdef}
+% \DescribeMacro{\mrrgdef}
+%
+%    \begin{macrocode}
+\NewDocumentCommand{\ftmrrgdef}{mmmmO{0pt}}{%
+  % box-name spouse-listA oneself spouse-listB [xline]
+  \ft@xx=\@nameuse{#3nameCX}pt\relax%
+  \ft@mrrg@parse{#2,#3,#4}%
+  %
+  \advance\ft@width #5%
+  \global\ft@mrrg@chlen=\dimexpr\ft@width - \ft@xx%
+    - \ft@mrrgline@sep/2\relax%
+  %
+  \ft@theight=\ft@height%
+  \ft@newnamebox{#1}{%
+    \edef\@w{\strip@pt\ft@width}%
+    \edef\@h{\strip@pt\ft@height}%
+    \begin{picture}(\@w,\@h)%
+      \ft@dbgframe{\@w,\@h}%
+      %
+      \ifx#2\@nil\else%
+        \@tempswatrue%
+        \ft@mrrg@spouse{#1}{#2}%
+      \fi%
+      %
+      \ft@mrrg@name{#1}{#3}%
+      \@ifundefined{#1#3nameCY}{}{%
+        \ft@len=\@nameuse{#1#3nameCY}pt\relax%
+        \ft@dbgplot{1,\strip@pt\ft@len}%
+        \ft@namexdefstrip{#1nameCY}{\ft@len}%
+      }%
+      \@ifundefined{#3hascmark}{}{%
+        \ft@namexdef{#1hascmark}{\@nameuse{#3hascmark}}%
+      }%
+      %
+      \ifx#4\empty\else%
+        \@tempswafalse%
+        \ft@mrrg@spouse{#1}{#4}%
+      \fi%
+    \end{picture}%
+  }%
+  \ft@nameboxsz{#1}{\ft@theight}{\ft@depth}%
+}
+\ft@alias{mrrgdef}
+%    \end{macrocode}

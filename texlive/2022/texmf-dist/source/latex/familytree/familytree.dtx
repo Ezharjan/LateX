@@ -1,0 +1,260 @@
+% \iffalse
+% Copyright 2022 Jiro Senju
+%
+% This package is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% any later version.
+%
+% This package is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this package.  If not, see <http://www.gnu.org/licenses/>.
+%
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{familytree}%
+%<package>[2022/06/27 v3.1 familytree]
+%
+%<*driver>
+\documentclass[draft]{ltxdoc}
+\let\Ocmd=\cmd
+\renewcommand{\cmd}[1]{%
+  %\hskip-\parindent
+  \parbox{.95\textwidth}{\Ocmd{#1}}%
+}
+%
+\input{fonts}
+%
+\usepackage[dvipdfmx,final]{graphicx}
+\usepackage[final]{listings}
+\lstset{basicstyle=\small\ttfamily,
+  language=TeX,
+  columns=[c]flexible,
+  tabsize=4,
+  %frame=tb,
+  keepspaces=true,
+  %lineskip=-.1em,
+  belowskip=\medskipamount}
+\usepackage{multicol}
+\usepackage{needspace}
+%
+% hyperref should come last
+\usepackage[dvipdfmx,final,pdfusetitle]{hyperref}
+% bookmarksdepth=section
+% pdffitwindow=true
+% pdfpagetransition=Dissolve
+% pdfstartview=FitB
+\hypersetup{
+  hyperfootnotes=false,
+  colorlinks=true,
+  linkcolor=blue,
+  % anchorcolor=black,
+  % citecolor=black,
+  % urlcolor=black,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  setpagesize=false,
+  %pdftitle={},
+  %pdfauthor={},
+  pdfpagelayout=SinglePage,
+  pdfpagemode=UseOutlines,
+  pdfstartview=FitH
+}
+%
+\usepackage{\jobname}
+%
+\makeatletter
+\def\meta@font@select{\slshape}
+\def\fps@table{htbp}
+\let\part=\@gobble
+%
+\newcount\ft@lastsection
+\newcommand{\subsectImpl}[1][\subsection]{%
+  \iftrue% debugging code
+    \@tempcnta=\numexpr\thesection + 1\relax%
+    \ifnum\@tempcnta>\ft@lastsection\else%
+      Jump to \hyperlink{section.\the\@tempcnta}{next section}%
+    \fi%
+  \fi%
+  \needspace{4\baselineskip}%
+  #1{Implementation}%
+}
+\makeatother
+%
+\newcommand{\parag}[1]{%
+  \allowbreak%
+  \paragraph{#1}\nopagebreak\hskip0pt\nopagebreak%
+  %\medskip%
+}
+\newcounter{CS}[section]
+\newcommand{\CS}{%
+  \ifnum\theCS=0%
+    control sequence%
+    \stepcounter{CS}%
+  \else%
+    CS%
+  \fi%
+}
+\newcommand{\srcfig}[2][]{%
+  \lstinputlisting{\Dir/#2print}%
+  \nopagebreak[4]%
+  \hfil\includegraphics[#1]{\Dir/#2.pdf}%
+}
+\newcommand{\NoDescription}{\vspace*{-.9\baselineskip}}
+\newcommand{\IhadtoSplit}{%
+  This is not a good structure since it bogusly splits a long code into
+  a few parts, and may global variables. Comparing to the non-split
+  version, the split one is just a little better.
+}
+\let\tableautorefname=\tablename%
+\renewcommand{\subsectionautorefname}{}
+\newcommand{\refnm}[1]{%
+  \autoref{#1} ``\nameref{#1}''%
+}
+%
+% \EnableCrossrefs
+\DisableCrossrefs
+% \PageIndex
+%\CodelineIndex
+\makeatletter
+\let\theCodelineNo=\reset@font
+\AtEndDocument{%
+  \immediate\write\@auxout{%
+    \string\global\string\ft@lastsection=\thesection%
+  }%
+}
+\makeatother
+%\RecordChanges
+%
+\begin{document}
+\MakeShortVerb{\|}
+\let\PrintIndexO=\PrintIndex
+\let\PrintIndex=\relax
+\DocInput{\jobname.dtx}
+\DocInclude{ft-individual}
+\DocInclude{ft-sibling}
+\DocInclude{ft-gens}
+\DocInclude{ft-marriage}
+\DocInclude{ft-lib}
+%\PrintChanges
+% \PrintIndexO
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.sty}
+% \title{{\spaceskip=1ex\textsf{\jobname} package \fileversion}}
+% \author{Jiro Senju\\\texttt{\small jiro1010senju AT gmail DOT com}}
+% \date{\filedate}
+% \maketitle
+%
+% Draws a Family Tree.
+%
+% Defines a box describing an individual, and connects the multiple
+% boxes by lines.
+% The line represents the sibling, the parent-child relation ship, or
+% the marriage.
+%
+% \begin{itemize}
+% \item Excluding the marriage box, you can get a maleline\slash patrilineal
+%   tree, or a femaleline\slash matrilineal tree.
+% \item For Japanese, |jlreq.cls| vertical option (|tate|) is supported.
+% \end{itemize}
+% \bigskip
+%
+% \setcounter{tocdepth}{2}
+% \columnseprule=\arrayrulewidth
+% \begin{multicols}{2}
+% \tableofcontents
+% \end{multicols}
+% \bigskip
+%
+% \setcounter{secnumdepth}{0}
+% \section{Introduction}
+%
+% Family Tree is interesting.
+% But also, it can be really complicated, especially including the
+% siblings and marriages.
+%
+% Graphviz (|dot(1)|) is a good tool to draw a family tree, but I want
+% more straightforward understandability.
+% Here I try developing some macros to draw a family tree easily.
+% I am not a TeXnician, but I hope it helps someone who wants to draw
+% and view a large family tree.
+% Tested on TeX Live 2019.
+% Any comments will be appreciated.
+%
+% \subsection{Development}
+%
+% Basically all \CS s have a prefix ``|ft|''.
+% But non-prefix names are also defined by |\let| as an alias\slash
+% synonym, to improve the usability and the visibility.
+% Obviously only when the name is undefined.
+% If \CS{} name is already defined and |familytree| pkg cannot define the alias,
+% |\message| is generated.
+% This document tries using the |ft|-less alias name, but a few are used
+% with the prefixed name.
+% \smallskip
+%
+% There are multiple |dtx| files, but the generated |sty| is only one.
+% |ft-lib.dtx| is described at last of this document, but it comes
+% first in |sty|.
+% \medskip
+%
+% In the beginning, I was going to implement using |\hbox| and |\vbox|
+% or |tabular| environment. I thought they would be enough.
+% After defining the boxes, I would connect them by lines, then I got a
+% trouble.
+% |latex| adjusts the position of the boxes by inserting a glue or
+% something, and their connection points are shifted. I could not find a
+% good universal solution.
+% Can TikZ or something define the absolute coordinates and the lines? I
+% don't know.
+% To connect the lines, I had to choose |picture| environment.
+%
+% The depth of a character was another trouble, or I don't have enough
+% experience and
+% knowledge. To layout the boxes in |picture|, I have to consider the
+% depth of the box.
+% To support the Japanese in vertical mode, the depth is very important. In
+% horizontal mode, the depth is very alike of the English alphabets. But
+% in vertical mode, the depth is a half size of a character.
+% I didn't know that, and it took very long time for me.
+%
+% \subsection{Structure}
+%
+% Defines every element as a box in the tree, and connects them by lines.
+% In defining a box, we also define its connection points which make the
+% box to be connectable later.
+%
+% These are the elements.
+%
+% \begin{enumerate}
+% \item individual box
+%   \begin{itemize}
+%   \item child mark to represent one is adopted or biological child
+%   \item one's title
+%   \item one's name
+%   \item maleline\slash femaleline for the patrilineal\slash matrilineal tree
+%   \item additional information\par
+%     birth\slash death year-month-date, nickname, or anything
+%   \end{itemize}
+%
+% \item sibling box
+%   \begin{itemize}
+%   \item a line between the child marks
+%   \item interval box to make a space between individuals
+%   \end{itemize}
+%
+% \item marriage box
+%   \begin{itemize}
+%   \item marriage line (double line) to connect the husband and the wife
+%   \end{itemize}
+%
+% \item parent-child relationship or generations box
+% \end{enumerate}
+%
+% \setcounter{secnumdepth}{3}

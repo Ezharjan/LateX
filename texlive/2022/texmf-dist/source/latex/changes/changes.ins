@@ -1,0 +1,177 @@
+%% This file creates the needed files from changes.dtx
+%%
+\def\filedate{2021/07/15}
+\def\batchfile{changes.ins}
+\input docstrip
+
+\keepsilent
+\askforoverwritefalse
+
+\preamble
+
+changes.dtx
+Copyright 2007-2021 Ekkart Kleinod (ekleinod@edgesoft.de)
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or any later version.
+The latest version of this license is in
+ http://www.latex-project.org/lppl.txt
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work has the LPPL maintenance status `maintained'.
+The current maintainer of this work is Ekkart Kleinod.
+
+This work consists of the files
+	source/latex/changes/changes.drv
+	source/latex/changes/changes.dtx
+	source/latex/changes/changes.ins
+	source/latex/changes/examples.dtx
+	source/latex/changes/regression.dtx
+	source/latex/changes/README
+	source/latex/changes/userdoc/*.tex
+
+  scripts/changes/pyMergeChanges.py
+and the derived files
+	doc/latex/changes/changes.english.pdf
+	doc/latex/changes/changes.english.withcode.pdf
+	doc/latex/changes/changes.ngerman.pdf
+
+	doc/latex/changes/examples/changes.example.*.tex
+	doc/latex/changes/examples/changes.example.*.pdf
+
+	doc/latex/changes/regression/changes.regression.*.tex
+	doc/latex/changes/regression/changes.regression.*.pdf
+
+	tex/latex/changes/changes.sty
+
+\endpreamble
+
+\postamble
+Copyright 2007-2021 Ekkart Kleinod
+\endpostamble
+
+\generate{
+	\file{changes.sty}{\from{changes.dtx}{changes}}
+%
+	\file{examples/changes.example.simple.tex}{\from{examples.dtx}{example:simple}}
+	\file{examples/changes.example.draft.tex}{\from{examples.dtx}{example:draft}}
+	\file{examples/changes.example.final.tex}{\from{examples.dtx}{example:final}}
+%
+	\file{examples/changes.example.markup.default.tex}{\from{examples.dtx}{example:markup:default}}
+	\file{examples/changes.example.markup.underlined.tex}{\from{examples.dtx}{example:markup:underlined}}
+	\file{examples/changes.example.markup.bfit.tex}{\from{examples.dtx}{example:markup:bfit}}
+	\file{examples/changes.example.markup.nocolor.tex}{\from{examples.dtx}{example:markup:nocolor}}
+	\file{examples/changes.example.markup.wrong.tex}{\from{examples.dtx}{example:markup:wrong}}
+%
+	\file{examples/changes.example.commandnameprefix.none.tex}{\from{examples.dtx}{example:commandnameprefix:none}}
+	\file{examples/changes.example.commandnameprefix.always.tex}{\from{examples.dtx}{example:commandnameprefix:always}}
+	\file{examples/changes.example.commandnameprefix.ifneeded.tex}{\from{examples.dtx}{example:commandnameprefix:ifneeded}}
+	\file{examples/changes.example.commandnameprefix.wrong.tex}{\from{examples.dtx}{example:commandnameprefix:wrong}}
+%
+	\file{examples/changes.example.addedmarkup.colored.tex}{\from{examples.dtx}{example:addedmarkup:colored}}
+	\file{examples/changes.example.addedmarkup.uline.tex}{\from{examples.dtx}{example:addedmarkup:uline}}
+	\file{examples/changes.example.addedmarkup.uuline.tex}{\from{examples.dtx}{example:addedmarkup:uuline}}
+	\file{examples/changes.example.addedmarkup.uwave.tex}{\from{examples.dtx}{example:addedmarkup:uwave}}
+	\file{examples/changes.example.addedmarkup.dashuline.tex}{\from{examples.dtx}{example:addedmarkup:dashuline}}
+	\file{examples/changes.example.addedmarkup.dotuline.tex}{\from{examples.dtx}{example:addedmarkup:dotuline}}
+	\file{examples/changes.example.addedmarkup.bf.tex}{\from{examples.dtx}{example:addedmarkup:bf}}
+	\file{examples/changes.example.addedmarkup.it.tex}{\from{examples.dtx}{example:addedmarkup:it}}
+	\file{examples/changes.example.addedmarkup.sl.tex}{\from{examples.dtx}{example:addedmarkup:sl}}
+	\file{examples/changes.example.addedmarkup.em.tex}{\from{examples.dtx}{example:addedmarkup:em}}
+	\file{examples/changes.example.addedmarkup.wrong.tex}{\from{examples.dtx}{example:addedmarkup:wrong}}
+%
+	\file{examples/changes.example.deletedmarkup.colored.tex}{\from{examples.dtx}{example:deletedmarkup:colored}}
+	\file{examples/changes.example.deletedmarkup.uline.tex}{\from{examples.dtx}{example:deletedmarkup:uline}}
+	\file{examples/changes.example.deletedmarkup.uuline.tex}{\from{examples.dtx}{example:deletedmarkup:uuline}}
+	\file{examples/changes.example.deletedmarkup.uwave.tex}{\from{examples.dtx}{example:deletedmarkup:uwave}}
+	\file{examples/changes.example.deletedmarkup.dashuline.tex}{\from{examples.dtx}{example:deletedmarkup:dashuline}}
+	\file{examples/changes.example.deletedmarkup.dotuline.tex}{\from{examples.dtx}{example:deletedmarkup:dotuline}}
+	\file{examples/changes.example.deletedmarkup.sout.tex}{\from{examples.dtx}{example:deletedmarkup:sout}}
+	\file{examples/changes.example.deletedmarkup.xout.tex}{\from{examples.dtx}{example:deletedmarkup:xout}}
+	\file{examples/changes.example.deletedmarkup.bf.tex}{\from{examples.dtx}{example:deletedmarkup:bf}}
+	\file{examples/changes.example.deletedmarkup.it.tex}{\from{examples.dtx}{example:deletedmarkup:it}}
+	\file{examples/changes.example.deletedmarkup.sl.tex}{\from{examples.dtx}{example:deletedmarkup:sl}}
+	\file{examples/changes.example.deletedmarkup.em.tex}{\from{examples.dtx}{example:deletedmarkup:em}}
+	\file{examples/changes.example.deletedmarkup.wrong.tex}{\from{examples.dtx}{example:deletedmarkup:wrong}}
+%
+	\file{examples/changes.example.commentmarkup.margin.tex}{\from{examples.dtx}{example:commentmarkup:margin}}
+	\file{examples/changes.example.commentmarkup.footnote.tex}{\from{examples.dtx}{example:commentmarkup:footnote}}
+	\file{examples/changes.example.commentmarkup.uwave.tex}{\from{examples.dtx}{example:commentmarkup:uwave}}
+	\file{examples/changes.example.commentmarkup.todo.tex}{\from{examples.dtx}{example:commentmarkup:todo}}
+	\file{examples/changes.example.commentmarkup.wrong.tex}{\from{examples.dtx}{example:commentmarkup:wrong}}
+%
+	\file{examples/changes.example.highlightmarkup.background.tex}{\from{examples.dtx}{example:highlightmarkup:background}}
+	\file{examples/changes.example.highlightmarkup.uuline.tex}{\from{examples.dtx}{example:highlightmarkup:uuline}}
+	\file{examples/changes.example.highlightmarkup.uwave.tex}{\from{examples.dtx}{example:highlightmarkup:uwave}}
+	\file{examples/changes.example.highlightmarkup.wrong.tex}{\from{examples.dtx}{example:highlightmarkup:wrong}}
+%
+	\file{examples/changes.example.setaddedmarkup.tex}{\from{examples.dtx}{example:setaddedmarkup}}
+	\file{examples/changes.example.setdeletedmarkup.tex}{\from{examples.dtx}{example:setdeletedmarkup}}
+	\file{examples/changes.example.setcommentmarkup.tex}{\from{examples.dtx}{example:setcommentmarkup}}
+	\file{examples/changes.example.sethighlightmarkup.tex}{\from{examples.dtx}{example:sethighlightmarkup}}
+%
+	\file{examples/changes.example.authormarkup.superscript.tex}{\from{examples.dtx}{example:authormarkup:superscript}}
+	\file{examples/changes.example.authormarkup.subscript.tex}{\from{examples.dtx}{example:authormarkup:subscript}}
+	\file{examples/changes.example.authormarkup.brackets.tex}{\from{examples.dtx}{example:authormarkup:brackets}}
+	\file{examples/changes.example.authormarkup.footnote.tex}{\from{examples.dtx}{example:authormarkup:footnote}}
+	\file{examples/changes.example.authormarkup.none.tex}{\from{examples.dtx}{example:authormarkup:none}}
+	\file{examples/changes.example.authormarkup.wrong.tex}{\from{examples.dtx}{example:authormarkup:wrong}}
+%
+	\file{examples/changes.example.authormarkupposition.left.tex}{\from{examples.dtx}{example:authormarkupposition:left}}
+	\file{examples/changes.example.authormarkupposition.right.tex}{\from{examples.dtx}{example:authormarkupposition:right}}
+	\file{examples/changes.example.authormarkupposition.wrong.tex}{\from{examples.dtx}{example:authormarkupposition:wrong}}
+%
+	\file{examples/changes.example.authormarkuptext.id.tex}{\from{examples.dtx}{example:authormarkuptext:id}}
+	\file{examples/changes.example.authormarkuptext.name.tex}{\from{examples.dtx}{example:authormarkuptext:name}}
+	\file{examples/changes.example.authormarkuptext.wrong.tex}{\from{examples.dtx}{example:authormarkuptext:wrong}}
+%
+	\file{examples/changes.example.defaultcolor.tex}{\from{examples.dtx}{example:defaultcolor}}
+%
+	\file{examples/changes.example.setanonymousname.tex}{\from{examples.dtx}{example:setanonymousname}}
+%
+	\file{examples/changes.example.setauthormarkup.tex}{\from{examples.dtx}{example:setauthormarkup}}
+	\file{examples/changes.example.setauthormarkupposition.tex}{\from{examples.dtx}{example:setauthormarkupposition}}
+	\file{examples/changes.example.setauthormarkuptext.tex}{\from{examples.dtx}{example:setauthormarkuptext}}
+%
+	\file{examples/changes.example.settruncatewidth.tex}{\from{examples.dtx}{example:settruncatewidth}}
+%
+	\file{examples/changes.example.setsummarywidth.tex}{\from{examples.dtx}{example:setsummarywidth}}
+	\file{examples/changes.example.setsummarytowidth.tex}{\from{examples.dtx}{example:setsummarytowidth}}
+%
+	\file{examples/changes.example.setlocextension.tex}{\from{examples.dtx}{example:setlocextension}}
+	\file{examples/changes.example.setsocextension.tex}{\from{examples.dtx}{example:setsocextension}}
+%
+	\file{examples/changes.example.listofchanges.list.tex}{\from{examples.dtx}{example:listofchanges:list}}
+	\file{examples/changes.example.listofchanges.summary.tex}{\from{examples.dtx}{example:listofchanges:summary}}
+	\file{examples/changes.example.listofchanges.compactsummary.tex}{\from{examples.dtx}{example:listofchanges:compactsummary}}
+	\file{examples/changes.example.listofchanges.all.tex}{\from{examples.dtx}{example:listofchanges:all}}
+	\file{examples/changes.example.listofchanges.title.tex}{\from{examples.dtx}{example:listofchanges:title}}
+	\file{examples/changes.example.listofchanges.show.tex}{\from{examples.dtx}{example:listofchanges:show}}
+	\file{examples/changes.example.listofchanges.wrong.tex}{\from{examples.dtx}{example:listofchanges:wrong}}
+%
+	\file{examples/changes.example.packageoptions.todonotes.tex}{\from{examples.dtx}{example:packageoptions.todonotes}}
+	\file{examples/changes.example.packageoptions.truncate.tex}{\from{examples.dtx}{example:packageoptions.truncate}}
+	\file{examples/changes.example.packageoptions.ulem.tex}{\from{examples.dtx}{example:packageoptions.ulem}}
+	\file{examples/changes.example.packageoptions.xcolor.tex}{\from{examples.dtx}{example:packageoptions.xcolor}}
+%
+	\file{examples/changes.example.screenshot.tex}{\from{example-screenshot.dtx}{example:screenshot}}
+%
+	\file{examples/changes.example.package.hyperref.tex}{\from{examples.dtx}{example:package.hyperref}}
+%
+	\file{examples/changes.example.language.british.tex}{\from{examples.dtx}{example:language:british}}
+	\file{examples/changes.example.language.english.tex}{\from{examples.dtx}{example:language:english}}
+	\file{examples/changes.example.language.french.tex}{\from{examples.dtx}{example:language:french}}
+	\file{examples/changes.example.language.german.tex}{\from{examples.dtx}{example:language:german}}
+	\file{examples/changes.example.language.italian.tex}{\from{examples.dtx}{example:language:italian}}
+	\file{examples/changes.example.language.ngerman.tex}{\from{examples.dtx}{example:language:ngerman}}
+%
+	\file{regression/changes.regression.draft.id.tex}{\from{regression.dtx}{regression:draft:id}}
+	\file{regression/changes.regression.draft.name.tex}{\from{regression.dtx}{regression:draft:name}}
+	\file{regression/changes.regression.draft.nobabel.tex}{\from{regression.dtx}{regression:draft:nobabel}}
+	\file{regression/changes.regression.final.tex}{\from{regression.dtx}{regression:final}}
+	\file{regression/changes.regression.final.nobabel.tex}{\from{regression.dtx}{regression:final:nobabel}}
+}
+
+\endinput

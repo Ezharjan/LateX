@@ -1,0 +1,197 @@
+%%
+%% This is file `projlib-font.sty',
+%% generated with the docstrip utility.
+%%
+%% Copyright (C) 2021-2022 by Jinwen XU
+%% 
+%% This is part of the ProjLib Toolkit.
+%% 
+%% This work may be distributed and/or modified under the conditions of the
+%% LaTeX Project Public License, either version 1.3c of this license or (at
+%% your option) any later version. The latest version of this license is in
+%% 
+%%     http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX version
+%% 2005/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
+\ProvidesExplPackage
+  {projlib-font}
+  {2022/08/05} {}
+  {Font selection and configuration}
+
+\keys_define:nn { projlib-font }
+  {
+    , useosf           .bool_set:N   = \l__projlib_font_useosf_bool
+    , useosf           .initial:n    = { false }
+    , old-style-figures.bool_set:N   = \l__projlib_font_useosf_bool
+    , old~style~figures.bool_set:N   = \l__projlib_font_useosf_bool
+    , old style figures.bool_set:N   = \l__projlib_font_useosf_bool
+    , lmodern          .bool_set:N   = \l__projlib_font_lmodern_bool
+    , lmodern          .initial:n    = { false }
+    , latin-modern     .bool_set:N   = \l__projlib_font_lmodern_bool
+    , latin~modern     .bool_set:N   = \l__projlib_font_lmodern_bool
+    , latin modern     .bool_set:N   = \l__projlib_font_lmodern_bool
+    , palatino         .bool_set:N   = \l__projlib_font_palatino_bool
+    , palatino         .initial:n    = { false }
+    , times            .bool_set:N   = \l__projlib_font_times_bool
+    , times            .initial:n    = { false }
+    , garamond         .bool_set:N   = \l__projlib_font_garamond_bool
+    , garamond         .initial:n    = { false }
+    , noto             .bool_set:N   = \l__projlib_font_noto_bool
+    , noto             .initial:n    = { false }
+    , biolinum         .bool_set:N   = \l__projlib_font_biolinum_bool
+    , biolinum         .initial:n    = { false }
+    , unknown          .code:n       = {}
+  }
+\ProcessKeyOptions [ projlib-font ]
+
+\bool_new:N \g_projlib_font_already_set_bool
+\bool_gset_false:N \g_projlib_font_already_set_bool
+
+\RequirePackage { anyfontsize }
+\RequirePackage { setspace }
+
+\cs_new:Nn \projlib_font_set_linespacing_latin:n
+  {
+    \cs_if_exist:NTF \projlib_language_set_linespacing_latin:n
+      {
+        \projlib_language_set_linespacing_latin:n { #1 }
+      }
+      {
+        #1
+      }
+  }
+
+\bool_if:NT \l__projlib_font_lmodern_bool
+  {
+    \RequirePackage { amssymb }
+    \bool_if:NTF \l__projlib_font_useosf_bool
+      {
+        \RequirePackage { cfr-lm }
+      }
+      {
+        \RequirePackage { lmodern }
+      }
+    \projlib_font_set_linespacing_latin:n { \setstretch { 1.00 } }
+    \bool_gset_true:N \g_projlib_font_already_set_bool
+  }
+
+\bool_if:NT \l__projlib_font_palatino_bool
+  {
+    \RequirePackage { mathpazo }
+    \PassOptionsToPackage { defaultsups } { newpxtext }
+    \RequirePackage { newpxtext }
+    \cs_undefine:c { openbox }
+    \bool_if:NT \l__projlib_font_useosf_bool { \useosf }
+    \sys_if_engine_pdftex:F
+      {
+        \setsansfont { texgyreheros }
+          [
+            Scale          = MatchUppercase ,
+            UprightFont    = *-regular ,
+            BoldFont       = *-bold ,
+            ItalicFont     = *-italic ,
+            BoldItalicFont = *-bolditalic ,
+          ]
+      }
+    \projlib_font_set_linespacing_latin:n { \setstretch { 1.07 } }
+    \bool_gset_true:N \g_projlib_font_already_set_bool
+  }
+
+\bool_if:NT \l__projlib_font_times_bool
+  {
+    \PassOptionsToPackage { defaultsups } { newtxtext }
+    \RequirePackage { newtxtext }
+    \RequirePackage { newtxmath }
+    \cs_undefine:c { openbox }
+    \bool_if:NT \l__projlib_font_useosf_bool { \useosf }
+    \sys_if_engine_pdftex:F
+      {
+        \setsansfont { texgyreheros }
+          [
+            Scale          = MatchUppercase ,
+            UprightFont    = *-regular ,
+            BoldFont       = *-bold ,
+            ItalicFont     = *-italic ,
+            BoldItalicFont = *-bolditalic ,
+          ]
+      }
+    \projlib_font_set_linespacing_latin:n { \setstretch { 1.00 } }
+    \bool_gset_true:N \g_projlib_font_already_set_bool
+  }
+
+\bool_if:NT \l__projlib_font_garamond_bool
+  {
+    \bool_if:NF \l__projlib_font_useosf_bool
+      {
+        \PassOptionsToPackage { lining } { ebgaramond }
+      }
+    \RequirePackage [ cmintegrals, cmbraces ] { newtxmath }
+    \cs_undefine:c { openbox }
+    \RequirePackage { ebgaramond-maths }
+    \RequirePackage { ebgaramond }
+    \cs_undefine:c { Bbbk }
+    \projlib_font_set_linespacing_latin:n { \setstretch { 1.00 } }
+    \bool_gset_true:N \g_projlib_font_already_set_bool
+  }
+
+\bool_if:NT \l__projlib_font_noto_bool
+  {
+    \bool_if:NT \l__projlib_font_useosf_bool
+      {
+        \PassOptionsToPackage { oldstyle } { notomath }
+      }
+    \RequirePackage { anyfontsize }
+    \RequirePackage { notomath }
+    \cs_undefine:c { Bbbk }
+    \projlib_font_set_linespacing_latin:n { \setstretch { 1.00 } }
+    \bool_gset_true:N \g_projlib_font_already_set_bool
+  }
+
+\bool_if:NT \l__projlib_font_biolinum_bool
+  {
+    \RequirePackage [ OT1 ] { eulervm }
+    \sys_if_engine_pdftex:TF
+      {
+        \bool_if:NT \l__projlib_font_useosf_bool
+          {
+            \PassOptionsToPackage { osf } { biolinum }
+          }
+          \RequirePackage { biolinum }
+          \tl_gset:Nn \familydefault { \biolinum@family }
+      }
+      {
+        \PassOptionsToPackage { no-math } { fontspec }
+        \RequirePackage { fontspec }
+        \bool_if:NTF \l__projlib_font_useosf_bool
+          {
+            \setmainfont { LinBiolinum_R.otf }
+              [
+                BoldFont       = LinBiolinum_RB.otf  ,
+                ItalicFont     = LinBiolinum_RI.otf  ,
+                BoldItalicFont = LinBiolinum_RBO.otf ,
+                Numbers        = OldStyle            ,
+              ]
+          }
+          {
+            \setmainfont { LinBiolinum_R.otf }
+              [
+                BoldFont       = LinBiolinum_RB.otf  ,
+                ItalicFont     = LinBiolinum_RI.otf  ,
+                BoldItalicFont = LinBiolinum_RBO.otf ,
+              ]
+          }
+      }
+    \projlib_font_set_linespacing_latin:n { \setstretch { 1.05 } }
+    \RequirePackage [ italic, defaultmathsizes ] { mathastext }
+    \bool_gset_true:N \g_projlib_font_already_set_bool
+  }
+
+\PassOptionsToPackage { verbose = silent } { microtype }
+\RequirePackage { microtype }
+
+\endinput
+%%
+%% End of file `projlib-font.sty'.

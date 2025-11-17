@@ -1,0 +1,262 @@
+%%
+%% This is file `smfmulti.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% smflatex.dtx  (with options: `multi')
+%% 
+%%  This is smflatex v1.6 (released 2021/05/01)
+%%  LaTeX bundle for the SMF publications
+%%  (c) 1999-2021 Société mathématique de France
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\ProvidesPackage{smfmulti}[2000/11/20 v1.3
+  Package SMF pour les ouvrages multi-auteurs]
+\newif\ifsmf@slave
+\DeclareOption{slave}{\smf@slavetrue}
+\DeclareOption{master}{\smf@slavefalse}
+\ExecuteOptions{slave}
+\ProcessOptions\relax
+\RequirePackage{url}
+\newwrite\smf@out
+\newread\smf@in
+\newtoks\smf@toks
+\def\smf@newfiles{}
+\def\smf@empty{}
+{\catcode`\%=11\gdef\smf@pc{%}}
+\def\authors{}\def\shortauthors{}\def\shorttitle{}
+\def\@abstract{}\def\@altabstract{}\def\@alttitle{}
+\def\smf@volume{}\def\smf@fascicule{}% \def\smf@year{}
+\def\do@volumerefs{%
+  \do\smf@year\smf@year
+  \do\smf@volume\smf@volume
+  \do\smf@fascicule\smf@fascicule
+  \do\@isbn\@isbn
+  \do\@issn\@issn}
+\ifsmf@slave
+\def\do@paperrefs{%
+  \do\@precfile\@precfile
+  \do\smf@firstpage\smf@firstpage
+  \do\smf@lastpage\smf@lastpage
+  \do\smf@authors\authors
+  \do\smf@shortauthors\shortauthors
+  \do\smf@langue\smf@language
+  \do\smf@title\@title
+  \do\smf@shorttitle\shorttitle
+  \def\@tempa{french}\ifx\smf@language\@tempa
+    \do\smf@ftitre\@title
+    \do\smf@etitre\@alttitle
+    \do\smf@resume\@abstract
+    \do\smf@abstract\@altabstract
+  \else
+    \do\smf@ftitre\@alttitle
+    \do\smf@etitre\@title
+    \do\smf@resume\@altabstract
+    \do\smf@abstract\@abstract\fi
+}
+\else
+\def\do@paperrefs{%
+  \do\@precfile\@precfile
+  \do\smf@firstpage\smf@firstpage
+  \do\smf@lastpage\smf@lastpage
+  \do\smf@authors\smf@authors
+  \do\smf@shortauthors\smf@shortauthors
+  \do\smf@langue\smf@langue
+  \do\smf@title\smf@title
+  \do\smf@shorttitle\smf@shorttitle
+  \do\smf@ftitre\smf@ftitre
+  \do\smf@etitre\smf@etitre
+  \do\smf@resume\smf@resume
+  \do\smf@abstract\smf@abstract
+}
+\fi
+\def\reset@paperrefs{%
+  \bgroup
+  \def\do##1##2{\xdef##1{}}%
+  \do@paperrefs
+  \egroup
+}
+\reset@paperrefs
+\def\smfmulti@protect{\let\do\relax}
+\def\smfinclude#1{%
+  \cleardoublepage\thispagestyle{empty}\markboth{}{}
+  \bgroup
+     \smfmulti@protect
+     \xdef\smf@newfiles{\smf@newfiles\do{#1}}%
+  \egroup
+  \smf@read{#1}
+  \addtocontents{toc}%
+     {{\protect\do@smftoc{#1}}\protect\@gobble{\smf@shortauthors}}
+  \edef\@@smf@firstpage{\smf@firstpage}
+  \edef\smf@tempa{%
+       \noexpand\advance\c@page 0\smf@lastpage\relax
+       \noexpand\advance\c@page -0\smf@firstpage\relax}
+  \edef\smf@firstpage{\arabic{page}}
+  \smf@tempa
+  \edef\smf@lastpage{\the\c@page}
+  \ifx\smf@firstpage\@@smf@firstpage\else
+    \PackageWarning{smfmulti}{Difference de premiere page}\fi
+  \advance\c@page -1\relax
+  \ifodd\c@page\else\advance\c@page 1\relax\fi
+  \@makeincludetitle{#1}
+  \smf@write{#1}}
+\def\@makeincludetitle#1{%
+ \vtop to 55 mm{%
+ \parindent=0pt
+ \hrule height 1pt
+ \bigskip
+ \vbox to 0pt{\noindent \url{#1}%
+              \noindent\@xp\ifx\csname smf@journalhead\endcsname\relax
+                  , p.\ \smf@firstpage --\smf@lastpage\else
+                  \par\smf@journalhead\fi
+               \par\vss}\bigskip
+ \begin{center}
+ \large\vfil
+   {\bfseries\smf@boldmath\MakeUppercase\smf@title\par}
+ \vfil
+ {\edef\smfandname{{\noexpand\normalfont \smfandname}}
+    \andify\smf@authors\smf@authors\par}
+ \vfil \vrule height 1pt width .3\textwidth \vfil
+ \end{center}}
+ \vfil
+ {\sffamily\centering
+   Veuillez compiler ce fichier s\'epar\'ement et l'ins\'erer ici\par\medskip
+   Please compile this file separately and insert it here\par }}
+\def\smf@read#1{%
+  \makeatletter
+  \openin\smf@in=#1.smf
+  \ifeof\smf@in
+     \closein \smf@in
+     \reset@paperrefs
+  \else
+     \closein \smf@in
+     \input #1.smf
+   \fi
+   \makeatother
+}
+\def\smf@write#1{%
+  \makeatletter
+  \immediate\openout\smf@out=#1.smf
+  \bgroup
+    \def\do##1##2{\smf@toks=\expandafter{##2}%
+    \immediate\write\smf@out
+       {\string\def\string ##1\noexpand{\the\smf@toks\noexpand}\smf@pc}}%
+    \do@volumerefs\do@paperrefs
+  \egroup
+  \immediate\closeout\smf@out
+  \makeatother
+}
+\ifsmf@slave
+\def\smf@getfirstpage{%
+  \smf@read \jobname
+  \ifx\smf@firstpage\@empty
+     \xdef\smf@firstpage{1}\else
+     \c@page=\smf@firstpage\fi}
+\def\smf@getlastpage{%
+   \clearpage
+   {\advance\c@page -1 \xdef\smf@lastpage{\arabic{page}}}%
+   \ifodd\c@page\else\thispagestyle{empty}\hbox{}\fi
+   \smf@write\jobname }
+\else
+\def\smf@getfilelist {%
+  \makeatletter
+  \def\smf@files{}%
+  \InputIfFileExists{\jobname.smf}{\def\smf@files{}}%
+  \makeatother
+}
+\def\smf@writefilelist {%
+  \makeatletter
+  \immediate\openout\smf@out=\jobname.smf
+  \smf@toks=\expandafter{\smf@newfiles}%
+  \immediate\write\smf@out
+     {\string\def\string \smf@files\noexpand{\the\smf@toks\noexpand}\smf@pc}%
+  \ifx\smf@files\smf@newfiles\else
+     \PackageWarning{smfmulti}{Difference dans la liste des fichiers !}
+  \fi
+  \makeatother
+}
+\let\smftableofcontents\tableofcontents
+\def\@ctocline#1#2#3#4#5{\relax
+  \ifnum#1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty\addvspace{#2}%
+    \begingroup \hyphenpenalty\@M
+    \centering {#3{#4}}%
+    \par\nobreak
+    \endgroup
+  \fi}
+\def\l@part{\@ctocline{-1}{12pt plus 2pt}{\bfseries\smf@boldmath}}
+
+\def\do@smftoc #1{%
+  \smf@read {#1}
+  \makeatletter
+  \@tocline{-2}{12pt plus 2pt}{0pt}{0pt}{}{%
+  {\def\smfandname{\&}\andify\smf@shortauthors
+   \scshape
+   \smf@shortauthors}
+   ---
+   {\itshape\let\\\relax\ignorespaces\smf@title\unskip\ }}%
+   {\smf@firstpage}
+     \def\l@part{\@tocline{-1}{0pt}{12pt}{}{}}
+     \def\l@section{\@tocline{1}{0pt}{12pt}{}{}}
+     \def\l@subsection{\@tocline{2}{0pt}{24pt}{}{}}
+     \def\l@subsubsection{\@tocline{3}{0pt}{36pt}{}{}}
+     \def\l@paragraph{\@tocline{5}{0pt}{48pt}{}{}}
+   \@input{#1.toc}}
+\def\smftableofresumes{%%
+  \chapter*{R\'esum\'es des articles}
+  \def\do##1{{\do@smfresume{##1}}}\smf@files}
+\def\do@smfresume #1{%
+   \smf@read{#1}%
+   \@tocline {-2}{12pt plus 2pt}{0pt}{0pt}{}{%
+    {\itshape\let\\\relax\ignorespaces\smf@title\unskip}\\
+    {\def\smfandname{\&}\andify \smf@authors
+     \scshape
+     \smf@authors }}%
+    {\smf@firstpage}
+    \begin{list}{}{\labelwidth\z@ \leftmargin1cm \rightmargin0pt
+       \listparindent\normalparindent
+       \itemindent\normalparindent \advance\itemindent\labelsep
+       \parsep\z@ \@plus\p@
+       \let\fullwidthdisplay\relax}%
+    \item[] \smf@resume\end{list}}
+
+\def\smftableofabstracts{%%
+  \chapter*{Abstracts}
+  \def\do##1{{\do@smfabstract{##1}}}\smf@files}
+
+\def\do@smfabstract #1{%
+   \smf@read{#1}%
+   \@tocline {-2}{12pt plus 2pt}{0pt}{0pt}{}{%
+    {\itshape\let\\\relax\ignorespaces\smf@title\unskip}\\
+    {\def\smfandname{\&}\andify\smf@authors
+     \scshape\smf@authors }}%
+    {\smf@firstpage}
+    \begin{list}{}{\labelwidth\z@ \leftmargin1cm \rightmargin0pt
+       \listparindent\normalparindent
+       \itemindent\normalparindent \advance\itemindent\labelsep
+       \parsep\z@ \@plus\p@
+       \let\fullwidthdisplay\relax}%
+    \item[] \smf@abstract\par\end{list}}
+\AtBeginDocument{\smf@getfilelist}
+\AtEndDocument{\smf@writefilelist}
+\fi
+\endinput
+%%
+%% End of file `smfmulti.sty'.

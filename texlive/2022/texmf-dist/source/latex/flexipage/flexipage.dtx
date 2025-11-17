@@ -1,0 +1,818 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2022 by <+author+> <<+email+>>
+% ---------------------------------------------------------------------------
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is <+maintainer+>.
+%
+% This work consists of the files flexipage.dtx and flexipage.ins
+% and the derived filebase flexipage.sty.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{flexipage.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+%<package>\ProvidesPackage{flexipage}
+%<*package>
+    [2022/07/09 1.00 Easy page geometry]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{xspace}
+\usepackage{tikz,amsmath, amssymb,bm,color}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{calc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \voffset = -45pt
+  \textheight=210mm
+  \DocInput{flexipage.dtx}
+  \PrintChanges
+%  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+%
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{<+version+>}{<+date+>}{Converted to DTX file}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+%
+% \providecommand*{\url}{\texttt}
+% \providecommand\lgtarg[1]{{\ttfamily<}\meta{#1}{\ttfamily>}}
+% \GetFileInfo{flexipage.dtx}
+%
+% \title{The \textsf{flexipage} package}
+% \author{Anton Vrba\\\small%
+% Home Page: \url{https://github.com/anton-vrba/flexipage} }
+% \date{\fileversion~from \filedate\\}
+%
+%
+% \maketitle
+%
+%  \begin{abstract}
+% \noindent The package flexipage allows easy page layout if marginalia is required.
+% Mid document changes are possible such as: new marginal width, full width text,
+% and landscape text without marginal. Partners well with the package \textsf{sidenotesplus}.
+% The package also aids the layout for book printing, allowing for binding corrections
+% and adding page bleed, if required,
+% \end{abstract}
+%
+%
+%
+% \noindent The aim is an easy to use the page geometry setup,
+% and allow mid-document changes such as from portrait
+% to landscape, or change the text body width to marginalia width ratio.
+% The philosophy is simple, easy to understand options quickly set up the page geometry:
+% \begin{enumerate}
+%   \item |pageheight| and |pagewidth| of final document, default inherited.
+%   \item Defines page margins |inner|, |outer|, |top| and |bot|. Inner refers to the binding
+%         that is the left side margin of on odd pages in |twoside| documents, or
+%         of pages in |oneside| documents. Page margins surround the printable area.
+%         Default for all |36pt|, or |0.5in|.
+%   \item Add a |binding| correction, default |9pt|.
+%   \item Add an |outerbleed|, increases the papersize by adding a bleed area to the
+%         non bound margins. For the seldom requirement an |innerbleed| adds to the
+%         paperwidth on the inner side.
+%         Refer to your publisher. Default for both |0pt|.
+%   \item Divide the remaining printable area into a vertical |grid|, default |12|.
+%   \item Insert a |marginparsep| (default |3ex|) at the |margingrid| position
+%         counting from the outer edge; 0 is for no
+%         marginalia, 1 is a narrow marginal note area, and 4 is a marginal note area
+%         of one halve the width of the text body area's width when |grid=12|.
+%         The marginal area is placed by the outer edge.
+%   \item The \LaTeX\xspace |headsep|, |headheight| and |footskip| dimension
+%         can also be passed as options, otherwise default to class values.
+%   \item As a visual guide, the option |show| frames the page geometry in the output
+% \end{enumerate}
+%
+% \footnotesize
+% \noindent \begin{tikzpicture}
+%
+% \draw [fill=yellow!30]  (-4,4.4) node (v1) {} rectangle (3,-4.2);
+% \draw[fill=white]  (-3.8,4.2) rectangle (2.8,-4);
+% \draw [color=green, fill=green!20 ] (-2.8,3.6) rectangle (2.2,-3.4);%
+% \draw [fill=orange!10]  (-2.8,3.6) rectangle (0.8,3.4);
+% \draw [fill=orange!10] (1,3) rectangle (2.2,-2.8);
+% \draw  [fill=orange!10](-2.8,3) rectangle (0.8,-2.8);
+% \draw  [fill=violet!10] (-3.8,-4.2) rectangle (v1);
+
+% \draw [loosely dashed, blue] (-3.4,4.2) -- (-3.4,-4);
+% \draw (-2.8,-3.4) -- (0.8,-3.4);
+% \draw [loosely dashed] (1.8,3) -- (1.8,-2.8);
+% \draw [loosely dashed] (1.4,3) -- (1.4,-2.8);
+% \draw [loosely dashed] (0.4,3) -- (0.4,-2.8);
+% \draw [loosely dashed] (0,3) -- (0,-2.8);
+% \draw [loosely dashed] (-0.4,3) -- (-0.4,-2.8);
+% \draw [loosely dashed] (-0.8,3) -- (-0.8,-2.8);
+% \draw [loosely dashed] (-1.2,3) -- (-1.2,-2.8);
+% \draw  [loosely dashed] (-1.6,3) -- (-1.6,-2.8);
+% \draw [loosely dashed](-2,3) -- (-2,-2.8);
+% \draw [loosely dashed](-2.4,3) -- (-2.4,-2.8);
+% \node at (-1.2,3.5) {Header};
+% \node at (-0.9,0.3) {Text Body};
+% \node [rotate=90] at (1.6,0.3) {Marginal};
+% \node [text width=65mm, right ] at (3.5,0.1)
+% {\small  The basic paper geometry for book printing is illustrated to the left.
+% This for odd page numbers, the recto page. The even pages mirror this geometry
+% to maintain verso--recto symmetry.
+% The final page size is the white area. The yellow outer coloured area is the
+% |outerbleed| and the violet colored area on the left is the |innerbleed|, these
+% are trimmed and discarded. Please refer to your publisher if needed.
+%
+% ~~~The green area is the text block containing the text body, the marginal,
+% the header and footer and is defined by the margins |top|,
+% |outer| and |bottom| to the trimmed paper's edge.
+% The inner side (left) vertical dot-dashed line represents the |binding| correction and the |inner|
+% margin is defined from this line.
+%
+% ~~~Here the illustrated text width plus the marginal width are divided into 12 equal |grid=12| divisions
+% with the marginal takin 3 of them, defined by |marginalgrid=3|.
+% .};
+% \node at (-1.2,-3.3) {Footer};
+% \end{tikzpicture}\small
+% \\ Also refer to:
+% \url{https://www.overleaf.com/learn/latex/Single\_sided\_and\_double\_sided\_documents}
+% \normalsize
+%
+% \section{Usage}
+% \subsection{Document preamble}
+% \small
+% \begin{verbatim}
+% \PassOptionsToPackage{
+% % a4paper         , % or another recognised paper size
+% % paperheight =   , %  inherits from class
+% % paperwidth =    , %  inherits from class
+% % inner =         , %  default 36pt or 0.5in
+% % outer =         , %          36pt or 0.5in
+% % top =           , %          36pt or 0.5in
+% % bot =           , %          36pt or 0.5in
+% % binding =       , %           9pt or 0.125in
+% % outerbleed =    , %           0pt, but check with your printer
+% % innerbleed =    , %           0pt, but check with your printer
+% % grid =          , %          12 it is just a number
+% % marginalgrid =  , %           3 it is just a number
+% % marginparsep =  , %           3ex, if using sidenotesplus change to 4 or 5ex
+% % headsep =       , % inherits from class
+% % headheight =    , % inherits from class
+% % footskip=       , % inherits from class
+% % show            , % a switch to show frames around the printable areas.
+% % fancyhdrOff     , % Do not use the fancyhdr package
+% % NoFixMargin       % a possible future requirement
+% }{flexipage}
+% \usepackage{flexipage}
+%   \end{verbatim}
+% \normalsize\vspace{-20pt}
+%
+% \paragraph{Known Issue:} If using the option |show| and the package \textsf{xcolor}
+% is loaded later with options, an error will occur. The reason
+% is that when option |show| is specified the package \textsf{eso-pic} is loaded
+% whch in turns loads \textsf{xcolor} without options.
+%
+% \paragraph{Marginalia Position Issue:} When doing mid document changes to |\textwidth|
+% and |\marginparwidth| then |\marginpar{content}| renders the marginalia to the correct
+% width but places it at the old position. A patch is provided here
+% to correct this issue. Should this ever be fixed in the
+% latex base software then the |NoFixMargin| option would be required.
+%
+% \paragraph{Using \textsf{fancyhdr} package} By default the \textsf{fancyhdr} package
+% is loaded and the |\headerlength| is set to span the page, that is it overhangs the
+% text body. The advantage here is that the header has the same format throughout
+% the document if mid-document layout changes are made. If no such changes are
+% made then use the |fancyhdrOff| and load \textsf{fancyhdr} in your preamble. Now
+% the header does not overhang the text body and is as shown in the previous illustration.
+%
+%
+% The following paper sizes are recognised:
+%
+% ~
+%
+% \begin{tabular}{rlp{2ex}rl}
+% \multicolumn{2}{c}{Standard Paper} & &\multicolumn{2}{c}{Standard Book}  \\
+%        a4paper &210$\times$297mm & &   US-Trade &6$\times$9in \\
+%        a5paper &148$\times$210mm & & UK-B-Format &135$\times$210mm \\
+%        b4paper &250$\times$353mm & & US-B-Format &129$\times$198mm \\
+%        b5paper &176$\times$250mm & &   UK-Royal &156$\times$234mm \\
+%        c4paper &229$\times$324mm & &     Quarto &9.5$\times$12in \\
+%        c5paper &162$\times$229mm & &     Octavo &6$\times$9in \\
+%       b4jpaper &257$\times$364mm & & CrownQuarto &189$\times$246mm \\
+%       b5jpaper &182$\times$257mm & &       Demi &138$\times$216mm \\
+%    letterpaper &8.5$\times$11in \\
+%     legalpaper &8.5$\times$14in \\
+% executivepaper &7.25$\times$10.5in \\
+% \end{tabular}
+
+%
+%\subsection{User Interfaces}
+%
+%
+% \DescribeMacro{\NewMarginPage} Changes text--marginal ratio.
+%  |\NewMarginPage|\oarg{g}\lgtarg{parsep}\marg{m}
+% where optionally the grid count is reset to |grid|=\textit{g}, and marginal  width is
+% determined by |marginalgrid|=\textit{m}. The ratio of the lengths |\textwidth|
+% to |\marginparwidth| is $g-m$ to $n$. The second option changes the |\parsep| length.
+%
+%
+% \DescribeMacro{\NewFullPage} Continues the document with a new page without margins,
+% and is equivalent to |\NewMarginPage|\marg{0}
+%
+%
+%
+% \DescribeMacro{\OldMarginPage}
+% \DescribeMacro{\ResetFlexiPage} After |\NewMarginPage| or |\NewFullPage| revert to
+% the previous page geometry, these are not stacked. |\ResetFlexiPage| reverts to the layout specified in
+% the initial options
+%
+%
+%
+%
+% \DescribeEnv{Landscape}
+% \DescribeEnv{landscape}
+% These two environments provide landscape layouts. The big |Landscape| provides
+% full text block landscape. The small |landscape| environments respects the
+% portrait orientated marginal space which now is white space. Do not use
+% marginalia in landscape mode.
+%
+% \DescribeMacro{\Landscape}
+% \DescribeMacro{\endLandscape}
+% \DescribeMacro{\landscape}
+% \DescribeMacro{\endlandscape} Alternatives to |\begin{Landscape}| $\cdots$  $\cdots$ |\end{Landscape}|
+% %
+%
+% \section{Implementation}
+%
+% \iffalse
+%<*package>
+% \fi
+%
+%    \begin{macrocode}
+\RequirePackage{xparse}   % new LaTeX3 syntax to define macros and environments
+\RequirePackage{l3keys2e} % nice way for option processing
+\RequirePackage{calc}     % length manipulation
+\RequirePackage{fp}       % floating point calculation
+\RequirePackage{ifoddpage}
+\RequirePackage{graphics}  % provides landscaping
+\RequirePackage{mparhack} % not needed here, but the user certainly needs it.
+\RequirePackage{etoolbox} % provides \patchcmd
+% ****** \RequirePackage{eso-pic} only loaded later if option show is specified
+\newlength{\fleximarginparsep}
+\newlength{\flx@paperheight}
+\newlength{\flx@paperwidth}
+\newlength{\flx@temp}
+\newlength{\flx@LSfix}
+\setlength{\flx@LSfix}{0pt}
+\newlength{\flx@lsfix}
+\setlength{\flx@lsfix}{0pt}
+\newlength{\flx@textheigt}
+\newlength{\flx@orgtextwidth}
+\newlength{\flx@oldparsep}
+\newlength{\flx@oparsep}
+\newlength{\flx@binding}
+\newlength{\marginparsepodd}
+\newlength{\marginparsepeven}
+\newlength{\flx@inner}
+\newlength{\flx@outer}
+\newlength{\flx@top}
+\newlength{\flx@bot}
+\newlength{\flx@parsep}
+\newlength{\flx@printarea}
+\newlength{\flx@outerbleed}
+\newlength{\flx@innerbleed}
+\setlength{\flx@binding}  {9pt}
+\setlength{\flx@inner} {36pt}
+\setlength{\flx@outer} {36pt}
+\setlength{\flx@top}   {36pt}
+\setlength{\flx@bot}   {45pt}
+\setlength{\flx@parsep}{3ex}
+\setlength{\flx@outerbleed} {0pt}
+\setlength{\flx@innerbleed} {0pt}
+\FPset\flx@m{3}
+\FPset\flx@g{12}
+\newif\ifSF@frame\SF@framefalse
+\newif\ifFix@Margin\Fix@Margintrue
+\newif\ifUse@fancyhdr\Use@fancyhdrtrue
+%    \end{macrocode}
+%
+%
+%
+%    \begin{macrocode}
+\setlength{\flx@paperheight}{\paperheight}
+\setlength{\flx@paperwidth}{\paperwidth}
+
+\NewDocumentCommand \flx@setpapersize {o o m}{
+\setlength{\flx@paperheight}{#2#3}
+\setlength{\flx@paperwidth}{#2#3}
+}
+
+
+\ExplSyntaxOn
+\keys_define:nn { flexiprint }
+{
+        binding .code:n = \setlength{\flx@binding}{#1},
+          inner .code:n = \setlength{\flx@inner}{#1},
+          outer .code:n = \setlength{\flx@outer}{#1},
+            top .code:n = \setlength{\flx@top}{#1},
+            bot .code:n = \setlength{\flx@bot}{#1},
+   marginparsep .code:n = \setlength{\flx@parsep}{#1},
+    paperheight .code:n = \setlength{\flx@paperheight}{#1},
+     paperwidth .code:n = \setlength{\flx@paperwidth}{#1},
+     outerbleed .code:n = \setlength{\flx@outerbleed}{#1},
+     innerbleed .code:n = \setlength{\flx@innerbleed}{#1},
+           grid .code:n = \FPset\flx@g{#1},
+   marginalgrid .code:n = \FPset\flx@m{#1} ,
+           show .code:n = \SF@frametrue ,
+    NoFixMargin .code:n = \Fix@Marginfalse ,
+        headsep .code:n = \setlength{\headsep}{#1},
+     headheight .code:n = \setlength{\headheight}{#1},
+       footskip .code:n = \setlength{\footskip}{#1},
+    fancyhdrOff .code:n = \Use@fancyhdrfalse,
+        a4paper .code:n = \flx@setpapersize[210][297]{mm},
+        a5paper .code:n = \flx@setpapersize[148][210]{mm},
+        b4paper .code:n = \flx@setpapersize[250][353]{mm},
+        b5paper .code:n = \flx@setpapersize[176][250]{mm},
+        c4paper .code:n = \flx@setpapersize[229][324]{mm},
+        c5paper .code:n = \flx@setpapersize[162][229]{mm},
+       b4jpaper .code:n = \flx@setpapersize[257][364]{mm},
+       b5jpaper .code:n = \flx@setpapersize[182][257]{mm},
+    letterpaper .code:n = \flx@setpapersize[8.5][11]{in},
+     legalpaper .code:n = \flx@setpapersize[8.5][14]{in},
+ executivepaper .code:n = \flx@setpapersize[7.25][10.5]{in},
+      10x8paper .code:n = \flx@setpapersize[8][10]{in},
+       US-Trade .code:n = \flx@setpapersize[6][9]{in},
+    UK-B-Format .code:n = \flx@setpapersize[135][210]{mm},
+    US-B-Format .code:n = \flx@setpapersize[129][198]{mm},
+       UK-Royal .code:n = \flx@setpapersize[156][234]{mm},
+         Quarto .code:n = \flx@setpapersize[9.5][12]{in},
+         Octavo .code:n = \flx@setpapersize[6][9]{in},
+    CrownQuarto .code:n = \flx@setpapersize[189][246]{mm},
+           Demi .code:n = \flx@setpapersize[138][216]{mm},
+}
+\ProcessKeysOptions { flexiprint }
+
+\DeclareExpandableDocumentCommand{\IfNoValueOrEmptyTF}{ m m m }
+{
+ \IfNoValueTF{#1}
+  {#2}
+  {\tl_if_empty:nTF {#1} {#2} {#3}}
+}
+\ExplSyntaxOff
+
+\FPset\flx@oldg{\flx@g}
+\FPset\flx@oldm{\flx@m}
+\FPset\flx@og{\flx@g}
+\FPset\flx@om{\flx@m}
+\setlength{\flx@oparsep}{\flx@parsep}
+\ifUse@fancyhdr
+   \RequirePackage{fancyhdr}
+   \pagestyle{fancy}
+\fi
+
+\setlength{\flx@oldparsep}{\flx@parsep}
+\setlength{\flx@oparsep}{\flx@parsep}
+\addtolength{\flx@binding}{\flx@innerbleed}
+\global\hoffset=0pt
+\global\voffset=0pt
+
+%    \end{macrocode}
+%
+% \begin{macro}{\flx@setpagevertical}
+%    \begin{macrocode}
+\NewDocumentCommand \flx@setpagevertical {} {
+  \setlength{\flx@temp}{\flx@paperwidth+\flx@innerbleed+\flx@outerbleed}
+  \global\paperwidth=\flx@temp
+
+  \setlength{\flx@temp}{\flx@paperheight+2\flx@outerbleed}
+  \global\paperheight=\flx@temp
+
+  \setlength{\flx@temp}{\flx@top+\flx@outerbleed-72pt}
+  \setlength{\topmargin}{\flx@temp}
+
+  \setlength{\flx@temp}{\paperheight - \flx@top %
+            - \headheight - \headsep -\footskip - \flx@bot - 2\flx@outerbleed}
+  \setlength{\textheight}{\flx@temp}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\flx@setpagevertical
+\setlength{\flx@textheigt}{\textheight}
+\newlength{\flx@linewidth}
+%    \end{macrocode}
+%
+% \begin{macro}{\flx@setpage}
+%    \begin{macrocode}
+
+\NewDocumentCommand \flx@setpage {} {
+    \FPifgt\flx@m0\relax\else\setlength{\flx@parsep}{0pt}\fi
+    \setlength{\flx@temp}{\flx@binding+\flx@inner-72pt}
+    \global\oddsidemargin=\flx@temp
+
+    \setlength{\flx@linewidth}{\paperwidth-\oddsidemargin-\flx@outer-72pt-\flx@outerbleed}
+    \ifUse@fancyhdr
+       \setlength{\headwidth}{\flx@linewidth}
+    \fi
+    \setlength{\flx@printarea}{\flx@linewidth-\flx@parsep}
+    \FPsub\flx@t\flx@g\flx@m
+    \setlength{\flx@temp}{\flx@printarea * \real{\flx@t}/\real{\flx@g} }
+    \global\textwidth=\flx@temp
+
+    \setlength{\flx@temp}{\flx@printarea * \real{\flx@m}/\real{\flx@g} }
+    \global\marginparwidth=\flx@temp
+    \global\marginparsep=\flx@parsep
+    \if@twoside
+      \setlength{\flx@temp}{\flx@outer+\marginparwidth+\marginparsep-1in+\flx@outerbleed}
+      \global\evensidemargin=\flx@temp
+    \else
+      \global\evensidemargin=\oddsidemargin
+    \fi
+    \global\fleximarginparsep=\marginparsep
+    \global\hsize=\textwidth
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\flx@setpage
+\flx@orgtextwidth=\textwidth
+\FPset\flx@oldg\flx@g
+\FPset\flx@oldm\flx@m
+\setlength{\flx@oparsep}{\flx@parsep}
+\setlength{\flx@oldparsep}{\flx@parsep}
+%    \end{macrocode}
+%
+%
+% \begin{macro}{\NewMarginPage}
+%    \begin{macrocode}
+\NewDocumentCommand \NewMarginPage {o d<> m} {
+   \FPset\flx@oldg\flx@g
+   \FPset\flx@oldm\flx@m
+   \setlength{\flx@oldparsep}{\flx@parsep}
+   \ResetFlexiPage
+   \IfNoValueOrEmptyTF{#2}{\relax}{\setlength{\flx@parsep}{#2} }
+   \IfNoValueOrEmptyTF{#1}{\relax}{\FPset\flx@g{#1}}
+   \FPset\flx@m{#3}
+   \flx@setpage
+   \flx@marginparcorrection
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\OldMarginPage}
+%    \begin{macrocode}
+\NewDocumentCommand \OldMarginPage {} {
+   \FPset\flx@m\flx@oldm
+   \FPset\flx@g\flx@oldg
+   \flx@ResetFlexiPage
+   \setlength{\flx@parsep}{\flx@oldparsep}
+   \flx@setpage
+   \flx@marginparcorrection
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\NewFullPage}
+%    \begin{macrocode}
+\NewDocumentCommand \NewFullPage {}{
+   \FPset\flx@oldg\flx@g
+   \FPset\flx@oldm\flx@m
+   \setlength{\flx@oldparsep}{\flx@parsep}
+   \flx@ResetFlexiPage
+   \FPset\flx@m{0}
+   \setlength{\flx@parsep}{0pt}
+   \flx@setpage
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ResetFlexiPage}
+%    \begin{macrocode}
+\NewDocumentCommand \ResetFlexiPage{} {
+   \FPset\flx@oldg\flx@g
+   \FPset\flx@oldm\flx@m
+   \flx@ResetFlexiPage
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\flx@ResetFlexiPage}
+%    \begin{macrocode}
+\NewDocumentCommand \flx@ResetFlexiPage{} {
+   \clearpage
+   \FPset\flx@g\flx@og
+   \FPset\flx@m\flx@om
+   \setlength{\flx@parsep}{\flx@oparsep}
+   \flx@setpage
+   \flx@marginparcorrection
+}
+%    \end{macrocode}
+% \end{macro}%
+%
+% \begin{macro}{\Landscape}
+%    \begin{macrocode}
+\NewDocumentCommand \Landscape {}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+{
+   \FPset\flx@oldm\flx@m
+   \FPset\flx@oldg\flx@g
+   \setlength{\flx@oldparsep}{\flx@parsep}
+  \clearpage
+  \setlength{\flx@LSfix}{\textheight-\flx@linewidth}
+  \FPset\flx@m{0}
+  \setlength{\flx@parsep}{0ex}
+  \flx@setpage
+  \flx@landscape
+}
+%    \end{macrocode}
+%
+% \begin{macro}{\endLandscape}
+%    \begin{macrocode}
+\NewDocumentCommand \endLandscape {}
+{
+   \flx@endlandscape
+   \FPset\flx@m\flx@oldm
+   \FPset\flx@g\flx@oldg
+   \setlength{\flx@parsep}{\flx@oldparsep}
+   \flx@setpage
+   \setlength{\flx@LSfix}{0pt}
+   \flx@marginparcorrection
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\landscape}
+%    \begin{macrocode}
+\NewDocumentCommand \landscape {}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+{
+   \FPset\flx@oldm\flx@m
+   \FPset\flx@oldg\flx@g
+   \setlength{\flx@oldparsep}{\flx@parsep}
+  \clearpage
+  \setlength{\flx@LSfix}{\textheight-\textwidth}
+  \FPset\flx@m{0}
+  \setlength{\flx@parsep}{0ex}
+  \flx@landscape
+}
+%    \end{macrocode}
+%
+% \begin{macro}{\endlandscape}
+%    \begin{macrocode}
+\NewDocumentCommand \endlandscape {}
+{
+   \flx@endlandscape
+   \FPset\flx@m\flx@oldm
+   \FPset\flx@g\flx@oldg
+   \setlength{\flx@parsep}{\flx@oldparsep}
+   \flx@setpage
+   \setlength{\flx@LSfix}{0pt}
+   \flx@marginparcorrection
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%  If the page layout includes a marginal these lscape.sty package
+%  respect these
+%
+%
+%    \begin{macrocode}
+%
+
+\def\flx@LS@rot{%
+  \setbox\@outputbox\vbox{\hbox{\rotatebox{90}{\box\@outputbox}}}}
+
+\def\flx@landscape{%
+  \let\flx@LS@makecol=\@makecol
+  \let\flx@LS@makefcolumn=\@makefcolumn
+  \clearpage
+  \begingroup
+  \global\vsize=\textwidth
+  \global\hsize=\textheight
+  \linewidth=\hsize
+  \columnwidth=\hsize
+  \@colroom=\vsize
+  \textheight=\vsize
+  \@colht=\vsize
+  \def\@makecol{\flx@LS@makecol\flx@LS@rot}%
+  \def\@makefcolumn##1{\flx@LS@makefcolumn{##1}\flx@LS@rot}}
+
+\def\flx@endlandscape{%
+  \clearpage
+  \endgroup
+  \global\@colht=\textheight
+  \global\vsize=\textheight
+  \global\@colroom=\textheight}
+%
+%    \end{macrocode}
+%
+%
+%
+% \begin{macro}{\flx@marginparcorrection }
+%
+% Mid-document changes to textwidth are not communicated the LaTeX marginpar
+% routines hence the patch to correct the odd-side marginparsep.
+%
+% lifted from https://tex.stackexchange.com/questions/174605
+%
+% % \end{macro}
+%
+%
+%    \begin{macrocode}
+\NewDocumentCommand\flx@marginparcorrection{}{
+\ifFix@Margin
+   \setlength{\marginparsepodd}{\marginparsep-\flx@orgtextwidth+\textwidth}
+   \setlength{\marginparsepeven}{\marginparsep}
+   \patchcmd{\@addmarginpar}%In this command
+   {\mph@orig@addmarginpar}%...replace this...
+   {\if@twoside\ifodd\c@page\relax%...with this
+         \marginparsep=\marginparsepodd%Page isodd
+      \else%twoside and eveb
+         \marginparsep=\marginparsepeven%Page iseven
+      \fi
+      \else% oneside
+         \marginparsep=\marginparsepodd
+      \fi
+   \mph@orig@addmarginpar}
+   {}%success
+   {\message{Error! Couldn't hook into command   %failure
+   `\string\@addmarginpar'}} %end patch command
+
+   {
+   \def\patcherr{%
+      \message{Error!Couldn't hook into command`\string\@mn@@@marginnote'}}
+      \def\patchok{%
+      \let\patcherr\relax%Only display error if first patch fails
+      \patch%Now patch again.
+   }
+   \def\patch{
+      \patchcmd{\@mn@@@marginnote}%In this command
+         {\kern\marginparsep}%...replace this...
+      {\ifx\@mn@currpage\relax\else%...with this
+         \if@twoside\ifodd\@mn@currpage\relax
+            \kern\marginparsepodd%Page is odd
+         \else
+            \kern\marginparsepeven
+         \fi
+         \else% one side
+            \kern\marginparsepodd
+         \fi
+      \fi}
+      {\message{Patched!}\patchok}%success(recurse)
+      {\patcherr}%fail
+   }
+   \message{Patching`\string\@mn@@@marginnote`!}
+   \patch
+   \global\let\@mn@@@marginnote\@mn@@@marginnote%Makepatch global
+   }
+\fi
+}
+%    \end{macrocode}
+%
+%
+% The package showframe.sty is adapted and localised
+%
+%
+%    \begin{macrocode}
+\ifSF@frame\RequirePackage{eso-pic}\fi  % so that below code can draw frames
+
+\ifSF@frame\AddToShipoutPictureBG{\flx@ShowFramePicture}\fi
+
+\newcommand*\flx@framecolor{\color{green}}
+\newcommand*\flx@frameline{.8pt}
+\newdimen\SF@tempdima
+
+\newcommand\flx@ShowFramePicture{%
+  \begingroup
+    \color{orange}\linethickness{\flx@frameline}%
+    \if@twoside
+       \ifodd\c@page
+          \AtPageUpperLeft{%
+            \put(\flx@innerbleed,-\paperheight+\flx@outerbleed){%
+              \framebox(\paperwidth-\flx@outerbleed-\flx@innerbleed,\paperheight-2\flx@outerbleed){}}}%
+        \else
+          \AtPageUpperLeft{%
+            \put(\flx@outerbleed,-\paperheight+\flx@outerbleed){%
+              \framebox(\paperwidth-\flx@outerbleed-\flx@innerbleed,\paperheight-2\flx@outerbleed){}}}%
+        \fi
+    \else
+       \AtPageUpperLeft{%
+         \put(\flx@innerbleed,-\paperheight+\flx@outerbleed){%
+           \framebox(\paperwidth-\flx@outerbleed-\flx@innerbleed,\paperheight-2\flx@outerbleed){}}}%
+    \fi
+    \flx@framecolor\linethickness{\flx@frameline}%
+    \AtTextLowerLeft{%
+      \put(0,-\flx@LSfix){\framebox(\textwidth,\textheight+\flx@LSfix){}}}%
+
+\ifUse@fancyhdr
+    \if@twoside
+        \ifodd\c@page
+            \AtPageUpperLeft{%
+               \put(\flx@inner+\flx@binding,-\flx@outerbleed-\flx@top-\headheight){%
+                    \framebox(\flx@linewidth,\headheight){}}}%
+            \AtPageUpperLeft{%
+               \put(\flx@inner+\flx@binding,%
+                       -\flx@outerbleed-\flx@top-\headheight-\headsep-\textheight%
+                       -\footskip -\flx@LSfix){%
+                    \line(1,0){\flx@linewidth}}}%
+        \else
+        \AtPageUpperLeft{%
+           \put(\flx@outer+\flx@outerbleed,-\flx@outerbleed-\flx@top-\headheight){%
+            \framebox(\flx@linewidth,\headheight){}}}%
+        \AtPageUpperLeft{%
+           \put(\flx@outer+\flx@outerbleed,%
+                   -\flx@outerbleed-\flx@top-\headheight-\headsep-\textheight%
+                   -\footskip -\flx@LSfix){%
+                \line(1,0){\flx@linewidth}}}%
+
+        \fi
+    \else
+        \AtPageUpperLeft{%
+           \put(\flx@inner+\flx@binding,-\flx@outerbleed-\flx@top-\headheight){%
+            \framebox(\flx@linewidth,\headheight){}}}%
+        \AtPageUpperLeft{%
+           \put(\flx@inner+\flx@binding,%
+                   -\flx@outerbleed-\flx@top-\headheight-\headsep-\textheight%
+                   -\footskip -\flx@LSfix){%
+                \line(1,0){\flx@linewidth}}}%
+    \fi
+%
+\else
+    \AtTextUpperLeft{%
+      \put(0,\headsep){%
+        \framebox(\textwidth,\headheight){}}}%
+    \AtTextLowerLeft{%
+      \put(0,-\footskip-\flx@LSfix){%
+        \line(1,0){\textwidth}}}%
+\fi
+%
+\FPifgt\flx@m 0{%
+    \AtTextLowerLeft{%
+      \SF@tempdima=\textwidth\advance\SF@tempdima\marginparsep%
+      \if@twoside
+        \ifodd\c@page\else
+          \if@mparswitch
+            \SF@tempdima=-\marginparsep\advance\SF@tempdima-\marginparwidth
+          \fi
+        \fi
+      \fi
+      \put(\SF@tempdima,0)%
+        {\framebox(\marginparwidth,\textheight){}}%
+    }%
+  }\fi
+  \endgroup
+}
+%    \end{macrocode}
+%
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \Finale
+\endinput

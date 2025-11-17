@@ -1,0 +1,1576 @@
+% \iffalse
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+%<*internal>
+\begingroup
+\input docstrip.tex
+\keepsilent
+\preamble
+
+  Copyright (C)  2020-2022 Claudio Beccari  all rights reserved.
+  License information appended
+  
+\endpreamble
+
+\postamble
+
+Distributable under the LaTeX Project Public License,
+version 1.3c or higher (your choice). The latest version of
+this license is at: http://www.latex-project.org/lppl.txt
+
+This work is "maintained"
+
+This work consists of files swfigure.dtx and README.txt, and the derived
+files swfigure.sty and swfigure.pdf
+
+\endpostamble
+\askforoverwritefalse
+
+\generate{\file{swfigure.sty}{\from{swfigure.dtx}{package}}}
+
+\def\tmpa{plain}
+\ifx\tmpa\fmtname\endgroup\expandafter\bye\fi
+\endgroup
+%</internal>
+% \fi
+%
+% \iffalse
+%<*package>
+%<package>\NeedsTeXFormat{LaTeX2e}[2020/01/01]
+%</package>
+%<*driver>
+\ProvidesFile{swfigure.dtx}%
+%</driver>
+%<+package>\ProvidesPackage{swfigure}%
+%<*package>
+        [2022-04-24 v.0.9.20 Managing large and spread wide figures]
+%</package>
+%<*driver>
+\documentclass[a4paper]{ltxdoc}\errorcontextlines=9
+\hfuzz 10pt
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,textcomp,multicol,enumitem,mflogo,guit}
+\usepackage{swfigure}% this already loads the graphicx package
+
+\providecommand*\diff{\mathop{}\!\mathrm{d}}
+\renewcommand\meta[1]{{\normalfont\textlangle\textit{#1}\textrangle}}
+\renewcommand\marg[1]{\texttt{\string{\meta{#1}\string}}}
+\providecommand\Marg{}
+\renewcommand\Marg[1]{\texttt{\string{#1\string}}}
+\providecommand\oarg{}
+\renewcommand\oarg[1]{\texttt{[\meta{#1}]}}
+\providecommand\Oarg{}
+\renewcommand\Oarg[1]{\texttt{[#1]}}
+\providecommand\aarg{}
+\renewcommand*\aarg[1]{\texttt{<\meta{#1}>}}
+\providecommand\Aarg{}
+\renewcommand\Aarg[1]{\texttt{<#1>}}
+\providecommand\parg{}
+\renewcommand\parg[1]{\texttt{(\meta{#1})}}
+\providecommand\Parg{}
+\renewcommand\Parg[1]{\texttt{(#1)}}
+\providecommand\barg{}
+\renewcommand\barg[1]{\texttt{\char`|\meta{#1}\char`|}}
+\newbox\SWsynt
+\providecommand\eTeX{}
+\renewcommand\eTeX{\lower0.5ex\hbox{$\varepsilon\!$}\TeX}
+\newcommand\Benv[1]{\cs{begin}\Marg{#1}}
+\newcommand\Eenv[1]{\cs{end}\Marg{#1}}
+
+\newenvironment{medaglione}%
+{\par\medskip\fboxrule=0.8pt\fboxsep6pt\relax
+\begin{lrbox}{\SWsynt}\minipage{\dimexpr\linewidth-2\fboxsep-2\fboxrule}}%
+{\endminipage\end{lrbox}\noindent\fbox{\box\SWsynt}\par\medskip}
+
+\newenvironment{ttsyntax}{\medaglione\raggedright\ttfamily\obeylines}{\endmedaglione}
+
+\providecommand\setfontsize{}
+\DeclareRobustCommand\setfontsize[2][1.2]{%
+\linespread{#1}\fontsize{#2}{#2}\selectfont}
+\providecommand\ped[1]{\ensuremath{_{\mathrm{#1}}}}
+
+\GetFileInfo{swfigure.dtx}
+
+\title{The \texttt{swfigure} package\\
+Managing large and spread wide figures}
+\author{Claudio Beccari\thanks{E-mail: \texttt{claudio dot beccari at gmail dot com}}}
+\date{Version \fileversion~---~Last revised \filedate}
+
+\begin{document}\errorcontextlines=100
+\maketitle
+\columnseprule=0.4pt
+\begin{multicols}{2}
+  \tableofcontents
+\end{multicols}
+\DocInput{swfigure.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{1046}
+%
+% \begin{abstract}
+% This package defines a single command that with different options can
+% insert large images into the document; those that occupy an entire
+% spread get split into two halves that are inserted on
+% two facing pages in such a way that they merge when the document is read
+% on the screen (set to double page view) or is printed in a well sewn
+% book so that facing pages join correctly at the spine. 
+% This documentation is accompanied by another file
+% |swfigure-examples.pdf| containing examples of this package several
+% uses.
+% \end{abstract}
+%
+%\begin{figure}[t]
+%\includegraphics[width=\linewidth]{DFscreenshot}
+%\caption{Example of a large fake image that occupies a spread;
+% screenshot of a spread view from the companion file
+% swfigure-examples.pdf.}\label{fig:DFscreenshot}
+%\end{figure}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Introduction}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sometimes it is necessary to insert in a given document very large
+% images; either they are larger than a spread, or they do not exceed
+% the width of a spread. In the first case it is necessary to use
+% to large sheets of paper folded in the proper way and inserted in the
+% printed document as special inserts; or for documents to be read on
+% the screen such large sheets have to be attached to the document as
+% separate files to be viewed in windows different from that where the
+% document is being read. 
+%
+% In the other case it is possible to manage such large figures in
+% different ways; we define a single command that, according to
+% different settings, can insert such figures in eight different display
+% modes.
+%\begin{enumerate}[noitemsep]
+% \item
+% The normal \LaTeX\ kernel full page display mode, but setting the placement option to |[p]| to the figure environment. Apparently
+% there is no need to define a new command for this display mode, except
+% the advantage of using the same command as the other modes and a few
+% small further functionalities provided by this the new command.
+%\item
+% The landscape display mode is available with the |lscape| package
+% and other similar ones. Again this display mode appears superfluous,
+% but the advantage is to use the same command as the other display modes.
+%\item
+% The screen-wide display mode, where two facing pages display a large
+% figure divided in two halves, each one set in its page shifted to the
+% spine so as to occupy on each page the text width plus the internal
+% margin; with suitable aspect ratio, both facing pages are practically
+% full. No other text appears  on the page with this display mode, except
+% the caption in the right page external margin.
+%\item
+% The slim screen-wide image is similar to the previous mode, but since
+% the figure is slim, it is set at the top of two facing pages, with text
+% underneath; the caption is under the right figure half in the right
+% page, and the left text block height is set so that that the first
+% lines of both text blocks are aligned.
+%\item
+% The slim tall image is set to the side of the text block with text
+% wrapping  it. Recurse is made either to the |wrapfig| package
+% or the newer  |wrapfig2| one if the latter exists, therefore the
+% software might sometimes hick-up a little bit, because of the
+% idiosyncrasies of both |wrapfig| and |wrapfig2| that perform
+% very well in most but not all circumstances; see that package
+% documentation for such |wrapfig| and |wrapfig2|
+% limitations. With one of these packages we limit the use of this
+% display mode to images that have a “height over width” aspect ratio
+% not lower than~2; we provide also some option arguments so as to correct
+% small imperfections in the sizing of the text indention 
+%\item
+% A very large image, typically A3 sized, occupies a full spread
+% including the lateral margins; it is a solution to inputting, for
+% example, a line drawing of a technical device, that otherwise
+% should be attached as a separate document; a very large table
+% that does not fit the usual A4 paper and that cannot be split in chunks
+% by means of |longtable|, and cannot be scaled down to unreadable font
+% sizes.
+%\item
+% A rather tall not so slim image can be typeset in the total height
+% mode; this height is the paper (trimmed page) height; the image
+% appears in a textless page, shifted to the spine, taking into
+% account if the page is an odd or even numbered one. The image
+% is scaled so that leaves on it side the external margin plus a part
+% of the text width, generally sufficient for a side caption; it reaches the
+% top and the bottom limits of the trimmed page. Should this space
+% be to narrow for a decently typeset caption, a warning
+% message is issued but the compilation is not stopped. It is up
+% to the user to control how bad is the caption typesetting and
+% possibly to provide a different display mode in order to get a
+% better result.
+% \item 
+% Anothe display mode, that we call Total Width
+%\end{enumerate}
+%
+% In any case, depending on the page geometry and the image aspect
+% ratio, it is very handy to have available a single command that
+% changes the display mode by just changing a single input optional
+% argument. In facts the user might start with one of the eight
+% described display modes; after examining the document draft the
+% user might chose another display mode, and it suffices to change
+% the optional argument, without changing the whole code.
+%
+% \bigskip
+%
+% \noindent\fbox{\textcolor{red}{WARNING}}\quad This package performs
+% as expected with documents typeset in \texttt{twoside} mode, and with
+% a page design where the internal margins of both the odd and even pages
+% are equal (symmetrical page design). For example, it does not work
+% with this document designed to work in \texttt{oneside} mode and
+% where the the left page margin is always larger than the right one
+% of each page; this page design is functional to the documentation
+% of the \TeX\ system software.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Installation}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This package is already installed with any complete and up to date
+% \TeX\ system distribution, \TeX\ Live or MiK\TeX.
+%
+% Should the user have available a basic or a partial \TeX\ system
+% installation, the simplest way to install this package is to download
+% the |swfigure.zip| file from the Comprehensive \TeX\ Archive Network
+% (CTAN), to decompress it either in the very folder where there is
+% the document main or single document file or, for a general use, in
+% the user |texmf| personal tree; it might be necessary that the user
+% should directly create this personal tree; how to do it is described
+% in the documentation of the user \TeX\ system distribution.
+%
+% The same holds true if the user employs a vintage \TeX\ system
+% distribution; this package requires the \LaTeX3 modern language
+% functionalities, therefore a \LaTeX\ kernel with a date after
+% 2019-01-01. Lacking this modern kernel, the package does not work,
+% because packages |xparse| and |xfp| are used for its
+% internal workings.
+%
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Usage}\label{sec:Usage}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This package defines a single user command\slash environment,
+% |DFimage|. The command is usable when the image fills up the page
+% or the spread, so that it contains no text, except the caption; the
+% environment is recommended when the large image is in a page or a
+% spread that contains also some text.\\
+% \fbox{\color{red} Warning!} This particular environment
+% cannot be nested and cannot contain a |\DFimage| command.
+%
+% The syntax is the following:
+%\begin{ttsyntax}
+%\cs{DFimage}\oarg{display mode}\marg{image file name}\%
+%\qquad \oarg{lof entry}\marg{caption}\oarg{label}\%
+%\qquad\parg{height correction}\aarg{line correction}\barg{width test}!\meta{precaption}!
+%\vspace{0.5\baselineskip}
+%or
+%\vspace{0.5\baselineskip}
+% \Benv{DFimage}\oarg{display mode}\marg{image file name}\%
+%\qquad \oarg{lof entry}\marg{caption}\oarg{label}\%
+%\qquad\parg{height correction}\aarg{line correction}\barg{width test}!\meta{precaption}!
+%\meta{environment textual contents}
+%\Eenv{DFimage}
+%\end{ttsyntax} 
+% \noindent where:
+%\begin{description}[noitemsep]
+%
+%\item[\meta{display mode}]
+% is one of the following uppercase acronyms:
+% \texttt{NF} (Normal Figure),  \texttt{RF} (Rotated Figure),
+% \texttt{SW} (Spread Wide image), \texttt{HS} (Horizontal Spread-wide
+% image), \texttt{VS} (Vertical Slim image), \texttt{FS}
+% (Full Spread image), \texttt{TH} (Total Height image), and \texttt{TW} (Total Width image).
+%
+%\item[\meta{image file name}]
+% is the name of the image graphic file; remember that the \LaTeX based
+% \TeX\ system typesetting programs accept graphic files in the formats
+% with extensions \texttt{.pdf}, \texttt{.eps}, \texttt{.jpg},
+% \texttt{.png}, and few other less common ones. It is not necessary to
+% specify the extension, but it is not forbidden.
+%
+%\item[\meta{lof entry}]
+% is the optional entry to the List Of Figures; it defaults to the
+% \meta{caption} text, but if the latter is sort of lengthy, it is
+% better to enter a shorter text in that list.
+%
+%\item[\meta{caption}]
+% is the caption text. Its number prefix is adapted to the main or the
+% current language setting as it happens with any figure in standard
+% \LaTeX.
+%
+%\item[\meta{label}]
+% this optional argument is the string that forms the \cs{label} command
+% argument; of course, if this argument is not specified, the figure
+% number and its page cannot be referenced with \cs{ref}, \cs{pageref}
+% and other similar commands.
+%
+%\item[\meta{height correction or color}]
+% is a round parenthesis delimited optional argument; as a
+% \emph{height correction} it is a fractional number lower than~1
+% (default 0.8) with which to further scale the scaled image height
+% to be included; it is used by some display modes, and it is ignored
+% by others. In the total height mode, it can be used to scale the
+% captions width.
+%
+%\item[\meta{line correction}] is an angle bracket delimited optional
+% argument preset to zero. It is relevant only with the slim
+% vertical image display mode. Sometimes the |wrapfig| package
+% indents the wrapping text in such a way as to leave to much or too
+% little vertical space around the image and its caption; by examining
+% the document draft it is possible to correct the predetermined
+% number of indented lines by increasing or decreasing the vertical
+% space by any (integer) number of lines. With |wrapfig2| it is
+% possible to use a final optional asterisk that changes the
+% information relative to the number of indented lines into a
+% correction of such number; its easier to count the missing or
+% the extra indented lines, that the whole number of such lines.
+%
+%\item[\meta{width test}] this further vertical bar-delimited argument
+% is used only when dealing with vertical slim images; when they are
+% scaled down in order to fit in the available space, their width may
+% become too small to allow a decently typeset caption below the
+% image. A test is made to compare the scaled image width with a
+% fraction of the text block width in order to skip the image insertion
+% if the image width becomes too small; the default value for this
+% \meta{width test} fraction is \texttt{0.25}, but the user can specify
+% a different value, even zero; with the zero value this width test is
+% skipped.
+%
+%\item[\meta{precaption}] is an optional color declaration delimited by
+% exclamation points; the default value is ‘empty’; it is used only
+% by the \texttt{FS} display mode in order to typeset a caption, for
+% example, with a contrasting color over the background image average
+% color, and/or with a displacement of the first or only caption line,
+% and/or with a different font.
+%
+%\end{description}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Display mode peculiarities}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Each of the listed display modes has its own pros and cons.
+% In the following the phrase “aspect ratio” refers to the “height
+% over width” ratio either of the image or of the available space
+% where to put the image and possibly its caption.
+%\begin{description}[noitemsep]
+%
+%\item[\texttt{NF}]
+% This display mode is convenient when the image
+% aspect ratio is close to the text block one. Of course the user
+% does not know in advance the vertical space occupied by the caption,
+% therefore the optional \meta{height correction} comes handy for
+% small adjustments; this display mode is fully and freely floating,
+% although its positioning option is fixed to~|[p]|, a float-only page.
+% Therefore don't use it if the image is not really such as to occupy
+% most of the text block area. 
+%
+%\item[\texttt{RF}]
+% This display mode is convenient when the image
+% aspect ratio is close to the reciprocal of the text block one. This
+% mode accepts the \meta{height correction} in order to leave space
+% for the caption. It is a fully and freely floating object with the
+% same pros and cons as the \texttt{NF} display mode.
+%
+%\item[\texttt{VS}]
+% This mode is convenient for tall and slim figures with aspect ratio
+% not lower than~2; but for obvious reasons, it should not be too
+% large, let's say, not larger than about~3 or~4. As always this depends
+% on the page design and the caption size. The limitations of the
+% underlying |wrapfig| or |wrapfig2| packages forbid their usage too
+% close to explicit lists and texts typeset in special modes with a
+% different measure from normal text. Again it is up to the user to chose
+% where to insert the |DFfigure| environment or the |\DFimage| command.
+% The |wrapfig| or |wrapfig2| package documentation, and our experience,
+% show that the best position is just before a new paragraph; the
+% environment end should be placed after a suitable number of full
+% paragraphs, even if not all of them  are involved with wrapping.
+%
+% If the aspect ratio of the image to include is lower than~2, the
+% following message is printed in the document where the image
+% should appear (of course with |#1| replaced by the actual image
+% file name):\\[2ex]
+%\begin{minipage}{0.7\textwidth}
+%\begin{verbatim}
+%      ===========================================
+%      Figure #1 is not tall enough.
+%      Consider using a display mode different
+%      from VS; may be NF or RF are better suited.
+%      ===========================================
+%      Nothing done!
+%      ===========================================
+%\end{verbatim}
+%\end{minipage}\\[2ex]
+% A similar action and a similar message is output if the \emph{scaled}
+% image width becomes too small.
+%
+%\item[\texttt{SW}]
+% This display mode is convenient when a really large
+% image requires two pages to display all its details; its aspect ratio
+% should be close to the aspect ratio of the total space
+% available for the two page spread; depending on the page design this
+% total space approximate value is probably around~0.5.
+% The object to be included in the document should start on an even
+% page, therefore it floats to the first even page available; this may
+% force a page break where the current page is not fully completed and 
+% may be shorter than the other text pages; the user
+% then should help the automatic positioning by choosing very carefully
+% where to insert the \cs{DFfigure} command in the source text; possibly
+% the user should chose an end of paragraph close to the end of a page.
+% The command or the environment may be used even within a source file
+% paragraph; with a little attention: there should be no space between
+% the end document command and the first character of the following text.
+%
+%\item[\texttt{HS}]
+% This display mode is convenient when the initial image aspect
+% ratio is very small; if it is smaller than~0.3 its insertion
+% leaves enough space beneath the two image halves (plus caption)
+% so that normal text can fill the space under such spread wide
+% slim figure. The constraints described for display mode \texttt{SW}
+% apply also to this mode.
+%
+% \item[\texttt{FS}]
+% The \texttt{SW} mode occupies a spread without invading the lateral
+% margins; it simply occupies only the internal margin. On the opposite,
+% the \texttt{FS} Full Spread mode occupies also the lateral margins;
+% typically a full spread of two A4 pages, can contain a rotated A3 page,
+% without scaling down its contents. With this full occupation of both
+% facing pages, there is no room for any caption; therefore the actual
+% image, besides occupying an A3 page, should have a minimum white
+% margin around, so that a caption can be superimposed to the image white
+% part if its original bottom margin that, upon rotation, becomes the
+% right one, is large enough. If the original image has no margins, the
+% caption is typeset ove the image, but it may be coloured with
+% contrasting color compared to the average background one.
+%
+% \item[\texttt{TH}]
+% This mode is suited for tall figures that do not show well when their
+% height is scaled to the text height; the upper and lower margins are
+% available for a larger scale factor; even the internal margin is
+% helpful to gain some space. In this case, though, the page header and
+% footer should be avoided and the figure caption should be set at the
+% image side, without any rotation; the little problem that arises in
+% this case is that the caption, always close to the external margin,
+% should not be rotated and its measure should be adapted in order to
+% properly use the horizontal space left on the page. If this space is
+% too narrow the figure, in spite if being taller then wide, is too
+% wide: it has an aspect ratio higher than one but not enough. This
+% display mode requires that the image has an aspect ratio greater
+% than, say,  $\sqrt2$, otherwise the caption measure becomes too short.
+% A warning message is issued if the total space left on the page is
+% smaller than the external margin, where the caption would have the
+% same measure as a marginal note. In spite if this fact, compilation
+% goes on, and the attentive user not only evaluates the result,
+% and examines the \texttt{.log} file where he finds the explanation
+% of the possibly too bad result.
+% \item[\texttt{TW}]
+% A another Total Width mode is defined such that the scaled
+% image and its (side) caption occupy the upper part of the page/paper.
+% The given image is scaled to occupy the internal margin plus 80\%
+% of the text block width; the remaining horizontal space is provided
+% for a side caption and its lateral spaces, If the aspect ratio
+% of the original image is not smaller than text block and internal
+% margin widths divided by the paper height, the scaling might produce
+% a scaled image too tall to fit into the paper. No tests are made
+% in this sense, but it is up to the user the best choice for
+% displaying a given image. On an A4 paper, depending on the page
+% design, the aspect ratio available should be approximately 1.8,
+% therefore this design accommodates a large number of different
+% aspect ratio images, from a not so slim tall portrait image to
+% a landscape image. A square image, scaled as described above, 
+% may occupy approximately the upper half of the page.
+% The caption is always well typeset in the adjacent free space,
+% and it is possible to slightly modify its measure by using  an
+% optional argument.
+%\end{description}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Acknowlegements}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This package would not exist if Heinrich Fleck did not need
+% to insert several large images in his documents; he asked
+% me to create suitable commands and/or environments and he tested
+% all the series of progressive developments of this package; believing
+% that this package might be useful to other \TeX\ users, he invited
+% me to submit the result to the \TeX\ community, and here it is.
+% Heinrich did not want his name as a co-author, because he insists
+% that he was “just” a tester. He was precious and I warmly thank him.
+% 
+% Thanks also to Benedict Wilde who spotted some errors and suggested
+% the use of specific settings for the PDF viewer.
+%
+% Thanks also to the unknown person nicknamed “dylan.bacc” on the \GuIT\ 
+% forum, who induced me to work on the sixth display mode. I knew that
+% using the |memoir| class, with suitable settings, and having available
+% an advanced printer, it was possible to print documents with pages of
+% different formats and page designs; but this was not my aim: I wanted
+% something possibly independent from the document class and not
+% requiring any particular printer.
+% The seventh display mode came to our minds when we found tall figures
+% that did not show well scaled to the \emph{text block} height, but could
+% show better if scaled to \emph{paper} height, with the caption at their
+% side; actually we found that it was better to scale the image to a
+% width of the internal margin plus 80\% of the text width, and placing
+% the image flush to the upper paper border and to the spine. The eighth display mode is a varinat of the preceding one and allows to place some text beneath the image and caption block.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+%\begin{thebibliography}{9}
+%\bibitem{bib:xparse} The \LaTeX3 Project, \emph{The \texttt{xparse} package} --- Document command parser. Release date 2020-05-15. PDF document readable with \texttt{texdoc xparse}.
+%\bibitem{bib:xfp} The \LaTeX3 Project, \emph{The \texttt{xfp} package} --- Floating Point Unit. Release date 2020-05-15. PDF document readable with \texttt{texdoc xfp}.
+%\bibitem{bib:Int3} The \LaTeX3 Project, \emph{The \LaTeX3 interfaces}. Release date 2020-09-24. PDF Document readable with \texttt{texdoc interface3}.
+%\bibitem{bib:graphics} D.P.~Carlisle and The \LaTeX3 Project, \emph{Packages in the `graphics' bundle}. Release date 2020-08-21. PDF document readable with \texttt{texdoc grfguide}.
+%\bibitem{bib:etoolbox} P. Lehman and J Wright, \emph{the \texttt{etoolbox} Package} --- An e-TeX Toolbox for Class and Package Authors. version 2.5j, released on 2020-08-24. PDF document readable with \texttt{texdoc etoolbox}.
+%\bibitem{bib:lscape} D.P. Carlisle, \emph{The \texttt{lscape} package}. Version 3.02 released on 2020-05-28. PDF document readable with \texttt{texdoc lscape}.
+%\bibitem{bib:afterpage} D.P. Carlisle, \emph{The \texttt{afterpage} package}. Version 1.08 released on 2014-10-28. PDF document readable with \texttt{texdoc afterpage}.
+%\bibitem{bib:wrapfig} D. Arseneau, \emph{The \texttt{wrapfig} package}. Version 3.6 released on 2003-01-31.
+%\bibitem{bib:wrapfig2} C. Beccari, \emph{The \texttt{wrapfig2} package}.
+% Versione 4.0.4 released on 2022-01-04.
+%\bibitem{bib:memman} P. Wilson, \emph{The Memoir Class for Configurable Typesetting} ---User guide. Version 3.7m released 2020-09-10. PDF document readable with \texttt{texdoc memman}.
+%\end{thebibliography}
+%
+% \StopEventually{}
+%
+%\clearpage
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{The code}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\iffalse
+%<*package>
+%\fi
+% The required \TeX\ format with is date, and the identification of this
+% package have already ben inserted by the initial commands  of this
+% documented file.
+%
+% Here we call the initial required packages and, since the necessary
+% software to define some \LaTeX3 (L3) language “functions” are already
+% part of the \LaTeX\ kernel, we just use them in order to define a
+% robust \LaTeXe/L3 interface to create some testing macros that accept
+% many logical operators that act on items that, besides boolean
+% variables, are also numerical expressions connected with relation
+% operators; for further details it suffices to examine the
+% |interface3.pdf| file, that is integral part of any recent \TeX\ 
+% system distribution. We needed also some commands to compare strings
+% or to check if a given string was included into an L3 sequence
+% (list) of strings.
+%
+% The syntax of the new testing macro is the following:
+%\begin{ttsyntax}
+%\cs{fptest}\marg{test}\marg{true}\marg{false}
+%\end{ttsyntax}
+% The logical operators that are usable in the \meta{text} phrase
+% are \verb+||+ (\texttt{OR}), \verb+&&+ (\texttt{and}), and \verb+!+
+% (\texttt{NOT}), plus other less common ones; the \verb+!+ negates the
+% status of boolean variables, but also the numerical relation operators;
+% these, on turn, may be paired so that, for example |>=| behaves as
+% as~|!<|.
+%
+% The comparisons of strings with the following syntax
+%\begin{ttsyntax}
+%\cs{CompStrings}\marg{string\ped{1}}\marg{string\ped{2}}
+%\end{ttsyntax}
+% Produces a boolean result that may be used as a \meta{test} argument
+% to |\fptest|.
+% The |\SetList| macro defines a named L3 sequence variable containing
+% the reference list of valid display modes, while the |\TestList| is
+% an L3 function that tests if a given string is listed in a named
+% sequence list. Their syntax is the following:
+%\begin{ttsyntax}
+%\cs{SetList}\marg{list name}\marg{comma separated string list}
+% \cs{TestList}\meta{string}\marg{list name}\marg{true}\marg{false}
+%\end{ttsyntax}
+% The fields \meta{true} and \meta{false}, as usual, are the actions
+% to be executed if the test is true  or false; the test is true if
+% \meta{string} is listed into the \meta{named list}.
+%
+% Packages |graphicx|, |afterpage|, and  |wrapfig| or |wrapfig2| are
+% functional for this package. In order to avoid “Option Clash” error
+% messages, such packages are loaded without any option; should the user
+% load some or all of them with options, the user should load them
+% \emph{before} loading this package. This particular documentation
+% does not require the |graphicx| package, because it is already
+% loaded by |swfigure|.
+% Notice that |wrapfig2|, is loaded only if the \TeX\ system
+% installation is sufficiently recent; if the package si not part
+% of the installation the older |wrapfig| gets loaded. Moreover
+% if |wrapfig| is implicitly loaded by other packages, such as
+% |caption| or |subcaption|, that redefine some |wrapfig| internals,
+% the newer package |wrapfig2| aborts its own loading, because those
+% redefined internals are incompatible with it.
+%    \begin{macrocode}
+\RequirePackage{etoolbox}
+\RequirePackage{xfp}
+
+\ExplSyntaxOn
+\ProvideExpandableDocumentCommand\CompStrings{m m}{%
+  \str_if_eq_p:nn{#1}{#2}}
+  
+  \ProvideExpandableDocumentCommand\fptest{m m m}{%
+     \fp_compare:nTF{#1}{#2}{#3}}
+  
+  \ProvideExpandableDocumentCommand\SetList{m m}{%
+  \seq_clear_new:N #1
+  \seq_set_from_clist:Nn \DisplayModeList {#2}}
+  
+  \ProvideExpandableDocumentCommand\TestList{m m m m}{%
+  \seq_if_in:NnTF #1 {#2}{#3}{#4}}
+
+\ExplSyntaxOff
+
+\RequirePackage{graphicx}
+\RequirePackage{afterpage}
+\IfFileExists{wrapfig2.sty}{%
+  \RequirePackage{wrapfig2}}{\RequirePackage{wrapfig}}
+
+%    \end{macrocode}
+% We define some dimension and some counter registers; to some dimensions
+% we assign parameters relating to the page design. We also compute
+% the dimensions of the available spread space so as to have available
+% the elements to compare the aspect ratios of the images and of the
+% available spaces. The |\if@SWtmode| switch is used by all text modes
+% in order to save the typesetting mode that was active when the
+% |\DFimage| command or the homonymous environment was used in the source
+% file; if it was in text mode, the switch is set to |true| and no spaces
+% should be present after the last argument of that macro or after the
+% closing environment statement; the result is that every service macro
+% shifts to vertical mode, but as soon as it is completed the switch test
+% restores the text mode. A blank line, though, after the command or the
+% environment starts a new paragraph.
+%
+%    \begin{macrocode}
+\newdimen\internalmargin 
+    \internalmargin=\dimexpr\oddsidemargin+1in+1bp\relax
+\newdimen\externalmargin
+    \externalmargin=\dimexpr\evensidemargin+1in
+\newdimen\spreadwidth
+    \spreadwidth=\dimexpr 2\textwidth+2\internalmargin\relax
+%
+\newdimen\DFwidth 
+\newdimen\DFheight 
+\newdimen\DFhalfwidth 
+\newdimen\DFheight
+\newdimen\DFhalfheight
+\newdimen\FigSpace
+\newdimen\TScaptionwidth
+\def\SWcaptionShift{1em}%
+\def\FScaptionShift{2em}%
+\newsavebox\DFtotalimage 
+\newsavebox\DFimageI 
+\newsavebox\DFimageII 
+\newsavebox\RFbox
+\newdimen\VS@textwidth
+\newcount\VS@lines
+\newif\if@SWtmode
+
+%    \end{macrocode}
+% The following caption-like commands recompile the captions within
+% a zero height vertical box and deal with the mandatory and optional
+% arguments according to the following syntax: 
+%\begin{ttsyntax}
+%\cs{DFcaption}\oarg{lof entry}\marg{caption}\oarg{label}\\[1ex]
+%\cs{DFcaptionP}\oarg{lof entry}\marg{caption}\oarg{label}
+%\end{ttsyntax}
+% Notice that the \meta{lof entry} defaults to the full caption text if
+% a different text is not explicitly entered.
+% These commands are specific to those display modes that compose
+% the caption in vertical direction, therefore the caption measure is the
+% |\textheight|.
+%    \begin{macrocode}
+\NewDocumentCommand\DFcaption{O{#2} m o}{\refstepcounter{figure}%
+  \vtop to 0pt{\hsize=\textheight\parindent=0pt\leavevmode
+  \figurename\ \thefigure\quad #2\vss}%
+  \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}#1}
+  \IfValueT{#3}{\label{#3}}\relax%
+}
+\NewDocumentCommand\DFcaptionP{O{#2} m o D!!{\color{black}}}%
+  {\refstepcounter{figure}%
+  \vbox to 0pt{\vss\hsize=\textheight\parindent=0pt\leavevmode
+  #4\relax \figurename\ \thefigure\quad #2}%
+  \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}#1}
+  \IfValueT{#3}{\label{#3}}\relax%
+}
+
+
+%    \end{macrocode}
+% The |\cleartoeven| command may already exist in the document class.
+% We prefer to make an absolute redefinition so as to be sure that it
+% performs as we need in this package. In any case this new definition
+% may be used in such a way that the |\DFimage| user command may be used
+% also while typesetting in text (horizontal) mode, resuming such mode
+% after complete expansion. This is useful, especially for spread wide
+% display modes, to chose the most suitable place in the source file to
+% place the |\DFimage| command with its arguments.
+% The |\cleartoeven| possibly inserts an empty page if the new page
+% is odd numbered; the |\cleartopage| simply clears the current page,
+% but it does not insert any empty page.
+%
+%    \begin{macrocode}
+
+\newcommand\set@tmode@newpage{%
+\ifvmode
+  \@SWtmodefalse
+\else
+  \unskip\@SWtmodetrue\linebreak
+  \vadjust{\vspace{0pt plus1fill}\par}%
+\fi}
+
+\newcommand\reset@tmode{\if@SWtmode\expandafter\noindent\ignorespaces\fi}
+
+\newcommand\cleartoeven[1]{%
+    \set@tmode@newpage\clearpage
+    \ifodd\c@page\afterpage{#1}\else#1\fi%
+    }
+
+\newcommand\cleartopage{\set@tmode@newpage\clearpage} 
+
+%    \end{macrocode}
+% Now we define the “real” user macro necessary to chose the
+% \meta{display mode} and the various parameters necessary for the
+% desired one. See section~\ref{sec:Usage} on page\pageref{sec:Usage}
+% for its syntax and the other necessary arguments.  Notice that only
+% two arguments are mandatory: the \meta{image file name} and the
+% \meta{caption} text. All the other eight optional parameters are
+% delimited by various delimiters; the first one, \meta{display mode}
+% has as default setting the acronym \texttt{SW} for a “Spread-Wide”
+% display mode; this mode was the one this package was initially
+% conceived for, and its initials recall this priority. All other
+% modes came afterwards. The other optional parameters may have a
+% default value, but they are ignored by certain modes that don't use
+% those parameters. As for the previous macro, for |\DFimage|
+% the \meta{lof entry} defaults to the full \meta{caption} text. 
+%
+% Actually \cs{DFimage} just examines the \meta{display mode}, and
+% accordingly passes the necessary parameters to the actual macros
+% that implement the various mode displays. It outputs an error
+% message if the \meta{display mode} acronym was misspelt. 
+% The |\DFimage| command (and environment) needs the full list
+% of arguments, whileand the |DFwarning| macros requires just
+% the two arguments it is going to actually use.
+%    \begin{macrocode}
+\NewDocumentEnvironment{DFimage}%
+  { O{SW} m O{#4} m o D(){0.8} D<>{0} D||{0.25} D!!{} }%
+{%
+  \SetList{\DisplayModeList}{SW,HS,VS,FS,NF,RF,TH,TW}%
+  \TestList{\DisplayModeList}{#1}%
+  {\csuse{#1figure}{#2}[#3]{#4}[#5](#6)<#7>|#8|!#9!%
+    \fptest{\CompStrings{\@currenv}{DFimage}}{}{\reset@tmode}%
+  }%
+  {%
+    \DFwarning[#1]{#2}[#3]{#4}
+  }%
+}%
+{%
+  \aftergroup\reset@tmode
+}%
+
+\NewDocumentCommand\DFwarning{ o m o m }{% 
+\PackageWarning{swfigure}%
+    {********************************************\MessageBreak
+      Option #1\space is not valid. Nothing done \MessageBreak
+                                                 \MessageBreak
+      Image #2 was not processed                 \MessageBreak
+     ********************************************\MessageBreak
+    }%
+}  
+
+%    \end{macrocode}
+% In the following subsections the eight specific display mode macros
+% are examined and commented.
+%^^A=====================================
+% \subsection{The \cs{SWfigure} macro for Spread Wide images}
+%^^A=====================================
+%The specific macro for spread-wide images has the following syntax:
+%\begin{ttsyntax}
+%\cs{SWfigure}\marg{image file name}\oarg{lof entry}\marg{caption}\oarg{label}
+%\qquad\parg{height correction}\aarg{lines}|\meta{width thest}|!precaption!
+%\end{ttsyntax}
+% The various arguments have already been described; as you see the
+% \meta{display mode} argument is not there anymore, as well as the
+% last two optional arguments of |\DFfigure|. Notice that the
+% \meta{caption} text, the third argument of this macro, is used also
+% to initialise the \meta{lof entry}, so that if the user does not
+% specify such short caption entry, the default is identical to the
+% full caption. Notice the the last arguments are not actually used;
+% they are needed in the definition due to the way |DFimage| transfers
+% its arguments to the called macros.
+%
+% The working strategy is the following: the initial image to be divided
+% in two halves is stored in a box; this box is examined in order
+% to find its total width and heigh, so as to be able to compute the
+% aspect ratio. All other dimensions are examined to have available
+% all the necessary data to display the image halves in the requested
+% way.
+%
+% Notice that the |trim| option to |\includegraphics|, that is being
+% used to divide the initial image in two exact halves, maybe should
+% be used without specifying other options; but, most important,
+% it requires actual numbers, not macros; therefore we have to make
+% use of the usual “dirty” trick of defining an expanded macro
+% |\x| within a group that the macro itself closes upon its
+% expansion; in this way the optional argument of the |\includegraphics|
+% macro contains only keywords and numbers and may be executed
+% without errors.
+%
+% Let $W$ be the total spread width and $w$ be the original image
+% width; let $H$ be the text height and $h$ the original image height;
+% compute the $A_\mathrm{W}$ to be the aspect ratio of the spread
+% available space $H/W$. Similarly let $A_\mathrm{fig}$ be the initial
+% image aspect ratio; we have to scale the image with a
+% scaling factor such that the image keeps its aspect ratio, but
+% its scaled height does not exceed the text block height, and
+% its scaled width does not exceed the spread width; of course the
+% aim is to maintain the scaled image as large as possible therefore 
+% we have to chose the most suited of the two scaling factors that
+% can be computed from the given data and the inequalities 
+% described above.
+% In mathematical terms we have to chose the initial image scaling
+% factor $S$ such that:
+%\begin{equation}
+%S= \left\{
+%  \begin{array}{lll}
+%    w/W &\mathrm{if}& A_\mathrm{fig} \leq A_\mathrm{W}\\
+%    h/H &\mathrm{if}& A_\mathrm{fig}   >  A_\mathrm{W}
+%  \end{array}
+%\right.
+%\label{equ:ScalingFactor}
+%\end{equation}
+% This choice is made by testing the various ratios by means of
+% the L3 |\fptest| function, that computes such ratios and compares them.
+% The \meta{test} shows exactly which lengths are used to
+% compute the ratios, and which comparison is executed; the commented
+% line over the |\fptest| macro emphasises this correspondence. Once the
+% scaling factors are found the boxes containing the half figures
+% are scaled and further on are inserted in floating figure
+% environments; we use one of the dirty tricks: the matrioska dolls; this
+% metaphor describes nested |\makebox|es used to mask their actual
+% widths, but capable to push the images towards the spread spine.
+% Eventually the caption is set in the right margin of the right
+% spread page, rotated $90^\circ$ counterclockwise.
+% The |cleartoeven| guaranties that the first float is set into an even
+% numbered page. A final |\clearpage| ensures that both floats are
+% output.
+%    \begin{macrocode}
+\NewDocumentCommand\SWfigure{m o m o d() d<> d|| d!!}{%
+\setbox\DFtotalimage=\hbox{\includegraphics{#1}}%
+\DFwidth=\wd\DFtotalimage \DFhalfwidth=0.5\DFwidth
+\DFheight=\ht\DFtotalimage
+\FigSpace=\dimexpr\textwidth+\internalmargin\relax
+%
+\setbox\DFimageI\hbox{\bgroup
+\edef\x{\egroup\noexpand\includegraphics*[%
+trim = 0 0 \the\DFhalfwidth\space 0]}\x{#1}}%
+%
+\setbox\DFimageII\hbox{\bgroup
+\edef\x{\egroup\noexpand\includegraphics*[%
+trim = \the\DFhalfwidth\space 0 0 0]}\x{#1}}%
+%
+%               h/w            >           H/W
+\fptest{\DFheight/\DFhalfwidth > \textheight/\FigSpace}%
+  {\edef\DFscalefactor{\fpeval{\textheight/\DFheight}}}%
+  {\edef\DFscalefactor{\fpeval{\FigSpace/\DFhalfwidth}}}%
+%
+\setbox\DFimageI=\hbox{\scalebox{\DFscalefactor}{\usebox{\DFimageI}}}%
+\setbox\DFimageII=\hbox{\scalebox{\DFscalefactor}{\usebox{\DFimageII}}}%
+%
+\cleartoeven{%
+  \begin{figure}[p]%
+  \vbox to\textheight{\vss\hsize=\textwidth%
+  \makebox[\hsize][l]{\makebox[\FigSpace][r]{\box\DFimageI}}\vss}%
+  \end{figure}\newpage
+%
+  \begin{figure}[p]%
+  \vbox to\textheight{\vss\hsize=\textwidth
+  \makebox[\hsize][r]{\makebox[\FigSpace][l]{\box\DFimageII}%
+%                       Rotated caption in the right odd-numbered page
+  \makebox(0,0)[lb]{\hspace*{\SWcaptionShift}\raisebox{0.5\textheight}{%
+  \rotatebox[origin=tc]{90}{\DFcaption[#2]{#3}[#4]%
+  %
+  }}}}\vss}%
+  \end{figure}%
+}\clearpage\reset@tmode}
+
+%    \end{macrocode}
+%^^A========================================
+%\subsection{The \cs{NFfigure} macro for normal full
+% page figures}
+%^^A========================================
+% This code is without surprises, except that it receives from the
+% |DFimage| selector macro five usable arguments (plus three more
+% ones that are not actually used); the fifth (optional) one
+% being delimited by round parentheses; by default, it contains the
+% value 0.8, but the user can pass to the selector macro a different
+% value in order to reduce the actual image size so as to leave
+% enough space beneath it for the caption; the user, in facts, does
+% not know in advance how many lines would occupy a structured
+% complex caption.
+%    \begin{macrocode}
+\NewDocumentCommand\NFfigure{m o m o d() d<> d|| d!!}{%
+  \begin{figure}[p]
+    \includegraphics[width=\linewidth, height=#5\textheight,
+                     keepaspectratio]{#1}%
+    \caption[#2]{#3}%
+    \IfValueT{#4}{\label{#4}}\relax
+  \end{figure}
+}
+
+%    \end{macrocode}
+%^^A========================================
+% \subsection{The \cs{RFfigure} macro for rotated figures}
+%^^A========================================
+% There are no new comments to make about this almost standard
+% way of displaying a large figure, except, perhaps, the fact
+% the instead of invoking the |lscape| package, the whole figure
+% is rotated by means of rotating the very box that was used
+% to contain the scaled image; the selector macro does not pass
+% any \meta{height correction} argument to this macro, because
+% it automatically scales the box containing the image and 
+% the caption so as to fill up the height or the width of the
+% text block. Of course the macro L3 signature includes also
+% the descriptors of unused arguments.
+%    \begin{macrocode}
+\NewDocumentCommand\RFfigure{m o m o d() d<> d|| d!!}{%
+      \dimen8=\textwidth\dimen10=\textheight
+      \figure[p]\setbox\RFbox=\hbox{%
+      \rotatebox[origin=cc]{90}{\parbox[b][\dimen8][c]{\dimen10}%
+        {\centering\includegraphics[width=\dimen10, height=\dimen8, 
+                        keepaspectratio]{#1}%
+          \caption[#2]{#3}%
+          \IfValueT{#4}{\label{#4}}\relax%
+        }}}%
+        \edef\RFx{\fpeval{\ht\RFbox/\textheight}}%
+        \edef\RFy{\fpeval{\wd\RFbox/\textwidth}}%
+        \fptest{\RFx > \RFy}%
+          {\scalebox{\RFx}{\box\RFbox}}%
+          {\scalebox{\RFy}{\box\RFbox}}%
+        \endfigure}
+        
+%    \end{macrocode}
+%^^A========================================
+% \subsection{The \cs{VSfigure} macro for tall and slim figures}
+%^^A========================================
+% This is the most critical macro (because it depends
+% on the |wrapfig| package) in order to set the image with its
+% caption on the external side of the text block, with the text flowing
+% around it. Package |wrapfig| has several limitations concerning
+% the text that flows around the image. Nevertheless with a “normal”
+% textual contents of the text block the result may be very good.
+%
+% The user is recommended to attentively read the |wrapfig|
+% documentation because it has several limitations. Here we suggest
+% the user to open the environment just before a paragraph and
+% close it after several paragraphs; remember that since the opening
+% and the closing statements are far away from one another, it is
+% possible to forget this situation and insert another such
+% environment, or a |\DFimage| command, within the former one 
+% and this will produce undesirable effects; never ever nest two
+% |Dfimage| environments and never ever insert a |\DFimage| command
+% within an environment.
+%
+% The user should help a little bit the correct performance of
+% this macro; for this reason, besides the \meta{height correction}
+% factor, the selector macro may pass to it also the \meta{line
+% correction} in order to correct the amount of lines the wrapping
+% text should be indented; by playing with both corrections
+% good results may be obtained.
+%
+% Notice that only with this macro a test on the initial image
+% aspect ratio is performed; should this image have an aspect ratio
+% smaller than~2, the process is aborted and a message is printed
+% in the output document that informs the user and recommends to
+% use another \meta{display mode} code.
+%
+% Furthermore, should the image be very slim and tall, the 
+% \meta{height correction} may conveniently reduce its height,
+% but, in order to avoid changing its aspect ratio, it reduces
+% also its width; eventually the width is reduced to the point that
+% beneath the image there would not be enough space for a decently
+% typeset caption. A further optional delimited argument is available:
+% its delimiting tokens are two vertical bars, \verb+| |+, and its
+% default value is \texttt{0.25}. This means that if the scaled
+% image becomes narrower than this coefficient times the text width,
+% an other message is typeset in place of the figure. Depending on the
+% various elements that influence these tests, the user can try
+% different values for this coefficient, even reaching the value zero,
+% that eliminates such test on the scaled image width.
+%
+%
+%    \begin{macrocode}
+\NewDocumentCommand\VSfigure{m o m o d() d<> d|| d!!}{%
+   \setbox\DFtotalimage=\hbox{\includegraphics{#1}}
+   \DFwidth=\wd\DFtotalimage \DFheight=\ht\DFtotalimage
+   \edef\VS@aspectratio{\fpeval{\DFheight/\DFwidth}}
+   \fptest{ \VS@aspectratio < 2 }%
+     {\begin{center}\ttfamily\relax
+      ===========================================\\
+      Image #1 is not tall enough.               \\
+      Consider using a display mode different    \\
+      from VS; may be NF or RF are better suited.\\
+      ===========================================\\
+      Nothing done!                              \\
+      ===========================================
+      \end{center}
+     }%
+     {\edef\VS@factor{\fpeval{#5\textheight/\DFheight}}%
+      \fptest{\VS@factor>1 || \VS@factor\DFwidth < #7\textwidth}%
+       {%
+         \begin{center}\ttfamily\relax
+         =================================================\\
+         The scaled image #1 is too slim.                 \\
+         Maybe directly using the wrapfig package might   \\
+         solve this problem.                              \\
+         =================================================\\
+         Nothing done!\\
+         =================================================
+         \end{center}
+       }%
+       {\setbox\DFtotalimage=
+        \hbox{\scalebox{\VS@factor}{\box\DFtotalimage}}%
+        \edef\VS@width{\fpeval{\VS@factor*\DFwidth}\p@}%
+        \setbox\DFtotalimage=\vbox{\hsize=\VS@width%
+        \def\@captype{figure}\box\DFtotalimage
+        \caption[#2]{#3}%
+        \IfValueT{#4}{\label{#4}}\relax}
+        \VS@lines=
+        \fpeval{round(\ht\DFtotalimage/\baselineskip,0)+#6}%
+        \begin{wrapfigure}[\VS@lines]{o}[0pt]{\VS@width}%
+        \box\DFtotalimage
+        \end{wrapfigure}%
+      }%
+    }%
+  }%
+
+%    \end{macrocode}
+%
+%^^A=====================================
+% \subsection{The \cs{HSfigure} macro for spread wide slim figures}
+%^^A=====================================
+%
+% The beginning of the macro is not so different from that used
+% for the |SWfigure| macro. But this time there is no alternative
+% to scale the image because only its width and the spread width are
+% significant. The new little problem, now, is to match the total
+% height of the two halves of the original wide and slim image,
+% so that the texts of the two facing pages have their respective
+% first lines perfectly aligned.
+%
+% Since the right half of the figure contains also the caption
+% it is necessary to box again the left page box so as to have
+% the same hight and depth as the right page one.
+%    \begin{macrocode}
+\NewDocumentCommand\HSfigure{m o m o d() d<> d|| d!!}{%
+  \setbox\DFtotalimage=\hbox{\includegraphics{#1}}%
+  \DFwidth=\wd\DFtotalimage \DFhalfwidth=0.5\DFwidth
+  \FigSpace=0.5\spreadwidth% 
+%
+  \setbox\DFimageI\hbox{\bgroup
+  \edef\x{\egroup\noexpand\includegraphics*[%
+          trim = 0 0 \the\DFhalfwidth\space 0]}\x{#1}}%
+%
+  \setbox\DFimageII\hbox{\bgroup
+  \edef\x{\egroup\noexpand\includegraphics*[%
+          trim = \the\DFhalfwidth\space 0 0 0]}\x{#1}}%
+%
+  \edef\DFscalefactor{\fpeval{\FigSpace/\DFhalfwidth}}%
+%
+  \setbox\DFimageI=\hbox{%
+    \scalebox{\DFscalefactor}{\usebox{\DFimageI}}}%
+  \setbox\DFimageII=\hbox{%
+    \scalebox{\DFscalefactor}{\usebox{\DFimageII}}}%
+  \setbox\DFimageII=
+    \hbox{\dimen10=\linewidth\dimen8\internalmargin
+           \vbox{\hsize\DFhalfwidth\parindent\z@
+             \box\DFimageII\par
+             \leavevmode\hspace*{\dimen8}%
+             \vtop{\hsize\dimen10\parindent\z@
+               \textwidth=\hsize
+               \DFcaption[#2]{#3}[#4]%
+              }\vspace*{2\baselineskip}%
+            }%
+          }%
+  \setbox\DFimageI=\vbox to\ht\DFimageII{\box\DFimageI\vss}%
+%
+  \cleartoeven{%
+    \hb@xt@\textwidth{%
+      \makebox[\DFhalfwidth][l]{\box\DFimageI}\hss}%
+%
+     \afterpage{\hb@xt@\textwidth{%
+         \hss\makebox[\DFhalfwidth][r]{\box\DFimageII}}%
+    }%
+  }%
+}
+
+%    \end{macrocode}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{The \cs{FSfigure}~macro for Full Spread figures}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Although using certain classes, such as |memoir|, it is possible to
+% typeset documents on pages of different sizes and to print them on
+% advanced printers that use different sized papers, this package aims
+% to be independent form any class and any printer; it is limited to
+% the ordinary default paper size A4, as it is usual in Europe, but
+% letter paper is also valid; ideally it would typeset an A3 sized
+% image on a full spread, i.e. by filling also the space  of all the
+% lateral margins.
+%
+% Actually with American paper sizes there is not a series of sizes
+% that behaves as the ISO A series, but this macro tries to adjust the
+% large image to the available full spread; this means an image as
+% large as two standard pages. 
+%
+% If the available image is taller than large, with an aspect ratio
+% around~$\sqrt2$, it turns the image 90° counterclockwise; cuts it in
+% two identically sized halves, and sets them on two facing pages joining
+% them at the spine but covering the greatest part of both pages, so
+% as to avoid exceeding either the paper height or twice the paper width.
+% If the image has an landscape aspect ratio close to $\sqrt{1/2}$, it
+% does the same, except rotating the image.
+%
+% In any case the user creates a separate PDF file to be imported into
+% the document that is supposed to contain it; it is better if this PDF
+% is of vectorial type, i.e. any drawing and all fonts should be
+% vectorial; this PDF might contain photos or similar images of
+% rasterised type, but the pixel density should be suitably high in
+% order to preserve the image quality.
+%
+% The user has two choices: $(a)$ either the image has its own margins,
+% or $(b)$ the image is cropped and has no white margins.
+%
+% Normally this display mode does not leave space for a caption;
+% therefore if a caption is needed, it is overprinted on the image;
+% in case $(a)$ there are no problems because the caption goes over
+% the white right margin (rotated 90° counterclockwise); while in
+% case $(b)$ the caption is over printed on the right side of the
+% image; depending on the image “background” a different color 
+% might be more suited compared to the the default color (black).
+% The last macro argument takes care of inserting before the caption
+% any declaration that may involve color, displacement, font encoding
+% (seldom necessary), family, series, shape and size; 
+%
+% With all the above constraints the syntax of this \cs{FSimage}
+% macro is the following; it uses one of the main macro delimited
+% optional arguments in a different way:
+%\begin{ttsyntax}\setfontsize{9.25}%
+%\cs{FSimage}\marg{image file name}\oarg{lof entry}\marg{caption text}\oarg{label string}
+%\qquad\parg{height correction}\aarg{line correction}\barg{width text}!\meta{precaption}!
+%\end{ttsyntax}
+% The above is the full definition, but the fifth, sixth and seventh
+% arguments are not used; they are necessary for the special
+% mechanism of argument transfer from the environment or command
+% opening statement arguments to this actual macro.
+%
+% Moreover, since the included image overlaps the top and bottom
+% margins, if these contain the header and footer such elements
+% would show if the image is not sufficiently opaque; in any case the
+% footer would show because it overlaps the image. Since most
+% images are not really opaque it is better to locally  use the
+% \texttt{empty} page style, but without using the |\thispagestyle|
+% command, because it holds for just one page, while the spread
+% occupies two pages. The macro provides this setting but it has
+% to create a group in case the |\DFimage| command is used, while
+% it is not necessary when using the |DFimage| environment,
+% therefore the current environment is tested and the opening
+% |\bgroup| and closing |\egroup| commands are used only if the
+% code is used without the environment.
+%
+% Therefore the code steps are the following:
+%\begin{enumerate}[noitemsep]
+%\item
+% The initial figure is loaded into a box from which the necessary
+% measures are taken; in particular its width and its height in
+% order to check the aspect ratio, or better, which dimension is greater
+% than the other.  If the height is smaller than the width the image is
+% sort of landscape and we proceed splitting the total image box into
+% two equal halves, with a vertical cut in the middle. 
+%\item
+% Otherwise the image is as a portrait, and we split the total image
+% block into two halves with an horizontal cut in the middle; such two
+% boxes need a rotation of 90° anticlockwise due to the horizontal cut of
+% an original that was higher than wide image. With this operation we
+% simulate a rotation of the original image, because it is not allowed to
+% simultaneously rotate and trim the original image; the trimming
+% action apparently cannot be executed together with any other one
+% among the many other that the |\includegraphics| command can
+% do\footnote{Actually it can, provided that the trim option with
+% its arguments is specified before any other option.}.
+% Of course, with this rotation of the half pictures we have to
+% redefine the height and width to use for scaling.
+%\item
+% The |\fptest| is used to compare the aspect ratios of any of the two
+% equal halves with the aspect ratio of the paper. If the former
+% aspect ratio is higher than the latter, the scaling factor is
+% based on the heights, otherwise on the widths, so as to resize
+% both half picture boxes to fit within the paper.
+%\item
+% The |\cleartoeven| command allows to use the main macro even within
+% a paragraph; in any case it possibly inserts a blanc page and restarts
+% working on an even page. First is sets the left half picture box;
+% that complicated series of vertical and horizontal boxes of different
+% specified dimensions contains displacements and the material to output;
+% That complicated alternating set is to guarantee that no overfull
+% vertical or horizontal boxes are created, in spite of the fact that
+% an object larger than the text block is being output; at the same
+% time the box must be flush right in order to reach the spine.
+%\item
+% The right half is even more complicated to build, because there
+% is also the caption to set on the right of the page, overwriting
+% the right part of the image, but the idea is always to close
+% correctly every box putting the right spacing commands  at the
+% beginning or at the end of each box.
+%\item
+% Eventually a |\clearpage| flushes out everything that is still in 
+% the figure stack and possibly restores the vertical or horizontal
+% typesetting mode depending on the status that was in force when
+% the |\DFimage| command  or the |DFimage| environment started their
+% expansion. 
+% Due to the size of the images that completely fill up all the
+% margins, probably the best way to output such huge images is at
+% the end of a chapter, or at the end of the whole document.
+%\end{enumerate}
+%    \begin{macrocode}
+\NewDocumentCommand\FSfigure{m o m o  d() d<> d|| d!!}{%
+  \fptest{\CompStrings{\@currenv}{DFimage}}{}{\bgroup}%
+  \pagestyle{empty}%
+  \setbox\DFtotalimage=\hbox{\includegraphics{#1}}%
+  \DFwidth=\wd\DFtotalimage \DFheight=\ht\DFtotalimage
+  \ifdim \DFheight < \DFwidth
+    \DFhalfwidth=0.5\DFwidth
+    \setbox\DFimageI\hbox{\bgroup
+    \edef\x{\egroup\noexpand\includegraphics*[%
+    trim = 0 0 \the\DFhalfwidth\space 0]}\x{#1}}%
+    \setbox\DFimageII\hbox{\bgroup
+    \edef\x{\egroup\noexpand\includegraphics*[%
+    trim = \the\DFhalfwidth\space 0 0 0]}\x{#1}}%
+    \DFwidth=\DFhalfwidth \DFheight=\ht\DFtotalimage
+  \else
+    \DFhalfheight=0.5\DFheight
+    \setbox\DFimageII\hbox{\bgroup
+    \edef\x{\egroup\noexpand\includegraphics*[%
+    trim = 0 0 0 \the\DFhalfheight\space]}\x{#1}}% bottom half
+    \setbox\DFimageI\hbox{\bgroup
+    \edef\x{\egroup\noexpand\includegraphics*[%
+    trim =  0 \the\DFhalfheight\space 0 0]}\x{#1}}% tophalf
+    \setbox\DFimageI=\hbox{\rotatebox[origin=cc]{90}{\box\DFimageI}}
+    \setbox\DFimageII=\hbox{\rotatebox[origin=cc]{90}{\box\DFimageII}}
+    \DFwidth=\DFhalfheight \DFheight=\wd\DFtotalimage
+  \fi
+\fptest{\DFheight/\DFwidth > \paperheight/\paperwidth}%
+  {\edef\DFscalefactor{\fpeval{\paperheight/\DFheight}}}%
+  {\edef\DFscalefactor{\fpeval{\paperwidth/\DFwidth}}}%
+  \setbox\DFimageI=\hbox{\scalebox{\DFscalefactor}{\usebox{\DFimageI}}}%
+  \setbox\DFimageII=\hbox{\scalebox{\DFscalefactor}{\usebox{\DFimageII}}}%
+\cleartoeven{%
+  \begin{figure}[p]%
+  \vbox to\textheight{\vss\hsize=\textwidth%      vbox 1
+    \hbox to\hsize{\hspace*{-\externalmargin}%    hbox 1
+      \vbox to\paperheight{\vss%                  vbox 2
+        \hbox to\paperwidth{\hss\box\DFimageI}%   hbox 2 end hbox 2
+      \vss}%                                      end vbox 2
+    \hss}%                                        end hbox 1
+  \vss}%                                          end vbox 1
+  \end{figure}\newpage
+%
+  \begin{figure}[p]%
+    \vbox to\textheight{\vss\hsize=\textwidth%    vbox 1
+      \hbox to\hsize{\hspace*{-\internalmargin}%  hbox 1
+        \vbox to\paperheight{\vss%                vbox 2
+          \hbox to\paperwidth{%                   hbox 2
+            \box\DFimageII\makebox(0,0)[lb]{%     mbox 3
+              \hspace*{-\FScaptionShift}%
+              \raisebox{0.5\textheight}{%         raisebox
+                \rotatebox[origin=bc]{90}{%       rotatebox
+                  \DFcaptionP[#2]{#3}[#4]!#8!% 
+                 }%                               end rotatebox
+              }%                                  end raisebox
+            }%                                    end mbox 3
+          }%                                      end hbox 2
+        \vss}%                                    end vbox 2
+      \hss}%                                      end hbox 1
+    \vss}%                                        end vbox 1
+  \end{figure}%
+}\clearpage
+\fptest{\CompStrings{\@currenv}{DFimage}}{}{\egroup}%
+\reset@tmode}
+
+%    \end{macrocode}
+%
+%^^A========================================
+%\subsection{The \cs{THfigure} macro for the Total Height figure}
+%^^A========================================
+% This Total Height display mode exploit the total paper height to
+% scale a figure and sets the image close to the spine independently
+% from the fact that the spine ins on the right of even numbered
+% pages, and on the left on odd numbered ones; a test is made on the
+% page parity, that in any case is going to contain only the figure
+% with its caption and nothing else. For this reason the macro provides
+% a \cs{cleartopage} at the beginning and another similar command on the
+% end. As usual this macro is not supposed to be used by the user,
+% who should use the command \cs{DFimage}; using the environment
+% is recommended if it is used within a paragraph, but it should not
+% include any text.
+%
+% The full syntax is the following:
+%\begin{ttsyntax}\setfontsize{9.25}%
+%\cs{FSimage}\marg{image file name}\oarg{lof entry}\marg{caption text}\oarg{label string}
+%\qquad\parg{caption width percent}\aarg{line correction}\barg{width text}!\meta{precaption}!
+%\end{ttsyntax}
+% although the last three arguments are not used.
+%
+% All the code before the first \cs{cleartopage} command is used to
+% examine the dimensions of the original image, and to perform the
+% necessary assignments to the various dimensions and boxes. The
+% test on the relationship between the \cs{DFwidth} image width and
+% the sum of the text and internal margin widths is to compute the
+% caption measure and assign the result to the dimension
+% register \cs{TScaptionwidth}; this width is tested to control if it
+% is too small; in case a warning message is issued.
+%
+% The following question is natural: When is this display mode
+% convenient? After all, also  the \texttt{VS} display mode applies
+% to tall and slim images, so this  \texttt{TH} mode and the other
+% \texttt{VS} mode are in competition. In a way they are, but their
+% results are very different; The latter mode produces images non
+% larger than half the test block and not taller than the text block.
+% The former mode produces images that are taller than the text block
+% and possibly larger than the text block. Therefore this is one of
+% the possible criteria to chose which display mode is more suitable
+% for a given image. another other criterion deals with the image aspect
+% ratio and the available space aspect ratio; since the height of the
+% \texttt{TH} scaled image is fixed, the user should pay attention to
+% its width; the scaled image width, in facts, should not exceed the
+% sum of the internal margin width and the test block one, otherwise
+% the space for the caption becomes too small and a warning message
+% is issued. At the same time if the scaled image width is smaller
+% than approximately one half of the text width plus the internal
+% margin one, the space remaining for the caption becomes too large.
+%
+% After that the |figure| environment is coded starting with
+% the control on the page parity; depending on this parity different
+% dirty tricks with several kinds of boxes are performed so as to
+% set into the page a huge block that fills all the available vertical
+% space on the paper; the parity influences the order in which the various
+% embedded boxes interact with one another, but the main point is
+% that the box containing the caption must be on the external side
+% of the box containing the image; its measure may be fine tuned 
+% (increased or reduced) with respect to available white space; the
+% argument \meta{caption width percent} delimited by round parentheses
+% by default equals 0.8, but the user can specify a different value
+% to the selector macro, so that the caption measure is that specified
+% percentage of the computed caption width.
+%
+% After closing the |figure| environment a final \cs{clearpage} is
+% issued so that the figures stack remains completely empty; in
+% particular the current figure is output, but the initial typesetting
+% mode is restored, so that if the environment was specified in the
+% middle of a paragraph the paragraph continues to be typeset without
+% problems; of course if the environment is followed by a blanc line,
+% such settings become ineffective because a new paragraph is started.
+% The end of the \cs{DFimage} command provides to close the group,
+% therefore all the assignments to the various registers are restored.
+%    \begin{macrocode}
+\NewDocumentCommand\THfigure{m o m o  d() d<> d|| d!!}{%
+  \setbox\DFtotalimage=\hbox{\includegraphics{#1}}%
+  \DFheight=\ht\DFtotalimage \DFwidth=\wd\DFtotalimage
+  \edef\DFscalefactor{\fpeval{\paperheight/\DFheight}}
+  \setbox\DFimageI\hbox{%
+    \scalebox{\DFscalefactor}{\usebox{\DFtotalimage}}}%
+  \DFwidth=\wd\DFimageI
+  \ifdim\dimexpr\paperwidth-\DFwidth < 2\externalmargin\relax
+    \PackageWarning{swfigure}{%
+      *******************************************\MessageBreak
+      Figure #1 is too wide to be set in a       \MessageBreak
+      Total Height display mode.                 \MessageBreak
+      There is not enough space for its caption. \MessageBreak
+      Expect questionable results.               \MessageBreak
+      *******************************************\MessageBreak}%
+  \fi 
+  \FigSpace=\DFwidth
+  \dimen10=\dimexpr\topmargin+1in-(\paperheight-\headsep-\headheight
+    -\textheight-\footskip)/2\relax
+  \TScaptionwidth=\dimexpr\paperwidth-\FigSpace-3\columnsep\relax
+  \cleartopage
+  \thispagestyle{empty}%
+  \begin{figure}
+    \ifodd\c@page\relax%                                    odd page
+      \begin{minipage}[c][\textheight][t]{\textwidth}%      minibox1
+        \vspace*{\dimen10}%
+        \makebox[\textwidth][l]{\hspace*{-\internalmargin}%    hbox2
+          \vbox to\textheight{\vss%                            vbox3
+            \hbox to\paperwidth{%                              hbox4
+              \parbox{\FigSpace}{\box\DFimageI}%
+              \hspace{\columnsep}%
+              \makebox[\TScaptionwidth]{%
+                \parbox{#5\TScaptionwidth}{%
+                \caption[#2]{#3}\IfValueT{#4}{\label{#4}}\relax}%
+              }%
+            }%                                             end hbox4
+          \vss}%                                           end vbox3
+        }%                                                 end hbox2
+      \end{minipage}%                                   end minibox1
+    \else %                                                even page
+      \begin{minipage}[c][\textheight][t]{\textwidth}
+        \vspace*{\dimen10}%
+        \makebox[\textwidth][l]{\kern-\externalmargin
+          \vbox to\textheight{\vss
+            \hbox to\paperwidth{\hss
+              \hbox to\TScaptionwidth{\hss
+                \parbox{#5\TScaptionwidth}{%
+                  \caption[#2]{#3}\IfValueT{#4}{\label{#4}}\relax}%
+              }\hspace{\columnsep}%
+              \parbox{\FigSpace}{\box\DFimageI}%
+            }\vss
+          }%
+        }%
+      \end{minipage}%
+    \fi
+  \end{figure}%
+  \clearpage\reset@tmode
+}
+%    \end{macrocode}
+%
+%^^A========================================
+%\subsection{The \texttt{TW} for the Total Width
+% image plus its side caption}
+%^^A========================================
+% This particular mode is a variant of the \texttt{FH} full height mode,
+% where scaling of a not sufficiently narrow image, may produce a figure
+% that does not exceed the page dimesions, but that might leave such a
+% small narrow strip of white space to typeset the caption that it comes
+% out as a very poorly typeset object. This other \texttt{TW} does not
+% have this drawback, but it might produce figures that exceed the paper
+% height in order to remain within the preset limits foreseen for a nicely
+% typeset side caption.
+%
+% Some details are pretty delicate, but let us start from the beginning.
+% The  seven code lines afterthe first one, are the usual lines similar
+% to those at the beginning of the other macros; The original image is
+% stored in a box, from which all possible metric informations are derived
+% and the scaling factor is computed; afterward the boc is scaled
+% according to the computed scaling factor, and re-stored into the
+% same box.
+%
+% Command |\cleartopage| behaves as usual and sets the |\if@SWtmode|
+% so as to be able to restore the typesetting modo (horizontal or
+% vertical) at the end of this macro expansion. This means, also,
+% that for this display mode both the command and the homonymous
+% environment |DFimage| may be used.
+%
+% The page style is set to |empty|, so that the full width block may
+% be set flush to the top of the paper, without overwriting any page
+% decoration; even the possible folio in the bottom margin is not
+% overwritten onto the image.
+% 
+% The test for the parity of the folio number is taken; the true and
+% the false branches are very similar, bat the actions that differ
+% because depend on the folio parity are interspersed between the
+% other code lines. This is why two |figure|environments are defined,
+% even if their contents is pretty similar.
+%
+% We comment the true branch for odd numbered figures, and with slight
+% changes they equal those for the even numbered page; Therefore we
+% omit the latter.
+%
+% We box the figure and the caption into an |\hbox| named |\DFimageII|;
+% the image box |\DFimageI| si typeset inside a |\parbox| were the measure
+% is specified as the boxed image width. The |\parbox| as well as the
+% following |minipage| environment are but vertically centred, so that
+% we are sure that the caption median will coincide with that of the
+% boxed image. As you see the caption is at the right of the boxed
+% image, and in an odd numbered page the caption is close and partially
+% over the external margin; the opposite takes place for the even
+% numbered pages, and again the caption is close or over such page
+% external margin.
+%
+% We can now measure the various geometric properties of the image-caption
+% block; notice that his block is large as the internal margin plus
+% spaces plus the caption for a total of |\paperwidth|. We should
+% keep this in mind in order to re-box the block into a |\textwidth|
+% wide box with the necessary stretch and shrink horizontal glue
+% in oder to let it fit the paper width wich is larger that the
+% text width
+
+% Moreover we measure the upper white margin, that is white, because
+% of the |empty| page style, but the header box, its separator from
+% the text, the |\topmargin| with its 1~inch offset, in order to raise
+% the image-caption box to be flush to the upper paper border.
+% Now we can fill up a vertical box of the computed height; this box
+% is inside the text block, but it must overlap the upper vertical
+% space so the real height of this box is smaller than its contents
+% and a vertical stretch and shrink glue is necessary.
+% Eventually with these nestes vertical and horizontal boxes we can
+% output the whole contents and the result is as we expected.
+%    \begin{macrocode}
+\NewDocumentCommand\TWfigure{m o m o  d() d<> d|| d!!}{%
+  \setbox\DFtotalimage=\hbox{\includegraphics{#1}}%
+  \DFheight=\ht\DFtotalimage \DFwidth=\wd\DFtotalimage
+  \FigSpace=\dimexpr\internalmargin+0.80\textwidth\relax
+  \TScaptionwidth=\dimexpr\paperwidth-\FigSpace-2\columnsep\relax
+  \edef\DFscalefactor{\fpeval{\FigSpace/\DFwidth}}
+  \setbox\DFimageI=\hbox{\scalebox{\DFscalefactor}{\box\DFtotalimage}}
+  \DFwidth=\wd\DFimageI \DFheight\ht\DFimageI
+  \cleartopage
+  \thispagestyle{empty}%
+    \ifodd\value{page}%                         odd numbered page
+      \begin{figure}
+         \setbox\DFimageII=\hbox{%
+           \parbox{\FigSpace}{\box\DFimageI}\hspace{\columnsep}%
+           \begin{minipage}{\TScaptionwidth}\centering
+             \parbox{#5\hsize}{\caption[#2]{#3}%
+               \IfValueT{#4}{\label{#4}}\relax}%
+           \end{minipage}
+         }%
+         \DFheight=\ht\DFimageII \dimen8=\dp\DFimageII
+         \advance\DFheight by\dp\DFimageII 
+         \dp\DFimageII=\z@ \ht\DFimageII=\DFheight
+         \dimen10=\fpeval{\topskip+1in+\headheight+\headsep}\p@
+         \advance\dimen8 by\baselineskip
+         \advance\DFheight by-\dimen10\relax
+         \vbox to\DFheight{\vss
+         \hbox{\raise \dimen8\hbox to\textwidth{%
+            \hspace{-\internalmargin}\box\DFimageII\hss}}%
+         }%
+      \end{figure}
+    \else%                                     even numbered page
+      \begin{figure}
+         \setbox\DFimageII=\hbox{%
+           \begin{minipage}{\TScaptionwidth}\centering
+             \parbox{#5\hsize}{\caption[#2]{#3}%
+               \IfValueT{#4}{\label{#4}}\relax}%
+           \end{minipage}
+           \hspace{\columnsep}%
+           \parbox{\FigSpace}{\box\DFimageI}
+         }%
+         \DFheight=\ht\DFimageII \dimen8=\dp\DFimageII
+         \advance\DFheight by\dp\DFimageII 
+         \dp\DFimageII=\z@ \ht\DFimageII=\DFheight
+         \dimen10=\fpeval{\topskip+1in+\headheight+\headsep}\p@
+         \advance\dimen8 by\baselineskip
+         \advance\DFheight by-\dimen10\relax
+         \vbox to\DFheight{\vss
+         \hbox{\raise \dimen8\hbox to\textwidth{\hss%
+            \box\DFimageII\hspace{-\internalmargin}}}%
+         }%
+       \hbox to\textwidth{\hspace{-\internalmargin}\box\DFimageII\hss}
+    \end{figure}%
+    \fi
+  \reset@tmode
+}
+
+%    \end{macrocode}
+%
+%\vspace*{2\baselineskip}
+%\noindent\makebox[\textwidth]{\setfontsize{10mm}
+%\color{red} HAPPY \LaTeX-ing}
+%\iffalse
+%</package>
+%\fi
+%
+% \Finale
+%
+%\endinput
+%
+%

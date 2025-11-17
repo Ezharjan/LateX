@@ -1,0 +1,1081 @@
+% \iffalse meta-comment
+%
+% SPDX-FileCopyrightText: 2015-2022 Robin Schneider <ypid@riseup.net>
+%
+% SPDX-License-Identifier: LPPL-1.3c
+%
+% This work consists of all files listed in manifest.txt.
+% For more details about the licensing, refer to the README.md file.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{doclicense.dtx}
+%</driver>
+%<package>% SPDX-FileCopyrightText: 2015-2022 Robin Schneider <ypid@riseup.net>
+%<package>%
+%<package>% SPDX-License-Identifier: LPPL-1.3c
+%<package>%
+%<package>% This work consists of all files listed in manifest.txt.
+%<package>% For more details about the licensing, refer to the README.md file.
+%<package>% If you don't have those files, you can find them at: https://ctan.org/pkg/doclicense
+%<package>
+%<package>\NeedsTeXFormat{LaTeX2e}[1998/12/01]
+%<package>\ProvidesPackage{doclicense}
+%<*package>
+    [2022/05/18 v3.2.0 Support for putting documents under a license]
+%</package>
+%
+%<*driver>
+\documentclass[english]{ltxdoc}
+\setlength{\parindent}{0pt}
+\newcommand{\PackageURL}{https://github.com/ypid/latex-packages/tree/master/doclicense}
+\newcommand{\PackageCTANURL}{https://www.ctan.org/pkg/doclicense}
+\newcommand{\PackageAuthor}{Robin Schneider}
+\newcommand{\PackageAuthorEmail}{ypid@riseup.net}
+\newcommand{\PackageName}{\PrintPackage{doclicense}}
+\newcommand{\PrintPackage}[1]{\textsf{#1}}
+\newcommand{\PrintOptionF}[1]{\emph{#1}} % ^^A This macro is used for
+% ^^A explaining any parameter when they first come up in the manual.
+\newcommand{\DescribePara}[1]{\marginpar{\raggedleft\strut\MacroFont\string#1}}
+\usepackage[
+  hyphens,
+  obeyspaces,
+  spaces,
+]{url}
+\usepackage{%
+  babel,
+  csquotes,
+  xcolor,
+  hypdoc,
+  nameref,
+  eqlist,
+}
+\usepackage[iso]{isodate}
+% ^^A https://tex.stackexchange.com/a/95893/32320
+\setlength\IndexMin{100pt}
+\usepackage[
+  type={CC},
+  modifier={by-sa},
+  version={4.0},
+  % imagemodifier={-80x15},% chktex 29
+  hyphenation={RaggedRight},
+]{doclicense}
+\GetFileInfo{doclicense.dtx}
+\hypersetup{%
+  pdftitle={A manual for \PackageName},
+  pdfauthor={\PackageAuthor{} <\PackageAuthorEmail>},
+  pdfsubject={\fileinfo},
+  baseurl={\PackageURL},
+  pdfkeywords={This document corresponds to \PackageName\nobreakspace\fileversion,
+    dated \filedate},
+}
+
+\title{The \PackageName{} package\thanks{This document
+corresponds to \PackageName\nobreakspace\fileversion, dated \printdateTeX{\filedate}.}}
+
+\author{\PackageAuthor\\
+  \texttt{\href{mailto:\PackageAuthorEmail?subject=LaTeX package doclicense%
+    \&body=Hey Robin,}%
+    {\PackageAuthorEmail}%
+  }%
+}
+
+\EnableCrossrefs%
+\CodelineIndex%
+\RecordChanges%
+\begin{document}
+  \DocInput{doclicense.dtx}
+  \PrintChanges%
+  \PrintIndex%
+\end{document}
+%</driver>
+% \fi
+%
+% ^^A \CheckSum{0}
+% ^^A I use version control and so on which has much better checksums :)
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{0.07}{2015/02/05}{Initial version.}
+% \changes{0.08}{2015/02/06}{Added support for CC-zero and CC-pd and small improvements}
+% \changes{0.09}{2015/02/07}{Added list of supported licenses to docu and added option imagemodifier.
+%   Also renamed macro \cmd{\doclicenseLicense} to \cmd{\doclicenseThis}.}
+% \changes{0.10}{2015/02/13}{Added support for hyperxmp.}
+% \changes{1.0}{2015/03/30}{Removed space before quotes (Example: \enquote{CC } $\rightarrow$ \enquote{CC}).}
+% \changes{1.1}{2015/04/06}{Added support for Creative Commons 4.0 and added \cmd{\doclicenseImageFileName}.}
+% \changes{1.2}{2015/04/06}{Allow \cmd{\doclicenseModifier} to be used with hyperref. Fixed \cmd{\doclicenseIcon} macro, added missing image and wrote test framework. Added notes about how to add translations. Added Spanish translation.}
+% \changes{1.4.0}{2015/12/13}{Added \cmd{\doclicensePlainFullText} and \cmd{\doclicenseFullText} macros. Thanks to \href{https://github.com/siefkenj}{siefkenj} for the help.}
+% \changes{1.4.1}{2016/04/10}{Translation fixes for: fr, en-gb. Included missing CC-by-nc-nd icon (US dollar).}
+% \changes{1.5.0}{2016/04/24}{Allow to change the way text is typeset by \cmd{\doclicenseThis}.}
+% \changes{1.6.0}{2017/10/07}{Added Russian and Italian translation. Added `imageposition` and `imagedistance` parameters.}
+% \changes{1.7.0}{2018/02/17}{Update Russian and Spanish translation. Fix issue with unescaped newline causing two spaces between license name and 'license' word.}
+% \changes{1.7.1}{2018/04/24}{Include .eps versions of the images to allow using `latex` with dvi output. Thanks to robertpetry for reporting.}
+% \changes{1.8.0}{2018/06/10}{Added Polish translation.}
+% \changes{1.9.0}{2019/04/07}{Added Catalan, Galician, Chinese and Portuguese translation. Detect and give hint when enquote macro is already defined. Fix LaTeX Error: Too deeply nested.}
+% \changes{1.10.0}{2019/06/05}{Added Brazilian translation. Update Chinese and Portuguese translation. Do not use enumitem for list label customization (beamer compatibility).}
+% \changes{1.10.1}{2020/04/12}{Fix image for CC-BY-NC EU. Fix URL for CC-PDDC. Improve wording for catalan language.}
+% \changes{2.0.0}{2020/05/27}{Add 80x15 version of CC images which can be used with the imagemodifier option. Fix slight color offset for all CC images caused by bad image conversion. Thanks to rodrigoalcarazdelaosa for reporting. Fix \cmd{\doclicenseThis} support for twocolumn layouts. Thanks to Nao Pross. Soft require package options "type", "modifier" and "version" now. Defaults are deprecated. This will become a package error in an upcoming major version of the package, with the earliest release in 2021-07 to give people time to migrate. Remove Creative Commons PD which has been replaced by CC-zero as of 2010-10-11. Update example license used for examples in manual to CC-BY-SA-4.0.}
+% \changes{2.0.1}{2020/06/26}{Fix backwards compatibility by still accepting imagemodifier={-eu} and imagemodifier={-us}. Thanks to Jürgen Spitzmüller for reporting. Fix ability to modify currency of \cmd{\doclicenseIcon} macro using imagemodifier to Japan currency JP without breaking \cmd{\doclicenseImage}.}
+% \changes{2.1.0}{2020/07/26}{Fix regression: Proper language default image variants (Euro variants for example) was broken and the US variant was always used. This bug was introduced in v2.0.0. Documentation fixes. Added Marathi translation.}
+% \changes{2.2.0}{2020/09/18}{Add Japanese and Bulgarian translations. Add hint how to use Chinese to docs. Load hyperxmp by default when it is installed. Before, doclicense just suggested to load it and made use of the package when the user did.}
+% \changes{2.2.1}{2020/09/25}{Fix compatibility issue with newer versions of hyperxmp (bug confirmed with Tex Live 2020) resulting in an compile error by loading hyperxmp and hyperref in the order the packages expect it.}
+% \changes{2.3.0}{2021/03/13}{Add option to disable the use of hyperxmp and add compatibility for pdfx. Use \url{https://reuse.software/} for the doclicense source code itself.}
+% \changes{3.0.0}{2021/07/11}{Breaking change: Hard require package options "type", "modifier" and "version" now after one year in soft require migration period. Add Croatian translation. Add sections to docs about choosing a license and the REUSE specification. Update Spanish translation to match Creative Commons website. Add note to README that CC license texts and images are licensed themselves under CC0-1.0. Load csquotes after hyperref to avoid hyperref warning. Do not load the hyperxmp package if the silence package is loaded to avoid an endless loop. Improve warning messages generated by the package. Add "Dependency packages and load order" section to docs.}
+% \changes{3.1.0}{2022/04/27}{Add macro \cmd{\doclicenseLongTextForHyperref} and use it inside \cmd{\hypersetup} to replace the fagile code that was previously used. Add Traditional Chinese (Taiwan), Swedish and Esperanto translations.}
+% \changes{3.2.0}{2022/05/18}{Add Ukrainian translation.}
+%
+%
+%
+% ^^A nag warned about the center environment and it really messes up spacing.
+%
+% \DoNotIndex{\RequirePackage, \DeclareOption, \ProcessOptions}
+% \DoNotIndex{\PackageWarning, \MessageBreak}
+% \DoNotIndex{\DeclareRobustCommand, \newcommand, \renewcommand, \def, \edef}
+% \DoNotIndex{\DeclareStringOption, \ProcessLocalKeyvalOptions}
+% \DoNotIndex{\ProcessKeyvalOptions, \SetupKeyvalOptions, \DeclareBoolOption}
+% \DoNotIndex{\newenvironment}
+% \DoNotIndex{\if, \else, \fi, \ifcase, \or, \ifthenelse, \AND, \OR, \value, \relax}
+% \DoNotIndex{\loop, \repeat, \the, \ifnum}
+% \DoNotIndex{\equal, \boolean, \@currname, \newcounter, \setcounter}
+% \DoNotIndex{\stepcounter, \addtocounter}
+% \DoNotIndex{\endinput, \begin, \end}
+% \DoNotIndex{\not}
+%
+% \maketitle
+%
+% \phantomsection
+% \addcontentsline{toc}{section}{\abstractname}
+% \begin{abstract}
+% Support for putting documents under a license. \\
+% Information site on CTAN: \url{\PackageCTANURL} \\
+% Example on Stackexchange: \url{https://tex.stackexchange.com/a/226788/32320} \\
+% Fork me on GitHub: \url{\PackageURL} \end{abstract}
+%
+% \tableofcontents
+%
+% \section{Introduction}
+% The \PackageName{} package allows you to put your document under a
+% license and include a link to read about the license or include an icon or
+% image of the license.  Currently, only \doclicenseLongType is supported but this
+% package is designed to handle all kinds of licenses. See \nameref{sec:contributing}.
+%
+% \section{Usage}
+% The package can be used like in this mini working example:
+%
+% \begin{quote}
+%   |\documentclass[english]{article}| \\
+%   |\usepackage[| \\
+%   |  type={CC},| \\
+%   |  modifier={by-sa},| \\
+%   |  version={4.0},| \\
+%   |]{doclicense}| \\
+%   |\begin{document}| \\
+%   |\doclicenseThis%| \\
+%   |\end{document}|
+% \end{quote}
+%
+% This will explicitly set the license to \doclicenseNameRef.
+%
+% With the default settings and if the \PrintPackage{hyperxmp} package is
+% installed, it will be loaded and the options \PrintOptionF{pdflicenseurl}
+% and \PrintOptionF{pdfcopyright} will be set by \PackageName{} to the
+% corresponding values (\enquote{\url{\doclicenseURL}} and
+% \enquote{\doclicenseLongTextForHyperref{}}). This embeds license metadata
+% into the PDF which proper PDF readers can show. For example Evince shows it
+% in the \enquote{Document License} tab under \enquote{Properties}. You may
+% check this manual for how your PDF reader handles such metadata.
+%
+% In case you are using other packages to manipulate the metadata which is
+% incompatible to the use of hyperxmp, e.\,g. \PrintPackage{pdfx} you can use
+% the \PrintOptionF{hyperxmp=false} option to disable this automatism. If
+% \PrintPackage{pdfx} is loaded before \PrintPackage{doclicense} or if
+% \PrintPackage{hyperxmp} is not installed this automatism is disabled.
+% In these cases a warning is emitted to inform you about the reason.
+% The warning will not show up if \PrintOptionF{hyperxmp} is set to
+% \PrintOptionF{false}.
+%
+% Also note that \PrintPackage{hyperxmp} is not loaded when
+% \PrintPackage{silence} was loaded. This is because when both of those
+% packages are loaded, compilation runs into an endless loop.
+%
+% \section{Dependency packages and load order}
+%
+% \PackageName{} will ensure that the following packages are loaded by default.
+% You don't need to do anything extra as long as you are fine with the default options
+% of those packages:
+%
+% \begin{eqlist}
+%   \item[\PrintPackage{ccicons}] To typeset icon versions of the Creative Commons licenses.
+%   \item[\PrintPackage{graphicx}] To include images/buttons of the Creative Commons licenses.
+%   \item[\PrintPackage{hyperxmp}] To write license information into the metadata section of the generated PDF.
+%   \item[\PrintPackage{hyperref}] To typeset hyperlinks/URLs that are clickable.
+%   \item[\PrintPackage{csquotes}] To offload localization of quotes depending on document language.
+% \end{eqlist}
+%
+% Load order is important for some of those packages.
+% Here are the constraints that you will need to consider when you decide to
+% load the packages yourself or other packages that you use load them:
+%
+% \begin{itemize}
+%   \item \PrintPackage{hyperxmp} should be loaded before the setup of \PrintPackage{hyperref} is called.
+%   \item \PrintPackage{csquotes} should be loaded before
+%     \PrintPackage{biblatex} because otherwise \PrintPackage{biblatex} will
+%     define the \cmd{\enquote} in a way that is not compatible with
+%     \PackageName{}.
+%   \item The position of loading \PackageName{} is decoupled from the load
+%     order because interaction and loading of dependency packages is done via a
+%     hook at the end of the preamble.
+% \end{itemize}
+%
+%
+% \section{Package options}
+%
+% Sets the license type. \DescribePara{type}
+% Like in the previous example, the type can be
+% \enquote{CC} to cover all the \doclicenseLongType licenses.
+% Please make sure that the type is all uppercase. See the \nameref{sec:supported-licenses} section for a complete list.
+% This is a required option since v2.0.0.
+%
+% Allows to \DescribePara{modifier}
+% select different subclasses of a license. In the
+% example it is \enquote{by-sa}.
+% Please make sure that the type is all lowercase. See the \nameref{sec:supported-licenses} section for a complete list.
+% This is a required option since v2.0.0.
+%
+% As \DescribePara{version} there can be more than one version of a license, the version also needs to be set.
+% This is a required option since v2.0.0.
+%
+% This package can output some texts like the long license name.
+% \DescribePara{lang}
+% Because of this, there needs to be a way to specify the language to use.
+% If this parameter is omitted, then this package will default to
+% \cmd{\languagename} which is normally set by packages like
+% \PrintPackage{babel} or \PrintPackage{polyglossia}.
+%
+% Supported languages:
+% ^^A Sorted alphabetically.
+% \begin{itemize}
+%   \item Brazilian
+%   \item Bulgarian
+%   \item Catalan
+%   \item Chinese: Note that you might need to pass \verb+lang={chinese-utf8}+ \verb+lang={chinese-tw}+, or \verb+chinese-gbk+.
+%   \item Croatian
+%   \item English
+%   \item Esperanto
+%   \item French
+%   \item Galician
+%   \item German
+%   \item Italian
+%   \item Japanese
+%   \item Marathi: Note that Niranjan also translated the images which are considered unofficial by the package. Creative Commons has no plans to support additional currencies.
+%   \item Polish
+%   \item Portuguese
+%   \item Russian
+%   \item Spanish
+%   \item Swedish
+%   \item Ukrainian
+% \end{itemize}
+%
+% Image position for \cmd{\doclicenseThis}: right (default) or left.
+% \DescribePara{imageposition}
+%
+% Default image width for the license image.
+% \DescribePara{imagewidth}
+% Defaults to 10em.
+%
+% Distance between text and image in \cmd{\doclicenseThis}.
+% \DescribePara{imagedistance}
+% Defaults to 2em.
+
+% Select different variations of license images.
+% \DescribePara{imagemodifier}
+% For example, Creative Commons provides more than one image for one version.
+% See the \href{https://creativecommons.org/about/downloads}{download page}.
+% You will note that there are by-nc.eu and by-nc which only differ in the currency.
+% Based on the loaded language, the currency is set to a suitable default. You can change this with:
+% \begin{quote}
+%   |\usepackage[| \\
+%   |  type={CC},| \\
+%   |  modifier={by-nc},| \\
+%   |  version={4.0},| \\
+%   |  imagemodifier={-eu-88x31},| \\
+%   |]{doclicense}|
+% \end{quote}
+%
+% Also, there is 80x15 which uses letters instead of icons for the modifiers in the image.
+% \begin{quote}
+%   |\usepackage[| \\
+%   |  type={CC},| \\
+%   |  modifier={by-nc},| \\
+%   |  version={4.0},| \\
+%   |  imagemodifier={-eu-80x15},| \\
+%   |]{doclicense}|
+% \end{quote}
+%
+% If this is not given, we default to 88x31.
+%
+% Note that imagemodifier needs to assemble into a valid filename. Check
+% what files the package ships with to understand what combinations can be
+% used.
+%
+% For backwards compatibility, \enquote{-eu} is interpreted as \enquote{-eu-88x31}.
+%
+% This option allows you to specify
+% \DescribePara{hyphenation}
+% a macro name which is going to be expanded
+% in the minipage environment of \cmd{\doclicenseThis}.
+% That allows you to change the behaviour how \cmd{\doclicenseLongText} is
+% typeset. By default, this option is not enabled.
+%
+% One possible use case is to set the option to \enquote{RaggedRight}.
+% This will use the \cmd{\RaggedRight} macro provided by the
+% \PrintPackage{ragged2e} package\footnote{The \PrintPackage{ragged2e} package will be loaded when it is required.}) with the intention of limiting the number of
+% hyphenations while still allowing a hyphenation by typesetting
+% \cmd{\doclicenseLongText} as ragged text.
+%
+% The idea of using ragged text is that the \cmd{\doclicenseLongText} is
+% usually one or two full line and one half full line so avoiding hyphenations
+% might look better compared to justified text.
+%
+% \enquote{RaggedRight} is also the setting used for this manual.
+% \cmd{\doclicenseThis} did not produce a hyphenation in case of this
+% manual but \TeX{} did fill up the first text line to it’s full width
+% by adding additional space between words. This has been be avoided by setting
+% the following option for this document:
+%
+% \begin{quote}
+%   |\usepackage[| \\
+%   |  hyphenation={RaggedRight},| \\
+%   |]{doclicense}|
+% \end{quote}
+%
+% Another option which can make sense is the \cmd{\raggedright} macro which
+% more drastically limits the number of hyphenations. This can be set as shown
+% below:
+%
+% \begin{quote}
+%   |\usepackage[| \\
+%   |  hyphenation={raggedright},| \\
+%   |]{doclicense}|
+% \end{quote}
+%
+% This option allows to disable the automatic loading of \PrintPackage{hyperxmp}.
+% \DescribePara{hyperxmp}
+% It's initialized to true. This might also be used to suppress the warning if
+% \PrintPackage{hyperxmp} is not available or \PrintPackage{pdfx} was loaded before
+% \PrintPackage{doclicense}.
+%
+% \section{Macros}
+% \DescribeMacro{\doclicenseType}
+% Expands to the type as set in the package options. Example: \enquote{\doclicenseType{}}
+%
+% \DescribeMacro{\doclicenseLongType}
+% Same as \cmd{\doclicenseType} except that it expands to the long license
+% type. Example: \enquote{\doclicenseLongType{}}
+%
+% \DescribeMacro{\doclicenseModifier}
+% Expands to the modifier as set in the package options. Example: \enquote{\doclicenseModifier{}}
+%
+% \DescribeMacro{\doclicenseVersion}
+% Expands to the version as set in the package options. Example: \enquote{\doclicenseVersion{}}
+%
+% \DescribeMacro{\doclicenseURL}
+% Expands to the official URL about the license. Note that it expands to the
+% raw URL string without the use of \cmd{\href} or similar. If you want the
+% link to be clickable then you can use \cmd{\href} or \cmd{\url} from the
+% \PrintPackage{hyperref} package or just read on because the following macros
+% can also do this for your. Example:
+% \enquote{\doclicenseURL{}}
+%
+% \DescribeMacro{\doclicenseName}
+% Expands to the short name of the license. Example: \enquote{\doclicenseName{}}
+%
+% \DescribeMacro{\doclicenseLongName}
+% Expands to the long name of the license. Example: \enquote{\doclicenseLongName{}}
+%
+% \DescribeMacro{\doclicenseNameRef}
+% Same as \cmd{\doclicenseName} except that it links to the URL of the license.
+% Example: \enquote{\doclicenseNameRef{}}
+%
+% \DescribeMacro{\doclicenseLongNameRef}
+% Same as \cmd{\doclicenseLongName} except that it links to the URL of the
+% license. Example:
+% \enquote{\doclicenseLongNameRef{}}
+%
+% \DescribeMacro{\doclicenseText}
+% Expands to a localized text which states that this document is licensed under
+% the license. Example:
+% \enquote{\doclicenseText{}}
+%
+% \DescribeMacro{\doclicenseLongText}
+% Same as \cmd{\doclicenseText} except that it uses the long name of the license.
+% Example: \enquote{\doclicenseLongText{}}
+%
+% \DescribeMacro{\doclicenseLongTextForHyperref}
+% \hspace{2.5em}Same as \cmd{\doclicenseLongText} except that it does not contain \cmd{\href}
+% and other complex macros. The purpose of this macro is to be used as value inside of \cmd{\hypersetup}.
+% Example: \enquote{\doclicenseLongTextForHyperref{}}
+%
+% \DescribeMacro{\doclicensePlainFullText}
+% Verbatim prints the full license text.
+%
+% ^^A Don’t ask why I inserted that line break … (LaTeX made the \doclicensePlainFullText red).
+%
+% An example can be found in the \nameref{sec:plain_license_text} section.
+%
+% \DescribeMacro{\doclicensePlainFullTextFileName}
+% \hspace{2.5em}Expands to the file name which the \cmd{\doclicensePlainFullTextFileName} macro uses to \cmd{\verbatiminput} the license text file.
+% Example: \enquote{\doclicensePlainFullTextFileName{}}
+%
+% \DescribeMacro{\doclicenseFullText}
+% Pretty prints the full license text.
+%
+% ^^A Don’t ask why I inserted that line break … (LaTeX made the \doclicenseFullText red).
+%
+% An example can be found in the \nameref{sec:pretty_license_text} section.
+%
+% \DescribeMacro{\doclicenseFullTextFileName}
+% Expands to the file name which the \cmd{\doclicenseFullText} macro uses to \cmd{\input} the license text file.
+% Example: \enquote{\doclicenseFullTextFileName}
+%
+% \DescribeMacro{\doclicenseTypeIcon}
+% Expands to an icon of the license type. Example:
+% \enquote{\doclicenseTypeIcon{}}. This macro is based on the
+% \PrintPackage{ccicons} package.
+%
+% \DescribeMacro{\doclicenseIcon}
+% Expands to an icon of the license. Example:
+% \enquote{\doclicenseIcon{}}. This macro is based on the
+% \PrintPackage{ccicons} package.
+%
+% \DescribeMacro{\doclicenseImage}
+% This is kind of similar to \cmd{\doclicenseIcon} but it will typeset an
+% bigger pictogram of the license. Example:
+% \enquote{\doclicenseImage}
+%
+% Note that you can change the image size with the \oarg{imagewidth} parameter
+% like this:
+% \enquote{\doclicenseImage[imagewidth=2em]}
+%
+% \begin{quote}
+%   |\doclicenseImage[imagewidth=2em]|
+% \end{quote}
+%
+% The images are bundled with the \PackageName{} package as vector graphics.
+%
+% \DescribeMacro{\doclicenseImageFileName}
+% This macro expands to the file name of the image which the
+% \cmd{\doclicenseImage} typesets.  You can use this file name with
+% \cmd{\includegraphics} if you need more flexibility over how the image is
+% typeset.
+%
+% The current file name is: \enquote{\doclicenseImageFileName}
+%
+% You do not have to worry about the file path. Normally your \LaTeX{} environment
+% will find the image for you.
+%
+% The file extension is omitted which is good practice together with
+% \cmd{\includegraphics} as it will pick the proper one itself.
+%
+% \DescribeMacro{\doclicenseThis}
+% And last but not least there is the \cmd{\doclicenseThis} macro which will
+% typeset the \cmd{\doclicenseText} next to the \cmd{\doclicenseImage} in a
+% \enquote{minipage} environment.
+% This will look like the following:
+%
+% \doclicenseThis
+%
+% \makeatletter
+% \renewcommand{\doclicense@imagemodifier}{-80x15}
+% And here is how it looks with the imagemodifier option set to \enquote{\doclicense@imagemodifier}:
+%
+% \doclicenseThis
+% \renewcommand{\doclicense@imagemodifier}{-88x31}
+% \makeatother
+%
+% \section{Supported licenses}
+% \label{sec:supported-licenses}
+%
+% Currently only Creative Commons is supported.
+% The license type, modifier and version should be based on
+% \href{https://spdx.org/licenses/}{SPDX license identifiers}. Direct support
+% for SPDX license identifiers should be considered when supporting new
+% licenses.
+%
+% \subsection{CC (Creative Commons)}
+%
+% \makeatletter
+% ^^A Reverse sorted.
+% \begin{eqlist}
+%   \item[CC0-1.0] \@nameuse{doclicense@lang@lic@CC@zero@1.0}
+%   \item[CC-BY-4.0] \@nameuse{doclicense@lang@lic@CC@by@4.0}
+%   \item[CC-BY-3.0] \@nameuse{doclicense@lang@lic@CC@by@3.0}
+%   \item[CC-BY-SA-4.0] \@nameuse{doclicense@lang@lic@CC@by-sa@4.0}
+%   \item[CC-BY-SA-3.0] \@nameuse{doclicense@lang@lic@CC@by-sa@3.0}
+%   \item[CC-BY-ND-4.0] \@nameuse{doclicense@lang@lic@CC@by-nd@4.0}
+%   \item[CC-BY-ND-3.0] \@nameuse{doclicense@lang@lic@CC@by-nd@3.0}
+%   \item[CC-BY-NC-4.0] \@nameuse{doclicense@lang@lic@CC@by-nc@4.0}
+%   \item[CC-BY-NC-3.0] \@nameuse{doclicense@lang@lic@CC@by-nc@3.0}
+%   \item[CC-BY-NC-SA-4.0] \@nameuse{doclicense@lang@lic@CC@by-nc-sa@4.0}
+%   \item[CC-BY-NC-SA-3.0] \@nameuse{doclicense@lang@lic@CC@by-nc-sa@3.0}
+%   \item[CC-BY-NC-ND-4.0] \@nameuse{doclicense@lang@lic@CC@by-nc-nd@4.0}
+%   \item[CC-BY-NC-ND-3.0] \@nameuse{doclicense@lang@lic@CC@by-nc-nd@3.0}
+% \end{eqlist}
+% \makeatother
+%
+% \section{Retired licenses}
+%
+% Licenses get updated and sometimes fully replaced.
+% This section clarifies how \PackageName{} handles this.
+%
+% If there is consensus that the old license has no valid use case anymore and
+% it is possible and allowed for everyone compiling a document to update the
+% license, then the old license will be removed from \PackageName{} in the next
+% major version.
+%
+% Otherwise, \PackageName{} will keep supporting it to ensure that documents
+% using those licenses can still be compiled in the future.
+%
+% List of retired licenses:
+%
+% \makeatletter
+% ^^A Reverse sorted.
+% \begin{eqlist}
+%   \item[CC-PDDC] Copyright-Only Dedication
+% \end{eqlist}
+% \makeatother
+%
+% \section{What license to choose for the document?}
+%
+% The list of available licenses is long (see
+% \href{https://spdx.org/licenses/}{SPDX License List}). Only a (small) subset
+% of them are a good choice for documentation. The \doclicenseLongType family
+% seem to be a common choice as contributions to this package have shown. This
+% package was translated to 15+ languages but no other license families have
+% been added yet. With that, a link to
+% \href{https://creativecommons.org/choose/}{Creative Commons: Choose a
+% License} is probably justified if you have not done that already.
+%
+% \section{REUSE Specification}
+%
+% That clarifies the question under which license you want to put the document
+% under, but in practice it might not be as easy as that.
+% Under what license are the artifacts (images/figures/tables/source code
+% listings) you are including? It would probably be useful to track such
+% metadata along with the files. For this, the \href{REUSE
+% Specification}{https://reuse.software/} can be used.
+%
+% The REUSE Specification is independed of \LaTeXe{} and more \enquote{low
+% level} than this package.
+% \PackageName{} might integrate with the REUSE Specification at a later point.
+% Refer to \url{https://github.com/ypid/latex-packages/issues/72} for
+% discussion how such an integration could look like.
+%
+% \section{Contributing}
+% \label{sec:contributing}
+% This package is being developed on GitHub: \url{\PackageURL}. When you want
+% to modify the .sty file, make sure that you make your changes in the .dtx
+% file instead, as the .sty file is automatically generated.
+%
+% In case you want to add a translation for your language then just copy the
+% file \path{doclicense-english.ldf} and replace the \enquote{english} in
+% the filename with your language code (same as the language code used by
+% \PrintPackage{babel}) and translate the file.
+% If there are multiple language
+% codes which should map to the same translation then have a look at the file
+% \path{doclicense-american.ldf}.
+%
+% When you are done and have tested your translation (modify and run the
+% \path{run_tests} script) then please send me the translated file(s) either
+% via Email or preferably by opening a pull request on GitHub so that I can
+% include them in the next release.
+%
+% Note that the following development conventions are used for the package:
+%
+% \begin{itemize}
+%   \item \href{https://reuse.software/spec/}{REUSE Specification 3.0}
+%   \item \href{https://www.conventionalcommits.org/en/v1.0.0/}{Conventional Commits 1.0.0}
+%   \item \href{https://semver.org/spec/v2.0.0.html}{Semantic Versioning 2.0.0}
+%   \item CI tests using GitHub Actions
+% \end{itemize}
+%
+% \section{Plaintext license text}
+% \label{sec:plain_license_text}
+%
+% The following is an example output of the \cmd{\doclicensePlainFullText} macro.
+%
+% \doclicensePlainFullText
+%
+% \section{Pretty license text}
+% \label{sec:pretty_license_text}
+%
+% The following is an example output of the \cmd{\doclicenseFullText} macro.
+%
+% \doclicenseFullText
+%
+% \StopEventually{}
+%
+% \newpage
+% \section{Implementation}
+% \iffalse
+%<*package>
+% \fi
+% \subsection{Declaring the options}
+%    \begin{macrocode}
+% Parameters (((
+\RequirePackage{kvoptions}
+\DeclareStringOption{type}
+\DeclareStringOption{modifier}
+\DeclareStringOption{version}
+\DeclareStringOption{lang}
+\DeclareStringOption[-88x31]{imagemodifier}% chktex 29
+\DeclareStringOption[right]{imageposition}
+\DeclareStringOption[10em]{imagewidth}
+\DeclareStringOption[2em]{imagedistance}
+\DeclareStringOption{hyphenation}
+\DeclareBoolOption[true]{hyperxmp}
+% )))
+
+%    \end{macrocode}
+% To test if all parameters are valid the macro |\ProcessLocalKeyvalOptions*|
+% is expanded to ensure this before leaving the preamble. This is the only
+% purpose for the |\ProcessLocalKeyvalOptions*| macro in this case.
+%    \begin{macrocode}
+\ProcessLocalKeyvalOptions*
+
+%    \end{macrocode}
+% \subsection{Dependencies}
+%    \begin{macrocode}
+% Dependencies (((
+\RequirePackage{xifthen}
+\RequirePackage{xstring}
+\RequirePackage{etoolbox} % \ifcsdef
+\RequirePackage{xspace}
+\RequirePackage{verbatim}
+
+% Custom enumerate list with adjusted labels
+% that match the license text conventions
+\newenvironment{doclicense@enumerate}{%
+  \begin{enumerate}
+    \renewcommand{\labelenumi}{(\alph{enumi})}%
+    \renewcommand{\labelenumii}{(\arabic{enumii})}%
+    \renewcommand{\labelenumiii}{(\Alph{enumiii})}%
+    \renewcommand{\labelenumiv}{(\roman{enumiv})}%
+}{\end{enumerate}}
+
+\ifthenelse{%
+  \equal{\doclicense@hyphenation}{}
+}{}{%
+  \RequirePackage{ragged2e}
+
+  \ifthenelse{\isnamedefined{\doclicense@hyphenation}}{}{%
+    \PackageError{doclicense}{Hyphenation macro not defined}
+      {The macro name given via the hyphenation option is not defined.}%
+  }
+}
+\AtEndPreamble{%
+  \@ifpackageloaded{ccicons}{}{\RequirePackage{ccicons}}
+    % For \doclicenseIcon
+  \@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}
+    % For \doclicenseImage
+  \@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}
+  \@ifpackageloaded{csquotes}{%
+    % csquotes has already been loaded so we are fine.
+  }{%
+    \ifcsdef{enquote}{%
+      % \enquote is defined but not by csquotes.
+      \@ifpackageloaded{biblatex}{%
+        \PackageError{doclicense}{The enquote macro is defined by biblatex}
+          {This package assumes that the enquote macro is defined by the
+            csquotes package. Please load csquotes before you load biblatex so
+            that biblatex does not define enquote instead.}%
+      }{%
+        \PackageError{doclicense}{The enquote macro is defined by an unknown package}
+          {This package assumes that the enquote macro is defined by the
+            csquotes package. Please check why enquote is defined without
+            csquotes being loaded. Maybe try loading csquotes early so that it
+            can define the enquote macro instead.}%
+      }
+    }{%
+      \RequirePackage{csquotes}
+    }
+  }
+  \@ifpackageloaded{hyperxmp}{%
+    % The following options are only defined when the hyperxmp package was loaded.
+    \hypersetup{%
+      pdfcopyright  = {\doclicenseLongTextForHyperref},
+      pdflicenseurl = {\doclicenseURL},
+    }
+  }{}
+}
+\ifdoclicense@hyperxmp
+  \@ifpackageloaded{pdfx}{%
+    \PackageWarning{doclicense}{%
+      The pdfx package was detected. Therefore the mechanism to add license
+      metadata won't work. Ensure to setup \string\Copyright\space%
+      and corresponding settings to your xmpdata-file.
+    }
+  }{%
+    \@ifpackageloaded{silence}{%
+      \PackageWarning{doclicense}{%
+        The silence package was detected. hyperxmp and silence are not% chktex 12
+        compatible with each other so doclicense will not load hyperxmp as long
+        as you load silence. Therefore the mechanism to add license metadata
+        won't work.  Consider to compile the final version of your document
+        without silence so that you can benefit from hyperxmp while still being
+        able to filter log messages for your draft versions.
+      }
+      \@ifpackageloaded{hyperxmp}{%
+        \PackageError{doclicense}{silence and hyperxmp were manually loaded together}{%
+          Error out because those packages together result in an endless loop.
+        }%
+      }{}
+    }{%
+      \IfFileExists{hyperxmp.sty}{%
+        \@ifpackageloaded{hyperxmp}{}{\RequirePackage{hyperxmp}}
+      }{%
+        \PackageWarning{doclicense}{%
+          The hyperxmp package is missing so no license metadata can be embedded
+          into the PDF. Consider installing hyperxmp.% chktex 13
+        }
+      }
+    }
+  }
+\fi
+% )))
+
+%    \end{macrocode}
+% \subsection{Deprecation handling}
+%    \begin{macrocode}
+% Deprecation handling (((
+\ifthenelse{%
+  \equal{\doclicense@type}{}
+}{%
+  \PackageError{doclicense}{"type" package option missing}{% chktex 18
+    This option is now required and the fallback to "CC" is deprecated. % chktex 18
+    In an upcoming major version of doclicense, this will be a package error.
+    Please explicitly pick a license of your choosing.
+  }
+}{}
+
+\ifthenelse{%
+  \equal{\doclicense@modifier}{}
+}{%
+  \PackageError{doclicense}{"modifier" package option missing}{% chktex 18
+    This option is now required and the fallback to "by-sa" is deprecated. % chktex 18
+    In an upcoming major version of doclicense, this will be a package error.
+    Please explicitly pick a license of your choosing.
+  }
+}{}
+
+\ifthenelse{%
+  \equal{\doclicense@version}{}
+}{%
+  \PackageError{doclicense}{"version" package option missing}{% chktex 18
+    This option is now required and the fallback is deprecated. % chktex 18
+    In an upcoming major version of doclicense, this will be a package error.
+    Please explicitly pick a license of your choosing.
+  }
+}{}
+% )))
+
+%    \end{macrocode}
+% \subsection{Declare variables and macros}
+%    \begin{macrocode}
+% Declare variables (((
+\@namedef{doclicense@lang@lic@CC}{Creative Commons}%
+\newcommand{\doclicense@baseUrlCC}{https://creativecommons.org}
+\newcommand{\doclicense@versionFallback}{}
+\newcommand{\doclicense@versionUsed}{}
+\newboolean{doclicense@licenseKnown}
+\newlength{\doclicense@hsize}
+\newcommand{\doclicense@longName}{%
+  \@nameuse{doclicense@lang@lic@\doclicense@type @\doclicense@modifier%
+    @\doclicense@versionUsed}%
+}
+\newcommand{\doclicense@icon}{%
+  \PackageError{doclicense}{Icon not defined}
+    {Please check the manual of doclicense to see what you can do about it.}%
+}
+\newcommand{\doclicense@modifier@uppercase}{\texorpdfstring{%
+    \MakeUppercase{\doclicense@modifier}%
+  }{%
+    \doclicense@modifier}%
+}
+% )))
+
+%    \end{macrocode}
+% \subsection{User macros}
+%    \begin{macrocode}
+% User macros (((
+\newcommand{\doclicenseType}{\doclicense@type\xspace}
+\newcommand{\doclicenseLongType}{}
+\newcommand{\doclicenseModifier}{\doclicense@modifier@uppercase\xspace}
+\newcommand{\doclicenseVersion}{\doclicense@versionUsed\xspace}
+\newcommand{\doclicenseName}{%
+  \doclicense@type\nobreakspace\doclicense@modifier@uppercase\nobreakspace%
+  \doclicense@versionUsed\xspace%
+}
+\newcommand{\doclicenseNameRef}{\href{\doclicenseURL}{\doclicenseName}\xspace}
+\newcommand{\doclicenseLongName}{\doclicenseLongType\space%
+  \doclicense@longName\xspace}
+\newcommand{\doclicenseLongNameRef}{\href{\doclicenseURL}{\doclicenseLongName}}
+\newcommand{\doclicenseText}{%
+  \doclicense@lang@thisDoc\space
+  \href{\doclicenseURL}{\enquote{\doclicenseName{}}}%
+  \doclicense@lang@word@license.\xspace%
+}
+\newcommand{\doclicenseLongText}{%
+  \doclicense@lang@thisDoc\space
+  \href{\doclicenseURL}{\doclicenseLongType\space\enquote{\doclicense@longName}}%
+  \doclicense@lang@word@license.\xspace%
+}
+\newcommand{\doclicenseLongTextForHyperref}{%
+  \doclicense@lang@thisDoc\space
+  \doclicenseLongType\space"\doclicense@longName"% chktex 18
+  \doclicense@lang@word@license.%
+}
+\newcommand{\doclicenseIcon}{\doclicense@icon\xspace}
+\newcommand{\doclicenseTypeIcon}{\doclicenseType}
+% \newcommand{\doclicenseModifierIcon}{} % Not directly provided by ccicons.
+\newcommand{\doclicenseImageFileName}{%
+  doclicense-\doclicense@type-\doclicense@modifier\doclicense@imagemodifier}
+\newcommand{\doclicenseImage}[1][]{%
+  \setkeys{doclicense}{#1}
+  \href{\doclicenseURL}{%
+    \includegraphics[
+      width=\doclicense@imagewidth%
+    ]{\doclicenseImageFileName}%
+  }
+}
+\newcommand{\doclicensePlainFullTextFileName}{%
+  doclicense-\doclicense@type-\doclicense@modifier%
+  -\doclicense@versionUsed-plaintext%
+}
+\newcommand{\doclicensePlainFullText}{%
+  \verbatiminput{\doclicensePlainFullTextFileName}
+}
+\newcommand{\doclicenseFullTextFileName}{%
+  doclicense-\doclicense@type-\doclicense@modifier-\doclicense@versionUsed-latex}
+\newcommand{\doclicenseFullText}{\input{\doclicenseFullTextFileName}}% chktex 27
+
+\newcommand{\doclicenseLicense}{\doclicenseThis} % legacy support
+\newcommand{\doclicenseThis}{%
+  \setlength{\doclicense@hsize}{\linewidth-\doclicense@imagewidth-\doclicense@imagedistance}%
+  \ifthenelse{\equal{\doclicense@imageposition}{left}}{%
+    \begin{center}
+      \begin{minipage}{\doclicense@imagewidth}
+        \doclicenseImage%
+      \end{minipage}
+      \hfill
+      \begin{minipage}{\doclicense@hsize}
+        \ifthenelse{\isempty{\doclicense@hyphenation}}{}{%
+          \@nameuse{\doclicense@hyphenation}%
+        }%
+        \doclicenseLongText%
+      \end{minipage}
+    \end{center}
+  }{%
+  % \ifthenelse{\isnamedefined{iflandscape}}{%
+  %   \iflandscape{%
+  %     \setlength{\doclicense@hsize}{\doclicense@hsize-10em}%
+  %   }{}%
+  % }{}%
+  % {%
+    \begin{center}
+      \begin{minipage}{\doclicense@hsize}
+        \ifthenelse{\isempty{\doclicense@hyphenation}}{}{%
+          \@nameuse{\doclicense@hyphenation}%
+        }%
+        \doclicenseLongText%
+      \end{minipage}
+      \hfill
+      \begin{minipage}{\doclicense@imagewidth}
+        \doclicenseImage%
+      \end{minipage}
+    \end{center}
+  % }
+  }
+}
+% )))
+
+%    \end{macrocode}
+% \subsection{Language selection}
+% The following lines include the ldf file. All language dependent things
+% should be stored and changed there. Note that one could also redefine
+% macros like \cmd{\doclicenseLongText} if necessary.
+%    \begin{macrocode}
+% Language support (((
+\ifthenelse{\equal{\doclicense@lang}{}}{%
+  \renewcommand{\doclicense@lang}{\languagename}}{}
+\IfFileExists{doclicense-\doclicense@lang.ldf}{%
+  \input{doclicense-\doclicense@lang.ldf}% chktex 27
+}{%
+  \ifthenelse{\equal{\doclicense@lang}{nil}}{%
+    \PackageWarning{doclicense}{%
+      The language of your document is not defined. Please refer to the babel or polyglossia
+      package to see how to define it. Using English as fallback.
+    }
+  }{%
+    \PackageWarning{doclicense}{%
+      No language definition for \doclicense@lang\space
+      found.  Consider adding one and submit it to doclicense. Using English as fallback.
+    }
+  }
+  \renewcommand{\doclicense@lang}{english}
+  \input{doclicense-\doclicense@lang.ldf}% chktex 27
+}
+\ifthenelse{\equal{\doclicense@imagemodifier}{-us}}{%
+  \@namedef{doclicense@imagemodifier}{-88x31}% chktex 29
+}{}
+
+% )))
+
+%    \end{macrocode}
+% \subsection{Internals}
+%    \begin{macrocode}
+% Set license (((
+\newcommand{\doclicense@setVersion}[1][]{%
+  \ifthenelse{\equal{#1}{}}{}{%
+    \renewcommand{\doclicense@versionFallback}{#1}
+  }
+  \ifthenelse{\equal{\doclicense@version}{}}{%
+    \renewcommand{\doclicense@versionUsed}{\doclicense@versionFallback}
+  }{%
+    \renewcommand{\doclicense@versionUsed}{\doclicense@version}
+  }
+}
+\newcommand{\doclicense@set}{%
+  % CC (((
+  \ifthenelse{\equal{\doclicense@type}{CC}}{%
+    \renewcommand{\doclicenseLongType}{\doclicense@lang@lic@CC\xspace}
+    \renewcommand{\doclicenseTypeIcon}{\ccLogo\xspace}
+
+    \doclicense@setVersion[3.0]
+
+    % Allow to predefine the following macros in ldf files.
+    \ifcsdef{doclicense@UrlLangPart}{}{%
+      \ifthenelse{\equal{\doclicense@lang@lic@CC@code}{}}{%
+        \edef\doclicense@UrlLangPart{}
+      }{%
+        \edef\doclicense@UrlLangPart{/deed.\doclicense@lang@lic@CC@code}
+      }
+    }
+    \ifcsdef{doclicenseURL}{}{%
+      \edef\doclicenseURL{%
+        \doclicense@baseUrlCC/%
+        licenses/%
+        \doclicense@modifier/%
+        \doclicense@versionUsed\doclicense@UrlLangPart%
+      }
+    }
+    \ifthenelse{\equal{\doclicense@modifier}{by}}{%
+      \renewcommand{\doclicense@icon}{\ccby}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{by-sa}}{%
+      \renewcommand{\doclicense@icon}{\ccbysa}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{by-nd}}{%
+      \renewcommand{\doclicense@icon}{\ccbynd}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{by-nc}}{%
+      \renewcommand{\doclicense@icon}{\ccbync}
+      \IfBeginWith{\doclicense@imagemodifier}{-eu}{%
+        \renewcommand{\doclicense@icon}{\ccbynceu}
+      }{}
+      \IfBeginWith{\doclicense@imagemodifier}{-jp}{%
+        \renewcommand{\doclicense@icon}{\ccbyncjp}
+        \renewcommand{\doclicense@imagemodifier}{-88x31}% chktex 29
+      }{}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{by-nc-sa}}{%
+      \renewcommand{\doclicense@icon}{\ccbyncsa}
+      \IfBeginWith{\doclicense@imagemodifier}{-eu}{%
+        \renewcommand{\doclicense@icon}{\ccbyncsaeu}
+      }{}
+      \IfBeginWith{\doclicense@imagemodifier}{-jp}{%
+        \renewcommand{\doclicense@icon}{\ccbyncsajp}
+        \renewcommand{\doclicense@imagemodifier}{-88x31}% chktex 29
+      }{}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{by-nc-nd}}{%
+      \renewcommand{\doclicense@icon}{\ccbyncnd}
+      \IfBeginWith{\doclicense@imagemodifier}{-jp}{%
+        \renewcommand{\doclicense@icon}{\ccbyncndjp}
+        \renewcommand{\doclicense@imagemodifier}{-88x31}% chktex 29
+      }{}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{zero}}{%
+      \renewcommand{\doclicense@icon}{\cczero}
+      \doclicense@setVersion[1.0]
+      \edef\doclicenseURL{%
+        \doclicense@baseUrlCC/%
+        publicdomain/%
+        \doclicense@modifier/%
+        \doclicense@versionUsed\doclicense@UrlLangPart}
+    }{}
+    \ifthenelse{\equal{\doclicense@modifier}{pd}}{%
+      \PackageError{doclicense}{CC PD license removed as of version 2.0.0}{%
+        Creative Commons PD has been replaced by CC-zero.
+        Please update your license choice.
+      }%
+    }{}
+    \IfSubStr{\doclicense@modifier}{nc}{}{%
+      % eu (Euro) does only exist for nc (non commercial) so if not nc then reset -eu.
+      \IfBeginWith{\doclicense@imagemodifier}{-eu}{%
+        \renewcommand{\doclicense@imagemodifier}{-88x31}% chktex 29
+      }{}
+    }
+    \ifthenelse{\equal{\doclicense@imagemodifier}{-eu}}{%
+      \renewcommand{\doclicense@imagemodifier}{-eu-88x31}% chktex 29
+    }{}
+
+    \ifcsdef{doclicense@lang@lic@\doclicense@type%
+      @\doclicense@modifier @\doclicense@versionUsed}{}{%
+
+      \PackageError{doclicense}{License long name not defined}{%
+        Please check the manual of doclicense
+        to see what you can do about it.%
+      }%
+    }
+
+    \setboolean{doclicense@licenseKnown}{true}
+  }{}% )))
+  \ifthenelse{\not\boolean{doclicense@licenseKnown}}{%
+    \PackageError{doclicense}{License unknown}{%
+      Please check the manual of doclicense
+      to see what you can do about it.%
+    }%
+  }{}%
+}
+% )))
+
+\doclicense@set%
+%    \end{macrocode}
+% That's it.
+%    \begin{macrocode}
+\endinput
+%    \end{macrocode}
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \Finale
+\endinput

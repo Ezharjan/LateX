@@ -1,0 +1,358 @@
+% \iffalse meta-comment
+% Copyright (C) 2022
+% by Phelype Oleinik <phelype.oleinik@latex-project.org>
+% Paulo Cereda <cereda.paulo@gmail.com>
+% samcarter <sam.carter8@aol.com>
+% and Ulrike Fischer <fischer@troubleshooting-tex.de>
+% 
+% This work may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, either version 1.3c of this license
+% or (at your option) any later version. The latest version of this
+% license is in
+% 
+%     http://www.latex-project.org/lppl.txt
+% 
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% 
+% This work is "maintained" (as per the LPPL maintenance status)
+% by Phelype Oleinik, Paulo Cereda, samcarter and Ulrike Fischer.
+% 
+%<*package>
+\def\sillypageDate{2022-08-02}
+\def\sillypageVersion{1.5}
+%</package>
+%<*driver>
+\documentclass[a4paper,full]{l3doc}
+\usepackage[T1]{fontenc}
+\usepackage{tgbonum}
+\usepackage[scaled=.85]{beramono}
+\usepackage{sillypage}
+\usepackage{hyperref}
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.sty}
+%
+% \title{^^A
+%   The \pkg{sillypage} package^^A
+%   \thanks{This file has version number \sillypageVersion,
+%           last revised \sillypageDate.}
+% }
+%
+% \author{^^A
+%  Phelype \emph{lemon curry} Oleinik\thanks
+%    {^^A
+%      E-mail:
+%        \href{mailto:phelype.oleinik@latex-project.org}
+%          {phelype.oleinik\meta{at}latex-project.org}^^A
+%    }\\
+%  Paulo \emph{dictates a letter} Cereda\thanks
+%    {^^A
+%      E-mail:
+%        \href{mailto:cereda.paulo@gmail.com}
+%          {cereda.paulo\meta{at}gmail.com}^^A
+%    }\\
+%  samcarter \emph{cheesy comestibles}\thanks
+%    {^^A
+%     E-mail:
+%        \href{mailto:sam.carter8@aol.com}
+%          {sam.carter8\meta{at}aol.com}^^A
+%    }\\
+%  Ulrike \emph{flying lessons} Fischer\thanks
+%    {^^A
+%     E-mail:
+%        \href{mailto:fischer@troubleshooting-tex.de}
+%          {fischer\meta{at}troubleshooting-tex.de}^^A
+%    }^^A
+% }
+%
+% \date{Released \sillypageDate}
+% \pagenumbering{silly}
+%
+% \maketitle
+%
+% \begin{documentation}
+%
+% \section{Introduction}
+%
+% This package is inspired by \emph{The Ministry of Silly Walks}, a famous
+% sketch from Monty Python. According to the corresponding
+% \href{https://bit.ly/33jKsl1}{Wikipedia article}:
+%
+% \begin{quotation}
+% The sketch as originally depicted in the series begins with John Cleese
+% playing Mr.~Teabag, a civil servant who, after purchasing The Times
+% from the newsagent in the previous sketch, walks through the streets
+% of London (at the crossing of Thorpebank Road and Dunraven Road) in a
+% very peculiar manner. He eventually arrives at his place of business:
+% The Ministry of Silly Walks, on the northern end of Whitehall. In the
+% hallway, he passes other employees all exhibiting their own silly walks
+% before arriving at his office. Once there, he finds Mr.~Putey (Michael
+% Palin) waiting for him and apologizes for the delay, explaining that
+% his walk has become particularly silly of late and it takes longer for
+% him to reach his destination.
+% \end{quotation}
+%
+% So we decided to bring this masterpiece of British pop culture to
+% the \TeX{} world through a silly page numbering style. Make sure to
+% use this package in your thesis, it will be a success.
+%
+% \section{Usage}
+%
+% Using a silly package like this is quite straighforward! For starters,
+% make sure to include it in your document preamble through
+%
+% \begin{verbatim}
+% \usepackage{sillypage}
+% \end{verbatim}
+%
+% \noindent and that is it! The available interface is as follows:
+%
+% \begin{function}{\pagenumbering{silly}}
+%   \begin{syntax}
+%     \cs{pagenumbering}\{silly\}
+%   \end{syntax}
+%   Write \cs{pagenumbering}|{silly}| in your document to use the page
+%   numbering style defined by this package. According to Wikipedia,
+%   the typical silly walk gait consists of twelve specific steps to
+%   be performed, so page numbering will cycle through these steps,
+%   in an kineograph fashion.
+% \end{function}
+%
+% \begin{function}{\silly}
+%   \begin{syntax}
+%     \cs{silly} \Arg{counter}
+%   \end{syntax}
+%   Use the macro \cs{silly} on a \LaTeX{} \meta{counter} to typeset the
+%   corresponding image for the value of that counter. As noted above,
+%   the value will be mapped to an image in the silly walk cycle. Also,
+%   observe that this macro is applied to counters and not to integers.
+% \end{function}
+%
+% \begin{function}{\sillystep}
+%   \begin{syntax}
+%     \cs{sillystep} \Arg{integer}
+%   \end{syntax}
+%   Prints the step number \meta{integer} from the sequence of steps.
+%   This macro works exactly like \cs{silly}, but on integers instead
+%   of counters. The integer value will be mapped to an image in the
+%   silly walk cycle.
+% \end{function}
+%
+% \begin{function}{\pagenumbering{sillynumeral}}
+%   \begin{syntax}
+%     \cs{pagenumbering}\{sillynumeral\}
+%   \end{syntax}
+%   Write \cs{pagenumbering}|{sillynumeral}| in your document to use a
+%   silly numeral system, in which each page will be converted to a unique
+%   composition of silly steps. Note that this macro differs from its
+%   \cs{silly} counterpart, as the former is a proper base 12 numeral
+%   system whereas the latter simply walks through a 12-cycle silly routine.
+% \end{function}
+%
+% \begin{function}{\sillynumeral}
+%   \begin{syntax}
+%     \cs{sillynumeral} \Arg{integer}
+%   \end{syntax}
+%   Provides the silly numeral system representation from the provided
+%   \meta{integer} value. This is a proper base 12 numeral system.
+% \end{function}
+%
+% \bigskip
+%
+% What a silly yet marvellous interface!
+%
+% \section{A sample document}
+%
+% As a means to demonstrate how straightforward (and of course silly) our package
+% is, here is a minimal working example:
+%
+% \begin{verbatim}
+% \documentclass{article}
+% 
+% \usepackage{sillypage}
+% \usepackage{blindtext}
+% 
+% \begin{document}
+% \pagenumbering{silly}
+% \Blinddocument
+% \end{document}
+% \end{verbatim}
+%
+% After compiling it, take a look at the page numbering: you will be greeted with
+% the silly walk routine! To impress your supervisor, use our package in your thesis,
+% print it and ask them to view those pages in quick succession, so the images appear
+% to animate by simulating motion! It is known to work with thesis committees as well.
+%
+% \section{The silly walk routine}
+%
+% This is the complete silly walk routine as described by Jazeen Hollings in the
+% \href{https://bit.ly/3fc9x46}{corresponding Wikipedia article}.
+% Please note that the 
+% images used in this package are created by samcarter and released under 
+% the \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0} license and the
+% \href{http://www.latex-project.org/lppl.txt}{LaTeX Project Public License} 1.3c or later.
+% Image sources (vector format) are available in the
+% \href{https://github.com/cereda/sillypage}{package repository}.
+%
+% \bigskip
+%
+% \makeatletter
+% {\centering
+%  \def\do#1{\ifnum#1>\silly@steps\else
+%    \sillystep{#1}
+%    \expandafter\do\expandafter{%^^A
+%      \number\numexpr#1+1\relax}\fi}\do{1}\par}
+% \makeatother
+%
+% \bigskip
+%
+% We also recommend Pilates, or any other physical fitness system.
+%
+% \end{documentation}
+%
+% \begin{implementation}
+%
+% \section{Implementation details}
+%
+% The implementation is quite straightforward. Feel free to contact us for
+% suggestions and criticism, code improvements and of course other silly
+% walk variants.
+%
+%    \begin{macrocode}
+%<*package>
+%<@@=silly>
+%    \end{macrocode}
+%
+% \subsection{Package requirements}
+%
+%    \begin{macrocode}
+\ProvidesExplPackage
+  {sillypage} {\sillypageDate} {\sillypageVersion}
+  {The silly walk as page numbering style}
+\RequirePackage{graphicx}
+%    \end{macrocode}
+%
+% \subsection{Picture-specific macros}
+%
+% \begin{macro}[int]{
+%      \silly@steps,
+%      \silly@picture,
+%      \silly@height}
+%    \begin{macrocode}
+\newcommand*\silly@steps{12}
+\newcommand*\silly@height{.8cm}
+\newcommand*\silly@picture{sillywalk-map.pdf}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Single step macros}
+%
+% \begin{macro}{\silly,\sillystep}
+% \begin{macro}[int]{\@silly}
+% \begin{macro}{\@@_step:n}
+%    \begin{macrocode}
+\NewDocumentCommand \silly { m } { \exp_args:Nv \@@_step:n { c@#1 } }
+\NewDocumentCommand \sillystep { m } { \@@_step:n {#1} }
+\newcommand*\@silly { \@@_step:n }
+\cs_new:Npn \@@_step:n #1
+  {
+    \@@_step_aux:eN
+      { \int_eval:n { \int_mod:nn { #1-1 } { \silly@steps } +1 } }
+      \c_false_bool
+  }
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Multi step macros}
+%
+% \begin{macro}{\sillynumeral}
+% \begin{macro}[int]{\@sillynumeral}
+% \begin{macro}{\@@_numeral:n,\@@_numeral_aux:n}
+%    \begin{macrocode}
+\NewDocumentCommand \sillynumeral { m } { \@@_numeral:n {#1} }
+\newcommand*\@sillynumeral { \@@_numeral:n }
+\cs_new:Npn \@@_numeral:n #1
+  {
+    \exp_args:Ne \str_map_function:nN
+      { \int_to_base:nn {#1} { 12 } } \@@_numeral_aux:n
+  }
+\cs_new:Npn \@@_numeral_aux:n #1
+  { \@@_step_aux:eN { "\char_uppercase:N #1+1 } \c_true_bool }
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Internals}
+%
+% \begin{macro}{\@@_step_aux:nN,\@@_step_aux:eN,\@@_trim_step:nN}
+%    \begin{macrocode}
+\cs_new:Npn \@@_step_aux:nN #1 #2
+  {
+    \cs_if_exist_use:cF { texorpdfstring } { \use_i:nn }
+      { \@@_trim_step:nN {#1} #2 }
+      {#1}
+  }
+\cs_generate_variant:Nn \@@_step_aux:nN { e }
+\cs_new:Npn \@@_trim_step:nN #1 #2
+  {
+%<@@=>
+    \exp_args:Nee \@@silly@place@picture@@nn
+      {
+        \bool_if:NT #2
+          {
+            trim = \int_case:nn {#1}
+              {
+                {  1 } { 57 ~ 0 ~ 42 ~ 0 }
+                {  2 } { 59 ~ 0 ~ 29 ~ 0 }
+                {  3 } { 53 ~ 0 ~ 21 ~ 0 }
+                {  4 } { 62 ~ 0 ~ 11 ~ 0 }
+                {  5 } { 50 ~ 0 ~  8 ~ 0 }
+                {  6 } { 33 ~ 0 ~ 27 ~ 0 }
+                {  7 } { 45 ~ 0 ~ 13 ~ 0 }
+                {  8 } { 56 ~ 0 ~ 27 ~ 0 }
+                {  9 } { 38 ~ 0 ~ 12 ~ 0 }
+                { 10 } {  7 ~ 0 ~ 43 ~ 0 }
+                { 11 } { 33 ~ 0 ~ 33 ~ 0 }
+                { 12 } { 57 ~ 0 ~  7 ~ 0 }
+              }
+            , clip
+          }
+      }
+      { \int_eval:n {#1} }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}[int]{\@@silly@place@picture@@nn}
+%    \begin{macrocode}
+\DeclareRobustCommand \@@silly@place@picture@@nn [2]
+  {
+    \includegraphics
+      [ #1, page=#2, height=\silly@height ]
+      { \silly@picture }
+  }
+\AtBeginDocument
+  {
+    \cs_if_exist_use:NF \pdfstringdefDisableCommands { \use_none:n }
+      { \cs_set:Npn \@@silly@place@picture@@nn #1 #2 {#2} }
+  }
+\DeclareHookRule { begindocument }
+  { sillypage } { after } { hyperref }
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+% \end{implementation}
+%
+\endinput

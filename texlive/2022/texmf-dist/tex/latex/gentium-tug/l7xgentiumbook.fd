@@ -1,0 +1,87 @@
+\ProvidesFile{l7xgentiumbook.fd}
+    [2022/05/30 Font definitions for gentiumbook.]
+
+\expandafter\ifx\csname gentiumbook@scale\endcsname\relax
+    \let\gentiumbook@@scale\@empty
+\else
+    \edef\gentiumbook@@scale{s*[\csname gentiumbook@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{L7x}{gentiumbook}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{m}{n}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-regular
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{m}{it}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-italic
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{b}{n}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-bold
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{b}{it}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sl}{n}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-regular
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sl}{it}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-italic
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sb}{n}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-bold
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sb}{it}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{m}{sc}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{m}{scit}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{b}{sc}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{b}{scit}{
+            <->     \gentiumbook@@scale l7x-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sl}{sc}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sl}{scit}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sb}{sc}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{sb}{scit}{
+            <->     \gentiumbook@@scale l7x-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{L7x}{gentiumbook}{m}{sl}{<->ssub * gentiumbook/m/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{b}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{bx}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{bx}{it}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{bx}{n}{<->ssub * gentiumbook/b/n}{}
+\DeclareFontShape{L7x}{gentiumbook}{sl}{sl}{<->ssub * gentiumbook/sl/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{sb}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{sbx}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{sbx}{it}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{L7x}{gentiumbook}{sbx}{n}{<->ssub * gentiumbook/sb/n}{}
+
+\endinput

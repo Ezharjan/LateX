@@ -1,0 +1,90 @@
+\ProvidesFile{t2agentium.fd}
+    [2022/05/30 Font definitions for gentium.]
+
+\expandafter\ifx\csname gentium@scale\endcsname\relax
+    \let\gentium@@scale\@empty
+\else
+    \edef\gentium@@scale{s*[\csname gentium@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{T2A}{gentium}{}
+
+\DeclareFontShape{T2A}{gentium}{m}{n}{
+            <->     \gentium@@scale t2a-gentiumplus-regular
+}{}
+
+\DeclareFontShape{T2A}{gentium}{m}{it}{
+            <->     \gentium@@scale t2a-gentiumplus-italic
+}{}
+
+\DeclareFontShape{T2A}{gentium}{b}{n}{
+            <->     \gentium@@scale t2a-gentiumplus-bold
+}{}
+
+\DeclareFontShape{T2A}{gentium}{b}{it}{
+            <->     \gentium@@scale t2a-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{T2A}{gentium}{sb}{n}{
+            <->     \gentium@@scale t2a-gentiumbook-regular
+}{}
+
+\DeclareFontShape{T2A}{gentium}{sb}{it}{
+            <->     \gentium@@scale t2a-gentiumbook-italic
+}{}
+
+\DeclareFontShape{T2A}{gentium}{eb}{n}{
+            <->     \gentium@@scale t2a-gentiumbook-bold
+}{}
+
+\DeclareFontShape{T2A}{gentium}{eb}{it}{
+            <->     \gentium@@scale t2a-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{T2A}{gentium}{m}{sc}{
+            <->     \gentium@@scale t2a-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{m}{scit}{
+            <->     \gentium@@scale t2a-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{b}{sc}{
+            <->     \gentium@@scale t2a-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{b}{scit}{
+            <->     \gentium@@scale t2a-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{sb}{sc}{
+            <->     \gentium@@scale t2a-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{sb}{scit}{
+            <->     \gentium@@scale t2a-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{eb}{sc}{
+            <->     \gentium@@scale t2a-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{eb}{scit}{
+            <->     \gentium@@scale t2a-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{T2A}{gentium}{m}{sl}{<->ssub * gentium/m/it}{}
+\DeclareFontShape{T2A}{gentium}{b}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{T2A}{gentium}{bx}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{T2A}{gentium}{bx}{it}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{T2A}{gentium}{bx}{n}{<->ssub * gentium/b/n}{}
+\DeclareFontShape{T2A}{gentium}{sb}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{T2A}{gentium}{sbx}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{T2A}{gentium}{sbx}{it}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{T2A}{gentium}{sbx}{n}{<->ssub * gentium/sb/n}{}
+\DeclareFontShape{T2A}{gentium}{eb}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{T2A}{gentium}{ebx}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{T2A}{gentium}{ebx}{it}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{T2A}{gentium}{ebx}{n}{<->ssub * gentium/eb/n}{}
+
+\endinput

@@ -1,0 +1,333 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2020 by David Kempe
+% ---------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<package> \ProvidesPackage{color-edits}[2020/09/18 v1.1 Class for annotating authors' edits in color]
+% 
+%<package>\def\coloredits@SuppressEdits{no}
+%<package>\DeclareOption{suppress}{\def\coloredits@SuppressEdits{yes}}
+%
+%<package>\def\coloredits@ShowDeletions{no}
+%<package>\DeclareOption{showdeletions}{\def\coloredits@ShowDeletions{yes}}
+%
+%<package>\ProcessOptions\relax
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{color-edits}
+%\usepackage{fullpage}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{color-edits.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \iffalse \OnlyDescription \fi
+%
+% \CheckSum{185}
+% 
+    % \CharacterTable
+    %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+    %   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+    %   Digits        \0\1\2\3\4\5\6\7\8\9
+    %   Exclamation   \!     Double quote  \"     Hash (number) \#
+    %   Dollar        \$     Percent       \%     Ampersand     \&
+    %   Acute accent  \'     Left paren    \(     Right paren   \)
+    %   Asterisk      \*     Plus          \+     Comma         \,
+    %   Minus         \-     Point         \.     Solidus       \/
+    %   Colon         \:     Semicolon     \;     Less than     \<
+    %   Equals        \=     Greater than  \>     Question mark \?
+    %   Commercial at \@     Left bracket  \[     Backslash     \\
+    %   Right bracket \]     Circumflex    \^     Underscore    \_
+    %   Grave accent  \`     Left brace    \{     Vertical bar  \|
+    %   Right brace   \}     Tilde         \~}
+%
+% \changes{v0.1}{2014/08/17}{First version of .sty file}
+% \changes{v0.2}{2016/06/16}{Improved definition for robustness, including making commands long, i.e., accepting multi-paragraph arguments}
+% \changes{v0.3}{2020/02/26}{Added replace and deletecomment commands}
+% \changes{v1.0}{2020/03/03}{First fully packaged version}
+% \changes{v1.1}{2020/09/18}{Added ability to suppress individual authors}
+%
+% \GetFileInfo{color-edits.sty}
+%
+% \DoNotIndex{\ifthenelse,\equal}
+% \DoNotIndex{\expandafter,\long,\def,\csname,\endcsname}
+% \DoNotIndex{\color,\marginpar,\scriptsize}
+% \DoNotIndex{\@authorname}
+%
+%
+% \title{The \textsf{color-edits} package\thanks{This document corresponds to \textsf{color-edits}~\fileversion, dated \filedate.}}
+% \author{David Kempe \\ \texttt{David.M.Kempe@gmail.com}}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   The color-edits style file packages and streamlines/improves a functionality that I and many co-authors used to copy-paste and redo by hand: marking/annotating edits by different authors in a jointly edited document. It provides one command that generates a suite of six commands for each author, assigning each author a color. These six automatically generated commands allow each author to distinguish by color text which the author suggests (1) adding, (2) substituting for other text, (3) deleting, (4) deleting while giving a reason for the deletion. In addition, it provides commands to add comments in the text or margin.
+%
+%   The package has two useful options. One option |suppress| allows to suppress all colors, replacements, comments, and marked deletions --- it basically results in the document being displayed as you probably want it to when all suggested changes have been resolved. The option |showdeletions| shows all suggested deletions in the text in gray, rather than just indicating that \emph{something} was deleted.
+% \end{abstract}
+%
+% \section{Introduction}
+%
+% The package |color-edits| implements a suite of functionalities that is often needed when multiple authors jointly edit a document. When doing so, authors will frequently want to mark up their (suggested or implemented) changes to the document in a way that is directly visible to co-authors, and also sometimes provide explanations for their changes, or raise issues/questions for their co-authors to consider or address. Many author teams address this by defining a macro for each author that displays the author's edits in an author-specific color. While this works well for additions, it does not make it as easy to mark deletions, and requires manual changes when comments have not been addressed and a deadline looms.
+%
+% For example, if one has just one colorful macro for an author, and the author uses it both for marking recent edits/additions and providing comments to co-authors, there is no simple way to delete the comments while keeping the added text (but changing its color to the ``normal'' one.) The present package tries to address these issues with a fairly simple implementation that provides six macros whose behavior can be altered in the (hopefully) ``straightforward'' way with package options. 
+%
+% \section{Usage}
+%
+% \subsection{Package Options} \label{sec:package-options}
+%
+% The package |color-edits| has two options: |suppress| and |showdeletions|. Here, we discuss their purpose at a high level --- the precise effects are discussed in Section~\ref{sec:generated-macros}.
+%
+% The option \DescribeMacro{suppress} |suppress| suppresses all authors (see Section~\ref{sec:suppressed-author}): it changes the definitions of the commands in such a way that the file that is produced looks as much as possible as one would expect if all editing issues had been addressed/accepted by the authors.
+%
+% The option \DescribeMacro{showdeletions} |showdeletions| is useful when one wants to see in the compiled file not only \emph{that} something was replaced/deleted, but also \emph{what} the old text was. Specifically, for the replacement and deletion macros, instead of just marking that something was deleted/replaced, it displays the replaced/deleted text in gray. Author suppression overrides |showdeletions|, i.e., |showdeletions| has no effect when an author is suppressed.
+%
+% \subsection{The exported macro \texttt{\textbackslash{}addauthor}}
+% \label{sec:exported-macro}
+% The package only exports one macro: |\addauthor| \oarg{auth-name} \marg{auth} \marg{auth-color}. Calling this macro in the preamble of your document automatically generates the following six macros, described in more detail below.
+% \begin{enumerate}
+% \item |\<auth>edit| \marg{text}
+% \item |\<auth>replace| \marg{old-text} \marg{new-text}
+% \item |\<auth>comment| \marg{comment}
+% \item |\<auth>margincomment| \marg{comment}
+% \item |\<auth>delete| \marg{deleted-text}
+% \item |\<auth>deletecomment| \marg{comment} \marg{deleted-text}
+% \end{enumerate}
+%
+% When the optional argument \meta{auth-name} is not provided, the argument \meta{auth} will be used as the author's name. The intended use is that \meta{auth} is short enough that authors will not mind using it as part of a command name, but \meta{auth-name} might be more descriptive, to display with comments or notes about deletions. For example, if Ada Lovelace and Charles Babbage were working on a paper together, they might write the following:
+%
+% \begin{verbatim}
+% \usepackage{color-edits}
+% \addauthor[Ada]{al}{blue}
+% \addauthor{cb}{green}
+% \end{verbatim}
+%
+% All edits by Ada will be marked in blue, and those by Charles in green. Whenever there is an attributed comment/deletion, for Ada, it would be prefaced by |Ada|, whereas for Charles, it would be prefaced by |cb|.
+%
+% There is one specific use of the optional name. If an author's optional name \meta{auth-name} is set to |suppress|, then this author's edits/comments/deletions are suppressed; see Section~\ref{sec:suppressed-author}. Notice that this gives more fine-grained control --- for instance, it can let you focus on the most recent round of edits/comments, if a new ``author'' has been added for it.\footnote{I would like to thank Krishnamurthy Iyer for this suggestion and a suggested implementation.}
+%
+% \subsection{Suppressed Authors} \label{sec:suppressed-author}
+% One sometimes wants to suppress the colorful edits and make the file look as much as possible as what is expected after all comments have been addressed and all suggested edits/deletions have been approved.
+% We call this \emph{suppressing} an author\footnote{We still highly recommend explicitly addressing all issues, then removing the macros to let your co-author(s) know that you saw their edits and approve of them, and that all comments have been addressed. The use of suppression is intended primarily for a quick check of, e.g., how long your document will be once all comments are removed, or to focus on the most recent round of suggested edits. Of course, every now and then, it is 3 minutes before the submission deadline, and you have no choice. Please note that there may be some very minor spacing issues when using suppression --- see Section~\ref{sec:bugs}.}.
+% Specifically, suppressing an author does the following (described in more detail in the context of the specific macros):
+% \begin{itemize}
+% \item Remove all color.
+% \item Remove all comments (both in the text and margins).
+% \item For all text that has been (suggested as) deleted or replaced, nothing is displayed.
+% \end{itemize}
+%
+% There are two ways to suppress authors: one can suppress individual authors by changing their optional names to |suppress| (see Section~\ref{sec:exported-macro}). Alternatively, by using the package option |suppress| (see Section~\ref{sec:package-options}), all authors are suppressed.
+%
+% \subsection{Generated Macros} \label{sec:generated-macros}
+% 
+% In this section, we describe in detail the functionality of the macros generated by |\addauthor|. We will refer to them with the generic name. Throughout, keeping the earlier example of Ada and Charles in mind, the reader is encouraged to substitute in his/her mind |al| or |cb| for |<auth>|. We will frequently reference suppressed authors --- see Section~\ref{sec:suppressed-author} for a discussion.
+%
+% The macros are internally defined using |\long\def|, so all arguments below that are given as \meta{text} or \meta{new-text} or \meta{comment} (and similar ones) are allowed to contain multiple paragraphs.
+% 
+% The macro \DescribeMacro{\<auth>edit} |\<auth>edit| \marg{text} in its default behavior simply displays \meta{text} in the color assigned to the author |<auth>|. If the author has been suppressed, it displays \meta{text} in the standard style/color. The macro is not affected by the |showdeletions| package option. The main purpose of this macro is to mark text as changed/added by the given author. If the text was changed, the implicit assumption is that the co-author will not care much about what the text was prior to the change --- otherwise, the macro |\<auth>replace| would be preferable.
+%
+% The macro \DescribeMacro{\<auth>replace} |\<auth>replace| \marg{old-text} \marg{new-text} in its default behavior simply displays \meta{new-text} in the color assigned to the author |<auth>|. The macro should be used instead of |\<auth>edit| if the co-authors might want to see what was in the file before the change. While the old text is not displayed in the output per default, it is of course still in the \LaTeX\ source, so co-authors can easily see it. If the author was suppressed, then |\<auth>replace| simply displays \meta{new-text} in the standard style/color. If the package option |showdeletions| was used (and the author was not suppressed), then |\<auth>replace| displays \meta{old-text} in gray, followed by \meta{new-text} in the color assigned to the author |<auth>|. 
+%
+% The macro \DescribeMacro{\<auth>comment} |\<auth>comment| \marg{text} is used for leaving comments for one's co-authors, as opposed to text that should become part of the document itself. Its default behavior is to show |[<auth-name>: <text>]| in the color assigned to the author |<auth>|. Here, \meta{auth-name} is the name assigned to the author --- either the optional long name if given, or otherwise \meta{auth} (see Section~\ref{sec:exported-macro}). If the author is suppressed, then nothing is displayed. Notice that this is the main difference to the |\<auth>edit| macro, which still displays its text. This is in line with the idea that a change to the document/text should be included in a version that is --- say --- submitted to a conference, while internal comments to co-authors should not be included. The macro is not affected by the |showdeletions| package option.
+%
+% The macro \DescribeMacro{\<auth>margincomment} |\<auth>margincomment| \marg{text} is used for leaving comments for one's co-authors in the margins as opposed to in the main text. Thus, its purpose is basically the same as that of |\<auth>comment|, but different authors may prefer comments to be displayed in different places, e.g., for reasons of flow. Its default behavior is to show a marker in the main text in the color assigned to the author |<auth>|, and to show |[<auth-name>: <text>]| in the margin, also in the color assigned to the author |<auth>|. Here, \meta{auth-name} is the name assigned to the author --- either the optional long name if given, or otherwise \meta{auth} (see Section~\ref{sec:exported-macro}). If the author is suppressed, then nothing is displayed. The macro is not affected by the |showdeletions| package option. Because the macro is implemented using the |\marginpar| macro, it cannot be used in environments where |\marginpar| does not work, such as in footnotes, section headings, or captions.
+%
+% The macro \DescribeMacro{\<auth>delete} |\<auth>delete| \marg{text} is used for letting co-authors know that one deleted \meta{text} (or suggests doing so). Its default behavior is to display a marker in the color assigned to the author |<auth>| in the spot where the command occurs, and to leave a mark |[<auth-name> deleted here]| in the margin. Here, \meta{auth-name} is the name assigned to the author --- either the optional long name if given, or otherwise \meta{auth} (see Section~\ref{sec:exported-macro}). If the author is suppressed, then nothing is displayed. The main purpose of having the argument \meta{text} is to allow co-authors to see not only \emph{that} text was deleted, but \emph{what} text was deleted. Accordingly, if the package option |showdeletions| is used (and the author is not suppressed), then instead of placing a marker and a comment in the margin, the text \meta{text} is displayed, but in gray. This allows co-authors to see the deleted text not only in the source file, but also in the compiled output. Because the macro is implemented using the |\marginpar| macro, it cannot be used in environments where |\marginpar| does not work, such as in footnotes, section headings, or captions.
+%
+% The macro \DescribeMacro{\<auth>deletecomment} |\<auth>deletecomment| \marg{comment} \marg{text} is used for letting co-authors know that one deleted \meta{text} (or suggests doing so), and to also provide a \meta{comment} explaining the deletion. Its default behavior is to display a marker in the color assigned to the author |<auth>| in the spot where the command occurs, and to leave a mark |[<auth-name> deleted here: <comment>]| in the margin. Here, \meta{auth-name} is the name assigned to the author --- either the optional long name if given, or otherwise \meta{auth} (see Section~\ref{sec:exported-macro}). If the author is suppressed, then nothing is displayed. As with the |\<auth>delete| command, the main purpose of having the argument \meta{text} is to allow co-authors to see what text was deleted. If the package option |showdeletions| is used (and the author is not suppressed), then instead of placing a marker, the text \meta{text} is displayed, but in gray. This allows co-authors to see the deleted text not only in the source file, but also in the compiled output. In addition, |[<auth-name>: <comment>]| is still displayed in the margin in the color assigned to the author. Because the macro is implemented using the |\marginpar| macro, it cannot be used in environments where |\marginpar| does not work, such as in footnotes, section headings, or captions.
+%
+% 
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The Package Implementation}
+%
+%\subsection{The Initial Stuff}
+%The package only requires the |ifthen| package (heavily, for distinctions based on package options and such) and the |color| package (obviously, to display stuff in colors for different authors).
+%    \begin{macrocode}
+\RequirePackage{ifthen}
+\RequirePackage{color}
+%    \end{macrocode}
+
+%We define a color gray to use for showing deleted text. For all other colors, it is the user's responsibility to define them if they are not defined standard.
+%    \begin{macrocode}
+\definecolor{@gray}{rgb}{0.5,0.5,0.5}
+%    \end{macrocode}
+
+%\subsection{Helper Macros for Defining the Exported Functions}
+% \begin{macro}{\coloredits@addauthoredit}
+%   |\coloredits@addauthoredit| \marg{auth} \marg{auth-color} is a helper macro.
+%   It defines the command |\<auth>edit| \marg{text}.
+%   How |\<auth>edit| \marg{text} is defined depends on the package options and arguments.
+%   If the author is suppressed, then |\<auth>edit| \marg{text} simply displays \meta{text}.
+%   Otherwise, it displays \meta{text} in the given color \meta{auth-color}.
+%    \begin{macrocode}
+\newcommand{\coloredits@addauthoredit}[3]{%
+\ifthenelse{\equal{\coloredits@SuppressEdits}{yes} \or \equal{#2}{suppress}}{% suppressed
+\expandafter\long\expandafter\def\csname #1edit\endcsname ##1{##1}%
+}{% not suppressed
+\expandafter\long\expandafter\def\csname #1edit\endcsname ##1{{\color{#3}##1}}
+}}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\coloredits@addauthorreplace}
+%   |\coloredits@addauthorreplace| \marg{auth} \marg{auth-name} \marg{auth-color} is a helper macro.
+%   It defines the command |\<auth>replace| \marg{old-text} \marg{new-text}.
+%   How |\<auth>replace| \marg{old-text} \marg{old-text} is defined depends on the package options and parameters passed in.
+%   If the author is suppressed, then |\<auth>replace| \marg{old-text} \marg{new-text} simply displays \meta{new-text}.
+%   If the author is not suppressed and |showdeletions| was not specified as a package option, it displays \meta{new-text} in the given color \meta{auth-color}.
+%   If the author is not suppressed and |showdeletions| was specified as a package option, it displays \meta{old-text} in gray, followed by \meta{new-text} in the given color \meta{auth-color}.
+%    \begin{macrocode}
+\newcommand{\coloredits@addauthorreplace}[3]{%
+\ifthenelse{\equal{\coloredits@SuppressEdits}{yes} \or \equal{#2}{suppress}}{% suppressed
+\expandafter\long\expandafter\def\csname #1replace\endcsname ##1##2{##2}
+}{% not suppressed
+\ifthenelse{\equal{\coloredits@ShowDeletions}{yes}}{% Showing deletions
+\expandafter\long\expandafter\def\csname #1replace\endcsname ##1##2{%
+{\color{@gray}##1}{\color{#3}##2}}
+}{% Not showing deletions
+\expandafter\long\expandafter\def\csname #1replace\endcsname ##1##2{%
+{\color{#3}##2}}
+}%
+}}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\coloredits@addauthorcomment}
+%   |\coloredits@addauthorcomment| \marg{auth} \marg{auth-name} \marg{auth-color} is a helper macro.
+%   It defines the command |\<auth>comment| \marg{text}.
+%   How |\<auth>comment| \marg{text} is defined depends on the package options and arguments.
+%   If the author is suppressed, then |\<auth>comment| \marg{text} does nothing.
+%   If the author is not suppressed, it displays, in square brackets, \meta{text} in the given color \meta{auth-color}, prefixed by \meta{auth-name}.
+%    \begin{macrocode}
+\newcommand{\coloredits@addauthorcomment}[3]{%
+\ifthenelse{\equal{\coloredits@SuppressEdits}{yes} \or \equal{#2}{suppress}}{% suppressed
+\expandafter\long\expandafter\def\csname #1comment\endcsname ##1{}
+}{% not suppressed
+\expandafter\long\expandafter\def\csname #1comment\endcsname ##1{%
+{\color{#3}[#2: ##1]}}
+}}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\coloredits@addauthormargincomment}
+%   |\coloredits@addauthormargincomment| \marg{auth} \marg{auth-name} \marg{auth-color} is a helper macro.
+%   It defines the command |\<auth>margincomment| \marg{text}.
+%   How |\<auth>margincomment| \marg{text} is defined depends on the package options and arguments.
+%   If the author is suppressed, then |\<auth>margincomment| \marg{text} does nothing.
+%   If the author is not suppressed, it displays, in the margin and in square brackets, \meta{text} in the given color \meta{auth-color}, prefixed by \meta{auth-name}. It also places a bullet in square brackets of color \meta{auth-color} in the text at the place where the command was used.
+%    \begin{macrocode}
+\newcommand{\coloredits@addauthormargincomment}[3]{%
+\ifthenelse{\equal{\coloredits@SuppressEdits}{yes} \or \equal{#2}{suppress}}{% suppressed
+\expandafter\long\expandafter\def\csname #1margincomment\endcsname ##1{}
+}{% not suppressed
+\expandafter\long\expandafter\def\csname #1margincomment\endcsname##1{{%
+\color{#3}$[\bullet]$\marginpar{\scriptsize\color{#3}[#2: ##1]}}}
+}}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\coloredits@addauthordelete}
+%   |\coloredits@addauthordelete| \marg{auth} \marg{auth-name} \marg{auth-color} is a helper macro.
+%   It defines the command |\<auth>delete| \marg{text}.
+%   How |\<auth>delete| \marg{text} is defined depends on the package options and arguments.
+%   If the author is suppressed, then |\<auth>delete| \marg{text} does nothing.
+%   If the author is not suppressed and |showdeletions| was not used, it places a bullet in brackets in the color \meta{auth-color} at the place of the command, and places the note |[<auth-name> deleted here]| in the margin in the color \meta{auth-color}.
+%   If the author is not suppressed and |showdeletions| was used, it displays \meta{text} in gray.
+%    \begin{macrocode}
+\newcommand{\coloredits@addauthordelete}[3]{%
+\ifthenelse{\equal{\coloredits@SuppressEdits}{yes} \or \equal{#2}{suppress}}{% suppressed
+\expandafter\long\expandafter\def\csname #1delete\endcsname ##1{}
+}{% not suppressed
+\ifthenelse{\equal{\coloredits@ShowDeletions}{yes}}{% Showing deletions
+\expandafter\long\expandafter\def\csname #1delete\endcsname ##1{{\color{@gray}##1}}
+}{% Not showing deletions
+\expandafter\long\expandafter\def\csname #1delete\endcsname ##1{{%
+\color{#3}$[\bullet]$\marginpar{\scriptsize\color{#3}#2 deleted here}}}
+}%
+}}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \begin{macro}{\coloredits@addauthordeletecomment}
+%   |\coloredits@addauthordeletecomment| \marg{auth} \marg{auth-name} \marg{auth-color} is a helper macro.
+%   It defines the command |\<auth>deletecomment| \marg{comment} \marg{text}.
+%   How |\<auth>deletecomment| \marg{comment} \marg{text} is defined depends on the package options and arguments.
+%   If the author is suppressed, then |\<auth>deletecomment| \marg{comment} \marg{text} does nothing.
+%   If the author is not suppressed and |showdeletions| is not used, it places a bullet in brackets in the color \meta{auth-color} at the place of the command, and places the note |[<auth-name> deleted here: <comment>]| in the margin in the color \meta{auth-color}.
+%   If the author is not suppressed and |showdeletions| was used, it displays \meta{text} in gray, and places the note |[<auth-name>: <comment>]| in the margin in the color \meta{auth-color}.
+%    \begin{macrocode}
+\newcommand{\coloredits@addauthordeletecomment}[3]{%
+\ifthenelse{\equal{\coloredits@SuppressEdits}{yes} \or \equal{#2}{suppress}}{% suppressed
+\expandafter\long\expandafter\def\csname #1deletecomment\endcsname ##1##2{}
+}{% not suppressed
+\ifthenelse{\equal{\coloredits@ShowDeletions}{yes}}{% Showing deletions
+\expandafter\long\expandafter\def\csname #1deletecomment\endcsname ##1##2{{%
+\color{#3}$[\bullet]$\color{@gray}##2\marginpar{\scriptsize\color{#3}#2: ##1}}}  
+}{% Not showing deletions
+\expandafter\long\expandafter\def\csname #1deletecomment\endcsname ##1##2{{%
+\color{#3}$[\bullet]$\marginpar{\scriptsize\color{#3}#2 deleted here: ##1}}}
+}%
+}}
+%    \end{macrocode}
+% \end{macro}
+
+
+% \subsection{The Exported Macro \texttt{\textbackslash{}addauthor}}
+% \begin{macro}{\addauthor}
+%   |\addauthor| \oarg{auth-name} \marg{auth} \marg{auth-color} is the only exported macro of the package.
+%   The definition of the |\<auth>edit| and |\<auth>replace| macros are independent of whether the optional longer name \meta{auth-name} was provided, except for the author being suppressed if the longer name was |suppress|.
+%   For the definition of the two comment and deletion macros, there is a case distinction regarding whether the optional \meta{auth-name} was not provided (in which case the short \meta{auth} is used), or it was provided (in which case \meta{auth-name} is used).
+%   For all the definitions, this macro just calls the helper macros to define the commands for the given author, using the given name and color.
+%    \begin{macrocode}
+\newcommand{\addauthor}[3][]{% 
+\coloredits@addauthoredit{#2}{#1}{#3}
+\coloredits@addauthorreplace{#2}{#1}{#3}
+\ifthenelse{\equal{#1}{}}{%optional name was not provided
+\coloredits@addauthorcomment{#2}{#2}{#3}
+\coloredits@addauthormargincomment{#2}{#2}{#3}
+\coloredits@addauthordelete{#2}{#2}{#3}
+\coloredits@addauthordeletecomment{#2}{#2}{#3}}{%optional name was provided
+\coloredits@addauthorcomment{#2}{#1}{#3}
+\coloredits@addauthormargincomment{#2}{#1}{#3}
+\coloredits@addauthordelete{#2}{#1}{#3}
+\coloredits@addauthordeletecomment{#2}{#1}{#3}}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+% 
+% \section{Disclaimer and Known Problems}
+% \label{sec:bugs}
+% The biggest disclaimer is that I am not a very expert \TeX programmer, so this package may not be particularly well written. I am sharing it because several co-authors seem to enjoy using it and have encouraged me to share it publicly. If you see ways to improve the implementation or functionality (while keeping it still light-weight), I would love to hear from you. You are obviously using this package at your own risk.
+%
+% As discussed above, because the macros for deletion and the one for comments in the margin are based on the |\marginpar| command in \LaTeX, their use is restricted to settings in which |\marginpar| works. In particular, this excludes using them in footnotes, captions, and section/subsection titles. An alternative might be to use the |marginnote| package and its command |\marginnote|, but that package seems to have other known problems, and at the moment, I am not ready to try to decide which issues are larger. If you see a clean way to resolve this, feel free to let me know.
+%
+% Earlier versions had some very minor spacing issues when using the |suppress| package option. Specifically, when there was a space before and after --- say --- an |\<auth>comment| command, then \LaTeX would still keep both spaces, resulting in slightly more space than there should be between the preceding and following items on the line. I may have accidentally fixed this in revisions, or the issue may still persist --- I have not checked this extensively. Fixing this is not a high priority for me, as I view the suppression mechanism as primarily a way to see what the document will look like once all comments have been addressed/removed. An actual final version should actually address and remove them, so the spacing issues should be resolved in that way. If you notice the issue persisting and know of an easy way to resolve it, I'd love to hear from you and implement it.
+%
+\endinput

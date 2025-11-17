@@ -1,0 +1,352 @@
+%%
+%% This is file `uwa-letterhead.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% uwa-letterhead.dtx  (with options: `package')
+%% 
+%% Copyright 2019 Anthony Di Pietro
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Anthony Di Pietro.
+%% 
+%% This work consists of the files uwa-letterhead.dtx, uwa-letterhead.ins, and
+%% uwa-letterhead-example.tex and the derived files uwa-letterhead.sty and
+%% uwa-letterhead.pdf.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{uwa-letterhead}
+    [2021/09/13 1.0.1 UWA Letterhead]
+\newif\ifuwalh@uwafont
+\newif\ifuwalh@footer
+\newif\ifuwalh@arialfont
+\DeclareOption{uwafont}{
+        \uwalh@uwafonttrue
+}
+\DeclareOption{nouwafont}{
+        \uwalh@uwafontfalse
+}
+\DeclareOption{footer}{
+        \uwalh@footertrue
+}
+\DeclareOption{nofooter}{
+        \uwalh@footerfalse
+}
+\DeclareOption{arial}{
+        \uwalh@arialfonttrue
+}
+\DeclareOption{noarial}{
+        \uwalh@arialfontfalse
+}
+\DeclareOption{light}{
+        \PassOptionsToPackage{
+                default,
+                light,
+                semibold
+        }{sourcesanspro}
+        \PassOptionsToPackage{
+                light,
+                semibold
+        }{sourcecodepro}
+}
+\DeclareOption{regular}{
+        \PassOptionsToPackage{
+                default,
+                regular,
+                bold
+        }{sourcesanspro}
+        \PassOptionsToPackage{
+                regular,
+                bold
+        }{sourcecodepro}
+}
+\ExecuteOptions{
+        uwafont,
+        nofooter,
+        arial,
+        light
+}
+\ProcessOptions\relax
+\RequirePackage[
+        margin=1cm,
+        top=1.7cm,
+        left=2.5cm,
+        bottom=2.2cm,
+        right=2.5cm
+]{geometry}
+\pagestyle{empty}
+\RequirePackage[no-math]{fontspec}
+\RequirePackage{sourcesanspro}
+\RequirePackage{sourcecodepro}
+\ifuwalh@uwafont
+        \newfontfamily{\uwalh@uwa}{UWA}
+\else
+        \newcommand*{\uwalh@uwa}{\sffamily}
+\fi
+\ifuwalh@footer
+        \ifuwalh@arialfont
+                \newfontfamily{\uwalh@arial}{Arial}
+        \else
+                \newcommand*{\uwalh@arial}{\sffamily}
+        \fi
+\else
+        \newcommand*{\uwalh@arial}{\sffamily}
+\fi
+\RequirePackage{microtype}
+\parindent0pt
+\setlength{\parskip}{0.8\baselineskip}
+\RequirePackage[sf]{titlesec}
+\titleformat{\section}{\color{black}\Large\uwalh@uwa}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{black}\large\uwalh@uwa}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0em}{2\baselineskip}{0em}
+\titlespacing*{\subsection}{0em}{\baselineskip}{0em}
+\setcounter{secnumdepth}{0}
+\RequirePackage{hyperref}
+\hypersetup{
+        colorlinks=false,
+        pdfborder={0 0 0}
+}
+\urlstyle{same}
+\RequirePackage[hyperref]{xcolor}
+\definecolor{UWALetterheadBlue}{RGB}{33, 64, 154}
+\definecolor{UWALetterheadGold}{RGB}{221, 177, 10}
+\definecolor{UWALetterheadFooter}{RGB}{77, 77, 79}
+\RequirePackage{stringstrings}
+\RequirePackage[absolute]{textpos}
+\RequirePackage{graphicx}
+\newlength{\uwalh@bluewidth}
+\setlength{\uwalh@bluewidth}{4.79cm}
+\newlength{\uwalh@goldwidth}
+\setlength{\uwalh@goldwidth}{14.41cm}
+\newlength{\uwalh@barwidth}
+\setlength{\uwalh@barwidth}{\uwalh@bluewidth}
+\addtolength{\uwalh@barwidth}{\uwalh@goldwidth}
+\newlength{\uwalh@barheight}
+\setlength{\uwalh@barheight}{0.59cm}
+\newlength{\uwalh@barleft}
+\setlength{\uwalh@barleft}{\paperwidth}
+\addtolength{\uwalh@barleft}{-1\uwalh@barwidth}
+\newlength{\uwalh@bartop}
+\setlength{\uwalh@bartop}{0cm}
+\newlength{\uwalh@logowidth}
+\setlength{\uwalh@logowidth}{5cm}
+\newlength{\uwalh@logoheight}
+\setlength{\uwalh@logoheight}{1.64cm}
+\newlength{\uwalh@logoleft}
+\setlength{\uwalh@logoleft}{1.78cm}
+\newlength{\uwalh@logotop}
+\setlength{\uwalh@logotop}{1.58cm}
+\newlength{\uwalh@addresswidth}
+\setlength{\uwalh@addresswidth}{6.25cm}
+\newlength{\uwalh@addresstop}
+\setlength{\uwalh@addresstop}{1.71cm}
+\newlength{\uwalh@addressleft}
+\setlength{\uwalh@addressleft}{12.25cm}
+\newlength{\uwalh@vspaceatstart}
+\setlength{\uwalh@vspaceatstart}{3.34cm}
+\newlength{\uwalh@noadvancewidth}
+\newcommand{\uwalh@noadvance}[1]{%
+        \settowidth{\uwalh@noadvancewidth}{#1}%
+        #1\hspace*{-1\uwalh@noadvancewidth}%
+}
+\newcommand*{\uwalh@school}{}
+\newcommand*{\uwalh@mbdp}{}
+\newcommand*{\uwalh@footermbdp}{}
+\newcommand*{\uwalh@university}{The University of Western Australia}
+\newcommand*{\uwalh@footeruniversity}{The University of Western Australia}
+\newcommand*{\uwalh@address}{35 Stirling Highway, Crawley WA 6009}
+\newcommand*{\uwalh@footeraddress}{Perth WA 6009 Australia}
+\newcommand*{\uwalh@cricos}{00126G}
+\newcommand*{\uwalh@uwacrest}{uwacrest-blue.pdf}
+\newcommand*{\uwalh@phone}{}
+\newcommand*{\uwalh@footerphone}{}
+\newcommand*{\uwalh@mobile}{}
+\newcommand*{\uwalh@email}{}
+\newcommand*{\uwalh@footeremail}{}
+\newcommand*{\uwalh@website}{www.uwa.edu.au}
+\newcommand*{\school}[1]{\renewcommand*{\uwalh@school}{#1}}
+\newcommand*{\mbdp}[1]{%
+        \renewcommand*{\uwalh@mbdp}{#1}%
+        \renewcommand*{\uwalh@footermbdp}{#1}%
+}
+\newcommand*{\university}[1]{%
+        \renewcommand*{\uwalh@university}{#1}%
+        \renewcommand*{\uwalh@footeruniversity}{#1}%
+}
+\newcommand*{\address}[1]{\renewcommand*{\uwalh@address}{#1}}
+\newcommand*{\footeraddress}[1]{\renewcommand*{\uwalh@footeraddress}{#1}}
+\newcommand*{\phone}[1]{%
+        \renewcommand*{\uwalh@phone}{#1}%
+        \renewcommand*{\uwalh@footerphone}{#1}%
+}
+\newcommand*{\mobile}[1]{\renewcommand*{\uwalh@mobile}{#1}}
+\newcommand*{\email}[1]{%
+        \renewcommand*{\uwalh@email}{#1}%
+        \renewcommand*{\uwalh@footeremail}{#1}%
+}
+\newcommand*{\website}[1]{\renewcommand*{\uwalh@website}{#1}}
+\newcommand*{\cricos}[1]{\renewcommand*{\uwalh@cricos}{#1}}
+\newcommand*{\uwacrest}[1]{\renewcommand*{\uwalh@uwacrest}{#1}}
+\def\@maketitle{%
+        \begin{center}%
+                \let\footnote\thanks
+                {\LARGE \uwalh@uwa \@title \par}%
+        \end{center}%
+        \par
+        \vskip 1.5em%
+}
+\renewcommand\maketitle{\par
+        \begingroup
+        \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+        \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+        \long\def\@makefntext##1{\parindent 1em\noindent
+                \hb@xt@1.8em{%
+                        \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+        \global\@topnum\z@
+        \@maketitle
+        \thispagestyle{empty}\@thanks
+        \endgroup
+        \setcounter{footnote}{0}%
+        \global\let\thanks\relax
+        \global\let\maketitle\relax
+        \global\let\@maketitle\relax
+        \global\let\@thanks\@empty
+        \global\let\@author\@empty
+        \global\let\@date\@empty
+        \global\let\@title\@empty
+        \global\let\title\relax
+        \global\let\author\relax
+        \global\let\date\relax
+        \global\let\and\relax
+}
+\newcommand{\uwalh@bar@blue}{%
+        \colorbox{UWALetterheadBlue}{%
+                \parbox[b][\uwalh@barheight]{\uwalh@bluewidth}{\vfill\hfill}%
+        }%
+}
+\newcommand{\uwalh@bar@gold}{%
+        \colorbox{UWALetterheadGold}{%
+                \parbox[b][\uwalh@barheight]{\uwalh@goldwidth}{\vfill\hfill}%
+        }%
+}
+\newcommand{\uwalh@bar}{%
+        \addtolength{\uwalh@barwidth}{12pt}
+        \begin{textblock*}{\uwalh@barwidth}(\uwalh@barleft, \uwalh@bartop)
+                \uwalh@bar@blue{}%
+                \uwalh@bar@gold{}%
+        \end{textblock*}%
+}
+\newcommand{\uwalh@logo}{%
+        \begin{textblock*}{\uwalh@logowidth}(\uwalh@logoleft, \uwalh@logotop)
+                \includegraphics[
+                        width=\uwalh@logowidth,
+                        height=\uwalh@logoheight
+                ]{\uwalh@uwacrest}
+        \end{textblock*}%
+}
+\newcommand{\uwalh@addressblock}{%
+        \begin{textblock*}%
+                {\uwalh@addresswidth}(\uwalh@addressleft, \uwalh@addresstop)
+                \begin{minipage}[t]{\uwalh@addresswidth}
+                        \sffamily\fontsize{11.19}{13.49}\selectfont%
+                        \@author{} \\
+                        \uwalh@school{}, M\uwalh@mbdp{} \\
+                        \uwalh@university{} \\
+                        \uwalh@address{} \\
+                        \noblanks[q]{\uwalh@phone}%
+                        Tel: \href{tel:\thestring}{\uwalh@phone} \\
+                        Email: \href{mailto:\uwalh@email}{\uwalh@email} \\
+                        \href{https://\uwalh@website/}{\uwalh@website}
+                \end{minipage}
+        \end{textblock*}%
+}
+\newcommand{\uwalh@fpf@address}{%
+        \begin{minipage}[t]{4.94cm}
+                \vspace*{-1\parskip}%
+                \rule{\textwidth}{1pt}%
+                \vspace{-1\baselineskip}\vspace{0.45cm} \\
+                \hspace*{0.005cm}\uwalh@footeruniversity{} \\
+                \hspace*{0.005cm}M\uwalh@footermbdp{} \uwalh@footeraddress{}
+        \end{minipage}%
+}
+\newcommand{\uwalh@fpf@phone}{%
+        \begin{minipage}[t]{4.945cm}
+                \vspace*{-1\parskip}%
+                \rule{\textwidth}{1pt}%
+                \vspace{-1\baselineskip}\vspace{0.45cm} \\
+                \uwalh@noadvance{\textcolor{UWALetterheadBlue}{\textbf{T}}}%
+                \hspace{0.375cm}%
+                \noblanks[q]{\uwalh@footerphone}%
+                \href{tel:\thestring}{\uwalh@footerphone} \\
+                \uwalh@noadvance{\textcolor{UWALetterheadBlue}{\textbf{M}}}%
+                \hspace{0.375cm}%
+                \noblanks[q]{\uwalh@mobile}%
+                \href{tel:\thestring}{\uwalh@mobile}
+        \end{minipage}%
+}
+\newcommand{\uwalh@fpf@email}{%
+        \begin{minipage}[t]{5.31cm}
+                \vspace*{-1\parskip}%
+                \rule{\textwidth}{1pt}%
+                \vspace{-1\baselineskip}\vspace{0.45cm} \\
+                \uwalh@noadvance{\textcolor{UWALetterheadBlue}{\textbf{E}}}%
+                \hspace{0.38cm}%
+                \href{mailto:\uwalh@footeremail}{\uwalh@footeremail} \\
+                \vspace{-1\baselineskip}\vspace{-0.018cm} \\
+                {\uwalh@arial\fontsize{5}{6.7}\selectfont%
+                        CRICOS Provider Code \uwalh@cricos{}%
+                }%
+        \end{minipage}%
+}
+\newcommand{\uwalh@firstpagefooter}{%
+        \begin{textblock*}{16cm}(2.5cm, 27.35cm)
+                {%
+                        \microtypesetup{activate=false}%
+                        \vspace*{-1\parskip}\vspace*{10.88pt}%
+                        \uwalh@arial\fontsize{7.5}{8.7}\selectfont%
+                        \color{UWALetterheadFooter}%
+                        \uwalh@fpf@address{}%
+                        \hspace{0.402cm}%
+                        \uwalh@fpf@phone{}%
+                        \hspace{0.402cm}%
+                        \uwalh@fpf@email{}%
+                        \microtypesetup{activate=true}%
+                }%
+        \end{textblock*}%
+}
+\newcommand{\uwalh@checkfield}[2]{%
+        \setbox0=\hbox{#1\unskip}\ifdim\wd0=0pt
+                \@latex@warning@no@line{No #2given}
+        \else
+                \relax%
+        \fi%
+}
+\newcommand{\uwalh@checkfields}{%
+        \uwalh@checkfield{\uwalh@school}{\noexpand\school}
+        \uwalh@checkfield{\uwalh@mbdp}{\noexpand\mbdp}
+        \uwalh@checkfield{\uwalh@phone}{\noexpand\phone}
+        \ifuwalh@footer\uwalh@checkfield{\uwalh@mobile}{\noexpand\mobile}\fi
+        \uwalh@checkfield{\uwalh@email}{\noexpand\email}
+}
+\newcommand{\uwalh@makeletterhead}{%
+        \uwalh@checkfields{}%
+        \uwalh@bar{}%
+        \uwalh@logo{}%
+        \uwalh@addressblock{}%
+        \ifuwalh@footer\uwalh@firstpagefooter{}\fi%
+        \vspace*{\uwalh@vspaceatstart}%
+}
+\AtBeginDocument{\uwalh@makeletterhead}
+\endinput
+%%
+%% End of file `uwa-letterhead.sty'.

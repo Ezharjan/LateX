@@ -1,0 +1,114 @@
+%% \CheckSum{11}
+% \iffalse
+% File: centerlastline.dtx
+% Copyright (C) 2020 Miguel V. S. Frasson (mvsfrasson@gmail.com)
+%
+% This package may be distributed under the terms of the LaTeX
+% Project Public License, as described in lppl.txt in the base
+% LaTeX distribution, either version 1.2 or (at your option)
+% any later version.
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{doc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor,lipsum,centerlastline,microtype}
+%\usepackage[margin=1.6in]{geometry}
+\begin{document}
+  \DocInput{centerlastline.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \StopEventually
+%
+% \changes{1.0}{2020/10/12}{Initial version}
+%
+% \MakeShortVerb+
+%
+% \title{\textsf{centerlastline}: last line centered}
+% \author{Miguel V.\ S.\ Frasson\\(\texttt{mvsfrasson@gmail.com})}
+% \date{2020, oct. 12}
+%
+% \maketitle
+%
+% This package provides command +\centerlastline+, which sets
+% paragraph style\footnote{Paragraph style like
+% \texttt{\string\centering}, \texttt{\string\raggedright} or
+% \texttt{\string\raggedleft}.} to typeset with no indentation and
+% last line centered, an arrangement known as \emph{spanish
+% paragraph}.  It is a not-so-frequent composition, useful to finish a
+% large paragraph of text, at the end of chapters, prologues, back
+% cover of books, etc.  It can be used as an environment
+% +centerlastline+.
+%
+% In command form +\centerlastline+, user must take care that the text
+% ends with a new paragraph (either a blank line or a +\par+), to
+% ensure that the paragraph style +\centerlastline+ is active at the
+% end of the paragraph.  In environment form, this is automatic.
+%
+% Below an example of
+% such paragraph\ldots\bigskip
+%
+% \begin{centerlastline}
+%   \color{blue}\lipsum[1]
+% \end{centerlastline}\bigskip
+%
+% \noindent \ldots{} produced with\bigskip
+%
+% \noindent
+% +\begin{centerlastline}+\\
+% +  \color{blue}\lipsum[1]+\\
+% +\end{centerlastline}+\medskip
+%
+% \noindent or\medskip
+%
+% \noindent +{\centerlastline+\\+   \color{blue}\lipsum[1]\par}+
+%
+% \clearpage
+% \section*{Code}
+%
+% Identidication of the package.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{centerlastline}[2020/10/12 v1.0 Last line centered (spanish par.)]
+%    \end{macrocode}
+%
+% \DescribeMacro{\centerlastline}
+% Implementation of +\centerlastline+ based on +\centerlastline+ from
+% ``memoir'' class. Definition with +\providecommand+ to avoid error
+% if loaded with ``memoir'' class.
+%    \begin{macrocode}
+\providecommand{\centerlastline}{%
+  \parindent=0pt
+  \leftskip=0pt plus 1fil
+  \rightskip=0pt plus -1fil
+  \parfillskip=0pt plus 2fil}
+%    \end{macrocode}
+%
+% Ending enviromnment with +\par+ to ensure paragraph style keeps
+% effect until last paragraph.
+%    \begin{macrocode}
+\def\endcenterlastline{\par}
+%    \end{macrocode}
+% \Finale
+%
+\endinput
+%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}

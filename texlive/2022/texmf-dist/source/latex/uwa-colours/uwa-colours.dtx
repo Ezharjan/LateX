@@ -1,0 +1,273 @@
+% \iffalse meta-comment
+% Copyright 2019, 2021 Anthony Di Pietro
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Anthony Di Pietro.
+%
+% This work consists of the files uwa-colours.dtx and uwa-colours.ins
+% and the derived file uwa-colours.sty.
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{uwa-colours.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{uwa-colours}
+%<*package>
+    [2019/08/31 1.0.0 UWA Colours]
+\RequirePackage[hyperref]{xcolor}
+%</package>
+%
+%<*driver>
+\documentclass[a4paper]{ltxdoc}
+\usepackage{hypdoc}
+\usepackage{uwa-colours}[2019/08/31]
+\DisableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{uwa-colours.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{21}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2019/08/31}{Initial version}
+%
+% \GetFileInfo{uwa-colours.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \makeatletter
+% \c@IndexColumns = 2
+% \def\SpecialIndex@#1#2{%
+%    \@SpecialIndexHelper@#1\@nil
+%    \def\@tempb{ }%
+%    \ifcat \@tempb\@gtempa
+%       \special@index{\quotechar\space\actualchar
+%                      \string\verb\quotechar*\verbatimchar
+%                      \quotechar\quotechar\space\verbatimchar#2}%
+%    \else
+%      \def\@tempb##1##2\relax{\ifx\relax##2\relax
+%           \def\@tempc{\special@index{\quotechar##1\actualchar
+%                       \string\verb\quotechar*\verbatimchar
+%                       \quotechar\quotechar##1\verbatimchar#2}}%
+%         \else
+%           \def\@tempc{\special@index{##1##2\actualchar
+%                        \string\verb\quotechar*\verbatimchar
+%                        ##1##2\verbatimchar#2}}%
+%         \fi}%
+%      \expandafter\@tempb\@gtempa\relax
+%      \@tempc
+%    \fi}
+% \makeatother
+%
+% \newlength{\sampleheight}
+% \newlength{\samplewidth}
+% \newlength{\samplevspace}
+% \newlength{\samplehoffset}
+% \newlength{\samplehspace}
+% \setlength{\sampleheight}{2\baselineskip}
+% \setlength{\samplewidth}{10em}
+% \setlength{\samplevspace}{2.75\baselineskip}
+% \setlength{\samplehoffset}{-2.5em}
+% \setlength{\samplehspace}{1em}
+%
+% \newcommand{\coloursample}[1]{%
+%   \begin{minipage}[t]{\samplewidth}
+%   \vspace{\baselineskip}
+%   \colorbox{#1}{\parbox[t][\sampleheight]{\samplewidth}{\vfill\hfill}} \\
+%   \\
+%   \centering\texttt{#1} \\
+%   \vspace{\baselineskip}
+%   \end{minipage}
+% }
+%
+% \newcommand{\threecoloursamplerow}[3]{%
+%   \vspace{-\samplevspace}
+%   \DescribeMacro{#1}
+%   \DescribeMacro{#2}
+%   \DescribeMacro{#3}
+%   \hspace{\samplehoffset}
+%   \begin{minipage}{\textwidth}
+%   \vspace{\samplevspace}
+%   \hspace{\samplehoffset}
+%   \coloursample{#1}
+%   \hspace{\samplehspace}
+%   \coloursample{#2}
+%   \hspace{\samplehspace}
+%   \coloursample{#3}
+%   \end{minipage}
+%   \par
+% }
+%
+% \newcommand{\twocoloursamplerow}[2]{%
+%   \vspace{-\samplevspace}
+%   \DescribeMacro{#1}
+%   \DescribeMacro{#2}
+%   \hspace{\samplehoffset}
+%   \begin{minipage}{\textwidth}
+%   \vspace{\samplevspace}
+%   \hspace{\samplehoffset}
+%   \coloursample{#1}
+%   \hspace{\samplehspace}
+%   \coloursample{#2}
+%   \end{minipage}
+%   \par
+% }
+%
+% \title{%
+%         {The UWA Colours Package} \\
+%         {\Large uwa-colours \fileversion{} (\filedate{})}%
+% }
+% \author{Anthony Di Pietro}
+% \date{}
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% This package uses the |xcolor| package to define macros for
+% the colour palette of The University of Western Australia.
+%
+% \section{Usage}
+%
+% To load the package, add this to your preamble:
+% \begin{quote}
+% |\usepackage{uwa-colours}|
+% \end{quote}
+%
+% \subsection{Primary Colours}
+%
+% The primary colours.\index{primary colours|usage}
+%
+% \twocoloursamplerow{UWABlue}{UWAGold}
+%
+% \subsection{Background Colours}
+%
+% The background colours.\index{background colours|usage}
+%
+% \twocoloursamplerow{UWASmoke}{UWASky}
+% \twocoloursamplerow{UWAGrey}{UWAGreydark}
+%
+% \subsection{Secondary Colour Palette}
+%
+% The secondary colour palette.\index{secondary colour palette|usage}
+%
+% \threecoloursamplerow{UWAMaroon}{UWACrimson}{UWATomato}
+% \threecoloursamplerow{UWAMaria}{UWAAutumn}{UWAAmber}
+% \threecoloursamplerow{UWASeaweed}{UWAApple}{UWASushi}
+% \threecoloursamplerow{UWAMidnight}{UWADenim}{UWAViking}
+% \threecoloursamplerow{UWABossanova}{UWAOrchid}{UWAPlum}
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \section{Implementation}
+%
+% \begin{macro}{UWAblue}
+% \begin{macro}{UWAgold}
+% The primary colours.
+%    \begin{macrocode}
+\definecolor{UWABlue}{RGB}{39, 52, 139}
+\definecolor{UWAGold}{RGB}{225, 182, 80}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{UWASmoke}
+% \begin{macro}{UWASky}
+% \begin{macro}{UWAGrey}
+% \begin{macro}{UWAGreydark}
+% The background colours.
+%    \begin{macrocode}
+\definecolor{UWASmoke}{RGB}{245, 248, 252}
+\definecolor{UWASky}{RGB}{226, 237, 250}
+\definecolor{UWAGrey}{RGB}{236, 236, 236}
+\definecolor{UWAGreydark}{RGB}{221, 221, 221}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \newpage
+%
+% \begin{macro}{UWAMaroon}
+% \begin{macro}{UWACrimson}
+% \begin{macro}{UWATomato}
+% \begin{macro}{UWAMaria}
+% \begin{macro}{UWAAutumn}
+% \begin{macro}{UWAAmber}
+% \begin{macro}{UWASeaweed}
+% \begin{macro}{UWAApple}
+% \begin{macro}{UWASushi}
+% \begin{macro}{UWAMidnight}
+% \begin{macro}{UWADenim}
+% \begin{macro}{UWAViking}
+% \begin{macro}{UWABossanova}
+% \begin{macro}{UWAOrchid}
+% \begin{macro}{UWAPlum}
+% The secondary colour palette.
+%    \begin{macrocode}
+\definecolor{UWAMaroon}{RGB}{169, 34, 71}
+\definecolor{UWACrimson}{RGB}{222, 40, 81}
+\definecolor{UWATomato}{RGB}{228, 54, 34}
+\definecolor{UWAMaria}{RGB}{232, 78, 15}
+\definecolor{UWAAutumn}{RGB}{244, 151, 0}
+\definecolor{UWAAmber}{RGB}{253, 195, 0}
+\definecolor{UWASeaweed}{RGB}{38, 85, 33}
+\definecolor{UWAApple}{RGB}{62, 134, 56}
+\definecolor{UWASushi}{RGB}{45, 192, 59}
+\definecolor{UWAMidnight}{RGB}{0, 56, 105}
+\definecolor{UWADenim}{RGB}{20, 136, 202}
+\definecolor{UWAViking}{RGB}{72, 190, 216}
+\definecolor{UWABossanova}{RGB}{70, 46, 81}
+\definecolor{UWAOrchid}{RGB}{145, 39, 117}
+\definecolor{UWAPlum}{RGB}{196, 108, 169}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \Finale
+\endinput

@@ -1,0 +1,424 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2021 by Miguel R. Clemente <miguel.clemente@dem.uc.pt>
+% ---------------------------------------------------------------------------
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Miguel R. Clemente.
+%
+% This work consists of the files dimnum.dtx and dimnum.ins
+% and the derived filebase dimnum.sty.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{dimnum.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{dimnum}
+%<*package>
+    [2021/04/05 v1.0.1 Provides commands for Dimensionless numbers]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{dimnum}[2021/04/05]
+\usepackage{multirow}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{verbatim}
+\usepackage{indentfirst}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{dimnum.dtx}
+  \PrintChanges
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{221}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0.0}{2021/04/01}{Public release}
+% \changes{v1.0.1}{2021/04/05}{Minor fixes, 42 new additions}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \providecommand*{\url}{\texttt}
+% \GetFileInfo{dimnum.dtx}
+% \title{The \textsf{dimnum} package}
+% \author{Miguel R. Clemente \\ \url{miguel.clemente@dem.uc.pt}}
+% \date{\fileversion~from \filedate}
+%
+% \extrarowsep=4mm
+%
+% \maketitle
+%
+% Note: \Pr[l] is redefined from the \verb!amsmath! package.
+%
+% \section{Introduction}
+%
+% This package simplifies the calling of Dimensionless Numbers in math or text mode.
+%
+% In Table~\ref{Tab:DimNum} you can find all available Dimensionless Numbers.
+%
+% \section{Usage}
+%
+% A Dimensionless number is composed of four items:
+% \begin{itemize}
+%     \item the command,
+%     \item the symbol,
+%     \item the name,
+%     \item its identifier.
+% \end{itemize}
+
+% You can call a Dimensionless Number in three distinct ways:
+% \begin{itemize}
+%     \item by its symbol -- using the command (i.e. \verb!\Ar! -- \Ar).
+%     \item by its name (short version) -- appending [s] to the command (i.e. \verb!\Bi[s]! -- \Bi[s]).
+%     \item by its name and identifier (long version) -- appending [l] to the command (i.e. \verb!\Kn[l]! -- \Kn[l]).
+% \end{itemize}
+
+% Symbol, short and long versions, all work in math or text mode without the need of further commands.
+
+% Besides the comprehensive list of included Dimensionless Numbers, this package also introduces a command to create new Dimensionless Numbers. Creating a Dimensionless Number is achieved by using $$\verb!\newdimnum{\command}{symbol}{name}{identifier}!$$ for example, to add the \Mo[l] we write $$\verb!\newdimnum{\Mo}{Mo}{Morton}{number}!$$
+
+% The identifier can be left empty, such as in the case of \Cd[l] $$\verb!\newdimnum{Cd}{\ensuremath{C_d}}{Drag Coefficient}{}!$$
+% in this example we also introduce an important command. When the Dimensionless Number symbol is always expressed in math mode -- either by definition or the use of subscripts or superscripts -- we add \verb!\ensuremath{}! to encompass the symbol, ensuring a proper representation of the Dimensionless Number.
+
+% You can add your own Dimensionless Numbers to your projects. Requests and suggestions to increment Table~\ref{Tab:DimNum} are accepted and encouraged.
+%
+%\begin{longtabu*} to \textwidth {>{\small}X[2,m] >{\small}X[m,c] >{\small}X[m,c]}
+% \centering \\
+% \captionsetup{justification=centering} \\
+% \caption{List of Dimensionless Numbers Available} \\
+% \label{Tab:DimNum} \\
+% \toprule \toprule
+% \rowfont[]{\bf}Long Name & Symbol & Command\\ \midrule
+% \endfirsthead
+% \multicolumn{3}{c}%
+% {{\footnotesize{\tablename\ \thetable{} -- continued from the previous page}}} \\
+% \toprule
+% \rowfont[]{\bf}Long Name & Symbol & Command\\ \midrule
+% \endhead
+% \midrule \multicolumn{3}{r}{{\footnotesize{Continues on the next page}}} \\
+% \endfoot
+% \bottomrule
+% \endlastfoot
+% \Ab[l]   & \Ab   & \verb!\Ab!   \\
+% \AC[l]   & \AC   & \verb!\AC!   \\
+% \Al[l]   & \Al   & \verb!\Al!   \\
+% \Ar[l]   & \Ar   & \verb!\Ar!   \\
+% \Arr[l]  & \Arr  & \verb!\Arr!  \\
+% \AW[l]   & \AW   & \verb!\AW!   \\
+% \At[l]   & \At   & \verb!\At!   \\
+% \Ba[l]   & \Ba   & \verb!\Ba!   \\
+% \Rz[l]   & \Rz   & \verb!\Rz!   \\
+% \Be[l]   & \Be   & \verb!\Be!   \\
+% \Bm[l]   & \Bm   & \verb!\Bm!   \\
+% \Bi[l]   & \Bi   & \verb!\Bi!   \\
+% \Bl[l]   & \Bl   & \verb!\Bl!   \\
+% \Blo[l]  & \Blo  & \verb!\Blo!  \\
+% \Bs[l]   & \Bs   & \verb!\Bs!   \\
+% \Bo[l]   & \Bo   & \verb!\Bo!   \\
+% \Br[l]   & \Br   & \verb!\Br!   \\
+% \BK[l]   & \BK   & \verb!\BK!   \\
+% \Ca[l]   & \Ca   & \verb!\Ca!   \\
+% \Cau[l]  & \Cau  & \verb!\Cau!  \\
+% \Ch[l]   & \Ch   & \verb!\Ch!   \\
+% \Jh[l]   & \Jh   & \verb!\Jh!   \\
+% \Jd[l]   & \Jd   & \verb!\Jd!   \\
+% \Jm[l]   & \Jm   & \verb!\Jm!   \\
+% \CoD[l]  & \CoD  & \verb!\CoD!  \\
+% \CoF[l]  & \CoF  & \verb!\CoF!  \\
+% \CoK[l]  & \CoK  & \verb!\CoK!  \\
+% \CoS[l]  & \CoS  & \verb!\CoS!  \\
+% \CoV[l]  & \CoV  & \verb!\CoV!  \\
+% \Coh[l]  & \Coh  & \verb!\Coh!  \\
+% \Co[l]   & \Co   & \verb!\Co!   \\
+% \CFL[l]  & \CFL  & \verb!\CFL!  \\
+% \Dah[l]  & \Dah  & \verb!\Dah!  \\
+% \Dr[l]   & \Dr   & \verb!\Dr!   \\
+% \fD[l]   & \fD   & \verb!\fD!   \\
+% \Dar[l]  & \Dar  & \verb!\Dar!  \\
+% \De[l]   & \De   & \verb!\De!   \\
+% \Deb[l]  & \Deb  & \verb!\Deb!  \\
+% \Cd[l]   & \Cd   & \verb!\Cd!   \\
+% \Du[l]   & \Du   & \verb!\Du!   \\
+% \Ec[l]   & \Ec   & \verb!\Ec!   \\
+% \Ek[l]   & \Ek   & \verb!\Ek!   \\
+% \Ela[l]  & \Ela  & \verb!\Ela!  \\
+% \El[l]   & \El   & \verb!\El!   \\
+% \Eo[l]   & \Eo   & \verb!\Eo!   \\
+% \Er[l]   & \Er   & \verb!\Er!   \\
+% \Eu[l]   & \Eu   & \verb!\Eu!   \\
+% \ExT[l]  & \ExT  & \verb!\ExT!  \\
+% \fF[l]   & \fF   & \verb!\fF!   \\
+% \Fs[l]   & \Fs   & \verb!\Fs!   \\
+% \FvK[l]  & \FvK  & \verb!\FvK!  \\
+% \Fo[l]   & \Fo   & \verb!\Fo!   \\
+% \Fre[l]  & \Fre  & \verb!\Fre!  \\
+% \Fr[l]   & \Fr   & \verb!\Fr!   \\
+% \Go[l]   & \Go   & \verb!\Go!   \\
+% \Ga[l]   & \Ga   & \verb!\Ga!   \\
+% \Gz[l]   & \Gz   & \verb!\Gz!   \\
+% \Gr[l]   & \Gr   & \verb!\Gr!   \\
+% \Hg[l]   & \Hg   & \verb!\Hg!   \\
+% \Ha[l]   & \Ha   & \verb!\Ha!   \\
+% \Hav[l]  & \Hav  & \verb!\Hav!  \\
+% \He[l]   & \He   & \verb!\He!   \\
+% \Ho[l]   & \Ho   & \verb!\Ho!   \\
+% \Ir[l]   & \Ir   & \verb!\Ir!   \\
+% \Ja[l]   & \Ja   & \verb!\Ja!   \\
+% \Ka[l]   & \Ka   & \verb!\Ka!   \\
+% \KC[l]   & \KC   & \verb!\KC!   \\
+% \Kn[l]   & \Kn   & \verb!\Kn!   \\
+% \Ku[l]   & \Ku   & \verb!\Ku!   \\
+% \La[l]   & \La   & \verb!\La!   \\
+% \Le[l]   & \Le   & \verb!\Le!   \\
+% \Cl[l]   & \Cl   & \verb!\Cl!   \\
+% \LM[l]   & \LM   & \verb!\LM!   \\
+% \Lu[l]   & \Lu   & \verb!\Lu!   \\
+% \Ma[l]   & \Ma   & \verb!\Ma!   \\
+% \Mg[l]   & \Mg   & \verb!\Mg!   \\
+% \Mar[l]  & \Mar  & \verb!\Mar!  \\
+% \Mo[l]   & \Mo   & \verb!\Mo!   \\
+% \Nus[l]  & \Nus  & \verb!\Nus!  \\
+% \Oh[l]   & \Oh   & \verb!\Oh!   \\
+% \Pe[l]   & \Pe   & \verb!\Pe!   \\
+% \Peel[l] & \Peel & \verb!\Peel! \\
+% \pH[l]   & \pH   & \verb!\pH!   \\
+% \Pie[l]  & \Pie  & \verb!\Pie!  \\
+% \Poi[l]  & \Poi  & \verb!\Poi!  \\
+% \Pf[l]   & \Pf   & \verb!\Pf!   \\
+% \Pn[l]   & \Pn   & \verb!\Pn!   \\
+% \Pr[l]   & \Pr   & \verb!\Pr!   \\
+% \Cp[l]   & \Cp   & \verb!\Cp!   \\
+% \Ra[l]   & \Ra   & \verb!\Ra!   \\
+% \Rfi[l]  & \Rfi  & \verb!\Rfi!  \\
+% \Rey[l]  & \Rey  & \verb!\Rey!  \\
+% \Ri[l]   & \Ri   & \verb!\Ri!   \\
+% \Crr[l]  & \Crr  & \verb!\Crr!  \\
+% \Ro[l]   & \Ro   & \verb!\Ro!   \\
+% \Ros[l]  & \Ros  & \verb!\Ros!  \\
+% \Rou[l]  & \Rou  & \verb!\Rou!  \\
+% \Sc[l]   & \Sc   & \verb!\Sc!   \\
+% \Sh[l]   & \Sh   & \verb!\Sh!   \\
+% \Shi[l]  & \Shi  & \verb!\Shi!  \\
+% \So[l]   & \So   & \verb!\So!   \\
+% \St[l]   & \St   & \verb!\St!   \\
+% \Ste[l]  & \Ste  & \verb!\Ste!  \\
+% \Stk[l]  & \Stk  & \verb!\Stk!  \\
+% \Sr[l]   & \Sr   & \verb!\Sr!   \\
+% \Stu[l]  & \Stu  & \verb!\Stu!  \\
+% \Sv[l]   & \Sv   & \verb!\Sv!   \\
+% \Ta[l]   & \Ta   & \verb!\Ta!   \\
+% \Ur[l]   & \Ur   & \verb!\Ur!   \\
+% \Va[l]   & \Va   & \verb!\Va!   \\
+% \vtH[l]  & \vtH  & \verb!\vtH!  \\
+% \Wa[l]   & \Wa   & \verb!\Wa!   \\
+% \Wal[l]  & \Wal  & \verb!\Wal!  \\
+% \Wea[l]  & \Wea  & \verb!\Wea!  \\
+% \We[l]   & \We   & \verb!\We!   \\
+% \Wei[l]  & \Wei  & \verb!\Wei!  \\
+% \Wo[l]   & \Wo   & \verb!\Wo!   \\
+% \Zd[l]   & \Zd   & \verb!\Zd!   \\
+% \bottomrule
+% \end{longtabu*}
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \iffalse
+%<*package>
+% \fi
+%
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dimnum}
+[2021/04/05 v1.0.1 Provides commands for Dimensionless numbers]
+\RequirePackage{amsmath}
+\RequirePackage{xifthen}
+\let\Pr\relax
+\newif\ifstartedinmathmode
+%    \end{macrocode}
+%
+% \begin{macro}{\newdimnum}
+%    \begin{macrocode}
+\newcommand{\newdimnum}[4]{%
+\expandafter\newcommand\csname #1\endcsname[1][]{%
+\ifthenelse{\equal{##1}{}}{%
+\relax\ifmmode\startedinmathmodetrue\else\startedinmathmodefalse\fi%
+\ifstartedinmathmode\operatorname{#2}\else#2\fi}{%
+\ifthenelse{\equal{##1}{s}}{\text{#3}}{%
+\ifthenelse{\equal{##1}{l}}{%
+\ifthenelse{\equal{#4}{}}{\text{#3}}{\text{#3 #4}}}{%
+\ifthenelse{\equal{#4}{}}{\text{#3}}{\text{#3 #4}}}%
+            }%
+        }%
+    }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%\newdimnum{command}{symbol}{name}{identifier}
+%    \begin{macrocode}
+\newdimnum{Ar}{Ar}{Archimedes}{number}
+\newdimnum{At}{A}{Atwood}{number}
+\newdimnum{Ba}{Ba}{Bagnold}{number}
+\newdimnum{Be}{Be}{Bejan}{number}
+\newdimnum{Bm}{Bm}{Bingham}{number}
+\newdimnum{Bi}{Bi}{Biot}{number}
+\newdimnum{Bl}{Bl}{Blake}{number}
+\newdimnum{Bs}{Bs}{Bodenstein}{number}
+\newdimnum{Bo}{Bo}{Bond}{number}
+\newdimnum{Br}{Br}{Brinkman}{number}
+\newdimnum{BK}{\ensuremath{N_{BK}}}{Brownell-Katz}{number}
+\newdimnum{Ca}{Ca}{Capillary}{number}
+\newdimnum{Cau}{C}{Cauchy}{number}
+\newdimnum{Ch}{Q}{Chandrasekhar}{number}
+\newdimnum{CoF}{\ensuremath{C_f}}{Coefficient of Frication}{}
+\newdimnum{Co}{Co}{Condensation}{number}
+\newdimnum{Dah}{Da}{Dahmköhler}{number}
+\newdimnum{Dar}{Da}{Darcy}{number}
+\newdimnum{De}{De}{Dean}{number}
+\newdimnum{Deb}{De}{Deborah}{number}
+\newdimnum{Cd}{\ensuremath{C_d}}{Drag Coefficient}{}
+\newdimnum{Du}{Du}{Dukhin}{number}
+\newdimnum{Ec}{Ec}{Eckert}{number}
+\newdimnum{Ek}{Ek}{Ekman}{number}
+\newdimnum{Ela}{El}{Elasticity}{number}
+\newdimnum{El}{El}{Elenbass}{number}
+\newdimnum{Eo}{Eo}{Eötvös}{number}
+\newdimnum{Er}{Er}{Ericksen}{number}
+\newdimnum{Eu}{Eu}{Euler}{number}
+\newdimnum{Fo}{Fo}{Fourier}{number}
+\newdimnum{Fr}{Fr}{Froude}{number}
+\newdimnum{Ga}{Ga}{Galilei}{number}
+\newdimnum{Go}{G}{Görtier}{number}
+\newdimnum{Gz}{Gz}{Graetz}{number}
+\newdimnum{Gr}{Gr}{Grashof}{number}
+\newdimnum{Ha}{Ha}{Hatta}{number}
+\newdimnum{Hg}{Hg}{Hagen}{number}
+\newdimnum{Ho}{H}{Hodgson}{number}
+\newdimnum{Ir}{Ir}{Iribarren}{number}
+\newdimnum{Ja}{Ja}{Jakob}{number}
+\newdimnum{Ka}{Ka}{Karlovitz}{number}
+\newdimnum{KC}{\ensuremath{K_C}}{Keulegan-Carpenter}{number}
+\newdimnum{Kn}{Kn}{Knudsen}{number}
+\newdimnum{Ku}{Ku}{Kutateladze}{number}
+\newdimnum{La}{La}{Laplace}{number}
+\newdimnum{Le}{Le}{Lewis}{number}
+\newdimnum{Ma}{Ma}{Mach}{number}
+\newdimnum{Mg}{Mg}{Marangoni}{number}
+\newdimnum{Mo}{Mo}{Morton}{number}
+\newdimnum{Nus}{Nu}{Nusselt}{number}
+\newdimnum{Oh}{Oh}{Ohnesorge}{number}
+\newdimnum{Pe}{Pe}{Péclet}{number}
+\newdimnum{pH}{pH}{pH}{}
+\newdimnum{Po}{Po}{Poiseuille}{constant}
+\newdimnum{Pr}{Pr}{Prandtl}{number}
+\newdimnum{Ra}{Ra}{Rayleigh}{number}
+\newdimnum{Rey}{Re}{Reynolds}{number}
+\newdimnum{Ri}{Ri}{Richardson}{number}
+\newdimnum{Ro}{Ro}{Roshko}{number}
+\newdimnum{Ros}{Ro}{Rossby}{number}
+\newdimnum{Rou}{P}{Rouse}{number}
+\newdimnum{Sc}{Sc}{Schmidt}{number}
+\newdimnum{Sh}{Sh}{Sherwood}{number}
+\newdimnum{So}{S}{Sommerfield}{number}
+\newdimnum{St}{St}{Stanton}{number}
+\newdimnum{Ste}{Ste}{Stefan}{number}
+\newdimnum{Stk}{Stk}{Stokes}{number}
+\newdimnum{Sr}{Sr}{Strouhal}{number}
+\newdimnum{Stu}{N}{Stuart}{number}
+\newdimnum{Sv}{Sv}{Svelteness}{}
+\newdimnum{Ta}{Ta}{Taylor}{number}
+\newdimnum{Ur}{U}{Ursell}{number}
+\newdimnum{Va}{Va}{Vadasz}{number}
+\newdimnum{Wa}{Wa}{Wagner}{number}
+\newdimnum{Wea}{Wea}{Weaver flame speed}{number}
+\newdimnum{We}{We}{Weber}{number}
+\newdimnum{Wei}{Wi}{Weissenberg}{number}
+\newdimnum{Ab}{\ensuremath{V}}{Abbe}{number}
+\newdimnum{AC}{\ensuremath{\gamma}}{Activity}{coefficient}
+\newdimnum{Al}{\ensuremath{\alpha}}{Albedo}{}
+\newdimnum{Arr}{\ensuremath{\alpha}}{Arrhenius}{number}
+\newdimnum{AW}{\ensuremath{M}}{Atomic}{weight}
+\newdimnum{Rz}{\ensuremath{R_0}}{Basic reproduction}{number}
+\newdimnum{Blo}{\ensuremath{B_k}}{Blondeau}{number}
+\newdimnum{Jm}{\ensuremath{J_M}}{Chilton-Colburn Momentum J-factor}{}
+\newdimnum{Jh}{\ensuremath{J_H}}{Chilton-Colburn Heat J-factor}{}
+\newdimnum{Jd}{\ensuremath{J_D}}{Chilton-Colburn Mass J-factor}{}
+\newdimnum{CoD}{\ensuremath{R^2}}{Coefficient of Determination}{}
+\newdimnum{CoK}{\ensuremath{\mu_k}}{Coefficient of Kinetic Friction}{}
+\newdimnum{CoS}{\ensuremath{\mu_s}}{Coefficient of Static Friction}{}
+\newdimnum{CoV}{\ensuremath{\frac{\sigma}{\mu}}}{Coefficient of Variation}{}
+\newdimnum{Coh}{\ensuremath{{Coh}}}{Cohesion}{number}
+\newdimnum{CFL}{\ensuremath{C}}{Courant-Friedrich-Levy}{number}
+\newdimnum{Dr}{\ensuremath{\zeta}}{Damping}{ratio}
+\newdimnum{fD}{\ensuremath{f_D}}{Darcy friction}{factor}
+\newdimnum{ExT}{\ensuremath{\Theta_r}}{Excess Temperature}{coefficient}
+\newdimnum{fF}{\ensuremath{f}}{Fanning friction}{factor}
+\newdimnum{Fs}{\ensuremath{\alpha}}{Fine-structure constant}{}
+\newdimnum{FvK}{\ensuremath{\gamma}}{Föppl-von Kármán}{number}
+\newdimnum{Fre}{F}{Fresnel}{number}
+\newdimnum{Hav}{\ensuremath{P_H}}{Havnes}{parameter}
+\newdimnum{He}{He}{Helmholtz}{number}
+\newdimnum{Cl}{\ensuremath{C_L}}{Lift Coefficient}{}
+\newdimnum{LM}{\ensuremath{\chi}}{Lockhart-Martinelli}{parameter}
+\newdimnum{Lu}{S}{Lundquist}{number}
+\newdimnum{Mar}{\ensuremath{\mathcal{M}}}{Markstein}{number}
+\newdimnum{Peel}{\ensuremath{N_P}}{Peel}{number}
+\newdimnum{Pie}{\ensuremath{C}}{Pierce}{parameter}
+\newdimnum{Poi}{\ensuremath{\nu}}{Poisson's}{ratio}
+\newdimnum{Pf}{\ensuremath{{pf}}}{Power}{factor}
+\newdimnum{Pn}{\ensuremath{N_p}}{Power}{number}
+\newdimnum{Cp}{\ensuremath{C_P}}{Pressure Coefficient}{}
+\newdimnum{Rfi}{\ensuremath{n}}{Refractive index}{}
+\newdimnum{Crr}{\ensuremath{C_{rr}}}{Rolling resistance}{coefficient}
+\newdimnum{Shi}{\ensuremath{\tau_*}}{Shield's}{parameter}
+\newdimnum{vtH}{\ensuremath{i}}{Van 't Hoff}{factor}
+\newdimnum{Wal}{\ensuremath{j^*}}{Wallis}{parameter}
+\newdimnum{Wo}{\ensuremath{\alpha}}{Womersley}{number}
+\newdimnum{Zd}{\ensuremath{\beta}}{Zel'dovich}{number}
+\endinput
+%    \end{macrocode}
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \Finale
+\endinput

@@ -1,0 +1,406 @@
+%%
+%% Copyright (C) 2021-2022 by Jinwen XU
+%% ------------------------------------
+%%
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3c of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%%
+%%    http://www.latex-project.org/lppl.txt
+%%
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
+\ProvidesExplPackage
+  {crefthe}
+  {2022/09/03} {}
+  {Cross referencing with proper definite articles}
+
+\keys_define:nn { crefthe }
+  {
+    , overwrite  .bool_set:N = \l__crefthe_overwrite_bool
+    , overwrite  .initial:n  = { false }
+    , nameinlink .bool_set:N = \l__crefthe_nameinlink_bool
+    , nameinlink .initial:n  = { false }
+    , unknown    .code:n     =
+        { \PassOptionsToPackage { \CurrentOption } { cleveref } }
+  }
+\ProcessKeyOptions [ crefthe ]
+
+\bool_if:NT \l__crefthe_nameinlink_bool
+  {
+    \PassOptionsToPackage { nameinlink } { cleveref }
+  }
+
+\RequirePackage { cleveref }
+\RequirePackage { regexpatch }
+
+\NewCommandCopy \crefthe_cref_original:w      \cref
+\NewCommandCopy \crefthe_Cref_original:w      \Cref
+\NewCommandCopy \crefthe_crefname_original:w  \crefname
+\NewCommandCopy \crefthe_Crefname_original:w  \Crefname
+\NewCommandCopy \crefthe_namecref_original:w  \namecref
+\NewCommandCopy \crefthe_nameCref_original:w  \nameCref
+\NewCommandCopy \crefthe_namecrefs_original:w \namecrefs
+\NewCommandCopy \crefthe_nameCrefs_original:w \nameCrefs
+
+\str_new:N \l__crefthe_tmpa_str
+
+% \l__crefthe_prep_once_tl is for the "-" mode,
+% that only passes the preposition to the first definite article;
+% \l__crefthe_prep_each_tl is for the "+" mode,
+% that passes the preposition to every definite article.
+\tl_new:N \l__crefthe_prep_once_tl
+\tl_new:N \l__crefthe_prep_each_tl
+
+\bool_new:N \g__crefthe_uppercase_bool
+\bool_new:N \g__crefthe_has_prep_bool
+
+\NewDocumentCommand \crefthe { s t- t+ O{} m }
+  {
+    \bool_gset_false:N \g__crefthe_uppercase_bool
+    \__crefthe_cref_general:NNNnnN #1 #2 #3 { #4 } { #5 } \crefthe_cref_original:w
+  }
+\NewDocumentCommand \Crefthe { s t- t+ O{} m }
+  {
+    \bool_gset_true:N \g__crefthe_uppercase_bool
+    \__crefthe_cref_general:NNNnnN #1 #2 #3 { #4 } { #5 } \crefthe_Cref_original:w
+  }
+
+\NewDocumentCommand \namecrefthe { t- t+ O{} m }
+  {
+    \bool_gset_false:N \g__crefthe_uppercase_bool
+    \__crefthe_cref_general:NNNnnN \c_false_bool #1 #2 { #3 } { #4 } \crefthe_namecref_original:w
+  }
+\NewDocumentCommand \nameCrefthe { t- t+ O{} m }
+  {
+    \bool_gset_true:N \g__crefthe_uppercase_bool
+    \__crefthe_cref_general:NNNnnN \c_false_bool #1 #2 { #3 } { #4 } \crefthe_nameCref_original:w
+  }
+\NewDocumentCommand \namecrefsthe { t- t+ O{} m }
+  {
+    \bool_gset_false:N \g__crefthe_uppercase_bool
+    \__crefthe_cref_general:NNNnnN \c_false_bool #1 #2 { #3 } { #4 } \crefthe_namecrefs_original:w
+  }
+\NewDocumentCommand \nameCrefsthe { t- t+ O{} m }
+  {
+    \bool_gset_true:N \g__crefthe_uppercase_bool
+    \__crefthe_cref_general:NNNnnN \c_false_bool #1 #2 { #3 } { #4 } \crefthe_nameCrefs_original:w
+  }
+
+\cs_new_protected:Nn \__crefthe_cref_general:NNNnnN
+  {
+    \tl_if_blank:eTF { #4 }
+      {
+        \bool_gset_false:N \g__crefthe_has_prep_bool
+      }
+      {
+        \bool_gset_true:N \g__crefthe_has_prep_bool
+      }
+    \bool_if:NTF #2
+      { \tl_set:Nn \l__crefthe_prep_once_tl { #4 } }
+      {
+        \bool_if:NTF #3
+          { \tl_set:Nn \l__crefthe_prep_each_tl { #4 } }
+          {
+            % \str_set:Nx fully expands \__crefthe_prep_mode: into a string,
+            % then \str_case:Vn compares the value of the resulting string:
+            \str_set:Nx \l__crefthe_tmpa_str { \__crefthe_prep_mode: }
+            \str_case:Vn \l__crefthe_tmpa_str
+              {
+                { - } { \tl_set:Nn \l__crefthe_prep_once_tl { #4 } }
+                { + } { \tl_set:Nn \l__crefthe_prep_each_tl  { #4 } }
+              }
+          }
+      }
+    \bool_if:NTF #1
+      { #6 * { #5 } } % here #6 is \crefthe_cref_original:w or \crefthe_Cref_original:w
+      { #6   { #5 } }
+    \tl_gclear:N \l__crefthe_prep_each_tl
+  }
+
+% \__crefthe_prep_mode: defines the default mode for supported languages
+\cs_new:Nn \__crefthe_prep_mode:
+  {
+    \str_case:Vn \languagename
+      {
+        {french}        { + }
+        {italian}       { + }
+        {spanish}       { - }
+        {portuguese}    { + }
+        {brazilian}     { + }
+      }
+  }
+
+\NewDocumentCommand \crefthename { m O{} m O{} m }
+  {
+    \__crefthe_name_general:nnnnnn { #1 } { #2 } { #3 } { #4 } { #5 } { c }
+  }
+
+\NewDocumentCommand \Crefthename { m O{} m O{} m }
+  {
+    \__crefthe_name_general:nnnnnn { #1 } { #2 } { #3 } { #4 } { #5 } { C }
+  }
+
+\cs_new:Npn \crefthe_width_of_space_dim { \tex_fontdimen:D 2 \tex_font:D~plus -\tex_fontdimen:D 3 \tex_font:D~minus -\tex_fontdimen:D 4 \tex_font:D }
+
+\cs_new:Nn \crefthe_empty_adjust:n
+  {
+    \tl_if_blank:nTF { #1 }
+      {
+        \skip_horizontal:n { -\crefthe_width_of_space_dim }
+      }
+      {
+        #1
+      }
+  }
+
+\cs_new_protected:Nn \__crefthe_name_general:nnnnnn
+  {
+    % #6 is c or C
+    \__crefthe_name_general_do:nnnnnn
+      { #1 }
+      { \crefthemark { \crefthe_empty_adjust:n { #2 } } }
+      { \crefthe_empty_adjust:n { #3 } }
+      { \crefthemark { \crefthe_empty_adjust:n { #4 } } }
+      { \crefthe_empty_adjust:n { #5 } }
+      { #6 }
+  }
+
+\cs_new_protected:Nn \__crefthe_name_general_do:nnnnnn
+  {
+    \use:c { crefthe_#6refname_original:w } { #1 } { #2 #3 } { #4 #5 }
+    \bool_if:NT \l__crefthe_nameinlink_bool
+      {
+        \hook_gput_code:nnn { begindocument } { crefthe }
+          {
+            \crefthe_patch_format:nnnn { #6ref@#1@format } { #6ref@#1@name } { #2 } { #3 }
+            \crefthe_patch_format:nnnn { #6ref@#1@format@first } { #6ref@#1@name@plural } { #4 } { #5 }
+            \crefthe_patch_format:nnnn { #6refrange@#1@format } { #6ref@#1@name@plural } { #4 } { #5 }
+            \crefthe_patch_format:nnnn { #6refrange@#1@format@first } { #6ref@#1@name@plural } { #4 } { #5 }
+          }
+      }
+  }
+
+\seq_new:N \g__crefthe_already_patched_seq
+
+\cs_new_protected:Nn \crefthe_patch_format:nnnn
+  % #1 = name of the format command
+  % #2 = name of the command after the hyperlink beginning mark
+  % #3 = new content before the mark
+  % #4 = new content after the mark
+  {
+    \seq_if_in:NnF \g__crefthe_already_patched_seq { #1 - #2 }
+      {
+        \makeatletter
+        \tl_set:No \l_tmpa_tl { #3 }
+        \tl_set:No \l_tmpb_tl { #4 }
+        \exp_args:Nc \regexpatchcmd { #1 }
+          { (\cP\# .) \c{ #2 } }
+          { \u{l_tmpa_tl} \1 \u{l_tmpb_tl} }
+          { } { \msg_warning:nnn { crefthe } { format-patch-failed } { #1 } }
+        \makeatother
+        \seq_gput_right:Nn \g__crefthe_already_patched_seq { #1 - #2 }
+      }
+  }
+
+\msg_new:nnn { crefthe }
+  { format-patch-failed }
+  { Failed~to~patch~the~format~"\iow_char:N \\#1"! }
+
+\cs_generate_variant:Nn \text_lowercase:n { V }
+\NewDocumentCommand \crefthemark { m }
+  {
+    \crefthe_contraction:Ve \l__crefthe_prep_each_tl
+      { \crefthe_contraction:Vn \l__crefthe_prep_once_tl { #1 } }
+    \tl_gclear:N \l__crefthe_prep_once_tl
+    \tl_gset:Nx \l__crefthe_prep_each_tl
+      { \text_lowercase:V \l__crefthe_prep_each_tl }
+    \str_if_eq:eeF { \str_tail:n { #1 } } { ' } { ~ }
+    \bool_gset_false:N \g__crefthe_uppercase_bool
+  }
+
+\prg_generate_conditional_variant:Nnn \str_case_e:nn { nv } { T, F, TF }
+\cs_new:Nn \crefthe_contraction:nn
+  {
+    \exp_args:Ne \__crefthe_contraction:nnn
+      { \text_lowercase:n { #2 } } { #1 } { #2 }
+  }
+\cs_generate_variant:Nn \crefthe_contraction:nn { V, Ve }
+\cs_new:Nn \__crefthe_contraction:nnn
+  {
+    % #1 is \text_lowercase:n { #3 }
+    % #2 is the preposition
+    \tl_if_blank:nTF { #2 }
+      { #3 }
+      {
+        \tl_if_exist:cTF { c_crefthe_contraction_rule_ \languagename _tl }
+          {
+            \exp_args:Ne \__crefthe_conditional_uppercase:n
+              {
+                \str_case_e:nvF { #2~#1 }
+                  { c_crefthe_contraction_rule_ \languagename _tl }
+                  { #2~#1 }
+              }
+          }
+          { #2~#3 }
+      }
+  }
+\cs_new:Nn \__crefthe_conditional_uppercase:n
+  {
+    \bool_if:NTF \g__crefthe_uppercase_bool
+      { \text_titlecase_first:n }
+      { \use:n }
+        { #1 }
+  }
+
+\NewDocumentCommand \crefthepatchname { m }
+  {
+    \clist_map_inline:nn { #1 }
+      {
+        \crefthe_patch_name:n { ##1 }
+      }
+  }
+
+\cs_new:Nn \crefthe_patch_name:n
+  {
+    \tl_gput_left:cn { cref@#1@name        } { \crefthemark { \crefthe_empty_adjust:n {} } }
+    \tl_gput_left:cn { cref@#1@name@plural } { \crefthemark { \crefthe_empty_adjust:n {} } }
+    \tl_gput_left:cn { Cref@#1@name        } { \crefthemark { \crefthe_empty_adjust:n {} } }
+    \tl_gput_left:cn { Cref@#1@name@plural } { \crefthemark { \crefthe_empty_adjust:n {} } }
+  }
+
+\hook_gput_code:nnn { begindocument/end } { crefthe }
+  {
+    \bool_if:NT \l__crefthe_overwrite_bool
+      {
+        \RenewCommandCopy \cref     \crefthe
+        \RenewCommandCopy \Cref     \Crefthe
+        \RenewCommandCopy \crefname \crefthename
+        \RenewCommandCopy \Crefname \Crefthename
+      }
+  }
+
+\tl_const:Nn \c_crefthe_contraction_rule_french_tl
+  {
+    { à~le   }     { au  }
+    { à~les  }     { aux }
+    { de~le  }     { du  }
+    { de~les }     { des }
+    { À~le   }     { Au  }
+    { À~les  }     { Aux }
+    { De~le  }     { Du  }
+    { De~les }     { Des }
+  }
+\tl_const:Nn \c_crefthe_contraction_rule_italian_tl
+  {
+    { a~il   }     { al    }
+    { a~lo   }     { allo  }
+    { a~l'   }     { all'  }
+    { a~la   }     { alla  }
+    { di~il  }     { del   }
+    { di~lo  }     { dello }
+    { di~l'  }     { dell' }
+    { di~la  }     { della }
+    { da~il  }     { dal   }
+    { da~lo  }     { dallo }
+    { da~l'  }     { dall' }
+    { da~la  }     { dalla }
+    { in~il  }     { nel   }
+    { in~lo  }     { nello }
+    { in~l'  }     { nell' }
+    { in~la  }     { nella }
+    { su~il  }     { sul   }
+    { su~lo  }     { sullo }
+    { su~l'  }     { sull' }
+    { su~la  }     { sulla }
+    { a~i    }     { ai    }
+    { a~gli  }     { agli  }
+    { a~le   }     { alle  }
+    { di~i   }     { dei   }
+    { di~gli }     { degli }
+    { di~le  }     { delle }
+    { da~i   }     { dai   }
+    { da~gli }     { dagli }
+    { da~le  }     { dalle }
+    { in~i   }     { nei   }
+    { in~gli }     { negli }
+    { in~le  }     { nelle }
+    { su~i   }     { sui   }
+    { su~gli }     { sugli }
+    { su~le  }     { sulle }
+    { A~il   }     { Al    }
+    { A~lo   }     { Allo  }
+    { A~l'   }     { All'  }
+    { A~la   }     { Alla  }
+    { Di~il  }     { Del   }
+    { Di~lo  }     { Dello }
+    { Di~l'  }     { Dell' }
+    { Di~la  }     { Della }
+    { Da~il  }     { Dal   }
+    { Da~lo  }     { Dallo }
+    { Da~l'  }     { Dall' }
+    { Da~la  }     { Dalla }
+    { In~il  }     { Nel   }
+    { In~lo  }     { Nello }
+    { In~l'  }     { Nell' }
+    { In~la  }     { Nella }
+    { Su~il  }     { Sul   }
+    { Su~lo  }     { Sullo }
+    { Su~l'  }     { Sull' }
+    { Su~la  }     { Sulla }
+    { A~i    }     { Ai    }
+    { A~gli  }     { Agli  }
+    { A~le   }     { Alle  }
+    { Di~i   }     { Dei   }
+    { Di~gli }     { Degli }
+    { Di~le  }     { Delle }
+    { Da~i   }     { Dai   }
+    { Da~gli }     { Dagli }
+    { Da~le  }     { Dalle }
+    { In~i   }     { Nei   }
+    { In~gli }     { Negli }
+    { In~le  }     { Nelle }
+    { Su~i   }     { Sui   }
+    { Su~gli }     { Sugli }
+    { Su~le  }     { Sulle }
+  }
+\tl_const:Nn \c_crefthe_contraction_rule_spanish_tl
+  {
+    { a~el  }      { al  }
+    { de~el }      { del }
+    { A~el  }      { Al  }
+    { De~el }      { Del }
+  }
+\tl_const:Nn \c_crefthe_contraction_rule_portuguese_tl
+  {
+    { a~o   }      { ao  }
+    { a~a   }      { à   }
+    { a~os  }      { aos }
+    { a~as  }      { às  }
+    { de~o  }      { do  }
+    { de~a  }      { da  }
+    { de~os }      { dos }
+    { de~as }      { das }
+    { em~o  }      { no  }
+    { em~a  }      { na  }
+    { em~os }      { nos }
+    { em~as }      { nas }
+    { A~o   }      { Ao  }
+    { A~a   }      { À   }
+    { A~os  }      { Aos }
+    { A~as  }      { Às  }
+    { De~o  }      { Do  }
+    { De~a  }      { Da  }
+    { De~os }      { Dos }
+    { De~as }      { Das }
+    { Em~o  }      { No  }
+    { Em~a  }      { Na  }
+    { Em~os }      { Nos }
+    { Em~as }      { Nas }
+  }
+\tl_const:Nx \c_crefthe_contraction_rule_brazilian_tl
+  { \exp_not:V \c_crefthe_contraction_rule_portuguese_tl }
+
+\endinput
+%%
+%% End of file `crefthe.sty'.

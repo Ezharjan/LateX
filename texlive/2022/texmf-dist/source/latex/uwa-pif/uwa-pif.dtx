@@ -1,0 +1,646 @@
+% \iffalse meta-comment
+% Copyright 2019, 2021 Anthony Di Pietro
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Anthony Di Pietro.
+%
+% This work consists of the files uwa-pif.dtx, uwa-pif.ins, and
+% uwa-pif-example.tex and the derived files uwa-pif.cls and uwa-pif.pdf.
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{uwa-pif.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<class>\ProvidesClass{uwa-pif}
+%<*class>
+    [2021/09/28 1.0.1 UWA Participant Information Form]
+%</class>
+%
+%<*driver>
+\documentclass[
+        a4paper,
+        10pt
+]{ltxdoc}
+\usepackage{hypdoc}
+\PassOptionsToPackage{scale=0.9}{sourcecodepro}
+\usepackage[regular]{uwa-letterhead}[2021/09/13]
+\GetFileInfo{uwa-pif.dtx}
+\setcounter{secnumdepth}{3}
+\geometry{
+        left=5cm,
+        right=2cm
+}
+\hypersetup{colorlinks=true}
+\date{}
+\makeatletter
+\title{%
+        {The UWA Participant Information Form Class} \\
+        {\Large uwa-pif \fileversion{} (\filedate{})}%
+}
+\c@IndexColumns = 2
+\renewcommand*{\uwalh@uwa}{\sffamily}
+\renewcommand{\uwalh@makeletterhead}{}
+\makeatother
+\DoNotIndex{\newcommand, \newenvironment}
+\DisableCrossrefs
+\CodelineIndex
+\RecordChanges
+\CheckSum{220}
+\begin{document}
+        \DocInput{uwa-pif.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{1.0.0}{2019/08/31}{Initial version}
+% \changes{1.0.1}{2021/09/28}{
+%         Make HREO statement, closing, and Calibri optional
+% }
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% This class generates a Participant Information Form (PIF) for a
+% human research protocol at the University of Western Australia.
+%
+% \section{Usage}
+%
+% \subsection{External Dependencies}
+%
+% You must supply the university logo (as |uwacrest-blue.pdf| by default).
+% It is available in SVG format at
+% \href{https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}
+% {https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}.
+%
+% In accordance with the official PIF template, this class uses the
+% \href{https://docs.microsoft.com/en-us/typography/font-list/calibri}{Calibri}
+% typeface by default. The fonts must be installed on the system for this to
+% work. Calibri is available as part of Microsoft's TrueType core fonts for the
+% web (\url{https://sourceforge.net/projects/mscorefonts2/}). Alternatively,
+% you can use the |nocalibri| class option to substitute it with
+% \href{https://adobe-fonts.github.io/source-sans/}{Source Sans Pro}, the usual
+% typeface used for university correspondence.
+%
+% With the |footer| option, this class uses the
+% \href{https://docs.microsoft.com/en-us/typography/font-list/arial}{Arial}
+% typeface by default. The fonts must be installed on the system for this to
+% work. Arial is also available as part of Microsoft's TrueType core fonts
+% for the web, and you can use the |noarial| class option to substitute it
+% with Source Sans Pro.
+%
+% \subsection{Class Options}
+%
+% \DescribeMacro{\documentclass}
+% To select the class, add this to your preamble:
+% \begin{quote}
+% |\documentclass{uwa-pif}|
+% \end{quote}
+%
+% This class supports the |draft|, |final|, |leqno|, and |fleqn| options
+% from the |article| base class and the |footer|, |nofooter|, |arial|, and
+% |noarial| options from the |uwa-letterhead| package.
+%
+% You can pass the following options to specify whether to include the
+% mandatory Human Ethics Research Office (HREO) statement:
+% \begin{itemize}
+%         \item |hreo|: Include HREO statement (default).
+%         \item |nohreo|: Do not include HREO statement.
+% \end{itemize}
+%
+% You can pass the following options to specify whether to include the
+% closing:
+% \begin{itemize}
+%         \item |closing|: Include closing (default).
+%         \item |noclosing|: Do not include closing.
+% \end{itemize}
+%
+% You can pass the following options to specify whether to use the
+% Calibri typeface:
+% \begin{itemize}
+%         \item |calibri|: Use Calibri (default).
+%         \item |nocalibri|: Do not use Calibri.
+% \end{itemize}
+%
+% \subsection{Letterhead Fields}
+%
+% Use the following commands in the preamble to set the letterhead fields:
+%
+% \DescribeMacro{\author}
+% \begin{minipage}[t]{\textwidth}
+% |\author|\marg{author} \\
+% The author of the document. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\school}
+% \begin{minipage}[t]{\textwidth}
+% |\school|\marg{school} \\
+% The author's school within the university. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\mbdp}
+% \begin{minipage}[t]{\textwidth}
+% |\mbdp|\marg{mbdp} \\
+% The author's \href{http://www.staff.uwa.edu.au/facilities/mail/mbdp}
+% {mailbag delivery point (MBDP)}. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\university}
+% \begin{minipage}[t]{\textwidth}
+% |\university|\marg{university} \\
+% The name of the university. \\
+% Default: \textit{The University of Western Australia}
+% \end{minipage}
+%
+% \DescribeMacro{\address}
+% \begin{minipage}[t]{\textwidth}
+% |\address|\marg{address} \\
+% The university's address. \\
+% Default: \textit{35 Stirling Highway, Crawley WA 6009}
+% \end{minipage}
+%
+% \DescribeMacro{\phone}
+% \begin{minipage}[t]{\textwidth}
+% |\phone|\marg{phone} \\
+% The author's phone number. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\mobile}
+% \begin{minipage}[t]{\textwidth}
+% |\mobile|\marg{mobile} \\
+% The author's mobile number. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\email}
+% \begin{minipage}[t]{\textwidth}
+% |\email|\marg{email} \\
+% The author's email address. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\website}
+% \begin{minipage}[t]{\textwidth}
+% |\website|\marg{website} \\
+% The author's website, or their school's website. \\
+% Omit the scheme (|https://|) and path (|/|). \\
+% Default: \textit{www.uwa.edu.au}
+% \end{minipage}
+%
+% \DescribeMacro{\footeraddress}
+% \begin{minipage}[t]{\textwidth}
+% |\footeraddress|\marg{footeraddress} \\
+% The university's address, shortened for the first-page footer. \\
+% Default: \textit{Perth WA 6009 Australia}
+% \end{minipage}
+%
+% \DescribeMacro{\cricos}
+% \begin{minipage}[t]{\textwidth}
+% |\cricos|\marg{cricos} \\
+% The university's \href{http://cricos.education.gov.au/}{CRICOS} provider code. \\
+% Default: \textit{00126G}
+% \end{minipage}
+%
+% \DescribeMacro{\uwacrest}
+% \begin{minipage}[t]{\textwidth}
+% |\uwacrest|\marg{uwacrest} \\
+% The filename of the UWA crest in PDF format (available in SVG format at
+% \href{https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}
+% {https://static-listing.weboffice.uwa.edu.au/visualid/core-rebrand/img/uwacrest/}). \\
+% Default: \textit{uwacrest-blue.pdf}
+% \end{minipage}
+%
+% \subsection{Project Fields}
+%
+% Use the following commands in the preamble to set the project fields:
+%
+% \DescribeMacro{\project}
+% \begin{minipage}[t]{\textwidth}
+% |\project|\marg{project} \\
+% The project's title. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\researchers}
+% \begin{minipage}[t]{\textwidth}
+% |\researchers|\marg{researchers} \\
+% The project's researchers. Use |\researcher| for each researcher. \\
+% Required
+% \end{minipage}
+%
+% \DescribeMacro{\researcher}
+% \begin{minipage}[t]{\textwidth}
+% |\researcher|\marg{name}\marg{role} \\
+% Define a researcher by name and role.
+% \end{minipage}
+%
+% For example, a student project might define its researchers as follows:
+% \begin{quote}
+% \begin{verbatim}
+% \researchers{
+%         \researcher{John Doe}{PhD Student}
+%         \researcher{Jane Doe}{Supervisor}
+% }
+% \end{verbatim}
+% \end{quote}
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \section{Implementation}
+%
+% \subsection{Class Options}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwapif@hreo}
+% \begin{macro}{\uwapif@closing}
+% \begin{macro}{\uwapif@calibrifont}
+% Define conditionals for the class options.
+%    \begin{macrocode}
+\newif\ifuwapif@hreo
+\newif\ifuwapif@closing
+\newif\ifuwapif@calibrifont
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% The |hreo| and |nohreo| options respectively enable and disable
+% the HREO statement.
+%    \begin{macrocode}
+\DeclareOption{hreo}{
+        \uwapif@hreotrue
+}
+\DeclareOption{nohreo}{
+        \uwapif@hreofalse
+}
+%    \end{macrocode}
+%
+% The |closing| and |noclosing| options respectively enable and disable
+% the closing.
+%    \begin{macrocode}
+\DeclareOption{closing}{
+        \uwapif@closingtrue
+}
+\DeclareOption{noclosing}{
+        \uwapif@closingfalse
+}
+%    \end{macrocode}
+%
+% The |calibri| and |nocalibri| options respectively enable and disable
+% the Calibri typeface.
+%    \begin{macrocode}
+\DeclareOption{calibri}{
+        \uwapif@calibrifonttrue
+}
+\DeclareOption{nocalibri}{
+        \uwapif@calibrifontfalse
+}
+%    \end{macrocode}
+%
+% Pass the |draft|, |final|, |leqno|, and |fleqn| options through to the
+% |article| base class, and pass the |footer|, |nofooter|, |arial|, and
+% |noarial| options through to the |uwa-letterhead| package.
+%    \begin{macrocode}
+\DeclareOption{draft}{
+        \PassOptionsToClass{\CurrentOption}{article}
+}
+\DeclareOption{final}{
+        \PassOptionsToClass{\CurrentOption}{article}
+}
+\DeclareOption{leqno}{
+        \PassOptionsToClass{\CurrentOption}{article}
+}
+\DeclareOption{fleqn}{
+        \PassOptionsToClass{\CurrentOption}{article}
+}
+\DeclareOption{footer}{
+        \PassOptionsToPackage{\CurrentOption}{uwa-letterhead}
+}
+\DeclareOption{nofooter}{
+        \PassOptionsToPackage{\CurrentOption}{uwa-letterhead}
+}
+\DeclareOption{arial}{
+        \PassOptionsToPackage{\CurrentOption}{uwa-letterhead}
+}
+\DeclareOption{noarial}{
+        \PassOptionsToPackage{\CurrentOption}{uwa-letterhead}
+}
+%    \end{macrocode}
+%
+% Show a warning for unknown options.
+%    \begin{macrocode}
+\DeclareOption*{
+        \ClassWarning{uwa-pif}{Unknown option '\CurrentOption'}
+}
+%    \end{macrocode}
+%
+% Use the |hreo|, |closing|, and |calibri| options by default.
+%    \begin{macrocode}
+\ExecuteOptions{
+       hreo,
+       closing,
+       calibri
+}
+%    \end{macrocode}
+%
+% Complete option processing.
+%    \begin{macrocode}
+\ProcessOptions\relax
+%    \end{macrocode}
+%
+% Load the |article| base class with the |a4paper| and |11pt| options.
+%    \begin{macrocode}
+\PassOptionsToClass{
+        a4paper,
+        11pt
+}{article}
+\LoadClass{article}
+%    \end{macrocode}
+%
+% \subsection{Page Configuration}
+%
+% Use |uwa-letterhead| to configure the page.
+%    \begin{macrocode}
+\RequirePackage{uwa-letterhead}
+%    \end{macrocode}
+%
+% \subsection{Font Configuration}
+%
+% Use |fontspec| for access to OpenType and TrueType fonts.
+%    \begin{macrocode}
+\RequirePackage[no-math]{fontspec}
+%    \end{macrocode}
+%
+% Set default fonts.
+%    \begin{macrocode}
+\sffamily
+\ifuwapif@calibrifont
+        \setmainfont{Calibri}
+        \setsansfont{Calibri}
+\fi
+\renewcommand{\familydefault}{\sfdefault}
+%    \end{macrocode}
+%
+% Use |anyfontsize| to support the irregular font sizes required.
+%    \begin{macrocode}
+\RequirePackage{anyfontsize}
+%    \end{macrocode}
+%
+% Use |setspace| to adjust line spacing of HREO statement.
+%    \begin{macrocode}
+\RequirePackage{setspace}
+%    \end{macrocode}
+%
+% \subsection{Heading Configuration}
+%
+% Use |titlesec| to configure headings.
+%    \begin{macrocode}
+\RequirePackage[sf]{titlesec}
+\titleformat{\section}{\color{black}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{black}\bfseries\small}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{-0.07em}{-0.07em}
+\titlespacing*{\subsection}{0pt}{-0.07em}{-0.07em}
+%    \end{macrocode}
+% Disable section numbering.
+%    \begin{macrocode}
+\setcounter{secnumdepth}{0}
+%    \end{macrocode}
+%
+% \subsection{Colour Configuration}
+%
+% Use |xcolor| for colour support, and enable |hyperref| compatibility.
+%    \begin{macrocode}
+\RequirePackage[hyperref]{xcolor}
+%    \end{macrocode}
+% Define body text colour.
+%    \begin{macrocode}
+\definecolor{UWAPIFBody}{RGB}{31, 73, 125}
+%    \end{macrocode}
+%
+% \subsection{Template Fields}
+%
+% Set default values for the letterhead template fields.
+%    \begin{macrocode}
+\renewcommand*{\uwalh@footermbdp}{459}
+\renewcommand*{\uwalh@footerphone}{+61 8 6488 3703}
+\renewcommand*{\uwalh@mobile}{+61 000 000 000}
+\renewcommand*{\uwalh@footeremail}{humanethics@uwa.edu.au}
+%    \end{macrocode}
+%
+% Redefine macros to set the letterhead template fields
+% without affecting the first-page footer.
+%    \begin{macrocode}
+\renewcommand*{\mbdp}[1]{\renewcommand*{\uwalh@mbdp}{#1}}
+\renewcommand*{\university}[1]{\renewcommand*{\uwalh@university}{#1}}
+\renewcommand*{\phone}[1]{\renewcommand*{\uwalh@phone}{#1}}
+\renewcommand*{\mobile}[1]{}
+\renewcommand*{\email}[1]{\renewcommand*{\uwalh@email}{#1}}
+%    \end{macrocode}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\uwapif@project}
+% \begin{macro}{\uwapif@researchers}
+% Set default values for the template fields.
+%    \begin{macrocode}
+\newcommand*{\uwapif@project}{}
+\newcommand*{\uwapif@researchers}{}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \begin{minipage}{\textwidth}
+% \begin{macro}{\project}
+% \begin{macro}{\researcher}
+% \begin{macro}{\researchers}
+% Define macros to set the template fields.
+%    \begin{macrocode}
+\newcommand*{\project}[1]{\renewcommand*{\uwapif@project}{#1}}
+\newcommand{\researcher}[2]{#1 & (#2) \\}
+\newcommand{\researchers}[1]{\renewcommand{\uwapif@researchers}{%
+        \begin{tabular}{@{}ll@{}}
+                #1
+        \end{tabular}%
+}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{minipage}
+%
+% \subsection{Field Validation}
+%
+% \begin{macro}{\uwapif@checkfields}
+% Check that the required template fields are set.
+%    \begin{macrocode}
+\newcommand{\uwapif@checkfields}{%
+        \uwalh@checkfield{\uwapif@project}{\noexpand\project}
+        \uwalh@checkfield{\uwapif@researchers}{\noexpand\researchers}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Document Title}
+%
+% \begin{macro}{\uwapif@maketitle}
+% Generate the title of the Participant Information Form, including the
+% fields for the project title and researchers.
+%    \begin{macrocode}
+\newcommand{\uwapif@maketitle}{%
+        \uwapif@checkfields{}%
+        \vspace{-1\baselineskip}\vspace{0.450cm}%
+        \begin{center}%
+                \fontsize{16}{16.96}\selectfont%
+                \textcolor{black}{\textbf{Participant Information Form}}%
+                \normalsize%
+        \end{center}%
+        \vspace{-1\baselineskip}\vspace{0.935cm}
+        \textcolor{black}{\textbf{Project title:}} \uwapif@project{} \\
+        \vspace{-2\baselineskip}\vspace{0.477cm} \\
+        \textcolor{black}{\textbf{Name of Researchers:}} \\
+        \vspace{-2\baselineskip}\vspace{1.025cm} \\
+        \uwapif@researchers{}
+        \vspace{-0.045cm}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Closing}
+%
+% \begin{macro}{\uwapif@closingvspace}
+% The vertical space before the closing.
+%    \begin{macrocode}
+\newlength{\uwapif@closingvspace}
+\setlength{\uwapif@closingvspace}{2.6cm}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwapif@makeclosing}
+% Generate the closing.
+%    \begin{macrocode}
+\newcommand{\uwapif@makeclosing}{%
+        \vspace{\uwapif@closingvspace}%
+        {%
+                \color{black}%
+                Sincerely,
+
+                \@author
+        }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{HREO Statement}
+%
+% \begin{macro}{\uwapif@hreovspace}
+% The vertical space before the HREO statement.
+%    \begin{macrocode}
+\newlength{\uwapif@hreovspace}
+\setlength{\uwapif@hreovspace}{2.55cm}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwapif@hreostatement}
+% The statement required by the Human Research Ethics Office (HREO).
+%    \begin{macrocode}
+\newcommand{\uwapif@hreostatement}{%
+        Approval to conduct this research has been provided by the University
+        of Western Australia, in accordance with its ethics review and
+        approval procedures. Any person considering participation in this
+        research project, or agreeing to participate, may raise any questions
+        or issues with the researchers at any time. In addition, any person
+        not satisfied with the response of researchers may raise ethics issues
+        or concerns, and may make any complaints about this research project
+        by contacting the Human Ethics office at UWA on
+        \href{tel:+61-8-6488-4703}{(08)~6488~4703} or by emailing to
+        \href{mailto:humanethics@uwa.edu.au}{humanethics@uwa.edu.au}. All
+        research participants are entitled to retain a copy of any Participant
+        Information Form and/or Participant Consent Form relating to this
+        research project.
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\uwapif@makehreostatement}
+% Generate the HREO statement.
+%    \begin{macrocode}
+\newcommand{\uwapif@makehreostatement}{%
+        \vspace{\uwapif@hreovspace}%
+        \hrule%
+        \begin{minipage}{\textwidth}
+                {%
+                        \begin{spacing}{1.17}
+                        \fontsize{9}{10.8}\selectfont\color{black}%
+                        \uwapif@hreostatement{}%
+                        \end{spacing}
+                }%
+        \end{minipage}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Body Text Font}
+%
+% \begin{macro}{\uwapif@bodyfont}
+% Set the body text font and colour.
+%    \begin{macrocode}
+\newcommand*{\uwapif@bodyfont}{%
+        \sffamily\fontsize{11}{15.5}\selectfont\color{UWAPIFBody}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Form Generation}
+%
+% Automatically generate the title and set the body text font at
+% the beginning of the document.
+%    \begin{macrocode}
+\AtBeginDocument{%
+        \uwapif@bodyfont{}%
+        \uwapif@maketitle{}%
+}
+%    \end{macrocode}
+%
+% Automatically add the closing and HREO statement at the end
+% of the document.
+%    \begin{macrocode}
+\AtEndDocument{%
+        \ifuwapif@closing\uwapif@makeclosing{}\fi%
+        \ifuwapif@hreo\uwapif@makehreostatement{}\fi%
+}
+%    \end{macrocode}
+%
+% \Finale
+\endinput

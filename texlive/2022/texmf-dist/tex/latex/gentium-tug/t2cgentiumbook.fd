@@ -1,0 +1,87 @@
+\ProvidesFile{t2cgentiumbook.fd}
+    [2022/05/30 Font definitions for gentiumbook.]
+
+\expandafter\ifx\csname gentiumbook@scale\endcsname\relax
+    \let\gentiumbook@@scale\@empty
+\else
+    \edef\gentiumbook@@scale{s*[\csname gentiumbook@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{T2C}{gentiumbook}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{m}{n}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-regular
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{m}{it}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-italic
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{b}{n}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-bold
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{b}{it}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sl}{n}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-regular
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sl}{it}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-italic
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sb}{n}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-bold
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sb}{it}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{m}{sc}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{m}{scit}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{b}{sc}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{b}{scit}{
+            <->     \gentiumbook@@scale t2c-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sl}{sc}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sl}{scit}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sb}{sc}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{sb}{scit}{
+            <->     \gentiumbook@@scale t2c-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{T2C}{gentiumbook}{m}{sl}{<->ssub * gentiumbook/m/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{b}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{bx}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{bx}{it}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{bx}{n}{<->ssub * gentiumbook/b/n}{}
+\DeclareFontShape{T2C}{gentiumbook}{sl}{sl}{<->ssub * gentiumbook/sl/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{sb}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{sbx}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{sbx}{it}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{T2C}{gentiumbook}{sbx}{n}{<->ssub * gentiumbook/sb/n}{}
+
+\endinput

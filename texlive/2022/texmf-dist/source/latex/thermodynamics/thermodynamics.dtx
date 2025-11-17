@@ -1,0 +1,3526 @@
+% \iffalse meta-comment
+% File: thermodynamics.dtx Copyright (C) 2021 Karl D. Hammond
+%
+% Karl D. Hammond
+% Chemical Engineering Program
+% University of Missouri
+% Contact: hammondkd@missouri.edu
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is K. D. Hammond.
+%
+% This work consists of the files thermodynamics.dtx and thermodynamics.ins
+% and the derived files thermodynamics.sty, thermodynamics.pdf,
+% thermodynamics-examples.tex, and thermodynamics-examples.pdf.
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{thermodynamics.dtx}
+%</driver>
+%
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{thermodynamics}
+%<*package>
+    [2022/04/29 v1.00 thermodynamics package]
+%</package>
+%
+%<*driver>
+\documentclass[11pt,letterpaper]{ltxdoc}
+\usepackage[margin=1in,left=1.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[full]{textcomp}
+\usepackage{amsmath}
+\usepackage{pxfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{footmisc}
+\usepackage[labelfont=bf,labelsep=period]{caption}
+%\EnableCrossrefs
+%\CodelineIndex
+\PageIndex
+\CodelineNumbered
+\RecordChanges
+%\OnlyDescription
+\begin{document}
+  \DocInput{thermodynamics.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{2286}
+%
+% \CharacterTable
+% {Upper-case   \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%  Lower-case   \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%  Digits       \0\1\2\3\4\5\6\7\8\9
+%  Exclamation     \!      Double quote    \"      Hash (number)   \#
+%  Dollar          \$      Percent         \%      Ampersand       \&
+%  Acute accent    \'      Left paren      \(      Right paren     \)
+%  Asterisk        \*      Plus            \+      Comma           \,
+%  Minus           \-      Point           \.      Solidus         \/
+%  Colon           \:      Semicolon       \;      Less than       \<
+%  Equals          \=      Greater than    \>      Question mark   \?
+%  Commercial at   \@      Left bracket    \[      Backslash       \\
+%  Right bracket   \]      Circumflex      \^      Underscore      \_
+%  Grave accent    \`      Left brace      \{      Vertical bar    \|
+%  Right brace     \}      Tilde           \~}
+%
+% \changes{v1.00}{2022/04/29}{Initial public release}
+%
+% \GetFileInfo{thermodynamics.dtx}
+%
+% \title{The \textsf{thermodynamics} package\thanks{This document
+%   corresponds to \textsf{thermodynamics}~\fileversion, dated \filedate.}}
+% \author{Karl D. Hammond \\ \texttt{hammondkd@missouri.edu}}
+% \date{\filedate}
+% \maketitle
+%
+% \begin{abstract}
+% A package, \textsf{thermodynamics}, is defined that makes typesetting
+% quantities found in thermodynamics texts relatively simple. The commands are
+% flexible and intended to be relatively intuitive. It handles several sets
+% of notation for total, specific, and molar quantities; allows changes between
+% symbols (e.g., $A$ vs.\ $F$ for Helmholtz free energy); and greatly
+% simplifies the typesetting of symbols and partial derivatives commonly
+% encountered in mixture thermodynamics. Changes of one's notes from one
+% textbook to another can be achieved relatively easily by changing package
+% options.
+% \end{abstract}
+%
+% \newcommand*{\thermounderline}[1]{%
+%   \mkern2mu\underline{\mkern-2mu #1\mkern-3mu}\mkern3mu%
+% }
+% \newcommand*{\thermooverline}[1]{%
+%   \mkern2mu\overline{\mkern-2mu #1\mkern-2mu}\mkern2mu%
+% }
+% \newcommand*{\Partial}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}}
+% \newcommand*{\Ut}{\mkern1mu\underline{\mkern-1mu U\mkern-4mu}\mkern4mu}
+% \newcommand*{\Upm}[2][]{\mkern2mu\overline{\mkern-2mu U_{#2}^{#1}\mkern-2mu}\mkern2mu}
+% \newcommand*{\Ht}{\mkern1mu\underline{\mkern-1mu H\mkern-4mu}\mkern4mu}
+% \newcommand*{\Hm}{H}
+% \newcommand*{\Hpm}[2][]{\mkern2mu\overline{\mkern-2mu H_{#2}^{#1}\mkern-1mu}\mkern1mu}
+% \newcommand*{\Ft}{\mkern1mu\underline{\mkern-1mu A\mkern-4mu}\mkern4mu}
+% \newcommand*{\Gt}{\mkern1mu\underline{\mkern-1mu G\mkern-4mu}\mkern4mu}
+% \newcommand*{\Gpm}[2][]{\mkern2mu\overline{\mkern-2mu G_{#2}^{#1}\mkern-1mu}\mkern1mu}
+% \newcommand*{\Spm}[2][]{\mkern2mu\overline{\mkern-2mu S_{#2}^{#1}\mkern-1mu}\mkern1mu}
+% \newcommand*{\Vpm}[2][]{\mkern1mu\overline{\mkern-1mu V_{\mkern-2mu #2}^{#1}\mkern-2mu}\mkern2mu}
+% \newcommand*{\St}{\mkern1mu\underline{\mkern-1mu S\mkern-3mu}\mkern3mu}
+% \newcommand*{\Vt}{\mkern3mu\underline{\mkern-3mu V\mkern-4mu}\mkern4mu}
+% \newcommand*{\Lt}{\mkern1mu\underline{\mkern-1mu \Omega\mkern-4mu}\mkern4mu}
+% \newcommand*{\cPpm}[2][]{\mkern2mu\overline{\mkern-2mu C_{P,#2}^{#1}\mkern-1mu}\mkern1mu}
+% 
+% \newcommand*{\Nt}{n}
+% \newcommand*{\allNs}{\vec\Nt}
+% \newcommand*{\allNsbut}[2][j]{\Nt_{#1\neq #2}}
+% \newcommand*{\allXs}{\vec x}
+%
+% \section{Introduction}
+% The purpose of this package is to simplify the typesetting of equations in
+% thermodynamics, specifically chemical engineering thermodynamics, which are
+% often cumbersome to enter. For example, consider the following equation:
+% \begin{equation}
+%   d\Ut = \Partial{\Ut}{\St}{\Vt,\allNs} \mkern-10mu d\St
+%         + \Partial{\Ut}{\Vt}{\St,\allNs} \mkern-10mu d\Vt
+% + \sum_{i=1}^C \Partial{\Ut}{\Nt_i}{\St,\Vt,\allNsbut{i}}
+% \mkern-10mu d\Nt_i.
+%   \label{eq:chain-rule-U}
+% \end{equation}
+% This equation is pretty basic, and equations like it occur all the time in
+% thermodynamics. Without this package, you might typeset it like this:
+% \begin{verbatim}
+%  d\underline{U} =
+%    \left(\frac{\partial\underline{U}}
+%               {\partial\underline{S}}\right)_{\underline{V},\vec{n}}
+%    d\underline{S}
+%  + \left(\frac{\partial\underline{U}}
+%               {\partial\underline{V}}\right)_{\underline{S},\vec{n}}
+%    d\underline{V}
+%  + \sum_{i=1}^C \left(\frac{\partial\underline{U}}
+%       {\partial n_i}\right)_{\underline{S},\underline{V},n_{j\neq i}}
+%    dn_i.
+%\end{verbatim}
+% This is a lot of code, and even then the output is slightly clunky:
+% \[ d\underline{U} =
+%     \left(\frac{\partial\underline{U}}
+%                {\partial\underline{S}}\right)_{\underline{V},\vec{n}}
+%     d\underline{S}
+%   + \left(\frac{\partial\underline{U}}
+%                {\partial\underline{V}}\right)_{\underline{S},\vec{n}}
+%     d\underline{V}
+%   + \sum_{i=1}^C \left(\frac{\partial\underline{U}}
+%                {\partial n_i}\right)_{\underline{S},\underline{V},n_{j\neq i}}
+%     dn_i.
+% \]
+% It is also frustratingly difficult to change one's notes or handouts from one
+% textbook that uses, say, $n_1$ to denotes moles of component 1 to another
+% textbook that uses $N_1$ for the same quantity, or perhaps denotes the
+% total internal energy as $U$ or $U^t$ rather than $\Ut$.
+% For example, if you wanted it to be
+% \[
+%   dU = \Partial{U}{S}{V,N_1,\dotsc,N_n} \mkern-15mu dS
+%      + \Partial{U}{V}{S,N_1,\dotsc,N_n} \mkern-15mu dV
+% + \sum_{i=1}^n \Partial{U}{N_i}{S,V,N_1,\dotsc,[N_i],\dotsc,N_n}
+% \mkern-20mu dN_i
+% \]
+% without changing any of your code---to update it across all handouts, exams,
+% and homework sets after changing textbooks, say---you would be out of luck
+% (or in for a lot of work).
+%
+% With this package, you could reduce the code to typeset this equation to
+% \begin{verbatim}
+%  \begin{equation}
+%     d\Ut = \Partial*{\Ut}{\St}{\Vt,\allNs} d\St
+%       + \Partial*{\Ut}{\Vt}{\St,\allNs} d\Vt
+%       + \sumall_i \Partial*{\Ut}{\Nt_i}{\St,\Vt,\allNsbut{i}} d\Nt_i
+%  \end{equation}
+%\end{verbatim}
+% and it will render similarly to Equation~\eqref{eq:chain-rule-U}, including
+% the shortened underscores and negative kerning.
+% If you later decide to change the notation such that extensive properties are
+% not underlined, you can do that without changing any of your code (just
+% change a package option). Similarly, if you want $\vec{n}$ replaced by
+% $n_1,\dots,n_C$, you can do that with a package option, too.
+%
+% The package handles second derivatives, too. For example,
+% \begin{verbatim}
+%  \Partial*{\Hm}{T}{P} = T\Partial*{\Sm}{T}{P}
+%                       = -T\PartialSecond*{\Gm}{T}{P} = \cP
+%\end{verbatim}
+% renders (using the default options)
+% \[ \left(\frac{\partial H}{\partial T}\right)_P \mkern-8mu
+%     = T\left(\frac{\partial S}{\partial T}\right)_P \mkern-8mu
+%     = -T\left(\frac{\partial^2 G}{\partial T^2}\right)_P \mkern-8mu
+%     = C_P \]
+% Similarly, macros are defined for mixed second partial derivatives that allow
+% things like
+% \begin{verbatim}
+%  \Partial*{\Gpm_i}{P}{T,\allNs}
+%    = \PartialMixSecond*{\Gt}{P}{\Nt_i}{T,\allNsbut{i}}
+%    = \PartialMixSecond*{\Gt}{\Nt_i}{P}{T,\allNsbut{i}}
+%    = \Partial*{Vt}{\Nt_i}{T,P,\allNsbut{i}} = \Vpm_i
+%\end{verbatim}
+% which renders
+% \[ \left(\frac{\partial \Gpm{i}}{\partial P}\right)_{T,\allNs}
+%   \mkern-15mu%
+%    = \left(\frac{\partial^2 \Gt}{\partial P\partial n_i}\right)_{T,\allNsbut{i}}
+%   \mkern-15mu%
+%    = \left(\frac{\partial^2 \Gt}{\partial n_i\partial P}\right)_{T,\allNsbut{i}}
+%   \mkern-15mu%
+%    = \left(\frac{\partial \Vt}{\partial n_i}\right)_{T,P,\allNsbut{i}}
+%   \mkern-15mu%
+%    = \Vpm{i}
+% \]
+% using the defaults.
+%
+% ^^A-------------------------------------------------------------------------
+%
+% \section{Using the Package} \label{sec:using}
+% There are three categories of macros defined in this package: macros
+% that produce symbols (or groups of them), macros that typeset derivatives,
+% and macros that are used internally that the user need not know about.
+% There are also several environments that allow the user to switch locally
+% between different delimiters on partial derivatives.
+%
+% \subsection{Predefined Symbols}
+% The macros used to produce symbols fall into five categories: extensive
+% properties, molar properties, specific properties (i.e., per unit mass),
+% partial molar properties, and shortcut macros (e.g., macros for the heat
+% capacities, saturation pressure, and so forth). The macros corresponding to
+% extensive, molar, and specific properties are shown in
+% Table~\ref{table:symbols}. Examples using the enthalpy are
+% \DescribeMacro{\Ht}
+% \DescribeMacro{\Hm}
+% \DescribeMacro{\Hs}
+% \DescribeMacro{\Hpm}
+% \begin{verbatim}
+%   \[ \Ht \quad \Hm \quad \Hs \quad \Hpm_i. \]
+%\end{verbatim}
+% Using the default package options, the above renders as
+%   \[ \Ht \quad \Hm \quad \hat H \quad \Hpm{i}. \]
+% In addition, the properties in
+% Table~\ref{table:conveniences} are defined for convenience.
+%
+% \DescribeMacro{\Ut}
+% \DescribeMacro{\Um}
+% How these symbols are rendered can be customized by package options. As long
+% as the user consistently uses \cs{Ut} to render the total internal energy,
+% \cs{Um} to render the molar internal energy, and so forth, switching notation
+% from, say, $\thermounderline{U}$ to $U^t$ for extensive properties is trivial.
+%
+% ^^A \DescribeMacro{\cP}
+% ^^A \DescribeMacro{\cV}
+% \DescribeMacro{\cPt}
+% \DescribeMacro{\cVt}
+% \DescribeMacro{\cPs}
+% \DescribeMacro{\cVs}
+% \DescribeMacro{\cPpm}
+% \DescribeMacro{\cVpm}
+% The heat capacities (see Table~\ref{table:conveniences}) are generally
+% assumed to be molar (e.g., \cs{cP} is interpreted to be the molar heat
+% capacity). To get the specific heat capacities, the macros \cs{cPs} and
+% \cs{cVs} are provided, which by default render as $\hat C_P$ and $\hat C_V$,
+% respectively. There are also extensive versions, so \cs{cPt} and \cs{cVt}
+% will render as $\thermounderline{C}_P$ and $\thermounderline{C}_V,$
+% respectively.  Note that \cs{cP} and friends require you to surround
+% \cs{text} with brackets if the portion with \cs{text} in it is not the last
+% argument.  For example, \verb"\cP_i^\text{A}" will work as expected, but
+% \verb"\cP^\text{A}_i" will not: you need to use \verb"\cP^{\text{A}}_i".
+% Using \verb"\cP^\IG_i" will work as expected.
+%
+% You can also get partial molar heat capacities via \cs{cPpm} and \cs{cVpm},
+% though the latter's mathematical definition is a bit hard to wrap one's head
+% around:
+% \begin{verbatim}
+%   \[ \cVpm_i = \Partial{\cVt}{\Nt_i}{T,P,\allNsbut{i}}
+%              = \frac{\partial}{\partial\Nt_i}
+%                \left[ -T\PartialSecond{\Ft}{T}{\Vt,\allNs}
+%                \right]_{T,P,\allNsbut{i}} \]
+%\end{verbatim}
+% yields
+% \[ \thermooverline{C_{V,i}}
+%   = \left(\frac{\partial\thermounderline{C}_V}
+%                {\partial\Nt_i}\right)_{T,P,\allNsbut{i}}
+%               = \frac{\partial}{\partial\Nt_i}
+%         \left[ -T\left(\frac{\partial^2\Ft}{\partial T^2}\right)_{\Vt,\allNs}
+%         \right]_{T,P,\allNsbut{i}} \]
+%
+% \begin{table}
+%   \caption{Commands defined in this package to represent extensive
+%       thermodynamic quantities and their molar and specific analogs.
+%       These macros should be used even if the symbol the user
+%       wishes to use does not match the command used (e.g., \cs{Ft}
+%       for total Helmholtz free energy even if it ends up being set as
+%       $\thermounderline{A}$)\@.
+%   }
+%   \label{table:symbols}
+%   \SpecialUsageIndex{\Qt}\relax
+%   \SpecialUsageIndex{\Qm}\relax
+%   \SpecialUsageIndex{\Qs}\relax
+%   \SpecialUsageIndex{\Wt}\relax
+%   \SpecialUsageIndex{\Wm}\relax
+%   \SpecialUsageIndex{\Ws}\relax
+%   \SpecialUsageIndex{\Et}\relax
+%   \SpecialUsageIndex{\Em}\relax
+%   \SpecialUsageIndex{\Es}\relax
+%   \SpecialUsageIndex{\Epm}\relax
+%   \SpecialUsageIndex{\Ut}\relax
+%   \SpecialUsageIndex{\Um}\relax
+%   \SpecialUsageIndex{\Us}\relax
+%   \SpecialUsageIndex{\Upm}\relax
+%   \SpecialUsageIndex{\Ht}\relax
+%   \SpecialUsageIndex{\Hm}\relax
+%   \SpecialUsageIndex{\Hs}\relax
+%   \SpecialUsageIndex{\Hpm}\relax
+%   \SpecialUsageIndex{\St}\relax
+%   \SpecialUsageIndex{\Sm}\relax
+%   \SpecialUsageIndex{\Ss}\relax
+%   \SpecialUsageIndex{\Spm}\relax
+%   \SpecialUsageIndex{\Ft}\relax
+%   \SpecialUsageIndex{\Fm}\relax
+%   \SpecialUsageIndex{\Fs}\relax
+%   \SpecialUsageIndex{\Fpm}\relax
+%   \SpecialUsageIndex{\Gt}\relax
+%   \SpecialUsageIndex{\Gm}\relax
+%   \SpecialUsageIndex{\Gs}\relax
+%   \SpecialUsageIndex{\Gpm}\relax
+%   \SpecialUsageIndex{\At}\relax
+%   \SpecialUsageIndex{\Am}\relax
+%   \SpecialUsageIndex{\As}\relax
+%   \SpecialUsageIndex{\Apm}\relax
+%   \SpecialUsageIndex{\Nt}\relax
+%   \SpecialUsageIndex{\Lt}\relax
+%   \SpecialUsageIndex{\Lm}\relax
+%   \SpecialUsageIndex{\Ls}\relax
+%   \SpecialUsageIndex{\Lpm}\relax
+%   \SpecialUsageIndex{\Bt}\relax
+%   \SpecialUsageIndex{\Bm}\relax
+%   \SpecialUsageIndex{\Bs}\relax
+%   \SpecialUsageIndex{\Bpm}\relax
+%   \SpecialUsageIndex{\Mt}\relax
+%   \SpecialUsageIndex{\Mm}\relax
+%   \SpecialUsageIndex{\Ms}\relax
+%   \SpecialUsageIndex{\Mpm}\relax
+%   \centering
+%   \begin{minipage}{4.12in}\renewcommand*{\footnoterule}{\vskip-1ex}%
+%   \centering\small
+%   \begin{tabular}{l l l l l}
+%   \toprule
+%     Property & Total & Molar & Specific & Partial Molar \\
+%   \midrule
+%     Heat            & \cs{Qt} & \cs{Qm} & \cs{Qs} & N/A \\
+%     Work            & \cs{Wt} & \cs{Wm} & \cs{Ws} & N/A \\
+%     Total energy    & \cs{Et} & \cs{Em} & \cs{Es} & \cs{Epm} \\
+%     Internal energy & \cs{Ut} & \cs{Um} & \cs{Us} & \cs{Upm} \\
+%     Enthalpy        & \cs{Ht} & \cs{Hm} & \cs{Hs} & \cs{Hpm} \\
+%     Entropy         & \cs{St} & \cs{Sm} & \cs{Ss} & \cs{Spm} \\
+%     Volume          & \cs{Vt} & \cs{Vm} & \cs{Vs} & \cs{Vpm} \\
+%     Helmholtz free energy & \cs{Ft} & \cs{Fm} & \cs{Fs} & \cs{Fpm} \\
+%     Gibbs free energy & \cs{Gt} & \cs{Gm} & \cs{Gs} & \cs{Gpm} \\
+%     Surface area    & \cs{At} & \cs{Am} & \cs{As} & \cs{Apm} \\
+%     Grand potential\footnote{The grand potential,
+%       $\Lt(T,\Vt,\vec{\mu}\mkern1mu) = \Ut - T\St - \sum_i^C \mu_i \Nt_i,$
+%       is also called the Landau free energy by some authors.}
+%                  & \cs{Lt} & \cs{Lm} & \cs{Ls} & \cs{Lpm} \\
+%     Moles           & \cs{Nt} & N/A & N/A & N/A \\
+%     $B$ (generic property) & \cs{Bt} & \cs{Bm} & \cs{Bs} & \cs{Bpm} \\
+%     $M$ (generic property) & \cs{Mt} & \cs{Mm} & \cs{Ms} & \cs{Mpm} \\
+%   \bottomrule
+%   \end{tabular}
+%   \end{minipage}
+% \end{table}
+%
+% \begin{table}
+%   \caption{Convenience macros and their default symbols.
+%       These are generally ``smart'': for example,
+%       \texttt{\textbackslash cP\_i} renders as $C_{P,i}$, as expected, and
+%       \texttt{\textbackslash cP\_i\^{}\textbackslash circ} renders as
+%       $C_{P,i}^\circ$, also as expected. You can also reverse it:
+%       \texttt{\textbackslash cP\^{}\textbackslash circ\_i} becomes
+%       $C^\circ_{P,i}$.}
+%   \label{table:conveniences}
+%   \SpecialUsageIndex{\cP}\relax
+%   \SpecialUsageIndex{\cV}\relax
+%   \SpecialUsageIndex{\kappaT}\relax
+%   \SpecialUsageIndex{\kappaS}\relax
+%   \SpecialUsageIndex{\alphaP}\relax
+%   \SpecialUsageIndex{\alphaS}\relax
+%   \SpecialUsageIndex{\heatcapacitysymbol}\relax
+%   \SpecialUsageIndex{\compressibilitysymbol}\relax
+%   \SpecialUsageIndex{\expansivitysymbol}\relax
+%   \SpecialUsageIndex{\fpure}\relax
+%   \SpecialUsageIndex{\fmix}\relax
+%   \SpecialUsageIndex{\fsat}\relax
+%   \SpecialUsageIndex{\phipure}\relax
+%   \SpecialUsageIndex{\phimix}\relax
+%   \SpecialUsageIndex{\phisat}\relax
+%   \SpecialUsageIndex{\Psat}\relax
+%   \SpecialUsageIndex{\Pvap}\relax
+%   \SpecialUsageIndex{\sat}\relax
+%   \SpecialUsageIndex{\Henryrat}\relax
+%   \SpecialUsageIndex{\Henrymol}\relax
+%   \SpecialUsageIndex{\gammarat}\relax
+%   \SpecialUsageIndex{\gammamol}\relax
+%   \SpecialUsageIndex{\Deltamix}\relax
+%   \SpecialUsageIndex{\Deltarxn}\relax
+%   \SpecialUsageIndex{\Deltavap}\relax
+%   \SpecialUsageIndex{\Deltasub}\relax
+%   \SpecialUsageIndex{\Deltafus}\relax
+%   \SpecialUsageIndex{\mixing}\relax
+%   \SpecialUsageIndex{\reaction}\relax
+%   \SpecialUsageIndex{\fusion}\relax
+%   \SpecialUsageIndex{\vaporization}\relax
+%   \SpecialUsageIndex{\sublimation}\relax
+%   \begin{minipage}{\linewidth}
+%   \small
+%   \addtolength{\tabcolsep}{-2pt}\relax
+%   \addtolength{\extrarowheight}{0.75ex}\relax
+%   \renewcommand*{\footnoterule}{\vskip-1.5ex}\relax
+%   \begin{tabular}{l l l l l}
+%   \toprule
+%   \\[-1.5\normalbaselineskip]
+%     Name & Macro & Sym. & Definition & Base Symbol Macro \\
+%   \midrule
+%     Isobaric heat capacity & \verb"\cP"\footnote{\relax
+%         Extensive and specific (per-unit-mass) versions are available
+%         as \texttt{\textbackslash cPt} and \texttt{\textbackslash cPs},
+%         respectively, with similar macros for the isochoric heat capacity.
+%         \label{fn:cP}}
+%     & $C_P$ & $\displaystyle T\left(\frac{\partial S}{\partial T}\right)_P$
+%     & \verb"\heatcapacitysymbol" \\[2.0ex]
+%     Isochoric heat capacity & \verb"\cV"\footref{fn:cP} & $C_V$
+%     & $\displaystyle T\left(\frac{\partial S}{\partial T}\right)_V$
+%     & \verb"\heatcapacitysymbol" \\[2.0ex]
+%     Isothermal compressibility & \verb"\kappaT" & $\kappa_T$ &
+% \(\displaystyle -\frac{1}{V} \left(\frac{\partial V}{\partial P}\right)_T \)
+%       & \verb"\compressibilitysymbol" \\[2.0ex]
+%     Isentropic compressibility & \verb"\kappaS" & $\kappa_S$ &
+% \(\displaystyle -\frac{1}{V} \left(\frac{\partial V}{\partial P}\right)_S\)
+%       & \verb"\compressibilitysymbol" \\[2.0ex]
+%     Isobaric expansivity & \verb"\alphaP" & $\alpha_P$ &
+% \(\displaystyle \frac{1}{V} \left(\frac{\partial V}{\partial T}\right)_P\)
+%       & \verb"\expansivitysymbol" \\[2.0ex]
+%     Isentropic expansivity & \verb"\alphaS" & $\alpha_S$ &
+% \(\displaystyle \frac{1}{V} \left(\frac{\partial V}{\partial T}\right)_S\)
+%       & \verb"\expansivitysymbol" \\[2.0ex]
+%     Pure fugacity & \verb"\fpure" & $f$ & $\phi P$ \\
+%     Mixture fugacity & \verb"\fmix" & $\hat f$ & $\hat f_i = x_i\hat\phi_i P$ \\[0.5ex]
+%     Saturation fugacity & \verb"\fsat" & $f^\text{sat}$
+%       & $\phi^\text{sat} P^\text{sat}$ & \cs{sat} \\
+%     Pure fugacity coeff.\ & \verb"\phipure" & $\phi$ &
+%       \multicolumn{2}{l}{\( \phi_i
+%         = \exp\left(\frac{1}{RT}\int_0^P V_i(T,p)
+%               - \frac{RT}{p}\,dp\right) \)} \\
+%     Mixture fugacity coeff.\ & \verb"\phimix" & $\hat\phi$
+%       & \multicolumn{2}{l}{\( \hat\phi_i
+%          = \exp\left(\frac{1}{RT}\int_0^P \Vpm{i}(T,p,\allXs)
+%                - \frac{RT}{p}\,dp\right) \)} \\
+%     Henry's constant (rational) & \verb"\Henryrat" & $h$
+%       & $\gamma_i^\infty f_i$ \\
+%     Henry's constant (molal) & \verb"\Henrymol" & $\mathcal{H}$ 
+%       & $M_s \gamma_i^\infty f_i$ \\
+%     Rational activity coeff.\ & \verb"\gammarat" & $\gamma^\ast$
+%       & $\gamma/\gamma^\infty$ \\
+%     Molal activity coeff.\ & \verb"\gammamol" & $\gamma^\square$
+%       & $x_s \gamma/\gamma^\infty$ \\
+%     Saturation fugacity coeff.\ & \verb"\phisat" & $\phi^\text{sat}$
+%       & $\phi(T,P^\text{sat})$ & \cs{sat} \\
+%     Saturation pressure & \verb"\Psat" & $P^\text{sat}$ && \cs{sat} \\
+%     Vapor pressure & \verb"\Pvap" & \multicolumn{3}{l}{Currently a synonym
+%       for \cs{Psat}\footnote{If you want \cs{Pvap} to produce $P^\text{vap}$
+%       instead of $P^\text{sat}$, you should redefine the \cs{sat} macro.}} \\
+%     Standard state & \verb"\std"\footnote{Typical usage would be
+%       \texttt{\$\cs{mu}\_i = \cs{mu}\textasciicircum\cs{std}\_i
+%         + RT \cs{log} a\_i\$},
+%       yielding $\mu_i = \mu_i^\circ + RT \log a_i$.} & $\circ$ \\
+%     Standard pressure & \verb"\Pstd" & $P^\circ$ & & \cs{std} \\
+%     Standard fugacity & \verb"\fstd" & $f^\circ$ & $f(T,P^\circ)$ & \cs{std}
+%     \\
+%     Change on mixing & \verb"\Deltamix"\footnote{The usual usage would be
+%         something like
+%         \texttt{\$\cs{Deltamix}\cs{Vm}\textasciicircum\cs{IGM} = 0\$}.\relax
+%       \label{fn:Deltausage}}
+%       & $\Delta M$\textsubscript{mix}
+%       & $M - \sum_i x_i M_i$ & \verb"\mixing" \\
+%     Change on reaction & \verb"\Deltarxn"\footref{fn:Deltausage}
+%       & $\Delta M_\text{rxn}$
+%       & $\sum_i \nu_i M_i$ & \verb"\reaction" \\
+%     Change on melting & \verb"\Deltafus"\footref{fn:Deltausage}
+%       & $\Delta M^\text{fus}$ & $M^L - M^S$ & \verb"\fusion" \\
+%     Change on boiling & \verb"\Deltavap"\footref{fn:Deltausage}
+%       & $\Delta M^\text{vap}$ & $M^V - M^L$ & \verb"\vaporization" \\
+%     Change on subliming & \verb"\Deltasub"\footref{fn:Deltausage}
+%       & $\Delta M^\text{sub}$ & $M^V - M^S$ & \verb"\sublimation" \\
+%   \bottomrule
+%   \end{tabular}
+%   \end{minipage}
+% \end{table}
+%
+% \subsection{Partial Molar Properties}
+% \DescribeMacro{\Upm}
+% \DescribeMacro{\Hpm}
+% Partial molar quantities are typically defined with the suffix \verb"pm".
+% For example, \cs{Upm} refers to the partial molar internal energy. There
+% are two options for how to enter partial molar quantities: as commands or
+% as super/subscripts. For example,
+% \begin{verbatim}
+%  \[ \Upm{i} \quad \Upm[\IG]{i} \quad \Hpm_i \quad \Hpm^\IG_i \]
+%\end{verbatim}
+% will typeset as
+%  \[ \Upm{i} \quad \Upm[\text{IG}]{i} \quad \Hpm{i} \quad \Hpm[\text{IG}]{i}\]
+% There are also partial molar heat capacities available via \cs{cPpm} and
+% \cs{cVpm}.
+% \textbf{Important}: The \cs{text} command defined by the \verb"amstext"
+% package is usually robust enough that something like \verb"\Um^\text{L}" will
+% work as expected, without additional braces. This does \emph{not} work for
+% partial molar properties; for example, \verb"\Hpm^\text{L}_i" will produce an
+% error, as will \verb"\Hpm_i^\text{L}". The expression
+% \verb"\Hpm_i^{\text{L}}" will work as expected.
+%
+% \DescribeMacro{\partialmolar}
+% New partial molar properties can be defined for any ``simple'' symbol using
+% the \cs{partialmolar} macro. ``Simple'' means it has no subscripts or
+% superscripts. For example, the macro for the partial molar Gibbs free energy
+% is defined via the macro
+% \DescribeMacro{\Gpm}
+% \begin{verbatim}
+%   \newcommand*{\Gpm}{\partialmolar{\Gibbs@symbol}}
+%\end{verbatim}
+% A list of pre-defined macros for total, molar, specific, and partial molar
+% quantities commonly used in thermodynamics is included in
+% Table~\ref{table:symbols}.
+%
+% \subsection{Other Predefined Symbols and Modifiers}
+% There are a number of predefined symbols and modifiers.
+% While these symbols could be defined or used without these macros, such use
+% is not recommended: changing package options will result in inconsistencies
+% if these macros are not used.
+%
+% \subsubsection{Heat Capacities, Compressibilities, and Expansivities}
+% \DescribeMacro{\cP}
+% \DescribeMacro{\cV}
+% \DescribeMacro{\kappaS}
+% \DescribeMacro{\kappaT}
+% \DescribeMacro{\alphaP}
+% \DescribeMacro{\alphaS}
+% The isobaric and isochoric heat capacities are produced with \cs{cP} and
+% \cs{cV}, respectively. Four other measurable quantities are defined: the
+% isothermal and isentropic compressibilities, \cs{kappaT} and \cs{kappaS},
+% respectively; and the isobaric and isentropic volume expansivities,
+% \cs{alphaP} and \cs{alphaS}, respectively. Some textbooks use $\beta$ instead
+% of $\alpha$ for the volume expansivity to differentiate it from the
+% \emph{linear} expansivity; this can be changed by redefining
+% \cs{expansivitysymbol}, which is done automatically by some of the
+% package options that create notation specific to a particular textbook.
+%
+% \subsubsection{Fugacities and Fugacity Coefficients}
+% \DescribeMacro{\fpure}
+% \DescribeMacro{\fmix}
+% \DescribeMacro{\phipure}
+% \DescribeMacro{\phimix}
+% Different textbooks use different modifications of the symbol $f$ for
+% fugacity, so it is recommended to use the macro \cs{fpure} to denote the
+% pure-component fugacity and \cs{fmix} to denote the mixture fugacity.
+% Similarly, the pure-component fugacity coefficient should be generated with
+% \cs{phipure}, and that in the mixture should be \cs{phimix}.
+%
+% For example, the following markup is an example of a common equation in
+% mixture thermodynamics:
+% \begin{verbatim}
+%   \[ \fmix_j = x_j \phimix_j P = x_j \gamma_j \fpure_j. \]
+%\end{verbatim}
+% With the default package options, this produces
+%   \[ \hat f_j = x_j \hat\phi_j P = x_j \gamma_j f_j. \]
+% With the |Thompson| package option, however, the same markup produces
+%   \[ \hat f_j = x_j \hat\phi_j P = x_j \gamma_j f^\bullet_j. \]
+% Similarly, the |Prausnitz| package option causes it to generate
+%   \[ f_j = x_j \phi_j P = x_j \gamma_j f_{\text{pure},j}, \]
+% and the |Sandler| option causes it to generate
+%   \[ \bar f_j = x_j \bar \phi_j P = x_j \gamma_j f_j. \]
+%
+% \subsubsection{Activity Coefficients and Henry's Constants}
+% \DescribeMacro{\gammarat}
+% \DescribeMacro{\gammamol}
+% \DescribeMacro{\Henryrat}
+% \DescribeMacro{\Henrymol}
+% The activity coefficient can be generated with \cs{gamma}, as usual.
+% The Henry's Law activity coefficients should be produced with \cs{gammarat}
+% (rational basis) and \cs{gammamol} (molal basis).
+% There are also macros to generate the Henry's law constants for both the
+% rational basis (\cs{Henryrat}) and the molal basis (\cs{Henrymol}).
+% These are interrelated:
+% \begin{verbatim}
+% \[ \fmix_i = x_i \gamma_i \fpure_i = x_i \gammarat_i \Henryrat_i
+%            = C_i \gammamol_i \Henrymol_i \]
+%\end{verbatim}
+% produces
+% \[ \hat f_i = x_i \gamma_i f_i = x_i \gamma^*_i h_i
+%             = C_i \gamma^\square_i \mathcal{H}_i \]
+% using the default options.
+%
+% \subsubsection{Saturation Properties}
+% \DescribeMacro{\Psat}
+% \DescribeMacro{\Pvap}
+% \DescribeMacro{\fsat}
+% \DescribeMacro{\phisat}
+% The saturation pressure is generated with \cs{Psat}. The macro \cs{Pvap} is
+% an alias for \cs{Psat}. The fugacity and fugacity coefficient at saturation
+% are accessed via \cs{fsat} and \cs{phisat}, respectively. Package options
+% can be used to change some of these to match the notation of specific
+% textbooks.
+%
+% \DescribeMacro{\sat}
+% The \cs{sat} macro is used ``behind the scenes'' as part of
+% \cs{Psat}, \cs{fsat}, and \cs{phisat}, which produce $P^\text{sat}$,
+% $f^\text{sat}$, and $\phi^\text{sat}$, respectively. If you wanted to
+% redefine them to be $P^\text{vap}$, $f^\text{vap}$, and $\phi^\text{vap}$,
+% you could simply redefine \cs{sat} with
+% \verb"\renewcommand*{\sat}{{\text{vap}}}".
+% This is done automatically using package option |Sandler|.
+%
+% \subsubsection{Standard States}
+% \DescribeMacro{\std}
+% \DescribeMacro{\Pstd}
+% \DescribeMacro{\fstd}
+% The symbol $\circ$ (\cs{circ}) is used by default for standard states.
+% This is intended to be easy to change should the user want to replace
+% $P^\circ$ with $P^\ominus$, say. This is accessed via the \cs{std} macro.
+% The macro \cs{Pstd} is defined as |P^\std| for convenience to denote
+% standard pressures, and \cs{fstd} is defined for standard fugacities so as to
+% ease implementation across textbooks.
+%
+% The usual usage would be something like this:
+% \begin{verbatim}
+% \[ \Deltarxn\Gm = \sumall_i \nu_i \mu_i = \sumall_i \left[ \nu_i \mu^\std_i
+%    + \nu_i RT \log\left(\frac{\fmix_i}{\fstd_i}\right) \right]
+%    = \Deltarxn\Gm^\std + RT \log\left[\prodall_i a_i^{\nu_i} \right] \]
+%\end{verbatim}
+% which produces
+% \[ \Delta G_\text{rxn} = \sum_{i=1}^C \nu_i \mu_i
+%   = \sum_{i=1}^C \left[ \nu_i \mu^\circ_i
+%       + \nu_i RT \log\left(\frac{\hat f_i}{f_i^\circ}\right) \right]
+%   = \Delta G^\circ_\text{rxn}
+%       + RT \log\left[\prod_{i=1}^C a_i^{\nu_i} \right] \]
+% with the default settings.
+%
+% \subsubsection{Changes on Mixing, Reaction, Fusion, Vaporization, and
+%   Sublimation}
+% \DescribeMacro{\Deltamix}
+% Mixing properties are handled via the \cs{Deltamix} macro, and are used as in
+% the following example:
+% \begin{verbatim}
+% \[ \Deltamix\Gm = \Gm - \sumall_i x_i \Gm_i = \Deltamix\Hm - T\Deltamix\Sm \]
+%\end{verbatim}
+% which yields
+% \[ \Delta G_\text{mix} = G - \sum_{i=1}^C x_i G_i
+%     = \Delta H_\text{mix} - T\Delta S_\text{mix}. \]
+% Some textbooks (|Sandler|, |Thompson|) choose to typeset these with the word
+% ``mix'' \emph{before} the symbol, which is handled automatically by this
+% package.
+% \DescribeMacro{\mixing}
+% The macro \cs{mixing} determines how the change in mixing label is rendered;
+% the default is \verb"{\text{mix}}".
+%
+% \DescribeMacro{\Deltafus}
+% \DescribeMacro{\Deltasub}
+% \DescribeMacro{\Deltavap}
+% The commands \cs{Deltafus}, \cs{Deltasub}, and \cs{Deltavap}
+% typeset changes due to fusion (melting), sublimation (subliming), and
+% vaporization (boiling), respectively. Their use is straightforward, viz.,
+% \begin{verbatim}
+%  \[ \Deltasub\Hm = \Hm^V - \Hm^S = \Hm^V - \Hm^L + (\Hm^L - \Hm^S)
+%                  = \Deltafus\Hm + \Deltavap\Hm \]
+%\end{verbatim}
+% yielding
+%  \[ \Delta\Hm^\text{sub} = \Hm^V - \Hm^S = \Hm^V - \Hm^L + (\Hm^L - \Hm^S)
+%                = \Delta\Hm^\text{vap} + \Delta\Hm^\text{fus} \]
+% with the default options. Note that some textbooks (e.g., |Sandler|) typeset
+% these quantities quite differently.
+%
+% \DescribeMacro{\Deltaf}
+% \DescribeMacro{\Deltarxn}
+% The macros \cs{Deltaf} and \cs{Deltarxn} are intended to typeset the enthalpy
+% or free energy of formation and reaction, respectively. For example,
+% \begin{verbatim}
+%  \[ \Deltarxn\Hm^\std = \sumall_i \nu_i \Deltaf\Hm_i^\std \]
+%\end{verbatim}
+% results in
+% \[ \Delta\Hm_\text{rxn}^\circ = \sum_{i=1}^C \nu_i \Delta\Hm_{f,i}^\circ. \]
+% It is not anticipated that this command will be combined with something like
+% a heat capacity, which already has a (potentially double) subscript, but as
+% there is no ``formation'' heat capacity, that should not present a problem.
+%
+% \subsection{Residual and Excess Properties}
+% \DescribeMacro{\UR}
+% \DescribeMacro{\URt}
+% \DescribeMacro{\URs}
+% \DescribeMacro{\URpm}
+% \DescribeMacro{\UE}
+% \DescribeMacro{\UEt}
+% \DescribeMacro{\UEs}
+% \DescribeMacro{\UEpm}
+% Additional macros are defined that make it easy to typeset the residual
+% (also called ``departure'') and excess total, molar, specific, and partial
+% molar properties. These macros follow the same pattern: \cs{UR}, \cs{URt},
+% \cs{URs}, and \cs{URpm} typeset the molar, total, specific, and partial molar
+% residual internal energies, respectively, and by default expand to $U^R,$
+% $\thermounderline{U}^R,$ $\hat U^R, $ and $\smash[t]{\Upm[R]{i}}$ (the last
+% is called as \verb"\URpm{i}" or \verb"\URpm_i"). Similarly, \cs{UE},
+% \cs{UEt}, \cs{UEs}, and \cs{UEpm} typeset the corresponding excess
+% properties. The first character of the macros for other properties follow the
+% same pattern as in Table~\ref{table:symbols}.
+%
+% \DescribeMacro{\excess}
+% \DescribeMacro{\residual}
+% The $R$ and $E$ characters are generated by the macros \cs{residual} and
+% \cs{excess}, respectively. These macros can be redefined; for example, if you
+% want \cs{SE}, which normally produces $S^E$, to give you $S^{EX}$---and let's
+% be honest, who doesn't want that?\footnote{You knew that joke was
+% coming.}---then you can redefine it with
+% \begin{verbatim}
+%   \renewcommand*{\excess}{{EX}}
+%\end{verbatim}
+% or possibly
+% \begin{verbatim}
+%   \renewcommand*{\excess}{{\mathrm{EX}}}
+%\end{verbatim}
+% or even
+% \begin{verbatim}
+%   \renewcommand*{\excess}{\text{EX}}
+%\end{verbatim}
+% which cause \cs{SE} to expand to $S^{EX},$ $S^\mathrm{EX},$ and
+% $S^\text{EX},$ respectively.
+%
+% It is generally not possible to use superscripts with the excess or
+% residual properties; in the event the user needs this, the \cs{excess} and
+% \cs{residual} macros can be used directly, viz.,
+% \begin{verbatim}
+%   \begin{gather*}
+%     \Hm^{\excess,\std} = \HE(T,\Pstd) \\
+%   \renewcommand*{\excess}{EX}
+%     \Hm^{\excess,\std} = \HE(T,\Pstd)
+%   \end{gather*}
+%\end{verbatim}
+% which yields
+% \begin{gather*}
+%   \Hm^{E,\circ} = H^E(T,P^\circ) \\
+%   \Hm^{EX,\circ} = H^{EX}(T,P^\circ)
+% \end{gather*}
+% using the default options.
+% \clearpage
+%
+% \subsection{Partial Derivatives}
+% \DescribeMacro{\Partial}%
+% \DescribeMacro{\Partial*}%
+% Partial derivatives are easily rendered using the \cs{Partial} command.
+% There is a starred form (\cs{Partial*}) that additionally adjusts the
+% spacing after the closing symbol to remove some of the space, anticipating
+% that the following binary operator will overhang the subscripts. Compare
+% the following:
+% \begin{verbatim}
+%   \begin{gather*}
+%     \Partial{\Hm}{T}{P} = \cP \qquad \Partial*{\Hm}{T}{P} = \cP
+%   \end{gather*}
+%\end{verbatim}
+% which yields
+% \begin{gather*}
+%   \left(\frac{\partial\Hm}{\partial T}\right)_{P} = C_P \qquad
+%   \left(\frac{\partial\Hm}{\partial T}\right)_{P} \mkern-8mu = C_P
+% \end{gather*}
+% \DescribeMacro{\PartialSecond}%
+% \DescribeMacro{\PartialSecond*}%
+% \DescribeMacro{\PartialMixSecond}%
+% \DescribeMacro{\PartialMixSecond*}%
+% Second partial derivatives and mixed-second partial derivatives are typeset
+% with the commands \cs{PartialSecond} and \cs{PartialMixSecond}, respectively.
+% Like the first-order variety, these also have starred versions that remove
+% the space immediately following the closing symbols, anticipating that the
+% equals sign or other binary operator following the derivative will overhang
+% the elements held constant. For example,
+% \begin{verbatim}
+%   \[ \Vpm_i = \Partial*{\Vt}{\Nt_i}{T,P,\allNsbut{i}}
+%             = \PartialMixSecond*{\Gt}{\Nt_i}{P}{T,\allNsbut{i}}
+%             = \PartialMixSecond*{\Gt}{P}{\Nt_i}{T,\allNsbut{i}}
+%             = \Partial{\Gpm_i}{P}{T,\allNs} \]
+%\end{verbatim}
+% looks like
+%   \[ \Vpm{i} = \left(\frac{\partial\Vt}
+%                           {\partial\Nt_i}\right)_{T,P,\allNsbut{i}}
+%       \mkern-15mu
+%              = \left(\frac{\partial^2\Gt}
+%                           {\partial\Nt_i\partial P}\right)_{T,\allNsbut{i}}
+%       \mkern-15mu
+%              = \left(\frac{\partial^2\Gt}
+%                           {\partial P\partial\Nt_i}\right)_{T,\allNsbut{i}}
+%       \mkern-15mu
+%              = \left(\frac{\partial\Gpm{i}}{\partial P}\right)_{T,\allNs}. \]
+% \DescribeMacro{\PartialBigg}
+% \SpecialUsageIndex{\PartialBigg*}\relax
+% \DescribeMacro{\PartialSecondBigg}
+% \SpecialUsageIndex{\PartialSecondBigg*}\relax
+% \DescribeMacro{\PartialMixSecondBigg}
+% \SpecialUsageIndex{\PartialMixSecondBigg*}\relax
+% \DescribeMacro{\Partialbigg}
+% \SpecialUsageIndex{\Partialbigg*}\relax
+% \DescribeMacro{\PartialSecondbigg}
+% \SpecialUsageIndex{\PartialSecondbigg*}\relax
+% \DescribeMacro{\PartialMixSecondbigg}
+% \SpecialUsageIndex{\PartialMixSecondbigg*}\relax
+% There are instances (such as the line above) when \cs{Partial} causes
+% parentheses that are slightly
+% too tall but do not need to be---particularly when partial molar properties,
+% specific quantities, or fugacities are involved. The macro \cs{PartialBigg}
+% uses \verb"amsmath"'s \cs{Biggl} and \cs{Biggr} macros in place of \cs{left}
+% and \cs{right} to size the parentheses accordingly; \cs{Partiallbigg} uses
+% \cs{biggl} and \cs{biggr} in a similar fashion. For example, compare the
+% following:
+% \begin{verbatim}
+%  \[ \Vpm_i = \Partial*{\Vt}{\Nt_i}{T,P,\allNsbut{i}}
+%            = \Partial*{\Gpm_i}{P}{T,\allNs}
+%            = \PartialBigg*{\Gpm_i}{P}{T,\allNs}
+%            = RT\Partial*{\log\fmix_i}{P}{T,\allNs}
+%            = RT\,\PartialBigg*{\log\fmix_i}{P}{T,\allNs}
+%            = RT\,\Partialbigg{\log\fmix_i}{P}{T,\allNs} \]
+%\end{verbatim}
+% which typesets as
+% \[ \Vpm{i}
+%      = \left(\frac{\partial\Vt}{\partial \Nt_i}\right)_{T,P,\allNsbut{i}}
+%        \mkern-15mu
+%      = \left(\frac{\partial\Gpm{i}}{\partial P}\right)_{T,\allNs}
+%        \mkern-15mu
+%      = \Biggl(\frac{\partial\Gpm{i}}{\partial P}\Biggr)_{T,\allNs}
+%        \mkern-15mu
+%      = RT\left(\frac{\partial\log\hat f_i}{\partial P}\right)_{T,\allNs}
+%        \mkern-15mu
+%      = RT\,\Biggl(\frac{\partial\log\hat f_i}{\partial P}\Biggr)_{T,\allNs}
+%        \mkern-15mu
+%      = RT\,\biggl(\frac{\partial\log\hat f_i}{\partial P}\biggr)_{T,\allNs} \]
+% Note that a similar effect---possibly with other side effects---can be
+% achieved with \verb"amsmath"'s \cs{smash} command, which has the effect of
+% removing all vertical space associated with a particular character.
+% Observe:
+% \begin{verbatim}
+%  \[ \Vpm_i = \Partial{\Vt}{\Nt_i}{T,P,\allNsbut{i}}
+%            = \Partial{\smash{\Gpm_i}}{P}{T,\allNs} \]
+% \end{verbatim}
+% produces
+% \[ \Vpm{i}
+%      = \left(\frac{\partial\Vt}{\partial \Nt_i}\right)_{T,P,\allNsbut{i}}
+%      = \left(\frac{\partial\smash{\Gpm{i}}}{\partial P}\right)_{T,\allNs}. \]
+% Note that the vertical spacing is not quite as good here as it was above.
+% This can be fixed by using the optional argument to \cs{smash}, viz.,
+% \begin{verbatim}
+%  \[ \Vpm_i = \Partial{\Vt}{\Nt_i}{T,P,\allNsbut{i}}
+%            = \Partial{\smash[t]{\Gpm_i}}{P}{T,\allNs} \]
+%\end{verbatim}
+% \[ \Vpm{i}
+%   = \left(\frac{\partial\Vt}{\partial \Nt_i}\right)_{T,P,\allNsbut{i}}
+%   = \left(\frac{\partial\smash[t]{\Gpm{i}}}{\partial P}\right)_{T,\allNs}. \]
+% It is possible to ``fake'' higher-order derivatives via some trickery.
+% For example,
+% \begin{verbatim}
+% \[ \cPpm_i = T\Partial{\Spm_i}{T}{P,\allXs}
+%            = T\PartialSecond{\St}{T}{\Nt_i}{P,\allNsbut{i}}
+%            = -T\Partial{^3\Gt}{T^2\partial\Nt_i}{P,\allNsbut{i}} \]
+%\end{verbatim}
+% gives
+% \[ \cPpm{i} = T\Partial{\Spm{i}}{T}{P,\allXs}
+%             = T\Partial{^2\St}{T\partial\Nt_i}{P,\allNsbut{i}}
+%             = -T\Partial{^3\Gt}{T^2\partial\Nt_i}{P,\allNsbut{i}}, \]
+% which is probably pretty close to what you wanted. Using this trickery with
+% the package option \verb"nosubscripts" will not work as well, and the use of
+% third- and higher-order derivatives with this package should generally be
+% considered unsupported.
+%
+% \subsection{Holding Constant the Number of Moles of Several Species}
+% \DescribeMacro{\allNs}%
+% \DescribeMacro{\allNsbut}%
+% \DescribeMacro{\allmus}%
+% \DescribeMacro{\allmusbut}%
+% \DescribeMacro{\allXs}%
+% \DescribeMacro{\allXsbut}%
+% \DescribeMacro{\allYs}%
+% \DescribeMacro{\allYsbut}%
+% \DescribeMacro{\allMs}%
+% \DescribeMacro{\allMsbut}%
+% \DescribeMacro{\allWs}%
+% \DescribeMacro{\allWsbut}%
+% It is common in thermodynamics to use notation such as
+% \[ \Vpm{k} = \left(\frac{\partial\Vt}{\partial\Nt_k}\right)_{T,P,\Nt_{j\neq k}} \]
+% or perhaps
+% \[ \Vpm{k} = \left(\frac{\partial\Vt}{\partial\Nt_k}\right)_{T,P,\Nt_1,\dotsc,[\Nt_k],\dots,\Nt_C} \]
+% to mean partial derivatives that hold the number of moles of each species
+% constant \emph{except} the one being changed.
+% Similarly, a property determined with all mole fractions held
+% constant might be written
+% \[ C_P = \left(\frac{\partial\Hm}{\partial T}\right)_{P,\vec{x}} \]
+% or perhaps
+% \[ C_P = \left(\frac{\partial\Hm}{\partial T}\right)_{P,x_1,\dotsc,x_C}. \]
+% There are several macros that standardize such constructs.
+% The \cs{allNs} macro expands to something meaning the number of moles of all
+% species; by default, this is $\vec{n}$ (package option
+% \verb"moles-index"), but can be changed to $n_1,\dotsc,n_C$ using the package
+% option \verb"moles-range". Similarly, the macros \cs{allmus} and
+% \cs{allmusbut} do the same but with $n$ replaced by $\mu$, and \cs{allMsbut}
+% is the same with $m$ instead of $n$. There are analogous macros for mole
+% fractions, namely \cs{allXs} and \cs{allXsbut} for $x$ and \cs{allYs} and
+% \cs{allYsbut} for $y$, as well as \cs{allWs} and \cs{allWsbut} for mass
+% fractions---these implicitly assume that all mole or mass fractions
+% \emph{except} the last are used as variables.  The macros \cs{allNsbut},
+% \cs{allMsbut}, \cs{allmusbut}, \cs{allXsbut}, \cs{allYsbut}, and
+% \cs{allWsbut} take an optional argument; for example,
+% \begin{verbatim}
+%   \Partial{\Ht}{\Nt_1}{T,P,\allNsbut{1}} =
+%   \Partial{\Ht}{\Nt_1}{T,P,\allNsbut[m]{1}} = \Hpm_1
+%\end{verbatim}
+% typesets as
+% \[ \left(\frac{\partial\Ht}{\partial\Nt_1}\right)_{T,P,\Nt_{j\neq 1}}
+%   = \left(\frac{\partial\Ht}{\partial\Nt_1}\right)_{T,P,\Nt_{m\neq 1}}
+%   = \Hpm{1} \]
+% Similarly,
+% \begin{verbatim}
+%   \Partial{\Hm}{x_i}{T,P,\allXsbut{i}} =
+%   \Partial{\Hm}{x_i}{T,P,\allXsbut[m]{i}} = \Hpm_i - \Hpm_\ncomponents
+%\end{verbatim}
+% becomes
+% \[ \left(\frac{\partial\Hm}{\partial x_i}\right)_{T,P,x_{j\neq i,C}}
+%   = \left(\frac{\partial\Hm}{\partial x_i}\right)_{T,P,x_{m\neq i,C}}
+%   = \Hpm{i} - \Hpm{C} \]
+% The user must supply their own redefinition if they wish to hold something
+% other than \cs{ncomponents} constant in addition to the argument.
+% Using the \verb"moles-range" package option, for which \verb"\allXsbut{k}"
+% expands to $x_1,\dotsc,[x_k],\dotsc,x_{C-1}$ rather than $x_{j \neq k,C}$,
+% the optional argument is ignored.
+%
+% \DescribeMacro{\allbut}
+% \DescribeMacro{\allbutlastand}
+% Users can define new ``all but'' macros using the \cs{allbut} and
+% \cs{allbutlastand} commands. For example,
+% \begin{verbatim}
+%   \newcommand*{\allNsbut}[2][j]{\allbut[#1]{#2}{\Nt}}
+%   \newcommand*{\allXsbut}[2][j]{\allbutlastand[#1]{#2}{x}}
+%\end{verbatim}
+% are the definitions of \cs{allNsbut} and \cs{allXsbut}, respectively.
+%
+% \subsection{Sums and Products}
+% \DescribeMacro{\sumall}
+% \DescribeMacro{\sumallbutlast}
+% \DescribeMacro{\prodall}
+% It is common to require sums and products such as
+% \[ \sum_{i=1}^C x_i = 1 \quad \text{or} \quad
+%    x_C = 1 - \sum_{i=1}^{C-1} x_i \quad \text{or} \quad
+%    \Gt = \sum_{j=1}^C \mu_j\Nt_j \quad \text{and} \quad
+%    K = \prod_{k=1}^C a_k^{\nu_k}. \]
+% This package defines shortcuts to typeset such terms thus:
+% \begin{verbatim}
+% \[ \sumall_i x_i = 1 \quad \text{or} \quad
+%    x_\ncomponents = 1 - \sumallbutlast_i x_i \quad \text{or} \quad
+%    \Gt = \sumall_j \mu_j\Nt_j \quad \text{and} \quad
+%    K = \prodall_k a_k^{\nu_k}. \]
+%\end{verbatim}
+% The symbol $C$ can be changed by redefining \cs{ncomponents}. This is done
+% automatically by some package options (e.g., |TesterModell| changes it to
+% $n$; |Sandler| changes it to $\mathcal{C}$; |Thompson| changes it to
+% $c$).
+%
+% \section{Loading the Package} \label{sec:loading}
+% To load the package with the defaults enabled, load it the usual way:
+% \begin{verbatim}
+%   \usepackage{thermodynamics}
+%\end{verbatim}
+% The package options loaded by default are \verb"EUAGHan", \verb"subscripts",
+% \verb"parentheses", \verb"intensive-plain", and \verb"moles-index".
+% These define, respectively, the default symbols to use for total energy,
+% internal energy, Helmholtz free energy, and so forth; the manner of writing
+% partial derivatives; the delimiters around partial derivatives; and the
+% manner of denoting extensive, molar, and specific properties. The default
+% behavior can be altered by options in the following section.
+%
+% \subsection{Package Options}
+% There are three categories of options: options that affect which symbols are
+% used, options that affect how symbols are decorated, and options that affect
+% how partial derivatives are displayed. These are presented in turn.
+%
+% \subsubsection{Options that Change Symbol Sets}
+% There are several options that choose the set of symbols to use for total
+% energy, internal energy, Helmholtz free energy, and so forth. These are
+% summarized in Table~\ref{table:symbol-sets}. The default is \verb"EUAGHan".
+%
+% \begin{table}
+%   \caption{Options controlling which symbols to use by default. The
+%       macros \cs{Et}, \cs{Ut}, \cs{Ft}, \cs{Gt}, \cs{Ht}, \cs{At}, and
+%       \cs{Nt} represent the total energy, internal energy,
+%       Helmholtz free energy, Gibbs free energy, enthalpy, surface area,
+%       and number of moles, respectively. Symbols are shown as they would
+%       appear with the (default) option \texttt{intensive-plain}.
+%   }
+%   \label{table:symbol-sets}
+%   \centering\small
+%   \begin{tabular}{l l l l l l l l l}
+%   \toprule
+%   Option & \verb"\Et" & \verb"\Ut" & \verb"\Ft" & \verb"\Gt" & \verb"\Ht"
+%          & \verb"\At" & \verb"\Nt" \\
+%   \midrule
+%     \verb"EUAGHan" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{A}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $n$
+%   \\
+%     \verb"EUAGHaN" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{A}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $N$
+%   \\
+%     \verb"EUHAGan" & \multicolumn{7}{l}{(synonym for \texttt{EUAGHan})} \\
+%     \verb"EUHAGaN" & \multicolumn{7}{l}{(synonym for \texttt{EUAGHaN})} \\
+%     \verb"EUFGHAn" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{A}$
+%                    & $n$
+%   \\
+%     \verb"EUFGHAN" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{A}$
+%                    & $N$
+%   \\
+%     \verb"EEFGHAn" & $\thermounderline{E}$
+%                    & $\thermounderline{E}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{A}$
+%                    & $n$
+%   \\
+%     \verb"EEFGHAn" & $\thermounderline{E}$
+%                    & $\thermounderline{E}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{A}$
+%                    & $N$
+%   \\
+%     \verb"EEFGHan" & $\thermounderline{E}$
+%                    & $\thermounderline{E}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $n$
+%   \\
+%     \verb"EEFGHaN" & $\thermounderline{E}$
+%                    & $\thermounderline{E}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $N$
+%   \\
+%     \verb"EEAGHaN" & $\thermounderline{E}$
+%                    & $\thermounderline{E}$
+%                    & $\thermounderline{A}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $N$
+%   \\
+%     \verb"EUAGHAn" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{A}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{A}$
+%                    & $n$
+%   \\
+%     \verb"EUAGHAN" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{A}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{A}$
+%                    & $N$
+%   \\
+%     \verb"EUFGHan" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $n$
+%   \\
+%     \verb"EUFGHaN" & $\thermounderline{E}$
+%                    & $\thermounderline{U}$
+%                    & $\thermounderline{F}$
+%                    & $\thermounderline{G}$
+%                    & $\thermounderline{H}$
+%                    & $\thermounderline{a}$
+%                    & $N$
+%   \\
+%   \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% Using \verb"EUAGHan" (the default), we might use the following markup:
+% \begin{verbatim}
+%   \[ \Ft = \Ut - T\St = -P\Vt + \sum_i \mu_i \Nt_i + \sigma d\At
+%      \qquad \Hm = \Um + P\Vm \qquad \Et = \Ut + \frac12 mv^2 \]
+%\end{verbatim}
+% which would look like
+% \[ \thermounderline{A}
+%    = \thermounderline{U} - T\thermounderline{S}
+%    = -P\thermounderline{V} + \sum_i \mu_i n_i + \sigma d\thermounderline{a}
+%    \qquad H = U + PV
+%    \qquad \thermounderline{E} = \thermounderline{U} + \frac12 mv^2. \]
+% Using the \verb"EUFGHAN" option, the same markup would yield
+% \[ \thermounderline{F}
+%    = \thermounderline{U} - T\thermounderline{S}
+%    = -P\thermounderline{V} + \sum_i \mu_i N_i + \sigma d\thermounderline{A}
+%    \qquad H = U + PV
+%    \qquad \thermounderline{E} = \thermounderline{U} + \frac12 mv^2. \]
+%
+% \subsubsection{Options for Extensive vs.\ Molar Properties}
+% There are four sets of notation that define how extensive properties are
+% represented, as shown in Table~\ref{table:extensive}.
+% The default is \verb"intensive-plain", which (using the volume as an
+% example) represents the total, molar, specific, and partial molar volumes,
+% respectively, as $\thermounderline{V},$ $V,$ $\hat V,$ and $\Vpm{j},$
+% respectively.
+%
+% For example, the definition of the partial molar enthalpy would be different
+% depending on which set of notation is used. The markup
+% \begin{verbatim}
+%   \Hpm_i = \Partial{\Ht}{\Nt_i}{T,P,\allNsbut{i}}
+%          = \Partial{\Nt\Hm}{\Nt_i}{T,P,\allNsbut{i}}
+%\end{verbatim}
+% yields the following, depending on the package option loaded:
+% \begin{align*}
+%   \Hpm{i} &= \left(\frac{\partial\thermounderline{H}}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%            = \left(\frac{\partial nH}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%       && \text{\texttt{intensive-plain}} \\
+%   \Hpm{i} &= \left(\frac{\partial H}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%            = \left(\frac{\partial n\thermounderline{H}}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%       && \text{\texttt{extensive-plain}} \\
+%   \Hpm{i} &= \left(\frac{\partial H^t}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%            = \left(\frac{\partial nH}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%       && \text{\texttt{extensive-superscript}} \\
+%   \Hpm{i} &= \left(\frac{\partial H}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%            = \left(\frac{\partial nh}
+%                         {\partial n_i}\right)_{T,P,n_{j\neq i}}
+%       && \text{\texttt{intensive-lowercase}}
+% \end{align*}
+% The use of \verb"intensive-lowercase" is strongly discouraged.
+%
+% Note that the number of moles can be changed from $n$ to $N$ via the
+% options in the previous section.
+%
+% \begin{table}
+%   \caption{Notation sets that can be set using the options
+%       \texttt{intensive-plain} (the default), \texttt{extensive-plain},
+%       \texttt{extensive-superscript}, and \texttt{intensive-lowercase},
+%       respectively. Note that specific quantities are generally assumed to
+%       look like the molar symbol with a caret on top.}
+%   \label{table:extensive}
+%   \centering\small
+%   \newcommand*{\vpm}[2][]{\mkern1mu\overline{\mkern-1mu v_{\mkern-2mu #2}^{#1}\mkern-2mu}\mkern2mu}
+%   \begin{tabular}{l l l l l l}
+%   \toprule
+%     Option & \verb"\Vt" & \verb"\Vm" & \verb"\Vs" & \verb"\Vpm_i" \\
+%   \midrule
+%     \verb"intensive-plain" & $\thermounderline{V}$ & $V$ & $\hat V$
+%       & $\Vpm{i}$ \\
+%     \verb"extensive-plain" & $V$ & $\thermounderline{V}$ & $\hat V$
+%       & $\Vpm{i}$\rule{0pt}{2.5ex} \\
+%     \verb"extensive-superscript" & $V^t$ & $V$ & $\hat V$
+%       & $\Vpm{i}$\rule{0pt}{2.5ex} \\
+%     \verb"intensive-lowercase" & $V$ & $v$ & $\hat v$
+%       & $\vpm{i}$\rule{0pt}{2.5ex} \\
+%   \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% \subsubsection{Options Affecting Partial Derivatives}
+% There are several options that change how partial derivatives are rendered.
+% First are the options that affect the delimiters. We will use the following
+% code as an example:
+% \begin{verbatim}
+%   \[ \Partial*{\Vm}{T}{P} = \PartialMixSecond{\Gm}{T}{P}{}
+%                           = \PartialMixSecond{\Gm}{P}{T}{}
+%                           = -\Partial{\Sm}{P}{T}. \]
+%\end{verbatim}
+% Using the \verb"parentheses" option (the default), this gives
+%   \[ \left(\frac{\partial V}{\partial T}\right)_{P} \mkern-8mu
+%       = \left(\frac{\partial^2 G}{\partial T \partial P}\right)
+%       = \left(\frac{\partial^2 G}{\partial P \partial T}\right)
+%       = -\left(\frac{\partial S}{\partial P}\right)_{T}. \]
+% The option \verb"brackets" changes the output to
+%   \[ \left[\frac{\partial V}{\partial T}\right]_{P} \mkern-8mu
+%       = \left[\frac{\partial^2 G}{\partial T \partial P}\right]
+%       = \left[\frac{\partial^2 G}{\partial P \partial T}\right]
+%       = -\left[\frac{\partial S}{\partial P}\right]_{T}. \]
+% The option \verb"bar" changes the output to
+%   \[ \left.\frac{\partial V}{\partial T}\right\rvert_{P} \mkern-8mu
+%       = \left.\frac{\partial^2 G}{\partial T \partial P}\right.
+%       = \left.\frac{\partial^2 G}{\partial P \partial T}\right.
+%       = -\left.\frac{\partial S}{\partial P}\right\rvert_{T}. \]
+% The option \verb"plain-derivatives" eliminates all delimiters; this forces
+% the \verb"nosubscripts" option. The output in this case is
+%   \[ \left.\frac{\partial V(T,P)}{\partial T}\right.
+%       = \left.\frac{\partial^2 G(T,P)}{\partial T \partial P}\right.
+%       = \left.\frac{\partial^2 G(P,T)}{\partial P \partial T}\right.
+%       = -\left.\frac{\partial S(P,T)}{\partial P}\right. \]
+%
+% Accompanying the \verb"plain-derivatives" option is the \verb"nosubscripts"
+% option, which overrides the default option \verb"subscripts". This option
+% makes partial derivatives such as
+% \[ \left(\frac{\partial V}{\partial P}\right)_{T}
+%   \qquad \text{(\texttt{subscripts} option)}, \]
+% and instead renders them
+% \[ \left(\frac{\partial V(P,T)}{\partial P}\right)
+%   \qquad \text{(\texttt{nosubscripts} option)}. \]
+% Combined with \verb"plain-derivatives", this would give
+% \[ \left.\frac{\partial V(P,T)}{\partial P}\right.
+%   \qquad \text{(\texttt{nosubscripts} and \texttt{plain-derivatives}
+%   options)} . \]
+% The order of the variables is determined by the arguments given: it is
+% always written with the variable that is changing first, and the other
+% variables in the order given in the final argument to \cs{Partial} and
+% friends. This will result in things like the following:
+% \begin{verbatim}
+%   \[ \Partial{\Vm}{T}{P} = \PartialMixSecond{\Gm}{T}{P}{}
+%       = \PartialMixSecond{\Gm}{P}{T}{} = -\Partial{\Sm}{P}{T}, \]
+%\end{verbatim}
+% which would produce (using \verb"plain-derivatives")
+% \[ \frac{\partial V(T,P)}{\partial T}
+%      = \frac{\partial^2 G(T,P)}{\partial T\partial P}
+%      = \frac{\partial^2 G(P,T)}{\partial P\partial T}
+%      = - \frac{\partial S(P,T)}{\partial P} \]
+% This is not unclear, but the variables appear in a different order.
+%
+% \DescribeEnv{thermoparentheses}
+% \DescribeEnv{thermobrackets}
+% \DescribeEnv{thermobar}
+% \DescribeEnv{thermoplain}
+% If you want to use parentheses \emph{locally}, even though your overall
+% document uses another delimiter, the |thermoparentheses| environment will do
+% that. Similarly, |thermobrackets| will temporarily switch to brackets,
+% |thermobar| will temporarily switch to a tailing vertical bar, and
+% |thermoplain| will remove delimiters altogether.
+%
+% \DescribeEnv{thermosubscripts}
+% \DescribeEnv{thermoNOsubscripts}
+% The environments |thermosubscripts| and |thermoNOsubscripts| force the
+% use or disuse of subscripts, respectively.
+%
+% \subsubsection{Options Regarding the Number of Moles}
+% \DescribeMacro{\allNs}
+% \DescribeMacro{\allNsbut}
+% The default option \verb"moles-index" defines the macro \cs{allNs} to expand
+% to $\vec{n}$ and the macro \verb"\allNsbut{i}" to expand to $n_{j\neq i}$.
+% You can change the dummy index: \verb"\allNsbut[k]{i}" expands to
+% $n_{k\neq i}$ by default. This is typically not necessary, however: if you
+% type \verb"\allNsbut{j}", the package will figure out that you want
+% $\Nt_{k\neq j}$ rather than $\Nt_{j\neq j}$. The time to use the optional
+% argument is in situations such as
+% \[ \Partial{\mu_j}{\Nt_k}{\Nt_{i\neq k}}, \]
+% which is incorrect if the dummy index $j$ is used in place of the $i$.
+%
+% You can change these to expand to ranges using the \verb"moles-range"
+% option, which renders \cs{allNs} as $n_1,\dotsc,n_C$ and \verb"\allNsbut{i}"
+% as $n_1,\dotsc,[n_i],\dotsc,n_C$. The optional argument is ignored in this
+% set of notation. Examples of these options are shown in
+% Table~\ref{table:allNs}.
+%
+% \DescribeMacro{\ncomponents}
+% You can change the symbol for the number of components (default: $C$) by
+% redefining the macro \cs{ncomponents}.
+%
+% \begin{table}
+%   \caption{Illustration of the \texttt{moles-index} and \texttt{moles-range}
+%       options and their effects on \cs{allNs} and \cs{allNsbut}.}
+%   \label{table:allNs}
+%   \SpecialUsageIndex{\allNs}\relax
+%   \SpecialUsageIndex{\allNsbut}\relax
+%   \SpecialUsageIndex{\allXs}\relax
+%   \SpecialUsageIndex{\allXsbut}\relax
+%   \centering
+%   \begin{minipage}{4.49in}\renewcommand*{\footnoterule}{\vskip-1.5ex}%
+%   \small
+%     \begin{tabular}{l l l}
+%     \toprule
+%       Macro\footnote{You may use $C$ directly instead of \cs{ncomponents}
+%         here, but then it will not change $C-1$ to $C-2$ (or, say, $M-1$ to
+%         $M-2$) if you want to redefine \cs{ncomponents} later.}
+%       & \verb"moles-index" & \verb"moles-range" \\
+%     \midrule
+%       \verb"\allNs" & $\vec{n}$ & $n_1,\dotsc,n_C$ \\
+%       \verb"\allNsbut{1}" & $n_{j\neq 1}$ & $n_2,\dotsc,n_C$ \\
+%       \verb"\allNsbut{i}" & $n_{j\neq i}$ & $n_1,\dotsc,[n_i],\dotsc,n_C$ \\
+%       \verb"\allNsbut{j}" & $n_{k\neq j}$ & $n_1,\dotsc,[n_j],\dotsc,n_C$ \\
+%       \verb"\allNsbut{\ncomponents}" & $n_{j\neq C}$ & $n_1,\dotsc,n_{C-1}$ \\
+%       \verb"\allNsbut[k]{i}" & $n_{k\neq i}$ & $n_1,\dotsc,[n_i],\dotsc,n_C$ \\
+%       \verb"\allXs" & $\vec{x}$ & $x_1,\dotsc,x_{C}$ \\
+%       \verb"\allXsbut{1}" & $x_{j\neq 1,C}$ & $x_2,\dotsc,x_{C-1}$ \\
+%       \verb"\allXsbut{i}" & $x_{j\neq i,C}$ & $x_1,\dotsc,[x_i],\dotsc,x_{C-1}$ \\
+%       \verb"\allXsbut{j}" & $x_{k\neq j,C}$ & $x_1,\dotsc,[x_j],\dotsc,x_{C-1}$ \\
+%       \verb"\allXsbut{\ncomponents-1}" & $x_{j\neq C-1,C}$ & $x_1,\dotsc,x_{C-2}$ \\
+%       \verb"\allXsbut[k]{\ncomponents-1}" & $x_{k\neq C-1,C}$ & $x_1,\dotsc,x_{C-2}$ \\
+%       \verb"\allXsbut{\ncomponents}"\footnote{This would typically be used
+%           to denote something like $\Gt(T,P,n,x_1,\dotsc,x_{C-1})$ rather
+%           than in a subscript, but it looks silly if we don't handle this
+%           case this way.}
+%           & $x_{j\neq C}$ & $x_1,\dotsc,x_{C-1}$ \\
+%     \bottomrule
+%     \end{tabular}
+%   \end{minipage}
+% \end{table}
+%
+% \subsubsection{Other Options}
+% \DescribeMacro{\dbar}
+% \newcommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}\relax
+% The default for path-dependent one-forms (often called ``inexact
+% differentials'') is \cs{dbar}, which looks like $\dbar$. This can be changed,
+% if desired, to a delta ($\delta$) with the \verb"delta" option to the
+% package.
+%
+% It should be noted that the \cs{dbar} macro is not very stable: changing
+% the typeface to something not supported will probably ruin it, as the kerning
+% is very font-specific. This package currently supports Computer Modern,
+% Times, Palatino, Bitstream Charter, Garamond, and Utopia, but other typefaces
+% may require a manual redefinition.
+%
+% \subsubsection{Options for Specific Textbooks}
+% There are several options that load package options and/or redefine
+% particular commands to match the notation in a particular textbook. So far
+% the following textbooks are supported:
+% \begin{description}
+%   \item[Bejan] Notation used by Bejan, \emph{Advanced Engineering
+%     Thermodynamics}, Third Edition. Wiley: Hoboken, 2006. Loads non-default
+%     package options \verb"EUFGHAN", \verb"intensive-lowercase", and
+%     \verb"delta". Also swaps the definitions of \verb"\@specific" and
+%     \verb"\@intensive" and redefines \cs{cV}, \cs{cVs}, \cs{cVt},
+%     \cs{expansivitysymbol}, and \cs{ncomponents} to match his notation.
+%   \item[CBK] Notation used by \c Cengel, Boles, and Kano\u glu,
+%     \emph{Thermodynamics: An Engineering Approach}, Ninth Edition.
+%     McGraw Hill: Singapore, 2020. Loads the non-default package options
+%     \verb"EUAGHAN" and \verb"intensive-lowercase"; also redefines
+%     partial molar, specific, and molar properties' notation to fit theirs,
+%     and redefines \cs{pressure@symbol}, \cs{Deltarxn},
+%     \cs{compressibilitysymbol}, and \cs{expansivitysymbol} to fit their
+%     usage. Their prodigal symbols for specific and total volume are not
+%     supported.
+%   \item[ElliottLira] Notation used by Elliott and Lira, \emph{Introductory
+%     Chemical Engineering Thermodynamics}, Second Edition. Prentice Hall:
+%     Upper Saddle River, 2012. Loads the default package options and
+%     redefines \cs{allcomponents} and \cs{Deltarxn} to fit their notation.
+%   \item[Koretsky] Notation used by Koretsky, \emph{Engineering and Chemical
+%     Thermodynamics}, Second Edition, Wiley: New Caledonia, 2013.
+%     Loads the non-default package options \verb"EUAGHAn", \verb"brackets",
+%     \verb"intensive-lowercase", and \verb"delta"; modifies the
+%     \verb"intensive-lowercase" defaults to make uppercase partial molar
+%     properties to match Koretsky's notation and redefines
+%     \cs{expansivitysymbol}, \cs{IS}, \cs{residual}, \cs{IG}, \cs{IGM},
+%     \cs{Deltafus}, \cs{Deltasub}, \cs{Deltavap}, \cs{Henryrat},
+%     \cs{gammarat}, \cs{Deltafus}, \cs{Deltavap}, and \cs{Deltasub} to match
+%     his use. Also redefines the fugacity coefficients to use $\varphi$
+%     instead of $\phi$.
+%   \item[MSBB] Notation used by Moran, Shapiro, Boettner, and Bailey,
+%     \emph{Fundamentals of Engineering Thermodynamics}, Eighth Edition.
+%     Wiley: Kendallville, 2014. Loads the non-default package options
+%     \verb"EUFGHAn", \verb"intensive-lowercase", and \verb"delta"; removes the
+%     left parenthesis in partial derivatives and redefines \cs{IGM}, \cs{IG},
+%     \cs{expansitivitysymbol}, \cs{allcomponents}, \cs{allbut}, \cs{Ft},
+%     \cs{Helmholtz@symbol}, \cs{@intensive}, \cs{@specific}, \cs{fmix},
+%     \cs{phimix}, and \cs{pressure@symbol} to fit their somewhat ill-advised
+%     notation. Also resets \cs{partialmolar} to match their use.
+%   \item[Prausnitz] Notation used by Prausnitz, Lichtenthaler, and de Azevedo,
+%     \emph{Molecular Thermodynamics of Fluid-Phase Equilibria}, Third Edition,
+%     Pearson, 1998. Loads the non-default package option
+%     \verb"intensive-lowercase" and redefines \cs{fmix}, \cs{phimix},
+%     \cs{fpure}, \cs{phipure}, \cs{residual}, \cs{allcomponents}, and
+%     \cs{allbut} to fit their notation.
+%   \item[Sandler] Notation used by Sandler, \emph{Chemical, Biochemical, and
+%     Engineering Thermodynamics}, Fifth Edition. Wiley: Hoboken, 2017.
+%     Loads non-default package options \verb"EUAGHaN" and
+%     \verb"extensive-plain"; also redefines \cs{sat}, \cs{excess},
+%     \cs{residual}, \cs{ncomponents}, \cs{fmix}, \cs{fstd}, \cs{phimix},
+%     \cs{allcomponents}, \cs{IS}, \cs{Deltamix}, \cs{Deltarxn}, \cs{Deltasub},
+%     \cs{Deltafus}, \cs{Deltavap}, and \cs{Henryrat}. Also redefines \cs{cV},
+%     \cs{cP}, \cs{cVt}, and \cs{cPt}.
+%   \item[SVNAS] Notation used by Smith, Van Ness, Abbott, and Swihart,
+%     \emph{Introduction to Chemical Engineering Thermodynamics}, Ninth
+%     Edition. McGraw-Hill: Boston, 2021. Loads the non-default package option
+%     \verb"extensive-superscript" and redefines \cs{allcomponents},
+%     \cs{allbut}, \cs{IG}, \cs{IGM}, \cs{IS}, \cs{expansivitysymbol}, and
+%     \cs{Deltarxn} to fit their notation.  The extensive heat capacities are
+%     also redefined, as they do not use such an entity.
+%   \item[TesterModell] Notation used by Tester and Modell,
+%     \emph{Thermodynamics and Its Applications}, Third Edition, Prentice Hall:
+%     Upper Saddle River, 1997. Loads the non-default package options
+%     \verb"EUAGHaN" and \verb"delta"; also redefines \cs{ncomponents} to be
+%     $n$ and redefines \cs{allcomponents}, \cs{allbut}, and \cs{allbutlastand}
+%     to fit their (somewhat inconsistent) notation. Also redefines \cs{IG},
+%     \cs{IGM}, \cs{IS}, \cs{excess}, \cs{reaction}, \cs{Henryrat},
+%     \cs{Henrymol}, \cs{gammarat}, and \cs{gammamol} to fit their style.
+%   \item[Thompson] Notation used by Thompson, \emph{A Unified Introduction to
+%     Chemical Engineering Thermodynamics}, Stillwater Press: Orono, 2000.
+%     Loads the non-default package options \verb"EUAGHAn" and \verb"delta";
+%     also redefines \cs{excess}, \cs{residual}, \cs{allcomponents},
+%     \cs{ncomponents}, \cs{IS}, \cs{IG}, \cs{IGM}, \cs{fpure}, \cs{phipure},
+%     \cs{mix}, \cs{Deltamix}, \cs{Deltarxn}, \cs{@intensive}, and \cs{allbut}
+%     to match his notation.  Note that he uses $c$, $n_C$, and $\mathrm{n}$
+%     for the number of components in various places in the book; I chose $c$
+%     for the definition of \cs{ncomponents}, but it is impossible to be
+%     completely consistent with his notation.
+% \end{description}
+% There may well be some inconsistencies between the notation in these books
+% and the symbols used here. I will fix such inconsistencies as I become aware
+% of them.
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% ^^A--------------------------------------------------------------------------
+% \iffalse
+%<*package>
+% \fi
+%
+% \section{Implementation}
+% This package requires the \verb"amstext" package, as \cs{text} is used to
+% handle \cs{sat}, \cs{IS}, \cs{IG}, \cs{IGM}, \cs{Henrymol}, \cs{fusion},
+% \cs{reaction}, \cs{vaporization}, and \cs{sublimation} by default, as well
+% as several other macros defined by package options.
+%    \begin{macrocode}
+\RequirePackage{amstext}
+%    \end{macrocode}
+%
+% \subsection{Symbols Controlled by Package Options}
+% We set some symbols prior to declaring the package options. The default
+% symbols follow package option |EUAGHan|, even though the macros follow
+% the option |EUFGHAN|.
+%
+% \begin{macro}{\dbar}
+% The way \cs{dbar} is defined depends on the typeface you are using.
+% We try to determine, at \verb"\begin{document}", which typeface you chose
+% based on the packages that are loaded and some of their internal definitions.
+% The \textsf{thermodynamics} package currently supports
+% Computer Modern (the default or through \verb"lmodern"),
+% Palatino (through \verb"pxfonts" or \verb"newpxmath"),
+% Times (through \verb"txfonts", \verb"mathptmx", or \verb"newtxmath"),
+% Utopia (through \verb"mathdesign"),
+% Bitstream Charter (through \verb"mathdesign"), and
+% Garamond (through \verb"mathdesign").
+% Definitions of \cs{dbar} (with \cs{newcommand*} or \cs{providecommand*})
+% in the preamble will override the ones here.
+%    \begin{macrocode}
+\AtBeginDocument{
+    \@ifpackageloaded{pxfonts}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}%
+    }{}
+    \@ifpackageloaded{newpxmath}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}%
+    }{}
+    \@ifpackageloaded{txfonts}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-11mu d}}%
+    }{}
+    \@ifpackageloaded{mathptmx}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}%
+    }{}
+    \@ifpackageloaded{newtxmath}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-12mu d}}%
+    }{}
+    \@ifpackageloaded{mathdesign}{%
+        \def\@charter{mdbch}%
+        \def\@utopia{mdput}%
+        \def\@garamond{mdugm}%
+        \ifx\MD@default@family\@utopia
+            \providecommand*{\dbar}{{\mkern8mu\mathchar'26\mkern-20mu d}}%
+        \fi
+        \ifx\MD@default@family\@charter
+            \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-15mu d}}%
+        \fi
+        \ifx\MD@default@family\@garamond
+            \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-17mu d}}%
+        \fi
+    }{}
+    % Defaults to Computer Modern
+    \providecommand*{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% Symbols are defined for the total energy, internal energy, Helmholtz free
+% energy, Gibbs free energy, enthalpy, entropy, surface area, volume, number
+% of moles, heat, and work; these are $E$, $U$, $A$, $G$, $H$, $S$, $a$,
+% $V$, $n$, $Q$, and $W$, respectively. These commands should not be used on
+% their own, but rather accessed through the macros \cs{Ut}, \cs{Um}, and
+% \cs{Us} (using the internal energy as an example).
+%
+% \begin{macro}{\totalenergy@symbol}
+% \begin{macro}{\internalenergy@symbol}
+% \begin{macro}{\Helmholtz@symbol}
+% \begin{macro}{\Gibbs@symbol}
+% \begin{macro}{\Landau@symbol}
+% \begin{macro}{\enthalpy@symbol}
+% \begin{macro}{\entropy@symbol}
+% \begin{macro}{\area@symbol}
+% \begin{macro}{\volume@symbol}
+% \begin{macro}{\mole@symbol}
+% \begin{macro}{\heat@symbol}
+% \begin{macro}{\work@symbol}
+% \begin{macro}{\temperature@symbol}
+% \begin{macro}{\pressure@symbol}
+% The default symbols are not intended to be easy to change---the intended
+% mechanism is through package options. If you want to use a non-standard
+% symbol that is not available through one of the package options, you can
+% redefine these macros inside
+% \cs{makeatletter}\dots\cs{makeatother}. For example,
+% \begin{verbatim}
+%    \makeatletter
+%       \renewcommand*{\Helmholtz@symbol}{H}
+%       \renewcommand*{\enthalpy@symbol}{h}
+%    \makeatother
+%\end{verbatim}
+% would define the ill-advised notation that I have nonetheless heard of
+% that uses $H$ for Helmholtz free energy and $h$ for enthalpy.
+% Note that the macros for temperature and pressure are only used inside
+% the definitions of the compressibilities, expansivitites, and heat
+% capacities; there is no user-level macro for the temperature or the pressure,
+% so it is up to the user to use consistent symbols for those properties.
+%    \begin{macrocode}
+\newcommand*{\totalenergy@symbol}{E}
+\newcommand*{\internalenergy@symbol}{U}
+\newcommand*{\Helmholtz@symbol}{A}
+\newcommand*{\Gibbs@symbol}{G}
+\newcommand*{\Landau@symbol}{\Omega}
+\newcommand*{\enthalpy@symbol}{H}
+\newcommand*{\entropy@symbol}{S}
+\newcommand*{\area@symbol}{a}
+\newcommand*{\volume@symbol}{V}
+\newcommand*{\mole@symbol}{n}
+\newcommand*{\heat@symbol}{Q}
+\newcommand*{\work@symbol}{W}
+\newcommand*{\temperature@symbol}{T}
+\newcommand*{\pressure@symbol}{P}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\thermo@underline}
+% \begin{macro}{\thermo@overline}
+% We then define two macros and several lengths that we shall use when
+% drawing rules above or below a symbol. The default is to use underlined
+% symbols for extensive quantities, plain symbols for molar quantities, and
+% carets for specific quantities, but this can be changed using package
+% options.
+% ^^A TODO these would work better as kern 0.1*width, symbol, kern 0.2*width
+%    \begin{macrocode}
+\newcommand*{\thermo@underline}[1]{%
+  \mkern1mu\underline{\mkern-1mu #1\mkern-4mu}\mkern4mu%
+}
+\newcommand*{\thermo@overline}[1]{%
+  \mkern2mu\overline{\mkern-2mu #1\mkern-1mu}\mkern1mu%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\PartialOpen}
+% \begin{macro}{\PartialClose}
+% \begin{macro}{\PartialEmptyClose}
+% We define three commands to use to denote the beginning and end of partial
+% derivatives. These symbols can be customized by package options. Default
+% is \verb"parentheses", meaning that \verb"\[ \Partial{f}{x}{y} \]" renders as
+% \[ \left(\frac{\partial f}{\partial x}\right)_y \]
+% with the defaults. The macro \cs{PartialEmptyClose} is used when the last
+% argument to \cs{Partial} is empty, which is important for the \verb"bar"
+% option to the document class or inside the \verb"thermobar" environment.
+%    \begin{macrocode}
+\newcommand*{\PartialOpen}{(}
+\newcommand*{\PartialClose}{)}
+\newcommand*{\PartialEmptyClose}{)}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Package Options}
+% We declare a bunch of options for which sets of symbols to use.
+% These are summarized in Table~\ref{table:symbol-sets}.
+%    \begin{macrocode}
+\DeclareOption{EUAGHan}{}% the default
+\DeclareOption{EUAGHaN}{\renewcommand*{\mole@symbol}{N}}%
+\DeclareOption{EUHAGan}{\ExecuteOptions{EUAGHan}}
+\DeclareOption{EUHAGaN}{\ExecuteOptions{EUAGHaN}}
+\DeclareOption{EUFGHAn}{% this is my favorite set of symbols
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+}
+\DeclareOption{EUFGHAN}{% this is my second favorite set of symbols
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EEFGHAn}{% this treats all energy the same way(?)
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+}
+\DeclareOption{EEFGHAN}{% this treats all energy the same way(?)
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EEFGHan}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}
+}
+\DeclareOption{EEFGHaN}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EEAGHan}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+}
+\DeclareOption{EEAGHaN}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EUAGHAn}{% Helmholtz free energy and area look the same here
+  \renewcommand*{\area@symbol}{A}%
+}
+\DeclareOption{EUAGHAN}{% Helmholtz free energy and area look the same here
+  \renewcommand*{\area@symbol}{A}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EUFGHan}{%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+}
+\DeclareOption{EUFGHaN}{%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+%    \end{macrocode}
+% The \verb"delta" option redefines \cs{dbar} to produce the symbol $\delta$.
+% The default is to use a $d$ with a slash through it ($\dbar$) for inexact
+% differentials unless the user overrides it with this option. The macro could
+% also be redefined manually, of course.
+%    \begin{macrocode}
+\DeclareOption{delta}{\let\dbar\delta}
+%    \end{macrocode}
+%
+% \begin{macro}{\@extensive}
+% \begin{macro}{\@intensive}
+% \begin{macro}{\@specific}
+% Next, we define options for the set of notation. The default is
+% \verb"intensive-plain", which produces things like $V$ for molar volume,
+% $\Vt$ for total volume, and $\hat V$ for specific volume.
+% These are defined via the internal macros \verb"\@extensive",
+% \verb"\@intensive", and \verb"\@specific".
+%    \begin{macrocode}
+\let\@extensive\relax
+\let\@intensive\relax
+\let\@specific\hat
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%    \begin{macrocode}
+\DeclareOption{extensive-plain}{%
+    \let\@extensive\relax
+    \let\@intensive\thermo@underline
+}
+\DeclareOption{intensive-plain}{% the default
+    \let\@extensive\thermo@underline
+    \let\@intensive\relax
+}
+\DeclareOption{intensive-lowercase}{% PLEASE don't use this!
+    \let\@extensive\MakeUppercase
+    \let\@intensive\MakeLowercase
+    \def\@specific#1{\MakeLowercase{\hat #1}}
+    \AtEndOfPackage{
+        \renewcommand*{\partialmolar}[1]{%
+            \gdef\pm@symbol{\MakeLowercase #1}\generic@pm}
+        \renewcommand*{\heatcapacitysymbol}{c}
+    }
+}
+\DeclareOption{extensive-superscript}{%
+    \gdef\@extensive#1{{#1}^t}%
+    \let\@intensive\relax%
+    \AtEndOfPackage{%
+      \renewcommand*{\URt}{\internalenergy@symbol^{\residual,t}}
+      \renewcommand*{\HRt}{\enthalpy@symbol^{\residual,t}}
+      \renewcommand*{\FRt}{\Helmholtz@symbol^{\residual,t}}
+      \renewcommand*{\GRt}{\Gibbs@symbol^{\residual,t}}
+      \renewcommand*{\VRt}{\volume@symbol^{\residual,t}}
+      \renewcommand*{\SRt}{\entropy@symbol^{\residual,t}}
+      \renewcommand*{\UEt}{\internalenergy@symbol^{\excess,t}}
+      \renewcommand*{\HEt}{\enthalpy@symbol^{\excess,t}}
+      \renewcommand*{\FEt}{\Helmholtz@symbol^{\excess,t}}
+      \renewcommand*{\GEt}{\Gibbs@symbol^{\excess,t}}
+      \renewcommand*{\VEt}{\volume@symbol^{\excess,t}}
+      \renewcommand*{\SEt}{\entropy@symbol^{\excess,t}}
+    }
+}
+%    \end{macrocode}
+%
+% The next two options choose whether variables held constant are subscripted
+% (the default) or placed next to the function. The \verb"nosubscripts"
+% option currently requires that the variable being changed is the first one
+% in the argument list. The difference is
+% \[ \left(\frac{\partial U}{\partial S}\right)_V \quad\text{versus}\quad
+%    \left(\frac{\partial U(S,V)}{\partial S}\right) \]
+% for \verb"subscripts" and \verb"nosubscripts", respectively.
+%    \begin{macrocode}
+\newif\if@subscripted
+\@subscriptedtrue
+\DeclareOption{subscripts}{\@subscriptedtrue}
+\DeclareOption{nosubscripts}{\@subscriptedfalse}
+%    \end{macrocode}
+% These options change how \cs{Partial} and friends render derivatives.
+% The default is parentheses, but other options include brackets, braces,
+% a vertical bar on the right side, or plain (undecorated) derivatives.
+%    \begin{macrocode}
+\DeclareOption{parentheses}{}
+\DeclareOption{brackets}{%
+  \renewcommand*{\PartialOpen}{[}%
+  \renewcommand*{\PartialClose}{]}%
+  \renewcommand*{\PartialEmptyClose}{]}%
+}
+\DeclareOption{braces}{%
+  \renewcommand*{\PartialOpen}{\{}%
+  \renewcommand*{\PartialClose}{\}}%
+  \renewcommand*{\PartialEmptyClose}{\}}%
+}
+\DeclareOption{bar}{%
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{\rvert}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+}
+\DeclareOption{plain-derivatives}{% This implies dU(S,V,N)/dS notation
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{.}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+  \ExecuteOptions{nosubscripts}%
+}
+%    \end{macrocode}
+% \subsection{The Number of Moles Macros}
+% \begin{macro}{\ncomponents}
+% We define the number of components, default $C$, for use in the ``all moles''
+% and related macros.
+%    \begin{macrocode}
+\newcommand*{\ncomponents}{C}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\allNs}
+% \begin{macro}{\allNsbut}
+% \begin{macro}{\allMs}
+% \begin{macro}{\allmus}
+% \begin{macro}{\allMsbut}
+% \begin{macro}{\allmusbut}
+% Several macros define a shorthand for ``moles of all species'' (\cs{allNs})
+% and ``moles of all species except'' (\cs{allNsbut}), as well as similar
+% quantities for masses (\cs{allMs}, \cs{allMsbut}) and chemical potentials
+% (\cs{allmus}, \cs{allmusbut}), which occur frequently in mixture
+% thermodynamics. The default is for \cs{allNs} to become $\vec{n}$ and
+% \verb"allNsbut{i}" to become $n_{j\neq i}$. The optional argument changes
+% which index (default: $j$) to use in the left side of the inequality.\relax
+% \footnote{The index \!$j$ is automatically replaced with $k$ if the user
+%   issues \texttt{\textbackslash allNsbut\{j\}}.}
+% Essentially identical commands are defined for chemical potentials and
+% masses: \cs{allmus} and \cs{allmusbut} and \cs{allMs} and \cs{allMsbut},
+% respectively.
+%    \begin{macrocode}
+\newcommand*{\allNs}{\allcomponents{\Nt}}
+\newcommand*{\allXs}{\allcomponents{x}}
+\newcommand*{\allYs}{\allcomponents{y}}
+\newcommand*{\allmus}{\allcomponents{\mu}}
+\newcommand*{\allMs}{\allcomponents{m}}
+\newcommand*{\allWs}{\allcomponents{w}}%
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\allXs}
+% \begin{macro}{\allYs}
+% \begin{macro}{\allWs}
+% \begin{macro}{\allWsbut}
+% \begin{macro}{\allXsbut}
+% \begin{macro}{\allYsbut}
+% Similar commands are defined for mole fractions (\cs{allXs}, \cs{allYs},
+% etc.), but these assume the last mole fraction is \emph{not} one of the
+% variables---that is, \cs{allXsbut} and \cs{allYsbut} assume the argument
+% \emph{and} \cs{ncomponents} are held constant. For example,
+% \begin{verbatim}
+%   \[ \Partial{\Gm}{T}{P,\allXs} = -\Sm \qquad
+%      \Partial{\Gm}{x_i}{T,P,\allXsbut{i}} \neq \Gpm_i \]
+%\end{verbatim}
+% yields
+% \[ \Partial{G}{T}{P,\allXs} = -S \qquad
+%    \Partial{G}{x_i}{T,P,x_{j\neq i,C}} \neq \Gpm{i}. \]
+%    \begin{macrocode}
+\newcommand*{\allNsbut}[2][j]{\allbut[#1]{#2}{\Nt}}
+\newcommand*{\allXsbut}[2][j]{\allbutlastand[#1]{#2}{x}}
+\newcommand*{\allYsbut}[2][j]{\allbutlastand[#1]{#2}{y}}
+\newcommand*{\allmusbut}[2][j]{\allbut[#1]{#2}{\mu}}
+\newcommand*{\allMsbut}[2][j]{\allbut[#1]{#2}{m}}
+\newcommand*{\allWsbut}[2][j]{\allbutlastand[#1]{#2}{w}}%
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\allbutlastand}
+% \begin{macro}{\allbut}
+% \begin{macro}{\allcomponents}
+% The \cs{allcomponents}, \cs{allbut}, and \cs{allbutlastand} macros can be
+% used to define new entities; say, if you want to use $z_i$ as a mole
+% fraction, then use
+% \begin{verbatim}
+%   \newcommand*{\allZsbut}[2][j]{\allbutlastand[#1]{#2}{z}}
+%\end{verbatim}
+% Similarly, something meaning the concentrations of every species could be
+% defined via
+% \begin{verbatim}
+%   \newcommand*{\allCs}{\allcomponents{C}}
+%\end{verbatim}
+%    \begin{macrocode}
+\newcommand*{\allcomponents}[1]{\vec{#1}}
+\newcommand*{\allbut}[3][j]{%
+  \def\tmp@arg{#2}%
+  \def\tmp@@arg{#1}%
+  \ifx\tmp@arg\tmp@@arg
+    {#3}_{k\neq #2}%
+  \else
+    {#3}_{#1\neq #2}%
+  \fi
+}
+\newcommand*{\allbutlastand}[3][j]{%
+  \edef\tmp@arg{#1}%
+  \edef\tmp@@arg{#2}%
+  \ifx\tmp@@arg\ncomponents
+    {#3}_{#1 \neq #2}%
+  \else
+    \ifx\tmp@arg\tmp@@arg
+      {#3}_{k \neq #2,\ncomponents}%
+    \else
+      {#3}_{#1 \neq #2,\ncomponents}%
+    \fi
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% We then define two package options that change how to render \cs{allNs} and
+% friends.
+%    \begin{macrocode}
+\DeclareOption{moles-index}{}
+\DeclareOption{moles-range}{%
+  \renewcommand*{\allcomponents}[1]{{#1}_1,\dots,{#1}_{\ncomponents}}
+  \renewcommand*{\allbut}[3][j]{%
+    \def\@one{1}%
+    \edef\tmp@arg{#2}%
+    \ifx\tmp@arg\@one
+      {#3}_2,\dots,{#3}_{\ncomponents}%
+    \else
+      \ifx\tmp@arg\ncomponents
+        {#3}_1,\dots,{#3}_{\ncomponents-1}%
+      \else
+        {#3}_1,\dots,[{#3}_{#2}],\dots,{#3}_{\ncomponents}%
+      \fi
+    \fi
+  }
+  \renewcommand*{\allbutlastand}[3][j]{%
+    \def\@one{1}%
+    \edef\tmp@arg{#2}%
+    \edef\@ncminusone{\ncomponents-1}%
+    \ifx\tmp@arg\@one
+      {#3}_2,\dots,{#3}_{\ncomponents-1}%
+    \else
+      \ifx\tmp@arg\@ncminusone
+        {#3}_1,\dots,{#3}_{\ncomponents-2}%
+      \else
+        \ifx\tmp@arg\ncomponents
+          {#3}_1,\dots,{#3}_{\ncomponents-1}%
+      \else
+          {#3}_1,\dots,[{#3}_{#2}],\dots,{#3}_{\ncomponents}%
+        \fi
+      \fi
+    \fi
+  }
+}
+%    \end{macrocode}
+% The remaining options define textbook-specific notation.
+%    \begin{macrocode}
+\DeclareOption{Bejan}{
+  \ExecuteOptions{EUFGHAN,intensive-lowercase,delta}
+  \let\@specific\MakeLowercase
+  \def\@intensive#1{\MakeLowercase{\bar #1}}
+  \AtEndOfPackage{
+    \DeclareSubscrSymbol{cV}{\bar\heatcapacitysymbol}{v}
+    \DeclareSubscrSymbol{cVs}{\heatcapacitysymbol}{v}
+    \DeclareSubscrSymbol{cVt}{\Nt\heatcapacitysymbol}{v}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\ncomponents}{n}
+  }
+}
+\DeclareOption{CBK}{
+  \ExecuteOptions{EUAGHAN,intensive-lowercase}
+  \AtEndOfPackage{
+    \let\thermo@overline\widetilde
+    \let\@specific\MakeLowercase
+    \renewcommand*{\@intensive}[1]{\MakeLowercase{\bar{#1}}}
+    \renewcommand*{\pressure@symbol}{p}
+    \renewcommand*{\Deltarxn}[1]{#1_R}
+    \renewcommand*{\compressibilitysymbol}{\beta}
+    \renewcommand*{\expansivitysymbol}{\alpha}
+  }
+}
+\DeclareOption{ElliottLira}{
+  \AtEndOfPackage{
+    \renewcommand*{\allcomponents}[1]{#1}
+    \renewcommand*{\Deltarxn}[1]{\Delta #1}
+  }
+}
+\DeclareOption{Koretsky}{
+  \ExecuteOptions{EUAGHAn,brackets,intensive-lowercase,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\partialmolar}[1]{\gdef\pm@symbol{#1}\generic@pm}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\IS}{{\text{ideal}}}
+    \renewcommand*{\residual}{{\text{dep}}}
+    \renewcommand*{\IG}{{\text{ideal}}}
+    \renewcommand*{\IGM}{{\text{ideal}}}
+    \renewcommand*{\Deltafus}[1]{\Delta{#1}_\fusion}
+    \renewcommand*{\Deltasub}[1]{\Delta{#1}_\sublimation}
+    \renewcommand*{\Deltavap}[1]{\Delta{#1}_\vaporization}
+    \renewcommand*{\Henryrat}{{\mathcal{H}}}
+    \renewcommand*{\gammarat}{\gamma^\text{Henry's}}
+    \let\phipure\varphi
+    \renewcommand*{\phimix}{\hat\varphi}
+    \renewcommand*{\phisat}{\varphi^\sat}
+    \let\Delta@fus@sym\relax
+    \DeclareSubscrSymbol{@Deltafus}{\Delta@fus@sym}{\fusion}
+    \renewcommand*{\Deltafus}[1]{\def\Delta@fus@sym{\Delta #1}\@Deltafus}
+    \let\Delta@vap@sym\relax
+    \DeclareSubscrSymbol{@Deltavap}{\Delta@vap@sym}{\vaporization}
+    \renewcommand*{\Deltasub}[1]{\def\Delta@sub@sym{\Delta #1}\@Deltasub}
+    \let\Delta@sub@sym\relax
+    \DeclareSubscrSymbol{@Deltasub}{\Delta@sub@sym}{\sublimation}
+    \renewcommand*{\Deltasub}[1]{\def\Delta@sub@sym{\Delta #1}\@Deltasub}
+  }
+}
+\DeclareOption{MSBB}{
+  \ExecuteOptions{EUFGHAn,intensive-lowercase,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\IGM}{\ast}
+    \renewcommand*{\IG}{\ast}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\allcomponents}[1]{#1}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}%
+      \else
+        {#3}_{#1}%
+      \fi
+    }
+    \let\Helmholtz@symbol\psi
+    \renewcommand*{\Ft}{\Psi}
+    \def\@intensive#1{\MakeLowercase{\thermo@overline #1}}
+    \let\@specific\MakeLowercase
+    \renewcommand*{\partialmolar}[1]{\gdef\pm@symbol{#1}\generic@pm}
+    \renewcommand*{\fmix}{\bar f}
+    \renewcommand*{\phimix}{\bar\phi}
+    \renewcommand*{\pressure@symbol}{p}
+  }
+}
+\DeclareOption{Prausnitz}{
+  \ExecuteOptions{intensive-lowercase}
+  \AtEndOfPackage{
+    \renewcommand*{\fmix}{f}
+    \let\phimix\phi
+    \renewcommand*{\fsat}{\fpure^\sat}
+    \DeclareSubscrSymbol{fpure}{f}{{\text{pure}}}
+    \DeclareSubscrSymbol{phipure}{\phi}{{\text{pure}}}
+    \renewcommand*{\residual}{{{\mathcal{R}}}}
+    \renewcommand*{\allcomponents}[1]{{#1}_i}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}%
+      \else
+        {#3}_{#1}%
+      \fi
+    }
+  }
+}
+\DeclareOption{Sandler}{
+  \ExecuteOptions{EUAGHaN,extensive-plain}
+  \AtEndOfPackage{
+    \renewcommand*{\sat}{{\text{vap}}}
+    \renewcommand*{\excess}{{\text{{ex}}}}
+    \renewcommand*{\residual}{{\text{r}}}
+    \renewcommand*{\ncomponents}{\mathcal{C}}
+    \renewcommand*{\fmix}{\bar f}
+    \renewcommand*{\fstd}{\bar f^\circ}
+    \renewcommand*{\phimix}{\bar\phi}
+    \renewcommand*{\allcomponents}[1]{\thermo@underline{#1}}
+    \renewcommand*{\IG}{{\text{IG}}}
+    \renewcommand*{\IGM}{{\text{IGM}}}
+    \renewcommand*{\IS}{{\text{IM}}}
+    \renewcommand*{\Deltamix}[1]{\Delta_\mixing #1}
+    \renewcommand*{\Deltarxn}[1]{\Delta_\reaction #1}
+    \renewcommand*{\Deltasub}[1]{\Delta_\sublimation #1}
+    \renewcommand*{\Deltafus}[1]{\Delta_\fusion #1}
+    \renewcommand*{\Deltavap}[1]{\Delta_\vaporization #1}
+    \renewcommand*{\Henryrat}{H}
+    \DeclareSubscrSymbol{cV}{\heatcapacitysymbol}{\volume@symbol}
+    \DeclareSubscrSymbol{cP}{\heatcapacitysymbol}{\pressure@symbol}
+    \DeclareSubscrSymbol{cVt}{\Nt\heatcapacitysymbol}{\volume@symbol}
+    \DeclareSubscrSymbol{cPt}{\Nt\heatcapacitysymbol}{\pressure@symbol}
+  }
+}
+\DeclareOption{SVNAS}{
+  \ExecuteOptions{extensive-superscript}
+  \AtEndOfPackage{
+    \renewcommand*{\allcomponents}[1]{#1}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}%
+      \else
+        {#3}_{#1}%
+      \fi
+    }
+    \renewcommand*{\IG}{{ig}}
+    \renewcommand*{\IGM}{{ig}}
+    \renewcommand*{\IS}{{id}}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\Deltarxn}[1]{\Delta #1}
+    \DeclareSubscrSymbol{cVt}{\Nt\heatcapacitysymbol}{\volume@symbol}
+    \DeclareSubscrSymbol{cPt}{\Nt\heatcapacitysymbol}{\pressure@symbol}
+  }
+}
+\DeclareOption{TesterModell}{
+  \ExecuteOptions{EUAGHaN,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\ncomponents}{n}
+    \renewcommand*{\allcomponents}[1]{{#1}_i}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_k\relax[#2]
+      \else
+        {#3}_{#1}\relax[#2]
+      \fi
+    }
+    \renewcommand*{\allbutlastand}[3][j]{%
+      \edef\tmp@arg{#1}%
+      \edef\tmp@@arg{#2}%
+      \ifx\tmp@@arg\ncomponents
+        {#3}_{#1}\relax[#2]%
+      \else
+        \ifx\tmp@arg\tmp@@arg
+          {#3}\relax[#2,\ncomponents]%
+        \else
+          {#3}\relax[#2,\ncomponents]%
+        \fi
+      \fi
+    }
+    \renewcommand*{\IG}{{ig}}
+% Tester & Modell never use "igm" anywhere, and I only found ig once
+    \renewcommand*{\IGM}{{igm}}
+    \renewcommand*{\IS}{{ID}}
+    \renewcommand*{\excess}{{EX}}%
+    \renewcommand*{\reaction}{{rx}}
+    \renewcommand*{\Henryrat}{f^{\ast\ast}}
+    \renewcommand*{\Henrymol}{f^\ast}
+    \renewcommand*{\gammarat}{\gamma^{\ast\ast}}
+    \renewcommand*{\gammamol}{\gamma^\ast}
+  }
+}
+\DeclareOption{Thompson}{
+  \ExecuteOptions{EUAGHAn,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\excess}{{EX}}
+    \renewcommand*{\residual}{{R}}
+    \renewcommand*{\allcomponents}[1]{{#1}_j}
+    \renewcommand*{\ncomponents}{c}
+    \renewcommand*{\IS}{{IS}}
+    \renewcommand*{\IG}{{IG}}
+    \let\IGM\IG
+    \def\@fpure_#1{f_{#1}\@ifnextchar^{}{^\bullet}}
+    \renewcommand*{\fpure}{\@ifnextchar_{\@fpure}{f}}
+    \def\@phi@pure_#1{\phi_{#1}\@ifnextchar^{}{^\bullet}}
+    \renewcommand*{\phipure}{\@ifnextchar_{\@phi@pure}{\phi}}
+    \renewcommand*{\mixing}{{MIX}}
+    \renewcommand*{\Deltamix}[1]{\Delta_\mixing #1}
+    \renewcommand*{\Deltarxn}[1]{\Delta #1}
+    \def\@@intensive_#1{_{#1}\@ifnextchar^{}{^\bullet}}
+    \newcommand*{\@intensive}[1]{#1\@ifnextchar_{\@@intensive}{}}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}\neq{#3}_{#2}%
+      \else
+        {#3}_{#1}\neq{#3}_{#2}%
+      \fi
+    }
+  }
+}
+%    \end{macrocode}
+% We execute the default options below.
+%    \begin{macrocode}
+\ExecuteOptions{EUAGHan,subscripts,parentheses,intensive-plain,moles-index}
+\ProcessOptions
+%    \end{macrocode}
+%
+% \subsection{Commands for Partial Derivatives}
+% The \cs{Partial} command and its second-order siblings are defined as below.
+% They typeset partial derivatives of the first argument with respect to
+% the second (and third, in the case of mixed second partial derivatives)
+% arguments, holding the last argument constant.
+%
+% The starred forms adjust the spacing after the partial derivative so the
+% trailing binary operator (assumed to be the same width as an equals sign)
+% overhangs the variables held constant.
+% We thus set \verb"operator@width" to be \emph{just} greater than the width of
+% an equals sign.
+%^^A 3/1/2022: changed adjust@width to 2pt (up from 1pt)
+%^^A 4/21/2022: changed adjust@width to 0.1\operator@width (from 2pt)
+%    \begin{macrocode}
+\newlength{\Partial@const@width}
+\newlength{\operator@width}
+\settowidth{\operator@width}{=}
+\newlength{\adjust@width}
+\setlength{\adjust@width}{0.1\operator@width}
+\addtolength{\operator@width}{\adjust@width}
+%    \end{macrocode}
+% \begin{macro}{\Partial*}
+% \begin{macro}{\Partial}
+% The command \cs{Partial} and its friends drastically simplify the creation
+% of partial derivatives. The command \cs{Partial*} is the same as
+% \cs{Partial} except that it adjusts the spacing so the (presumably) binary
+% operator that follows it slightly overlaps the subscripts.
+%    \begin{macrocode}
+\def\Partial@start{\left\PartialOpen}
+\def\Partial@end{\right\PartialClose}
+\def\Partial@empty@end{\right\PartialEmptyClose}
+\def\Partial{\@ifstar\Partial@star\Partial@nostar}
+%^^A Several ifs to use later (breaks it if these definitions are inside)
+\newif\iftwo@has@Nt
+\two@has@Ntfalse
+\newif\iftwo@has@xory
+\two@has@xoryfalse
+\newif\ifthree@has@Nt
+\three@has@Ntfalse
+\newif\ifthree@has@xory
+\three@has@xoryfalse
+\AtEndOfPackage{%
+  \edef\thermo@Nt{\Nt}%
+  \edef\thermo@x{x}%
+  \edef\thermo@y{y}%
+}
+\def\thermo@parse@two#1\relax{%
+  \@tfor\@i:=#1\do{%
+    \edef\@@i{\@i}%
+    \ifx\@@i\thermo@Nt
+      \two@has@Nttrue
+      \@break@tfor
+    \fi
+    \ifx\@@i\thermo@x
+      \two@has@xorytrue
+      \@break@tfor
+    \fi
+    \ifx\@@i\thermo@y
+      \two@has@xorytrue
+      \@break@tfor
+    \fi
+  }
+}
+\newcommand*{\Partial@nostar}[3]{%
+  \def\tmp@arg{#3}%
+  \if@subscripted
+    % Handles situation of empty variables held constant
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial #1}
+                                     {\partial #2}\Partial@empty@end}%
+    \else
+      \ensuremath{\Partial@start\frac{\partial #1}
+                                     {\partial #2}\Partial@end_{#3}}%
+    \fi
+  \else
+    % If not subscripted, we put the arguments (if any) in the derivative
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial #1}
+                                     {\partial #2}\Partial@empty@end}%
+    \else
+      % Check for whether #3 contains \allNsbut{i}/etc. and #2 is \Nt_i/etc.
+      \thermo@parse@two#2\relax
+      \iftwo@has@Nt
+        \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+        \ensuremath{\Partial@start\frac{\partial #1(#3)}
+                                       {\partial #2}\Partial@end}%
+      \else
+        \iftwo@has@xory
+          \renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+          \ensuremath{\Partial@start\frac{\partial #1(#3)}
+                                         {\partial #2}\Partial@end}%
+        \else
+          \ensuremath{\Partial@start\frac{\partial #1(#2,#3)}
+                                         {\partial #2}\Partial@end}%
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\newcommand*{\Partial@star}[3]{%
+  \settowidth{\Partial@const@width}{\ensuremath{#3}}%
+  \addtolength{\Partial@const@width}{-0.15\Partial@const@width}%
+  \Partial@nostar{#1}{#2}{#3}%
+  \if@subscripted
+    \ifdim\operator@width<\Partial@const@width
+      \kern -\operator@width
+    \else
+      \kern -\Partial@const@width
+    \fi
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\PartialBigg}
+% \begin{macro}{\PartialBigg*}
+% The \cs{PartialBigg} macro (and its starred form) replace the \cs{left}
+% and \cs{right} commands in \cs{Partial} with \verb"amsmath"'s \cs{Biggl}
+% and \cs{Biggr} variants. The starred form is inherited from \cs{Partial}
+% without modification.
+%    \begin{macrocode}
+\def\PartialBigg{%
+  \def\Partial@start{\Biggl\PartialOpen}%
+  \def\Partial@end{\Biggr\PartialClose}%
+  \def\Partial@empty@end{\Biggr\PartialClose}%
+  \Partial%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\Partialbigg}
+% \begin{macro}{\Partialbigg*}
+% The \cs{Partialbigg} macro does the same thing as \cs{PartialBigg}, except
+% using \verb"amsmath"'s \cs{biggl}/\cs{biggr} variants.
+%    \begin{macrocode}
+\def\Partialbigg{%
+  \def\Partial@start{\biggl\PartialOpen}%
+  \def\Partial@end{\biggr\PartialClose}%
+  \def\Partial@empty@end{\biggr\PartialClose}%
+  \Partial%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\PartialSecond}
+% \begin{macro}{\PartialSecond*}
+% The second partial derivatives are defined similarly to \cs{Partial}.
+%    \begin{macrocode}
+\def\PartialSecond{\@ifstar\PartialSecond@star\PartialSecond@nostar}
+\newcommand*{\PartialSecond@nostar}[3]{%
+  \def\tmp@arg{#3}%
+  \if@subscripted
+  % Handles situation of empty variables held constant
+    \ifx\tmp@arg\@empty
+        \ensuremath{\Partial@start\frac{\partial^2 #1}
+                                       {\partial #2^2}\Partial@empty@end}%
+    \else
+        \ensuremath{\Partial@start\frac{\partial^2 #1}
+                                       {\partial #2^2}\Partial@end_{#3}}%
+    \fi
+  \else
+    \ifx\tmp@arg\@empty
+        \ensuremath{\Partial@start\frac{\partial^2 #1}
+                                       {\partial #2^2}\Partial@empty@end}%
+    \else
+      % Check for whether #3 contains \allNsbut{i}/etc. and #2 is \Nt_i/etc.
+      \thermo@parse@two#2\relax
+      \iftwo@has@Nt
+        \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+        \ensuremath{\Partial@start\frac{\partial^2 #1(#3)}
+                                       {\partial #2^2}\Partial@end}%
+      \else
+        \iftwo@has@xory
+          \renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+          \ensuremath{\Partial@start\frac{\partial^2 #1(#3)}
+                                         {\partial #2^2}\Partial@end}%
+        \else
+          \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#3)}
+                                         {\partial {#2}^2}\Partial@end}%
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\newcommand*{\PartialSecond@star}[3]{%
+    \settowidth{\Partial@const@width}{\ensuremath{#3}}%
+    \addtolength{\Partial@const@width}{-0.15\Partial@const@width}%
+    \PartialSecond@nostar{#1}{#2}{#3}%
+    \if@subscripted
+      \ifdim\operator@width<\Partial@const@width
+        \kern -\operator@width
+      \else
+        \kern -\Partial@const@width
+      \fi
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\PartialSecondBigg}
+% \begin{macro}{\PartialSecondBigg*}
+% The \cs{PartialSecondBigg} macro and its starred variant replace \cs{left}
+% and \cs{right} with \verb"amsmath"'s \cs{Biggl} and \cs{Biggr}.
+%    \begin{macrocode}
+\def\PartialSecondBigg{%
+  \def\Partial@start{\expandafter\Biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\Biggr\PartialClose}%
+  \PartialSecond%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\PartialSecondbigg}
+% \begin{macro}{\PartialSecondbigg*}
+% The \cs{PartialSecondbigg} macro and its starred variant replace \cs{left}
+% and \cs{right} with \verb"amsmath"'s \cs{biggl} and \cs{biggr}.
+%    \begin{macrocode}
+\def\PartialSecondbigg{%
+  \def\Partial@start{\expandafter\biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\biggr\PartialClose}%
+  \PartialSecond%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\PartialMixSecond}
+% \begin{macro}{\PartialMixSecond*}
+% The macro \cs{PartialMixSecond} takes an extra argument, but is otherwise
+% the same as its same-variable cousin.
+%    \begin{macrocode}
+\def\PartialMixSecond{\@ifstar\PartialMixSecond@star\PartialMixSecond@nostar}
+\newcommand*{\PartialMixSecond@nostar}[4]{%
+  \def\tmp@arg{#4}%
+  \if@subscripted
+  % Handles situation of empty variables held constant
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial^2 #1}
+                           {\partial #2\partial#3}\Partial@empty@end}%
+    \else
+      \ensuremath{\Partial@start\frac{\partial^2 #1}
+                           {\partial #2\partial#3}\Partial@end_{#4}}%
+    \fi
+  \else
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#3)}
+                           {\partial #2\partial#3}\Partial@empty@end}%
+    \else
+      % This time, we check whether #2 OR #3 are \Nt_i/etc.
+      \thermo@parse@two#3\relax
+      \iftwo@has@Nt\three@has@Nttrue\fi
+      \iftwo@has@xory\three@has@xorytrue\fi
+      \two@has@Ntfalse
+      \two@has@xoryfalse
+      \thermo@parse@two#2\relax
+      \iftwo@has@Nt
+        \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+        \ensuremath{\Partial@start\frac{\partial^2 #1(#3,#4)}
+                                       {\partial #2\partial#3}\Partial@end}%
+      \else
+        \iftwo@has@xory
+          \renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+          \ensuremath{\Partial@start\frac{\partial^2 #1(#3,#4)}
+                                         {\partial #2\partial#3}\Partial@end}%
+        \else
+          \ifthree@has@Nt
+            \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+            \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#4)}
+                                      {\partial #2\partial#3}\Partial@end}%
+          \else
+            \ifthree@has@xory
+              \PackageWarning{thermodynamics}{GOT HERE}
+              %\renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+              \renewcommand*{\allbutlastand}[3][j]{SCREW YOU}%
+              \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#4)}
+                                        {\partial #2\partial#3}\Partial@end}%
+            \else
+              \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#3,#4)}
+                                        {\partial #2\partial#3}\Partial@end}%
+            \fi
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\newcommand*{\PartialMixSecond@star}[4]{%
+    \settowidth{\Partial@const@width}{\ensuremath{#4}}%
+    \addtolength{\Partial@const@width}{-0.25\Partial@const@width}%
+    \PartialMixSecond@nostar{#1}{#2}{#3}{#4}%
+    \if@subscripted
+      \ifdim\operator@width<\Partial@const@width
+        \kern -\operator@width
+      \else
+        \kern -\Partial@const@width
+      \fi
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\PartialMixSecondBigg}
+% \begin{macro}{\PartialMixSecondBigg*}
+% \begin{macro}{\PartialMixSecondbigg}
+% \begin{macro}{\PartialMixSecondbigg*}
+% The macro \cs{PartialMixSecondBigg} and its starred form are analogous to
+% \cs{PartialBigg} and \cs{PartialSecondBigg}. \cs{PartialMixSecondbigg} and
+% its starred form are similarly analogous to \cs{Partialbigg} and
+% \cs{PartialSecondbigg}.
+%    \begin{macrocode}
+\def\PartialMixSecondBigg{%
+  \def\Partial@start{\expandafter\Biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\Biggr\PartialClose}%
+  \PartialMixSecond%
+}
+\def\PartialMixSecondbigg{%
+  \def\Partial@start{\expandafter\biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\biggr\PartialClose}%
+  \PartialMixSecond%
+}
+%    \end{macrocode}
+% If the user does not load the \verb"amsmath" package, we will not have access
+% to \cs{Biggl}, \cs{Biggr}, \cs{biggl}, and \cs{biggr}, so we revert them back
+% to the ordinary \cs{left} and \cs{right} versions and warn the user.
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \@ifpackageloaded{amsmath}{}{%
+      \PackageWarningNoLine{thermodynamics}
+        {Package amsmath not loaded; load to make PartialBigg and friends
+            work correctly}%
+      \let\PartialBigg\Partial
+      \let\Partialbigg\Partial
+      \let\PartialSecondBigg\PartialSecond
+      \let\PartialSecondbigg\PartialSecond
+      \let\PartialMixSecondBigg\PartialMixSecond
+      \let\PartialMixSecondbigg\PartialMixSecond
+  }%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Local Override of Delimiters}
+% \begin{environment}{thermoparentheses}
+% \begin{environment}{thermobrackets}
+% \begin{environment}{thermobraces}
+% \begin{environment}{thermobar}
+% \begin{environment}{thermoplain}
+% We define seven environments that \emph{locally} override the delimiters on
+% partial derivatives generated with \cs{Partial} and friends and/or the
+% subscript notation for partial derivatives.
+%    \begin{macrocode}
+\newenvironment*{thermoparentheses}{
+  \renewcommand*{\PartialOpen}{(}%
+  \renewcommand*{\PartialClose}{)}%
+  \renewcommand*{\PartialEmptyClose}{)}%
+}{}
+\newenvironment*{thermobrackets}{%
+  \renewcommand*{\PartialOpen}{[}%
+  \renewcommand*{\PartialClose}{]}%
+  \renewcommand*{\PartialEmptyClose}{]}%
+}{}
+\newenvironment*{thermobraces}{%
+  \renewcommand*{\PartialOpen}{\{}%
+  \renewcommand*{\PartialClose}{\}}%
+  \renewcommand*{\PartialEmptyClose}{\}}%
+}{}
+\newenvironment*{thermobar}{%
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{\rvert}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+}{}
+\newenvironment*{thermoplain}{%
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{.}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+  \@subscriptedfalse
+}{}
+\newenvironment*{thermoNOsubscripts}{\@subscriptedfalse}{}
+\newenvironment*{thermosubscripts}{\@subscriptedtrue}{}
+%    \end{macrocode}
+% \end{environment}
+% \end{environment}
+% \end{environment}
+% \end{environment}
+% \end{environment}
+%
+% \subsection{User-Interface Macros to Define Symbols}
+% \begin{macro}{\DeclareSubscrSymbol}
+% First, we define a (messy!)\ command that serves to create ``subscripted''
+% symbols; for example, typing \verb"\cP_i" should yield $C_{P,i}$ rather
+% than $C_{Pi}$, ${C_P}_i$, or ${C_{P_i}}$. Superscripts are also handled
+% properly and can be in either order.
+%    \begin{macrocode}
+\newcommand*{\DeclareSubscrSymbol}[3]{%
+  \expandafter\def\csname #1\endcsname{%
+    \@ifnextchar^{\csname @#1\endcsname}
+                 {\@ifnextchar_{\csname @@#1\endcsname}{{#2}_{#3}}}
+  }
+  \expandafter\def\csname @#1\endcsname ##1##2{%
+    {#2}^{##2}\@ifnextchar_{\csname @@@#1\endcsname}{_{#3}}%
+  }
+  \expandafter\def\csname @@#1\endcsname ##1##2{{#2}_{#3,##2}}
+  \expandafter\def\csname @@@#1\endcsname ##1##2{_{#3,##2}}
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\heatcapacitysymbol}
+% \begin{macro}{\compressibilitysymbol}
+% \begin{macro}{\expansivitysymbol}
+% Now we define symbols for the heat capacities, compressibilities, and
+% so forth.
+%    \begin{macrocode}
+\newcommand*{\heatcapacitysymbol}{C}
+\newcommand*{\compressibilitysymbol}{\kappa}
+\newcommand*{\expansivitysymbol}{\alpha}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\cV}
+% \begin{macro}{\cP}
+% The heat capacities are molar by default; we also declare extensive and
+% specific heat capacities.
+% The heat capacities themselves are defined to be ``smart'': \verb"\cV_i" will
+% recognize the subscript appropriately and render $C_{V,i}$ rather than
+% ${C_V}_i$ or some other unintended symbol. Superscripts are also handled
+% appropriately and can be in either order.
+%    \begin{macrocode}
+\DeclareSubscrSymbol{cV}{\@intensive\heatcapacitysymbol}{\volume@symbol}
+\DeclareSubscrSymbol{cP}{\@intensive\heatcapacitysymbol}{\pressure@symbol}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\cVt}
+% \begin{macro}{\cPt}
+% We also introduce \emph{extensive} (rather than molar) heat capacity macros.
+%    \begin{macrocode}
+\DeclareSubscrSymbol{cVt}{\@extensive\heatcapacitysymbol}{\volume@symbol}
+\DeclareSubscrSymbol{cPt}{\@extensive\heatcapacitysymbol}{\pressure@symbol}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\cPs}
+% \begin{macro}{\cVs}
+% \cs{cPs} and \cs{cVs} are the specific heat capacities.
+%    \begin{macrocode}
+\DeclareSubscrSymbol{cVs}{\@specific\heatcapacitysymbol}{\volume@symbol}
+\DeclareSubscrSymbol{cPs}{\@specific\heatcapacitysymbol}{\pressure@symbol}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\kappaT}
+% \begin{macro}{\kappaS}
+% The isothermal and adiabatic compressibilities are defined similarly, but
+% those do not have extensive versions for obvious reasons.
+%    \begin{macrocode}
+\DeclareSubscrSymbol{kappaT}{\compressibilitysymbol}{\temperature@symbol}
+\DeclareSubscrSymbol{kappaS}{\compressibilitysymbol}{\entropy@symbol}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\alphaP}
+% \begin{macro}{\alphaS}
+% The macro \cs{alphaP} is intended to refer to the isobaric volume
+% expansivity, while \cs{alphaS} is the isentropic volume expansivity.
+%    \begin{macrocode}
+\DeclareSubscrSymbol{alphaP}{\expansivitysymbol}{\pressure@symbol}
+\DeclareSubscrSymbol{alphaS}{\expansivitysymbol}{\entropy@symbol}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Psat}
+% \begin{macro}{\Pvap}
+% The \cs{Psat} macro (and its clone, the \cs{Pvap} macro) should be used for
+% the saturation pressure.
+% \begin{macro}{\phisat}
+% \begin{macro}{\fsat}
+% \begin{macro}{\sat}
+% Similarly, a \cs{phisat} macro typesets the fugacity coefficient at
+% saturation. The \cs{fsat} macro similarly renders the fugacity at saturation.
+% Other saturation properties should use \verb"M^\sat" or similar, preferably
+% by defining another macro such as \verb"\Gmsat".
+%    \begin{macrocode}
+\newcommand*{\sat}{{\text{sat}}}
+\newcommand*{\Psat}{P^\sat}
+\let\Pvap\Psat
+\newcommand*{\phisat}{\phi^\sat}
+\newcommand*{\fsat}{f^\sat}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{std}
+% \begin{macro}{Pstd}
+% \begin{macro}{fstd}
+% The \cs{std} macro denotes standard properties. \cs{Pstd} and \cs{fstd} are
+% defined for convenience and for consistency across textbooks.
+%    \begin{macrocode}
+\let\std\circ
+\newcommand*{\Pstd}{P^\std}
+\newcommand*{\fstd}{f^\std}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Deltamix}
+% \begin{macro}{\mixing}
+% Mixing properties, such as $\Delta G_\text{mix}$, should be accessed using
+% \verb"\Deltamix\Gm" and similar constructions---this construct will typeset
+% as $\Delta_{MIX}G$ using the \verb"Thompson" package option, for example,
+% and as $\Delta_\text{mix}G$ using the \verb"Sandler" package option.
+%    \begin{macrocode}
+\newcommand*{\mixing}{{\text{mix}}}
+\newcommand*{\Deltamix}[1]{\Delta{#1}_\mixing}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Deltafus}
+% \begin{macro}{\fusion}
+% \begin{macro}{\Deltavap}
+% \begin{macro}{\vaporization}
+% \begin{macro}{\Deltasub}
+% \begin{macro}{\sublimation}
+% \begin{macro}{\Deltarxn}
+% \begin{macro}{\reaction}
+% Similar entities for property changes on fusion, reaction, sublimation, and
+% vaporization are defined. The heat of reaction is handled differently if
+% \cs{cP} is its argument: one must typeset $\Delta C_{P,\text{rxn}}$ and
+% $\Delta C_{P,\text{rxn}}^\circ$ rather than
+% $\Delta{C_P}_\text{rxn}$ and $\Delta{C_P}^\circ_\text{rxn}$.
+%    \begin{macrocode}
+\newcommand*{\fusion}{{\text{fus}}}
+\newcommand*{\reaction}{{\text{rxn}}}
+\newcommand*{\sublimation}{{\text{sub}}}
+\newcommand*{\vaporization}{{\text{vap}}}
+\newcommand*{\formation}{f}
+\newcommand*{\Deltafus}[1]{\Delta{#1}^\fusion}
+\newcommand*{\Deltasub}[1]{\Delta{#1}^\sublimation}
+\newcommand*{\Deltavap}[1]{\Delta{#1}^\vaporization}
+% TODO It would be nice not to have to handle \cP in a special way....
+\let\Delta@rxn@sym\relax
+\DeclareSubscrSymbol{@DeltarxncP}{\Delta@rxn@sym}{\pressure@symbol,\reaction}
+\DeclareSubscrSymbol{@Deltarxn}{\Delta@rxn@sym}{\reaction}
+\newcommand*{\Deltarxn}[1]{%
+    \def\tmp@arg{#1}%
+    \def\tmp@@arg{\cP}%
+    \ifx\tmp@arg\tmp@@arg\relax
+      \def\@command{\def\Delta@rxn@sym{\Delta\@intensive\heatcapacitysymbol}%
+                    \@DeltarxncP}
+    \else
+      \def\@command{\def\Delta@rxn@sym{\Delta{#1}}\@Deltarxn}
+    \fi
+    \@command
+}
+\let\Delta@f@sym\relax
+\DeclareSubscrSymbol{@Deltaf}{\Delta@f@sym}{f}
+\newcommand*{\Deltaf}[1]{\def\Delta@f@sym{\Delta{#1}}\@Deltaf}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\fmix}
+% The \cs{fmix} command is intended to describe fugacities in mixtures.
+% It renders as $\hat f$ by default, and would be used as \verb"\fmix_i" or
+% the like, producing $\hat f_i$; some authors like to use $\bar f_i$ or
+% just $f_i$, and this command creates a consistent way to change between
+% such options.
+%    \begin{macrocode}
+\newcommand*{\fmix}{\hat{f}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\phimix}
+% A similar command, \cs{phimix}, renders $\hat\phi$ by default to represent
+% the fugacity coefficient in the mixture.
+%    \begin{macrocode}
+\newcommand*{\phimix}{\hat\phi}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\fpure}
+% The \cs{fpure} command is intended to describe fugacities in pure substances.
+% It renders as $f$ by default, and would be used as \verb"\fpure" or
+% \verb"\fpure_i" or the like, producing $f_i$; some authors like to use
+% $f_{\text{pure},i}$, and others like to use $f_i^\bullet$; this command
+% creates a consistent way to change between the these options. A similar
+% command for $\phi$ is given, \cs{phipure}, for fugacity coefficients.
+%    \begin{macrocode}
+\newcommand*{\fpure}{f}
+\let\phipure\phi
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Partial Molar Quantities}
+% \begin{macro}{\partialmolar}
+% Partial molar quantities appear as $\thermooverline{G_i}$ or,
+% for residual properties, $\thermooverline{G_i^R}$, rather than something like
+% $\thermooverline{G}_i$ or $\thermooverline{G}_i^R$, which looks better but
+% is harder to implement for obvious reasons. Their definitions allow them to
+% be used as symbols, something like \verb"\Gpm_i", \verb"\Gpm^{\IGM}_i",
+% \verb"\Gpm^{\IGM}_i", and even \verb"\Gpm_i^{\IGM}";
+% they can also be treated as commands: \verb"\Gpm{i}" is equivalent to
+% \verb"\Gpm_i" and \verb"\Gpm[\IGM]{i}" is equivalent to \verb"\Gpm_i^{\IGM}".
+% The macro \cs{partialmolar} can be used to create an arbitrary partial
+% molar symbol.
+%    \begin{macrocode}
+\let\pm@symbol\relax
+\newcommand*{\partialmolar}[1]{\gdef\pm@symbol{#1}\generic@pm}
+% if nextchar is _
+\def\generic@pm{\@ifnextchar_\@generic@pm\@@generic@pm}
+% then store the argument
+\def\@generic@pm#1#2{%
+    \gdef\pm@arg{#2}%
+    % if nextchar after argument is ^
+    \@ifnextchar^\@@@generic@pm\@@@@generic@pm
+}
+% then print it this way
+\def\@@@generic@pm#1#2{\thermo@overline{\pm@symbol^{#2}_{\pm@arg}}}
+% else do it this way
+\def\@@@@generic@pm{\thermo@overline{\pm@symbol_{\pm@arg}}}
+% else, check whether there is also a ^ coming, otherwise assume
+% it's [] or {}
+\def\@@generic@pm{\@ifnextchar^\@@@@@generic@pm\@pm@bracket@check}
+\def\@@@@@generic@pm#1#2#3#4{\thermo@overline{\pm@symbol^{#2}_{#4}}}
+\def\@pm@bracket@check{\@ifnextchar[\@pm@bracket@yes\@pm@bracket@no}
+\def\@pm@bracket@yes[#1]#2{\thermo@overline{\pm@symbol^{#1}_{#2}}}
+\def\@pm@bracket@no#1{\thermo@overline{\pm@symbol_{#1}}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Symbol Definitions}
+% These macros define the user interface to the symbols for energy, volume,
+% and so forth. We define the ``extra'' symbols \cs{Bt} and \cs{Mt} to
+% represent arbitrary properties.
+% \begin{macro}{\Nt}
+% \begin{macro}{\Et}
+% \begin{macro}{\Ut}
+% \begin{macro}{\Ft}
+% \begin{macro}{\Gt}
+% \begin{macro}{\Ht}
+% \begin{macro}{\Lt}
+% \begin{macro}{\At}
+% \begin{macro}{\St}
+% \begin{macro}{\Vt}
+% \begin{macro}{\Qt}
+% \begin{macro}{\Wt}
+% \begin{macro}{\Mt}
+% \begin{macro}{\Bt}
+% \penalty-600%
+% First, the extensive properties.
+%    \begin{macrocode}
+\newcommand*{\Nt}{\mole@symbol}
+\newcommand*{\Et}{\@extensive\totalenergy@symbol}
+\newcommand*{\Ut}{\@extensive\internalenergy@symbol}
+\newcommand*{\Ft}{\@extensive\Helmholtz@symbol}
+\newcommand*{\Gt}{\@extensive\Gibbs@symbol}
+\newcommand*{\Ht}{\@extensive\enthalpy@symbol}
+\newcommand*{\Lt}{\@extensive\Landau@symbol}
+\newcommand*{\At}{\@extensive\area@symbol}
+\newcommand*{\St}{\@extensive\entropy@symbol}
+\newcommand*{\Vt}{\@extensive\volume@symbol}
+\newcommand*{\Qt}{\@extensive\heat@symbol}
+\newcommand*{\Wt}{\@extensive\work@symbol}
+\newcommand*{\Mt}{\@extensive M}
+\newcommand*{\Bt}{\@extensive B}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Em}
+% \begin{macro}{\Um}
+% \begin{macro}{\Fm}
+% \begin{macro}{\Gm}
+% \begin{macro}{\Hm}
+% \begin{macro}{\Lm}
+% \begin{macro}{\Am}
+% \begin{macro}{\Sm}
+% \begin{macro}{\Vm}
+% \begin{macro}{\Qm}
+%^^A \penalty-600%
+% Then the molar properties.
+%    \begin{macrocode}
+\newcommand*{\Em}{\@intensive\totalenergy@symbol}
+\newcommand*{\Um}{\@intensive\internalenergy@symbol}
+\newcommand*{\Fm}{\@intensive\Helmholtz@symbol}
+\newcommand*{\Gm}{\@intensive\Gibbs@symbol}
+\newcommand*{\Hm}{\@intensive\enthalpy@symbol}
+\newcommand*{\Lm}{\@intensive\Landau@symbol}
+\newcommand*{\Am}{\@intensive\area@symbol}
+\newcommand*{\Sm}{\@intensive\entropy@symbol}
+\newcommand*{\Vm}{\@intensive\volume@symbol}
+\newcommand*{\Qm}{\@intensive\heat@symbol}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{\Wm}
+% \begin{macro}{\Mm}
+% \begin{macro}{\Bm}
+% More molar properties.
+%    \begin{macrocode}
+\newcommand*{\Wm}{\@intensive\work@symbol}
+\newcommand*{\Mm}{\@intensive M}
+\newcommand*{\Bm}{\@intensive B}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Es}
+% \begin{macro}{\Us}
+% \begin{macro}{\Fs}
+% \begin{macro}{\Gs}
+% \begin{macro}{\Hs}
+% \begin{macro}{\Ls}
+% \begin{macro}{\As}
+% \begin{macro}{\Ss}
+% \begin{macro}{\Vs}
+% \begin{macro}{\Qs}
+% \begin{macro}{\Ws}
+% \begin{macro}{\Ms}
+% \begin{macro}{\Bs}
+% \penalty-600%
+% Now the specific (per unit mass) properties.
+%    \begin{macrocode}
+\newcommand*{\Us}{\@specific\internalenergy@symbol}
+\newcommand*{\Es}{\@specific\totalenergy@symbol}
+\newcommand*{\Fs}{\@specific\Helmholtz@symbol}
+\newcommand*{\Gs}{\@specific\Gibbs@symbol}
+\newcommand*{\Hs}{\@specific\enthalpy@symbol}
+\newcommand*{\Ls}{\@specific\Landau@symbol}
+\newcommand*{\As}{\@specific\area@symbol}
+\newcommand*{\Ss}{\@specific\entropy@symbol}
+\newcommand*{\Vs}{\@specific\volume@symbol}
+\newcommand*{\Qs}{\@specific\heat@symbol}
+\newcommand*{\Ws}{\@specific\work@symbol}
+\newcommand*{\Ms}{\@specific M}
+\newcommand*{\Bs}{\@specific B}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Epm}
+% \begin{macro}{\Upm}
+% \begin{macro}{\Hpm}
+% \begin{macro}{\Fpm}
+% \begin{macro}{\Gpm}
+% \begin{macro}{\Apm}
+% \begin{macro}{\Spm}
+% \begin{macro}{\Vpm}
+% \begin{macro}{\Lpm}
+% \begin{macro}{\Mpm}
+% \begin{macro}{\Bpm}
+% Now the partial molar properties.
+%    \begin{macrocode}
+\newcommand*{\Epm}{\partialmolar{\totalenergy@symbol}}
+\newcommand*{\Upm}{\partialmolar{\internalenergy@symbol}}
+\newcommand*{\Hpm}{\partialmolar{\enthalpy@symbol}}
+\newcommand*{\Fpm}{\partialmolar{\Helmholtz@symbol}}
+\newcommand*{\Gpm}{\partialmolar{\Gibbs@symbol}}
+\newcommand*{\Apm}{\partialmolar{\area@symbol}}
+\newcommand*{\Spm}{\partialmolar{\entropy@symbol}}
+\newcommand*{\Vpm}{\partialmolar{\volume@symbol}}
+\newcommand*{\Lpm}{\partialmolar{\Omega}}
+\newcommand*{\Mpm}{\partialmolar{M}}
+\newcommand*{\Bpm}{\partialmolar{B}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\cPpm}
+% \begin{macro}{\cVpm}
+% Partial molar heat capacities are \emph{hard}, but the following
+% implementation seems to work flawlessly\dots so far.
+%    \begin{macrocode}
+\newcommand*{\cPpm}{%
+  \def\@@@generic@pm##1##2{%
+    \thermo@overline{\pm@symbol^{##2}_{\pressure@symbol,\pm@arg}}}%
+  \def\@@@@generic@pm{\thermo@overline{\pm@symbol_{\pressure@symbol,\pm@arg}}}%
+  \def\@@@@@generic@pm##1##2##3##4{%
+    \thermo@overline{\pm@symbol^{##2}_{\pressure@symbol,##4}}}%
+  \def\@pm@bracket@yes[##1]##2{%
+    \thermo@overline{\pm@symbol^{##1}_{\pressure@symbol,##2}}}%
+  \def\@pm@bracket@no##1{\thermo@overline{\pm@symbol_{\pressure@symbol,##1}}}%
+  \partialmolar{\heatcapacitysymbol}%
+}
+\newcommand*{\cVpm}{%
+  \def\@@@generic@pm##1##2{%
+    \thermo@overline{\pm@symbol^{##2}_{\volume@symbol,\pm@arg}}}%
+  \def\@@@@generic@pm{\thermo@overline{\pm@symbol_{\volume@symbol,\pm@arg}}}%
+  \def\@@@@@generic@pm##1##2##3##4{%
+    \thermo@overline{\pm@symbol^{##2}_{\volume@symbol,##4}}}%
+  \def\@pm@bracket@yes[##1]##2{%
+    \thermo@overline{\pm@symbol^{##1}_{\volume@symbol,##2}}}%
+  \def\@pm@bracket@no##1{\thermo@overline{\pm@symbol_{\volume@symbol,##1}}}%
+  \partialmolar{\heatcapacitysymbol}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Residual and Excess Properties}
+% \begin{macro}{\residual}
+% \begin{macro}{\excess}
+% Macros are defined for residual properties (departure from non-ideal gases)
+% and excess properties (departure from ideal solutions). We begin with two
+% macros to use for defining generic residual and excess properties that are
+% not already defined.
+%    \begin{macrocode}
+\newcommand*{\residual}{R}
+\newcommand*{\excess}{E}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\UR}
+% \begin{macro}{\HR}
+% \begin{macro}{\FR}
+% \begin{macro}{\GR}
+% \begin{macro}{\VR}
+% \begin{macro}{\SR}
+% The ordinary residual properties are molar.
+%    \begin{macrocode}
+\newcommand*{\UR}{\Um^\residual}
+\newcommand*{\HR}{\Hm^\residual}
+\newcommand*{\FR}{\Fm^\residual}
+\newcommand*{\GR}{\Gm^\residual}
+\newcommand*{\VR}{\Vm^\residual}
+\newcommand*{\SR}{\Sm^\residual}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% 
+% \pagebreak[3]%
+% \begin{macro}{\URt}
+% \begin{macro}{\HRt}
+% \begin{macro}{\FRt}
+% \begin{macro}{\GRt}
+% \begin{macro}{\VRt}
+% \begin{macro}{\SRt}
+% We define similar macros for the extensive residual properties. These are
+% appended by a \verb"t" (for ``total'').
+%    \begin{macrocode}
+\newcommand*{\URt}{\Ut^\residual}
+\newcommand*{\HRt}{\Ht^\residual}
+\newcommand*{\FRt}{\Ft^\residual}
+\newcommand*{\GRt}{\Gt^\residual}
+\newcommand*{\VRt}{\Vt^\residual}
+\newcommand*{\SRt}{\St^\residual}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\URs}
+% \begin{macro}{\HRs}
+% \begin{macro}{\FRs}
+% \begin{macro}{\GRs}
+% \begin{macro}{\VRs}
+% \begin{macro}{\SRs}
+% Similar macros are declared for the specific residual properties.
+% These are appended by an \verb"s".
+%    \begin{macrocode}
+\newcommand*{\URs}{\Us^\residual}
+\newcommand*{\HRs}{\Hs^\residual}
+\newcommand*{\FRs}{\Fs^\residual}
+\newcommand*{\GRs}{\Gs^\residual}
+\newcommand*{\VRs}{\Vs^\residual}
+\newcommand*{\SRs}{\Ss^\residual}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \penalty-500
+% \begin{macro}{\URpm}
+% \begin{macro}{\HRpm}
+% \begin{macro}{\FRpm}
+% \begin{macro}{\GRpm}
+% \begin{macro}{\VRpm}
+% \begin{macro}{\SRpm}
+% Now for the partial molar residual properties.
+% These are appended by \verb"pm".
+%    \begin{macrocode}
+\newcommand*{\URpm}{\partialmolar{\internalenergy@symbol^\residual}}
+\newcommand*{\HRpm}{\partialmolar{\enthalpy@symbol^\residual}}
+\newcommand*{\FRpm}{\partialmolar{\Helmholtz@symbol^\residual}}
+\newcommand*{\GRpm}{\partialmolar{\Gibbs@symbol^\residual}}
+\newcommand*{\VRpm}{\partialmolar{\volume@symbol^\residual}}
+\newcommand*{\SRpm}{\partialmolar{\entropy@symbol^\residual}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\UE}
+% \begin{macro}{\HE}
+% \begin{macro}{\FE}
+% \begin{macro}{\GE}
+% \begin{macro}{\VE}
+% \begin{macro}{\SE}
+% Now for the excess molar properties.
+%    \begin{macrocode}
+\newcommand*{\UE}{\Um^\excess}
+\newcommand*{\FE}{\Fm^\excess}
+\newcommand*{\HE}{\Hm^\excess}
+\newcommand*{\GE}{\Gm^\excess}
+\newcommand*{\SE}{\Sm^\excess}
+\newcommand*{\VE}{\Vm^\excess}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\UEt}
+% \begin{macro}{\HEt}
+% \begin{macro}{\FEt}
+% \begin{macro}{\GEt}
+% \begin{macro}{\VEt}
+% \begin{macro}{\SEt}
+% Similarly, the extensive excess properties.
+%    \begin{macrocode}
+\newcommand*{\UEt}{\Ut^\excess}
+\newcommand*{\FEt}{\Ft^\excess}
+\newcommand*{\HEt}{\Ht^\excess}
+\newcommand*{\GEt}{\Gt^\excess}
+\newcommand*{\SEt}{\St^\excess}
+\newcommand*{\VEt}{\Vt^\excess}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\UEs}
+% \begin{macro}{\HEs}
+% \begin{macro}{\FEs}
+% \begin{macro}{\GEs}
+% \begin{macro}{\VEs}
+% \begin{macro}{\SEs}
+% Now for the specific excess properties.
+%    \begin{macrocode}
+\newcommand*{\UEs}{\Us^\excess}
+\newcommand*{\FEs}{\Fs^\excess}
+\newcommand*{\HEs}{\Hs^\excess}
+\newcommand*{\GEs}{\Gs^\excess}
+\newcommand*{\SEs}{\Ss^\excess}
+\newcommand*{\VEs}{\Vs^\excess}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \pagebreak[3]%
+% \begin{macro}{\UEpm}
+% \begin{macro}{\HEpm}
+% \begin{macro}{\FEpm}
+% \begin{macro}{\GEpm}
+% \begin{macro}{\VEpm}
+% \begin{macro}{\SEpm}
+% Finally, the excess partial molar quantities.
+%    \begin{macrocode}
+\newcommand*{\UEpm}{\partialmolar{\internalenergy@symbol^\excess}}
+\newcommand*{\HEpm}{\partialmolar{\enthalpy@symbol^\excess}}
+\newcommand*{\FEpm}{\partialmolar{\Helmholtz@symbol^\excess}}
+\newcommand*{\GEpm}{\partialmolar{\Gibbs@symbol^\excess}}
+\newcommand*{\VEpm}{\partialmolar{\volume@symbol^\excess}}
+\newcommand*{\SEpm}{\partialmolar{\entropy@symbol^\excess}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\prodall}
+% \begin{macro}{\sumall}
+% \begin{macro}{\sumallbutlast}
+% The \cs{sumall} command and its cousin, \cs{sumallbutlast}, simplify the
+% typesetting of commonly-used sums; the command \cs{prodall} does the same
+% thing for products, viz.,
+% \begin{verbatim}
+%   \[ \sumall_i x_i = 1 \qquad \sumallbutlast_i x_i = 1 - x_\ncomponents
+%       \qquad K = \exp\left(\frac{-\Deltarxn\Gm^\std}{RT}\right)
+%                = \prodall_i a_i^{\nu_i} \]
+%\end{verbatim}
+% gives
+%   \[ \sum_{i=1}^C x_i = 1 \qquad \sum_{i=1}^{C-1} x_i = 1 - x_C \qquad
+%      K = \exp\left(\frac{-\Delta G_\text{rxn}^\circ}{RT}\right)
+%        = \prod_{i=1}^C a_i^{\nu_i} \]
+%    \begin{macrocode}
+\newcommand*{\sumall}{\@ifnextchar_\@sumall\@@sumall}
+\def\@sumall#1#2{\sum_{#2=1}^{\ncomponents}}
+\def\@@sumall#1{\sum_{#1=1}^{\ncomponents}}
+\newcommand*{\sumallbutlast}{\@ifnextchar_\@sumallbutlast\@@sumallbutlast}
+\def\@sumallbutlast#1#2{\sum_{#2=1}^{\ncomponents-1}}
+\def\@@sumallbutlast#1{\sum_{#1=1}^{\ncomponents-1}}
+\newcommand*{\prodall}{\@ifnextchar_\@prodall\@@prodall}
+\def\@prodall#1#2{\prod_{#2=1}^{\ncomponents}}
+\def\@@prodall#1{\prod_{#1=1}^{\ncomponents}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\IG}
+% \begin{macro}{\IGM}
+% \begin{macro}{\IS}
+% The \cs{IG}, \cs{IGM}, and \cs{IS} macros (meaning ``ideal gas,'' ``ideal
+% gas mixture,'' and ``ideal solution,'' respectively) should be used to
+% make clean transitions between textbooks---some use ``IM'' rather than ``IS''
+% for example.
+%    \begin{macrocode}
+\newcommand*{\IG}{{\text{IG}}}
+\newcommand*{\IGM}{{\text{IGM}}}
+\newcommand*{\IS}{{\text{IS}}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\Henryrat}
+% \begin{macro}{\Henrymol}
+% The Henry's Law constants for the rational basis ($y_i P = x_i h_i$) and
+% the molal basis ($y_i P = C_i \mathcal{H}_i$) are given by the macros
+% \cs{Henryrat} and \cs{Henrymol}, respectively. Using them this way
+% consistently allows for easy switching back and forth.
+%    \begin{macrocode}
+\newcommand*{\Henryrat}{h}
+\newcommand*{\Henrymol}{{\mathcal{H}}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\gammarat}
+% \begin{macro}{\gammamol}
+% The ordinary activity coefficient is universally denoted $\gamma$, so I
+% have not defined a special macro for that. However, the Henry's Law activity
+% coefficients are far from universal, so I have defined macros to make their
+% use consistent. The defaults render \cs{gammarat} as $\gamma^\ast$ and
+% \cs{gammamol} as $\gamma^\square$.
+% \cs{gammamol} will use \cs{square} from packages if it is defined; if not,
+% it ``fakes it'' with the definition below (based on the \textsf{amsthm}
+% package).
+%^^A Code for \square ripped off from amsthm.sty with tweaks
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \providecommand*{\square}{%
+    \text{\leavevmode
+      \hbox to.77778em{%
+      \hfil\vrule
+      \vbox to.6em{\hrule width.6em\vfil\hrule}%
+      \vrule\hfil}%
+    }%
+  }%
+}
+\newcommand*{\gammarat}{\gamma^\ast}
+\newcommand*{\gammamol}{\gamma^\square}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \begin{macro}{Jacobian}
+% The \cs{Jacobian} command typesets the Jacobian, viz.,
+% \begin{verbatim}
+% \[ \Jacobian{K}{L}{X}{Y} =
+%   \begin{vmatrix}
+%     \displaystyle \Partial{K}{X}{Y} & \displaystyle \Partial{K}{Y}{X}
+%   \\[2ex]
+%     \displaystyle \Partial{L}{X}{Y} & \displaystyle \Partial{L}{Y}{X}
+%   \end{vmatrix}
+% \]
+%\end{verbatim}
+% produces
+% \[ \left(\frac{\partial(K,L)}{\partial(X,Y)}\right) =
+%   \begin{vmatrix}
+%     \displaystyle \left(\frac{\partial K}{\partial X}\right)_Y
+%     & \displaystyle \left(\frac{\partial K}{\partial Y}\right)_X \\[2ex]
+%     \displaystyle \left(\frac{\partial L}{\partial X}\right)_Y
+%     & \displaystyle \left(\frac{\partial L}{\partial Y}\right)_X
+%   \end{vmatrix}
+% \]
+% This macro is defined purely for convenience.
+%    \begin{macrocode}
+\newcommand*{\Jacobian}[4]{\frac{\partial{(#1,#2)}}{\partial{(#3,#4)}}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \iffalse
+%</package>
+%<*example>
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{thermodynamics}
+\title{Examples to Accompany the \textsf{thermodynamics} Package}
+\author{Karl D. Hammond}
+\date{}
+\begin{document}
+\maketitle\noindent
+The combined laws:
+\begin{align*}
+  d\Et &= d\Ut + d\left(\frac12 m v^2\right) - d(m\phi) \\
+  d\Ut &= \dbar\Qt + \dbar\Wt + \Um d\Nt
+        = \dbar\Qt - P d\Vt + \Hm d\Nt
+    \\ &= \Partial*{\Ut}{\St}{\Vt,\allNs} d\St
+        + \Partial*{\Ut}{\Vt}{\St,\allNs} d\Vt
+        + \sumall_i \Partial*{\Ut}{\Nt_i}{\Vt,\St,\allNsbut{i}} d\Nt_i
+    \\ &= T d\St - P d\Vt + \sumall_i \mu_i d\Nt_i
+\end{align*}
+With surfaces present:
+\begin{gather*}
+   d\Ut = T d\St - P d\Vt  + \sigma d\At + \sumall_i \mu_i d\Nt_i \\
+   d\Ht = T d\St + \Vt dP  + \sigma d\At + \sumall_i \mu_i d\Nt_i \\
+   d\Ft = -\St dT - P d\Vt + \sigma d\At + \sumall_i \mu_i d\Nt_i \\
+   d\Gt = -\St dT + \Vt dP + \sigma d\At + \sumall_i \mu_i d\Nt_i \\
+   d\Lt = -\St dT - P d\Vt + \sigma d\At - \sumall_i \Nt_i d\mu_i \\
+    \Bt = \Ut + P\Vt - T\St - \sigma\At \\
+   d\Bt = -\St dT + \Vt dP - \At d\sigma + \sumall_i \mu_i d\Nt_i \\
+   \mu_i = \Bpm_i = \Gpm_i + \sigma \Apm_i
+\end{gather*}
+Some Maxwell reciprocity relations:
+\begin{gather*}
+  \Partial*{\Vt}{T}{P,\allNs}
+    = \PartialMixSecond*{\Gt}{T}{P}{\allNs}
+    = \PartialMixSecond*{\Gt}{P}{T}{\allNs}
+    = -\Partial{\St}{P}{T,\allNs}
+\\
+    \Partial*{\Gpm_i}{T}{P,\allXs}
+    = \PartialMixSecond*{\Gt}{T}{\Nt_i}{P,\allNsbut{i}}
+    = \PartialMixSecond*{\Gt}{\Nt_i}{T}{P,\allNsbut{i}}
+    = -\Partial*{\St}{\Nt_i}{T,P,\allNsbut{i}}
+    = -\Spm_i
+\end{gather*}
+The heat capacities:
+\begin{gather*}
+  \cV = T \Partial*{\Sm}{T}{\Vm,\allXs} = \Partial*{\Um}{T}{\Vm,\allXs}
+      = -T\PartialSecond{\Fm}{T}{\Vm,\allXs}
+  \\
+  \cP^\IGM = T \Partial*{\Sm^\IGM}{T}{P,\allYs}
+           = \Partial*{\Hm^\IGM}{T}{P,\allYs}
+    \begin{thermobrackets}
+      = -T\PartialSecond{\Gm^\IGM}{T}{P,\allYs}
+    \end{thermobrackets}
+  \\
+  \cVt = T \Partial*{\St}{T}{\Vt,\allNs} = \Partial*{\Ut}{T}{\Vt,\allNs}
+    \begin{thermobraces}
+       = -T\PartialSecond{\Ft}{T}{\Vm,\allNs}
+    \end{thermobraces}
+  \\
+    \begin{thermobar}
+  \cPt = T \Partial*{\St}{T}{P,\allNs} = \Partial*{\Ht}{T}{P,\allNs}
+       = -T\PartialSecond{\Gt}{T}{P,\allNs}
+    \end{thermobar}
+  \\
+  \cVs = T \Partial*{\Ss}{T}{\Vs,\allWs} = \Partial*{\Us}{T}{\Vs,\allWs}
+    \begin{thermoplain}
+       = -T\PartialSecond{\Fs}{T}{\Vs,\allWs}
+    \end{thermoplain}
+  \\
+  \cPs = T \Partialbigg*{\Ss}{T}{P,\allWs} = \Partialbigg*{\Hs}{T}{P,\allWs}
+       = -T\PartialSecondbigg{\Gs}{T}{P,\allWs}
+  \\
+\begin{split}
+  \cPpm_i &= \Partial*{\cPt}{\Nt_i}{T,P,\allNsbut{i}}
+           = T \PartialMixSecond*{\St}{\Nt_i}{T}{P,\allNsbut{i}}
+           = T \PartialMixSecond*{\St}{T}{\Nt_i}{P,\allNsbut{i}}
+       \\ &= T \Partial*{\Spm_i}{T}{P,\allXs}
+           = \Partial*{\Hpm_i}{T}{P,\allXs}
+           = \PartialMixSecond*{\Ht}{T}{\Nt_i}{P,\allNsbut{i}}
+           = \PartialMixSecond*{\Ht}{\Nt_i}{T}{P,\allNsbut{i}}
+       \\ &= -T\PartialSecond*{\Gpm_i}{T}{P,\allXs}
+           = -T\Partial{{}^3 \Gt}{T^2\partial \Nt_i}{P,\allNsbut{i}}
+\end{split}
+\end{gather*}
+Other measurable quantities:
+\begin{align*}
+  \alphaS &= \frac{1}{\Vm} \Partial{\Vm}{T}{\Sm} &
+  \alphaP &= \frac{1}{\Vm} \Partial{\Vm}{T}{P} \\
+  \kappaS &= -\frac{1}{\Vm} \Partial{\Vm}{P}{\Sm} &
+  \kappaT &= -\frac{1}{\Vm} \Partial{\Vm}{P}{T}
+\end{align*}
+The chemical potential, fugacity, and activity:
+\[ \mu_i = \Gpm_i = \Gm_i^\std + RT \ln a_i
+         = \Gm_i^\std + RT\ln\left(\frac{\fmix_i}{\fstd_i}\right) \]
+Equilibrium in a chemical reaction:
+\[ \sumall_i \nu_i \mu_i = 0
+    \Rightarrow
+    \exp\left(\frac{-\Delta\Gm^\std}{RT}\right) = K = \prodall_i a_i^{\nu_i} \]
+Partial molar quantities:
+\begin{align*}
+  \Hpm{i} &= \Partial*{\Ht}{\Nt_i}{T,P,\allNsbut{i}}
+           = \Hm + \Nt \Partial*{\Hm}{\Nt_i}{T,P,\allNsbut{i}}
+       \\ &= \Hm + \Partial*{\Hm}{x_i}{T,P,\allXsbut{i}}
+                 - \sumallbutlast_j x_j \Partial*{\Hm}{x_j}{T,P,\allXsbut{j}}
+           = \Partial*{\Hm}{x_i}{T,P,\allXsbut{i}} + \Hpm_\ncomponents
+\end{align*}
+\[ \Vpm_i = \Partial{\Vt}{\Nt_i}{T,P,\allNsbut{i}} \]
+Fugacity and related properties:
+\begin{gather*}
+  \Gpm_i = \mu_i
+         = \Gm_i^\std(T) + RT\ln a_i
+         = \Gm_i^\std(T) + RT\ln\left(\frac{\fmix_i}{\fstd_i}\right)
+  \\
+  a_i = \frac{\fmix_i}{\fstd_i}
+      = x_i \gamma_i
+                \exp\left(\frac{1}{RT} \int_{\Pstd}^P \Vm_i(T,p) dp\right)
+      \approx x_i \gamma_i
+  \\
+  \begin{split}
+  \fmix_i &= x_i \phimix_i P
+           = x_i \gamma_i \fpure_i = x_i \gamma_i \phipure_i P
+           = x_i \gammarat_i \Henryrat_i
+           = C_i \gammamol_i \Henrymol_i
+           = x_i \gamma_i \fsat_i
+                 \exp\left(\frac{1}{RT} \int_{\Psat_i}^P \Vm_i(T,p) dp\right)
+       \\ &= x_i \gamma_i \Psat_i \phisat_i
+                \exp\left(\frac{1}{RT} \int_{\Psat_i}^P \Vm_i(T,p) dp\right)
+          \approx x_i \gamma_i \Psat_i
+  \end{split}
+\end{gather*}
+Chemical Equilibria:
+\begin{gather*}
+  \Deltarxn\Hm^\std = \sumall_i \nu_i \Deltaf\Hm_i^\std \\
+  \Deltarxn\Gm^\std = \sumall_i \nu_i \Deltaf\Gm_i^\std
+                    = \sumall_i \nu_i \mu_i^\std \\
+  \Deltarxn\cP^\std = \sumall_i \nu_i \cP_i^\std \\
+  \mu_i = \mu_i^\std + RT\ln a_i \\
+  a_i = \begin{cases}
+\displaystyle
+     \frac{y_i \phimix_i P}{\Pstd} \approx \frac{y_i P}{\Pstd}
+        & \text{(gases)} \\
+\rule{0pt}{5ex}%
+\displaystyle
+     x_i \gamma_i \exp\left(\frac{1}{RT} \int_{\Pstd}^P \Vm_i(T,p)\,dp\right)
+     \approx
+     x_i \gamma_i \exp\left(\frac{\Vm_i(P-\Pstd)}{RT}\right)
+     \approx x_i \gamma_i \approx 1
+        & \text{(solids, solvents)} \\
+\displaystyle
+\rule{0pt}{5ex}%
+     \frac{C_i \gammamol_i}{C_i^\std}
+        \exp\left(\frac{1}{RT}
+        \int_{\Pstd}^P \Vpm_i^\infty(T,p,\allXs)\,dp\right)
+     \approx
+     \frac{C_i \gammamol_i}{C_i^\std} \approx \frac{C_i}{C_i^\std}
+        & \text{(solutes)}
+        \end{cases}
+\end{gather*}
+Phase change properties:
+\begin{gather*}
+  \Deltafus\Sm = \Sm^L - \Sm^S \\
+  \Deltasub\Vm = \Vm^V - \Vm^S \\
+  \Deltavap\Gm = \Gm^V - \Gm^L
+\end{gather*}
+Specific properties:
+\newcommand*{\Btilde}[2][]{\widetilde{B}_{#2}^{#1}}
+\[ \Btilde{j} \equiv \Partial{\Bt}{m_j}{T,\Vs,\allMsbut[i]{j}} \]
+and thus
+\[ \Btilde{i}
+    = \frac{\Bpm{i}}{M_i}
+        + \Biggl(\Vs - \frac{\Vpm_i}{M_i}\Biggr)
+          \Partial*{\Bs}{\Vs}{T,\allMs}
+    = \frac{\Bpm{i}}{M_i}
+        + \Biggl(\Vs - \frac{\Vpm_i}{M_i}\Biggr)
+          \Partial{\Bs}{\Vs}{T,m,\allWs} \]
+and
+\[ \Bs = \sumall_i w_i \Btilde{i}. \]
+Excess and Residual (Departure) Properties:
+\begin{align*}
+  \HR &= \Hm - \Hm^\IG &
+  \FR &= \Fm - \Fm^\IGM \\
+  \SE &= \Sm - \Sm^\IS &
+  \VRpm_k &= \Vpm_k - \Vpm_k^\IGM
+\end{align*}
+\end{document}
+%</example>
+% \fi
+%
+% \Finale
+\endinput

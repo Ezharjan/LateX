@@ -1,0 +1,119 @@
+% \file{style/mu/fithesis-fi.sty}
+% \changes{v1.0.0}{2021/02/21}{Files were renamed after
+%   breaking changes in package loading after PR 438 in \LaTeXe. [VN]}
+% \changes{v1.0.0}{2021/03/19}{Updated urls to show the most recent
+%   requirements and recommendations used in preparation of the
+%   template. [TV]}
+% This is the style file for the theses written at the Faculty of
+% Informatics at the Masaryk University in Brno. It has been
+% prepared in accordance with the faculty directive
+% \footnote{See \url{https://is.muni.cz/auth/do/fi/^^A
+% uredni_deska/predpisy/smernice/Smernice_dekana_1_2021^^A
+% _zaverecne_prace.pdf}}.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fithesis/style/mu/fithesis-mu-fi}[2021/04/24]
+%    \end{macrocode}
+% The file defines the color scheme of the respective faculty. Note
+% the the color definitions are in RGB, which makes the resulting
+% files generally unsuitable for printing.
+%    \begin{macrocode}
+\thesis@color@setup{
+  links={HTML}{FFD451},
+  tableEmph={HTML}{FFD451},
+  tableOdd={HTML}{FFF9E5},
+  tableEven={HTML}{FFECB3}}
+%    \end{macrocode}
+% The bibliography support is enabled. The |iso-numeric| citations are
+% used and the bibliography is sorted in citation order.
+%    \begin{macrocode}
+\thesis@bibliography@setup{
+  style=iso-numeric,
+  sorting=none}
+\thesis@bibliography@load
+%    \end{macrocode}
+% In case of rigorous and doctoral theses, the style file hides the
+% thesis assignment in accordance with the formal requirements of
+% the faculty.
+% \begin{macrocode}
+\ifx\thesis@type\thesis@rigorous
+  \thesis@blocks@assignment@false
+\else\ifx\thesis@type\thesis@doctoral
+  \thesis@blocks@assignment@false
+\fi\fi
+%    \end{macrocode}
+% \changes{v1.0.0}{2021/02/26}{^^A
+%   The \cs{thesis@blocks@advisorSignature} macro is now defined
+%   for styles of all faculties at the Masaryk University in Brno,
+%   not just for the Faculty of Informatics, and is automatically
+%   used in the \cs{thesis@blocks@titlePage} macro for rigorous
+%   theses and PhD thesis proposals. [VN]}
+% \changes{v1.0.0}{2021/02/26}{Lifted the \texttt{advisorSignature}
+%   string to the global locale file interface. [VN]}
+% \begin{macro}{\thesis@blocks@declaration}
+% The |\thesis@blocks@declaration| macro typesets the
+% declaration text. Compared to the definition within the
+% \texttt{style/mu/base.sty} file, this macro also
+% typesets the advisor's name at the bottom of the page.
+% \begin{macrocode}
+\def\thesis@blocks@declaration{%
+  \thesis@blocks@clear
+  \begin{alwayssingle}%
+    \chapter*{\thesis@@{declarationTitle}}%
+    \thesis@declaration
+    \vskip 2cm%
+    \hfill\thesis@author
+    \par\vfill\noindent
+    \textbf{\thesis@@{advisorTitle}:} \thesis@advisor
+    \par\vfil
+  \end{alwayssingle}}
+%    \end{macrocode}
+% \end{macro}
+% \changes{v1.0.0}{2021/05/06}{Added redefinition of conditionals
+%    to exclude the study field and the study programme from the
+  %    title page. [TV]}
+%    \begin{macrocode}
+\thesis@blocks@titlePage@field@false
+\thesis@blocks@titlePage@programme@false
+%    \end{macrocode}
+% In Ph.D. theses, only the table of contents will be typeset in
+% the front matter as per the formal requirements of the
+% faculty\footnote{See
+% \url{http://is.muni.cz/www/2575/dtedi/index_en.html}}.
+%
+% Note that there is no direct support for the seminar paper type.
+% If you would like to change the contents of the preamble and the
+% postamble, you should modify the |\thesis@blocks@preamble| and
+% |\thesis@blocks@postamble| macros.
+%
+% All blocks within the autolayout preamble and postamble that are
+% not defined within this file are defined in the
+% \texttt{style/mu/fithesis-base.sty} file.
+% \changes{v1.0.0}{2021/03/22}{Reorganised the blocks to fit the
+%   faculty's requirements. [TV]}
+% \changes{v1.0.0}{2021/04/24}{^^A
+%   Change \cs{thesis@facultyLogo},
+%   \cs{thesis@blocks@facultyLogo@monochrome}, and
+%   \cs{thesis@blocks@facultyLogo@color} to use the new logotype
+%   of the Masaryk University in Brno in the correct size and
+%   localization. Add \cs{thesis@blocks@seal}. [VN]}
+%    \begin{macrocode}
+\def\thesis@blocks@preamble{%
+  \thesis@blocks@coverMatter
+    \thesis@blocks@cover
+  \thesis@blocks@frontMatter
+    \thesis@blocks@titlePage
+    \thesis@blocks@seal
+    \ifx\thesis@type\thesis@proposal
+      \thesis@blocks@toc
+    \else
+      \thesis@blocks@declaration
+      \thesis@blocks@thanks
+      \thesis@blocks@clear
+        \thesis@blocks@abstract
+        \thesis@blocks@keywords
+      \thesis@blocks@tables
+    \fi}
+\def\thesis@blocks@postamble{%
+  \thesis@blocks@bibliography}
+%    \end{macrocode}

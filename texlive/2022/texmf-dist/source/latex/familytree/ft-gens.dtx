@@ -1,0 +1,365 @@
+% \iffalse
+% Copyright 2022 Jiro Senju
+%
+% This package is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% any later version.
+%
+% This package is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this package.  If not, see <http://www.gnu.org/licenses/>.
+% \fi
+%
+% \newcommand{\tOne}{Parent-child Relationship Box or Generations Box}
+% \newcommand{\tTwo}{(\texttt{ft-gens.dtx})}
+% \section[\tOne{} \tTwo]{\tOne\\\tTwo}
+%
+% \DescribeMacro{\pcdef}
+% \cmd{\pcdef
+%   \marg{new box name}
+%   \marg{parent box name}
+%   \marg{child box name}
+% }
+% \medskip
+%
+% Defines a parent-child relationship box.
+% Connects the given \meta{parent box} and \meta{child box} by a line,
+% and creates a new box \meta{new box name}.
+%
+% \meta{parent box} is a box who has only one line from an individual
+% name to one's child. For example, the box created by |\indvdldef| with
+% |\maleline| attribute (and equivalent) is specified.
+% Obviously, \meta{child box} is a box who has a line to one's parent.
+% For example, the box created by |\indvdldef| with |\biological| or
+% |\adopted| is specified as a child mark.
+%
+% |\pcdef| is a simplified version of |\gensdef|, which is discussed next.
+% \bigskip
+%
+% \noindent
+% \DescribeMacro{\gensdef}
+% \cmd{\gensdef
+%   \marg{new box name}
+%   \marg{parent box name}
+%   \marg{list of connection-pair}
+% }
+%
+% \begin{tabbing}
+% \hspace{4em} \=\kill
+% \texttt{connection-pair :=}\\
+% \> \marg{individual box name in the parent box}\\
+% \> \marg{child box name}
+% \end{tabbing}
+% \medskip
+%
+% Defines a two-generations box.
+% Same to |\pcdef|, \meta{child box} is a box who has only one line to
+% the parent, but \meta{parent box} can have multiple lines to one's child.
+% It is \meta{connection-pair} that makes it clear which parent connects
+% to which child box.
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Example}
+%
+% \begin{enumerate}
+% \item
+% |\sblngdef| for daughters, |\pcdef|, and then |\sblngdef| for their
+% parent generation.
+% \srcfig{fig3Robert1}
+%
+% \needspace{2\baselineskip}
+% \item
+% two |\sblngdef|, and then |\gensdef|. The result is essentially same.
+% One difference is the space between the siblings which was
+% automatically adjusted in previous example.
+% \srcfig{fig3Robert2}
+% \end{enumerate}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{The order of connecting multiple boxes}
+% \label{sec:Lily1}
+%
+% If we get |\sblngdef| as a tool to align the individual boxes in
+% column, then |\pcdef| and |\gensdef| are the tool to align the boxes
+% in row.
+% When the siblings have their child for each, then there are multiple
+% parent-child relationships, so it is better to call it generations box
+% rather than parent-child box.
+%
+% There are two ways to draw such tree. One is to define parent-child
+% first and then define the siblings of the parent generation. The other
+% is in the reverse order, eg. to define the siblings of the parent
+% generation first and then define the parent-child relationship for each.
+%
+% Let's consider about these two ways.
+%
+% \begin{enumerate}
+% \needspace{2\baselineskip}
+% \item
+% define two parent-child relationships, and then define the siblings.
+%
+% \srcfig{fig3Lily1}
+%
+% \needspace{3\baselineskip}
+% \item
+% define the sisters, and then define the parent-child for each.
+%
+% \srcfig{fig3Lily2}
+% \end{enumerate}
+%
+% As you see, by the 1st method the length of two lines to their child
+% differs and the positions (in horizontal) of the child generation are
+% not equal. That makes the tree uneasy to understand straightforward.
+% It is because that the feature of |\sblngdef| to set the line length
+% to the longest one didn't work.
+% The argument passed to |\sblngdef| were already connected to the child,
+% so if |\sblngdef| extended the line it would be much worse result.
+%
+% On the other hand, by the 2nd method, the argument passed to
+% |\sblngdef| were not connected to the child. So it is harmless if
+% |\sblngdef| extends the line.
+% \smallskip
+%
+% Even if you took the 1st method, there still exists to make the line
+% length equal.
+% Using |\indvdldef| feature to adjust the line length, set the length
+% of Lily's |\femaleline| (|\matrilineal|) to the one of Petunia's.
+% To achieve this, calculate the difference of the name length of these
+% sisters and give an optional argument of |\indvdldef|.
+% The result should be same to above.
+% \medskip
+%
+% \srcfig{fig3Lily3}
+% \medskip
+%
+% You can get the same result if you use |\nameboxcfg| since it has a
+% feature to set the length of a line to child.
+% But it is not a good idea to use |\nameboxcfg| every time when you
+% |\indvdldef|. The value set by |\nameboxcfg| should be applied wider,
+% and it is not supposed to use for a single |\indvdldef|. It is better
+% to append an optional argument to |\indvdldef|.
+% \smallskip
+%
+% There is one more option. It is to set the length of Lily's name to Petunia's.
+% By this method, the space between Lily's name and the line to child
+% becomes wider and the length of lines become equal.
+% \medskip
+%
+% \srcfig{fig3Lily4}
+% \medskip
+%
+% The sequence or the order to define and connect the boxes is important.
+% In connecting the boxes, this package considers the size of the
+% being connected individual boxes. For example, the sibling box
+% considers the height of the
+% individual box and makes the boxes to be never overlapped.
+% But in connecting a child to the already defined sibling box, this
+% feature doesn't work. So the children of the siblings may be
+% overlapped. In this case, you need to insert the interval box between
+% the siblings manually.
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsectImpl
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Generations box --- core}
+%
+% \iffalse
+% \parag{Customization}
+%
+% \DescribeMacro{\ftgenscfg}
+% \NoDescription
+%    \begin{macrocode}
+% \newcommand{\ftgenscfg}[1]{%
+% }
+%    \end{macrocode}
+% \fi
+%
+% \parag{Connection pair}
+%
+% \DescribeMacro{\ft@getpair}
+% Extracts a connection-pair from the given list,
+% defines the connection-point in the parent box (the former of the pair)
+% as |\ft@cpoint|, and defines the child box name (the latter of the
+% pair) as |\ft@kids|.
+% \smallskip
+%
+%    \begin{macrocode}
+\def\ft@getpair#1#2#3{% connection-pair parent-box-name
+  \ft@dbgmsg{args #1, #2, #3}%
+  \@ifundefined{#3#1nameCY}{%
+    \@ifundefined{#3#1mrrgCY}{%
+      \xdef\ft@cpoint{#1nameCY}%
+    }{%
+      \xdef\ft@cpoint{#3#1mrrgCY}%
+    }%
+  }{%
+    \xdef\ft@cpoint{#3#1nameCY}%
+  }%
+  \xdef\ft@kids{#2}%
+}
+%    \end{macrocode}
+%
+% \parag{Top margin}
+%
+% \DescribeMacro{\def@calc@xtop}
+%
+%    \begin{macrocode}
+\newcommand{\ft@calc@xtop}[4]{% name parent cpoint kids
+  % top half of kids
+  \ft@len=\dimexpr\ht\@nameuse{#4} - \@nameuse{#4nameCY}pt\relax\relax%
+  % top half of parent cpoint
+  \@tempskipa=\dimexpr\ht\@nameuse{#2} - \@nameuse{#3}pt\relax\relax%
+  %
+  \ifdim\ft@len<\@tempskipa%
+    \ft@len=0pt%
+  \else%
+    \advance\ft@len -\@tempskipa%
+  \fi%
+  \global#1=\ft@len%
+}
+%    \end{macrocode}
+%
+% \parag{Bottom margin}
+%
+% \DescribeMacro{\ft@calc@xbottom}
+%
+%    \begin{macrocode}
+\newcommand{\ft@calc@xbottom}[4]{% name parent cpoint kids
+  % bottom half of kids
+  \ft@len=\@nameuse{#4nameCY}pt\relax%
+  % bottom half of parent cpoint
+  \@tempskipa=\@nameuse{#3}pt\relax%
+  %
+  \ifdim\ft@len=\@tempskipa%
+    \ft@len=0pt%
+    \global\setlength{\ft@depth}{\dp\@nameuse{#2}}%
+    \ifdim\ft@depth<\dp\@nameuse{#4}%
+      \global\setlength{\ft@depth}{\dp\@nameuse{#4}}%
+    \fi%
+  \else%
+    \ifdim\ft@len<\@tempskipa%
+      \ft@len=0pt%
+      \global\setlength{\ft@depth}{\dp\@nameuse{#2}}%
+    \else%
+      \advance\ft@len -\@tempskipa%
+      \global\setlength{\ft@depth}{\dp\@nameuse{#4}}%
+    \fi%
+  \fi%
+  \global#1=\ft@len%
+}
+%    \end{macrocode}
+%
+% \parag{Calculate the box size}
+%
+% \DescribeMacro{\ft@gens@size}
+%
+%    \begin{macrocode}
+\newlength{\ft@xtop}
+\newlength{\ft@xbottom}
+\newcommand{\ft@gens@size}[2]{% parent-box connect-pair-list
+  \@tempswatrue%
+  \ft@width=0pt%
+  \@for\@temptokena:=#2\do{%
+    \expandafter\ft@getpair\@temptokena{#1}%
+    \ft@dbgmsg{\ft@cpoint and \ft@kids}%
+    \if@tempswa%
+      \ft@calc@xtop{\ft@xtop}{#1}{\ft@cpoint}{\ft@kids}%
+      \@tempswafalse%
+    \fi%
+    \setlength{\ft@len}{\wd\@nameuse{\ft@kids}}%
+    \ifdim\ft@width<\ft@len%
+      \global\ft@width=\ft@len%
+    \fi%
+  }%
+  \ft@calc@xbottom{\ft@xbottom}{#1}{\ft@cpoint}{\ft@kids}%
+  \ft@dbgmsg{xtop \the\ft@xtop, xbottom \the\ft@xbottom}%
+  %
+  \ft@x=\dimexpr\wd\@nameuse{#1}% - \ft@cmarkbox@length\relax%
+  \ft@dbgmsg{x \the\ft@x}%
+  \advance\ft@width \ft@x%
+  \ft@dbgmsg{w \the\ft@width}%
+  \ft@height=\dimexpr\ht\@nameuse{#1} + \ft@xtop + \ft@xbottom\relax%
+  \ft@dbgmsg{kids H \the\ht\@nameuse{\ft@kids}}%
+  \ft@dbgmsg{H \strip@pt\ft@height, D \strip@pt\ft@depth}%
+}
+%    \end{macrocode}
+%
+% \parag{Layout}
+%
+% \DescribeMacro{\ft@gens@layout}
+%
+%    \begin{macrocode}
+\newcommand{\ft@gens@layout}[3]{%
+  % box-name parent-box-name {{parent-name} {child-name}, ...}
+  \ft@newnamebox{#1}{%
+    \edef\@w{\strip@pt\ft@width}%
+    \edef\@h{\strip@pt\ft@height}%
+    \begin{picture}(\@w,\@h)%
+      \ft@dbgframe{\@w,\@h}%
+      %
+      \ft@y=\ft@xbottom%
+      \ft@dbgplot{0,\strip@pt\ft@y}%
+      \put(0,\strip@pt\ft@y){\usebox{\@nameuse{#2}}}%
+      \advance\ft@y \@nameuse{#2nameCY}pt%
+      \ft@namexdefstrip{#1nameCY}{\ft@y}%
+      %\ft@namexdefstrip{#1#2nameCY}{\ft@y}%
+      %
+      \@for\@temptokena:=#3\do{%%
+        \expandafter\ft@getpair\@temptokena{#2}%
+        \ft@dbgmsg{\ft@cpoint and \ft@kids}%
+        %
+        \ft@y=\dimexpr\ft@xbottom + \@nameuse{\ft@cpoint}pt\relax%
+        \ft@dbgmsg{parent cpoint \the\ft@y}%
+        \ft@dbgplot{\strip@pt\ft@x,\strip@pt\ft@y}%
+        %
+        \advance\ft@y  -\@nameuse{\ft@kids nameCY}pt%
+        \ft@dbgmsg{final child y \the\ft@y}%
+        \put(\strip@pt\ft@x,\strip@pt\ft@y){%
+          \usebox{\@nameuse{\ft@kids}}}%
+        \ft@namexdefstrip{#1\ft@kids Y}{\ft@y}%
+      }%
+    \end{picture}%
+  }%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Generations box --- interface}
+%
+% \DescribeMacro{\ftgensdef}
+%
+%    \begin{macrocode}
+\newcommand{\ftgensdef}[3]{%
+  % box-name parent-box-name {{parent-name} {child-name}, ...}
+  %
+  % calculate the size of the new box
+  \ft@gens@size{#2}{#3}%
+  %
+  % draw them all
+  \ft@gens@layout{#1}{#2}{#3}%
+  %
+  \@ifundefined{#2hascmark}{}{%
+    \ft@namexdef{#1hascmark}{\@nameuse{#2hascmark}}%
+  }%
+  \ft@nameboxsz{#1}{\ft@height}{\ft@depth}%
+}
+\ft@alias{gensdef}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Parent-child box --- interface}
+%
+% \DescribeMacro{\ftpcdef}
+%
+%    \begin{macrocode}
+\newcommand{\ftpcdef}[3]{% box-name parent-box-name child-box-name
+  \ftgensdef{#1}{#2}{{#2}{#3}}%
+}
+\ft@alias{pcdef}
+%    \end{macrocode}

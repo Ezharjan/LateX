@@ -1,0 +1,165 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2021 Dennis Chen <proofprogram@gmail.com>
+%
+% This file may be distributed and/or modified under
+% the conditions the LaTeX Project Public License (LPPL),
+% either version 1.3 of this license or (at your option)
+% any later version. The latest version of this license
+% can be found in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% \fi
+%
+% \iffalse
+%<package>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{ifallfalse}[2021/07/22 v2.0.0 Compare string against set of other strings]
+
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{ifallfalse}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+    \DocInput{ifallfalse.dtx}
+    \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v2.0.0}{2021/07/22}{Add comments after lines in allfalse to prevent extra spacing from popping up}
+% \changes{v1.0.1}{2021/07/12}{Fix errant references to allfalse environment and add limitations}
+% \changes{v1.0.0}{2021/07/01}{Initial version}
+%
+% \GetFileInfo{ifallfalse.sty}
+%
+% \title{\textsf{ifallfalse} -- Compare string against set of strings}
+% \author{Dennis Chen \\ proofprogram@gmail.com}
+% \changes{v2.0.0}{2021/07/22}{Remove errant `v' in date}
+% \date{\fileversion, \filedate\thanks{\url{https://github.com/chennisden/ifallfalse}}}
+%
+% \maketitle
+%
+% \begin{abstract}
+% The \textsf{ifallfalse} package is a package that allows you to check whether a string is contained within another set of strings, and perform an action if it is not.
+% \end{abstract}
+%
+% \section{Usage}
+%
+% The package provides an \textsf{allfalse} environment and a macro |\orcheck| to be used inside the \textsf{allfalse} environment.
+%
+% \DescribeEnv{allfalse}
+% To set up an allfalse environment, simply write
+% \begin{verbatim}
+%\begin{allfalse}{string}{true branch}{false branch}
+%
+%\end{allfalse}
+% \end{verbatim}
+% \textsf{string} will be compared to the set of strings (which we will declare via |\orcheck|), and if \textsf{string} does not match the set of strings, \textsf{false branch} will be executed. Otherwise, \textsf{true branch} will be executed.
+%
+% \DescribeMacro{\orcheck}
+%
+% To add strings to the set that \textsf{string} will be compared to, we must write |\orcheck{setstring}| inside the corresponding \textsf{allfalse} environment. Then, \textsf{action} will not execute if \textsf{string} matches \textsf{setstring} or any arguments of previous |\orcheck| declarations.
+%
+% If no |\orcheck| declarations exist, then \textsf{action} will always be executed.
+%
+% \subsection{Error Checking}
+%
+% The package checks whether the macro |\orcheck| is used inside an \textsf{allfalse} environment. If it is not, the package throws an error.
+%
+% \section{Example}
+%
+% Here is a simple example to demonstrate how \textsf{allfalse} is used.
+%
+% \changes{v2.0.0}{2021/07/22}{Change allfalse environment to match update}
+% \changes{v2.0.0}{2021/07/22}{Use ifallfalse package in example}
+% \begin{verbatim}
+%\documentclass{minimal}
+%\usepackage{ifallfalse}
+%
+%\begin{document}
+%
+%\begin{allfalse}{purple}{}{This color is not red, blue, or green!}
+%    \orcheck{red}
+%    \orcheck{blue}
+%    \orcheck{green}
+%\end{allfalse}
+%
+%\end{document}
+% \end{verbatim}
+%
+% In this case, because \textsf{purple} does not match \textsf{red}, \textsf{blue}, or \textsf{green}, the false branch --- which is \textsf{This color is not red, blue, or green!} --- will execute at that location inside the document.
+%
+% \section{Implementation}
+% 
+% These are the implementation details of package \textsf{allfalse}. Because the package is so short, we can explain everything.
+% 
+% \changes{v2.0.0}{2021/07/22}{Create true and false branch}
+% \begin{environment}{allfalse}
+% When setting up allfalse, we locally define the |\comparedstring| macro with the first argument that the environment takes in. This is what will be compared against all the strings passed in through the |\orcheck| declarations inside the environment.
+%
+% Then, we define our body of logic (which we will be adding onto through |\orcheck|) to just initially consist of the action we would like to perform if |\comparedstring| matches none of the strings passed in through |\orcheck|.
+%
+% Finally, we execute our logicbody, which will change |\ifallfalse@branch| to be false if appropriate. Then, the appropriate action will be executed.
+%    \begin{macrocode}
+\newenvironment{allfalse}[3]
+{%
+    \newif\ifallfalse@branch\allfalse@branchtrue%
+    \def\comparedstring{#1}%
+    \def\trueaction{#2}%
+    \def\falseaction{#3}%
+    \def\logicbody{\protect\allfalse@branchfalse}%
+}
+{%
+    \logicbody%
+    \ifallfalse@branch
+        \trueaction%
+    \else
+        \falseaction%
+    \fi
+}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\orcheck}
+% We first save \textsf{allfalse} to a macro so we can use |\ifx| to compare the current environment name against it. If we can, then we add some following (somewhat convoluted) code to |\logicbody|. I will explain what each piece of it does, though not in the order the pieces of code appear.
+% \begin{itemize}
+% \item |\ifx\@currenvir\@allfalsename| evaluates to true if the current environment (whose name is saved to the macro |\@currenvir|) matches the name of |\@allfalsename|, or \textsf{allfalse}.
+% \item If it evaluates to \textsf{false}, the package throws an error.
+% \item The line |\pdfstrcmp{\comparedstring}{#1}=0| evaluates to true when put with |\ifnum| if the two arguments passed into |\pdfstrcmp| are equal, because |pdfstrcmp| compares their lexographical order and returns 0 if the two strings are lexographically equivalent.
+% \item Thus, we can treat |\ifnum\pdfstrcmp{\comparedstring}{#1}=0| as an expression that evaluates to true if |\comparedstring| and |#1| match, and false otherwise.
+% \item When all is said and done, the logic reduces to something of the form
+% \begin{verbatim}
+% \if\else
+% \if\else
+% \ldots \allfalse@branchfalse
+% \fi\ldots \fi
+% \end{verbatim}
+% Logically, |\allfalse@branchfalse| will only execute if all the conditions are false; in other words, it will only execute if |\comparedstring| does not match any of the strings passed in via |\orcheck|. This is because each |\else| branch must execute. 
+% \end{itemize}
+%    \begin{macrocode}
+\newcommand*\@allfalsename{allfalse}
+
+\newcommand{\orcheck}[1]{
+    \ifx\@currenvir\@allfalsename
+        \protected@edef\logicbody{
+            \ifnum\pdfstrcmp{\comparedstring}{#1}=0\else\logicbody\fi
+        }
+    \else
+        \PackageError{ifallfalse}{
+            \protect\orcheck\space should be nested within the allfalse environment
+        }{}
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \section{Limitations}
+%
+% This package cannot be used in the \textsf{lualatex} engine.
+%
+% \Finale
+\endinput

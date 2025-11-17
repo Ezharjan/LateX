@@ -1,0 +1,70 @@
+%% This is file `bfhfonts.sty' version 2.1.3 (2022/03/20),
+%% it is part of
+%% BFH-CI -- Corporate Design for Bern University of Applied Sciences
+%% ----------------------------------------------------------------------------
+%%
+%%  Copyright (C) 2021–2022 by
+%%      Marei Peischl <marei@peitex.de>
+%%      Andreas Habegger <andreas.habegger@bfh.ch>
+%%
+%% ============================================================================
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainers of this work are
+%%   Marei Peischl <bfh-ci@peitex.de>
+%%   Andreas Habegger <andreas.habegger@bfh.ch>
+%%
+%% The development respository can be found at
+%% https://gitlab.ti.bfh.ch/bfh-latex/bfh-ci/
+%% Please use the issue tracker for feedback!
+%%
+%% ============================================================================
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bfhfonts}[2022/03/01 v2.1.2 BFH-CI (fonts Module)]
+
+\RequirePackage{iftex}
+\RequirePackage{anyfontsize}
+
+\ifPDFTeX
+	\RequirePackage{nunito}
+	\let\sfdefault\rmdefault
+	\RequirePackage{sourceserifpro}
+	\RequirePackage[T1]{fontenc}
+	\PackageWarning{bfhfonts.sty}{You are using pdfLaTeX. In case the official fonts have been installed on your system I can't use them.}
+\else
+	\RequirePackage{fontspec}
+	\IfFontExistsTF{UnitSlabPro}{
+		\setmainfont{UnitSlabPro}[
+			BoldFont=*-Bold,
+			ItalicFont=*-Italic,
+		]
+	}{
+		\RequirePackage{sourceserifpro}
+	}
+	\IfFontExistsTF{UnitRoundedPro}{
+		\setsansfont{UnitRoundedPro}[
+			UprightFont =*-Light,
+			ItalicFont = *-LightItalic,
+			BoldFont=*,
+		]
+	}{
+		\setsansfont{Nunito}[
+			UprightFont = *-Light,
+			ItalicFont  = *-LightItalic,
+			BoldFont    = *-Regular,
+			BoldItalicFont = *-Italic,
+		]
+	}
+	\newcommand*{\ltseries}{\fontseries{l}\selectfont}
+\fi
+
+\endinput

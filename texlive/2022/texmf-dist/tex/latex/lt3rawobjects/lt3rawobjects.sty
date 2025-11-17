@@ -1,0 +1,833 @@
+%%
+%% This is file `lt3rawobjects.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% lt3rawobjects.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% lt3rawobjects Object oriented programming in LaTeX3
+%% Copyright (C) 2022  Paolo De Donato <dedonato95@hotmail.it>
+%% 
+%% lt3rawobjects is free software: you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by
+%% the Free Software Foundation, either version 3 of the License, or
+%% (at your option) any later version.
+%% 
+%% lt3rawobjects is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% GNU General Public License for more details.
+%% 
+%% You should have received a copy of the GNU General Public License
+%% along with lt3rawobjects.  If not, see <https://www.gnu.org/licenses/>.
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{expl3}[2022-04-10]
+\ProvidesExplPackage{lt3rawobjects}{2022/08/03}{ 2.0 }{Objects and proxies in LaTeX3}
+\str_const:Nn \c_object_local_str {loc}
+\str_const:Nn \c_object_global_str {glo}
+\str_const:Nn \c_object_public_str {pub}
+\str_const:Nn \c_object_private_str {pri}
+
+\str_const:Nn \c__rawobjects_const_str {con}
+\cs_new:Nn \object_address:nn {
+  \tl_to_str:n { #1  _  #2 }
+}
+
+\cs_new_protected:Nn \object_address_set:Nnn {
+  \str_set:Nn #1 { #2  _  #3 }
+}
+
+\cs_new_protected:Nn \object_address_gset:Nnn {
+  \str_gset:Nn #1 { #2  _  #3 }
+}
+
+\cs_new:Nn \__rawobjects_object_modvar:n{
+  c __ #1 _ MODULE _ str
+}
+
+\cs_new:Nn \__rawobjects_object_pxyvar:n{
+  c __ #1 _ PROXY _ str
+}
+
+\cs_new:Nn \__rawobjects_object_scovar:n{
+  c __ #1 _ SCOPE _ str
+}
+
+\cs_new:Nn \__rawobjects_object_visvar:n{
+  c __ #1 _ VISIB _ str
+}
+
+\cs_generate_variant:Nn \__rawobjects_object_modvar:n { V }
+\cs_generate_variant:Nn \__rawobjects_object_pxyvar:n { V }
+\cs_generate_variant:Nn \__rawobjects_object_scovar:n { V }
+\cs_generate_variant:Nn \__rawobjects_object_visvar:n { V }
+
+
+\prg_new_conditional:Nnn \object_if_exist:n { p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \__rawobjects_object_modvar:n { #1 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_if_exist:n { V }
+  { p, T, F, TF }
+
+\cs_new:Nn \object_get_module:n {
+  \str_use:c { \__rawobjects_object_modvar:n { #1 } }
+}
+\cs_new:Nn \object_get_proxy_adr:n {
+  \str_use:c { \__rawobjects_object_pxyvar:n { #1 } }
+}
+
+\cs_generate_variant:Nn \object_get_module:n { V }
+\cs_generate_variant:Nn \object_get_proxy_adr:n { V }
+\prg_new_conditional:Nnn \object_if_local:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \__rawobjects_object_scovar:n {#1} }
+    \c_object_local_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_new_conditional:Nnn \object_if_global:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \__rawobjects_object_scovar:n {#1} }
+    \c_object_global_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_new_conditional:Nnn \object_if_public:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \__rawobjects_object_visvar:n { #1 } }
+    \c_object_public_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_new_conditional:Nnn \object_if_private:n {p, T, F, TF}
+{
+  \str_if_eq:cNTF { \__rawobjects_object_visvar:n {#1} }
+    \c_object_private_str
+    {
+      \prg_return_true:
+    }
+    {
+      \prg_return_false:
+    }
+}
+
+\prg_generate_conditional_variant:Nnn \object_if_local:n { V }
+  { p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_if_global:n { V }
+  { p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_if_public:n { V }
+  { p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_if_private:n { V }
+  { p, T, F, TF }
+
+\cs_new:Nn \__rawobjects_scope:n
+  {
+    \object_if_local:nTF { #1 }
+      {
+        l
+      }
+      {
+        \str_if_eq:cNTF { \__rawobjects_object_scovar:n { #1 } }
+          \c__rawobjects_const_str
+          {
+            c
+          }
+          {
+            g
+          }
+      }
+  }
+
+\cs_new:Nn \__rawobjects_scope_pfx:n
+  {
+    \object_if_local:nF { #1 }
+      { g }
+  }
+
+\cs_new:Nn \__rawobjects_vis_var:n
+  {
+    \object_if_private:nTF { #1 }
+      {
+        __
+      }
+      {
+        _
+      }
+  }
+
+\cs_new:Nn \__rawobjects_vis_fun:n
+  {
+    \object_if_private:nT { #1 }
+      {
+        __
+      }
+  }
+
+\cs_new:Nn \object_member_adr:nnn
+  {
+    \__rawobjects_scope:n { #1 }
+    \__rawobjects_vis_var:n { #1 }
+    #1 \tl_to_str:n { _ MEMBER _ #2 _ #3 }
+  }
+
+\cs_generate_variant:Nn \object_member_adr:nnn { Vnn, vnn, nnv }
+
+\cs_new:Nn \object_member_adr:nn
+  {
+    \object_member_adr:nnv { #1 }{ #2 }
+      {
+        \object_rcmember_adr:nnn { #1 }
+          { #2 _ type }{ str }
+      }
+  }
+
+\cs_generate_variant:Nn \object_member_adr:nn { Vn }
+
+\cs_new:Nn \object_member_type:nn
+  {
+    \object_rcmember_use:nnn { #1 }
+      { #2 _ type }{ str }
+  }
+
+
+\msg_new:nnnn { rawobjects }{ scoperr }{ Nonstandard ~ scope }
+  {
+    Operation ~ not ~ permitted ~ on ~ object ~ #1 ~
+    ~ since ~ it ~ wasn't ~ declared ~ local ~ or ~ global
+  }
+
+\cs_new_protected:Nn \__rawobjects_force_scope:n
+  {
+    \bool_if:nF
+      {
+        \object_if_local_p:n { #1 } || \object_if_global_p:n { #1 }
+      }
+      {
+        \msg_error:nnx { rawobjects }{ scoperr }{ #1 }
+      }
+  }
+
+
+\prg_new_conditional:Nnn \object_member_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_member_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_member_if_exist:nn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_member_adr:nn { #1 }{ #2 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_member_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_member_if_exist:nn
+  { Vn }{ p, T, F, TF }
+
+
+
+\cs_new_protected:Nn \object_new_member:nnn
+  {
+    \__rawobjects_force_scope:n { #1 }
+    \cs_if_exist_use:cT { #3 _ new:c }
+      {
+        { \object_member_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_generate_variant:Nn \object_new_member:nnn { Vnn, nnv }
+
+
+\cs_new:Nn \object_member_use:nnn
+  {
+    \cs_if_exist_use:cT { #3 _ use:c }
+      {
+        { \object_member_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_new:Nn \object_member_use:nn
+  {
+    \object_member_use:nnv { #1 }{ #2 }
+      {
+        \object_rcmember_adr:nnn { #1 }
+          { #2 _ type }{ str }
+      }
+  }
+
+\cs_generate_variant:Nn \object_member_use:nnn { Vnn, vnn, nnv }
+\cs_generate_variant:Nn \object_member_use:nn { Vn }
+
+
+\cs_new_protected:Nn \object_member_set_eq:nnnN
+  {
+    \__rawobjects_force_scope:n { #1 }
+    \cs_if_exist_use:cT
+      {
+        #3 _ \__rawobjects_scope_pfx:n { #1 } set _ eq:cN
+      }
+      {
+        { \object_member_adr:nnn { #1 }{ #2 }{ #3 } } #4
+      }
+  }
+
+\cs_generate_variant:Nn \object_member_set_eq:nnnN { VnnN, nnnc, Vnnc, nnvN }
+
+\cs_new_protected:Nn \object_member_set_eq:nnN
+  {
+    \object_member_set_eq:nnvN { #1 }{ #2 }
+      {
+        \object_rcmember_adr:nnn { #1 }
+          { #2 _ type }{ str }
+      } #3
+  }
+
+\cs_generate_variant:Nn \object_member_set_eq:nnN { VnN, nnc, Vnc }
+
+
+\cs_new:Nn \object_ncmember_adr:nnn
+  {
+    c _ #1 \tl_to_str:n { _ CONST _ #2 _ #3 }
+  }
+
+\cs_generate_variant:Nn \object_ncmember_adr:nnn { Vnn, vnn }
+
+\cs_new:Nn \object_rcmember_adr:nnn
+  {
+    \object_ncmember_adr:vnn { \__rawobjects_object_pxyvar:n { #1 } }
+      { #2 }{ #3 }
+  }
+
+\cs_generate_variant:Nn \object_rcmember_adr:nnn { Vnn }
+
+\prg_new_conditional:Nnn \object_ncmember_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_ncmember_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_rcmember_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_rcmember_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_ncmember_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_rcmember_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+
+
+\cs_new:Nn \object_ncmember_use:nnn
+  {
+    \cs_if_exist_use:cT { #3 _ use:c }
+      {
+        { \object_ncmember_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_new:Nn \object_rcmember_use:nnn
+  {
+    \cs_if_exist_use:cT { #3 _ use:c }
+      {
+        { \object_rcmember_adr:nnn { #1 }{ #2 }{ #3 } }
+      }
+  }
+
+\cs_generate_variant:Nn \object_ncmember_use:nnn { Vnn }
+\cs_generate_variant:Nn \object_rcmember_use:nnn { Vnn }
+
+
+\cs_new_protected:Nn \__rawobjects_const_create:nnnn
+  {
+    \use:c { #1 _ const:cn }
+      {
+        \object_ncmember_adr:nnn { #2 }{ #3 }{ #1 }
+      }
+      { #4 }
+  }
+
+\cs_new_protected:Nn \object_newconst_tl:nnn
+  {
+    \__rawobjects_const_create:nnnn { tl }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_str:nnn
+  {
+    \__rawobjects_const_create:nnnn { str }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_int:nnn
+  {
+    \__rawobjects_const_create:nnnn { int }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_clist:nnn
+  {
+    \__rawobjects_const_create:nnnn { clist }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_dim:nnn
+  {
+    \__rawobjects_const_create:nnnn { dim }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_skip:nnn
+  {
+    \__rawobjects_const_create:nnnn { skip }{ #1 }{ #2 }{ #3 }
+  }
+\cs_new_protected:Nn \object_newconst_fp:nnn
+  {
+    \__rawobjects_const_create:nnnn { fp }{ #1 }{ #2 }{ #3 }
+  }
+
+\cs_generate_variant:Nn \object_newconst_tl:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_str:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_int:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_clist:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_dim:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_skip:nnn { Vnn }
+\cs_generate_variant:Nn \object_newconst_fp:nnn { Vnn }
+
+
+\cs_new_protected:Nn \object_newconst_seq_from_clist:nnn
+  {
+    \seq_const_from_clist:cn
+      {
+        \object_ncmember_adr:nnn { #1 }{ #2 }{ seq }
+      }
+      { #3 }
+  }
+
+\cs_generate_variant:Nn \object_newconst_seq_from_clist:nnn { Vnn }
+
+
+\cs_new_protected:Nn \object_newconst_prop_from_keyval:nnn
+  {
+    \prop_const_from_keyval:cn
+      {
+        \object_ncmember_adr:nnn { #1 }{ #2 }{ prop }
+      }
+      { #3 }
+  }
+
+\cs_generate_variant:Nn \object_newconst_prop_from_keyval:nnn { Vnn }
+
+
+\cs_new:Nn \object_ncmethod_adr:nnn
+  {
+    #1 \tl_to_str:n { _ CMETHOD _ #2 : #3 }
+  }
+
+\cs_generate_variant:Nn \object_ncmethod_adr:nnn { Vnn , vnn }
+
+\cs_new:Nn \object_rcmethod_adr:nnn
+  {
+    \object_ncmethod_adr:vnn
+      {
+        \__rawobjects_object_pxyvar:n { #1 }
+      }
+      { #2 }{ #3 }
+  }
+
+\cs_generate_variant:Nn \object_ncmethod_adr:nnn { Vnn , vnn }
+\cs_generate_variant:Nn \object_rcmethod_adr:nnn { Vnn }
+
+
+\prg_new_conditional:Nnn \object_ncmethod_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_ncmethod_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_rcmethod_if_exist:nnn {p, T, F, TF }
+  {
+    \cs_if_exist:cTF
+      {
+        \object_rcmethodr_adr:nnn { #1 }{ #2 }{ #3 }
+      }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_ncmethod_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+\prg_generate_conditional_variant:Nnn \object_rcmethod_if_exist:nnn
+  { Vnn }{ p, T, F, TF }
+
+
+\cs_new_protected:Nn \object_new_cmethod:nnnn
+  {
+    \cs_new:cn
+  {
+    \object_ncmethod_adr:nnn { #1 }{ #2 }{ #3 }
+  }
+  { #4 }
+  }
+
+\cs_generate_variant:Nn \object_new_cmethod:nnnn { Vnnn }
+
+
+\cs_new:Nn \object_ncmethod_call:nnn
+  {
+    \use:c
+  {
+    \object_ncmethod_adr:nnn { #1 }{ #2 }{ #3 }
+  }
+  }
+
+\cs_new:Nn \object_rcmethod_call:nnn
+  {
+    \use:c
+  {
+    \object_rcmethod_adr:nnn { #1 }{ #2 }{ #3 }
+  }
+  }
+
+\cs_generate_variant:Nn \object_ncmethod_call:nnn { Vnn }
+\cs_generate_variant:Nn \object_rcmethod_call:nnn { Vnn }
+
+\str_const:Nx \c_proxy_address_str
+  { \object_address:nn { rawobjects }{ proxy } }
+\str_const:cn { \__rawobjects_object_modvar:V \c_proxy_address_str }
+  { rawobjects }
+\str_const:cV { \__rawobjects_object_pxyvar:V \c_proxy_address_str }
+  \c_proxy_address_str
+\str_const:cV { \__rawobjects_object_scovar:V \c_proxy_address_str }
+  \c__rawobjects_const_str
+\str_const:cV { \__rawobjects_object_visvar:V \c_proxy_address_str }
+  \c_object_public_str
+
+\seq_const_from_clist:cn
+  {
+    \object_member_adr:Vnn \c_proxy_address_str { varlist }{ seq }
+  }
+  { varlist }
+
+\object_newconst_str:Vnn \c_proxy_address_str { varlist_type }{ seq }
+
+
+\prg_new_conditional:Nnn \object_if_proxy:n {p, T, F, TF}
+  {
+    \object_test_proxy:nNTF { #1 }
+  \c_proxy_address_str
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+
+\prg_generate_conditional_variant:Nnn \str_if_eq:nn { ve }{ TF }
+
+\prg_new_conditional:Nnn \object_test_proxy:nn {p, T, F, TF}
+  {
+    \str_if_eq:veTF { \__rawobjects_object_pxyvar:n { #1 } }
+  { #2 }
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_new_conditional:Nnn \object_test_proxy:nN {p, T, F, TF}
+  {
+    \str_if_eq:cNTF { \__rawobjects_object_pxyvar:n { #1 } }
+  #2
+      {
+        \prg_return_true:
+      }
+      {
+        \prg_return_false:
+      }
+  }
+
+\prg_generate_conditional_variant:Nnn \object_test_proxy:nn
+  { Vn }{p, T, F, TF}
+\prg_generate_conditional_variant:Nnn \object_test_proxy:nN
+  { VN }{p, T, F, TF}
+
+
+\msg_new:nnn { aa }{ mess }{ #1 }
+
+\msg_new:nnnn { rawobjects }{ notproxy }{ Fake ~ proxy }
+  {
+    Object ~ #1 ~ is ~ not ~ a ~ proxy.
+  }
+
+\cs_new_protected:Nn \__rawobjects_force_proxy:n
+  {
+    \object_if_proxy:nF { #1 }
+      {
+        \msg_error:nnn { rawobjects }{ notproxy }{ #1 }
+      }
+  }
+
+\cs_new_protected:Nn \__rawobjects_create_anon:nnnNN
+  {
+
+    \__rawobjects_force_proxy:n { #1 }
+
+    \str_const:cn { \__rawobjects_object_modvar:n { #2 } }{ #3 }
+    \str_const:cx { \__rawobjects_object_pxyvar:n { #2 } }{ #1 }
+    \str_const:cV { \__rawobjects_object_scovar:n { #2 } } #4
+    \str_const:cV { \__rawobjects_object_visvar:n { #2 } } #5
+
+    \seq_map_inline:cn
+      {
+        \object_member_adr:nnn { #1 }{ varlist }{ seq }
+      }
+      {
+        \object_new_member:nnv { #2 }{ ##1 }
+          {
+            \object_ncmember_adr:nnn { #1 }{ ##1 _ type }{ str }
+          }
+      }
+  }
+
+\cs_new_protected:Nn \object_create:nnnNN
+  {
+    \__rawobjects_create_anon:nnnNN { #1 }{ \object_address:nn { #2 }{ #3 } }
+      { #2 } #4 #5
+  }
+
+\cs_new_protected:Nn \object_create_set:NnnnNN
+  {
+    \object_create:nnnNN { #2 }{ #3 }{ #4 } #5 #6
+    \str_set:Nx #1 { \object_address:nn { #3 }{ #4 } }
+  }
+
+\cs_new_protected:Nn \object_create_gset:NnnnNN
+  {
+    \object_create:nnnNN { #2 }{ #3 }{ #4 } #5 #6
+    \str_gset:Nx #1 { \object_address:nn { #3 }{ #4 } }
+  }
+
+\cs_generate_variant:Nn \object_create:nnnNN { VnnNN }
+\cs_generate_variant:Nn \object_create_set:NnnnNN { NVnnNN, NnnfNN }
+\cs_generate_variant:Nn \object_create_gset:NnnnNN { NVnnNN, NnnfNN }
+
+
+\cs_new:Nn \__rawobjects_combine_aux:nnn
+  {
+    anon . #3 . #2 . #1
+  }
+
+\cs_generate_variant:Nn \__rawobjects_combine_aux:nnn { Vnf }
+
+\cs_new:Nn \__rawobjects_combine:Nn
+  {
+    \__rawobjects_combine_aux:Vnf #1 { #2 }
+  {
+    \cs_to_str:N #1
+  }
+  }
+
+\cs_new_protected:Nn \object_allocate_incr:NNnnNN
+  {
+    \object_create_set:NnnfNN #1 { #3 }{ #4 }
+      {
+        \__rawobjects_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_incr:N #2
+  }
+
+\cs_new_protected:Nn \object_gallocate_incr:NNnnNN
+  {
+    \object_create_gset:NnnfNN #1 { #3 }{ #4 }
+      {
+        \__rawobjects_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_incr:N #2
+  }
+
+\cs_generate_variant:Nn \object_allocate_incr:NNnnNN { NNVnNN }
+
+\cs_generate_variant:Nn \object_gallocate_incr:NNnnNN { NNVnNN }
+
+\cs_new_protected:Nn \object_allocate_gincr:NNnnNN
+  {
+    \object_create_set:NnnfNN #1 { #3 }{ #4 }
+      {
+        \__rawobjects_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_gincr:N #2
+  }
+
+\cs_new_protected:Nn \object_gallocate_gincr:NNnnNN
+  {
+    \object_create_gset:NnnfNN #1 { #3 }{ #4 }
+      {
+        \__rawobjects_combine:Nn #2 { #3 }
+      }
+      #5 #6
+
+      \int_gincr:N #2
+  }
+
+\cs_generate_variant:Nn \object_allocate_gincr:NNnnNN { NNVnNN }
+
+\cs_generate_variant:Nn \object_gallocate_gincr:NNnnNN { NNVnNN }
+
+
+\cs_new_protected:Nn \proxy_create:nnN
+  {
+    \object_create:VnnNN \c_proxy_address_str { #1 }{ #2 }
+      \c_object_global_str #3
+  }
+
+\cs_new_protected:Nn \proxy_create_set:NnnN
+  {
+    \object_create_set:NVnnNN #1 \c_proxy_address_str { #2 }{ #3 }
+      \c_object_global_str #4
+  }
+
+\cs_new_protected:Nn \proxy_create_gset:NnnN
+  {
+    \object_create_gset:NVnnNN #1 \c_proxy_address_str { #2 }{ #3 }
+      \c_object_global_str #4
+  }
+
+\cs_new_protected:Nn \proxy_push_member:nnn
+  {
+    \__rawobjects_force_scope:n { #1 }
+    \object_newconst_str:nnn { #1 }{ #2 _ type }{ #3 }
+    \seq_gput_left:cn
+      {
+        \object_member_adr:nnn { #1 }{ varlist }{ seq }
+      }
+      { #2 }
+  }
+
+\cs_generate_variant:Nn \proxy_push_member:nnn { Vnn }
+
+\cs_new_protected:Nn \object_assign:nn
+  {
+    \seq_map_inline:cn
+      {
+        \object_member_adr:vnn
+          {
+            \__rawobjects_object_pxyvar:n { #1 }
+          }
+          { varlist }{ seq }
+      }
+      {
+        \object_member_set_eq:nnc { #1 }{ ##1 }
+          {
+            \object_member_adr:nn{ #2 }{ ##1 }
+          }
+      }
+  }
+
+\cs_generate_variant:Nn \object_assign:nn { nV, Vn, VV }
+
+\cs_new_protected:Nn \rawobjects_fwl_inst:n
+  {
+    \object_if_exist:nF
+      {
+        \object_address:nn { rawobjects }{ fwl ! #1 }
+      }
+      {
+        \proxy_create:nnN { rawobjects }{ fwl ! #1 } \c_object_private_str
+        \proxy_push_member
+          {
+            \object_address:nn { rawobjects }{ fwl ! #1 }
+          }
+          { next }{ str }
+      }
+  }
+
+\cs_new_protected:Nn \rawobjects_fwl_newnode:nnnNN
+  {
+    \rawobjects_fwl_inst:n { #1 }
+    \object_create:nnnNN
+      {
+        \object_address:nn { rawobjects }{ fwl ! #1 }
+      }
+      { #2 }{ #3 } #4 #5
+  }
+
+
+\endinput
+%%
+%% End of file `lt3rawobjects.sty'.

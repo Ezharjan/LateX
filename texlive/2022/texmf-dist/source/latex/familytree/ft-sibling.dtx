@@ -1,0 +1,333 @@
+% \iffalse
+% Copyright 2022 Jiro Senju
+%
+% This package is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% any later version.
+%
+% This package is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this package.  If not, see <http://www.gnu.org/licenses/>.
+% \fi
+%
+% \section{Sibling Box (\texttt{ft-sibling.dtx})}
+%
+% \DescribeMacro{\sblngdef}
+% \cmd{\sblngdef
+%   \marg{new box name}
+%   \marg{name list of individual boxes}
+% }
+% \medskip
+%
+% \marg{name list of individual boxes} is the comma separated box names
+% which are defined by |\indvdldef|.
+% They are aligned and connected by a line.
+% All names are NOT \CS{} (no backslash).
+%
+% If any of the siblings has a |\maleline| attribute, then the length of
+% all lines are set to the longest one.
+% \medskip
+%
+% Like |\indvdldef|, |\sblngdef| defines a few connection points (\CS)
+% to be used later. The origin is left-bottom of the box and the unit is |pt|.
+%
+% \begin{itemize}
+% \item \meta{box name}|nameCY|
+% \par
+% Center of the line which connects all the siblings.
+% \par
+% The line begins at the head of the child-mark of the
+% first element of the given list, and ends at the last element.
+%
+% \item \meta{box name}\meta{individual box name}|nameCY|
+% \par
+% Center of the height for each individual name.
+% \par
+% In other words, shifted \meta{individual box name}|nameCY| which
+% |\indvdldef| defined.
+% \end{itemize}
+% \medskip
+%
+% \noindent
+% \DescribeMacro{\ivaldef}
+% \cmd{\ivaldef
+%   \marg{new box name}
+%   \marg{length}
+% }
+% \medskip
+%
+% Sometimes an extra space is necessary between the siblings who have
+% many descendants.
+% For such spaces, you can define an interval box by |\ivaldef|. It
+% defines an blank box who has a specified size. There are three
+% pre-defined interval boxes, |\ival|, |\ivali|, and |\ivalii|. They
+% have the size of |0.5em|, |1em|, |2em| for each.
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Customization}
+%
+% \DescribeMacro{\sblngboxcfg}
+% \cmd{\sblngboxcfg
+%   \marg{space between the siblings}
+% }
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Example}
+%
+% \begin{enumerate}
+% \item
+% \srcfig{fig2base}
+%
+% \item
+% \srcfig{fig2sis}
+%
+% \item
+% \srcfig{fig2ival}
+% \end{enumerate}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsectImpl
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Interval box}
+%
+% \DescribeMacro{\ftivaldef}
+% \DescribeMacro{\ivaldef}
+%
+%    \begin{macrocode}
+\newcommand{\ftivaldef}[2]{% box-name length
+  \ft@newnamebox{#1}{\vbox to #2{\hsize=1pt}}%
+  \ft@len=#2%
+  \ft@namexdefstrip{#1ival}{\ft@len}% just a flag
+  \divide\ft@len 2%
+  \ft@namexdefstrip{#1nameCY}{\ft@len}%
+}
+\ft@alias{ivaldef}
+%    \end{macrocode}
+%
+% \parag{Pre-defined interval boxes}
+%
+% \DescribeMacro{\ftival}
+% \DescribeMacro{\ival}
+% \NoDescription
+%    \begin{macrocode}
+\ftivaldef{ftival}{.5\ft@unit}
+\ft@alias{ival}
+\ft@alias{ivalnameCY}
+\ft@alias{ivalival}
+%    \end{macrocode}
+%
+% \DescribeMacro{\ftivali}
+% \DescribeMacro{\ivali}
+% \NoDescription
+%    \begin{macrocode}
+\ftivaldef{ftivali}{1\ft@unit}
+\ft@alias{ivali}
+\ft@alias{ivalinameCY}
+\ft@alias{ivaliival}
+%    \end{macrocode}
+%
+% \DescribeMacro{\ftivalii}
+% \DescribeMacro{\ivalii}
+% \NoDescription
+%    \begin{macrocode}
+\ftivaldef{ftivalii}{2\ft@unit}
+\ft@alias{ivalii}
+\ft@alias{ivaliinameCY}
+\ft@alias{ivaliiival}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \parag{Customization}
+%
+% \DescribeMacro{\ftsblngboxcfg}
+% \DescribeMacro{\sblngboxcfg}
+%
+%    \begin{macrocode}
+\newlength{\ft@sblng@vsp}
+\setlength{\ft@sblng@vsp}{.5\baselineskip}%
+\newcommand{\ftsblngboxcfg}[1]{% space-length
+  \global\ft@sblng@vsp=#1%
+}
+\ft@alias{sblngboxcfg}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Sibling box --- core}
+%
+% If any of the siblings has an attributes |\maleline| or alike, then
+% finds the longest one and sets its length to all others.
+% Between the name and |\maleline|, insert a space
+% |\ft@namebox@maleline@sp|.
+%
+%    \begin{macrocode}
+\newcommand{\ft@sblng@maleline}[2]{% sibling y
+  \@ifundefined{#1hasmaleline}{}{%
+    \ft@x=\@nameuse{#1nameX}pt\relax%
+    \ifdim\ft@x<\ft@width%
+      \put(\strip@pt\ft@x,\strip@pt#2){%
+        \line(1,0){\strip@pt\dimexpr\ft@width - \ft@x}%
+      }%
+    \fi%
+  }%
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\ft@sblng@connect}
+%
+%    \begin{macrocode}
+\newlength{\ft@c}
+\newcommand{\ft@sblng@connect}[1]{% box-name
+  %
+  % draw a line to connect all the siblings
+  % length = eldest CY - youngest CY
+  % and calculate nameCY of the box
+  % nameCY = length/2 + youngest CY
+  %
+  \ft@y=\@nameuse{#1\ft@lastcmark nameCY}pt%
+  \ft@dbgplot{1,\strip@pt\ft@y}%
+  \ft@yy=\@nameuse{#1\ft@firstcmark nameCY}pt%
+  \ft@dbgplot{1,\strip@pt\ft@yy}%
+  \ft@len=\dimexpr\ft@yy - \ft@y\relax%
+  %
+  \ft@c=\dimexpr\ft@len/2 + \ft@y\relax%
+  \ft@namexdefstrip{#1nameCY}{\ft@c}%
+  \ft@dbgplot{1,\strip@pt\ft@c}%
+  %
+  \ifnum\@nameuse{\ft@lastcmark hascmark}=\ftadopted%
+    \advance\ft@y -\dimexpr\ft@cmarkbox@adopted@sep/2\relax%
+    \advance\ft@len \dimexpr\ft@cmarkbox@adopted@sep/2\relax%
+  \fi%
+  \ifnum\@nameuse{\ft@firstcmark hascmark}=\ftadopted%
+    \advance\ft@len \dimexpr\ft@cmarkbox@adopted@sep/2\relax%
+  \fi%
+  %
+  \ifdim\ft@len<2pt%
+    %\ft@len=\@nameuse{\ft@firstcmark nameCY}pt\relax%
+  \else%
+    \advance\ft@y -\dimexpr\arrayrulewidth/2\relax%
+    \advance\ft@len \arrayrulewidth%
+    \put(0,\strip@pt\ft@y){\line(0,1){\strip@pt\ft@len}}%
+  \fi%
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\ft@sblng@layout}
+%
+%    \begin{macrocode}
+\newcommand{\ft@sblng@layout}[2]{% box-name individual-name-list
+  \ft@newnamebox{#1}{%
+    \edef\@w{\strip@pt\ft@width}%
+    \edef\@h{\strip@pt\ft@height}%
+    \begin{picture}(\@w,\@h)%
+      \ft@dbgframe{\@w,\@h}%
+      %
+      \@for\@temptokena:=#2\do{%
+        \edef\ft@sblng@name{\@temptokena}%
+        \ft@dbgmsg{H \the\ft@height,%
+          \ft@sblng@name nameCY \@nameuse{\ft@sblng@name nameCY}pt,%
+          \the\ft@y}%
+        %
+        % calculate the nameCY for each
+        \advance\ft@height -\ht\@nameuse{\ft@sblng@name}%
+        \global\ft@y=\dimexpr\@nameuse{\ft@sblng@name nameCY}pt%
+          + \ft@height\relax%
+        \ft@dbgplot{0,\strip@pt\ft@y}%
+        \ft@namexdefstrip{#1\ft@sblng@name nameCY}{\ft@y}%
+        %
+        % align the malelines
+        \ft@sblng@maleline{\ft@sblng@name}{\ft@y}%
+        %
+        % place the individual boxes
+        \put(0,\strip@pt\ft@height){\usebox{\@nameuse{\ft@sblng@name}}}%
+        \advance\ft@height -\dimexpr\dp\@nameuse{\ft@sblng@name}%
+          + \ft@sblng@vsp\relax%
+      }%
+      %
+      % connect them
+      \ifx\ft@firstcmark\relax\else%
+        \ifx\ft@firstcmark\ft@lastcmark\else%
+          \ft@sblng@connect{#1}%
+        \fi%
+      \fi%
+    \end{picture}%
+  }%
+  % height should hold the original value
+  \ft@nameboxsz{#1}{\ft@height}{\ft@depth}%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Sibling box --- interface}
+%
+% \DescribeMacro{\ftsblngdef}
+% \DescribeMacro{\sblngdef}
+%
+%    \begin{macrocode}
+\newcommand{\ftsblngdef}[2]{% box-name comma-separated-individuals
+  %
+  % calculate the size of the box
+  \ft@width=0pt%
+  \ft@height=0pt%
+  \ft@theight=0pt%
+  \ft@box@has@malelinefalse%
+  \@tempswatrue%
+  \let\ft@firstcmark=\relax%
+  \let\ft@lastcmark=\relax%
+  \def\ft@dpri##1{\ft@dbgmsg{##1 W \the\ft@width, H \the\ft@height,%
+      D \the\ft@depth}}%
+  \ft@dpri{h0}%
+  \@for\@temptokena:=#2\do{%
+    \if@tempswa%
+      \xdef\ft@eldest{\@temptokena}%
+      \@tempswafalse%
+    \fi%
+    \xdef\ft@youngest{\@temptokena}%
+    \@ifundefined{ft@firstcmark}{%
+      \@ifundefined{\ft@youngest hascmark}{}{%
+        \global\let\ft@firstcmark=\ft@youngest%
+      }%
+    }{%
+      \@ifundefined{\ft@youngest hascmark}{}{%
+        \global\let\ft@lastcmark=\ft@youngest%
+      }%
+    }%
+    \@ifundefined{\ft@youngest hasmaleline}{}{%
+      \global\ft@box@has@malelinetrue%
+    }%
+    %
+    \setlength{\ft@len}{\wd\@nameuse{\ft@youngest}}%
+    \ifdim\ft@width<\ft@len%
+      \global\ft@width=\ft@len%
+      \@ifundefined{\ft@youngest hasmaleline}{%
+        \global\ft@widest@has@no@malelinetrue%
+      }{%
+        \global\ft@widest@has@no@malelinefalse%
+      }%
+    \fi%
+    \global\advance\ft@theight \dimexpr\ht\@nameuse{\ft@youngest}%
+      + \dp\@nameuse{\ft@youngest} + \ft@sblng@vsp\relax%
+    \ft@dpri{\ft@youngest}%
+  }%
+  \advance\ft@theight -\ft@sblng@vsp%
+  \ft@depth=\dp\@nameuse{\ft@youngest}%
+  \ft@height=\ft@theight%
+  \advance\ft@height -\ft@depth%
+  \ifft@widest@has@no@maleline%
+    \ifft@box@has@maleline%
+      \global\advance\ft@width \dimexpr\ft@namebox@maleline@sp%
+        + \ft@namebox@maleline@length\relax%
+    \fi%
+  \fi%
+  %
+  % layout the all boxes
+  \ft@sblng@layout{#1}{#2}%
+  \ft@dbgbox{\@nameuse{#1}}%
+}
+\ft@alias{sblngdef}
+%    \end{macrocode}

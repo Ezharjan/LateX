@@ -1,0 +1,99 @@
+%%
+%% This is file `se2colors.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% se2thesis.dtx  (with options: `init')
+%% se2thesis.dtx  (with options: `colors')
+%% Copyright (C) 2022 by Stephan Lukasczyk <tex@lukasczyk.me>
+%% 
+%% It may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License (LPPL), either version 1.3c of
+%% this license or (at your option) any later version.  The latest
+%% version of this license is in the file:
+%% 
+%%    https://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status by
+%%   Stephan Lukasczyk.
+%% 
+%% This work consists of the files se2thesis.dtx,
+%%                                 se2thesis.ins,
+%%           and the derived files se2thesis.pdf,
+%%                                 se2thesis.cls,
+%%                                 se2translations-english.trsl,
+%%                                 se2translations-german.trsl,
+%%                                 se2colors.sty, and
+%%                                 se2fonts.sty
+\@ifundefined{ExplLoaderFileDate}
+  { \RequirePackage{expl3} }
+  {}
+\@ifl@t@r\ExplLoaderFileDate{2020-01-09}
+  {}
+  {%
+    \PackageError{se2colors}{Support package expl3 too old}
+    {%
+      You need to update your installation of the bundles 'l3kernel' and
+      'l3packages'.\MessageBreak
+      Loading~se2colors~will~abort!%
+    }%
+    \endinput
+  }%
+\providecommand \IfFormatAtLeastTF { \@ifl@t@r \fmtversion }
+\ProvidesExplPackage {se2colors} {2022-09-12} {1.1.0}
+  {A colour support package for the se2thesis bundle}
+\keys_define:nn { seiicolors }
+  {
+    colormode .choice:,
+    colormode / 4C .code:n = {
+      \PassOptionsToPackage{cmyk}{xcolor}
+      \tl_gset:Nn \l__slcd_colors_colormode_tl {4C}
+    },
+    colormode / RGB .code:n = {
+      \PassOptionsToPackage{rgb}{xcolor}
+      \tl_gset:Nn \l__slcd_colors_colormode_tl {RGB}
+    },
+    colormode / BW .code:n = {
+      \PassOptionsToPackage{gray}{xcolor}
+      \tl_gset:Nn \l__slcd_colors_colormode_tl {BW}
+    },
+    colormode / CMYK .meta:n = {colormode=4C},
+    colormode / cmyk .meta:n = {colormode=4C},
+    colormode / rgb .meta:n = {colormode=RGB},
+    colormode / gray .meta:n = {colormode=BW},
+    RGB .meta:n = {colormode=RGB},
+    rgb .meta:n = {colormode=rgb},
+    CMYK .meta:n = {colormode=4C},
+    cmyk .meta:n = {colormode=4C},
+    gray .meta:n = {colormode=BW},
+  }
+\keys_set:nn { seiicolors } { colormode = 4C }
+\IfFormatAtLeastTF { 2022-06-01 }
+  { \ProcessKeyOptions [ seiicolors ] }
+  {
+    \RequirePackage { l3keys2e }
+    \ProcessKeysOptions { seiicolors }
+  }
+\RequirePackage{xcolor}
+\definecolorset[named]{RGB/cmyk}{UPSE2-}{}{%
+  Gray,123,131,133/.08,.02,0,.48;%
+  Orange,229,137,0/0,.40,1.0,.10%
+}
+\definecolorset[named]{RGB/cmyk}{UPSE2-}{}{%
+  DarkGreen,85,100,85/.6,.2,.6,.35;%
+  MediumGreen,105,150,115/.55,0,.55,.10;%
+  LightGreen,140,175,130/.4,0,.5,.05;%
+  DarkBlue,80,110,150/.70,.40,0,.15;%
+  MediumBlue,105,155,190/.55,.1,0,.1;%
+  LightBlue,135,185,200/.4,0,.10,.05;%
+  DarkPurple,100,80,120/.6,.8,.05,.15;%
+  MediumPurple,130,90,125/.35,.7,.1,.15;%
+  LightPurple,160,135,170/.3,.45,.05,0;%
+  DarkOcher,120,100,80/.35,.45,.65,.25;%
+  MediumOcher,150,130,95/.25,.3,.6,.15;%
+  LightOcher,185,145,100/.1,.25,.6,.1;%
+  DarkRed,180,20,40/.05,1,.8,.05;%
+  MediumRed,210,90,80/0,.75,.6,.1;%
+  LightRed,255,145,125/.05,.5,.45,.05%
+}

@@ -1,0 +1,117 @@
+%%
+%% This is file `nimsticks.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% nimsticks.dtx  (with options: `nimsticks')
+%% Copyright (c) 2022 Peter Rowlett
+%% 
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%% 
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%% 
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
+%% 
+
+\ProvidesPackage{nimsticks}[2022/08/14 nimsticks 2.0.1]
+\RequirePackage[first=-100,last=100,seed=0]{lcg}
+\RequirePackage{tikz}
+\RequirePackage{etoolbox}
+\@ifundefined{drawnimstick}{}
+    {\PackageWarning{nimsticks}{Command `drawnimstick' already defined}}
+\@ifundefined{nimgame}{}
+    {\PackageWarning{nimsticks}{Command `nimgame' already defined}}
+\@ifundefined{listofgames}{}
+    {\PackageWarning{nimsticks}{Command `listofgames' already defined}}
+\@ifundefined{nimstickcolour}{}
+    {\PackageWarning{nimsticks}{Command `nimstickcolour' already defined}}
+\@ifundefined{setnimstickcolour}{}
+    {\PackageWarning{nimsticks}{Command `setnimstickcolour' already defined}}
+\@ifundefined{nimstickheight}{}
+    {\PackageWarning{nimsticks}{Command `nimstickheight' already defined}}
+\@ifundefined{nimstickthickness}{}
+    {\PackageWarning{nimsticks}{Command `nimstickthickness' already defined}}
+\@ifundefined{nimstickgap}{}
+    {\PackageWarning{nimsticks}{Command `nimstickgap' already defined}}
+\@ifundefined{nimheapgap}{}
+    {\PackageWarning{nimsticks}{Command `nimheapgap' already defined}}
+\@ifundefined{nimheapwobble}{}
+    {\PackageWarning{nimsticks}{Command `nimheapwobble' already defined}}
+\@ifundefined{nimheaplift}{}
+    {\PackageWarning{nimsticks}{Command `nimheaplift' already defined}}
+\@ifundefined{nimrandrange}{}
+    {\PackageWarning{nimsticks}{Command `nimrandrange' already defined}}
+\@ifundefined{setnimscale}{}
+    {\PackageWarning{nimsticks}{Command `setnimscale' already defined}}
+\@ifundefined{onenimstick}{}
+    {\PackageWarning{nimsticks}{Command `onenimstick' already defined}}
+\@ifundefined{topx}{}
+    {\PackageWarning{nimsticks}{Command `topx' already defined}}
+\@ifundefined{botx}{}
+    {\PackageWarning{nimsticks}{Command `botx' already defined}}
+\@ifundefined{lift}{}
+    {\PackageWarning{nimsticks}{Command `lift' already defined}}
+\@ifundefined{heap}{}
+    {\PackageWarning{nimsticks}{Command `heap' already defined}}
+\@ifundefined{heapindex}{}
+    {\PackageWarning{nimsticks}{Command `heapindex' already defined}}
+
+\newcommand{\nimstickcolour}{black}
+\newcommand{\setnimstickcolour}[1]{%
+    \renewcommand{\nimstickcolour}{#1}
+}
+
+\newcommand{\nimstickheight}{3.3} % in ex
+\newcommand{\nimstickthickness}{0.3} % in ex
+\newcommand{\nimstickgap}{0.3} % in ex
+\newcommand{\nimheapgap}{5} % in ex
+\newcommand{\nimheapwobble}{0.001} % in ex
+\newcommand{\nimheaplift}{0.002} % in ex
+\newcommand{\nimrandrange}{100}
+\newcommand{\setnimscale}[1]{%
+    \pgfmathsetmacro{\nimstickheight}{3.3*#1}%
+    \pgfmathsetmacro{\nimstickthickness}{0.3*#1}%
+    \pgfmathsetmacro{\nimstickgap}{0.3*#1^(0.5)}%
+    \pgfmathsetmacro{\nimheapgap}{5*#1^(0.25)}%
+    \pgfmathsetmacro{\nimheapwobble}{0.001*#1^(0.25)}%
+    \pgfmathsetmacro{\nimheaplift}{0.002*#1}%
+    \pgfmathtruncatemacro{\nimrandrange}{100*#1}\reinitrand[first=-\nimrandrange,last=\nimrandrange,seed=0]%
+}
+
+\newcommand{\onenimstick}{\draw[line width=\nimstickthickness ex,\nimstickcolour] (\topx,0ex) -- (\botx,\nimstickheight ex);}
+\newcommand{\drawnimstick}{%
+    \rand\pgfmathsetmacro{\topx}{(\the\value{rand})*\nimheapwobble}%
+    \rand\pgfmathsetmacro{\botx}{(\the\value{rand})*\nimheapwobble}%
+    \rand\pgfmathsetmacro{\lift}{(\nimrandrange+\the\value{rand})*\nimheaplift}%
+    \begin{tikzpicture}
+    \node[inner sep=0] at (0,0) {}; % to anchor the diagram so any random movement isn't recentred
+    \onenimstick
+    \end{tikzpicture}%
+}
+\newcommand{\nimgame}[2][block]{%
+    \ifstrequal{#1}{inline}{}{\par\bgroup\centering}%
+    \def\listofgames{#2}%
+    \foreach \heap in \listofgames {%
+        \foreach \heapindex in {1, ..., \heap} {%
+            \drawnimstick\hspace{\nimstickgap ex}%
+        }%
+        \hspace{\nimheapgap ex}%
+    }\hspace{-\nimheapgap ex}%
+    \ifstrequal{#1}{inline}{}{\par\egroup}%
+}
+\endinput
+%%
+%% End of file `nimsticks.sty'.

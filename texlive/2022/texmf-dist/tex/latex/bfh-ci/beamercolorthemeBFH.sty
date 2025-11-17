@@ -1,0 +1,109 @@
+%% This is file `beamercolorthemeBFH.sty' version 2.1.3 (2022/03/20),
+%% it is part of
+%% BFH-CI -- Corporate Design for Bern University of Applied Sciences
+%% ----------------------------------------------------------------------------
+%%
+%%  Copyright (C) 2021–2022 by
+%%      Marei Peischl <marei@peitex.de>
+%%      Andreas Habegger <andreas.habegger@bfh.ch>
+%%
+%% ============================================================================
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainers of this work are
+%%   Marei Peischl <bfh-ci@peitex.de>
+%%   Andreas Habegger <andreas.habegger@bfh.ch>
+%%
+%% The development respository can be found at
+%% https://gitlab.ti.bfh.ch/bfh-latex/bfh-ci/
+%% Please use the issue tracker for feedback!
+%%
+%% ============================================================================
+%%
+\ProvidesPackage{beamercolorthemeBFH}[2022/03/01 v2.1.2 BFH-CI beamer color theme, CI of Bern University of Applied Sciences]
+
+% ====================
+% Dependencies
+% ====================
+
+\mode<presentation>{\PassOptionsToPackage{colormode=RGB}{bfhcolors}}
+
+\RequirePackage{bfhcolors}
+
+% ====================
+% Theme
+% ====================
+
+\mode<presentation>
+
+\setbeamercolor{structure}{fg=BFH-Gray}
+\setbeamercolor{sidebar}{fg=BFH-Orange,bg=white}
+
+\setbeamercolor{author in sidebar}{fg=BFH-Gray}
+\setbeamercolor{title in sidebar}{fg=BFH-Gray}
+
+\setbeamercolor{palette sidebar secondary}{fg=BFH-Orange}
+\setbeamercolor{palette sidebar primary}{fg=BFH-Orange}
+
+\setbeamercolor{BFH-Gray}{bg=BFH-Gray,fg=BFH-Orange}
+\setbeamercolor{BFH-Orange}{bg=BFH-Orange,fg=BFH-Gray}
+
+\setbeamercolor{BFH}{parent=BFH-Gray}
+
+\setbeamercolor{section in sidebar shaded}{fg=BFH-Gray}
+\setbeamercolor{subsection in sidebar shaded}{fg=BFH-Gray}
+\setbeamercolor{section in sidebar}{fg=white,bg=BFH-Orange}
+\setbeamercolor{subsection in sidebar}{fg=white,bg=BFH-Orange}
+
+\setbeamercolor{version in sidebar}{fg=BFH-Gray}
+\setbeamercolor{frametitle}{fg=BFH-Gray}
+\setbeamercolor{framesubtitle}{fg=BFH-Gray}
+
+\setbeamercolor{title page}{use=BFH,bg=BFH.bg,fg=white}
+\setbeamercolor{title page.invert}{use=BFH,bg=BFH.fg,fg=white}
+\setbeamercolor{title page.bottom}{use=BFH,fg=BFH.bg}
+\setbeamercolor{title page.boxed}{use=BFH,fg=BFH.bg,bg=white}
+\setbeamercolor{title rule}{use=BFH,bg=BFH.fg}
+\setbeamercolor{title rule.invert}{use=BFH,bg=BFH.bg}
+
+%title colors are set empty by default to depend on the title page template
+\setbeamercolor{titlelike}{fg=white}
+\setbeamercolor*{title}{}
+\setbeamercolor*{subtitle}{}
+\setbeamercolor*{author}{}
+\setbeamercolor*{institute}{}
+
+\setbeamercolor{section page}{bg=BFH-Gray,fg=white}
+\setbeamercolor{section rule}{bg=BFH-Orange}
+
+\setbeamercolor{footline}{bg=,fg=BFH-Gray}
+
+%% % Block
+\setbeamercolor{block title}{fg=BFH-Gray!10,bg=BFH-Gray!80}
+\setbeamercolor{block body}{fg=BFH-Gray,bg=BFH-Gray!40}
+\setbeamercolor{block frame}{parent=block title}
+
+%% % Example Block
+\setbeamercolor{block title example}{fg=BFH-Gray!10,bg=BFH-MediumGreen!80}
+\setbeamercolor{block body example}{fg=BFH-MediumGreen,bg=BFH-MediumGreen!40}
+\setbeamercolor{block frame example}{bg=BFH-MediumGreen}
+
+%% % Alert Block
+\setbeamercolor{block title alerted}{fg=BFH-Gray!10,bg=BFH-MediumPurple!80}
+\setbeamercolor{block body alerted}{fg=BFH-MediumPurple,bg=BFH-MediumPurple!40}
+\setbeamercolor{block frame alerted}{bg=BFH-MediumPurple}
+
+%% % Alert Textk
+\setbeamercolor{alerted text}{fg=BFH-DarkPurple}
+
+\mode<all>
+
+\endinput

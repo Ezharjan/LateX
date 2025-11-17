@@ -1,0 +1,191 @@
+%\iffalse meta-comment
+%Copyright (c) 2019 Matthew Scroggs & Adam Townsend
+%
+%Permission is hereby granted, free of charge, to any person obtaining a copy
+%of this software and associated documentation files (the "Software"), to deal
+%in the Software without restriction, including without limitation the rights
+%to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%copies of the Software, and to permit persons to whom the Software is
+%furnished to do so, subject to the following conditions:
+%
+%The above copyright notice and this permission notice shall be included in all
+%copies or substantial portions of the Software.
+%
+%THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%SOFTWARE.
+%\fi
+
+%\lstinline{realhats} is a package for \LaTeX{} that makes the \lstinline{\hat} command
+%put real hats on symbols.
+%For example, the input \lstinline@\hat{a}=\hat{b}@ will produce the output:
+%\[\hat{a}=\hat{b}\]
+%To make a vector with a hat, the input \lstinline@\hat{\mathbf{a}}@ produces:
+%\[\hat{\mathbf{a}}\]
+%
+%The command \lstinline{\hat} will choose a hat randomly from thirteen hats:
+%\begin{center}
+%\begin{tabular}{cp{4cm}cl}
+%\(\hatn{a}{beret}\) & beret &
+%\(\hatn{a}{santa}\) & Santa hat \\
+%\(\hatn{a}{sombrero}\) & sombrero &
+%\(\hatn{a}{witch}\)& witch's hat \\
+%\(\hatn{a}{tophat}\) & top hat &
+%\(\hatn{a}{ash}\) & Ash's hat \\
+%\(\hatn{a}{fez}\) & fez &
+%\(\hatn{a}{cowboy}\) & cowboy hat \\
+%\(\hatn{a}{crown}\) & crown &
+%\(\hatn{a}{dunce}\) & dunce's cap \\
+%\(\hatn{a}{policeman}\) & policeman's hat \qquad&
+%\(\hatn{a}{scottish}\) & Scottish hat \\
+%\(\hatn{a}{birthday}\) & birthday hat & 
+%\(\hatn{a}{mortarboard}\) & mortarboard
+%\end{tabular}
+%\end{center}
+%
+%Variables can be given a non-random hat, using the command \lstinline{\hat} with an optional parameter:
+%\begin{center}
+%\begin{tabular}{lp{2cm}ll}
+% \textbf{command} & \textbf{produces} & % \textbf{command} & \textbf{produces} \\
+% \lstinline@\hat[beret]{a}@ & \(\hat[beret]{a}\) &
+% \lstinline@\hat[santa]{a}@ & \(\hat[santa]{a}\) \\
+% \lstinline@\hat[sombrero]{a}@ & \(\hat[sombrero]{a}\) &
+% \lstinline@\hat[witch]{a}@ & \(\hat[witch]{a}\) \\
+% \lstinline@\hat[tophat]{a}@ & \(\hat[tophat]{a}\) &
+% \lstinline@\hat[ash]{a}@ & \(\hat[ash]{a}\) \\
+% \lstinline@\hat[fez]{a}@ & \(\hat[fez]{a}\) &
+% \lstinline@\hat[cowboy]{a}@ & \(\hat[cowboy]{a}\) \\
+% \lstinline@\hat[crown]{a}@ & \(\hat[crown]{a}\) &
+% \lstinline@\hat[dunce]{a}@ & \(\hat[dunce]{a}\) \\
+% \lstinline@\hat[policeman]{a}@ & \(\hat[policeman]{a}\) &
+% \lstinline@\hat[scottish]{a}@ & \(\hat[scottish]{a}\) \\
+% \lstinline@\hat[birthday]{a}@ & \(\hat[birthday]{a}\) &
+% \lstinline@\hat[mortarboard]{a}@ & \(\hat[mortarboard]{a}\)
+%\end{tabular}
+%\end{center}
+%
+%You can also pass these same options when loading the package.
+%For example, \verb@\usepackage[cowboy]{realhats}@ will cause the package to use cowboy hats
+%everywhere (unless a different hat is given to the \verb@\hat@ command).
+%\iffalse
+%<*documentation>
+\documentclass{article}
+\usepackage{realhats}
+\usepackage{doc}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,commentstyle=\color{white},language=TeX}
+\title{realhats v\input{VERSION}}
+\author{Matthew W.~Scroggs \& Adam K.~Townsend}
+\setlength\parindent{0pt}
+\begin{document}
+\maketitle
+    \DocInput{realhats.dtx}
+\end{document}
+%</documentation>
+%\fi
+
+%\iffalse
+%<*realhats>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{realhats}[2022/06/13 realhats 6.0]
+
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{ifthen}
+\RequirePackage[first=0, last=11, counter=hat]{lcg}
+\RequirePackage{calc}
+\RequirePackage{stackengine}
+
+\newcommand\myhat{}
+\newlength{\hatwidth} %hat width
+\newlength{\hshif} %horizontal shift
+\newlength{\vshif} %vertical shift
+
+\global\def\hatused{-1}
+\DeclareOption{beret}{\global\def\hatused{beret}}
+\DeclareOption{santa}{\global\def\hatused{santa}}
+\DeclareOption{sombrero}{\global\def\hatused{sombrero}}
+\DeclareOption{witch}{\global\def\hatused{witch}}
+\DeclareOption{tophat}{\global\def\hatused{tophat}}
+\DeclareOption{ash}{\global\def\hatused{ash}}
+\DeclareOption{fez}{\global\def\hatused{fez}}
+\DeclareOption{cowboy}{\global\def\hatused{cowboy}}
+\DeclareOption{crown}{\global\def\hatused{crown}}
+\DeclareOption{dunce}{\global\def\hatused{dunce}}
+\DeclareOption{policeman}{\global\def\hatused{policeman}}
+\DeclareOption{scottish}{\global\def\hatused{scottish}}
+\DeclareOption{birthday}{\global\def\hatused{birthday}}
+\DeclareOption{mortarboard}{\global\def\hatused{mortarboard}}
+\ProcessOptions\relax
+
+\newcommand{\gethat}{%
+    \ifcase\thehat beret%
+        \or santa%
+        \or sombrero%
+        \or witch%
+        \or tophat%
+        \or ash%
+        \or fez%
+        \or cowboy%
+        \or crown%
+        \or dunce%
+        \or policeman%
+        \or scottish%
+        \or birthday%
+        \or mortarboard%
+    \fi
+}
+
+\renewcommand{\hat}[2][]{%
+    \ifthenelse{\equal{#1}{}}{%
+        \ifthenelse{\equal{\hatused}{-1}}%
+        {\rand\hatn{#2}{\gethat}}%
+        {\hatn{#2}{\hatused}}%
+    }{%
+        \ifthenelse{\equal{#1}{beret}}{\hatn{#2}{beret}}{}%
+        \ifthenelse{\equal{#1}{santa}}{\hatn{#2}{santa}}{}%
+        \ifthenelse{\equal{#1}{sombrero}}{\hatn{#2}{sombrero}}{}%
+        \ifthenelse{\equal{#1}{witch}}{\hatn{#2}{witch}}{}%
+        \ifthenelse{\equal{#1}{tophat}}{\hatn{#2}{tophat}}{}%
+        \ifthenelse{\equal{#1}{ash}}{\hatn{#2}{ash}}{}%
+        \ifthenelse{\equal{#1}{fez}}{\hatn{#2}{fez}}{}%
+        \ifthenelse{\equal{#1}{cowboy}}{\hatn{#2}{cowboy}}{}%
+        \ifthenelse{\equal{#1}{crown}}{\hatn{#2}{crown}}{}%
+        \ifthenelse{\equal{#1}{dunce}}{\hatn{#2}{dunce}}{}%
+        \ifthenelse{\equal{#1}{policeman}}{\hatn{#2}{policeman}}{}%
+        \ifthenelse{\equal{#1}{scottish}}{\hatn{#2}{scottish}}{}%
+        \ifthenelse{\equal{#1}{birthday}}{\hatn{#2}{birthday}}{}%
+        \ifthenelse{\equal{#1}{mortarboard}}{\hatn{#2}{mortarboard}}{}%
+    }%
+}
+
+\newcommand{\hatn}[2]{\hatnoptions{#1}{#2}{0ex}{0ex}}
+
+\newcommand{\hatnoptions}[4]{%
+\setlength{\hshif}{1pt}
+\setlength{\hatwidth}{2ex}
+\ifthenelse{\equal{#2}{beret}}{\renewcommand\myhat{hats/realhats-beret}\setlength{\vshif}{-0.6ex} \setlength{\hshif}{0.5ex} }{}%
+\ifthenelse{\equal{#2}{santa}}{\renewcommand\myhat{hats/realhats-santa}\setlength{\vshif}{-0.1ex} }{}%
+\ifthenelse{\equal{#2}{sombrero}}{\renewcommand\myhat{hats/realhats-sombrero}\setlength{\vshif}{-0.17ex} \addtolength{\hshif}{-1pt}}{}%
+\ifthenelse{\equal{#2}{witch}}{\renewcommand\myhat{hats/realhats-witch}\setlength{\vshif}{-0.12ex} \addtolength{\hshif}{-1pt}}{}%
+\ifthenelse{\equal{#2}{tophat}}{\renewcommand\myhat{hats/realhats-tophat}\setlength{\vshif}{-0.4ex} \setlength{\hatwidth}{1.8ex} \addtolength{\hshif}{-1pt}}{}%
+\ifthenelse{\equal{#2}{ash}}{\renewcommand\myhat{hats/realhats-ash}\setlength{\vshif}{-0.6ex} \setlength{\hatwidth}{1.8ex} \addtolength{\hshif}{-1pt}}{}%
+\ifthenelse{\equal{#2}{fez}}{\renewcommand\myhat{hats/realhats-fez}\setlength{\vshif}{-0.4ex} \setlength{\hatwidth}{1ex} \addtolength{\hshif}{-1pt}}{}%
+\ifthenelse{\equal{#2}{cowboy}}{\renewcommand\myhat{hats/realhats-cowboy}\setlength{\vshif}{-0.3ex} \setlength{\hshif}{0.2ex}}{}%
+\ifthenelse{\equal{#2}{crown}}{\renewcommand\myhat{hats/realhats-crown}\setlength{\vshif}{-0.3ex} \setlength{\hshif}{0.2ex}}{}%
+\ifthenelse{\equal{#2}{dunce}}{\renewcommand\myhat{hats/realhats-dunce}\setlength{\vshif}{-0.3ex} \setlength{\hatwidth}{1.4ex}}{}%
+\ifthenelse{\equal{#2}{policeman}}{\renewcommand\myhat{hats/realhats-policeman}\setlength{\vshif}{-0.4ex} \setlength{\hatwidth}{1.8ex} \addtolength{\hshif}{-1pt}}{}%
+\ifthenelse{\equal{#2}{scottish}}{\renewcommand\myhat{hats/realhats-scottish}\setlength{\vshif}{-0.6ex} \setlength{\hshif}{0.5ex} }{}%
+\ifthenelse{\equal{#2}{birthday}}{\renewcommand\myhat{hats/realhats-birthday}\setlength{\vshif}{-0.2ex} \setlength{\hshif}{-0.1ex} }{}%
+\ifthenelse{\equal{#2}{mortarboard}}{\renewcommand\myhat{hats/realhats-mortarboard}\setlength{\vshif}{-0.15ex} \setlength{\hshif}{0ex} }{}%
+\addtolength{\hshif}{#3}%
+\addtolength{\vshif}{#4}%
+\stackMath %
+\stackon[\vshif]{#1}{\hspace{\hshif}\includegraphics[width=\hatwidth]{\myhat}}
+}
+%</realhats>
+%\fi

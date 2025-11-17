@@ -1,0 +1,266 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2020 Christoph Semken <christoph.ban@semken.info>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%
+%
+%<*driver>
+\ProvidesFile{beamerappendixnote.dtx}
+%</driver>
+%<package> \ProvidesPackage{beamerappendixnote}
+%<*package>
+  [2020/07/01 v1.2.0 backposition option]
+%</package>
+%<*driver>
+\documentclass{l3doc}
+
+%% Packages
+% This package
+\usepackage{beamerappendixnote}
+% Unicode
+\usepackage{fontspec,unicode-math}
+% Auxiliary
+\usepackage{listings,graphicx,xparse}
+
+%% Layout
+% Font
+\setmainfont{TeX Gyre Pagella}
+% Listings
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  keepspaces=true,
+}
+% Links
+\hypersetup{colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue}
+
+%% Definitions
+\newcommand\fnurl[2]{\href{#1}{#2}\footnote{\url{#1}}}
+\ExplSyntaxOn
+\NewDocumentCommand{\example}{m m o}
+  {
+    \IfNoValueTF{#3} 
+      {\lstinputlisting{example-#1.tex}}
+      {\lstinputlisting[linerange=#3]{example-#1.tex}}
+    \int_step_inline:nn {#2} 
+      {
+        \includegraphics[page=##1,width=.49\linewidth]{example-#1.pdf}
+        \int_if_even:nT {##1} {\newline}
+      }
+  }
+\ExplSyntaxOff
+
+\begin{document}
+
+\GetFileInfo{beamerappendixnote.dtx}
+
+\title{The \pkg{beamerappendixnote} package}
+
+\author{Christoph Semken%
+ \thanks{E-mail:
+   \href{mailto:christoph.ban@semken.info}
+     {christoph.ban@semken.info}%
+  }%
+}
+
+\date{\fileversion\ --- \filedate}
+
+\maketitle
+
+\begin{documentation}
+
+\noindent Beamer appendix note introduces the \cs{appxnote} command, which puts the note's content on a separate beamer frame, shown by the command \cs{printappxnotes}.  It also creates interactive buttons to move back and forth between the two frames.
+
+\example{basic}{2}
+
+\clearpage
+\section{Installation}
+
+The \pkg{beamerappendixnote} package is available on \fnurl{https://ctan.org/pkg/beamerappendixnote}{CTAN}.  The easiest way to install it is through a package manager.  For help, see the \fnurl{https://miktex.org/howto/miktex-console}{MiKTeX} or \fnurl{https://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-430005}{TeX Live} manual.  To build \pkg{beamerappendixnote} from the source code, follow the instructions in the \verb|README.md| file.
+
+\section{Usage}
+
+\begin{function}{\appxnote}
+  \begin{syntax}
+   \cs{appxnote}\oarg{frameoptions}\marg{title}\marg{content}
+  \end{syntax}
+  
+  Create a new appendix note.  Inserts a \cs{beamergotobutton} to a frame that contains \meta{content}.  The appendix frame is created using \cs{printappxnotes}.  The button’s text and the title of the appendix frame are both set to \meta{title}.  If you specify \meta{frameoptions}, these will be used when creating the beamer frame.
+\end{function}
+
+\begin{function}{\printappxnotes}
+  \begin{syntax}
+   \cs{printappxnotes}
+  \end{syntax}
+  
+  Prints appendix notes in the order they are created using \cs{appxnote}.  Has to be used after the last appendix note.  Uses one frame per note.  Inserts a \cs{beamerreturnbutton} button to the frame where \cs{appxnote} was called, followed by the content, separated by a \cs{vfill}.  
+\end{function}
+
+
+\section{Advanced usage}
+
+\subsection{Change the back button placement}
+
+To move the back button from the body of the appendix notes into the frame title, load the \pkg{beamerappendixnote} package with the \lstinline{backposition=title} option.
+
+\example{backtop}{2}[2-2]
+
+\subsection{Multi-frame notes}
+
+To create appendix notes spanning multiple frames, set \meta{frameoption} to \lstinline{allowframebreaks}.  This works well with the \lstinline{backposition=title} package option, as it makes the back button visible on every frame.
+
+\example{longnote}{4}
+
+
+
+\end{documentation}
+
+
+%\begin{implementation}
+%  \section{Implementation}
+%  \DocInput{beamerappendixnote.dtx}
+%\end{implementation}
+
+
+\end{document}
+%</driver>
+% \fi
+% \iffalse
+%<*package>
+%<@@=ban>
+% \fi
+%
+% \subsection{Dependencies}
+%
+%    \begin{macrocode}
+\RequirePackage{expl3}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\@ifpackagelater {expl3}{2018/04/22} {} {%
+  \PackageError {beamerappendixnote} {Support package expl3 too old}
+    {%
+      You need to update your installation of the bundles 'l3kernel' and
+      'l3packages'.\MessageBreak
+      Loading~beamerappendixnote~will~abort!%
+    }%
+  \endinput
+}%
+%    \end{macrocode}
+%
+% Identify the package and give the over all version information
+%    \begin{macrocode}
+\ProvidesExplPackage {beamerappendixnote} {2020/07/01} {1.2.0}
+  {Create notes in appendix frames}
+%    \end{macrocode}
+%
+% User level interfaces are all created by \pkg{xparse}.
+%    \begin{macrocode}
+\RequirePackage{xparse}
+\RequirePackage{l3keys2e}
+%    \end{macrocode}
+% 
+% \subsection{Package options}
+%    \begin{macrocode}
+\keys_define:nn { beamerappendixnote }
+{
+  backposition .choices:nn = { top, bottom, title } { },
+  backposition .tl_set:N = \g_ban_backposition
+}
+\keys_set:nn { beamerappendixnote } 
+{
+  backposition = top
+}
+\ProcessKeysOptions { beamerappendixnote } 
+%    \end{macrocode}
+%
+% \subsection{Data structures}
+%
+% Initialise sequences used to store notes
+%    \begin{macrocode}
+\seq_new:N \g_ban_titles
+\seq_new:N \g_ban_content
+\seq_new:N \g_ban_options
+\cs_generate_variant:Nn \tl_if_eq:nnT { V }
+%    \end{macrocode}
+%
+% \subsection{Macros}
+% \begin{macro}{\appxnote}
+% Create a new appendix note (store values) and insert a button
+% Note: using \cs{newcommand} because \cs{NewDocumentCommand} does not support 
+% multiple paragraphs 
+%    \begin{macrocode}
+\newcommand{\appxnote}[3][t]{
+  \seq_gput_right:Nn \g_ban_titles {#2}
+  \seq_gput_right:Nn \g_ban_options {#1}
+  \seq_gput_right:Nn \g_ban_content {#3}
+  \hyperlink{ban-\seq_count:N \g_ban_titles}{\beamergotobutton{#2}}%
+  \label{ban-back-\seq_count:N \g_ban_titles}
+}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\@@_print_func:n}
+% Print an appendix note
+% Args: title, content, label, back label, options
+%    \begin{macrocode}
+\cs_set:Npn \print_func:nnnnn #1 #2 #3 #4 #5 { 
+  \def\options{#5}
+  \begin{frame}[\expandafter\options]
+    {
+      \tl_if_eq:VnT \g_ban_backposition { title } 
+        {
+          \hyperlink{#4}{\beamerreturnbutton{Back}}~
+        }
+      #1 
+    }
+    \label{#3}
+    
+    \tl_if_eq:VnT \g_ban_backposition { top } 
+      {
+        \hyperlink{#4}{\beamerreturnbutton{Back}}
+        \vfill
+      }
+    
+    #2
+  \end{frame}
+}
+% Get title, content, label, back label and options
+% Arg: id
+%    \begin{macrocode}
+\cs_set:Npn \expand_func:n #1 { 
+  \print_func:nnnnn {\seq_item:Nn \g_ban_titles {#1}}
+                    {\seq_item:Nn \g_ban_content {#1}}
+                    {ban-#1}
+                    {ban-back-#1}
+                    {\seq_item:Nn \g_ban_options {#1}}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\printappxnotes}
+% Print all appendix notes
+%    \begin{macrocode}
+\NewDocumentCommand{\printappxnotes}{}{
+  \int_step_function:nN {\seq_count:N \g_ban_titles} \expand_func:n
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \iffalse
+%</package>
+% \fi

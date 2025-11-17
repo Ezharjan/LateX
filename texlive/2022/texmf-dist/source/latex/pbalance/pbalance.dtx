@@ -1,0 +1,1710 @@
+% \iffalse meta-comment
+% Copyright 2020-2022 Nelson Lago <lago@ime.usp.br>
+%
+% This work may be distributed and/or modified under the conditions of the
+% LaTeX Project Public License, either version 1.3c of this license or (at
+% your option) any later version. The latest version of this license can be
+% found at http://www.latex-project.org/lppl.txt and version 1.3 or later
+% is part of all distributions of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Nelson Lago <lago@ime.usp.br>.
+%
+% \fi
+% \iffalse
+%
+%<package>\NeedsTeXFormat{LaTeX2e}[2015/01/01]
+%<package>\ProvidesPackage{pbalance}[2022/07/28 v1.4.0 Poor man's balance]
+%
+%<*driver>
+
+\documentclass{ltxdoc}
+
+\usepackage[hyperref,svgnames,x11names,table]{xcolor}
+\usepackage{url}
+\urlstyle{sf}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  citecolor=DarkGreen,
+  linkcolor=NavyBlue,
+  urlcolor=DarkRed,
+  filecolor=green,
+  anchorcolor=black,
+}
+
+\usepackage{microtype}
+
+\usepackage[draft]{pbalance}
+
+\usepackage{libertinus}
+\usepackage[scale=.85]{sourcecodepro}
+
+%%\EnableCrossrefs
+%%\CodelineIndex
+\RecordChanges
+
+\OnlyDescription
+
+\begin{document}
+\DocInput{pbalance.dtx}
+\end{document}
+
+%</driver>
+%
+% \fi
+%
+% \CheckSum{0}
+%
+% \changes{v1.0}{2020/09/14}{Initial version}
+% \changes{v1.0.1}{2020/12/16}{Improvements to documentation}
+% \changes{v1.1.0}{2021/04/26}{Do not crash in one-column mode}
+% \changes{v1.1.1}{2021/05/24}{Do not use balance package if
+%                              there are dbltop floats}
+% \changes{v1.2.0}{2022/06/20}{Improvements to latexmk file}
+% \changes{v1.2.0}{2022/06/20}{More logging and sanity checks}
+% \changes{v1.2.0}{2022/06/20}{Add ``safe'' option}
+% \changes{v1.2.0}{2022/06/20}{Do not use \texttt{balance} pkg
+%                              with \texttt{lineno}}
+% \changes{v1.2.0}{2022/06/20}{Compatibility with \texttt{lineno} pkg}
+% \changes{v1.2.1}{2022/06/21}{Better error handling}
+% \changes{v1.3.0}{2022/06/22}{Compatibility with \texttt{stfloats} pkg}
+% \changes{v1.4.0}{2022/07/28}{Fix bug when switching single/double cols}
+% \changes{v1.4.0}{2022/07/28}{Add alternatives and troubleshooting
+%                              sections to the docs}
+% \changes{v1.4.0}{2022/07/28}{Create \texttt{\textbackslash{}balancePageNum}
+%                              and \texttt{\textbackslash{}nopbalance}
+%                              commands}
+% \changes{v1.4.0}{2022/07/28}{Fix bug: detect float pages correctly}
+% \changes{v1.4.0}{2022/07/28}{Compatibility with memoir, footmisc, ftnright,
+%                              flafter, fnpos, midfloat, and cuted}
+%
+% \GetFileInfo{pbalance.sty}
+%
+% \title{The \textsf{pbalance} (poor man's balance) package\thanks{This
+% document corresponds to \textsf{pbalance}~\fileversion, dated~\filedate.}}
+%
+% \author{
+% Nelson Lago\\
+% \texttt{lago@ime.usp.br}\\
+% ~\\
+% \url{https://gitlab.com/lago/pbalance}
+%}
+%
+% \maketitle
+%
+% \begin{abstract}
+%
+% This package tries to \emph{safely} make the columns on the last page
+% of a two-column document have approximately the same height. It should
+% ``just work'' without user intervention, which is particularly useful
+% for class authors, but also offers the user a command to adjust the
+% height of the columns. There are, however, three caveats:
+%
+% \begin{enumerate}
+% \item Results are adequate, but often not optimal;
+% \item In some very rare cases, the package may give up (the document
+%       is generated correctly but the last page is not balanced);
+% \item The package demands additional \LaTeX{} passes.
+% \end{enumerate}
+%
+% \end{abstract}
+%
+% \section{Introduction}
+%
+% First things first: this package is a \textbf{hack}. It is also
+% \textbf{beta} quality. However, I believe it is \emph{safe},
+% i.e., it should not generate incorrect output.
+%
+% In a two-column document, it is desirable for the columns in the last
+% page to have the same height (the columns should be ``balanced''). Two
+% packages (\texttt{balance} and \texttt{flushend}) try to provide this
+% in \LaTeX, but both may generate defective output in some circumstances.
+% This package tries to solve this problem.
+%
+% Balancing is often not possible: imagine a document with an odd number
+% of lines on the last page, or with ten lines of text together with an
+% image that takes the height of fifteen lines of text, or a document where
+% making columns the same height would leave a sectioning comand at the
+% bottom of the first column etc. Since such cases happen often, we consider
+% it enough for the columns to be ``not too unequal'', even when equal
+% heights might be possible (the algorithm cannot deliver better results
+% and, in fact, striving to make columns exactly the same height with it
+% may sometimes yield poor results, so we do not even try).
+%
+% \section{Usage}
+%
+% To use the package, add \verb|\usepackage{pbalance}| to the preamble
+% and things should ``just work''. However, the document will take more
+% \LaTeX{} passes to compile, and minute changes to it that would normally
+% need one additional \LaTeX{} pass will likely demand three. If you load
+% the package with the \verb|draft| option (or pass the \verb|draft|
+% option to the document class), balancing is disabled, alleviating the
+% need for extra passes during document preparation. You may also use
+% \verb|\shrinkLastPage{some-measurement}| to manually define how much
+% shorter the first column of the last page should be instead of letting
+% the package determine the amount and \verb|\balancePageNum{page-number}|
+% to force balancing a specific page (note that this is the \textit{physical}
+% page number). These options, however, will not eliminate the need
+% for extra passes. Finally, you may disable processing by calling
+% \verb|\nopbalance| (useful if a class preloaded the package, for example).
+%
+% \section{Troubleshooting and fine tuning}
+%
+% \texttt{pbalance} should never generate defective output or cause an
+% error; if it does, please try passing the \texttt{safe} option to the
+% package and submit a bug report with a MWE. Other than that, three
+% things may go wrong when using \texttt{pbalance}:
+%
+% \begin{enumerate}
+%   \item The final result may be ``ugly'';
+%   \item \texttt{pbalance} may give up and produce an unbalanced last page;
+%   \item Some other package may prevent \texttt{pbalance} from working.
+% \end{enumerate}
+%
+% \subsection{The final result is ``ugly''}
+%
+% If you find the results unsatisfactory, there are two things you may try:
+%
+% \begin{itemize}
+%   \item Change the layout: apply \verb|\looseness| to a paragraph, move
+%         where floats are defined\footnote{Remember that, in two-column
+%         mode, dblfloats should be defined before the place you expect
+%         them to appear; see the docs for the \texttt{stfloats} package.}
+%         or change their sizes, etc.;
+%   \item Use \verb|\shrinkLastPage| and \verb|\balancePageNum| to manually
+%         define the size of the left column and the page to balance.
+% \end{itemize}
+%
+% \subsection{\texttt{pbalance} gave up}
+%
+% This should happen very rarely, but \texttt{pbalance} may sometimes
+% generate the warning ``\texttt{Could not balance, doing nothing}''
+% (the document is still generated correctly in this case), which means
+% the package algorithm failed to find a suitable solution to do its
+% thing\footnote{For example, imagine a document in which page 5 is
+% a float page that happens to be the last one. We will balance page
+% 4, which is the last text page. Balancing page 4 may move a float
+% from the left to the right column, but this may in turn exceed the
+% maximum number of floats in the right column. As a result, one or
+% more floats may be deferred to page 5. At the same time, a float of
+% a different kind from page 5 may be pulled back to the extra space
+% that just opened up in page 4. Depending on the size of this float,
+% the text may no longer fit in page 4, making some text spill onto
+% page 5. This means page 5 is now the last text page and should then
+% be balanced instead of page 4. Oops!\looseness=-1}. This problem is
+% amenable to the same mitigation strategies discussed in the previous
+% section. However, if there are many floats near the end of the document,
+% you should also consider making the \LaTeX{} float placement parameters
+% (\verb|\topfraction|, \verb|topnumber|, etc.) a little more liberal
+% than the default, for example:\looseness=-1
+%
+% \begin{verbatim}
+%\setcounter{totalnumber}{5} % default 3
+%\setcounter{topnumber}{3} % default 2
+%\renewcommand{\topfraction}{.85} % default .7
+%\renewcommand{\textfraction}{.15} % default .2
+%\renewcommand{\floatpagefraction}{.75} % default .5, must be < \topfraction
+% \end{verbatim}
+%
+% \subsection{Patching failed due to another package}
+%^^A TODO: list all other packages in a comment
+%
+% If \texttt{pbalance} yields the warning ``\texttt{Patching failed, cannot
+% balance; try \mbox{loading} pbalance earlier or later}'', there is some
+% incompatibility with another package. Since \texttt{pbalance} modifies
+% the internal \LaTeX{} macros \verb|\@outputdblcol|, \verb|\@addtocurcol|,
+% \verb|\@makecol|, and \verb|\@addmarginpar|, there may be problems with
+% other packages that do the same; thankfully, not many packages do. For
+% some of them (such as \texttt{stfloats}), \texttt{pbalance} includes code
+% to circumvent any problems; for others, your best bet is to change the
+% order in which the packages are loaded (in general, \texttt{pbalance}
+% prefers to go last).\looseness=-1
+%
+% \subsection{Some details you normally do not need to consider}
+%
+% The package actually balances the last \emph{text} page; if the last
+% page is a float page, it is ignored. It also \emph{should} work if you
+% switch to single-column mode mid-document (with \verb|\onecolumn|); it
+% will then balance the last two-column text page. The same should happen
+% in a document that is mainly typeset in one column and you switch to
+% two-column layout (with \verb|\twocolumn|), but \emph{only} if the page
+% to be balanced does \emph{not} contain the \verb|\twocolumn| command
+% (i.e., there are at least two consecutive two-column text pages).
+%
+% If the last page does not have floats, footnotes, or marginpars, the
+% package simply uses \verb|\balance|, from the \texttt{balance} package,
+% otherwise it uses its own algorithm. If that fails for some reason, you
+% may add the \verb|safe| option to the package, which makes the code
+% never use (or even load) the \texttt{balance} package.
+%
+% \section{Other options}
+%
+% There are other approaches to balancing that may be better suited to your
+% needs. Beyond the already mentioned \texttt{balance} and \texttt{flushend}
+% packages, I am aware of:
+%
+% \begin{itemize}
+%   \item The \texttt{multicol} package, which allows the user to freely
+%         switch between one- and multi-column layouts. The only drawback
+%         of the package is that it cannot handle ordinary floats, only
+%         dblfloats (\verb|\begin{figure*}|, \verb|\begin{table*}|);
+%   \item The \texttt{ltxgrid} package, which allows the user to freely
+%         switch between one- and two-column layouts but, differently from
+%         \texttt{multicol}, works even in the presence of floats. With it,
+%         switching from two columns to one balances the previous output
+%         (its main disadvantage is that it may have compatibility problems
+%         with other packages);
+%   \item The \texttt{revtex} class, for which \texttt{ltxgrid} was
+%         developed;
+%   \item The \verb|\IEEEtriggeratref{}| macro from the \texttt{IEEEtran}
+%         class, which allows you to attach arbitrary code (such as
+%         \verb|\newpage|) to a specific entry in a bibliography listing;
+%         \looseness=-1
+%   \item The code suggested at \url{https://tex.stackexchange.com/a/583228/},
+%         similar to the \texttt{IEEEtran} approach.
+% \end{itemize}
+%
+% \section{How does it work}
+%
+% This package works on two fronts:
+%
+% \begin{enumerate}
+%
+% \item It uses a \LaTeX{} pass to gather information: which is the last
+%       two-column text page? Does it have floats? Footnotes? How much
+%       free space in each column?
+%
+% \item It uses this information in a subsequent pass to balance that
+%       page. If there are no floats or footnotes, it uses the balance
+%       package, otherwise it uses the measurements collected to shrink
+%       the first column (using \verb|\enlargethispage|) by a
+%       ``reasonable'' amount.
+%
+% \end{enumerate}
+%
+% If measurements change between passes, either the document was edited
+% or \LaTeX{} is still adding crossrefs, citations, etc. In both cases,
+% the previously gathered data is bogus, so we start over. However, the
+% package cannot detect changes that happen between the ``collect data''
+% pass and the ``balance for the first time'' pass: it has to assume
+% that any change at this point is caused by the fact that we started
+% balancing (it can, however, detect whether the last text page changed;
+% if this happens, we give up balancing). If a small change (such as an
+% updated crossref adding or removing a line somewhere) slips through,
+% that is acceptable: we are not aiming at balancing perfectly anyway.
+% However, if the change is big (for example, the addition of the
+% bibliography block after running bibtex/biber), results will suffer.
+%
+% To prevent this, it would be ideal to only start the process after all
+% passes needed to stabilize the document have run. In practice, however,
+% this would be too hard to detect (and demand even more passes). What
+% we do instead is simply wait for two consecutive passes to result in
+% columns of the same size in the last two-column page. When this happens,
+% we proceed to balance in the next pass and assume (quite reasonably)
+% that, as long as the document is not modified, the effect of concurrent
+% changes during that pass in the last page is small, so ignoring it
+% disturbs the balancing only slightly\footnote{Like I said on the
+% introduction: this package is a hack.}.
+%
+% \section{TODO / wish list}
+%
+% Some useful stuff we should consider implementing:
+%
+% \begin{itemize}
+%
+%   \item make the mechanism able to work with any page, not just the last,
+%         and with more than one page at once. This is useful for the last
+%         page of each chapter of a two-column book, for example;
+%
+%   \item on top of that:
+%     \begin{enumerate}
+%       \item create command to manually indicate the page numbers to balance
+%       \item create command similar to \verb|\balance| from the
+%             \texttt{balance} package
+%       \item allow user to set manual balancing for each page independently
+%     \end{enumerate}
+%
+% \end{itemize}
+%
+% \StopEventually{\PrintChanges}
+%
+% \section{The implementation}
+%
+% We define \verb|\@PBlastPage| using \texttt{zref-abspage}; It is the page
+% number for the last two-column page of text. This might \emph{not} be the
+% last page of the document: there may be one or more float pages after it
+% or the user may have issued \verb|\onecolumn|. Still, it \emph{is} the page
+% we want to balance. We do not act on it, however; instead, we save its value
+% to the aux file as \verb|\@PBprevLastPage| and proceed to balance on the next
+% \LaTeX{} pass.
+%
+% We also define two toggles:
+%
+% \begin{description}
+% \item[\texttt{@PBstabilized}] There have been a few passes
+%      already and the document has apparently stabilized.
+% \item[\texttt{@PBimpossible}] We tried to balance on a
+%      previous pass and failed.
+% \end{description}
+%
+% \subsection{Initialization, required packages etc.}
+%
+% Besides some other required packages, here we load the \texttt{balance}
+% package; if there are no floats or footnotes involved and if the document
+% does not load \texttt{lineno.sty}, we will simply use it. We need to load
+% it after we modify \verb|\@outputdblcol|, so we use \verb|\AtEndOfPackage|.
+%
+% We also define the \texttt{draft} option, which disables processing.
+%
+%    \begin{macrocode}
+
+\RequirePackage{etoolbox}
+\RequirePackage{expl3}
+\RequirePackage{atbegshi} % Manipulate the page output routine
+\RequirePackage{atveryend} % Write to the aux file after processing ends
+\RequirePackage{zref-abspage} % Figure out the current page
+\RequirePackage{filehook} % Patch other packages that modify the output routine
+
+\newtoggle{@PBpatchFailed}
+
+% These may be already defined in the .aux file from a previous run
+\providetoggle{@PBstabilized}
+\providetoggle{@PBimpossible}
+
+\newtoggle{@PBnoBalancePackage}
+\DeclareOption{safe}{\toggletrue{@PBnoBalancePackage}}
+
+\newtoggle{@PBdraft}
+\DeclareOption{draft}{\toggletrue{@PBdraft}}
+
+\ProcessOptions\relax
+
+% lineno may be loaded after us, so we need to check for it later...
+\AtEndPreamble{\@ifpackageloaded{lineno}{\toggletrue{@PBnoBalancePackage}}{}}
+
+% ... But it does not harm to check here too, which may save us
+% the trouble of needlessly loading the balance package only to
+% never use it later on. If we get it wrong, that's ok.
+\@ifpackageloaded{lineno}{\toggletrue{@PBnoBalancePackage}}{}
+
+\AtEndOfPackage{
+    \ifboolexpr{togl {@PBdraft} or togl {@PBnoBalancePackage}}
+      {}
+      {\RequirePackage{balance}}
+}
+
+% See https://github.com/latex3/latex2e/issues/399#issuecomment-703081793
+\gdef \@reinserts{%
+  \ifvbox\@kludgeins\insert\@kludgeins
+                      {\unvbox\@kludgeins}\fi
+  \ifvoid\footins\else\insert\footins{\unvbox\footins}\fi
+}
+
+%    \end{macrocode}
+
+% \subsection{The balancing front}
+%
+% The basic balancing process is reasonably simple: right before each
+% new page, check whether it should be balanced. If so, add the adequate
+% code to the top of the page (either call \verb|\balance|, from the
+% \texttt{balance} package, or add \verb|\enlargethispage|).
+%
+%    \begin{macrocode}
+
+% Right before the first page
+\AtBeginDocument{
+  \@PBifShouldBalanceNascentPage
+    {\@PBStartBalancing}
+    {}
+}
+
+% Right before all other pages
+\AtBeginShipout{
+  \@PBifShouldBalanceNascentPage
+    {\@PBStartBalancing}
+    {}
+}
+
+\newcommand\@PBifShouldBalanceNascentPage[2]{
+  \ifboolexpr
+    {
+      togl {@PBdraft}
+      or not togl {@PBstabilized}
+      or test {\ifdefvoid{\@PBprevLastPage}}
+    }
+    {#2}
+    {
+      % abspage refers to the finished page, not the nascent page
+      \ifnumcomp{\@PBprevLastPage - 1}{=}{\value{abspage}}
+        {#1}
+        {#2}
+    }
+}
+
+% Let's give the user a chance to manually define what to do
+\newcommand\shrinkLastPage[1]{\dimgdef\@PBslack{#1}}
+\newcommand\balancePageNum[1]{\gdef\@PBthepage{#1}}
+\newcommand\nopbalance{\toggletrue{@PBdraft}}
+
+\newcommand\@PBStartBalancing{
+  \ifdefvoid{\@PBslack}
+    {\@PBautomaticBalance}
+    {
+      \PackageInfo{pbalance}{Automatic mode disabled, doing manual adjustment}
+      \@PBshrinkPage
+    }
+}
+
+\newcommand\@PBautomaticBalance{
+  \@PBifBalancePossible
+    {
+      \@PBifBalancePkgPossible
+        {\balance} % easy peasy, use the balance package
+        {
+          \@PBifPoorBalancePossible
+            {
+              % use the poor man's balance algorithm
+              \@PBcalculateShrinkage
+              \@PBshrinkPage
+            }
+            {\PackageInfo{pbalance}{Page "naturally" balanced, doing nothing}}
+        }
+    }
+    {\PackageInfo{pbalance}{Float-only column at last page, doing nothing}}
+}
+
+% Calculate how much we should shrink the left column of the last
+% page based on the measurements we took on previous LaTeX passes.
+\newcommand\@PBcalculateShrinkage{
+
+  % Let's use some shorter names, please
+  \dimdef\@PBtmpH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}Height}}
+  \dimdef\@PBtmpUL{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}UsedLeft}}
+  \dimdef\@PBtmpUR{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}UsedRight}}
+
+  \dimdef\@PBtmpLH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}LeftHeight}}
+  \dimdef\@PBtmpLFH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}LeftFloatsHeight}}
+  \dimdef\@PBtmpRH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}RightHeight}}
+  \dimdef\@PBtmpRFH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}RightFloatsHeight}}
+
+  % Figure out the amount of unused space on the last page (both
+  % cols); we will reduce the first column height by half that amount
+  \dimgdef\@PBslack{\@PBtmpH *2 - \@PBtmpUL - \@PBtmpUR}
+  \dimgdef\@PBslack{\@PBslack /2}
+
+  % Actually, I lied. While half, as said above, sometimes yields
+  % perfectly balanced columns, that is often not the case (the page
+  % may have an odd number of lines, or textheight may not be a
+  % multiple of baselineskip, or there may be glues etc.). Sometimes
+  % the difference is very small, less than a line, which does not
+  % look good at all, and sometimes the right column is slightly
+  % higher than the left, which is also not ideal. Here, we force
+  % the left column to always be somewhat taller than the left; the
+  % result is often ``better''.
+  \dimgdef\@PBslack{\@PBslack - 1.5\baselineskip}
+
+  % If necessary, reduce @PBslack to prevent LaTeX from adding a page
+  \@PBsafetyCheck
+}
+
+\def\@PBshrinkPage{
+  % Zero obviously means ``do nothing''. We could
+  % ``enlarge'' by 0, but IDK, maybe that would
+  % trigger another LaTeX pass or something.
+  \ifdimcomp{\@PBslack}{=}{0pt}
+    {}
+    {
+      % Shrink the first column
+      \enlargethispage{-\@PBslack}
+
+      % Modify the behavior of \@outputdblcol
+      % to raise footnotes in the second column.
+      \global\let\@PBbalanceSecondColumn\@PBrealBalanceSecondColumn
+    }
+}
+
+% If there are footnotes on the right column, it is better to
+% ``push'' them up to be aligned with the end of the left column,
+% especially if there are footnotes on the left column too. We
+% do this by manipulating \@textbottom in \@outputdblcol.
+\pretocmd{\@outputdblcol}{\@PBbalanceSecondColumn}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@outputdblcol)}
+         }
+
+\let\@PBbalanceSecondColumn\relax
+
+\def\@PBrealBalanceSecondColumn{
+    \if@firstcolumn
+      % Affects the next column
+      \global\let\@PBorigtextbottom\@textbottom
+      \gdef\@textbottom{\vskip \@PBslack plus .0001fil minus 10000fill\relax \@PBorigtextbottom}
+    \else
+      % Back to normal before starting the next page
+      \global\let\@textbottom\@PBorigtextbottom
+      \global\let\@PBbalanceSecondColumn\relax
+    \fi
+}
+
+%    \end{macrocode}
+
+% \subsection{The measuring front}
+% For the mechanism above to work, we need to know:
+%
+% \begin{enumerate}
+% \item The page number of the last two-column text page;
+% \item Whether it has floats, footnotes etc.;
+% \item The available height in it;
+% \item The height of the columns in it.
+% \end{enumerate}
+%
+% Let's collect this info for every page.
+%
+% \subsubsection{Are there floats, footnotes, or marginpars in the last page?}
+%
+%    \begin{macrocode}
+
+% To check whether there are floats etc. in the last page,
+% we will copy the fancyhdr package:
+% https://tex.stackexchange.com/questions/56673/is-there-a-way-to-determine-if-there-is-a-float-on-a-page
+% But we add the tests to a different place.
+\newcommand\@PBifmidfloat[2]{\ifx\@midlist\empty #2\else #1\fi}
+\newcommand\@PBiftopfloat[2]{\ifx\@toplist\empty #2\else #1\fi}
+\newcommand\@PBifbotfloat[2]{\ifx\@botlist\empty #2\else #1\fi}
+\newcommand\@PBiffootnote[2]{\ifvoid\footins #2\else #1\fi}
+\newcommand\@PBiffloatcol[2]{\if@fcolmade #1\else #2\fi}
+\newcommand\@PBifdbltopfloat[2]{\ifx\@dbltoplist\empty #2\else #1\fi}
+% dblbotlist only exists with package stfloats
+\newcommand\@PBifdblbotfloat[2]{%
+  \ifdefvoid{\@dblbotlist}
+    {#2}
+    {\ifx\@dblbotlist\empty #2\else #1\fi}%
+}
+
+% If there are footnotes, floats or marginpars in
+% the page, we should not use the balance package
+\newtoggle{@PBtmpHasFootnotes}
+\newtoggle{@PBtmpHasFloats}
+\newtoggle{@PBtmpHasMarginpars}
+
+\def\@PBcollectPageInfo{
+  \ifboolexpr
+    {
+      test {\@PBifmidfloat} or test {\@PBiftopfloat} or
+      test {\@PBifbotfloat} or test {\@PBifdblbotfloat} or
+      test {\@PBifdbltopfloat}
+    }
+    {\global\toggletrue{@PBtmpHasFloats}}
+    {}
+
+  \@PBiffootnote
+    {\global\toggletrue{@PBtmpHasFootnotes}}
+    {}
+}
+
+\pretocmd{\@makecol}{\@PBcollectPageInfo}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@makecol)}
+         }
+
+% This only gets called if there is a marginpar, so that's easy
+\pretocmd{\@addmarginpar}{\global\toggletrue{@PBtmpHasMarginpars}}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@addmarginpar)}
+         }
+
+%    \end{macrocode}
+%
+% \subsubsection{What are the sizes of the floats in the left column?}
+%
+%    \begin{macrocode}
+
+\ExplSyntaxOn
+\seq_gclear_new:N \@PBtmpLeftFloatHeights
+\seq_gclear_new:N \@PBtmpLeftFloatSpacesBelow
+\def\@PBcollectFloatHeights{
+  \if@firstcolumn
+    \dimdef\@PBfloatHeight{\@textfloatsheight - \@PBtmpHeightBefore}
+    \ifdimcomp{\@PBfloatHeight}{>}{0pt}
+      {
+        \global\seq_put_right:NV \@PBtmpLeftFloatHeights \@PBfloatHeight
+
+        \dimdef\@PBspaceBelow{\@colroom - \@pageht - \@PBfloatHeight}
+        % within \@addtocurcol, \@pageht corresponds to all
+        % currently used space in the column, including footnotes
+        % (check \@specialoutput in the LaTeX kernel). Let's
+        % exclude the footnotes, we only want the space below
+        % the float.
+        \ifvoid\footins\else
+          \dimdef\@PBspaceBelow{\@PBspaceBelow + \ht\footins + \skip\footins + \dp\footins}
+        \fi
+
+        % No idea why, but this can happen; maybe because of the page depth?
+        \ifdimcomp{\@PBspaceBelow}{<}{0pt}
+          {\dimdef\@PBspaceBelow{0pt}}
+          {}
+
+        \global\seq_put_right:NV \@PBtmpLeftFloatSpacesBelow \@PBspaceBelow
+      }
+      {}
+  \fi
+}
+\ExplSyntaxOff
+
+\pretocmd{\@addtocurcol}{\dimgdef{\@PBtmpHeightBefore}{\@textfloatsheight}}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@addtocurcol)}
+         }
+
+\apptocmd{\@addtocurcol}{\@PBcollectFloatHeights}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@addtocurcol)}
+         }
+
+%    \end{macrocode}
+%
+% \subsubsection{What is the size of each column? Is there a float column / floatpage?}
+%
+%    \begin{macrocode}
+
+% If there is a float column in the page, it makes no sense to try to
+% balance; if both columns are float columns, this page cannot be the
+% final text page, i.e., we want to balance some other page.
+\newtoggle{@PBtmpHasFloatcol}
+\newtoggle{@PBtmpFloatcolBoth}
+
+% It would be nice to modify @makecol to do something like
+%
+%     if@firstcolumn
+%         @PBtmpUsedLeft = currentColumnHeight
+%     else
+%         @PBtmpUsedRight = currentColumnHeight
+%
+% Unfortunately, as stated in texdoc source2e on the section about the
+% output routine (ltoutput.dtx) around source line 273, "any conditional
+% code for the two-column case within output may not get executed with
+% the correct value of if@firstcolumn."
+%
+% Another approach, then, would be to defer the measurement of the
+% columns to @outputdblcol, where there are @leftcolumn and @outputbox.
+% This works, unless the package lineno was loaded: this package modifies
+% @makecol, preventing us from obtaining the correct height for the
+% output boxes.
+%
+% What we do, then, is (1) collect the column height in @makecol and
+% (2) decide whether the collected height corresponds to the left or
+% right column in @outputdblcol.
+\newcommand\@PBcollectColumnUsedHeight{
+    \setbox\@tempboxa=\vbox{\unvcopy\@outputbox\unskip\unskip}
+    \dimgdef\@PBtmpColumnUsedHeight{\ht\@tempboxa\relax}
+}
+
+\apptocmd{\@makecol}{\@PBcollectColumnUsedHeight}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@makecol)}
+         }
+
+ % Let's make sure our patched code actually runs. We only switch this
+ % to true after we verify that the patches in @makecol and @outputdblcol
+ % are actually executed when the page is built (therefore, after the
+ % preamble has ended).
+\newtoggle{@PBpatchStillActive}
+
+\newcommand\@PBcollectColumnInfo{
+  \iftoggle{@PBpatchFailed}
+    {}
+    {
+      \ifdefvoid{\@PBtmpColumnUsedHeight}
+        {} % the patch to @makecol is not active, so we do nothing here
+        {
+          % the patch to @makecol is active and so is ours, we're good to go!
+          \global\toggletrue{@PBpatchStillActive}
+          \@PBreallyCollectColumnInfo
+        }
+    }
+}
+
+\newcommand\@PBreallyCollectColumnInfo{
+  \if@firstcolumn
+
+    \@PBiffloatcol
+      {\global\toggletrue{@PBtmpHasFloatcol}}
+      {}
+
+    % Available vertical space excluding
+    % dblfloats; the same for both columns
+    \dimgdef\@PBtmpHeight{\@colht}
+
+    % Available vertical space excluding top/bottom floats
+    \dimgdef\@PBtmpLeftHeight{\@colroom}
+
+    % Space used by \texttt{here} floats
+    \dimgdef\@PBtmpLeftFloatsHeight{\@textfloatsheight}
+    \dimgdef\@PBtmpUsedLeft{\@PBtmpColumnUsedHeight}
+
+  \else
+
+    \@PBiffloatcol
+      {
+        \iftoggle{@PBtmpHasFloatcol}
+          {\global\toggletrue{@PBtmpFloatcolBoth}}
+          {\global\toggletrue{@PBtmpHasFloatcol}}
+      }
+      {}
+
+    \dimgdef\@PBtmpRightHeight{\@colroom}
+    \dimgdef\@PBtmpRightFloatsHeight{\@textfloatsheight}
+    \dimgdef\@PBtmpUsedRight{\@PBtmpColumnUsedHeight}
+  \fi
+}
+
+% Now we patch the default @outputdblcol LaTeX macro...
+\pretocmd{\@outputdblcol}{\@PBcollectColumnInfo}
+         {}
+         {
+           \toggletrue{@PBpatchFailed}
+           \PackageWarningNoLine{pbalance}{Patch failed (@outputdblcol)}
+         }
+
+% ... And the balance package version, but only if we actually loaded it
+\ifboolexpr{togl {@PBdraft} or togl {@PBnoBalancePackage}}
+  {}
+  {
+    \AtEndOfPackage{
+      \pretocmd{\@BAdblcol}{\@PBcollectColumnInfo}
+               {}
+               {
+                 \toggletrue{@PBpatchFailed}
+                 \PackageWarningNoLine{pbalance}{Patch failed (@BAdblcol)}
+               }
+      % Revert \balance before next page if it exists (it might be a float page)
+      \patchcmd{\@BAdblcol}{\endgroup}{\endgroup\nobalance}
+               {}
+               {
+                 \toggletrue{@PBpatchFailed}
+                 \PackageWarningNoLine{pbalance}{Patch failed (@BAdblcol)}
+               }
+    }
+  }
+
+%    \end{macrocode}
+%
+% \subsection{Compatibility with other packages}
+%
+% We mostly modify stuff from the output routine to collect data, not to
+% change what is typeset (the only exception is @textbottom, which we
+% manipulate to align footnotes). This means that, if some other package
+% modifies the output routine as well, we will not break anything, which
+% is why this package is mostly safe to use. Unfortunately, such other
+% packages may prevent us from balancing. Here we try to play nice with
+% some of them. These workarounds may result in the same patch being
+% applied and run more than once; that is not ideal (we are wasting time)
+% but it should not cause problems.
+%
+% \subsubsection{stfloats}
+%
+%    \begin{macrocode}
+
+% stfloats overwrites @addtocurcol; if it is already loaded, we already
+% patched the modified version, so we only need to run this if the package
+% is loaded later on. Therefore, we use AtEndOfPackageFile without *.
+\AtEndOfPackageFile{stfloats}
+  {
+
+    \pretocmd{\@addtocurcol}{\dimgdef{\@PBtmpHeightBefore}{\@textfloatsheight}}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (stfloats/@addtocurcol)}
+             }
+
+    \apptocmd{\@addtocurcol}{\@PBcollectFloatHeights}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (stfloats/@addtocurcol)}
+             }
+  }
+
+% We always need to patch these, so this code should run whether the
+% package is already loaded or gets loaded later on. Therefore, we
+% use AtEndOfPackageFile with *.
+\AtEndOfPackageFile*{stfloats}
+  {
+    \pretocmd{\fn@makecol}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (stfloats/fn@makecol)}
+             }
+    \pretocmd{\org@makecol}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (stfloats/org@makecol)}
+             }
+    \apptocmd{\fn@makecol}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (stfloats/fn@makecol)}
+             }
+    \apptocmd{\org@makecol}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (stfloats/org@makecol)}
+             }
+  }
+
+%    \end{macrocode}
+%
+% \subsubsection{memoir}
+%
+%    \begin{macrocode}
+
+% memoir defines the macros \mem@makecol and \mem@makecolbf; the commands
+% \feetabovefloat and \feetbelowfloat then redefine \@makecol to call
+% either one and executes \feetabovefloat. What we do, then, is patch
+% these two macros. Since memoir is a class, we assume it is always
+% loaded before us. Note that this means that, by default, our patch
+% is applied twice: one to \@makecol (because we always patch it) and
+% one to \mem@makecol, which is called by \@makecol. Only if the user
+% executes \feetabovefloat or \feetbelowfloat again does the patch in
+% \@makecol disappears.
+
+\ifdefvoid{\mem@makecol}
+  {}
+  {
+    \pretocmd{\mem@makecol}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (memoir/mem@makecol)}
+             }
+    \apptocmd{\mem@makecol}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (memoir/mem@makecol)}
+             }
+    \pretocmd{\mem@makecolbf}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (memoir/mem@makecolbf)}
+             }
+    \apptocmd{\mem@makecolbf}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (memoir/mem@makecolbf)}
+             }
+  }
+
+%    \end{macrocode}
+%
+% \subsubsection{footmisc}
+%
+%    \begin{macrocode}
+
+% footmisc simply redefines @makecol. If the package is loaded before
+% us, everything works; we just need to apply the patches again if it
+% is loaded after us. Therefore, we use AtEndOfPackageFile without *.
+% Note that there are two active versions of this package (the newer
+% uses new features from the LaTeX kernel). While their inner workings
+% are different, our strategy here is the same. footmisc checks if
+% @makecol has been modified before and issues a warning is that is
+% true. We could prevent this from happening, but if some other package
+% modifies it too that could be misleading, so we leave the warning
+% alone.
+\AtEndOfPackageFile{footmisc}
+  {
+    \pretocmd{\@makecol}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (footmisc/@makecol)}
+             }
+    \apptocmd{\@makecol}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (footmisc/@makecol)}
+             }
+  }
+
+%    \end{macrocode}
+%
+% \subsubsection{ftnright}
+%
+%    \begin{macrocode}
+
+% ftnright simply redefines @makecol and @outputdblcol. If the package is
+% loaded before us, everything works; we just need to apply the patches
+% again if it is loaded after us. Therefore, we use AtEndOfPackageFile
+% without *.
+
+\AtEndOfPackageFile{ftnright}
+  {
+    \pretocmd{\@makecol}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (ftnright/@makecol)}
+             }
+    \apptocmd{\@makecol}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (ftnright/@makecol)}
+             }
+
+    \pretocmd{\@outputdblcol}{\@PBbalanceSecondColumn}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (ftnright/@outputdblcol)}
+             }
+
+    \pretocmd{\@outputdblcol}{\@PBcollectColumnInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (ftnright/@outputdblcol)}
+             }
+  }
+
+%    \end{macrocode}
+%
+% \subsubsection{dblfnote}
+%
+%    \begin{macrocode}
+
+% dblfnote copies @makecol to dfn@latex@makecol and defines dfn@makecol.
+% It then alternates between the two with the \twocolumn and \onecolumn
+% commands (in two-column mode, the default LaTeX version of the command
+% is used). dblfnote does the copy at the end of the preamble, so we do
+% not need to patch anything else, but it does assume that the document
+% is one-column. This means it substitutes dfn@makecol even in a two-
+% column document, which is clearly a bug. We could try to work around
+% this with AtBeginDocument, but this might make us overwrite some other
+% modification, so let's do nothing.
+
+%    \end{macrocode}
+%
+% \subsubsection{flafter}
+%
+%    \begin{macrocode}
+
+% flafter is probably irrelevant in two-column mode: I believe the default
+% algorithm always places the float on the next column or page. Still,
+% flafter overwrites @addtocurcol, so let's deal with it to be on the
+% safe side. We only need to worry if flafter is loaded after us, so we
+% use AtEndOfPackageFile without "*".
+
+\AtEndOfPackageFile{flafter}
+  {
+
+    \pretocmd{\@addtocurcol}{\dimgdef{\@PBtmpHeightBefore}{\@textfloatsheight}}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (flafter/@addtocurcol)}
+             }
+
+    \apptocmd{\@addtocurcol}{\@PBcollectFloatHeights}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (flafter/@addtocurcol)}
+             }
+  }
+
+%    \end{macrocode}
+%
+% \subsubsection{fnpos}
+%
+%    \begin{macrocode}
+
+% fnpos redefines \@makecol, so we need to patch it again. With option
+% \makeFNbottom (the default), our modification to \@textbottom that
+% aligns footnotes on the right column is overwritten; the user can
+% solve this by calling \makeFNmid. We only need to worry if fnpos
+% is loaded after us, so we use AtEndOfPackageFile without "*".
+
+\AtEndOfPackageFile{fnpos}
+  {
+    \pretocmd{\@makecol}{\@PBcollectPageInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (fnpos/@makecol)}
+             }
+    \apptocmd{\@makecol}{\@PBcollectColumnUsedHeight}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (fnpos/@makecol)}
+             }
+  }
+
+
+%    \end{macrocode}
+%
+% \subsubsection{midfloat and cuted}
+%
+%    \begin{macrocode}
+
+% These packages are similar in spirit, but use different implementations.
+% Both redefine \@outputdblcol, so we just need to patch that again if
+% the package is loaded after us.
+
+\AtEndOfPackageFile{cuted}
+  {
+    \pretocmd{\@outputdblcol}{\@PBbalanceSecondColumn}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (cuted/@outputdblcol)}
+             }
+
+    \pretocmd{\@outputdblcol}{\@PBcollectColumnInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (cuted/@outputdblcol)}
+             }
+  }
+
+\AtEndOfPackageFile{midfloat}
+  {
+    \pretocmd{\@outputdblcol}{\@PBbalanceSecondColumn}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (midfloat/@outputdblcol)}
+             }
+
+    \pretocmd{\@outputdblcol}{\@PBcollectColumnInfo}
+             {}
+             {
+               \toggletrue{@PBpatchFailed}
+               \PackageWarningNoLine{pbalance}{Patch failed (midfloat/@outputdblcol)}
+             }
+  }
+
+%    \end{macrocode}
+%
+% \subsubsection{Analyze the obtained information}
+%
+% We have inserted the hooks we need to collect data during
+% the processing of each page and column. Now we inspect the
+% collected data after each page is finalized.
+%
+%    \begin{macrocode}
+
+\ExplSyntaxOn
+\AtBeginShipout{
+  \iftoggle{@PBpatchFailed}
+    {}
+    {
+      % It only makes sense to consider pages that actually have two columns.
+      \if@twocolumn
+        \iftoggle{@PBpatchStillActive}
+          {\@PBfinalizePageData}
+          {
+            \global\toggletrue{@PBpatchFailed}
+            \PackageWarningNoLine{pbalance}{Patch~disabled~by~another~package}
+          }
+      \fi
+
+      % Reset before processing next page
+      \global\togglefalse{@PBtmpHasFloats}
+      \global\togglefalse{@PBtmpHasFloatcol}
+      \global\togglefalse{@PBtmpHasFootnotes}
+      \global\togglefalse{@PBtmpHasMarginpars}
+      \global\togglefalse{@PBtmpFloatcolBoth}
+
+      \seq_gclear_new:N \@PBtmpLeftFloatHeights
+      \seq_gclear_new:N \@PBtmpLeftFloatSpacesBelow
+
+      \gundef{\@PBtmpHeight}
+      \gundef{\@PBtmpLeftHeight}
+      \gundef{\@PBtmpLeftFloatsHeight}
+      \gundef{\@PBtmpUsedLeft}
+      \gundef{\@PBtmpRightHeight}
+      \gundef{\@PBtmpRightFloatsHeight}
+      \gundef{\@PBtmpUsedRight}
+    }
+}
+\ExplSyntaxOff
+
+\newcommand\@PBfinalizePageData{
+  % LaTeX3 does not do short-circuit evaluation,
+  % so we cannot use a single ifboolexpr here
+  \ifdefvoid{\@PBtmpUsedRight}
+    % This is probably a float page or the user disabled
+    % the package somehow and recompiled. Either way,
+    % this is not the last text page, ignore
+    {}
+    {
+      \ifboolexpr
+        {
+          % If both cols are float cols, this is not the last text page, ignore
+          togl {@PBtmpFloatcolBoth}
+          or
+          % A page with a float column on the left and an empty
+          % column on the right is not the last text page, ignore
+          (
+            togl {@PBtmpHasFloatcol}
+            and
+            test {\ifdimcomp{\@PBtmpUsedRight}{=}{\topskip}}
+          )
+        }
+        {}
+        {
+          \ifdefvoid{\@PBthepage}
+            {
+              % The user did not choose a page, so this page is
+              % a candidate to be the last two-column text page
+              \xdef\@PBlastPage{\the\value{abspage}}
+              \@PBcopyPageData{tmp}{candidate}
+            }
+            {
+              \ifnumcomp{\@PBthepage}{=}{\the\value{abspage}}
+                {
+                  % This is the page the user indicated
+                  % as the last two-column text page
+                  \xdef\@PBlastPage{\the\value{abspage}}
+                  \@PBcopyPageData{tmp}{candidate}
+                }
+                {}
+            }
+        }
+    }
+}
+
+%    \end{macrocode}
+%
+% All pages processed, the last candidate page is actually the last two-column
+% page. Instead of continuing to use the \texttt{@PBcandidate*} macros we already
+% have, we will keep the information we just gathered associated with the
+% page number. We do this because, in the future, we may want to add suport
+% for balancing multiple pages (such as the last page of each chapter) and
+% not only the last one. This also makes it easier to handle the situation
+% where the document was modified and the last page has changed.
+%
+%    \begin{macrocode}
+
+\AfterLastShipout{
+  % If there are no two-column pages in the
+  % document, there is no candidate page.
+  \ifcsdef{@PBlastPage}
+    {\@PBcopyPageData{candidate}{pg\@Roman{\@PBlastPage}}}
+    {\PackageInfo{pbalance}{No two-column pages, doing nothing}}
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Saving measurements}
+% The whole document has already been processed and data about the last
+% two-column page has been collected in macros with names \texttt{@PBpgNUM*}.
+% We now process this collected data and save whatever is relevant in the aux
+% file for the next \LaTeX{} pass.
+%
+% In the first \LaTeX{} pass, we will save data to the aux file in macros
+% with names \texttt{@PBunbalpgNUM*}. That is all we need for balancing.
+% However, to detect whether the document has changed and, therefore,
+% whether we should re-balance, we will also record the same data after
+% balancing (during the second pass) in macros with names
+% \texttt{@PBbalpgNUM*}. If, in the third or later \LaTeX{} passes,
+% \texttt{@PBbalpgNUM*} differ from \texttt{@PBpgNUM*}, the document
+% has been changed and we need to re-balance.
+%
+% So, we have:
+%
+% \begin{description}
+% \item[\texttt{@PBpgNUM*}] data collected during the current pass;
+% \item[\texttt{@PBunbalpgNUM*}] data collected in the first pass;
+% \item[\texttt{@PBbalpgNUM*}] data collected in the second pass (after
+%      balancing); in subsequent passes, these should always be equal
+%      to \texttt{@PBpgNUM*}.
+% \end{description}
+%
+% The last two are saved to / read from the aux file.
+%
+%    \begin{macrocode}
+
+% Make sure the document has stabilized before using \@PBmanageBalancingPasses
+\AfterLastShipout{
+  % Reset \@PBimpossible if we are in draft mode,
+  % so the user can start over if they want to.
+  \iftoggle{@PBdraft}{\togglefalse{@PBimpossible}}{}
+
+  \ifboolexpr{togl {@PBdraft} or togl {@PBimpossible} or togl {@PBpatchFailed}}
+    {
+      \iftoggle{@PBimpossible}
+        {\PackageWarningNoLine{pbalance}{Could not balance, doing nothing}}
+        {
+          \iftoggle{@PBpatchFailed}
+            {
+              \PackageWarningNoLine{pbalance}{Patching failed, cannot balance;
+                                              try \MessageBreak loading
+                                              pbalance earlier or later}
+            }
+            {\PackageInfo{pbalance}{Draft mode, doing nothing}}
+        }
+    }
+    {
+      \ifdefvoid{\@PBprevLastPage}
+        {\@PBsaveUnbalancedInfo\@PBnotifyRerun} % First pass
+        {
+          \iftoggle{@PBstabilized}
+            {\@PBmanageBalancingPasses}
+            {
+              \@PBifSomethingChanged[unbal]
+                % Document still changing; discard data from previous pass
+                {\@PBsaveUnbalancedInfo[update]\@PBnotifyRerun}
+                % No changes, so let's balance from now on (once @PBstabilized
+                % becomes true, it never reverts back to false, unless the aux
+                % file is deleted).
+                {\toggletrue{@PBstabilized}\@PBsaveUnbalancedInfo\@PBnotifyRerun}
+            }
+        }
+      \@PBsaveToggle{@PBstabilized}
+    }
+
+  \@PBsaveToggle{@PBimpossible}
+  \immediate\write\@mainaux{\gdef\string\@PBprevLastPhysPage{\the\value{abspage}}}
+}
+
+\newcommand\@PBmanageBalancingPasses{
+  % This is the second pass or later after we started balancing
+
+  \providetoggle{@PBpg\@Roman{\@PBlastPage}alreadyBalanced}
+
+  \iftoggle{@PBpg\@Roman{\@PBlastPage}alreadyBalanced}
+    {
+      % Third pass or later; document was already
+      % balanced, so there should be no more changes
+      \@PBifSomethingChanged
+        % The document has changed, so we need to measure
+        % stuff again; clear aux file and start over.
+        {\@PBnotifyRerun}
+        {
+          % Nothing changed, just write the same info down
+          \@PBsaveUnbalancedInfo
+          \@PBsaveBalancedInfo
+          \PackageInfo{pbalance}{Done balancing page \@PBlastPage}
+        }
+    }
+    % Second pass, which means something did change: we have just
+    % balanced the columns for the first time.
+    {
+      \xdef\@tempa{\the\value{abspage}}
+      \ifboolexpr
+        {
+          test {\ifdefstrequal{\@PBprevLastPage}{\@PBlastPage}}
+          and
+          test {\ifdefstrequal{\@PBprevLastPhysPage}{\@tempa}}
+        }
+        % All is well; save the new info
+        {\@PBsaveUnbalancedInfo\@PBsaveBalancedInfo}
+        % Oh, no! As we attempted to balance, we actually changed
+        % the number of pages (maybe we added a float page, maybe
+        % we turned the last float page into a text page etc.). If
+        % we continue, the document might never converge (endless
+        % ``please rerun LaTeX'' messages). Let's give up balancing.
+        {\toggletrue{@PBimpossible}}
+    }
+}
+
+%    \end{macrocode}
+%
+% \subsection{Auxiliary macros}
+%
+%    \begin{macrocode}
+
+\newcommand\@PBifBalancePossible[2]{
+  \iftoggle{@PBunbalpg\@Roman{\@PBprevLastPage}HasFloatcol}
+    {#2}
+    {#1}
+}
+
+% The balance package may fail badly in the presence of footnotes:
+% they may end up in the middle of the text. Marginpars may end up
+% on the wrong side of the page. Floats are usually ok, but in some
+% cases the columns may become very badly balanced. For ordinary
+% text, it works perfectly.
+\newcommand\@PBifBalancePkgPossible[2]{
+  \ifboolexpr
+    {
+      togl {@PBunbalpg\@Roman{\@PBprevLastPage}HasFloats}
+      or
+      togl {@PBunbalpg\@Roman{\@PBprevLastPage}HasFootnotes}
+      or
+      togl {@PBunbalpg\@Roman{\@PBprevLastPage}HasMarginpars}
+      or
+      togl {@PBnoBalancePackage}
+    }
+    {#2}
+    {#1}
+}
+
+%    \end{macrocode}
+%
+% We only want to balance if:
+%
+% \begin{enumerate}
+%
+% \item The left column is higher than the right one. If that is not the
+%       case, either things are already balanced or the right column is
+%       higher, which means \LaTeX{} was forced into a bad solution already.
+%
+% \item This difference is ``large enough'' (6 lines), which means two things:
+%     \begin{enumerate}
+%
+%         \item There will be an actual improvement in the result.
+%
+%         \item There is plenty of free space on the right column, so even if
+%               our changes happen to take more space than before, \LaTeX{} will
+%               hopefully not add a new page (but it might make the right
+%               column higher than the left, which is not so great).
+%     \end{enumerate}
+%
+% \end{enumerate}
+%
+% If there is material only on the left column, we want to balance even
+% if the difference in height is not ``large enough'', as long as there
+% are more than 4 lines to split among columns. This is actually quite
+% unlikely: if there is so little material, the page probably has only
+% normal text and we will use the balance package.
+%
+%    \begin{macrocode}
+
+\newcommand\@PBifPoorBalancePossible[2]{
+
+  % Let's use some shorter names, please
+  \dimdef\@PBtmpH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}Height}}
+  \dimdef\@PBtmpUL{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}UsedLeft}}
+  \dimdef\@PBtmpUR{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}UsedRight}}
+
+  \dimdef\@PBtmpLH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}LeftHeight}}
+  \dimdef\@PBtmpLFH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}LeftFloatsHeight}}
+  \dimdef\@PBtmpRH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}RightHeight}}
+  \dimdef\@PBtmpRFH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}RightFloatsHeight}}
+
+  \ifboolexpr{
+    % Plenty of space on right column, difference is worth it
+    test {\ifdimcomp{\@PBtmpUL}{>}{\@PBtmpUR + 6\baselineskip}}
+    or
+    (
+      test {\ifdimcomp{\@PBtmpUL}{>}{4\baselineskip}}
+      and
+      test {\ifdimcomp{\@PBtmpUR}{=}{\topskip}} % column is empty
+    )
+  }{#1}{#2}
+}
+
+%    \end{macrocode}
+%
+% If there are floats, things can get messy: imagine that we want to
+% shrink by 50pt, but there is a 250pt float near the end of the left
+% column that won't fit after we shrink, so it will move to the right.
+% What if there is no room for such a large float there? Here, we try
+% to prevent this situation and shrink by a smaller amount if there
+% is a float that won't fit. Note that, if the float goes to the
+% right column, there will be more room for text in the left column.
+% Therefore, a float will not fit only if the floats on the right
+% column take too much space. So, what we do here is, starting from
+% the bottom, check whether the accumulated height of the floats
+% from the left column fit in the right. If we find a float that
+% will not fit, we know that we should limit shrinking to the space
+% below that float.
+%
+% In the same vein, we do not want top/bottom floats from the left
+% column that were deferred from a previous page to be pushed to
+% the right column. To that end, we limit the shrinking amount to
+% the space on the left column not taken by top/bottom floats.
+
+% \textbf{TODO:} Top and bottom floats may appear in two cases: (1) they
+%       were generated on a previous page and deferred or (2) the user
+%       chose placement options \texttt{t} or \texttt{b}, without
+%       \texttt{h}. Deferred floats are not a problem: we do not reduce
+%       the space available for top/bottom floats, so they should
+%       continue to fit. Floats on the left column with placement
+%       options \texttt{t} and \texttt{b} without \texttt{h} can be
+%       a problem: \LaTeX{} only considers putting a float on the
+%       top/bottom of the current column if, at the point of its
+%       definition, there is enough space for it. Since we are shrinking
+%       the column, it may not fit and be deferred - something the
+%       algorithm does not take into consideration. However, not all is
+%       lost: most likely, the user will only use such placement
+%       options when trying to manually adjust the page, which
+%       means they will be able to detect and work around eventual
+%       problems.
+%
+%    \begin{macrocode}
+
+\ExplSyntaxOn
+\def\@PBsafetyCheck{
+
+  % Let's use some shorter names, please
+  \dimdef\@PBtmpH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}Height}}
+  \dimdef\@PBtmpUL{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}UsedLeft}}
+  \dimdef\@PBtmpUR{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}UsedRight}}
+
+  \dimdef\@PBtmpLH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}LeftHeight}}
+  \dimdef\@PBtmpLFH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}LeftFloatsHeight}}
+  \dimdef\@PBtmpRH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}RightHeight}}
+  \dimdef\@PBtmpRFH{\csuse{@PBunbalpg\@Roman{\@PBprevLastPage}RightFloatsHeight}}
+
+
+  % Make sure we do not push top/bottom floats out of the left col
+  \dimdef\@PBmaxSlack{\@PBtmpLH}
+
+  \dimdef\@PBtmpdim{0pt}
+
+  % Start from the bottom
+  \numdef{\@PBtmpcnt}{\seq_count:c {@PBunbalpg\@Roman{\@PBprevLastPage}LeftFloatHeights}}
+  \int_while_do:nNnn {\@PBtmpcnt} > {0}
+    {
+
+      \dimdef\@PBcurrentFloatHeight
+        {\seq_item:cn {@PBunbalpg\@Roman{\@PBprevLastPage}LeftFloatHeights} {\@PBtmpcnt}}
+
+      \dimdef\@PBcurrentFloatSpaceBelow
+        {\seq_item:cn {@PBunbalpg\@Roman{\@PBprevLastPage}LeftFloatSpacesBelow} {\@PBtmpcnt}}
+
+      \dimdef{\@PBtmpdim}{\@PBtmpdim + \@PBcurrentFloatHeight}
+
+      \ifboolexpr
+        {
+          % Does the float fit in the second column?
+          test {\ifdimcomp{\@PBtmpdim}{<}{\@PBtmpRH - \@PBtmpRFH}}
+          and
+          % Is there something above this float, i.e., if we move
+          % this float to the next column, will anything remain?
+          test
+            {
+               \ifdimcomp
+                 {\@PBcurrentFloatSpaceBelow + \@PBcurrentFloatHeight}
+                 {<}
+                 {\@PBtmpLH - 6\baselineskip}
+            }
+        }
+        {\numdef{\@PBtmpcnt}{\@PBtmpcnt - 1}} % this one is ok; check next
+        {
+          % this one should not be moved, we found the limit
+          \ifdimcomp{\@PBmaxSlack}{>}{\@PBcurrentFloatSpaceBelow}
+            {\dimdef{\@PBmaxSlack}{\@PBcurrentFloatSpaceBelow}}
+            {}
+          \numdef{\@PBtmpcnt}{0} % exit the loop
+        }
+    }
+
+  \ifdimcomp{\@PBmaxSlack}{<}{\@PBslack}
+    {\dimgdef{\@PBslack}{\@PBmaxSlack}}
+    {}
+}
+\ExplSyntaxOff
+
+% Compare current measurements with previous ``bal'' or ``unbal'' measurements
+\newcommand\@PBifSomethingChanged[3][bal]{
+  \ifdefstrequal{\@PBprevLastPage}{\@PBlastPage}
+  {
+    \@PBifPageDataMatches
+      {pg\@Roman{\@PBlastPage}}
+      {#1pg\@Roman{\@PBlastPage}}
+      {#3}
+      {#2}
+  }
+  {#2}
+}
+
+\newcommand\@PBifPageDataMatches[4]{
+  \ifboolexpr{
+        test {\@PBifTogglesMatch{@PB#1HasFloats}{@PB#2HasFloats}}
+    and test {\@PBifTogglesMatch{@PB#1HasFloatcol}{@PB#2HasFloatcol}}
+    and test {\@PBifTogglesMatch{@PB#1HasFootnotes}{@PB#2HasFootnotes}}
+    and test {\@PBifTogglesMatch{@PB#1HasMarginpars}{@PB#2HasMarginpars}}
+    and test {\@PBifDimensionsMatch{@PB#1Height}{@PB#2Height}}
+    and test {\@PBifDimensionsMatch{@PB#1LeftHeight}{@PB#2LeftHeight}}
+    and test {\@PBifDimensionsMatch{@PB#1RightHeight}{@PB#2RightHeight}}
+    and test {\@PBifDimensionsMatch{@PB#1UsedLeft}{@PB#2UsedLeft}}
+    and test {\@PBifDimensionsMatch{@PB#1UsedRight}{@PB#2UsedRight}}
+  }
+  {#3}
+  {#4}
+}
+
+% https://en.wikipedia.org/wiki/XNOR_gate
+\newcommand\@PBifTogglesMatch[4]{
+  \ifboolexpr{(togl{#1} or not togl{#2}) and (togl{#2} or not togl{#1})}
+    {#3}
+    {#4}
+}
+
+\newcommand\@PBifDimensionsMatch[4]{
+  \ifdimcomp{\csuse{#1}}{=}{\csuse{#2}}
+    {#3}
+    {#4}
+}
+
+\newcommand\@PBsaveUnbalancedInfo[1][]{
+
+  % If there are no two-column pages in the
+  % document, there is nothing to save.
+  \ifcsdef{@PBlastPage}
+    {
+      \immediate\write\@mainaux{\gdef\string\@PBprevLastPage{\@PBlastPage}}
+
+      \ifboolexpr{test {\ifdefvoid{\@PBprevLastPage}} or test {\ifstrequal{#1}{update}}}
+        % Columns are currently unbalanced, either because this is
+        % the first pass (we do not have any previous information)
+        % or because the document has not stabilized yet, so any
+        % previous information is unreliable. Save the information
+        % we just collected as ``unbalanced''.
+        {\@PBsavePageDataAs{pg\@Roman{\@PBlastPage}}{unbalpg\@Roman{\@PBlastPage}}}
+        % Not the first pass, so columns are possibly balanced;
+        % to save the unbalanced information, repeat what was
+        % gathered during the first pass.
+        {\@PBsavePageData{unbalpg\@Roman{\@PBprevLastPage}}}
+    }
+    {}
+}
+
+\def\@PBsaveBalancedInfo{
+  \global\toggletrue{@PBpg\@Roman{\@PBlastPage}alreadyBalanced}
+  \@PBsaveToggle{@PBpg\@Roman{\@PBlastPage}alreadyBalanced}
+
+  \@PBsavePageDataAs{pg\@Roman{\@PBlastPage}}{balpg\@Roman{\@PBlastPage}}
+}
+
+\def\@PBnotifyRerun{
+  \AtVeryEndDocument{
+    % If there are no two-column pages in the document,
+    % it makes no sense to emit this warning.
+    \ifcsdef{@PBlastPage}
+      {
+        \PackageWarningNoLine{pbalance}
+        {Last two-column page cols not balanced. Rerun LaTeX}
+      }
+      {
+        \PackageWarningNoLine{pbalance}
+        {No two-column pages, doing nothing}
+      }
+  }
+}
+
+\ExplSyntaxOn
+\newcommand\@PBcopyPageData[2]{
+
+  \global\providetoggle{@PB#2HasFloats}
+  \global\providetoggle{@PB#2HasFloatcol}
+  \global\providetoggle{@PB#2HasFootnotes}
+  \global\providetoggle{@PB#2HasMarginpars}
+
+  \iftoggle{@PB#1HasFloats}
+    {\global\toggletrue{@PB#2HasFloats}}
+    {\global\togglefalse{@PB#2HasFloats}}
+
+  \iftoggle{@PB#1HasFloatcol}
+    {\global\toggletrue{@PB#2HasFloatcol}}
+    {\global\togglefalse{@PB#2HasFloatcol}}
+
+  \iftoggle{@PB#1HasFootnotes}
+    {\global\toggletrue{@PB#2HasFootnotes}}
+    {\global\togglefalse{@PB#2HasFootnotes}}
+
+  \iftoggle{@PB#1HasMarginpars}
+    {\global\toggletrue{@PB#2HasMarginpars}}
+    {\global\togglefalse{@PB#2HasMarginpars}}
+
+  \csdimgdef{@PB#2Height}{\csuse{@PB#1Height}}
+  \csdimgdef{@PB#2LeftHeight}{\csuse{@PB#1LeftHeight}}
+  \csdimgdef{@PB#2LeftFloatsHeight}{\csuse{@PB#1LeftFloatsHeight}}
+  \csdimgdef{@PB#2RightHeight}{\csuse{@PB#1RightHeight}}
+  \csdimgdef{@PB#2RightFloatsHeight}{\csuse{@PB#1RightFloatsHeight}}
+  \csdimgdef{@PB#2UsedLeft}{\csuse{@PB#1UsedLeft}}
+  \csdimgdef{@PB#2UsedRight}{\csuse{@PB#1UsedRight}}
+
+  \seq_gclear_new:c {@PB#2LeftFloatHeights}
+  \seq_gclear_new:c {@PB#2LeftFloatSpacesBelow}
+  \seq_gset_eq:cc {@PB#2LeftFloatHeights} {@PB#1LeftFloatHeights}
+  \seq_gset_eq:cc {@PB#2LeftFloatSpacesBelow} {@PB#1LeftFloatSpacesBelow}
+}
+\ExplSyntaxOff
+
+\newcommand\@PBsavePageDataAs[2]{
+  \@PBsaveDimAs{@PB#1Height}{@PB#2Height}
+  \@PBsaveDimAs{@PB#1LeftHeight}{@PB#2LeftHeight}
+  \@PBsaveDimAs{@PB#1LeftFloatsHeight}{@PB#2LeftFloatsHeight}
+  \@PBsaveDimAs{@PB#1RightHeight}{@PB#2RightHeight}
+  \@PBsaveDimAs{@PB#1RightFloatsHeight}{@PB#2RightFloatsHeight}
+  \@PBsaveDimAs{@PB#1UsedLeft}{@PB#2UsedLeft}
+  \@PBsaveDimAs{@PB#1UsedRight}{@PB#2UsedRight}
+
+  \@PBsaveToggleAs{@PB#1HasFloats}{@PB#2HasFloats}
+  \@PBsaveToggleAs{@PB#1HasFloatcol}{@PB#2HasFloatcol}
+  \@PBsaveToggleAs{@PB#1HasFootnotes}{@PB#2HasFootnotes}
+  \@PBsaveToggleAs{@PB#1HasMarginpars}{@PB#2HasMarginpars}
+
+  \@PBsaveSeqAs{@PB#1LeftFloatHeights}{@PB#2LeftFloatHeights}
+  \@PBsaveSeqAs{@PB#1LeftFloatSpacesBelow}{@PB#2LeftFloatSpacesBelow}
+}
+
+\newcommand\@PBsavePageData[1]{
+  \@PBsavePageDataAs{#1}{#1}
+}
+
+\newcommand\@PBsaveToggleAs[2]{
+  \immediate\write\@mainaux{\providetoggle{#2}}
+  \iftoggle{#1}
+    {\immediate\write\@mainaux{\global\toggletrue{#2}}}
+    {\immediate\write\@mainaux{\global\togglefalse{#2}}}
+}
+
+\newcommand\@PBsaveToggle[1]{
+  \@PBsaveToggleAs{#1}{#1}
+}
+
+\newcommand\@PBsaveDimAs[2]{
+  \immediate\write\@mainaux{\csdimgdef{#2}{\csuse{#1}}}
+}
+
+\newcommand\@PBsaveDim[1]{
+  \@PBsaveDimAs{#1}{#1}
+}
+
+\ExplSyntaxOn
+\newcommand\@PBsaveSeqAs[2]{
+  \immediate\write\@mainaux{\string\ExplSyntaxOn}
+  \immediate\write\@mainaux{\string\seq_gclear_new:c {#2}}
+  \seq_map_inline:cn {#1}
+    {\immediate\write\@mainaux{\string\global\string\seq_put_right:cn {#2}{##1}}}
+  \immediate\write\@mainaux{\string\ExplSyntaxOff}
+}
+\ExplSyntaxOff
+
+\newcommand\@PBsaveSeq[1]{
+  \@PBsaveSeqAs{#1}{#1}
+}
+
+%    \end{macrocode}
+% \Finale

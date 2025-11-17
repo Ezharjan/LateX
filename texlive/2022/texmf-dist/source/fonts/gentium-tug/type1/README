@@ -1,0 +1,149 @@
+==================================================
+Scripts for the conversion from TrueType to Type 1
+==================================================
+
+They are based on the 'make' utility.
+
+The directory is self-contained.
+
+The scripts don't need internet connection.
+
+
+Usage
+=====
+
+make [ kerns | test ]
+
+test
+  Test the converted fonts using t1lint.
+
+kerns
+  Generate files that will contain all the added kerning pairs except the
+  kerning between D and V. The kern between D and V is changed, not added.
+
+
+The usual usage is just 'make' which converts the fonts, deletes the
+intermediate files and checks the fonts with t1lint.
+
+Use "make" three times to convert the fonts to Type 1. You need to call "make"
+twice for all kerning changes to propagate. However the third call to "make"
+reorders some lines in the afm files. The order of lines in afm files is
+stable after the third call to "make".
+
+The second call to "make" is sufficient from the functional point of view,
+however the diff of afm files created using two and three calls of "make"
+would contain too many differences.
+
+
+File dependency tree
+====================
+
+Makefile
+        generate-extra-kerns.sh
+                greekcorrection.py
+                kerncorrection.py
+                Gentium*-Czech.kern
+        ff-gentium.pe
+        afmcreator.py
+
+kern-test-greek.txt
+kern-word-list-caron.txt
+kern-word-list-cyrillic.txt
+
+
+File description
+================
+
+Makefile
+  This is the root of the conversion scripts.
+
+generate-extra-kerns.sh
+  Calls the scripts greekcorrection.py and kerncorrection.py and adds the kerning
+  pairs for the Czech and Slovak letters dcaron and lcaron.
+
+greekcorrection.py
+  Generates kerning pairs for the combinations accent + capital Greek letter.
+
+kerncorrection.py
+  Generates kerning pairs for the accented Latin letters, small caps and some
+  combinations with quotes or punctuation.
+
+Gentium*-Czech.kern
+  Contains manually added kerning pairs for dcaron and lcaron.
+
+ff-gentium.pe
+  Converts the fonts to Type 1.
+
+afmcreator.py
+  Currently just writes to the afm files that the creator is TeX Users Group.
+
+kern-word-list.txt
+  Independent file that is not used for the conversion. It contains words and
+  character pairs for testing the kerning of dcaron and lcaron. It is used in
+  the Metrics Window in FontForge to manually review the kerning pairs.
+
+
+Changes from the original fonts
+===============================
+
+* Added kerning pairs for accented Latin letters
+
+* Added kerning pairs for small caps.
+
+* Added kerning pairs for some combinations of letters, quotes and
+  punctuation.
+
+* Added kerning pairs for combination accent + Greek capital letter.
+
+* Added kerning pairs for dcaron and lcaron.
+
+* Changed kerning pair between D and V from positive to negative value (where
+  appropriate).
+
+
+Remarks
+=======
+
+* The converted italic fonts have all the 63 extra Greek kerning pairs. The
+  upright fonts have less (GentiumPlus-Regular has currently 44 pairs). This
+  is not an error. Some pairs like 'tonos' + 'Epsilon' would have the kerning
+  equal to 0 and these zeroes are eliminated in the script.
+
+* The characters like Alphatonos are created from the base letter (Alpha) and
+  the accent (tonos). The combined character defines the relative horizontal
+  position of the accent and character. However, there is also non-zero
+  relative *vertical* position between these two. That means that e.g. tonos is
+  not in the same height in the combined character as it is when tonos is
+  alone. The result should be checked!
+
+
+Files for testing kerning in FontForge
+--------------------------------------
+
+These files are used in the Metrics window of FontForge to look how the
+introduced kerning pairs look in the converted fonts in some context. This is
+just about the fonts themselves, not about the TeX support files. Some issues
+might be corrected in the TeX support files (such as the vertical position of
+the accents for composite capital Greek letters).
+
+kern-test-greek.txt
+  This file shows some combinations of accent + capital Greek letter and
+  sometimes compares this to the precomposed accented letter. You can compare
+  the position of accent in the pair accent + letter with the precomposed
+  letter. Even the vertical position of the accent may be different in the
+  pair from the position in the precomposed letter.
+
+  It also shows the accent tonos folowed by a precomposed letter with this
+  accent so that you can easily see if there is some difference in the
+  vertical position of the accent.
+  
+  There are two glyphs for Omega in the fonts and it shows how both of these
+  behave.
+
+kern-word-list-caron.txt
+  This file has some words and character pairs that show the kerning of dcaron
+  or lcaron followed by other letters.
+
+kern-word-list-cyrillic.txt
+  This file shows kerning for some Russian words and groups of Cyrillic
+  letters.

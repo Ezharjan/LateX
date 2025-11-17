@@ -1,0 +1,87 @@
+\ProvidesFile{ly1gentiumbook.fd}
+    [2022/05/30 Font definitions for gentiumbook.]
+
+\expandafter\ifx\csname gentiumbook@scale\endcsname\relax
+    \let\gentiumbook@@scale\@empty
+\else
+    \edef\gentiumbook@@scale{s*[\csname gentiumbook@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{LY1}{gentiumbook}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{m}{n}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-regular
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{m}{it}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-italic
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{b}{n}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-bold
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{b}{it}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sl}{n}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-regular
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sl}{it}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-italic
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sb}{n}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-bold
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sb}{it}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{m}{sc}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{m}{scit}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{b}{sc}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{b}{scit}{
+            <->     \gentiumbook@@scale texnansi-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sl}{sc}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sl}{scit}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sb}{sc}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{sb}{scit}{
+            <->     \gentiumbook@@scale texnansi-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{LY1}{gentiumbook}{m}{sl}{<->ssub * gentiumbook/m/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{b}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{bx}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{bx}{it}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{bx}{n}{<->ssub * gentiumbook/b/n}{}
+\DeclareFontShape{LY1}{gentiumbook}{sl}{sl}{<->ssub * gentiumbook/sl/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{sb}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{sbx}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{sbx}{it}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{LY1}{gentiumbook}{sbx}{n}{<->ssub * gentiumbook/sb/n}{}
+
+\endinput

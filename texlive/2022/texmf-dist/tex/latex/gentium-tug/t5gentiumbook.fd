@@ -1,0 +1,87 @@
+\ProvidesFile{t5gentiumbook.fd}
+    [2022/05/30 Font definitions for gentiumbook.]
+
+\expandafter\ifx\csname gentiumbook@scale\endcsname\relax
+    \let\gentiumbook@@scale\@empty
+\else
+    \edef\gentiumbook@@scale{s*[\csname gentiumbook@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{T5}{gentiumbook}{}
+
+\DeclareFontShape{T5}{gentiumbook}{m}{n}{
+            <->     \gentiumbook@@scale t5-gentiumbook-regular
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{m}{it}{
+            <->     \gentiumbook@@scale t5-gentiumbook-italic
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{b}{n}{
+            <->     \gentiumbook@@scale t5-gentiumbook-bold
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{b}{it}{
+            <->     \gentiumbook@@scale t5-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sl}{n}{
+            <->     \gentiumbook@@scale t5-gentiumplus-regular
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sl}{it}{
+            <->     \gentiumbook@@scale t5-gentiumplus-italic
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sb}{n}{
+            <->     \gentiumbook@@scale t5-gentiumplus-bold
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sb}{it}{
+            <->     \gentiumbook@@scale t5-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{m}{sc}{
+            <->     \gentiumbook@@scale t5-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{m}{scit}{
+            <->     \gentiumbook@@scale t5-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{b}{sc}{
+            <->     \gentiumbook@@scale t5-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{b}{scit}{
+            <->     \gentiumbook@@scale t5-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sl}{sc}{
+            <->     \gentiumbook@@scale t5-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sl}{scit}{
+            <->     \gentiumbook@@scale t5-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sb}{sc}{
+            <->     \gentiumbook@@scale t5-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{sb}{scit}{
+            <->     \gentiumbook@@scale t5-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{T5}{gentiumbook}{m}{sl}{<->ssub * gentiumbook/m/it}{}
+\DeclareFontShape{T5}{gentiumbook}{b}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{T5}{gentiumbook}{bx}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{T5}{gentiumbook}{bx}{it}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{T5}{gentiumbook}{bx}{n}{<->ssub * gentiumbook/b/n}{}
+\DeclareFontShape{T5}{gentiumbook}{sl}{sl}{<->ssub * gentiumbook/sl/it}{}
+\DeclareFontShape{T5}{gentiumbook}{sb}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{T5}{gentiumbook}{sbx}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{T5}{gentiumbook}{sbx}{it}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{T5}{gentiumbook}{sbx}{n}{<->ssub * gentiumbook/sb/n}{}
+
+\endinput

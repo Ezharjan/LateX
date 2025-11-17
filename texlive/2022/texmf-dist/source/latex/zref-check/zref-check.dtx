@@ -1,0 +1,2416 @@
+% \iffalse meta-comment
+%
+% File: zref-check.dtx
+%
+% This file is part of the LaTeX package "zref-check".
+%
+% Copyright (C) 2021-2022  Gustavo Barros
+%
+% It may be distributed and/or modified under the conditions of the
+% LaTeX Project Public License (LPPL), either version 1.3c of this
+% license or (at your option) any later version.  The latest version
+% of this license is in the file:
+%
+%    https://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+%
+% This work is "maintained" (as per LPPL maintenance status) by
+% Gustavo Barros.
+%
+% This work consists of the files zref-check.dtx,
+%                                 zref-check.ins,
+%                                 zref-check.tex,
+%                                 zref-check-code.tex,
+%                   and the files generated from them.
+%
+% The released version of this package is available from CTAN.
+%
+% -----------------------------------------------------------------------
+%
+% The development version of the package can be found at
+%
+%    https://github.com/gusbrs/zref-check
+%
+% for those people who are interested.
+%
+% -----------------------------------------------------------------------
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\documentclass{l3doc}
+% Have \GetFileInfo pick up date and version data
+\usepackage{zref-check}
+\NewDocumentCommand\opt{m}{\texttt{#1}}
+\MakeShortVerb{\|}
+\begin{document}
+  \DocInput{zref-check.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+%
+% \begin{documentation}
+%
+% \section{Introduction}
+%
+% The \pkg{zref-check} package provides an user interface for making \LaTeX{}
+% cross-references exploiting document contextual information to enrich the
+% way the reference can be rendered, but at the same time ensuring the means
+% that these cross-references can be done consistently with the document
+% structure.
+%
+% The usual \LaTeX{} cross-reference is done by referring to a \texttt{label},
+% associated with one or another document structural element, and this
+% reference will typeset for you some content based on the information which
+% is stored in that label.  \cs{zcheck}, the main user command of
+% \pkg{zref-check}, has a somewhat different concept.  Instead of trying to
+% provide the text to be typeset based on the contextual information,
+% \cs{zcheck} lets the user supply an arbitrary text and specify one or more
+% checks to be done on the label(s) being referred to.  If any of the checks
+% fails, a warning is issued upon compilation, so that the user can go back to
+% that cross-reference and correct it as needed, without having to rely on
+% burdensome and error prone manual proof-reading.
+%
+% This grants a much increased flexibility for the cross-reference text, which
+% means in practice that the writing style, the variety of expressions you may
+% use for similar situations, does not need to be sacrificed for the
+% convenience.  \cs{zcheck}'s cross-references do not need to ``feel''
+% automated to be consistently checked.  Localization is also not an issue,
+% since the cross-reference text is provided directly by the user.  Separating
+% ``typesetting'' from ``checking'' also means there is a lot of document
+% context we can leverage for this purpose (see Section~\ref{sec:checks}).
+%
+% A standard \LaTeX{} cross-reference is made to refer to specific numbered
+% document elements -- chapters, sections, figures, tables, equations, etc.
+% The cross-reference will normally produce that number (which is the
+% element's ``id'') and, eventually, its ``type'' (the counter).  We may also
+% refer to the page that element occurs and even its ``title'' (in which case,
+% atypically, we may even get to refer to an unnumbered section, provided we
+% also implicitly supply by some means the ``id'').
+%
+% For references to these usual specific document elements, \pkg{zref-check}
+% caters for a particular kind of cross-reference which is common:
+% \emph{relational} statements based on them.  \cs{zcheck} can typeset and
+% meaningfully check cross-references such as ``above'', ``on the next page'',
+% ``on the facing page'', ``on the previous section'', ``later on this
+% chapter'' and so on.  After all, if your reference is being made on page 2
+% and refers to something on the same page, ``on this page'' reads much better
+% than ``on page~2''.  If you are writing chapter~4, ``on the previous
+% chapter'' sounds nicer than ``on chapter~3''.
+%
+% However, there is yet another kind of ``looser'' cross-reference we
+% routinely do in our documents.  Expressions such as ``previously'', ``as
+% mentioned before'', ``as will be discussed'', and so on, are a powerful
+% discursive instrument, which enriches the text, by offering hints to the
+% arguments' threads, without necessarily pressing them too hard onto the
+% reader.  So, we might not want to say ``on footnote 57, pag.~34'', but
+% prefer ``previously'', not ``on Section 3.4'', but rather ``below'', or
+% ``later on''.  Besides, we also may refer to certain passages in the text in
+% this way, rather than to numbered document elements.  And this kind of
+% reference is not only hard to check and find, but also to fix.  After all,
+% if you are making one such reference, you are taking that statement as a
+% premisse at the current point in the text.  So, if that reference is
+% missing, or relocated, you may need to bring in the support to the premisse
+% for your argument to close, rather than just ``adjust the reference text''.
+% \pkg{zref-check} also provides support for this kind of cross-reference,
+% allowing for them to be consistently verified.
+%
+%
+% \section{Loading the package}
+% \label{sec:loading-package}
+%
+% \pkg{zref-check} can be loaded with the usual:
+%
+% \begin{syntax}
+%   \cs{usepackage}|{zref-check}|
+% \end{syntax}
+%
+% The package does not accept load-time options, package options must be set
+% using \cs{zrefchecksetup} (see Section~\ref{sec:user-interface}).
+%
+%
+% \section{Dependencies}
+%
+% \pkg{zref} is required, of course, but in particular, its modules
+% \pkg{zref-user} and \pkg{zref-abspage} are loaded by default.  \pkg{ifdraft}
+% (from the \pkg{oberdiek} bundle) is also loaded by default.  A \LaTeX{}
+% kernel later than 2021-06-01 is required, since we rely on the new hook
+% system from \pkg{ltcmdhooks} for the sectioning checks.  If \pkg{hyperref}
+% is loaded and option \pkg{hyperref} is given, \pkg{zref-check} makes use of
+% it, but it does not load the package for you.
+%
+%
+% \section{User interface}
+% \label{sec:user-interface}
+%
+% \begin{function}{\zcheck}
+%   \begin{syntax}
+%     \cs{zcheck}\oarg{checks/options}\marg{labels}\marg{text}
+%   \end{syntax}
+%   Typesets \meta{text}, as given, while performing a list of \meta{checks}
+%   on each of the \meta{labels}.  When \pkg{hyperref} support is enabled,
+%   \meta{text} will be made a hyperlink to \emph{the first} \meta{label} in
+%   \meta{labels}.  The starred version of the command does the same as the
+%   plain one, just does not form a link.  The \meta{options} are (mostly) the
+%   same as those of the package, and can be given to local effect.
+%   \meta{checks} and \meta{options} can be given side by side as a comma
+%   separated list in the optional argument.  \meta{labels} is also a comma
+%   separated list.
+% \end{function}
+%
+% \begin{function}{\zctarget}
+%   \begin{syntax}
+%     \cs{zctarget}\marg{label}\marg{text}
+%   \end{syntax}
+%   Typesets \meta{text}, as given, and places a pair of \texttt{zlabel}s, one
+%   at the start of \meta{text}, using \meta{label} as label name, another one
+%   (internal) at the end of \meta{text}.
+% \end{function}
+%
+%
+% \begin{function}{zcregion}
+%   \begin{syntax}
+%     |\begin{zcregion}|\marg{label}
+%       |  ...|
+%     |\end{zcregion}|
+%   \end{syntax}
+%   An environment that does the same as \cs{zctarget}, for cases of longer
+%   stretches of text.
+% \end{function}
+%
+%
+% \begin{function}{\zrefchecksetup}
+%   \begin{syntax}
+%     \cs{zrefchecksetup}\marg{options}
+%   \end{syntax}
+%   Sets \pkg{zref-check}'s options (see Section~\ref{sec:options}).
+% \end{function}
+%
+% \bigskip{}
+%
+% All user commands of \pkg{zref-check} have their \marg{label} arguments
+% protected for \pkg{babel} active characters using \pkg{zref}'s
+% \cs{zref@wrapper@babel}, so that we should have equivalent support in that
+% regard, as \pkg{zref} itself does.  \pkg{zref-check} depends on \pkg{zref},
+% as the name entails, which means it is able to work with \pkg{zref} labels,
+% in general created by \cs{zlabel}, but also with \cs{zctarget} and the
+% \texttt{zcregion} environment provided by this package.
+%
+%
+% \section{Checks}
+% \label{sec:checks}
+%
+% \pkg{zref-check} provides several ``checks'' to be used with \cs{zcheck}.
+% The checks may be combined in a \cs{zcheck} call, e.g.\ \opt{[close,
+% after]}, or \opt{[thischap, before]}.  In this case, each check in
+% \meta{checks} is performed against each of the \meta{labels}.  This is done
+% independently for each check, which means, in practice, that the checks bear
+% a logical \texttt{AND} relation to the others.  Whether the combination is
+% meaningful, is up to the user.  As is the correspondence between the
+% \meta{checks} and the \meta{text} in \cs{zcheck}.
+%
+% The use of checks which perform ``within the page'' comparisons -- namely
+% \opt{above} and \opt{below} and, through them, \opt{before} and \opt{after}
+% -- comes with some caveats you should be acquainted with.
+% Section~\ref{sec:within-page-checks} discusses their limitations and expands
+% on the expected workflow for their use to ensure reliable results.
+%
+% Note that the naming convention of the checks adopts the perspective of
+% \cs{zcheck}.  That is, the name of the check describes the position of the
+% label being referred to, relative to the \cs{zcheck} call being made.  For
+% example, the \opt{before} check should issue no message if
+% \cs{ztarget}|{mylabel}{...}| occurs before
+% \cs{zcheck}|[before]{mylabel}{...}|.
+%
+% The available checks are the following:
+%
+% \begin{description}[leftmargin=0pt, itemindent=0pt, align=right,
+%   labelsep=1em, font=\MacroFont]
+%
+% \item[thispage] \meta{label} occurs on the same page as \cs{zcheck}.
+%
+% \item[prevpage] \meta{label} occurs on the previous page relative to
+%   \cs{zcheck}.
+%
+% \item[nextpage] \meta{label} occurs on the next page relative to
+%   \cs{zcheck}.
+%
+% \item[otherpage] \meta{label} occurs on a page different from that of
+%   \cs{zcheck}, that is, it does \emph{not} occur on \opt{thispage}.
+%
+% \item[pagegap] There is a page gap between \meta{label} and \cs{zcheck}, in
+%   other words, \meta{label} does \emph{not} occur on \opt{thispage},
+%   \opt{prevpage} or \opt{nextpage}.
+%
+% \item[facing] On a \texttt{twoside} document, both \meta{label} and
+%   \cs{zcheck} fall onto a double spread, each on one of the two facing
+%   pages.
+%
+% \item[above] \meta{label} and \cs{zcheck} are both on the same page, and
+%   \meta{label} occurs ``above'' \cs{zcheck}.
+%
+% \item[below] \meta{label} and \cs{zcheck} are both on the same page, and
+%   \meta{label} occurs ``below'' \cs{zcheck}.
+%
+% \item[pagesbefore] \meta{label} occurs on any page before the one of
+%   \cs{zcheck}.
+%
+% \item[ppbefore] Convenience alias for \opt{pagesbefore}.
+%
+% \item[pagesafter] \meta{label} occurs on any page after the one of
+%   \cs{zcheck}.
+%
+% \item[ppafter] Convenience alias for \opt{pagesafter}.
+%
+% \item[before] Either \opt{above} or \opt{pagesbefore}.
+%
+% \item[after]  Either \opt{below} or \opt{pagesafter}.
+%
+% \item[thischap] \meta{label} occurs on the same chapter as \cs{zcheck}.
+%
+% \item[prevchap] \meta{label} occurs on the previous chapter relative to the
+%   one of \cs{zcheck}.
+%
+% \item[nextchap] \meta{label} occurs on the next chapter relative to the one
+%   of \cs{zcheck}.
+%
+% \item[chapsbefore] \meta{label} occurs on any chapter before the one of
+%   \cs{zcheck}.
+%
+% \item[chapsafter] \meta{label} occurs on any chapter after the one of
+%   \cs{zcheck}.
+%
+% \item[thissec] \meta{label} occurs on the same section as \cs{zcheck}.
+%
+% \item[prevsec] \meta{label} occurs on the previous section (of the same
+%   chapter) relative to the one of \cs{zcheck}.
+%
+% \item[nextsec] \meta{label} occurs on the next section (of the same chapter)
+%   relative to the one of \cs{zcheck}.
+%
+% \item[secsbefore] \meta{label} occurs on any section (of the same chapter)
+%   before the one of \cs{zcheck}.
+%
+% \item[secsafter] \meta{label} occurs on any section (of the same chapter)
+%   after the one of \cs{zcheck}.
+%
+% \item[close] \meta{label} occurs within a page range from \opt{closerange}
+%   pages before the one of \cs{zcheck} to \opt{closerange} pages after it
+%   (about the \opt{closerange} option, see Section~\ref{sec:options}).
+%
+% \item[far] Not \opt{close}.
+%
+% \end{description}
+%
+%
+%
+% \section{Options}
+% \label{sec:options}
+%
+% Options are a standard \texttt{key=value} comma separated list, and can be
+% set globally either as \cs{usepackage}\oarg{options} at load-time (see
+% Section~\ref{sec:loading-package}), or by means of \cs{zrefchecksetup} (see
+% Section~\ref{sec:user-interface}) in the preamble.  Most options can also be
+% used with local effects, through the optional argument of \cs{zcheck}.
+%
+% \DescribeOption{hyperref} %
+% Controls the use of \pkg{hyperref} by \pkg{zref-check} and takes values
+% \opt{auto}, \opt{true}, \opt{false}.  The default value, \opt{auto}, makes
+% \pkg{zref-check} use \pkg{hyperref} if it is loaded, meaning \cs{zcheck} can
+% be hyperlinked to the \emph{first label} in \meta{labels}.  \opt{true} does
+% the same thing, but warns if \pkg{hyperref} is not loaded (\pkg{hyperref} is
+% never loaded for you).  In either of these cases, if \pkg{hyperref} is
+% loaded, module \pkg{zref-hyperref} is also loaded by \pkg{zref-check}.
+% \opt{false} means not to use \pkg{hyperref} regardless of its availability.
+% This is a preamble only option, but \cs{zcheck} provides granular control of
+% hyperlinking by means of its starred version.
+%
+%
+% \DescribeOption{msglevel} %
+% Sets the level of messages issued by \cs{zcheck} failed checks and takes
+% values \opt{warn}, \opt{info}, \opt{none}, \opt{infoifdraft},
+% \opt{warniffinal}.  The default value, \opt{warn}, issues messages both to
+% the terminal and to the log file, \opt{info} issues messages to the log file
+% only, \opt{none} suppresses all messages.  \opt{infoifdraft} corresponds to
+% \opt{info} if option \opt{draft} is passed to \cs{documentclass}, and to
+% \opt{warn} otherwise.  \opt{warniffinal} corresponds to \opt{warn} if option
+% \opt{final} is (explicitly) passed to \cs{documentclass} and \opt{info}
+% otherwise.  \opt{ignore} is provided as convenience alias for
+% \opt{msglevel=none} for local use only.  This option only affects the
+% messages issued by the checks in \cs{zcheck}, not other messages or warnings
+% of the package.  In particular, it does not affect warnings issued for
+% undefined labels, which just use \cs{zref@refused} and thus are the same as
+% standard \LaTeX{} ones for this purpose.
+%
+%
+% \DescribeOption{onpage} %
+% Allows to control the messaging style for ``within page checks'', and takes
+% values \opt{labelseq}, \opt{msg}, \opt{labelseqifdraft}, \opt{msgiffinal}.
+% The default, \opt{labelseq}, uses the labels' shipout sequence, as retrieved
+% from the \file{.aux} file, to infer relative position within the page.
+% \opt{msg} also uses the same method for checking relative position, but
+% issues a (different) message \emph{even if the check passes}, to provide a
+% simple workflow for robust checking of ``false negatives'', considering the
+% label sequence is not fool proof (for details and workflow recommendations,
+% see Section~\ref{sec:within-page-checks}).  \opt{msg} also issues its
+% messages at the same level defined in \opt{msglevel}.  \opt{labelseqifdraft}
+% corresponds to \opt{labelseq} if option \opt{draft} is passed to
+% \cs{documentclass} and to \opt{msg} otherwise.  \opt{msgiffinal} corresponds
+% to \opt{msg} if option \opt{final} is (explicitly) passed to
+% \cs{documentclass}, and to \opt{labelseq} otherwise.
+%
+%
+% \DescribeOption{closerange} %
+% Defines the width of the range of pages, relative to the reference, that are
+% considered ``close'' by the \opt{close} check.  Takes a positive integer as
+% value, with default 5.
+%
+%
+% \section{Limitations}
+%
+% There are three qualitatively different kinds of checks being used by
+% \cs{zcheck}, according to the source and reliability of the information they
+% mobilize: page number checks, within page checks, and sectioning checks.
+%
+%
+% \subsection{Page number checks}
+%
+% Page number checks -- \opt{thispage}, \opt{prevpage}, \opt{nextpage},
+% \opt{pagesbefore}, \opt{pagesafter}, \opt{facing} -- use the
+% \texttt{abspage} property provided by the \pkg{zref-abspage} module.  This
+% is a solid piece of information, on which we can rely upon.  However,
+% despite that, page number checks may still become ill-defined, if the
+% \meta{text} argument in \cs{zcheck}, when typeset, crosses page boundaries,
+% starting in one page, and finishing in another.  The same can happen with
+% the text in \cs{zctarget} and the \texttt{zcregion} environment.
+%
+% This is why the user commands of this package set a pair or labels around
+% \meta{text}.  So, when checking \cs{zcheck} against a regular
+% \texttt{zlabel} both the start and the end of the \meta{text} are checked
+% against the label, and the check fails if either of them fails.  When
+% checking \cs{zcheck} against a \cs{zctarget} or a \texttt{zcregion}, both
+% beginnings and ends are checked against each other two by two, and if any of
+% them fails, the check fails.  In other words, if a page number checks
+% passes, we know that the entire \meta{text} arguments pass it.
+%
+% This is a corner case (albeit relevant) which must be taken care of, and it
+% is possible to do so robustly.  Hence, we can expect reliable results in
+% these tests.
+%
+%
+% \subsection{Within page checks}
+% \label{sec:within-page-checks}
+%
+% When both label and reference fall on the same page things become much
+% trickier.  This is basically the case of the checks \opt{above} and
+% \opt{below} (and, through them, \opt{before} and \opt{after}).  There is no
+% equally reliable information (that I know of) as we have for the page number
+% checks for this, especially when floats come into play.  Which, of course,
+% is the interesting case to handle.
+%
+% To infer relative position of label and reference on the same page,
+% \pkg{zref-check} uses the labels' shipout sequence, which is retrieved at
+% load-time from the order in which the labels occur in the \file{.aux} file.
+% Indeed, \pkg{zref} writes labels to the \file{.aux} file at shipout (and,
+% hence, in shipout order), and needs to do so, because a number of its
+% properties are only available at that point.
+%
+% However, even if this method will buy us a correct check for a regular float
+% on a regular page (which, to be fair, is a good result), it is not difficult
+% do conceive situations in which this sequence may not be meaningful, or even
+% correct, for the case.  A number of cases which may do so are: two column
+% documents, text wrapping, scaling, overlays, etc.  (I don't know if those
+% make the method fail, I just don't know if they don't).  Therefore, the
+% \texttt{labelseq} should be taken as a \emph{proxy} and not fully reliable,
+% meaning that the user should be watchful of its results.
+%
+% For this reason, \pkg{zref-check} provides an easy way to do so, by allowing
+% specific control of the messaging style of the checks which do within page
+% comparisons though the option \opt{onpage}.  The concern is not really with
+% false positives (getting a warning when it was not due), but with false
+% negatives (not getting a warning when it was due).  Hence, setting
+% \opt{onpage} to \opt{msg} at a final typesetting stage (or just set it to
+% \opt{labelseqifdraft} or \opt{msgiffinal} if that's part of your workflow)
+% provides a way to easily identify all cases of such checks (failing or
+% passing), and double-check them.  In case the test is passing though, the
+% message is different from that of a failing check, to quickly convey why you
+% are getting the message.  This option can also be set at the local level, if
+% the page in question is known to be problematic, or just atypical.
+%
+%
+% \subsection{Sectioning checks}
+%
+% The information used by sectioning checks is provided by means of dedicated
+% counters for chapters and sections, similarly as standard counters for them,
+% but which are stepped and reset regardless of whether these sectioning
+% commands are numbered or not (that is, starred or not).  And this for two
+% reasons.  First, we don't need the absolute counter value to be able to make
+% the kind of relative statement we want to do here.  Second, this allows us
+% to have these checks work for numbered and unnumbered sectioning commands
+% without having to worry about how those are used within the document.
+%
+% The caveat is that the package does this by hooking into \cs{chapter} and
+% \cs{section}, which poses two restrictions for the proper working of these
+% checks.  First, we are using the new hook system for this, as provided by
+% \pkg{ltcmdhooks}, which means a \LaTeX{} kernel later than 2021-06-01 is
+% required.  Second, since we are hooking into \cs{chapter} and \cs{section},
+% these checks presume these commands are being used by the document class for
+% this purpose (either directly, or internally as, for example, KOMA-Script's
+% \cs{addchap} and \cs{addsec} do).  If that's not the case, additional setup
+% may be needed for these checks to work as expected.
+%
+%
+%
+% \section{Change history}
+%
+% A change log with relevant changes for each version, eventual upgrade
+% instructions, and upcoming changes, is maintained in the package's
+% repository, at
+% \url{https://github.com/gusbrs/zref-check/blob/main/CHANGELOG.md}.  The
+% change log is also distributed with the package's documentation through CTAN
+% upon release so, most likely, \texttt{texdoc zref-check/changelog} should
+% provide easy local access to it.  An archive of historical versions of the
+% package is also kept at \url{https://github.com/gusbrs/zref-check/releases}.
+%
+%
+%
+% \end{documentation}
+%
+%
+% \begin{implementation}
+%
+% \section{Initial setup}
+%
+% Start the \pkg{DocStrip} guards.
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+% Identify the internal prefix (\LaTeX3 \pkg{DocStrip} convention).
+%    \begin{macrocode}
+%<@@=zrefcheck>
+%    \end{macrocode}
+%
+%
+% For the \texttt{chapter} and \texttt{section} checks, \pkg{zref-check} uses
+% the new hook system in \pkg{ltcmdhooks}, which was released with the
+% 2021/06/01 \LaTeX{} kernel.
+%    \begin{macrocode}
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF{2021-06-01}
+  {}
+  {%
+    \PackageError{zref-check}{LaTeX kernel too old}
+      {%
+        'zref-check' requires a LaTeX kernel newer than 2021-06-01.%
+        \MessageBreak Loading will abort!%
+      }%
+    \endinput
+  }%
+%    \end{macrocode}
+%
+% Identify the package.
+%    \begin{macrocode}
+\ProvidesExplPackage {zref-check} {2022-07-07} {0.3.2}
+  {Flexible cross-references with contextual checks based on zref}
+%    \end{macrocode}
+%
+% \section{Dependencies}
+%
+%    \begin{macrocode}
+\RequirePackage { zref-user }
+\RequirePackage { zref-abspage }
+\RequirePackage { ifdraft }
+%    \end{macrocode}
+%
+%
+% \section{\pkg{zref} setup}
+%
+% \begin{variable}{\g_@@_abschap_int, \g_@@_abssec_int}
+%   Provide absolute counters for section and chapter, and respective
+%   \pkg{zref} properties, so that we can make checks about relation of
+%   chapters/sections regardless of internal counters, since we don't get
+%   those for the unnumbered (starred) ones.  Thanks Ulrike Fischer for
+%   suggestions at TeX.SX about the proper place to make the hooks for this
+%   purpose.
+%    \begin{macrocode}
+\newcounter { zc@abschap }
+\newcounter { zc@abssec } [ zc@abschap ]
+%    \end{macrocode}
+% \end{variable}
+%
+%
+% If the documentclass does not define \cs{chapter} the only thing that
+% happens is that the chapter counter is never incremented, and the section
+% one never reset.
+%    \begin{macrocode}
+\AddToHook { cmd / chapter / before }
+  { \stepcounter { zc@abschap } }
+\zref@newprop { zc@abschap } [0] { \int_use:N \c@zc@abschap }
+\zref@addprop \ZREF@mainlist { zc@abschap }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\AddToHook { cmd / section / before }
+  { \stepcounter { zc@abssec } }
+\zref@newprop { zc@abssec } [0] { \int_use:N \c@zc@abssec }
+\zref@addprop \ZREF@mainlist { zc@abssec }
+%    \end{macrocode}
+%
+%
+% These are the lists of properties to be used by \pkg{zref-check}, that is,
+% the list of properties the references and targets store.  This is the
+% minimum set required, more properties may be added according to options.
+% For user facing labels, we must use the \texttt{main} property list, so that
+% \pkg{zref-clever} can also retrieve the properties it needs to refer to
+% them.
+%    \begin{macrocode}
+\zref@newlist { zrefcheck-check }
+\zref@addprops { zrefcheck-check }
+  {
+    page , % for messages
+    abspage ,
+    zc@abschap ,
+    zc@abssec
+  }
+\zref@newlist { zrefcheck-end }
+\zref@addprops { zrefcheck-end }
+  {
+    abspage ,
+    zc@abschap ,
+    zc@abssec
+  }
+%    \end{macrocode}
+% For \pkg{zref-vario} we only need page information, since we only perform
+% \opt{above} and \opt{below} checks there.
+%    \begin{macrocode}
+\zref@newlist { zrefcheck-zrefvario }
+\zref@addprops { zrefcheck-zrefvario }
+  {
+    page , % for messages
+    abspage ,
+  }
+%    \end{macrocode}
+%
+%
+% \section{Plumbing}
+%
+% \subsection{Messages}
+%
+% \begin{macro}{\@@_message:nnnn, \@@_message:nnnx}
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_message:nnnn #1#2#3#4
+  {
+    \use:c { msg_ \l_@@_msglevel_tl :nnnnn }
+      { zref-check } {#1} {#2} {#3} {#4}
+  }
+\cs_generate_variant:Nn \@@_message:nnnn { nnnx }
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\msg_new:nnn { zref-check } { check-failed }
+  {
+    Check~failed~\msg_line_context:.~
+    Failed~check~'#1'~for~label~'#2'~on~page~#3.
+  }
+\msg_new:nnn { zref-check } { double-check }
+  {
+    Same~page~check~\msg_line_context:.~
+    Double-check~'#1'~for~label~'#2'~on~page~#3.
+  }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\msg_new:nnn { zref-check } { check-missing }
+  { Check~'#1'~not~defined~\msg_line_context:. }
+\msg_new:nnn { zref-check } { property-undefined }
+  { Property~'#1'~not~defined~\msg_line_context:. }
+\msg_new:nnn { zref-check } { property-not-in-label }
+  { Label~'#1'~has~no~property~'#2'~\msg_line_context:. }
+\msg_new:nnn { zref-check } { property-not-integer }
+  { Property~'#1'~for~label~'#2'~not~an~integer~\msg_line_context:. }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\msg_new:nnn { zref-check } { hyperref-preamble-only }
+  {
+    Option~'hyperref'~only~available~in~the~preamble. \iow_newline:
+    Use~the~starred~version~of~'\iow_char:N\\zcheck'~instead.
+  }
+\msg_new:nnn { zref-check } { missing-hyperref }
+  { Missing~'hyperref'~package. \iow_newline: Setting~'hyperref=false'. }
+\msg_new:nnn { zref-check } { ignore-document-only }
+  {
+    Option~'ignore'~only~available~in~the~document. \iow_newline:
+    Use~option~'msglevel'~instead.
+  }
+\msg_new:nnn { zref-check } { option-preamble-only }
+  { Option~'#1'~is~preamble~only~\msg_line_context:. }
+\msg_new:nnn { zref-check } { closerange-not-positive-integer }
+  {
+    Option~'closerange'~not~a~positive~integer~\msg_line_context:.~
+    Using~default~value.
+  }
+\msg_new:nnn { zref-check } { labelcmd-undefined }
+  {
+    Control~sequence~named~'#1'~used~in~option~'labelcmd'~is~not~defined.~
+    Using~default~value.
+  }
+\msg_new:nnn { zref-check } { option-deprecated-with-alternative }
+  {
+    Option~'#1'~has~been~deprecated~\msg_line_context:.\iow_newline:
+    Use~'#2'~instead.
+  }
+\msg_new:nnn { zref-check } { option-deprecated }
+  { Option~'#1'~has~been~deprecated~\msg_line_context:. }
+\msg_new:nnn { zref-check } { load-time-options }
+  {
+    'zref-check'~does~not~accept~load-time~options.~
+    To~configure~package~options,~use~'\iow_char:N\\zrefchecksetup'.
+  }
+%    \end{macrocode}
+%
+%
+% \subsection{Integer testing}
+%
+% \begin{macro}{\@@_is_integer:n, \@@_int_to_roman:w}
+%   From \url{https://tex.stackexchange.com/a/244405} (thanks Enrico Gregorio,
+%   aka `egreg'), also see \url{https://tex.stackexchange.com/a/19769}.
+%   Following the \texttt{l3styleguide}, I made a copy of
+%   \cs{__int_to_roman:w}, since it is an internal function from the
+%   \texttt{int} module, but we still get a warning from \texttt{l3build doc},
+%   complaining about it.  And we're using \cs{tl_if_empty:oTF} instead of
+%   \cs{tl_if_blank:oTF} as in egreg's answer, since \cs{romannumeral} is
+%   defined so that ``the expansion is empty if the number is zero or
+%   negative'', not ``blank''.  A couple of comments about this technique: the
+%   underlying \cs{romannumeral} ignores space tokens and explicit signs
+%   (\texttt{+} and \texttt{-}) in the expansion and hence it can only be used
+%   to test positive integers; also the technique cannot distinguish whether
+%   it received an empty argument or if ``the expansion was empty'' as a
+%   result of receiving number as argument, so this must also be controlled
+%   for since, in our use case, this may happen.
+%    \begin{macrocode}
+\cs_new_eq:NN \@@_int_to_roman:w \__int_to_roman:w
+\prg_new_conditional:Npnn \@@_is_integer:n #1 { p, T , F , TF }
+  {
+    \tl_if_empty:oTF {#1}
+      { \prg_return_false: }
+      {
+        \tl_if_empty:oTF { \@@_int_to_roman:w -0#1 }
+          { \prg_return_true:  }
+          { \prg_return_false: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_is_integer_rgx:n}
+%   A possible alternative to \cs{@@_is_integer:n} is to use a straightforward
+%   regexp match (see \url{https://tex.stackexchange.com/a/427559}).  It does
+%   not suffer from the mentioned caveats from the \cs{__int_to_roman:w}
+%   technique, however, while \cs{@@_is_integer:n} is expandable,
+%   \cs{@@_is_integer_rgx:n} is not.  Also, \cs{@@_is_integer_rgx:n} is
+%   probably slower.
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_is_integer_rgx:n #1 { TF }
+  {
+    \regex_match:nnTF { \A\d+\Z } {#1}
+      { \prg_return_true:  }
+      { \prg_return_false: }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \subsection{Options}
+%
+%
+% \subsubsection*{\opt{hyperref} option}
+%
+% \begin{variable}{\l_@@_use_hyperref_bool, \l_@@_warn_hyperref_bool}
+%    \begin{macrocode}
+\bool_new:N \l_@@_use_hyperref_bool
+\bool_new:N \l_@@_warn_hyperref_bool
+\keys_define:nn { zref-check }
+  {
+    hyperref .choice: ,
+    hyperref / auto .code:n =
+      {
+        \bool_set_true:N \l_@@_use_hyperref_bool
+        \bool_set_false:N \l_@@_warn_hyperref_bool
+      } ,
+    hyperref / true .code:n =
+      {
+        \bool_set_true:N \l_@@_use_hyperref_bool
+        \bool_set_true:N \l_@@_warn_hyperref_bool
+      } ,
+    hyperref / false .code:n =
+      {
+        \bool_set_false:N \l_@@_use_hyperref_bool
+        \bool_set_false:N \l_@@_warn_hyperref_bool
+      } ,
+    hyperref .initial:n = auto ,
+    hyperref .default:n = auto
+  }
+%    \end{macrocode}
+% \end{variable}
+%
+%    \begin{macrocode}
+\AddToHook { begindocument }
+  {
+    \@ifpackageloaded { hyperref }
+      {
+        \bool_if:NT \l_@@_use_hyperref_bool
+          { \RequirePackage { zref-hyperref } }
+      }
+      {
+        \bool_if:NT \l_@@_warn_hyperref_bool
+          { \msg_warning:nn { zref-check } { missing-hyperref } }
+        \bool_set_false:N \l_@@_use_hyperref_bool
+      }
+    \keys_define:nn { zref-check }
+      {
+        hyperref .code:n =
+          { \msg_warning:nn { zref-check } { hyperref-preamble-only } }
+      }
+  }
+%    \end{macrocode}
+%
+%
+% \subsubsection*{\opt{msglevel} option}
+%
+% \begin{variable}{\l_@@_msglevel_tl}
+%    \begin{macrocode}
+\tl_new:N \l_@@_msglevel_tl
+\keys_define:nn { zref-check }
+  {
+    msglevel .choice: ,
+    msglevel / warn .code:n =
+      { \tl_set:Nn \l_@@_msglevel_tl { warning } } ,
+    msglevel / info .code:n =
+      { \tl_set:Nn \l_@@_msglevel_tl { info } } ,
+    msglevel / none .code:n =
+      { \tl_set:Nn \l_@@_msglevel_tl { none } } ,
+    msglevel / infoifdraft .code:n =
+      {
+        \ifdraft
+          { \tl_set:Nn \l_@@_msglevel_tl { info } }
+          { \tl_set:Nn \l_@@_msglevel_tl { warning } }
+      } ,
+    msglevel / warniffinal .code:n =
+      {
+        \ifoptionfinal
+          { \tl_set:Nn \l_@@_msglevel_tl { warning } }
+          { \tl_set:Nn \l_@@_msglevel_tl { info } }
+      } ,
+    msglevel / obeydraft .code:n =
+      {
+        % NOTE Option value deprecated in 2021-12-07 for v0.2.2.
+        \msg_warning:nnnn { zref-check }{ option-deprecated-with-alternative }
+          { msglevel=obeydraft } { msglevel=infoifdraft }
+      } ,
+    msglevel / obeyfinal .code:n =
+      {
+        % NOTE Option value deprecated in 2021-12-07 for v0.2.2.
+        \msg_warning:nnnn { zref-check }{ option-deprecated-with-alternative }
+          { msglevel=obeyfinal } { msglevel=warniffinal }
+      } ,
+    msglevel .value_required:n = true ,
+    msglevel .initial:n = warn ,
+%    \end{macrocode}
+% \opt{ignore} is a convenience alias for \opt{msglevel=none}, but only for
+% use in the document body.
+%    \begin{macrocode}
+    ignore .code:n =
+      { \msg_warning:nn { zref-check } { ignore-document-only } } ,
+    ignore .value_forbidden:n = true
+  }
+%    \end{macrocode}
+% \end{variable}
+%
+%    \begin{macrocode}
+\AddToHook { begindocument }
+  {
+    \keys_define:nn { zref-check }
+      { ignore .meta:n = { msglevel = none } }
+  }
+%    \end{macrocode}
+%
+%
+% \subsubsection*{\opt{onpage} option}
+%
+% \begin{variable}{\l_@@_msgonpage_bool}
+%    \begin{macrocode}
+\bool_new:N \l_@@_msgonpage_bool
+\keys_define:nn { zref-check }
+  {
+    onpage .choice: ,
+    onpage / labelseq .code:n =
+      {
+        \bool_set_false:N \l_@@_msgonpage_bool
+      } ,
+    onpage / msg .code:n =
+      {
+        \bool_set_true:N \l_@@_msgonpage_bool
+      } ,
+    onpage / labelseqifdraft .code:n =
+      {
+        \ifdraft
+          { \bool_set_false:N \l_@@_msgonpage_bool }
+          { \bool_set_true:N \l_@@_msgonpage_bool }
+      } ,
+    onpage / msgiffinal .code:n =
+      {
+        \ifoptionfinal
+          { \bool_set_true:N \l_@@_msgonpage_bool }
+          { \bool_set_false:N \l_@@_msgonpage_bool }
+      } ,
+    onpage / obeydraft .code:n =
+      {
+        % NOTE Option value deprecated in 2021-12-07 for v0.2.2.
+        \msg_warning:nnnn { zref-check }{ option-deprecated-with-alternative }
+          { onpage=obeydraft } { onpage=labelseqifdraft }
+      } ,
+    onpage / obeyfinal .code:n =
+      {
+        % NOTE Option value deprecated in 2021-12-07 for v0.2.2.
+        \msg_warning:nnnn { zref-check }{ option-deprecated-with-alternative }
+          { onpage=obeyfinal } { onpage=msgiffinal }
+      } ,
+    onpage .value_required:n = true ,
+    onpage .initial:n = labelseq
+  }
+%    \end{macrocode}
+% \end{variable}
+%
+%
+% \subsubsection*{\opt{closerange} option}
+%
+% \begin{variable}{\l_@@_close_range_int}
+%    \begin{macrocode}
+\int_new:N \l_@@_close_range_int
+\keys_define:nn { zref-check }
+  {
+    closerange .code:n =
+      {
+        \@@_is_integer_rgx:nTF {#1}
+          { \int_set:Nn \l_@@_close_range_int { \int_eval:n {#1} } }
+          {
+            \msg_warning:nn { zref-check } { closerange-not-positive-integer }
+            \int_set:Nn \l_@@_close_range_int { 5 }
+          }
+      } ,
+    closerange .value_required:n = true ,
+    closerange .initial:n = 5
+  }
+%    \end{macrocode}
+% \end{variable}
+%
+%
+% \subsubsection*{\opt{labelcmd} option}
+%
+%    \begin{macrocode}
+\keys_define:nn { zref-check }
+  {
+    labelcmd .code:n =
+      {
+        % NOTE Option value deprecated in 2022-02-08 for v0.2.4.
+        \msg_warning:nnn { zref-check }{ option-deprecated }
+          { labelcmd }
+      } ,
+  }
+%    \end{macrocode}
+%
+%
+%
+% \subsubsection*{Package options}
+%
+% \pkg{zref-check} does not accept load-time options.  Despite the tradition
+% of so doing, Joseph Wright has a point in recommending otherwise at
+% \url{https://chat.stackexchange.com/transcript/message/60360822#60360822}:
+% separating ``loading the package'' from ``configuring the package'' grants
+% less trouble with ``option clashes'' and with expansion of options at
+% load-time.
+%    \begin{macrocode}
+\bool_lazy_and:nnT
+  { \tl_if_exist_p:c { opt@ zref-check.sty } }
+  { ! \tl_if_empty_p:c { opt@ zref-check.sty } }
+  { \msg_warning:nn { zref-check } { load-time-options } }
+%    \end{macrocode}
+%
+%
+% \begin{macro}[int]{\zrefchecksetup}
+%   Provide \cs{zrefchecksetup}.
+%    \begin{macrocode}
+\NewDocumentCommand \zrefchecksetup { m }
+  { \keys_set:nn { zref-check } {#1} }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \subsection{Position on page}
+%
+% Method for determining relative position within the page: the sequence in
+% which the labels get shipped out, inferred from the sequence in which the
+% labels occur in the \file{.aux} file.
+%
+% Some relevant info about the sequence of things:
+% \url{https://tex.stackexchange.com/a/120978} and \texttt{texdoc lthooks},
+% section ``Hooks provided by |\begin{document}|''.
+%
+%
+% One first attempt at this was to use \cs{zref@newlabel}, which is the macro
+% in which \pkg{zref} stores the label information in the aux file.  When the
+% \file{.aux} file is read at the beginning of the compilation, this macro is
+% expanded for each of the labels.  So, by redefining this macro we can feed a
+% variable (a L3 sequence), and then do what it usually does, which is to
+% define each label with the internal macro \cs{@newl@bel}, when the
+% \file{.aux} file is read.
+%
+% Patching this macro for this is not possible.  First, \cs{zref@newlabel} is
+% one of those ``commands that look ahead'' mentioned in \pkg{ltcmdhooks}
+% documentation.  Indeed, \cs{@newl@bel} receives 3 arguments, and
+% \cs{zref@newlabel} just passes the first, the following two will be scanned
+% ahead.  Second, the \pkg{ltcmdhooks} hooks are not actually available when
+% the \file{.aux} file is read, they come only after |\begin{document}|.
+% Hence, redefinition would be the only alternative.  My attempts at this
+% ended up registered at \url{https://tex.stackexchange.com/a/604744}.  But
+% the best result in these lines was:
+%
+% \begin{verbatim}
+% \ZREF@Robust\edef\zref@newlabel#1{
+%   \noexpand\seq_gput_right:Nn \noexpand\g__zrefcheck_auxfile_lblseq_seq {#1}
+%   \noexpand\@newl@bel{\ZREF@RefPrefix}{#1}
+% }
+% \end{verbatim}
+%
+%
+% However, better than the above is to just read it from the \file{.aux} file
+% directly, which relieves us from hacking into any internals.  That's what
+% David Carlisle's answer at \url{https://tex.stackexchange.com/a/147705}
+% does.  This answer has actually been converted into the package
+% \pkg{listlbls} by Norbert Melzer, but it is made to work with regular
+% labels, not with \pkg{zref}'s.  And it also does not really expose the
+% information in a retrievable way (as far as I can tell).  So, the below is
+% adapted from Carlisle's answer's technique (a poor man's version of it...).
+%
+% There is some subtlety here as to whether this approach makes it safe for us
+% to read the labels at this point without \cs{zref@wrapper@babel}.  The
+% common wisdom is that babel's shorthands are only active after
+% |\begin{document}| (e.g., \url{https://tex.stackexchange.com/a/98897}).
+% Alas, it is more complicated than that.  Babel's documentation says (in
+% section 9.5 Shorthands): ``To prevent problems with the loading of other
+% packages after babel we reset the catcode of the character to the original
+% one at the end of the package and of each language file (except with
+% KeepShorthandsActive).  It is re-activate[d] again at |\begin{document}|.
+% We also need to make sure that the shorthands are active during the
+% processing of the \file{.aux} file.  Otherwise some citations may give
+% unexpected results in the printout when a shorthand was used in the optional
+% argument of |\bibitem| for example.''  This is done with
+% |\if@filesw \immediate\write\@mainaux{...}|.  In other words, the
+% catcode change is written in the \file{.aux} file itself!  Indeed, if you
+% inspect the file, you'll find them there.  Besides, there is still the
+% ominous ``except with KeepShorthandsActive''.
+%
+% However, the \emph{method} we're using here is not quite the same as the
+% usual run of the \file{.aux} file, because we're actively discarding the
+% lines for which the first token is not equal to \cs{zref@newlabel}.  I have
+% tested the famous sensitive case for this: \pkg{babel} \opt{french} and
+% labels with colons.  And things worked as expected.  Well, \emph{if}
+% \opt{KeepShorthandsActive} is enabled \emph{with \opt{french}} and we load
+% the package \emph{after babel} things do break, but not quite because of the
+% colons in the labels.  Even \pkg{siunitx} breaks in the same
+% conditions\dots{}
+%
+% For reference: About what are valid characters for use in labels:
+% \url{https://tex.stackexchange.com/a/18312}.  About some problems with
+% active colons: \url{https://tex.stackexchange.com/a/89470}.  About the
+% difference between L3 strings and token lists, see
+% \url{https://tex.stackexchange.com/a/446381}, in particular Joseph Wright's
+% comment: ``Strings are for data that will never be typeset, for example file
+% names, identifiers, etc.: if the material may be used in typesetting, it
+% should be a token list.''  See also moewe's (CW) answer in the same lines.
+% Which suggests using L3 strings for the reference labels might be a good
+% catch all approach, and possibly more robust.  David Carlisle's comment
+% about \pkg{inputenc} and how the strings work is a caveat (see
+% \url{https://tex.stackexchange.com/q/446123#comment1516961_446381}, thanks
+% David Carlisle).  Still\dots{} let's stick to tradition as long as it works,
+% \pkg{zref} already does a great job in this regard anyway.
+%
+%
+% \begin{variable}{\g_@@_auxfile_lblseq_prop}
+%    \begin{macrocode}
+\prop_new:N \g_@@_auxfile_lblseq_prop
+%    \end{macrocode}
+% \end{variable}
+%
+%    \begin{macrocode}
+\tl_gset:Nn \g_tmpa_tl { \c_sys_jobname_str .aux }
+\file_if_exist:nT { \g_tmpa_tl }
+  {
+%    \end{macrocode}
+% Retrieve the information from the \file{.aux} file, and store it in a
+% property list, so that the sequence can be retrieved in key-value fashion.
+%    \begin{macrocode}
+    \ior_open:Nn \g_tmpa_ior { \g_tmpa_tl }
+    \group_begin:
+      \int_zero:N \l_tmpa_int
+      \tl_clear:N \l_tmpa_tl
+      \tl_clear:N \l_tmpb_tl
+      \bool_set_false:N \l_tmpa_bool
+      \ior_map_variable:NNn \g_tmpa_ior \l_tmpa_tl
+        {
+          \tl_map_variable:NNn \l_tmpa_tl \l_tmpb_tl
+            {
+              \tl_if_eq:NnTF \l_tmpb_tl { \zref@newlabel }
+                {
+%    \end{macrocode}
+% Found a \cs{zref@label}, signal it.
+%    \begin{macrocode}
+                  \bool_set_true:N \l_tmpa_bool
+                }
+                {
+                  \bool_if:NTF \l_tmpa_bool
+                    {
+                      \bool_set_false:N \l_tmpa_bool
+                      \int_incr:N \l_tmpa_int
+                      \prop_gput:Nxx \g_@@_auxfile_lblseq_prop
+                        { \l_tmpb_tl } { \int_use:N \l_tmpa_int }
+                    }
+                    {
+%    \end{macrocode}
+% If there is not a match of the first token with \cs{zref@newlabel}, break
+% the loop and discard the rest of the line, to ensure no babel calls to
+% \cs{catcode} in the \file{.aux} file get expanded.  This also breaks the
+% loop and discards the rest of the \cs{zref@newlabel} lines after we got the
+% label we wanted, since we reset \cs{l_tmpa_bool} in the \texttt{T} branch.
+%    \begin{macrocode}
+                      \tl_map_break:
+                    }
+                }
+            }
+        }
+    \group_end:
+    \ior_close:N \g_tmpa_ior
+  }
+%    \end{macrocode}
+%
+%
+%
+% The alternate method I had considered (more than that...) for this was using
+% yx coordinates supplied by \pkg{zref}'s \pkg{savepos} module.  However, this
+% approach brought in a number of complexities, including the need to patch
+% either \cs{zref@label} or \cs{ZREF@label}.  In addition, the technique was
+% at the bottom fundamentally flawed.  Ulrike Fischer was very much right when
+% she said that ``structure and position are two different beasts''
+% (\url{https://github.com/ho-tex/zref/issues/12#issuecomment-880022576}).  It
+% is true that the checks based on it behaved decently, in normal
+% circumstances, and except for outrageous label placement by the user, it
+% would return the expected results.  We don't really need exact coordinates
+% to decide ``above/below''.  Besides, it would do an exact job for the
+% dedicated target macros of this package.  It is also true that the ``page''
+% for \cs{pageref} is stored with the value of where the \cs{label} is placed,
+% wherever that may be.  However, I could not conceive a situation where the
+% \texttt{yx} criterion would perform clearly better than the
+% \texttt{labelseq} one.  And, if that's the case, and considering the
+% complications it brings, this check was a slippery slope.  All in all, I've
+% decided to drop it.
+%
+% There's an interesting answer by David Carlisle at
+% \url{https://tex.stackexchange.com/a/419189} to decide whether to typeset
+% ``above'' or ``below'' using a method which essentially boils down to
+% ``position in the \file{.aux} file''.
+%
+%
+%
+% \subsection{Counter}
+%
+% We need a dedicated counter for the labels generated by the checks and
+% targets.  The value of the counter is not relevant, we just need it to be
+% able to set proper anchors with \cs{refstepcounter}.  And, since I couldn't
+% find a \cs{refstepcounter} equivalent in L3, we use a standard 2e counter
+% here.  I'm also using the technique to ensure the counter is never reset
+% that is used by \file{zref-abspage.sty} and \cs{zref@require@unique}.
+% Indeed, the requirements are the same, we need numbers ensured to be
+% \emph{unique} in the counter.
+%
+%    \begin{macrocode}
+\begingroup
+  \let \@addtoreset \ltx@gobbletwo
+  \newcounter { zrefcheck }
+\endgroup
+\setcounter { zrefcheck } { 0 }
+%    \end{macrocode}
+%
+%
+%
+% \subsection{Label formats}
+%
+% \begin{macro}{\@@_check_lblfmt:n}
+%   \begin{syntax}
+%     \cs{@@_check_lblfmt:n} \Arg{check id int}
+%   \end{syntax}
+%    \begin{macrocode}
+\cs_new:Npn \@@_check_lblfmt:n #1 { zrefcheck@ \int_use:N #1 }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_end_lblfmt:n}
+%   \begin{syntax}
+%     \cs{@@_end_lblfmt:n} \Arg{label}
+%   \end{syntax}
+%    \begin{macrocode}
+\cs_new:Npn \@@_end_lblfmt:n #1 { #1 @zrefcheck }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \subsection{Property values}
+%
+%
+% \begin{macro}[int]{\zrefcheck_get_astl:nnn}
+%   A convenience function to retrieve property values from labels.  Uses
+%   \cs{g_@@_auxfile_lblseq_prop} for \texttt{lblseq}, and calls
+%   \cs{zref@extractdefault} for everything else.
+%
+%   We cannot use the ``return value'' of \cs{@@_get_astl:nnn} or
+%   \cs{@@_get_asint:nnn} directly, because we need to use the retrieved
+%   property values as arguments in the checks, however we use here a number
+%   of non-expandable operations.  Hence, we receive a local \texttt{tl/int}
+%   variable as third argument and set that, so that it is available (and
+%   expandable) at the place of use, and also make these functions `protected'
+%   (see egreg's \url{https://tex.stackexchange.com/a/572903}: ``a function
+%   that performs assignments should be \texttt{protected}'').  For this
+%   reason, we do not group here, because we are passing a local variable
+%   around, but it is expected this function will be called within a group.
+%
+%   We're returning \cs{c_empty_tl} in case of failure to find the intended
+%   property value (explicitly in \cs{zref@extractdefault}, but that is also
+%   what \cs{tl_clear:N} does).
+%
+%   \begin{syntax}
+%     \cs{zrefcheck_get_astl:nnn} \Arg{label} \Arg{prop} \Arg{tl var}
+%   \end{syntax}
+%    \begin{macrocode}
+\cs_new_protected:Npn \zrefcheck_get_astl:nnn #1#2#3
+  {
+    \tl_clear:N #3
+    \tl_if_eq:nnTF {#2} { lblseq }
+      {
+        \prop_get:NnNF \g_@@_auxfile_lblseq_prop {#1} #3
+          {
+            \msg_warning:nnnn { zref-check }
+              { property-not-in-label } {#1} {#2}
+          }
+      }
+      {
+%    \end{macrocode}
+% There are three things we need to check to ensure the information we are
+% trying to retrieve here exists: the existence of \Arg{label}, the existence
+% of \Arg{prop}, and whether the particular label being queried actually
+% contains the property.  If that's all in place, the value is passed to the
+% checks, and it's their responsibility to verify the consistency of this
+% value.
+%
+% The existence of the label is an user facing issue, and a warning for this
+% is placed in \cs{@@_zcheck:nnnnn} (and done with \cs{zref@refused}).  We do
+% check here though for definition with \cs{zref@ifrefundefined} and silently
+% do nothing if it is undefined, to reduce irrelevant warnings in a fresh
+% compilation round.  The other two are more ``internal'' problems, either
+% some problem with the checks, or with the configuration of \pkg{zref} for
+% their consumption.
+%    \begin{macrocode}
+        \zref@ifrefundefined {#1}
+          {}
+          {
+            \zref@ifpropundefined {#2}
+              { \msg_warning:nnnn { zref-check } { property-undefined } {#2} }
+              {
+                \zref@ifrefcontainsprop {#1} {#2}
+                  {
+                    \tl_set:Nx #3
+                      { \zref@extractdefault {#1} {#2} { \c_empty_tl } }
+                  }
+                  {
+                    \msg_warning:nnnn
+                      { zref-check } { property-not-in-label } {#1} {#2}
+                  }
+              }
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{variable}{\l_@@_integer_bool}
+%   \cs{zrefcheck_get_asint:nnn} is a very convenient wrapper around the more
+%   general \cs{zrefcheck_get_astl:nnn}, since almost always we'll be wanting
+%   to compare numbers in the checks.  However, it is quite hard for it to
+%   ensure an integer is \emph{always} returned in the case of errors.  And
+%   those do occur, even in a well structured document (e.g., in a first round
+%   of compilation).  To complicate things, the L3 integer predicates are
+%   \emph{very} sensitive to receiving any other kind of data, and they
+%   \emph{scream}.  To handle this \cs{zrefcheck_get_asint:nnn} uses
+%   \cs{l_@@_integer_bool} to signal if an integer could not be returned.  To
+%   use this function always set \cs{l_@@_integer_bool} to true first, then
+%   call it as much as you need.  If any of these calls got is returning
+%   anything which is not an integer, \cs{l_@@_integer_bool} will have been
+%   set to false, and you should check that this hasn't happened before
+%   actually comparing the integers (\cs{bool_lazy_and:nnTF} is your friend).
+%    \begin{macrocode}
+\bool_new:N \l_@@_integer_bool
+%    \end{macrocode}
+% \end{variable}
+%
+% \begin{variable}{\l_@@_propval_tl}
+%    \begin{macrocode}
+\tl_new:N \l_@@_propval_tl
+%    \end{macrocode}
+% \end{variable}
+%
+% \begin{macro}[int]{\zrefcheck_get_asint:nnn}
+%   \begin{syntax}
+%     \cs{zrefcheck_get_asint:nnn} \Arg{label} \Arg{prop} \Arg{int var}
+%   \end{syntax}
+%    \begin{macrocode}
+\cs_new_protected:Npn \zrefcheck_get_asint:nnn #1#2#3
+  {
+    \zrefcheck_get_astl:nnn {#1} {#2} { \l_@@_propval_tl }
+    \@@_is_integer:nTF { \l_@@_propval_tl }
+      {
+%    \end{macrocode}
+% Make it an integer data type.
+%    \begin{macrocode}
+        \int_set:Nn #3 { \int_eval:n { \l_@@_propval_tl } }
+      }
+      {
+        \bool_set_false:N \l_@@_integer_bool
+        \zref@ifrefundefined {#1}
+%    \end{macrocode}
+% Keep silent if ref is undefined to reduce irrelevant warnings in a fresh
+% compilation round.  Again, this is also not the point to check for undefined
+% references, that's a task for \cs{@@_zcheck:nnnnn}.
+%    \begin{macrocode}
+          { }
+          {
+            \msg_warning:nnnn { zref-check }
+              { property-not-integer } {#2} {#1}
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+%
+% \section{User interface}
+%
+%
+% \subsection{\cs{zcheck}}
+%
+% \begin{macro}[int]{\zcheck}
+%   The \marg{text} argument of \cs{zcheck} should not be long, since
+%   \cs{hyperlink} cannot receive a long argument.  Besides, there is no
+%   reason for it to be.  Note, also, that hyperlinks crossing page boundaries
+%   have some known issues: \url{https://tex.stackexchange.com/a/182769},
+%   \url{https://tex.stackexchange.com/a/54607},
+%   \url{https://tex.stackexchange.com/a/179907}.
+%
+%   \begin{syntax}
+%     \cs{zcheck}\meta{*}\oarg{checks/options}\marg{labels}\marg{text}
+%   \end{syntax}
+%
+%    \begin{macrocode}
+\NewDocumentCommand \zcheck { s O { } m m }
+  { \zref@wrapper@babel \@@_zcheck:nnnn {#3} {#1} {#2} {#4} }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{variable}
+%   {
+%     \l_@@_zcheck_labels_seq ,
+%     \g_@@_id_int ,
+%     \l_@@_checkbeg_tl ,
+%     \l_@@_link_label_tl ,
+%     \l_@@_link_anchor_tl ,
+%     \l_@@_link_star_bool
+%   }
+%    \begin{macrocode}
+\seq_new:N \l_@@_zcheck_labels_seq
+\int_new:N \g_@@_id_int
+\tl_new:N \l_@@_checkbeg_tl
+\tl_new:N \l_@@_link_label_tl
+\tl_new:N \l_@@_link_anchor_tl
+\bool_new:N \l_@@_link_star_bool
+%    \end{macrocode}
+% \end{variable}
+%
+% \begin{macro}{\@@_zcheck:nnnn}
+%   An intermediate internal function, which does the actual heavy lifting,
+%   and places \Arg{labels} as first argument, so that it can be protected by
+%   \cs{zref@wrapper@babel} in \cs{zcheck}.  This is the same procedure as the
+%   one used in the definition of \cs{zref} in \file{zref-user.sty} for
+%   protection of \pkg{babel} active characters.
+%
+%   \begin{syntax}
+%     \cs{@@_zcheck:nnnn} \Arg{labels} \Arg{*} \Arg{checks/options} \Arg{text}
+%   \end{syntax}
+%
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_zcheck:nnnn #1#2#3#4
+  {
+    \group_begin:
+%    \end{macrocode}
+% Process local options and checks.
+%    \begin{macrocode}
+      \keys_set:nn { zref-check / zcheck } {#3}
+      \seq_set_from_clist:Nn \l_@@_zcheck_labels_seq {#1}
+%    \end{macrocode}
+% Names of the labels for this zcheck call.
+%    \begin{macrocode}
+      \int_gincr:N \g_@@_id_int
+      \tl_set:Nx \l_@@_checkbeg_tl
+        { \@@_check_lblfmt:n { \g_@@_id_int } }
+%    \end{macrocode}
+% Set checkbeg label.
+%    \begin{macrocode}
+      \zref@labelbylist { \l_@@_checkbeg_tl } { zrefcheck-check }
+%    \end{macrocode}
+% Typeset \marg{text}, with hyperlink when appropriate.  Even though the first
+% argument can receive a list of labels, there is no meaningful way to set
+% links to multiple targets.  Hence, only the first one is considered for
+% hyperlinking.
+%    \begin{macrocode}
+      \seq_get:NN \l_@@_zcheck_labels_seq \l_@@_link_label_tl
+      \bool_set:Nn \l_@@_link_star_bool {#2}
+      \zref@ifrefundefined { \l_@@_link_label_tl }
+%    \end{macrocode}
+% If the reference is undefined, just typeset.
+%    \begin{macrocode}
+        {#4}
+        {
+          \bool_if:nTF
+            {
+              \l_@@_use_hyperref_bool &&
+              ! \l_@@_link_star_bool
+            }
+            {
+              \exp_args:Nx \zrefcheck_get_astl:nnn
+                { \l_@@_link_label_tl }
+                { anchor } { \l_@@_link_anchor_tl }
+              \hyperlink { \l_@@_link_anchor_tl } {#4}
+            }
+            {#4}
+        }
+%    \end{macrocode}
+% Set checkend label.
+%    \begin{macrocode}
+      \bool_if:NT \l_@@_zcheck_end_label_bool
+        {
+          \zref@labelbylist
+            { \@@_end_lblfmt:n { \l_@@_checkbeg_tl } }
+            { zrefcheck-end }
+        }
+%    \end{macrocode}
+% Check if \meta{labels} are defined.
+%    \begin{macrocode}
+      \seq_map_function:NN \l_@@_zcheck_labels_seq \zref@refused
+%    \end{macrocode}
+% Run the checks.
+%    \begin{macrocode}
+      \@@_run_checks:nnx { \l_@@_zcheck_checks_seq }
+        { \l_@@_zcheck_labels_seq } { \l_@@_checkbeg_tl }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Targets}
+%
+% \begin{macro}[int]{\zctarget}
+%   \begin{syntax}
+%     \cs{zctarget}\marg{label}\marg{text}
+%   \end{syntax}
+%    \begin{macrocode}
+\NewDocumentCommand \zctarget { m +m }
+  {
+%    \end{macrocode}
+% Group contents of \cs{zctarget} to avoid leaking the effects of
+% \cs{refstepcounter} over \cs{@currentlabel}.  The same care is not needed
+% for \texttt{zcregion}, since the environment is already grouped.
+%    \begin{macrocode}
+    \group_begin:
+    \refstepcounter { zrefcheck }
+    \zref@wrapper@babel \zref@label {#1}
+    #2
+    \tl_if_empty:nF {#2}
+      {
+        \zref@wrapper@babel
+          \zref@labelbylist { \@@_end_lblfmt:n {#1} } { zrefcheck-end }
+      }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}[int]{zcregion}
+%   \begin{syntax}
+%     |\begin{zcregion}|\marg{label}
+%       |  ...|
+%     |\end{zcregion}|
+%   \end{syntax}
+%    \begin{macrocode}
+\NewDocumentEnvironment {zcregion} { m }
+  {
+    \refstepcounter { zrefcheck }
+    \zref@wrapper@babel \zref@label {#1}
+  }
+  {
+    \zref@wrapper@babel
+      \zref@labelbylist { \@@_end_lblfmt:n {#1} } { zrefcheck-end }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \section{Checks}
+%
+% What is needed define a \pkg{zref-check} check?
+%
+% First, a conditional function defined with:
+%
+% \cs{prg_new_protected_conditional:Npnn} \cs{@@_check_\meta{check}:nn} |#1#2 { F }|
+%
+% \noindent where \meta{check} is the name of the check, the first argument is
+% the \Arg{label} and the second the \Arg{reference}.  The existence of the
+% check is verified by the existence of the function with this name-scheme
+% (and signatures).  As usual, this function must return either
+% \cs{prg_return_true:} or \cs{prg_return_false:}.  Of course, you can define
+% other variants if you need them internally, it is just that what the package
+% does expect and verifies is the existence of the \texttt{:nnF} variant.
+%
+% Note that the naming convention of the checks adopts the perspective of the
+% \meta{reference}.  That is, the ``before'' check should return true if the
+% \meta{label} occurs before the ``reference''.
+%
+% The check conditionals are expected to retrieve \pkg{zref}'s label
+% information with \cs{zrefcheck_get_astl:nnn} or
+% \cs{zrefcheck_get_asint:nnn}.  Also, technically speaking, the
+% \meta{reference} argument is also a label, actually a pair of them, as set
+% by \cs{zcheck}.  For the ``labels'', any \pkg{zref} property in \pkg{zref}'s
+% main list is available, the ``references'' store the properties in the
+% \texttt{zrefcheck} list.  Besides those, there is also the \texttt{lblseq}
+% (fake) property (for either ``labels'' or ``references''), stored in
+% \cs{g_@@_auxfile_lblseq_prop}.
+%
+% Second, the required properties of labels and references must be duly
+% registered for \pkg{zref}.  This can be done with \cs{zref@newprop},
+% \cs{zref@addprop} and friends, as usual.
+%
+% Third, the check must be registered as a key which gets setup in
+% \cs{zcheck} by the \texttt{ zref-check / zcheck } key set.
+%
+% Fourth, if the check requires only a single label to work, it should be
+% registered in \cs{c_@@_single_label_checks_seq}.
+%
+%
+% \subsection{Single label checks}
+%
+%
+% Some checks do not require an ``end label'' in \cs{zcheck}, notably the
+% sectioning ones, which don't rely on page boundaries.  Hence, in case
+% \cs{zcheck} only calls checks in this set, we can spare the setting of the
+% end label.
+%
+% \begin{variable}{\c_@@_single_label_checks_seq}
+%    \begin{macrocode}
+\seq_const_from_clist:Nn \c_@@_single_label_checks_seq
+  {
+    thischap ,
+    prevchap ,
+    nextchap ,
+    chapsbefore ,
+    chapsafter ,
+    thissec ,
+    prevsec ,
+    nextsec ,
+    secsbefore ,
+    secsafter ,
+  }
+%    \end{macrocode}
+% \end{variable}
+%
+%
+%
+% \subsection{Setup}
+%
+% \begin{variable}{\l_@@_zcheck_checks_seq,\l_@@_end_label_required_bool}
+%    \begin{macrocode}
+\seq_new:N \l_@@_zcheck_checks_seq
+\bool_new:N \l_@@_zcheck_end_label_bool
+%    \end{macrocode}
+% \end{variable}
+%
+%
+% First, we inherit all the main options into the keys of \texttt{zref-check /
+% zcheck}.
+%    \begin{macrocode}
+\keys_define:nn { } { zref-check / zcheck .inherit:n = zref-check }
+%    \end{macrocode}
+%
+% Then we add the checks to it.
+%    \begin{macrocode}
+\clist_map_inline:nn
+  {
+    thispage ,
+    prevpage ,
+    nextpage ,
+    facing ,
+    otherpage ,
+    pagegap ,
+    above ,
+    below ,
+    pagesbefore ,
+    ppbefore ,
+    pagesafter ,
+    ppafter ,
+    before ,
+    after ,
+    thischap ,
+    prevchap ,
+    nextchap ,
+    chapsbefore ,
+    chapsafter ,
+    thissec ,
+    prevsec ,
+    nextsec ,
+    secsbefore ,
+    secsafter ,
+    close ,
+    far ,
+  }
+  {
+    \keys_define:nn { zref-check / zcheck }
+      {
+        #1 .code:n =
+          {
+            \seq_put_right:Nn \l_@@_zcheck_checks_seq {#1}
+            \seq_if_in:NnF \c_@@_single_label_checks_seq {#1}
+              { \bool_set_true:N \l_@@_zcheck_end_label_bool }
+          } ,
+        #1 .value_forbidden:n = true ,
+     }
+  }
+%    \end{macrocode}
+%
+%
+%
+% \subsection{Running}
+%
+% \begin{macro}{\@@_run_checks:nnn}
+%   \begin{syntax}
+%     \cs{@@_run_checks:nnn} \Arg{checks} \Arg{labels} \Arg{reference}
+%   \end{syntax}
+%   \meta{checks} are expected to be received as a sequence variable.
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_run_checks:nnn #1#2#3
+  {
+    \group_begin:
+      \seq_map_inline:Nn #2
+        {
+          \seq_map_inline:Nn #1
+            { \@@_do_check:nnn {####1} {##1} {#3} }
+        }
+    \group_end:
+  }
+\cs_generate_variant:Nn \@@_run_checks:nnn { nnx }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{variable}
+%   {
+%     \l_@@_passedcheck_bool ,
+%     \l_@@_onpage_bool ,
+%     \c_@@_onpage_checks_seq
+%   }
+%    \begin{macrocode}
+\bool_new:N \l_@@_passedcheck_bool
+\bool_new:N \l_@@_onpage_bool
+\seq_const_from_clist:Nn \c_@@_onpage_checks_seq
+  { above , below , before , after }
+%    \end{macrocode}
+% \end{variable}
+%
+%
+% Variant not provided by \pkg{expl3}.
+%    \begin{macrocode}
+\cs_generate_variant:Nn \exp_args:Nnno { Nnoo }
+%    \end{macrocode}
+%
+% \begin{macro}{\@@_do_check:nnn}
+%   \begin{syntax}
+%     \cs{@@_do_check:nnn} \Arg{check} \Arg{label beg} \Arg{reference beg}
+%   \end{syntax}
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_do_check:nnn #1#2#3
+  {
+    \group_begin:
+%    \end{macrocode}
+% \meta{label beg} may be defined or not, it is arbitrary user input.  Whether
+% this is the case is checked in \cs{@@_zcheck:nnnnn}, and due warning already
+% ensues.  And there is no point in checking ``relative position'' of an
+% undefined label.  Hence, in the absence of |#2|, we do nothing at all here.
+%    \begin{macrocode}
+      \zref@ifrefundefined {#2}
+        {}
+        {
+          \tl_if_empty:nF {#1}
+            {
+              \bool_set_true:N \l_@@_passedcheck_bool
+              \bool_set_false:N \l_@@_onpage_bool
+              \cs_if_exist:cTF { @@_check_ #1 :nnF }
+                {
+                  % ``label beg'' vs ``reference beg''.
+                  \use:c { @@_check_ #1 :nnF }
+                    {#2} {#3}
+                    { \bool_set_false:N \l_@@_passedcheck_bool }
+                  % ``reference end'' \emph{may} exist or not depending on the
+                  % checks.
+                  \zref@ifrefundefined { \@@_end_lblfmt:n {#3} }
+                    {
+                      % ``label end'' \emph{may} have been created by the
+                      % target commands.
+                      \zref@ifrefundefined { \@@_end_lblfmt:n {#2} }
+                        {}
+                        {
+                          % ``label end'' vs ``reference beg''.
+                          \exp_args:Nno \use:c { @@_check_ #1 :nnF }
+                            { \@@_end_lblfmt:n {#2} } {#3}
+                            { \bool_set_false:N \l_@@_passedcheck_bool }
+                        }
+                    }
+                    {
+                      % ``label beg'' vs ``reference end''.
+                      \exp_args:Nnno \use:c { @@_check_ #1 :nnF }
+                        {#2} { \@@_end_lblfmt:n {#3} }
+                        { \bool_set_false:N \l_@@_passedcheck_bool }
+                      % ``label end'' \emph{may} have been created by the
+                      % target commands.
+                      \zref@ifrefundefined { \@@_end_lblfmt:n {#2} }
+                        {}
+                        {
+                          % ``label end'' vs ``reference beg''.
+                          \exp_args:Nno \use:c { @@_check_ #1 :nnF }
+                            { \@@_end_lblfmt:n {#2} } {#3}
+                            { \bool_set_false:N \l_@@_passedcheck_bool }
+                          % ``label end'' vs ``reference end''.
+                          \exp_args:Nnoo \use:c { @@_check_ #1 :nnF }
+                            { \@@_end_lblfmt:n {#2} }
+                            { \@@_end_lblfmt:n {#3} }
+                            { \bool_set_false:N \l_@@_passedcheck_bool }
+                        }
+                    }
+%    \end{macrocode}
+% Handle option \opt{onpage=msg}.  This is only granted for tests which
+% perform ``within this page'' checks (\opt{above}, \opt{below}, \opt{before},
+% \opt{after}) \emph{and} if any of the two by two checks uses a ``within this
+% page'' comparison.  If both conditions are met, signal.
+%    \begin{macrocode}
+                  \seq_if_in:NnT \c_@@_onpage_checks_seq {#1}
+                    {
+                      \@@_check_thispage:nnT
+                        {#2} {#3}
+                        { \bool_set_true:N \l_@@_onpage_bool }
+                      \zref@ifrefundefined { \@@_end_lblfmt:n {#3} }
+                        {
+                          \zref@ifrefundefined { \@@_end_lblfmt:n {#2} }
+                            {}
+                            {
+                              \@@_check_thispage:nnT
+                                { \@@_end_lblfmt:n {#2} } {#3}
+                                { \bool_set_true:N \l_@@_onpage_bool }
+                            }
+                        }
+                        {
+                          \@@_check_thispage:nnT
+                            {#2} { \@@_end_lblfmt:n {#3} }
+                            { \bool_set_true:N \l_@@_onpage_bool }
+                          \zref@ifrefundefined { \@@_end_lblfmt:n {#2} }
+                            {}
+                            {
+                              \@@_check_thispage:nnT
+                                { \@@_end_lblfmt:n {#2} } {#3}
+                                { \bool_set_true:N \l_@@_onpage_bool }
+                              \@@_check_thispage:nnT
+                                { \@@_end_lblfmt:n {#2} }
+                                { \@@_end_lblfmt:n {#3} }
+                                { \bool_set_true:N \l_@@_onpage_bool }
+                            }
+                        }
+                    }
+                  \bool_if:NTF \l_@@_passedcheck_bool
+                    {
+                      \bool_if:nT
+                        {
+                          \l_@@_msgonpage_bool &&
+                          \l_@@_onpage_bool
+                        }
+                        {
+                          \@@_message:nnnx { double-check } {#1} {#2}
+                            { \zref@extractdefault {#3} {page} {'unknown'} }
+                        }
+                    }
+                    {
+                      \@@_message:nnnx { check-failed } {#1} {#2}
+                        { \zref@extractdefault {#3} {page} {'unknown'} }
+                    }
+                }
+                { \msg_warning:nnn { zref-check } { check-missing } {#1} }
+            }
+        }
+    \group_end:
+  }
+\cs_generate_variant:Nn \@@_do_check:nnn { nnV }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Conditionals}
+%
+% \begin{variable}
+%   {
+%     \l_@@_lbl_int ,
+%     \l_@@_ref_int ,
+%     \l_@@_lbl_b_int ,
+%     \l_@@_ref_b_int
+%   }
+%   More readable scratch variables for the tests.
+%    \begin{macrocode}
+\int_new:N \l_@@_lbl_int
+\int_new:N \l_@@_ref_int
+\int_new:N \l_@@_lbl_b_int
+\int_new:N \l_@@_ref_b_int
+%    \end{macrocode}
+% \end{variable}
+%
+%
+% \subsubsection{This page}
+%
+% \begin{macro}{\@@_check_thispage:nn, \@@_check_otherpage:nn}
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_thispage:nn #1#2 { T , F , TF }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int } &&
+%    \end{macrocode}
+% `0' is the default value of \texttt{abspage}, but this value should not
+% happen normally for this property, since even the first page, after it gets
+% shipped out, will receive value `1'.  So, if we do find `0' here, better
+% signal something is wrong.  This comment extends to all page number checks.
+%    \begin{macrocode}
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_otherpage:nn #1#2 { T , F , TF }
+  {
+    \@@_check_thispage:nnTF {#1} {#2}
+      { \prg_return_false: }
+      { \prg_return_true:  }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{On page}
+%
+% \begin{macro}{\@@_check_above:nn, \@@_check_below:nn}
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_above:nn #1#2 { F , TF }
+  {
+    \group_begin:
+      \@@_check_thispage:nnTF {#1} {#2}
+        {
+          \bool_set_true:N \l_@@_integer_bool
+          \zrefcheck_get_asint:nnn {#1} { lblseq } { \l_@@_lbl_int }
+          \zrefcheck_get_asint:nnn {#2} { lblseq } { \l_@@_ref_int }
+          \bool_lazy_and:nnTF
+            { \l_@@_integer_bool }
+            {
+              \int_compare_p:nNn
+                { \l_@@_lbl_int } < { \l_@@_ref_int } &&
+              ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+              ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+            }
+            { \group_insert_after:N \prg_return_true:  }
+            { \group_insert_after:N \prg_return_false: }
+        }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_below:nn #1#2 { F , TF }
+  {
+    \@@_check_thispage:nnTF {#1} {#2}
+      {
+        \@@_check_above:nnTF {#1} {#2}
+          { \prg_return_false: }
+          { \prg_return_true:  }
+      }
+      { \prg_return_false: }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Before / After}
+%
+% \begin{macro}{\@@_check_before:nn, \@@_check_after:nn}
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_before:nn #1#2 { F }
+  {
+    \@@_check_pagesbefore:nnTF {#1} {#2}
+      { \prg_return_true: }
+      {
+        \@@_check_above:nnTF {#1} {#2}
+          { \prg_return_true:  }
+          { \prg_return_false: }
+      }
+  }
+\prg_new_protected_conditional:Npnn \@@_check_after:nn #1#2 { F }
+  {
+    \@@_check_pagesafter:nnTF {#1} {#2}
+      { \prg_return_true: }
+      {
+        \@@_check_below:nnTF {#1} {#2}
+          { \prg_return_true:  }
+          { \prg_return_false: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Pages}
+%
+% \begin{macro}
+%   {
+%     \@@_check_nextpage:nn ,
+%     \@@_check_prevpage:nn ,
+%     \@@_check_pagesbefore:nn ,
+%     \@@_check_ppbefore:nn ,
+%     \@@_check_pagesafter:nn ,
+%     \@@_check_ppafter:nn ,
+%     \@@_check_pagegap:nn ,
+%     \@@_check_facing:nn
+%   }
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_nextpage:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int + 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_prevpage:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int - 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_pagesbefore:nn #1#2 { F , TF }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } < { \l_@@_ref_int } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\cs_new_eq:NN \@@_check_ppbefore:nnF \@@_check_pagesbefore:nnF
+\prg_new_protected_conditional:Npnn \@@_check_pagesafter:nn #1#2 { F , TF }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } > { \l_@@_ref_int } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\cs_new_eq:NN \@@_check_ppafter:nnF \@@_check_pagesafter:nnF
+\prg_new_protected_conditional:Npnn \@@_check_pagegap:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \int_abs:n { \l_@@_lbl_int - \l_@@_ref_int } } > { 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_facing:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+%    \end{macrocode}
+% There exists no ``facing'' page if the document is not twoside.
+%    \begin{macrocode}
+          \legacy_if_p:n { @twoside } &&
+%    \end{macrocode}
+% Now we test ``facing''.
+%    \begin{macrocode}
+          (
+            (
+              \int_if_odd_p:n { \l_@@_ref_int } &&
+              \int_compare_p:nNn
+                { \l_@@_lbl_int } = { \l_@@_ref_int - 1 }
+            ) ||
+            (
+              \int_if_even_p:n { \l_@@_ref_int } &&
+              \int_compare_p:nNn
+                { \l_@@_lbl_int } = { \l_@@_ref_int + 1 }
+            )
+          ) &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Close / Far}
+%
+% \begin{macro}{\@@_check_close:nn, \@@_check_far:nn}
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_close:nn #1#2 { F , TF }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { abspage } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { abspage } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \int_abs:n { \l_@@_lbl_int - \l_@@_ref_int } }
+            <
+            { \l_@@_close_range_int + 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_far:nn #1#2 { F }
+  {
+    \@@_check_close:nnTF {#1} {#2}
+      { \prg_return_false: }
+      { \prg_return_true:  }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Chapter}
+%
+% \begin{macro}
+%   {
+%     \@@_check_thischap:nn ,
+%     \@@_check_nextchap:nn ,
+%     \@@_check_prevchap:nn ,
+%     \@@_check_chapsafter:nn ,
+%     \@@_check_chapsbefore:nn
+%   }
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_thischap:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int } &&
+%    \end{macrocode}
+% `0' is the default value of \texttt{zc@abschap} property, and means here no
+% \cs{chapter} has yet been issued, therefore it cannot be ``this chapter'',
+% nor ``the next chapter'', nor ``the previous chapter'', it is just ``no
+% chapter''.  Note, however, that a statement about a ``future'' chapter does
+% not require the ``current'' one to exist.  This comment extends to all
+% chapter checks.
+%    \begin{macrocode}
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_nextchap:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int + 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_prevchap:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int - 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_chapsafter:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } > { \l_@@_ref_int } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_chapsbefore:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } < { \l_@@_ref_int } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsubsection{Section}
+%
+% \begin{macro}
+%   {
+%     \@@_check_thissec:nn ,
+%     \@@_check_nextsec:nn ,
+%     \@@_check_prevsec:nn ,
+%     \@@_check_secsafter:nn ,
+%     \@@_check_secsbefore:nn
+%   }
+%    \begin{macrocode}
+\prg_new_protected_conditional:Npnn \@@_check_thissec:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abssec  } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abssec  } { \l_@@_ref_int }
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_b_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_b_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_b_int } = { \l_@@_ref_b_int } &&
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int } &&
+%    \end{macrocode}
+% `0' is the default value of \texttt{zc@abssec} property, and means here no
+% \cs{section} has yet been issued since its counter has been reset, which
+% occurs at the beginning of the document and at every chapter.  Hence, as is
+% the case for chapters, `0' is just ``not a section''.  The same observation
+% about the need of the ``current'' section to exist to be able to refer to a
+% ``future'' one also holds.  This comment extends to all section checks.
+%    \begin{macrocode}
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_nextsec:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abssec  } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abssec  } { \l_@@_ref_int }
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_b_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_b_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_b_int } = { \l_@@_ref_b_int } &&
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int + 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_prevsec:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abssec  } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abssec  } { \l_@@_ref_int }
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_b_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_b_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_b_int } = { \l_@@_ref_b_int } &&
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } = { \l_@@_ref_int - 1 } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_secsafter:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abssec  } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abssec  } { \l_@@_ref_int }
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_b_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_b_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_b_int } = { \l_@@_ref_b_int } &&
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } > { \l_@@_ref_int } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+\prg_new_protected_conditional:Npnn \@@_check_secsbefore:nn #1#2 { F }
+  {
+    \group_begin:
+      \bool_set_true:N \l_@@_integer_bool
+      \zrefcheck_get_asint:nnn {#1} { zc@abssec  } { \l_@@_lbl_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abssec  } { \l_@@_ref_int }
+      \zrefcheck_get_asint:nnn {#1} { zc@abschap } { \l_@@_lbl_b_int }
+      \zrefcheck_get_asint:nnn {#2} { zc@abschap } { \l_@@_ref_b_int }
+      \bool_lazy_and:nnTF
+        { \l_@@_integer_bool }
+        {
+          \int_compare_p:nNn
+            { \l_@@_lbl_b_int } = { \l_@@_ref_b_int } &&
+          \int_compare_p:nNn
+            { \l_@@_lbl_int } < { \l_@@_ref_int } &&
+          ! \int_compare_p:nNn { \l_@@_lbl_int } = { 0 } &&
+          ! \int_compare_p:nNn { \l_@@_ref_int } = { 0 }
+        }
+        { \group_insert_after:N \prg_return_true:  }
+        { \group_insert_after:N \prg_return_false: }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \section{\pkg{zref-clever} integration}
+%
+%
+% There are four tasks \pkg{zref-clever} needs to do, in order to offer
+% integration with \pkg{zref-check} from the options of \cs{zcref}: i) set the
+% ``beg label''; ii) set the checks options; iii) run the checks; iv)
+% (possibly) set the ``end label''.  Since `ii)' can be done directly by
+% running |\keys_set:nn { zref-check / zcheck }| on the options received, we
+% provide convenience functions for the other three tasks.
+%
+%
+% \begin{macro}
+%   {
+%     \zrefcheck_zcref_beg_label: ,
+%     \zrefcheck_zcref_end_label_maybe: ,
+%     \zrefcheck_zcref_run_checks_on_labels:n
+%   }
+%    \begin{macrocode}
+\cs_new_protected:Npn \zrefcheck_zcref_beg_label:
+  {
+    \int_gincr:N \g_@@_id_int
+    \tl_set:Nx \l_@@_checkbeg_tl
+      { \@@_check_lblfmt:n { \g_@@_id_int } }
+    \zref@labelbylist { \l_@@_checkbeg_tl } { zrefcheck-check }
+  }
+\cs_new_protected:Npn \zrefcheck_zcref_end_label_maybe:
+  {
+    \bool_if:NT \l_@@_zcheck_end_label_bool
+      {
+        \zref@labelbylist
+          { \@@_end_lblfmt:n { \l_@@_checkbeg_tl } }
+          { zrefcheck-end }
+      }
+  }
+\cs_new_protected:Npn \zrefcheck_zcref_run_checks_on_labels:n #1
+  {
+    \@@_run_checks:nnx
+      { \l_@@_zcheck_checks_seq } {#1} { \l_@@_checkbeg_tl }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \section{\pkg{zref-vario} integration}
+%
+%
+% \begin{macro}
+%   {
+%     \zrefcheck_zrefvario_label: ,
+%     \zrefcheck_zrefvario_run_check_on_label:n
+%   }
+%    \begin{macrocode}
+\cs_new_protected:Npn \zrefcheck_zrefvario_label:
+  {
+    \int_gincr:N \g_@@_id_int
+    \tl_set:Nx \l_@@_checkbeg_tl
+      { \@@_check_lblfmt:n { \g_@@_id_int } }
+    \zref@labelbylist { \l_@@_checkbeg_tl } { zrefcheck-zrefvario }
+  }
+\cs_new_protected:Npn \zrefcheck_zrefvario_run_check_on_label:nn #1#2
+  { \@@_do_check:nnV {#1} {#2} \l_@@_checkbeg_tl }
+\cs_generate_variant:Nn \zrefcheck_zrefvario_run_check_on_label:nn { Vn }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+% \PrintIndex
+%
+% \end{implementation}
+%

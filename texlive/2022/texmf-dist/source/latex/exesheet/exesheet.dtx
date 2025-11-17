@@ -1,0 +1,1515 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2020-2021 by Antoine Missier <antoine.missier@ac-toulouse.fr>
+% ----------------------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{exesheet.dtx}
+%</driver>
+%<class|package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<class>\ProvidesClass{exesheet}
+%<package>\ProvidesPackage{exesheet}
+%<*class|package>
+[2021/11/15 v1.3 .dtx exesheet file]
+%</class|package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+% uncomment the following lines if you want to use the exesheet class instead of ltxdoc
+%\usepackage{doc}
+%\AtBeginDocument{\MakeShortVerb{\|}}
+%\providecommand\marg[1]{{\ttfamily\{}\meta{#1}{\ttfamily\}}}
+%\providecommand\oarg[1]{{\ttfamily[}\meta{#1}{\ttfamily]}}
+\usepackage[notoc]{exesheet}
+\usepackage{schooldocs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{sectsty}
+\usepackage{pstricks}
+\psset{unit=1cm}
+\geometry{textwidth=355pt,vmarginratio=1:1,hmarginratio=3:2}
+% altered by schoodocs, now very close from the default geometry used by ltxdoc
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bs}{\textbackslash}
+
+\definecolor{darkbrown}{rgb}{0.5,0.1,0.1}
+\allsectionsfont{\sffamily\color{darkbrown}}
+\renewcommand{\labelexercisestyle}{\rmfamily\color{black}}
+\renewcommand{\labelsubpartstyle}{\rmfamily\color{black}}
+\renewcommand{\annexstyle}{\rmfamily\color{black}\MakeUppercase}
+\renewcommand{\correctionstyle}{\rmfamily\color{correctioncolor}}
+
+\displaypts
+%\diplaynotes gives a non desired margin ratio here
+% following instructions simulate \displaynotes without altering the margin ratio
+\setlength{\marginparwidth}{\oddsidemargin}
+\addtolength{\marginparwidth}{1in}
+\addtolength{\marginparwidth}{-\marginparsep}
+\setlength{\marginparwidth}{0.8\marginparwidth}
+\setboolean{marginpoints}{true}
+\setboolean{marginfullnotes}{true}
+
+\DisableCrossrefs
+%\CodelineIndex
+%\RecordChanges
+
+\title{The \textsf{exesheet} class and package}%\thanks{This document
+%    corresponds to \textsf{exesheet}~\fileversion, dated \filedate.}}
+%\author{Antoine Missier \\ \texttt{antoine.missier@ac-toulouse.fr}}
+\subject{Antoine Missier \\
+    \texttt{antoine.missier@ac-toulouse.fr}}
+\date{\filedate, \fileversion}
+\hypersetup{%
+    colorlinks,
+    linkcolor=blue,
+    pdftitle={exesheet},
+    pdfsubject={LaTeX class and package},
+    pdfauthor={Antoine Missier}
+}
+\begin{document}
+\DocInput{exesheet.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{613}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v0.0}{2010/09/01}{Initial personal version}
+% \changes{v0.9}{2020/01/02}{Initial documentation in french}
+% \changes{v1.0}{2020/07/22}{Initial public version with documentation in english}
+% \changes{v1.1}{2021/08/30}{Macro tablenum replaced by tablenum1, small modifications due
+% to changes in tasks package}
+% \changes{v1.2}{2021/09/18}{Bug correction in macros tablenum1 and tablenuma, using the translations package for internationalization}
+%\changes{v1.3}{2021/11/15}{Bad spacing in the exe macro and bug correction in the starred version of this macro}
+%
+% \GetFileInfo{exesheet.dtx}
+%
+% \maketitle
+% \tableofcontents
+%
+% \section{Introduction}
+%
+% The \textsf{exesheet} \emph{package} is used for typesetting exercise or exam sheets.
+% In addition, the \textsf{exesheet} \emph{class} loads the \textsf{schooldocs} package.
+% This one makes adjustments for margins and title and defines various layout styles 
+% with particular header and footer, appropriate for exercise sheets (among others).
+% See the \textsf{schooldocs} documentation for more details.
+% The \textsf{exesheet} \emph{class} is based on \textsf{article} 
+% and has the same options.
+%
+% Many other packages are dedicated to exercise sheets.
+% Most propose to encapsulate each exercise in an environment
+% while \textsf{exesheet} begins each exercise with the |\exercise| command, 
+% which works like a subsection (with same features)
+% and is suitable for documents consisting exclusively of exercises.
+% The package provides also alternative formatting, 
+% more relevant for short exercises.
+%
+% Another specificity of the \textsf{exesheet} package is specific settings
+% for enumeration lists, different from \LaTeX\ standard settings,
+% useful for the numbering of questions or answers inside an exercise.
+%
+% Other packages provide often more or less elaborate mechanisms
+% to manage the placement of answers.
+% \textsf{exesheet} has no such ambitions:
+% for all exercises of the sheet, we can display subject only, 
+% answer only or both, but always at the place they are inserted
+% in the source file. On the other hand this choice may be very flexible:
+% we can do a correct version for all exercises together, or a correct version per exercise,
+% per part (subpart of exercise), per question, per sub-question.
+%
+% Finally the original functionality of this package is the display 
+% of a detailed marking scheme,
+% with optional explanations, in the margin of exercise answers.
+%
+% There are two possible options: \texttt{notoc} (see \ref{par:notoc})
+% and \texttt{nosetlist} (see \ref{par:nosetlist}).
+%
+%\medskip
+% In the current document, a frame is used to highlight 
+% examples beside the rest of the documentation.
+%
+% \section{Titles}
+% \subsection{The \texttt{\bs exercise} command}
+
+% \DescribeMacro{\exercise}
+% Each exercise begins with the |\exercise|\oarg{opt} command. 
+% This command typesets \textbf{\exercisename}, as a document
+% subsection, followed by automatic numbering,
+% unique for the whole document.
+% The optional parameter \meta{opt} is used to put additional text
+% on the same title line, for example to precise a subject or a marking scheme.
+% |\exercise[ (to begin)]| yields:
+%
+% \exercise[ (to begin)]
+% \psframe(-0.25,1.3)(12.75,-0.4)
+% Try to use this first command now, it's easy.
+%
+% \bigskip
+% |\hrulefill| can be put in the optional argument to produce an horizontal rule.
+%
+% To bring additional text closer to the exercise number, 
+% we can use the |\unskip| command
+% which eliminates preceding space, see the following example, obtained with
+% |\exercise[\unskip : calculation\ \hrulefill]|:
+% \exercise[\unskip: calculation \ \hrulefill]
+% \psframe(-0.25,1.3)(12.75,-0.4)
+% Calculate $1+1$.
+%
+% \bigskip
+% \DescribeMacro{\exercisename}
+% The word \emph{\exercisename} has automatic translation 
+% in a few languages\footnote{Translation 
+% is currently integrated into the package for the following languages: French,
+% German, Spanish, Italian, Portuges.}
+% according to the loaded language (by \textsf{babel} or \textsf{polyglossia}).
+% It can be redefined, with |\renewcommand|,
+% or else we can use macros from the \textsf{translations} 
+% package (allowing dynamic language change), e.g. (in the preamble)\\
+% |\DeclareTranslation{Swedish}{exesheet-exercise}{\"Ovning}}|.
+%
+% \DescribeMacro{\labelexercise}
+% This command calls |\exercisename| following by the exercise number.
+% It can be redefined. For example, to add a period after the exercise number:
+% |\renewcommand{\labelexercise}{\exercisename~\theexercise.}|
+%
+% \DescribeMacro{\theexercise}
+% To change only the numbering type, redefine
+% the |\theexercise| command, based on the |exercise| counter.
+%
+% \DescribeMacro{\labelexercisestyle}
+% This macro (which is empty by default) allows to define a particular style
+% for exercise titles. In the present document, we defined in the preamble:
+% |\renewcommand{\labelexercisestyle}{\rmfamily\color{black}}|\footnote{In the 
+% present document, to highlight real sections and subsections titles,
+% their color and font have been modified with the
+% \texttt{\bs allsectionsfont} macro from the \textsf{sectsty} package.}.
+%
+% \bigskip
+% \DescribeMacro{\exercise*}
+% The starred version |\exercise*|\oarg{opt}\marg{label}
+% allows to choose another \meta{label} for a particular exercise
+% and removes the numbering. For instance:
+% |\exercise*[(Fermat theorem)]{Problem}| yields:
+%
+% \exercise*[(Fermat theorem)]{Problem}
+% \psframe(-0.25,1.3)(12.75,-0.7)
+% Prove that there are no positive integers $x, y, z$ such that $x^n+y^n=z^n$
+% for any integer $n$ greater than 2.
+%
+% \subsection{The \texttt{\bs subpart} command}
+%
+% \DescribeMacro{\subpart}
+% An exercise may contain several parts that we obtain 
+% with the |\subpart|\oarg{opt} command, typeset like a sub-subsection.
+% \exercise
+% \subpart[(preliminary)]
+% \psframe(-0.25,1.95)(12.75,-1.9)
+% First of all, prepare your cup of tea.
+% \subpart
+% Now you are ready to make the current exercise.
+%
+% \bigskip
+% \DescribeMacro{\thesubpart}
+% By default, the subpart numbering uses letters : A, B, C, etc.
+% This numbering type can be redefined with the |\thesubpart| command based on
+% the |subpart| counter, for instance |\renewcommand\thesubpart{\arabic{subpart}}|.
+%
+% \pagebreak
+% \DescribeMacro{\subpartname} \DescribeMacro{\labelsubpart} 
+% \DescribeMacro{\labelsubpartstyle}
+% As for |\exercise|, the |\subpart| command
+% uses |\subpartname| (with automatic translation in a few languages 
+% according to the selected language),
+% |\labelsubpart| and |\labelsubpartstyle|, which are editable.
+%
+% \DescribeMacro{\subpart*}
+% Like |\exercise*|, the starred version |\subpart*|\oarg{opt}\marg{label}
+% allows to freely typeset the subpart \marg{label}, for instance
+% |\subpart*{First part}|.
+%
+% \subsection{The \texttt{\bs annex} command}
+% \DescribeMacro{\annex}
+% The |\annex|\oarg{opt} command typesets the title \textbf{ANNEX}, 
+% in uppercase letters, centered
+% and in the subsection style,
+% with an optional parameter, added on the same line.
+%
+% \vspace{-\baselineskip}
+% \noindent\psframe(-0.25,-0.3)(12.75,-1.25)
+% \annex[(to return)]
+%
+% \DescribeMacro{\annexname}
+% The word \emph{\annexname} has automatic translation in a few languages.
+% It can be extended to other languages or modified by redefining |\annexname|
+% or with macros from the \textsf{translations} package.
+%
+% \DescribeMacro{\annexstyle}
+% The annex title style is set by the |\annexstyle| macro,
+% defined as follows: |\newcommand\annexstyle{\MakeUppercase}|.
+% This command may be redefined as one wants.
+%
+% \subsection{Exercise titles in table of contents 
+% (notoc package option)} \label{par:notoc}
+% \DescribeMacro{notoc}
+% By default, the titles \emph{\exercisename}, \emph{\subpartname} or \emph{\annexname},
+% appear in the table of contents
+% (or in the pdf file summary when \textsf{hyperref} package is used). 
+% To avoid this, you can set the boolean \texttt{notoc} to \texttt{true}
+% or call the \textsf{exesheet} package (or class) with \texttt{notoc} option.
+% But notice that title optional arguments will always be ignored in the table of contents.
+%
+% \subsection{Short exercises: the \texttt{\bs exe} command}
+% \DescribeMacro{\exe}
+% The |\exe| command starts an exercise by the abbreviation \textbf{\exname}.\ 
+% followed by the exercise number,
+% without using sectioning commands, and the exercise body begins on the same
+% line. An exercise starts a new paragraph without indentation.
+%
+% \exe This is a short exercise who
+% can contain several paragraphs or questions however.
+%
+% \noindent\psframe(-0.25,1.4)(12.75,-1.2)
+% \indent Here for example starts a new paragraph.
+% \exe This is another short exercise.
+%
+% \bigskip
+% \DescribeMacro{\exname} \DescribeMacro{\exlabel} \DescribeMacro{\exsepmark}
+% The abbreviation \emph{\exname} may be changed by
+% redefining |\exname| or with macros from the \textsf{translations} package.
+% The |\exlabel| macro calls |\exname| following by a period then the exercise number,
+% and |\exsepmark| typesets a long dash.
+% We may change these features by redefining these commands.
+%
+% \bigskip
+% \DescribeMacro{\exe*}
+% The starred version prints no separator as shown below:
+%
+% \vspace{-\baselineskip}
+% \noindent\psframe(-0.25,-0.35)(12.75,-1.1) 
+% \exe* Another short exercise without separator.
+%
+% \subsection{The \texttt{\bs points} command}
+% \DescribeMacro{\points}
+% The |\points|\marg{pts} command displays the number of points awarded to an exercise.
+% It is intended to be entered in the optional argument of the 
+% |\exercise| command\footnote{This command which has to be used
+% in the optional argument of \texttt{\bs exercise}, as several others presented below, 
+% is incompatible with
+% the \textsf{memoir} class which redefines section commands.}.
+% |\exercise[\points{5}]| yields:
+% \exercise[\points{5}]
+% \psframe(-0.25,1.3)(12.75,-0.4)
+% Try to read this whole document without drinking tea and you get five points.
+%
+% \bigskip
+% \DescribeMacro{\pointsname} \DescribeMacro{\pointname}
+% Like before, the word \emph{points} and in the singular \emph{point}
+% (if \meta{pts} is inferior to 2)
+% get automatic translation in a few languages
+% and are modifiable.
+% 
+% \DescribeMacro{\pointsstyle} \DescribeMacro{pointscolor}
+% The style used by the |\points| command may be redefined with |\pointsstyle|. 
+% The color is set by |pointscolor| with the |\definecolor| command
+% (from the \textsf{xcolor} package by Uwe Kern, loaded by \textsf{exesheet}), 
+% for instance: \\ |\definecolor{pointscolor}{named}{blue}|.
+%
+% 
+% \section{Enumerations and lists}
+%
+% \subsection{List settings (nosetlist package option)} \label{par:nosetlist}
+% Enumeration lists are intended to represent questions and sub-questions
+% inside exercises. For a good highlight,
+% labels are typeset in bold. 
+% Moreover, they are left aligned, at the start of the line, 
+% without indentation, and the vertical space between items
+% is increased compared with \LaTeX\ standard lists.
+% These settings are done by the |\setlist| command\footnote{Labels
+% may also be changed by the \texttt{\bs labelenumi} and \texttt{\bs labelenumii} commands.}
+% from the \textsf{enumitem} package by Javier Bezos.
+% Lists with \texttt{itemize} environment are kept in their default configuration\footnote{The
+% \texttt{french} option of the \textsf{babel} package
+% alters \texttt{itemize} lists behavior and uses long dash
+% as labels for each list level.
+% This behavior is problematic when mathematics follows the dash
+% symbol because the latter may be confused with the minus sign.
+% Modifications of the \texttt{french} option (which supersedes \texttt{frenchb} 
+% of \textsf{babel}) are canceled to restore \LaTeX\ default settings.}.
+%
+% \vspace{-\baselineskip}
+% \noindent\psframe(-0.25,-0.35)(12.75,-3.9) 
+% \exercise
+% \begin{enumerate}
+% \item First question
+% \begin{enumerate}
+% \item First sub-question
+% \item Second sub-question
+% \end{enumerate}
+% \item Second question
+% \end{enumerate}
+%
+% \DescribeMacro{nosetlist}
+% We can avoid enumeration list modifications and restore the \LaTeX\ 
+% default settings by passing the option
+% \texttt{nosetlist} to the \texttt{exesheet} class or package.
+%
+% \subsection{List of exercises : the \texttt{exenumerate} environment}
+% \DescribeEnv{exenumerate}
+% When an exercise sheet is made of short independent exercises,
+% it would be ill-advised to display the complete title \emph{\exercisename} for each. 
+% In addition to the |\exe| command, previously presented,
+% we provide an even lighter solution with the |exenumerate| environment, 
+% which is only an enumeration list in which
+% spaces between items are further increased compared with those of \texttt{enumerate}.
+% Here is an example (the main list is an \texttt{exenumerate} environment but 
+% sub-lists are produced with regular \texttt{enumerate} environments):
+%
+% \vspace{-\baselineskip}
+% \noindent\psframe(-0.25,-0.3)(12.75,-6.75) 
+% \begin{exenumerate}
+% \item Translate the following sentences in english: 
+% \begin{enumerate}
+% \item Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi.
+% \item Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus.
+% \end{enumerate}
+% \item  Translate the following sentence in german:
+% \par Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna,
+% vitae ornare odio metus a mi. 
+% \item  Translate the following sentences in french: 
+% \begin{enumerate}
+% \item Cum sociis natoque penatibus 
+% et magnis dis parturient montes, nascetur ridiculus mus.
+% \item Nulla ullamcorper vestibulum turpis.
+% \end{enumerate}
+% \end{exenumerate}
+% The environment takes an optional parameter, like \texttt{enumerate}, 
+% which enables, among others, 
+% to typeset alternative list labels, e.g.
+% |\begin{exenumerate}[A.]|.
+% There are many other options (see the \textsf{enumitem} package documentation).
+%
+% \subsection{Items aligned by lines}
+% \DescribeEnv{tablenum1} 
+% \DescribeEnv{tablenuma}
+% \DescribeEnv{tablitem}
+% These three environments are used to typeset short questions (\texttt{tablenum1}),
+% sub-questions (\texttt{tablenuma}) or \texttt{itemize} lists (\texttt{tablitem})
+% on the same line. They have the same syntax:
+% |\begin{tablenum1}|\oarg{opt}|(|\meta{cols}|)|.
+% The \meta{cols} parameter is the number of columns used by the environment. It must be
+% \emph{in parentheses}. This parameter can be omitted, then its value is 2.
+% As for classic lists, each item begins with the |\item| command.
+%
+% These three environments are defined by the
+% |\NewTasksEnvironment| macro, from the \textsf{tasks} package by Clemens Niederberger.
+% They take an optional argument \meta{opt}
+% explained in the documentation of this package, 
+% e.g.\ |label=\arabic*)| produces an Arabic numbering
+% following by a closing parenthesis (like in \texttt{enumitem} package).
+% There are also many possibilities to place items in an original way,
+% for instance, the |\item*| command allows to
+% specify the number of columns the item is supposed to span.
+% In the following example,
+% the five |\item| are placed in order between
+% |\begin{tablenum1}(3)| and |\end{tablenum1}|.
+% Notice that numbering is made line by line.
+%
+% \exercise
+% \psframe(-0.25,1.3)(12.75,-2.7)
+% Give the derivative of the following functions:
+% \begin{tablenum1}(3)
+% \item $\ds f(x) = \frac{1-x^2}{\mathrm{e}^x +\mathrm{e}^{-x}}$,
+% \item $\ds g(x) = \ln \left( \frac{1-x}{1+x^2}\right)$,
+% \item $\ds h(x) = \int_{0}^{1}\mathrm{e}^{xy}\, \mathrm{d}y$,
+% \item $\ds k(x) = \sum_{i=1}^{\infty}\frac{1}{x^i}$,
+% \item $\ds l(x) = \int_{\frac{1}{x}}^{x}\frac{1}{\ln t}\, \mathrm{d}t$.
+% \end{tablenum1}
+%
+% For \texttt{tablenuma}, labels are
+% letters (a, b, c, \ldots) surrounded
+% by parentheses. This cannot be modified globally
+% (except by redefining the environment with |\RenewTasksEnvironment|).
+% If the \textsf{exesheet} package is called with option \texttt{nosetlist},
+% labels of \texttt{tablenum1} and \texttt{tablenuma} environments
+% are displayed in normal font instead of boldface, with indentation.
+%
+% \subsection{Items aligned by columns: \texttt{colsenum}}
+% \DescribeEnv{colsenum}    
+% To get numbering of items by columns, we have the
+% \texttt{colsenum} environment: |\begin{colsenum}|\oarg{opt}\marg{cols}.
+% The mandatory parameter is the number of columns
+% and the optional one will be passed to \texttt{enumerate},
+% allowing, for example, to change the type of numbering (a, A, etc.).
+% To use this environment, we have to load the
+% \textsf{multicol} package in the preamble.
+%
+% \exercise
+% \psframe(-0.25,1.3)(12.75,-2.65)
+% Give the derivative of the following functions:
+% \begin{colsenum}{3}
+% \item $\ds f(x) = \frac{1-x^2}{\mathrm{e}^x +\mathrm{e}^{-x}}$,
+% \item $\ds g(x) = \ln \left( \frac{1-x}{1+x^2}\right)$,
+% \item $\ds h(x) = \int_{0}^{1}\mathrm{e}^{xy}\, \mathrm{d}y$,
+% \item $\ds k(x) = \sum_{i=1}^{\infty}\frac{1}{x^i}$,
+% \item $\ds l(x) = \int_{\frac{1}{x}}^{x}\frac{1}{\ln t}\, \mathrm{d}t$.
+% \end{colsenum}
+% \DescribeEnv{colsenum*}
+% We will notice that, on each line, items are not necessarily well
+% aligned, what can produce inelegant effects. 
+% On the other hand, the \texttt{colsenum} environment doesn't try to align columns 
+% from the bottom by adjusting space between items.
+% If we want to get this
+% (which is the default option in \textsf{multicol}) we have the
+% \texttt{colsenum*} environment (same syntax than \texttt{colsenum}).
+% Here what we get in that case, with the same exercise.
+%
+% \exercise
+% \psframe(-0.25,1.3)(12.75,-2.65)
+% Give the derivative of the following functions:
+% \begin{colsenum*}{3}
+% \item $\ds f(x) = \frac{1-x^2}{\mathrm{e}^x +\mathrm{e}^{-x}}$,
+% \item $\ds g(x) = \ln \left( \frac{1-x}{1+x^2}\right)$,
+% \item $\ds h(x) = \int_{0}^{1}\mathrm{e}^{xy}\, \mathrm{d}y$,
+% \item $\ds k(x) = \sum_{i=1}^{\infty}\frac{1}{x^i}$,
+% \item $\ds l(x) = \int_{\frac{1}{x}}^{x}\frac{1}{\ln t}\, \mathrm{d}t$.
+% \end{colsenum*}
+% We can see that these alignments are less good than those
+% obtained by numbering of items by line. The numbering of items by columns
+% may nevertheless be preferable when there are many items with variable heights,
+% and a number of items which can be different from one column to the other.
+% Moreover, an advantage of \texttt{colsenum} is that the choice of labels 
+% is automatic depending on the list level (and the language),
+% unlike \texttt{tablenum1} or \texttt{tablenuma}. 
+%
+% \DescribeEnv{colsitem} 
+% \DescribeEnv{colsitem*}
+% For \texttt{itemize} lists, the environment \texttt{colsitem}
+% produces items aligned by columns rather than by lines as for
+% \texttt{tablitem}:
+% |\begin{colsitem}|\oarg{opt}\marg{cols}. The optional parameter,
+% which is passed to the underlying \texttt{itemize} environment, 
+% allows to change the item label (bullet by default).
+% And, as for \texttt{colsenum*}, the \texttt{colsitem*} environment
+% produces an alignment of columns from the bottom.
+%
+% \section{Questions and solutions}
+%
+% \subsection{The \texttt{questions} and \texttt{answers} environments}
+% \DescribeEnv{questions} \DescribeEnv{answers}
+% The package provides the two environments \texttt{questions} and \texttt{answers}
+% to make appear or disappear questions and answers of exercises.
+% Display is controlled by two booleans: \texttt{questions} and \texttt{answers}.
+% Their default value is \texttt{true}.
+%
+% \DescribeMacro{\questionsonly} \DescribeMacro{\answersonly}
+% The |\questionsonly| command allows to display the questions without the answers
+% and |\answersonly| displays the solutions without the questions\footnote{Of course 
+% we can also assign the booleans \texttt{questions} and \texttt{answers} 
+% directly with the \LaTeX\ command \texttt{\bs setboolean}.}.
+% 
+% \bigskip
+% \DescribeMacro{\correctionstyle} \DescribeMacro{correctioncolor}
+% \DescribeMacro{\correctionname}
+% In the case (by default) where questions and answers are displayed both,
+% answers are then typeset in the style
+% |\correctionstyle|, which uses the color \texttt{correctioncolor}.
+% This color may be chosen with the |\definecolor| macro
+% (by default |\definecolor{correctioncolor}{rgb}{0,0.2,0.6}| = kind of dark blue).
+% Moreover, in that case,
+% the title \textbf{\correctionname} is displayed at the beginning
+% of the \texttt{answers} environment.
+% It is defined by the |\correctionname| macro (with translation in a few languages
+% and that we can change:\footnote{Except for English, if you want to change package 
+% keywords you have to do it \emph{after} \texttt{\bs begin\{document\}}
+% because \textsf{babel} will modify these definitions at the end of the preamble.}
+% for example we may prefer \emph{Solution}
+% than \emph{\correctionname}).
+% The style defined by |\correctionstyle| will apply to the title
+% but also to the whole environment.
+% Here an example.
+%
+% \vspace{-\baselineskip}
+% \noindent\psframe(-0.25,-0.25)(12.75,-6.6) 
+% \exercise[\points{3}] \label{points}
+% \begin{questions}
+% \begin{enumerate}
+% \item Is the \textsf{exesheet} package useful ? 
+% \item Isn't there any other packages that deal with exercises ?
+% \end{enumerate}
+% \end{questions}
+% \begin{answers}
+% \begin{enumerate}
+% \item Yes, the \textsf{exesheet} package is very useful.
+% \item There are many other packages that deal with exercises, and
+% give the ability to produce separately questions and solutions, for example
+% \textsf{exercise} by Paul Pichaureau, \textsf{exercises} by Roger Jud,
+% \textsf{exsheets} (superseded by \textsf{xsim}) by Clemens Niederberger,
+% \textsf{exframe} by Niklas Beisert,
+% \textsf{exam} by Philip Hirschhorn,
+% \textsf{answers} by Mike Piff and Joseph Wright,
+% \textsf{probsoln} by Nicola Talbot, etc.
+% \end{enumerate}
+% \end{answers}
+%
+% \DescribeMacro{\points}
+% When only answers are displayed, the text color remains black,
+% the word \emph{\correctionname} is not displayed and the
+% |\points| macro is patched to suppress the display of points.
+% An extended solution for a variable display of points will be discussed
+% in section \ref{totalpoints} with the |\totalpoints| macro.
+%
+% \subsection{More about \texttt{answers} environment}
+% Internally, we have used the |\comment| and |\endcomment| macros
+% from the \textsf{versions} package by Uwe Lück.
+% Other excellent packages allow to manage
+% selectively piece of code. Let us mention 
+% \textsf{verbatim} by Rainer Schöpf, \textsf{comment} by Victor Eijkhout, 
+% \textsf{version} by Donald Arseneau and Stephen Bellantoni,
+% \textsf{optional} by Donald Arseneau
+% and \textsf{codesection} by Matthias Pospiech.
+%
+% The \textsf{versions} package used provides furthermore 
+% the |\includeversion|\marg{env} and
+% |\excludeversion|\marg{env} macros who allow to make appear or disappear
+% any environment \meta{env} and these optional environments
+% may be nested\footnote{The \textsf{codesection} package also allows
+% such nesting, including in the preamble,
+% as well as the \textsf{optional} package, but the latter only manages short optional code.}.
+%
+% However the \texttt{questions} and \texttt{answers} environments
+% perform another task, not only making appear or disappear piece of text.
+% Indeed, there is a problem with the title \emph{\correctionname}. 
+% In which format to typeset it and at which level to put it in the table of contents
+% (or in the summary of the pdf file)?
+% In fact it depends on which level the environment has been nested.
+% We can make a single \texttt{answers} environment for all the
+% exercises of the sheet or an \texttt{answers} environment
+% for each exercise, for each exercise part, for each question or sub-question.
+% In fact, the typeset of the title \emph{\correctionname}
+% and his level in the table of contents will be adjusted automatically.
+%
+% \DescribeEnv{\oarg{level}}
+% Nevertheless, we can imagine twisted situations in which 
+% the title level will not be correctly calculated.
+% It is then possible to force the level of the title \emph{\correctionname} 
+% with |\begin{answers}|\oarg{level}.
+% The optional \meta{level} parameter is defined as follows:
+% 1 for section level titles,
+% 2 for subsections (like \emph{\exercisename}), 
+% 3 for sub-subsections (like \emph{\partname}),
+% another number for lower levels
+% (then they will not appear in the table of contents).
+%
+% \bigskip
+% \DescribeMacro{answers*}
+% The starred version \texttt{answers*} allows to make the title
+% \textbf{\correctionname} completely disappear.
+%
+% \subsection{The \texttt{\bs question} command}
+% \DescribeMacro{\question}
+% Instead of the \texttt{questions} and \texttt{answers} environments,
+% we can also use the simple |\question|\marg{ques}\marg{ans} macro
+% in which display of \meta{ques} and \meta{ans} arguments 
+% is controlled by the same previous commands |\questionsonly| and |\answersonly|.
+% It can be more readable (in the source code) when questions and answers are short.
+% In the case of displaying both questions and answers,
+% the \emph{\correctionname} title will appear on a new line, in bold,
+% as for levels lower than sub-subsection in the \texttt{answers} environment
+% (and without entries in the table of contents).
+% But this command doesn't work with \texttt{verbatim} inside.
+%
+% \section{Marginal notes for marking scheme}
+%
+% The \textsf{exesheet} package allows the display of a marking
+% scheme with comments and explanations for answers.
+%
+% \pagebreak
+% \subsection{The \texttt{\bs pts} command}
+% \DescribeMacro{\pts}
+% When exercises are typeset with the |\exe| macro,
+% or as a list with the \texttt{exenumerate} environment,
+% the marking scheme is displayed in the margin, on the line where
+% we put the |\pts|\marg{num} command (in general the first line of the exercise).
+% The \meta{num} parameter is the number of points assigned to the exercise.
+%
+% \vspace{-\baselineskip}
+% \noindent\psframe(-3.5,-0.25)(12.75,-2)
+% \exe \pts{3} The first exercise with marking scheme.
+% \exe \pts{1.5} The second one.
+% 
+% \bigskip
+% \DescribeMacro{\ptsname} \DescribeMacro{\ptname} 
+% \DescribeMacro{ptscolor} \DescribeMacro{\ptsstyle}
+% The abbreviation \textsf{\ptsname} (or \textsf{\ptname} 
+% when the number of points is inferior to 2)
+% is automatically added thanks to the macro |\ptsname| or |\ptname| 
+% (translated in a few languages if \textsf{babel} is loaded).
+% The display color of the points is defined by \texttt{ptscolor} which can be changed
+% with |\definecolor|: by default |\definecolor{ptscolor}{named}{red}|.
+% The display style is defined by |\ptsstyle|.
+%
+% \DescribeMacro{\displaypts}
+% The display of the marking scheme, as above, is internally controlled by the
+% \texttt{marginpts} boolean.
+% The |\displaypts| command, which has to be placed in the preamble, 
+% defines \texttt{marginpts} to \texttt{true},
+% places marginal notes to the left (and not to the right which 
+% is the default behavior of \LaTeX)
+% and shifts the text body right to increase the left margin compared 
+% with the right one, with a ratio 3:2,
+% as it is in the present document.
+% This ratio is defined by the
+% |geometry| macro from the \textsf{geometry} package (by Hideo Umeki) 
+% and is valid for the whole document.
+% 
+% \subsection{The \texttt{\bs totalexe}, \texttt{\bs note} 
+% and \texttt{\bs totalpoints} commands}
+% \label{totalpoints}
+% \DescribeMacro{\totalexe}
+% \DescribeMacro{\note}
+% To give a more detailed marking scheme, the \textsf{exesheet} package 
+% provides some extended commands:
+% |\totalexe|\marg{num} to display the total number of points of an exercise
+% and especially |\note|\oarg{pts}\marg{comment},
+% to indicate some marking detail in answers.
+% The optional parameter \meta{pts} is the number of points of the question
+% and the mandatory parameter \meta{comment} is used to give details about the marking scheme.
+% Below the title has been obtained with |\exercise[\totalexe{4}]|
+% and the first comment (on next page) with \\
+% |\note[1]{0,5 for the anti-derivative\\0,5 for simplification of $\ln$}|.
+%
+% \exercise[\totalexe{4}] \label{totalexe}
+% \begin{questions}
+% \psframe(-3.5,1.3)(12.75,-3.1)
+% For each following question, say if the assertion is true or false.
+% Justify the answer carefully.
+% \begin{tablenum1}
+% \item $\ds \int_{0}^{\sqrt{3}}\frac{1}{x+\sqrt{3}} \,\mathrm{d}x = \ln 2$,
+% \item $\ds \int_{2}^{\mathrm{e}} \frac{1}{x\ln x} \,\mathrm{d}x = -\ln 2$,
+% \item* The function $F$ defined on $\mathbf{R}$ by 
+% $F(x) = \ds \int_{0}^{x}\frac{1}{,t^2+t+1}\,\mathrm{d} t$ is increasing on $\mathbf{R}$.
+% \end{tablenum1}
+% \end{questions}
+% 
+% \pagebreak
+% \begin{answers}
+% \vspace{-\baselineskip}
+% \noindent\psframe(-4.7,0.9)(12.75,-10.25)
+% \begin{enumerate}
+%    \item \note[1]{0,5 for the anti-derivative\\0,5 for simplification of $\ln$}
+%    We calculate:
+%    \[ \int_{0}^{\sqrt{3}}\frac{1}{x+\sqrt{3}}\,\mathrm{d}x
+%        = \bigg[ \ln\left(x+\sqrt{3}\right) \bigg]_0^{\sqrt{3}}
+%        = \ln\left(2\sqrt{3}\right)-\ln \sqrt{3}
+%        = \ln\left(\frac{2 \sqrt{3}}{\sqrt{3}}\right)
+%        =\ln 2.
+%    \]
+%    \textbf{TRUE}.
+%
+%    \item \note[1.5]{1 for the anti-derivative \\0.5 for the integral value \\[2ex]
+%        we could also see that $\frac{1}{x \ln x} >0$ on $[2, \mathrm{e}]$ 
+%       while $-\ln2<0$
+%    }
+%    We have $\ds\frac{1}{x \ln x}= \frac{\frac{1}{x}}{\ln x}= \frac{u'(x)}{u(x)}$
+%    with $u(x)=\ln x$, which is positive on $[2, \mathrm{e}]$. Hence
+%
+%    \[ \int_{2}^{\mathrm{e}}\frac{1}{x \ln x}\,\mathrm{d}x
+%        = \Big[ \ln(\ln x) \Big]_2^\mathrm{e}
+%        = \ln(\ln \mathrm{e})-\ln(\ln2)= \ln1 -\ln(\ln2)=-\ln(\ln2).
+%    \]
+%    \textbf{FALSE}.
+%
+%    \item \note*{1.5}
+%    The function $F$ defined on $\mathbf{R}$ by
+%    \[ F(x)= \int_{0}^{x}\frac{1}{t^2+t+1}\, \mathrm{d}t \]
+%    is derivable on $\mathbf{R}$ and its derivative is such that
+%    $F'(x)=\frac{1}{x^2+x+1}$.
+%    \note{0.5 for $F'$\\1 for the sign of $F'$ and conclusion}
+%    The denominator is a quadratic polynomial, always positive because its discriminant is
+%    $\Delta=-3 <0$.
+%    Thus $F$ is increasing on $\mathbf{R}$. \\
+%    \textbf{TRUE}.
+% \end{enumerate}
+% \end{answers}
+% In the comment of answer 2, a wider vertical space is produced at line break
+% with the optional argument |\\[2ex]|\footnote{When a marginal note at the end of a page,
+% is followed by another one at the top of the next page,
+% the latter is shifted down.
+% We can raise this note, by adding at the line break
+% a negative vertical space : \texttt{\bs note*\{\bs\bs[-5ex] 2\}}.}.
+% The last comment, not placed beside the number of points of answer 3,
+% has been produced by placing on the first line after the formula:
+% |\note{0.5 for $F'$\\1 for the sign of $F'$ and conclusion}|.
+%
+% \DescribeMacro{\note*}
+% If we don't want to add comment, we have the
+% |\note*|\marg{pts} command (better than |\note|\oarg{pts}|{}|),
+% used here in answer 3: |\note*{1.5}|.
+%
+% \DescribeMacro{markingcolor} \DescribeMacro{\markingstyle} \DescribeMacro{\ptsboxlength}
+% The display color of the points, in |\totalexe| and |\note|,
+% is defined by \texttt{markingcolor}
+% and the style by |\markingstyle|, which are modifiable.
+% The oval box produced by |\totalexe| is obtained with the |\ovalbox| command
+% of the \textsf{fancybox} package by Timothy Van Zandt,
+% with corner arcs set by |\cornersize{1}|.
+% The box length is not adjusted to content but depends of the value
+% of |\ptsboxlength| in order to keep a uniform appearance
+% from one exercise to the other.
+%
+% \DescribeMacro{notecolor} \DescribeMacro{\notestyle} \DescribeMacro{\noteragged}
+% Comment notes are typeset by default in a dark green color
+% defined by |\definecolor{notecolor}{rgb}{0.0,0.4,0.0}|.
+% The style of the comment is set by the |\notestyle| macro and itself uses the
+% |\noteragged| macro. The latter is set by default as |\raggedleft|
+% to obtain a \emph{right} alignment (what is customary for notes
+% in the left margin).
+% 
+% \DescribeMacro{\displaypoints}
+% Display of points and comments is optional. It is internally controlled by the booleans
+% \texttt{marginpoints} and \texttt{marginfullnotes}.
+% The |\displaypoints| macro, to place in the preamble, sets  \texttt{marginpoints}
+% to \texttt{true}, chooses the left margin for display marginal notes
+% and sets the ratio between left and right margins to 3:2\footnote{So 
+% that the effect on the margin ratio is correct, the
+% \texttt{\bs displaypoints} macro must be placed after other commands 
+% that could alter the page geometry, for example the \texttt{\bs pagestyle}
+% of the \textsf{schooldocs} package.}.
+% Points will then be displayed without the comments.
+% 
+% \DescribeMacro{\displaynotes} 
+% The |\displaynotes|\oarg{align} macro, to be placed also in the preamble,
+% defines both booleans to \texttt{true} and allows then the complete display 
+% of points and comments.
+% The ratio between left/right margins is then set to 5/1\footnote{The
+% present document kept a ratio of 3/2 because 
+% the \textsf{ltxdoc} class, used here, leaves large enough margins
+% and previous examples are not concerned with display of comments.}.
+% The optional parameter \meta{align} is used to define alignment:
+% |\raggedleft| by default, but we could use |\centering| or
+% |\raggedright| (not recommended in left margin).
+%
+% \DescribeMacro{\displaynotesright}
+% The |\displaynotesright|\oarg{align} macro displays a detailed marking scheme
+% with comments in the right margin, with the same type of settings 
+% as |\displaynotes| but an optional parameter \meta{align} set by default
+% to |\raggedleft|.
+%
+% \bigskip
+% \DescribeMacro{\totalpoints}
+% The |\totalpoints|\marg{num} macro is intended
+% to replace |\points| when using a detailed marking scheme.
+% When the scale is not displayed (\texttt{marginpoints} boolean to \texttt{false}),
+% it uses |\points| and when the scale is displayed,
+% it uses |\totalexe|.
+% For example, in the exercise \ref{totalexe}, we should use
+% |\totalpoints| rather than |\totalexe|,
+% because, when the detailed marking scheme is not displayed, the total points will be typeset
+% as in the exercise \ref{points} rather than in the margin.
+%
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \subsection{Class and package basic instructions}
+% The \texttt{exesheet} class is based on the \texttt{article} class
+% and gives it all its options, except explicit options 
+% \texttt{notoc} and \texttt{nosetlist}.
+%
+%    \begin{macrocode}
+%<*class>
+\DeclareOption{notoc}{\PassOptionsToPackage{notoc}{exesheet}}
+\DeclareOption{nosetlist}{\PassOptionsToPackage{nosetlist}{exesheet}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions \relax
+\LoadClass{article}
+\RequirePackage{exesheet}
+\RequirePackage{schooldocs}
+%</class>
+%    \end{macrocode}
+%
+% Then we define initialization instructions of the \textsf{exesheet} package.
+%
+% \medskip
+%  The \texttt{shortlabel} option in the \textsf{enumitem} package allows to use labels like in 
+% the \textsf{enumerate} package e.g. 1., a), A. etc.
+%
+%    \begin{macrocode}
+%<*package>
+\RequirePackage{ifthen}
+\newboolean{notoc}
+\newboolean{nosetlist}
+\DeclareOption{notoc}{\setboolean{notoc}{true}}
+\DeclareOption{nosetlist}{\setboolean{nosetlist}{true}}
+\ProcessOptions \relax
+\RequirePackage{xcolor}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{tasks}
+\RequirePackage{versions}
+%\@ifpackageloaded{doc}{}{\RequirePackage{verbatim}}
+\RequirePackage{geometry}
+\RequirePackage{fancybox}
+\RequirePackage{translations}
+
+%    \end{macrocode}
+%
+% \subsection{Internationalization}
+% Here we define the keywords and their translation in French, German, Spanish
+% Italian, Portuguese, thanks to macros of the \textsf{translations} package 
+% by Clemens Niederberger. It detects the used language 
+% loaded by \textsf{babel} or \textsf{polyglossia}.
+%
+% Accented characters cannot be used here because they are not recognized 
+% if \textsf{inputenc} is loaded after \textsf{exesheet}.
+% So we have used the basic \LaTeX\ commands to produce them.
+%
+%    \begin{macrocode}
+\DeclareTranslationFallback{exesheet-exercise}{Exercise}
+\DeclareTranslationFallback{exesheet-subpart}{Part}
+\DeclareTranslationFallback{exesheet-annex}{Annex}
+\DeclareTranslationFallback{exesheet-ex}{Ex}
+\DeclareTranslationFallback{exesheet-points}{points}
+\DeclareTranslationFallback{exesheet-point}{point}
+\DeclareTranslationFallback{exesheet-correction}{Correction}
+\DeclareTranslationFallback{exesheet-pts}{pts}
+\DeclareTranslationFallback{exesheet-pt}{pt}
+
+\DeclareTranslation{English}{exesheet-exercise}{Exercise}
+\DeclareTranslation{English}{exesheet-subpart}{Part}
+\DeclareTranslation{English}{exesheet-annex}{Annex}
+\DeclareTranslation{English}{exesheet-ex}{Ex}
+\DeclareTranslation{English}{exesheet-points}{points}
+\DeclareTranslation{English}{exesheet-point}{point}
+\DeclareTranslation{English}{exesheet-correction}{Correction}
+\DeclareTranslation{English}{exesheet-pts}{pts}
+\DeclareTranslation{English}{exesheet-pt}{pt}
+
+\DeclareTranslation{French}{exesheet-exercise}{Exercice}
+\DeclareTranslation{French}{exesheet-subpart}{Partie}
+\DeclareTranslation{French}{exesheet-annex}{Annexe}
+\DeclareTranslation{French}{exesheet-ex}{Ex}
+\DeclareTranslation{French}{exesheet-points}{points}
+\DeclareTranslation{French}{exesheet-point}{point}
+\DeclareTranslation{French}{exesheet-correction}{Correction}
+\DeclareTranslation{French}{exesheet-pts}{pts}
+\DeclareTranslation{French}{exesheet-pt}{pt}
+
+\DeclareTranslation{German}{exesheet-exercise}{\"Ubung}
+\DeclareTranslation{German}{exesheet-subpart}{Teil}
+\DeclareTranslation{German}{exesheet-annex}{Anhang}
+\DeclareTranslation{German}{exesheet-ex}{\"Ub}
+\DeclareTranslation{German}{exesheet-points}{Punkte}
+\DeclareTranslation{German}{exesheet-point}{Punkt}
+\DeclareTranslation{German}{exesheet-correction}{Verbesserung}
+\DeclareTranslation{German}{exesheet-pts}{Pkte}
+\DeclareTranslation{German}{exesheet-pt}{Pkt}
+
+\DeclareTranslation{Spanish}{exesheet-exercise}{Ejercicio}
+\DeclareTranslation{Spanish}{exesheet-subpart}{Parte}
+\DeclareTranslation{Spanish}{exesheet-annex}{Anexo}
+\DeclareTranslation{Spanish}{exesheet-ex}{Ej}
+\DeclareTranslation{Spanish}{exesheet-points}{puntos}
+\DeclareTranslation{Spanish}{exesheet-point}{punto}
+\DeclareTranslation{Spanish}{exesheet-correction}{Correcci\'on}
+\DeclareTranslation{Spanish}{exesheet-pts}{ptos}
+\DeclareTranslation{Spanish}{exesheet-pt}{pto}
+
+\DeclareTranslation{Italian}{exesheet-exercise}{Esercizio}
+\DeclareTranslation{Italian}{exesheet-subpart}{Parte}
+\DeclareTranslation{Italian}{exesheet-annex}{Annesso}
+\DeclareTranslation{Italian}{exesheet-ex}{Es}
+\DeclareTranslation{Italian}{exesheet-points}{punti}
+\DeclareTranslation{Italian}{exesheet-point}{punto}
+\DeclareTranslation{Italian}{exesheet-correction}{correzione}
+\DeclareTranslation{Italian}{exesheet-pts}{pti}
+\DeclareTranslation{Italian}{exesheet-pt}{pt}
+
+\DeclareTranslation{Portuges}{exesheet-exercise}{Exerc\'icio}
+\DeclareTranslation{Portuges}{exesheet-subpart}{Parte}
+\DeclareTranslation{Portuges}{exesheet-annex}{Anexo}
+\DeclareTranslation{Portuges}{exesheet-ex}{Ex}
+\DeclareTranslation{Portuges}{exesheet-points}{pontos}
+\DeclareTranslation{Portuges}{exesheet-point}{ponto}
+\DeclareTranslation{Portuges}{exesheet-correction}{Corre\c c\~ao}
+\DeclareTranslation{Portuges}{exesheet-pts}{pts}
+\DeclareTranslation{Portuges}{exesheet-pt}{pt}
+
+\newcommand*\exercisename{\GetTranslation{exesheet-exercise}}
+\newcommand*\subpartname{\GetTranslation{exesheet-subpart}}
+\newcommand*\annexname{\GetTranslation{exesheet-annex}}
+\newcommand*\exname{\GetTranslation{exesheet-ex}}
+\newcommand*\pointsname{\GetTranslation{exesheet-points}}
+\newcommand*\pointname{\GetTranslation{exesheet-point}}
+\newcommand*\correctionname{\GetTranslation{exesheet-correction}}
+\newcommand*\ptsname{\GetTranslation{exesheet-pts}}
+\newcommand*\ptname{\GetTranslation{exesheet-pt}}
+
+%    \end{macrocode}
+%
+% \subsection{Colors}
+% The color \texttt{pointscolor} is used by the macro |\points| 
+% and \texttt{markingcolor} by the macros |\totalexe|, |\note*| 
+% and also for the optional argument of |\note|;
+% \texttt{notecolor} is used by the mandatory argument of |\note|.
+%
+%    \begin{macrocode}
+\definecolor{pointscolor}{named}{red}
+\definecolor{ptscolor}{named}{red}
+\definecolor{markingcolor}{named}{red}
+\definecolor{notecolor}{rgb}{0.0, 0.4, 0.0} % kind of dark green
+\definecolor{correctioncolor}{rgb}{0,0.2,0.6} % kind of dark blue
+
+%    \end{macrocode}
+%
+% \medskip
+% \subsection{Titles}
+% The \texttt{exercise} counter numbers exercises for the whole document 
+% regardless of any section.
+% To reset the counter at some point, just write |\setcounter{exercise}{0}|
+% and if we want an automatic reset at each section,
+% add in the preamble \\
+% |\makeatletter \@addtoreset{exercise}{section} \makeatother|.
+%
+% The parts counter depends on \texttt{exercise} and is reset
+% at each new exercise.
+%
+% The |\labelexercisestyle| and |\labelsubpartstyle| commands
+% are empty, but allow to customize the style, for instance:\\
+% |\renewcommand\labelexercisestyle{\sffamily}|.
+%
+% By default, the table of contents displays the titles of exercises and parts.
+% The \texttt{notoc} boolean is used to modify this behavior.
+% If we want to display only exercise titles but not parts,
+% we can place in the preamble |\setcounter{tocdepth}{2}|.
+%
+% \begin{macro}{\exercise}
+%    \begin{macrocode}
+\newcounter{exercise}
+
+\newcommand{\labelexercise}{\exercisename~\theexercise}
+\newcommand{\labelexercisestyle}{}
+\newcommand*{\@exercise}[1][]{%     
+    \refstepcounter{exercise}
+    \subsection*{\labelexercisestyle\labelexercise\ #1}
+    \ifthenelse{\boolean{notoc}}{}{
+        \addcontentsline{toc}{subsection}{\labelexercise}
+    }
+}
+\newcommand*{\@@exercise}[2][]{%
+    \subsection*{\labelexercisestyle #2 #1}
+    \setcounter{subpart}{0} % resets the parts counter
+    \ifthenelse{\boolean{notoc}}{}{
+        \addcontentsline{toc}{subsection}{#2}
+    }
+}
+\newcommand{\exercise}{\@ifstar{\@@exercise}{\@exercise}}
+
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\subpart}
+%    \begin{macrocode}
+\newcounter{subpart}[exercise] %
+\renewcommand{\thesubpart}{\Alph{subpart}}
+
+\newcommand{\labelsubpart}{\subpartname~\thesubpart}
+\newcommand{\labelsubpartstyle}{}
+\newcommand*{\@subpart}[1][]{%
+    \refstepcounter{subpart}%    
+    \subsubsection*{\labelsubpartstyle\labelsubpart\ #1}
+    \ifthenelse{\boolean{notoc}}{}{
+        \addcontentsline{toc}{subsubsection}{\labelsubpart}
+    }
+}
+\newcommand*{\@@subpart}[2][]{%
+    \subsubsection*{\labelsubpartstyle #2 #1}
+    \ifthenelse{\boolean{notoc}}{}{
+        \addcontentsline{toc}{subsubsection}{#2}
+    }
+}
+\newcommand{\subpart}{\@ifstar{\@@subpart}{\@subpart}}
+
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\annex}
+%    \begin{macrocode}
+\newcommand{\annexstyle}{\MakeUppercase}
+\newcommand*{\annex}[1][]{%
+    \subsection*{\mbox{}\hfill\annexstyle{\annexname} #1\hfill\mbox{}}
+    \ifthenelse{\boolean{notoc}}{}{
+        \addcontentsline{toc}{subsection}{\annexname}
+    }
+}
+
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\exe}
+%    \begin{macrocode}
+\newcommand{\exlabel}{\exname.~\theexercise}
+\newcommand{\exsepmark}{---}
+\newcommand{\@exe}{\bigskip\refstepcounter{exercise}
+    \par\noindent\textbf{\exlabel~\exsepmark}~}
+\newcommand{\@@exe}{\bigskip\refstepcounter{exercise}
+    \par\noindent\textbf{\exlabel}~}
+\newcommand{\exe}{\@ifstar{\@@exe}{\@exe}}
+
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\points (ini)}
+%    \begin{macrocode}    
+\newcommand{\pointsstyle}{%
+    \small\mdseries\sffamily\color{pointscolor}\fbox}
+\newcommand*{\points}[1]{\hfill
+    \pointsstyle{#1~%
+        \ifthenelse{\lengthtest{#1 cm < 2cm}}{\pointname}{\pointsname}%
+    }
+}
+
+%    \end{macrocode}
+% Percent symbols are necessary to avoid spaces between the
+% |\fbox| and its inner text.
+% Note that, without |\lengthtest|, the test |#1 < 2| doesn't work with decimal numbers.
+% % \end{macro}
+%
+% \subsection{Enumerations and lists}
+%
+% When using \textsf{babel} with the \texttt{french} option\footnote{The \texttt{french} option
+% of \textsf{babel} supersedes the \texttt{frenchb} option.},
+% \texttt{itemize} lists are modified with the same dash label for each list level. 
+% These modifications are canceled here to restore default 
+% \LaTeX\ \texttt{itemize} lists (labels and spaces).
+% As for |\exetranslate|,
+% we have create the |\standardfrenchlists| command who must be called into
+% |AtBeginDocument| or not, depending on whether
+% \textsf{exesheet} is loaded before \textsf{babel} or after.
+%
+% The |\setlist| command comes from the \textsf{enumitem} package
+% (|\setenumerate| is deprecated). By default |itemsep=1ex| for lists of first level,
+% and |leftmargin=1.5em| allows to align labels on the start of lines.
+%
+%    \begin{macrocode}
+\newcommand\standardfrenchlists{%
+    \@ifpackagewith{babel}{frenchb}{
+        \frenchbsetup{StandardLists=true}}{}
+    \@ifpackagewith{babel}{french}{
+        \@ifundefined{frenchsetup}{
+            \frenchbsetup{StandardLists=true}}{
+            \frenchsetup{StandardLists=True}}
+    }{}
+}
+\ifthenelse{\boolean{nosetlist}}{}{
+    \AtBeginDocument{% if loaded before babel package
+        \standardfrenchlists}
+    \standardfrenchlists % necessary when loaded after babel
+    \setlist[enumerate]{font=\bfseries}
+    \setlist[enumerate,1]{topsep=1.5ex plus 1ex minus 1ex,leftmargin=1.5em}
+}
+
+%    \end{macrocode}
+% \begin{macro}{\exenumerate}
+%    \begin{macrocode}
+\newenvironment{exenumerate}[1][]{%
+    \setlist[enumerate]{font=\bfseries}
+    \setlist[enumerate,1]{leftmargin=1.5em,
+        itemsep=3ex plus 1ex minus 1ex,topsep=3ex plus 1ex minus 1ex}
+    \setlist[enumerate,3]{noitemsep,nolistsep}
+    \setlist[itemize]{noitemsep,nolistsep}
+    \begin{enumerate}[#1]
+        }{\end{enumerate}}
+
+%    \end{macrocode}
+% \end{macro}
+% \DescribeEnv{tablenum1} \DescribeEnv{tablenuma}
+% The |\NewTasks| command comes from the \textsf{tasks} package.
+% It allows to define the environments \texttt{tablenum1}, \texttt{tablenuma}
+% and \texttt{tablitem}.
+% The horizontal spaces are adjusted to get a good alignment with
+% items of other \texttt{enumerate} (or \texttt{itemize}) environments.
+%
+%    \begin{macrocode}
+\ifthenelse{\boolean{nosetlist}}{
+    \NewTasksEnvironment[label=\arabic*.,
+        column-sep=1em,
+        after-item-skip=0.5ex plus 0.5ex minus 0.5ex]{tablenum1}[\item](2)
+    \NewTasksEnvironment[label=(\alph*),
+        column-sep=1em,label-align=right,
+        item-indent=2.15em,label-width=1.6em,label-offset=0.5em,
+        after-item-skip=0.5ex plus 0.5ex minus 0.5ex]{tablenuma}[\item](2)
+}{% by default
+    \NewTasksEnvironment[label=\arabic*.,label-format=\bfseries,
+        column-sep=1em,label-align=right,
+        item-indent=1.5em,label-width=1em,label-offset=0.5em,
+        after-item-skip=0.5ex plus 0.5ex minus 0.5ex]{tablenum1}[\item](2)
+    \NewTasksEnvironment[label=(\alph*),label-format=\bfseries,
+        column-sep=1em,label-align=right,
+        item-indent=2.15em,label-width=1.6em,label-offset=0.5em,
+        after-item-skip=0.5ex plus 0.5ex minus 0.5ex]{tablenuma}[\item](2)
+}
+\PackageWarning{exesheet}{Environment tablenum is deprecated and replaced by tablenum1}
+
+%    \end{macrocode}
+% \DescribeEnv{tablitem}
+%    \begin{macrocode}
+\NewTasksEnvironment[label=\labelitemi,
+    label-align=right,
+    item-indent=2.3333em,label-offset=0.5em,
+    after-item-skip=0.5ex plus 0.5ex minus 0.5ex]{tablitem}[\item](2)
+
+%    \end{macrocode}
+% \DescribeEnv{colsenum} \DescribeEnv{colsenum*}
+%    \begin{macrocode}
+\newenvironment{colsenum}[2][]{%
+    \setlength{\multicolsep}{2ex}
+    \raggedcolumns % default is \flushcolumns
+    \begin{multicols}{#2} % #2 = number of columns
+        \begin{enumerate}[#1] % #1 = options of enumerate
+            }{
+        \end{enumerate}
+    \end{multicols}
+}
+
+\newenvironment{colsenum*}[2][]{%
+    \setlength{\multicolsep}{2ex}
+    \begin{multicols}{#2} % #2 = number of columns
+        \begin{enumerate}[#1] % #1 = options of enumerate
+            }{
+        \end{enumerate}
+    \end{multicols}
+}
+
+%    \end{macrocode}
+% \DescribeEnv{colsitem} \DescribeEnv{colsitem*}
+%    \begin{macrocode}
+\newenvironment{colsitem}[2][]{%
+    \setlength{\multicolsep}{2ex}
+    \raggedcolumns
+    \begin{multicols}{#2}
+        \begin{itemize}[#1]
+            }{
+        \end{itemize}
+    \end{multicols}
+}
+
+\newenvironment{colsitem*}[2][]{%
+    \setlength{\multicolsep}{2ex}
+    \begin{multicols}{#2}
+        \begin{itemize}[#1]
+            }{
+        \end{itemize}
+    \end{multicols}
+}
+
+%    \end{macrocode}
+%
+% \subsection{Questions and answers}
+%
+% \DescribeMacro{\questionsonly} \DescribeMacro{\answersonly}
+% The \texttt{questions} and \texttt{answers} booleans
+% control the display of corresponding environments.
+% When created, a boolean has the \texttt{false} value by default,
+% but we define them to \texttt{true}.
+% The |\questionsonly| and |\answersonly| macros are used as user interface
+% to display only one of the two environments.
+%    \begin{macrocode}
+\newboolean{questions}
+\newboolean{answers}
+\setboolean{questions}{true}
+\setboolean{answers}{true}
+\newcommand{\questionsonly}{
+    \setboolean{questions}{true}\setboolean{answers}{false}}
+\newcommand{\answersonly}{
+    \setboolean{questions}{false}\setboolean{answers}{true}}
+
+%    \end{macrocode}
+%
+% \begin{environment}{questions}
+% It is the |\comment| and |\endcomment| macros, provided by the  \textsf{versions} package,
+% that allow the magic of conditional displays (we can also find them 
+% in the \textsf{verbatim} or \textsf{version} packages).
+% The noteworthy \textsf{codesection} package, allows to encapsulate 
+% optional code between the macros |\BeginCodeSection|\marg{skip} 
+% and |\EndCodeSection|\marg{skip},
+% both in the text body and in the preamble,
+% but these macros cannot be used inside an environment 
+% as we did here for |\comment| and |\endcomment|.
+%    \begin{macrocode}
+\newcounter{exe@ini}
+\newcounter{subpart@ini}
+
+\newenvironment{questions}{
+    \ifthenelse{\boolean{questions}}{
+        \setcounter{exe@ini}{\value{exercise}}
+        \setcounter{subpart@ini}{\value{subpart}}
+    }{\comment}}%
+{\ifthenelse{\boolean{questions}}{}{\endcomment}}
+
+%    \end{macrocode}
+% \end{environment}
+% \begin{environment}{answers}
+% The internal macro |\set@toclevel| calculates the title level
+% of the word \emph{\correctionname} to display at the start of an
+% \texttt{answers} environment (when \texttt{questions} and \texttt{answers} are
+% displayed together). The principle is to compare the state of the counters
+% \texttt{exercise} and \texttt{subpart} with those saved at the time of
+% the call of \texttt{questions}. The |\@enumdepth| counter indicates the 
+% \texttt{enumerate} list level in which we are (0 = out of lists).
+% The optional parameter of the \texttt{answers} environment allows to force this title level.
+%    \begin{macrocode}
+\newcounter{@toclevel}
+\newcommand{\set@toclevel}[1][]{
+    \ifthenelse{\equal{#1}{}}{
+        \ifthenelse{\value{exercise} > \value{exe@ini}}{
+            \setcounter{@toclevel}{1}
+        }{\ifthenelse{\equal{\the\@enumdepth}{0}}{
+                % we're not in an enumerate environment
+                \ifthenelse{\(\value{subpart} > \value{subpart@ini}\)
+                    \or \(\value{subpart} = 0\)}{
+                    \setcounter{@toclevel}{2}
+                }{\setcounter{@toclevel}{3}}
+            }{\setcounter{@toclevel}{4}}}
+    }{\setcounter{@toclevel}{#1}}}
+
+\newcommand{\correctionstyle}{\color{correctioncolor}}
+
+\newenvironment{answers}[1][]{% #1 is the optional level
+    \ifthenelse{\boolean{answers}}{%
+        \ifthenelse{\boolean{questions}}{%
+            \set@toclevel[#1]
+            \ifthenelse{\value{@toclevel} = 1}{
+                \section*{\correctionstyle\correctionname}
+                \ifthenelse{\boolean{notoc}}{}{
+                    \addcontentsline{toc}{section}{\correctionname}}
+                \setcounter{exercise}{0}
+            }{\ifthenelse{\value{@toclevel} = 2}{%
+                    \subsection*{\correctionstyle\correctionname}
+                    \ifthenelse{\boolean{notoc}}{}{
+                        \addcontentsline{toc}{subsection}{\correctionname}}
+                    \setcounter{subpart}{0}
+                }{\ifthenelse{\value{@toclevel} = 3}{%
+                        \subsubsection*{\correctionstyle\correctionname}
+                        \ifthenelse{\boolean{notoc}}{}{
+                            \addcontentsline{toc}{subsubsection}{
+                                \correctionname}}
+                    }{\par\textbf{\correctionstyle\correctionname}\par
+                    }%
+                }%
+            }%
+            \correctionstyle%
+        }{}%
+    }{\comment}
+}{\ifthenelse{\boolean{answers}}{}{\endcomment}}
+
+\newenvironment{answers*}{\ifthenelse{\boolean{answers}}{}{\comment}}%
+{\ifthenelse{\boolean{answers}}{}{\endcomment}}
+
+%    \end{macrocode}
+% In the \texttt{answers} environment, if we place |\correctionstyle|
+% before |\subsubsection|, the preceding vertical space may be too wide.
+%
+% \end{environment}
+% \begin{macro}{\question}
+%    \begin{macrocode}
+\newcommand{\question}[2]{%
+    \ifthenelse{\boolean{questions}}{#1}{}
+    \bgroup
+    \ifthenelse{\boolean{answers}}{
+        \ifthenelse{\boolean{questions}}{
+            \ifx#2\empty\else
+                \par\correctionstyle\textbf{\correctionname}\par
+            \fi
+        }{}
+        #2}{}
+    \egroup
+}
+
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\points (patched)}
+%    \begin{macrocode}
+\let\@oldpoints\points
+\renewcommand*{\points}[1]{%
+    \ifthenelse{\boolean{questions}}{\@oldpoints{#1}}{}}
+
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Marginal notes}
+%
+% The commands |\displaypts|, |\displaypoints| and |\displaynotes|
+% change the ratio between left and right margins\footnote{So 
+% that the effect on the margin ratio is correct, these
+% macros must be called, in the preamble, after other commands 
+% that also could alter the page geometry.}.
+%
+% \DescribeMacro{\pts} \DescribeMacro{\displaypts}
+%    \begin{macrocode}
+\newboolean{marginpts}
+\newcommand*{\pointmark}[1]{%
+    \ifthenelse{\lengthtest{#1 cm < 2cm}}{#1 \ptname}{#1 \ptsname}}
+\newcommand{\ptsstyle}[1]{%
+    \footnotesize\centering\sffamily\color{ptscolor} (#1)}
+\newcommand*{\pts}[1]{%
+    \ifthenelse{\boolean{marginpts}}{%
+        \mbox{}% 
+        \marginpar{\hspace{0pt}%
+            \ptsstyle{\pointmark{#1}}}%
+    }{}%
+    \ignorespaces
+}
+\newcommand{\displaypts}{%
+    \reversemarginpar
+    \geometry{hmarginratio=3:2}
+    \setboolean{marginpts}{true}
+}
+
+%    \end{macrocode}
+%
+% \begin{macro}{\totalexe}
+% In the following macros using
+% |\marginpar|, percent symbols and |\ignorespaces| are necessary 
+% to avoid too much space in the text (or the margin)
+% where these macros are inserted.
+%    \begin{macrocode}
+\newlength{\ptsboxlength}
+\setlength{\ptsboxlength}{3.1em}
+\cornersize{1}
+\newcommand*{\totalexe}[1]{% 
+    \ifthenelse{\boolean{marginpoints}}{%
+        \mbox{}%
+        \marginpar{\markingstyle{\ovalbox{%
+                    \makebox[\ptsboxlength]{\pointmark{#1}}}%
+            }}%        
+    }{}%
+    \ignorespaces
+}
+
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\note}
+% The booleans \texttt{marginpoints} and \texttt{marginfullnotes} control
+% the display of marginal notes. If \texttt{marginpoints} is \texttt{false},
+% \texttt{marginfullnotes} will be ignored.
+% The |\noteragged| command is initialized outside |\displaynotes|
+% such that we can use the |\note| command without |\displaynotes| (see further).
+%    \begin{macrocode}
+\newboolean{marginpoints}
+\newboolean{marginfullnotes}
+
+\newcommand{\markingstyle}[1]{\hspace{0pt}\footnotesize\sffamily%
+    \centering\color{markingcolor}\textbf{#1}}
+\newcommand{\noteragged}{\raggedleft}
+\newcommand{\notestyle}[1]{\hspace{0pt}\footnotesize\sffamily%
+    \noteragged\noindent\color{notecolor} #1}
+\newcommand{\@note}[2][]{%
+    \ifthenelse{\boolean{marginpoints}}{%
+        \mbox{}%
+        \marginpar{%
+            \ifthenelse{\equal{#1}{}}{}{\markingstyle{#1}\\}%
+            \ifthenelse{\boolean{marginfullnotes}}{\notestyle #2}{}%
+        }%
+    }{}%
+    \ignorespaces
+}
+\newcommand{\@@note}[1]{%
+    \ifthenelse{\boolean{marginpoints}}{%
+        \mbox{}%
+        \marginpar{\markingstyle{#1}}%
+    }{}%
+    \ignorespaces
+}
+\newcommand{\note}{\@ifstar{\@@note}{\@note}}
+
+%    \end{macrocode}
+% \end{macro}
+%
+% \DescribeMacro{\displaypoints} \DescribeMacro{\displaynotes}
+%\DescribeMacro{\displaynotesright}
+% In |\displaynotes|, the additional length \texttt{1\,in} matches 
+% the default free space to the left of |\oddsidemargin|.
+%
+%    \begin{macrocode}
+\newcommand{\displaypoints}{%
+    \reversemarginpar
+    \geometry{hmarginratio=3:2}
+    \setboolean{marginpoints}{true}
+}
+
+\newcommand*{\displaynotes}[1][\raggedleft]{%
+    \reversemarginpar
+    \renewcommand{\noteragged}{#1}
+    \geometry{hmarginratio=5:1}
+    \setlength{\marginparwidth}{\oddsidemargin}
+    \addtolength{\marginparwidth}{1in}
+    \addtolength{\marginparwidth}{-\marginparsep}
+    \setlength{\marginparwidth}{0.8\marginparwidth}
+    \setboolean{marginpoints}{true}
+    \setboolean{marginfullnotes}{true}
+}
+
+\newcommand*{\displaynotesright}[1][\raggedright]{%
+    \normalmarginpar
+    \renewcommand{\noteragged}{#1}
+    \geometry{hmarginratio=1:5}
+    \setlength{\marginparwidth}{\paperwidth}
+    \addtolength{\marginparwidth}{-\textwidth}
+    \addtolength{\marginparwidth}{-\oddsidemargin}
+    \addtolength{\marginparwidth}{-\marginparsep}
+    \addtolength{\marginparwidth}{-1in}
+    \setlength{\marginparwidth}{0.8\marginparwidth}
+    \setboolean{marginpoints}{true}
+    \setboolean{marginfullnotes}{true}
+}
+%    \end{macrocode}
+% The formatting of marginal notes can possibly be made more regular 
+% with the \textsf{ragged2e} package, not loaded by \textsf{exesheet}.
+% We will then have to enter, as an optional parameter of |\displaypoints|:
+% |\RaggedLeft|, |\Centering|, |\RaggedRight| or |justifying|.
+%
+% \begin{macro}{\totalpoints}
+%    \begin{macrocode}
+\newcommand{\totalpoints}{%
+    \ifthenelse{\boolean{marginpoints}}{\totalexe}{\points}}
+%</package>
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput

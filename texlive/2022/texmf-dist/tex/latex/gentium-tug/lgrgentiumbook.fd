@@ -1,0 +1,55 @@
+\ProvidesFile{lgrgentiumbook.fd}
+    [2022/05/30 Font definitions for gentiumbook.]
+
+\expandafter\ifx\csname gentiumbook@scale\endcsname\relax
+    \let\gentiumbook@@scale\@empty
+\else
+    \edef\gentiumbook@@scale{s*[\csname gentiumbook@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{LGR}{gentiumbook}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{m}{n}{
+            <->     \gentiumbook@@scale lgr-gentiumbook-regular
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{m}{it}{
+            <->     \gentiumbook@@scale lgr-gentiumbook-italic
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{b}{n}{
+            <->     \gentiumbook@@scale lgr-gentiumbook-bold
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{b}{it}{
+            <->     \gentiumbook@@scale lgr-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{sl}{n}{
+            <->     \gentiumbook@@scale lgr-gentiumplus-regular
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{sl}{it}{
+            <->     \gentiumbook@@scale lgr-gentiumplus-italic
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{sb}{n}{
+            <->     \gentiumbook@@scale lgr-gentiumplus-bold
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{sb}{it}{
+            <->     \gentiumbook@@scale lgr-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{LGR}{gentiumbook}{m}{sl}{<->ssub * gentiumbook/m/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{b}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{bx}{sl}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{bx}{it}{<->ssub * gentiumbook/b/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{bx}{n}{<->ssub * gentiumbook/b/n}{}
+\DeclareFontShape{LGR}{gentiumbook}{sl}{sl}{<->ssub * gentiumbook/sl/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{sb}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{sbx}{sl}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{sbx}{it}{<->ssub * gentiumbook/sb/it}{}
+\DeclareFontShape{LGR}{gentiumbook}{sbx}{n}{<->ssub * gentiumbook/sb/n}{}
+
+\endinput

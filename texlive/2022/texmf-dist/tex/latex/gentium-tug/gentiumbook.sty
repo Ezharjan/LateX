@@ -1,0 +1,16 @@
+% This file is part of the Gentium package for TeX.
+% It is licensed under the Expat License, see doc//README for details.
+%
+\ProvidesPackage{gentiumbook} [2022/05/09 Style file for gentiumbook.]
+%
+% Options:
+%  [scaled=0.9]   --> Scale = 0.9
+%
+\RequirePackage{xkeyval}
+\newcommand*{\gentiumbook@scale}{1}
+\DeclareOptionX{scaled}{\renewcommand*{\gentiumbook@scale}{#1}}
+\ProcessOptionsX\relax
+
+\renewcommand{\rmdefault}{gentiumbook}
+
+\endinput

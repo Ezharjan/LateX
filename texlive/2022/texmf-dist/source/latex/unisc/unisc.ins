@@ -1,0 +1,55 @@
+% File: unisc.ins
+\input l3docstrip.tex
+
+\keepsilent
+\askforoverwritefalse
+
+\preamble
+----------------------------------------------------------
+Package:     unisc
+Version:     v0.2 (29 April, 2022)
+Author:      निरंजन
+Description: Unicode small caps with Lua/XeLaTeX.
+Repository:  https://puszcza.gnu.org.ua/projects/unisc
+License:     GPLv3+, GFDLv1.3+
+----------------------------------------------------------
+
+LaTeX Package unisc v0.2
+Copyright © 2022 निरंजन
+
+This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either
+version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE. See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public
+License along with this program. If not, see
+<https://www.gnu.org/licenses/>.
+
+The current maintainer of this work is निरंजन.
+
+This work consists of the files unisc.dtx
+                                unisc.ins
+and the derived file            unisc.sty.
+----------------------------------------------------------
+\endpreamble
+
+\usedir{tex/latex/\jobname}
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+
+\nopreamble\nopostamble
+\usedir{doc/latex/\jobname}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+
+\endbatchfile

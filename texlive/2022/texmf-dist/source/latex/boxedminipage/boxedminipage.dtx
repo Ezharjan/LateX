@@ -1,0 +1,349 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2015-2020 by Scott Pakin <scott+bmp@pakin.org>
+% ------------------------------------------------------------
+%
+% This file may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, either version 1.3c of this license
+% or (at your option) any later version.  The latest version of this
+% license is in:
+%
+%    http://www.latex-project.org/lppl/
+%
+% and version 1.3c or later is part of all distributions of LaTeX version
+% 2008/05/04 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{boxedminipage.dtx}
+%</driver>
+%<package|old-package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{boxedminipage}
+%<old-package>\ProvidesPackage{boxedminipage2e}
+%<*package>
+    [2020/04/19 v1.1 Boxed LaTeX2e minipages]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage{boxedminipage}
+\usepackage{needspace}
+\usepackage{tocbibind}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage{cleveref}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+% Specify this document's metadata.
+\GetFileInfo{boxedminipage.dtx}
+\title{The \pkgname{boxedminipage} package\thanks{This document
+    corresponds to \pkgname{boxedminipage}~\fileversion, dated \filedate.}}
+\author{Scott Pakin \\ \textit{scott+bmp@pakin.org}}
+\makeatletter
+\edef\versionnumber{\expandafter\@gobble\fileversion}  % Drop the "v" in the file version.
+\makeatother
+\hypersetup{%
+  pdftitle={The boxedminipage package},
+  pdfauthor={Scott Pakin},
+  pdfsubject={LaTeX2e minipages with a surrounding frame},
+  pdfkeywords={LaTeX, minipages, boxes, frames, fbox, fboxsep},
+  pdfcopyright={Copyright (C) 2015-2020, Scott Pakin},
+  pdflicenseurl={http://www.latex-project.org/lppl/},
+  pdfcaptionwriter={Scott Pakin},
+  pdfcontactemail={scott+bmp@pakin.org},
+  pdfcontacturl={http://www.pakin.org/\xmptilde scott/},
+  pdfversionid={\versionnumber},
+  pdflang={en-US},
+  pdftrapped={False},
+  pdfstartpage={},
+  pdfurl={http://mirror.ctan.org/macros/latex/contrib/boxedminipage/boxedminipage.pdf},
+  baseurl={http://mirror.ctan.org/macros/latex/contrib/boxedminipage/}
+}
+
+% Begin the documentation.
+\begin{document}
+\DocInput{boxedminipage.dtx}
+  \Needspace{10\baselineskip}
+  \phantomsection\addcontentsline{toc}{section}{Change History}
+  \PrintChanges
+  \makeatletter
+  \let\orig@index@prologue=\index@prologue
+  \def\index@prologue{%
+    \phantomsection\addcontentsline{toc}{section}{Index}
+    \orig@index@prologue
+  }%
+  \makeatother
+  \Needspace{12\baselineskip}
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{62}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2015/03/09}{Initial version}
+% \changes{v1.1}{2020/04/19}{Renamed the package from
+%   \protect\pkgname{boxedminipage2e} to \protect\pkgname{boxedminipage}}
+%
+% \DoNotIndex{\@ifnextchar,\MessageBreak,\addtolength,\begin,\def,\else}
+% \DoNotIndex{\end,\fi,\ifx,\ifx,\newcommand,\newenvironment,\relax}
+% \DoNotIndex{\setlength,\the}
+%
+% ^^A  Define a shortcut for typesetting package names.
+% \let\pkgname=\textsf
+%
+% \maketitle
+% \sloppy
+%
+% \section{Introduction}
+%
+% This is a very simple package.  It defines a single environment,
+% |boxedminipage| that is essentially equivalent to
+% |\fbox{\begin{minipage}|\dots |\end{minipage}}|.  The difference is
+% that the width of a |boxedminipage| includes the width of the frame,
+% while the width of the |\fbox|~$+$ |minipage| combination is wider
+% than the width specified to the |minipage|.
+%
+% The following example exaggerates the effect by setting
+% |\fboxrule=8pt| and |\fboxsep=4pt| and defining |minipage|s of width
+% |\linewidth|:
+%
+% \begin{center}
+%   \setlength{\fboxrule}{8pt}
+%   \setlength{\fboxsep}{4pt}
+%   \begin{minipage}{0.8\linewidth}
+%     \setlength{\parindent}{2em}
+%     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+%     condimentum id elit in fringilla. Vivamus tempus magna non tortor
+%     aliquet, ac porta justo venenatis. Suspendisse quis efficitur
+%     nibh.
+%
+%     \noindent\fbox{%
+%     \begin{minipage}[t]{\linewidth}
+%       This box was created by putting a |minipage| within an
+%       \cs{fbox}.  Notice how the frame is aligned with the left margin
+%       of the surrounding text but juts out into the right margin.
+%     \end{minipage}}
+%
+%     Suspendisse pulvinar vel elit at dapibus. Interdum et malesuada
+%     fames ac ante ipsum primis in faucibus. Cras nibh orci, posuere
+%     quis viverra a, gravida nec velit. Pr\ae{}sent porta semper
+%     tellus, eu pulvinar ante mollis faucibus.
+%
+%     \noindent
+%     \begin{boxedminipage}[t]{\linewidth}
+%       This box was created with the |boxedminipage| environment.
+%       Notice how the frame is aligned properly with both margins of
+%       the surrounding text.
+%     \end{boxedminipage}
+%
+%     Duis est neque, aliquet at augue a, auctor condimentum orci. Donec
+%     arcu magna, eleifend a consequat in, vehicula non elit. Sed id est
+%     sed ipsum interdum posuere.
+%   \end{minipage}
+% \end{center}
+%
+% \paragraph{History}
+% Prior to \pkgname{boxedminipage}~v1.1 (April 2020), the package was
+% known as \pkgname{boxedminipage2e} to distinguish it from Mario
+% Wolczko's \pkgname{boxedminipage} package, developed for \LaTeX~2.09.
+% Mario's package, last updated in~1992, lacks support for the
+% \LaTeXe\ |minipage|'s \meta{height} and \meta{inner-pos} arguments.
+% In contrast, this package supports |minipage|'s complete functionality.
+%
+% At Frank Mittelbach's suggestion and with Mario Wolczko's consent,
+% this \pkgname{boxedminipage} replaces the \LaTeX~2.09 version.
+% \pkgname{boxedminipage2e} is now an alias for \pkgname{boxedminipage}
+% except that it issues a warning message that new documents should
+% instead use \pkgname{boxedminipage}.
+%
+%
+% \section{Usage}
+%
+% \DescribeEnv{boxedminipage}
+% The \pkgname{boxedminipage} package defines a single environment,
+% |boxedminipage|.  It takes the same parameters as \LaTeXe's |minipage|
+% environment:
+%
+% \bigskip
+% \DeleteShortVerb{\|}
+% \hspace*{-2em}%
+% \begin{tabular}{|l|}
+%   \hline
+%     \verb|\begin{boxedminipage}|
+%     \oarg{pos} \oarg{height} \oarg{inner-pos} \marg{width} \\
+%       \quad\meta{text} \\
+%     \verb|\end{boxedminipage}| \\
+%   \hline
+% \end{tabular}
+% \MakeShortVerb{\|}
+% \bigskip
+%
+% The semantic difference is that the values specified by the \meta{height}
+% and \meta{width} arguments are reduced to accommodate the space needed
+% by the surrounding frame.
+%
+%
+% \section{Implementation}
+%
+% Most readers can ignore this section.  It presents an annotated
+% version of \pkgname{boxedminipage}'s source code.
+% \Cref{sec:boxedminipage} describes the contents of |boxedminipage.sty|.
+% \Cref{sec:boxedminipage2e} represents a separate stub file,
+% |boxedminipage2e.sty|, which merely issues a warning message and
+% instructs the author to load \pkgname{boxedminipage} instead of
+% \pkgname{boxedminipage2e}.
+%
+% \subsection{boxedminipage}
+% \label{sec:boxedminipage}
+%
+% \iffalse
+%<*package>
+% \fi
+%
+% \begin{macro}{\bmp@box}
+% The contents of the |minipage| are collected into |\bmp@box|.
+%    \begin{macrocode}
+\newsavebox{\bmp@box}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\bmp@width}
+% \begin{macro}{\bmp@height}
+% The adjusted width and height of the |minipage| are stored in
+% |\bmp@width| and |\bmp@height|, respectively.
+%    \begin{macrocode}
+\newlength{\bmp@width}
+\newlength{\bmp@height}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\bmp@relax}
+% We determine if the |minipage|'s \meta{height} argument contains only
+% |\relax| by comparing it to |\bmp@relax|.
+%    \begin{macrocode}
+\def\bmp@relax{\relax}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{boxedminipage}
+% The |boxedminipage| environment is the only environment exposed by the
+% \pkgname{boxedminipage} package.  It takes the same parameters as
+% \LaTeXe's ordinary |minipage| environment:\par
+% \smallskip
+% \begin{tabular}{lcccc}
+%   \emph{Arguments}: & \oarg{pos} & \oarg{height} & \oarg{inner-pos} & \marg{width} \\
+%   \emph{Default values}: & |c| & |\relax| & |s| & --- \\
+% \end{tabular}
+%    \begin{macrocode}
+\newcommand{\boxedminipage}[1][c]{%
+  \@ifnextchar[{\bminipage@i[#1]}{\bminipage@i[#1][\relax]}%
+}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\bminipage@i}
+% The top-level |boxedminipage| environment invokes |\bminipage@i| with
+% the \meta{pos} and \meta{height} arguments.  |\bminipage@i| checks for
+% an \meta{inner-pos} argument and provides ``|s|'' if absent.
+%    \begin{macrocode}
+\def\bminipage@i[#1][#2]{%
+  \@ifnextchar[{\bminipage@ii[#1][#2]}{\bminipage@ii[#1][#2][s]}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\bminipage@ii}
+% The |\bminipage@ii| macro is passed all four of |boxedminipage|'s
+% arguments.  It subtracts two |\fboxrule| and two |\fboxsep| lengths
+% from each of the \meta{height}~(|#2|) and \meta{width}~(|#4|)
+% arguments to make room for the lines and padding that |\fbox|
+% introduces.  |\bminipage@ii| then begins a |minipage| with the
+% appropriate parameters and prepares to store it in box |\bmp@box|.
+%    \begin{macrocode}
+\def\bminipage@ii[#1][#2][#3]#4{%
+  \setlength{\bmp@width}{#4}%
+  \addtolength{\bmp@width}{-2\fboxrule}%
+  \addtolength{\bmp@width}{-2\fboxsep}%
+  \def\bmp@heighttext{#2}%
+  \begin{lrbox}{\bmp@box}%
+    \ifx\bmp@heighttext\bmp@relax
+      \begin{minipage}[#1][#2][#3]{\the\bmp@width}%
+    \else
+      \setlength{\bmp@height}{\bmp@heighttext}%
+      \addtolength{\bmp@height}{-2\fboxrule}%
+      \addtolength{\bmp@height}{-2\fboxsep}%
+      \begin{minipage}[#1][\bmp@height][#3]{\the\bmp@width}%
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\endboxedminipage}
+% When the document invokes |\end{boxedminipage}| we typeset the
+% |minipage| we just created within an |\fbox|.
+%    \begin{macrocode}
+\def\endboxedminipage{%
+    \end{minipage}%
+  \end{lrbox}%
+  \fbox{\usebox{\bmp@box}}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \subsection{boxedminipage2e}
+% \label{sec:boxedminipage2e}
+%
+% Issue a warning if the user loaded \pkgname{boxedminipage2e} instead of
+% the newer name, \pkgname{boxedminipage}.  Then load \pkgname{boxedminipage}.
+%
+% \medskip
+% \noindent
+% {\sffamily\small
+%<*old-package>
+% }
+%    \begin{macrocode}
+\PackageWarningNoLine{boxedminipage2e}{%
+  The boxedminipage2e package has been\MessageBreak
+  renamed to boxedminipage.  New documents\MessageBreak
+  should load boxedminipage instead of\MessageBreak
+  boxedminipage2e}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\RequirePackage{boxedminipage}
+%    \end{macrocode}
+% {\sffamily\small
+%</old-package>
+% }
+%
+%
+% \Finale
+\endinput

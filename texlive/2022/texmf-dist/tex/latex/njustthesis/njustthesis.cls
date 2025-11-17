@@ -1,0 +1,585 @@
+%%
+%% This is file `njustthesis.cls',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% njustthesis.dtx  (with options: `cls')
+%% Copyright (C) 2022-2022\ by wzy <wuzy01@qq.com>
+%% 
+%% This work may be distributed and/or modified under the conditions of GPLv3+.
+\@ifundefined{NeedsTeXFormat}{% 2.09 version
+  \def\filename{njustthesis.cls}
+  \def\filedate{2022-03-04}
+  \def\fileversion{0.0.1}
+  \typeout{Package: `\filename' \fileversion<\filedate>}
+}{% 2e version
+  \NeedsTeXFormat{LaTeX2e}[1994/12/01]
+  \ProvidesClass{njustthesis}[2022-03-04 0.0.1]
+}
+
+\RequirePackage{kvdefinekeys}
+\RequirePackage{kvsetkeys}
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{%
+  family = njust,
+  prefix = njust@,
+  setkeys = \kvsetkeys,
+}
+\newcommand\njustsetup{%
+  \kvsetkeys{njust}
+}
+\newcommand\njust@define@key[1]{%
+  \kvsetkeys{njust@key}{#1}
+}
+\newcommand\njust@error[1]{%
+ \ClassError{njustthesis}{#1}{}
+}
+\kv@set@family@handler{njust@key}{%
+  \@namedef{njust@#1@@name}{#1}
+  \def\njust@@default{}
+  \def\njust@@choices{}
+  \kv@define@key{njust@value}{name}{%
+    \@namedef{njust@#1@@name}{##1}
+  }
+  \kv@define@key{njust@value}{code}{%
+  \@namedef{njust@#1@@code}{##1}
+  }
+  \@namedef{njust@#1@@check}{}
+  \@namedef{njust@#1@@code}{}
+  \@namedef{njust@#1@@hook}{%
+    \expandafter
+    \ifx\csname\@currname.\@currext-h@@k\endcsname\relax
+      \@nameuse{njust@#1@@code}
+    \else
+      \AtEndOfClass{%
+        \@nameuse{njust@#1@@code}
+      }
+    \fi
+  }
+  \kv@define@key{njust@value}{choices}{%
+    \def\njust@@choices{##1}
+    \@namedef{njust@#1@@reset}{}
+    \@namedef{njust@#1@@check}{%
+      \@ifundefined{%
+        ifnjust@\@nameuse{njust@#1@@name}@\@nameuse{njust@\@nameuse{njust@#1@@name}}
+      }{%
+        \njust@error{Invalid value ``#1 = \@nameuse{njust@\@nameuse{njust@#1@@name}}''}
+      }
+      \@nameuse{njust@#1@@reset}
+      \@nameuse{njust@\@nameuse{njust@#1@@name}@\@nameuse{njust@\@nameuse{njust@#1@@name}}true}
+    }
+  }
+  \kv@define@key{njust@value}{default}{%
+    \def\njust@@default{##1}
+  }
+  \kvsetkeys{njust@value}{#2}
+  \@namedef{njust@\@nameuse{njust@#1@@name}}{}
+  \kv@set@family@handler{njust@choice}{%
+    \ifx\njust@@default\@empty
+      \def\njust@@default{##1}
+    \fi
+    \expandafter\newif\csname ifnjust@\@nameuse{njust@#1@@name}@##1\endcsname
+    \expandafter\g@addto@macro\csname njust@#1@@reset\endcsname{%
+      \@nameuse{njust@\@nameuse{njust@#1@@name}@##1false}
+    }
+  }
+  \kvsetkeys@expandafter{njust@choice}{\njust@@choices}
+  \expandafter\let\csname njust@\@nameuse{njust@#1@@name}\endcsname\njust@@default
+  \expandafter
+  \ifx\csname njust@\@nameuse{njust@#1@@name}\endcsname\@empty
+  \else
+    \@nameuse{njust@#1@@check}
+    \@nameuse{njust@#1@@hook}
+  \fi
+  \kv@define@key{njust}{#1}{%
+    \@namedef{njust@\@nameuse{njust@#1@@name}}{##1}
+    \@nameuse{njust@#1@@check}
+    \@nameuse{njust@#1@@hook}
+  }
+}
+\newcommand\njust@addto[2]{%
+  \expandafter\g@addto@macro\csname njust@#1@@code\endcsname{#2}
+}
+
+\njust@define@key{%
+  logo = {%
+    default = \njustwhole[njust][0.5],
+  },
+  cover-title = {%
+    name = cover@title,
+    default = {毕业设计说明书},
+  },
+  author = {%
+    default = {佚名},
+  },
+  id = {%
+    default = {916101630000},
+  },
+  department = {%
+    default = {电子工程与光电技术学院},
+  },
+  discipline = {%
+    default = {电子工程与光电技术},
+  },
+  title = {%
+  },
+  subtitle = {%
+  },
+  supervisor = {%
+    default = {张三},
+  },
+  associate-supervisor = {%
+    name = associate@supervisor,
+  },
+  judge = {%
+    default = {王五},
+  },
+  supervisor-title = {%
+    name = supervisor@title,
+    default = {教授},
+  },
+  associate-supervisor-title = {%
+    name = associate@supervisor@title,
+  },
+  judge-title = {%
+    name = judge@title,
+    default = {教授},
+  },
+  year = {%
+    default = \the\year,
+  },
+  month = {%
+    default = \the\month,
+  },
+  day = {%
+    default = \the\day,
+  },
+  signature = {%
+    default = \makebox[4em]{},
+  },
+  signature* = {%
+    name = signature@teacher,
+    default = \makebox[4em]{},
+  },
+  abstract-prefix = {%
+    name = abstract@prefix,
+    default = {毕业论文},
+  },
+  title* = {%
+    name = title@en,
+  },
+  subtitle* = {%
+    name = subtitle@en,
+  },
+  header-title = {%
+    name = header@title,
+    default = {本科毕业设计说明书},
+  },
+}
+
+\ProcessKeyvalOptions*
+\LoadClass[
+  twoside,
+  openright,
+  UTF8,
+  heading = true,
+  scheme = plain,
+  zihao = -4,
+  sub4section,
+]{ctexbook}
+\ctexset{%
+  today = small,
+  chapter = {%
+    name = {},
+    number = \arabic{chapter},
+    aftername = \hspace{1\ccwd},
+    format = \ifthenelse{\value{chapter}=0}{\centering}{}
+    \zihao{3}\heiti\bfseries,
+    beforeskip = 0.5\ccwd,
+    afterskip = 0.5\ccwd,
+  },
+  section = {%
+    aftername = \hspace{1\ccwd},
+    format = \ifthenelse{\value{chapter}=0}{\centering}{}
+    \zihao{-3}\heiti\bfseries,
+    beforeskip = 0.5\ccwd,
+    afterskip = 0.5\ccwd,
+  },
+  subsection = {%
+    format = \zihao{4}\heiti\bfseries,
+  },
+  appendixname = 附录,
+  contentsname = {目\hspace{\ccwd}次},
+  listfigurename = 插图索引,
+  listtablename = 表格索引,
+  figurename = 图,
+  tablename = 表,
+  bibname = 参考文献,
+  indexname = 索引,
+}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+\RequirePackage{csquotes}
+\DeclareQuoteStyle{zh}
+{\symbol{"201C}}%“
+{\symbol{"201D}}%”
+{\symbol{"2018}}%‘
+{\symbol{"2019}}%’
+\setquotestyle{zh}
+\DeclareQuoteStyle{ja}
+{\symbol{"300E}}%『
+{\symbol{"300F}}%』
+{\symbol{"300C}}%「
+{\symbol{"300D}}%」
+\DeclareQuoteStyle{book}
+{\symbol{"300A}}%《
+{\symbol{"300B}}%》
+{\symbol{"3008}}%〈
+{\symbol{"3009}}%〉
+\RequirePackage{indentfirst}
+\RequirePackage{setspace}
+
+\RequirePackage{titletoc}
+\titlecontents{chapter}[0pt]{\filright}{\contentspush{\thecontentslabel}}{}
+{\titlerule*{.}\contentspage}
+\RequirePackage[nottoc]{tocbibind}
+\RequirePackage{fancyhdr}
+\fancypagestyle{njust@fancy}{%
+  \renewcommand{\headrulewidth}{0.4pt}
+  \fancyhead[OC, EC]{\zihao{-2}\njust@header@title}
+  \fancyhead[EL, OR]{\zihao{5}第\thepage~页}
+  \fancyhead[ER, OL]{}
+  \fancyfoot[EC, OC]{}
+}
+\fancypagestyle{plain}{%
+  \pagestyle{njust@fancy}
+}
+\pagestyle{njust@fancy}
+
+\RequirePackage{pifont}
+\RequirePackage[
+  perpage,
+  symbol*
+]{footmisc}
+\DefineFNsymbols{circled}{%
+  {\ding{192}}
+  {\ding{193}}
+  {\ding{194}}
+  {\ding{195}}
+  {\ding{196}}
+  {\ding{197}}
+  {\ding{198}}
+  {\ding{199}}
+  {\ding{200}}
+  {\ding{201}}
+}
+\setfnsymbol{circled}
+\RequirePackage[
+  square, comma, numbers, super, sort&compress, longnamesfirst, sectionbib,
+  nonamebreak
+]{natbib}
+\bibliographystyle{gbt7714-plain}
+
+\RequirePackage{graphicx}
+\graphicspath{%
+  {fig/}
+  {fig/\arabic{chapter}/}
+  {figures/}
+  {figures/\arabic{chapter}/}
+  {images/}
+}
+\RequirePackage[njust]{cnlogo}
+
+
+\RequirePackage{tabu}
+\RequirePackage{multicol}
+
+\RequirePackage{newtxmath}
+\setlength{\abovedisplayskip}{0.5em}
+\setlength{\belowdisplayskip}{0.5em}
+\RequirePackage{exercise}
+\renewcommand{\ExerciseName}{问题}
+\renewcommand{\AnswerName}{回答}
+\renewcommand{\listexercisename}{问题}
+
+\RequirePackage{enumitem}
+\setlist[enumerate, 1]{%
+  fullwidth,
+  label = (\arabic*),
+  font = \textup,
+  itemindent = 2em,
+}
+\setlist[enumerate, 2]{%
+  fullwidth,
+  label = (\alph*),
+  font = \textup,
+  itemindent = 4em,
+}
+
+\RequirePackage{boxedminipage}
+
+\title{\njust@title}
+\author{\njust@author}
+
+\renewcommand\maketitle{%
+  \thispagestyle{empty}
+  \begin{titlepage}
+    \centering
+    \begin{spacing}{1}
+      \zihao{4}
+      \vspace{0.5\ccwd}
+
+      \vspace{1\ccwd}
+
+      \fontsize{30pt}{30pt}\selectfont\kaishu%
+      \njust@logo
+
+      \vspace{0.2\ccwd}
+
+      \fontsize{45pt}{45pt}\selectfont\heiti%
+      \njust@cover@title
+
+      \zihao{-1}
+      \vspace{1\ccwd}
+    \end{spacing}
+
+    \begin{spacing}{1.5}
+      \zihao{3}
+      \begin{tabu}
+        {@{}X[r, 5cm]@{}X[l, 3cm]
+        X[r, 4cm]@{}X[l, 4cm]@{}}
+        \textbf{作　　　者：} &
+        \underline{\makebox[3cm][c]{\kaishu\njust@author}} &
+        \textbf{学　　号：} &
+        \underline{\makebox[4cm][c]{\kaishu\njust@id}} \\
+        \textbf{学　　　院：} &
+        \multicolumn{3}{c}{\underline{\makebox[11cm][c]
+        {\kaishu\njust@department}}} \\
+        \textbf{专业(方向)：} &
+        \multicolumn{3}{c}{
+          \underline{\makebox[11cm][c]{\kaishu\njust@discipline}}} \\
+        \textbf{题　　　目：} &
+        \multicolumn{3}{c}{
+          \underline{\makebox[11cm][c]{\kaishu\njust@title}}} \\
+        \textbf{} &
+        \multicolumn{3}{c}{
+          \underline{\makebox[11cm][c]{\kaishu\njust@subtitle}}}
+      \end{tabu}
+      \vspace{0em}
+    \end{spacing}
+
+    \begin{spacing}{1}
+      \zihao{3}
+      \vspace{1\ccwd}
+
+      \zihao{-3}
+      \textbf{指导者：}\underline{\makebox[15.5\ccwd][c]{\njust@supervisor\hspace{1em}\njust@supervisor@title}}
+
+      \hspace{5em}
+
+      \phantom{指导者：}\underline{\makebox[15.5\ccwd][c]{\njust@associate@supervisor\hspace{1em}\njust@associate@supervisor@title}}
+
+      \hspace{5em}
+
+      \textbf{评阅者：}\underline{\makebox[15.5\ccwd][c]{\njust@judge\hspace{1em}\njust@judge@title}}
+
+      \hspace{5em}
+
+      \zihao{-2}
+      \njust@year 年\njust@month 月
+    \end{spacing}
+    \vspace{0em}
+  \end{titlepage}
+}
+
+\newcommand\copyrightpage{%
+  \newpage
+  \thispagestyle{empty}
+  \begin{center}
+    \heiti\zihao{3}声\hspace{2\ccwd}明
+  \end{center}
+
+  \begin{spacing}{1.5}
+    \zihao{4}
+
+    我声明，本\njust@abstract@prefix 及其研究工作和所取得的成果是本人在导师的指导
+    下独立完成的。研究过程中利用的所有资料均已在参考文献中列出，其他人员或机
+    构对本\njust@abstract@prefix 工作做出的贡献也已在致谢部分说明。
+
+    本\njust@abstract@prefix 不涉及任何秘密，南京理工大学有权保存其电子和纸质文档
+    ，可以借阅或网上公布其部分或全部内容，可以向有关部门或机构送交并授权保存
+    、借阅或网上公布其部分或全部内容。
+
+    \vspace{2\ccwd}
+
+    \begin{flushright}
+      学生签名：\njust@signature
+
+      \vspace{1\ccwd}
+
+      \njust@year 年\njust@month 月\njust@day 日
+
+      \vspace{2\ccwd}
+
+      指导教师签名：\njust@signature@teacher
+
+      \vspace{1\ccwd}
+
+      \njust@year 年\njust@month 月\njust@day 日
+    \end{flushright}
+  \end{spacing}
+  \clearpage
+}
+
+\newcommand\reviewpage{%
+  \begin{tabu}to.75\linewidth{@{}|X[l]|X[l]|@{}}
+    \hline
+    论文选题符合课程考核要求，具有一定的理论意义和实用价值,作者阅读较广泛,参考文献较充足。
+&
+\begin{tabu}{@{}X[l]@{}}
+  很好$ \square $ 较好$ \square $
+
+  一般$ \square $ 尚可$ \square $
+
+  差$ \square $
+\end{tabu}
+
+\hline
+论文观点正确，结构较合理，层次较清晰，逻辑性强，论述较全面，工作量较充实，结论具有一定的现实指导意义。
+&
+\begin{tabu}{@{}X[l]@{}}
+  很好$ \square $ 较好$ \square $
+
+  一般$ \square $ 尚可$ \square $
+
+  差$ \square $
+\end{tabu}
+
+\hline
+该生平时学习较认真，善于思考，到课率高，不迟到早退。文章语言表达较好，格
+式符合规范要求，体现了较好的学风。
+&
+\begin{tabu}{@{}X[l]@{}}
+  很好$ \square $ 较好$ \square $
+
+  一般$ \square $ 尚可$ \square $
+
+  差$ \square $
+\end{tabu}
+
+\hline
+\begin{tabu}{@{}X[l]@{}}
+  教师签名：
+
+  年~月~日
+\end{tabu}
+&
+
+\hline
+  \end{tabu}
+
+  \begin{flushleft}
+    \makebox[5\ccwd][c]{}注：请将该封面与论文装订成册（论文双面打印）。
+  \end{flushleft}$0
+
+  \begin{boxedminipage}{\linewidth}
+    \zihao{4}
+
+    任课老师评语：
+
+    \vspace{40mm}
+
+    \begin{flushright}
+      签名： \underline{\makebox[6\ccwd][c]{}}
+
+      年\makebox[2\ccwd][c]{}月\makebox[2\ccwd][c]{}日
+    \end{flushright}
+
+    \vspace{20mm}
+
+  \end{boxedminipage}
+  \clearpage
+}
+
+\newenvironment{abstract}{%
+  \newpage
+  \thispagestyle{empty}
+  \centering
+  \zihao{3}{\ziju{0.5}\heiti\njust@abstract@prefix
+  中文摘要}
+
+  \vspace{0.3em}
+
+  \begin{boxedminipage}[][18cm]{\linewidth}
+    \begin{spacing}{1.5}
+      \zihao{-4}
+
+      \vspace{1\ccwd}
+
+}{%
+    \end{spacing}
+  \end{boxedminipage}
+}
+
+\newenvironment{abstract*}{%
+  \newpage
+  \thispagestyle{empty}
+  \centering
+  \zihao{3}\ziju{0.5}\heiti\njust@abstract@prefix
+  英文摘要
+
+  \vspace{0.3em}
+
+  \begin{boxedminipage}[][18cm]{\linewidth}
+    \begin{spacing}{1}
+      \zihao{4}
+
+      \vspace{1em}
+
+      \begin{tabu} to \linewidth{@{}X[l]@{}X[l, 8]@{}}
+        \textbf{Title} &
+        \hspace{2em}\underline{
+          \makebox[15em][c]{\zihao{4}\njust@title@en}} \\
+        \phantom{Title} &
+        \hspace{2em}\underline{
+          \makebox[15em][c]{\zihao{4}\njust@subtitle@en}} \\
+      \end{tabu}
+
+      \textbf{Abstract}
+
+      \zihao{-4}
+
+      \vspace{2em}
+
+}{%
+    \end{spacing}
+  \end{boxedminipage}
+}
+
+\newenvironment{keyword}{%
+  \vspace{1em}
+  \noindent\textbf{关键词}\hspace{1\ccwd}
+}{%
+}
+
+\newenvironment{keyword*}{%
+  \vspace{1em}
+  \noindent\textbf{Keywords}\hspace{1em}
+}{%
+}
+
+\newenvironment{acknowledgement}{%
+  \newpage
+  \begin{center}
+    \zihao{3}致谢
+  \end{center}
+
+}{%
+}
+
+\endinput
+%%
+%% End of file `njustthesis.cls'.

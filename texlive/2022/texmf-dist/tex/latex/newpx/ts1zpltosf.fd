@@ -1,0 +1,24 @@
+\ProvidesFile{ts1zpltosf.fd}[2021/11/24 v1.0 fd file for TS1/zplTOsF]
+
+\expandafter\ifx\csname zpl@scaled\endcsname\relax
+  \global\let\zpl@scaled\@empty%
+\fi
+\ifdefined\zpl@spacing \else\global\let\zpl@spacing\@empty\fi
+
+\DeclareFontFamily{TS1}{zplTOsF}{\zpl@spacing}
+\DeclareFontShape{TS1}{zplTOsF}{b}{n}{<-> \zpl@scaled zplTOsF-Bold-ts1}{}
+\DeclareFontShape{TS1}{zplTOsF}{b}{it}{<-> \zpl@scaled zplTOsF-BoldItalic-ts1}{}
+\DeclareFontShape{TS1}{zplTOsF}{m}{n}{<-> \zpl@scaled zplTOsF-Regular-ts1}{}
+\DeclareFontShape{TS1}{zplTOsF}{m}{it}{<-> \zpl@scaled zplTOsF-Italic-ts1}{}
+\DeclareFontShape{TS1}{zplTOsF}{m}{sl}{<-> \zpl@scaled zplTOsF-Slanted-ts1}{}
+\DeclareFontShape{TS1}{zplTOsF}{b}{sl}{<-> \zpl@scaled zplTOsF-BoldSlanted-ts1}{}
+\DeclareFontShape{TS1}{zplTOsF}{bx}{n}{<->ssub * zplTOsF/b/n}{}
+\DeclareFontShape{TS1}{zplTOsF}{bx}{it}{<->ssub * zplTOsF/b/it}{}
+\DeclareFontShape{TS1}{zplTOsF}{m}{sc}{<->ssub * zplTOsF/m/n}{}
+\DeclareFontShape{TS1}{zplTOsF}{m}{scit}{<->ssub * zplTOsF/m/it}{}
+\DeclareFontShape{TS1}{zplTOsF}{b}{sc}{<->ssub * zplTOsF/b/n}{}
+\DeclareFontShape{TS1}{zplTOsF}{b}{scit}{<->ssub * zplTOsF/b/it}{}
+\DeclareFontShape{TS1}{zplTOsF}{bx}{sc}{<->ssub * zplTOsF/b/n}{}
+\DeclareFontShape{TS1}{zplTOsF}{bx}{scit}{<->ssub * zplTOsF/b/it}{}
+\DeclareFontShape{TS1}{zplTOsF}{bx}{sl}{<->ssub * zplTOsF/b/sl}{}
+\endinput

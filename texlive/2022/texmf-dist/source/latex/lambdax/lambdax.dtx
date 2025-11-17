@@ -1,0 +1,419 @@
+% \iffalse meta-comment
+% !TEX program  = pdfLaTeX
+%<*internal> 
+\iffalse
+%</internal> 
+%<*readme> 
+-----------------------------------------------------------------
+##### lambdax --- lambda expression
+- Source repository: https://github.com/rogard/lambdax
+- Released under the LaTeX Project Public License v1.3c or later
+- See http://www.latex-project.org/lppl.txt
+-----------------------------------------------------------------
+%</readme> 
+%<*internal> 
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+\expandafter\begingroup
+\fi
+%</internal> 
+%<*install> 
+\input l3docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+----------------------------------------------------------------
+lambdax --- lambda expression
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2021 by Erwann Rogard
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Erwann Rogard.
+
+This work consists of the file lambdax.dtx and the derived files:
+lambdax.sty, and lambdax.pdf.
+
+\endpostamble
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install> 
+%<install> \endbatchfile
+%<*internal> 
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\generate{
+  \file{README.md}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+\expandafter\endbatchfile
+\else
+\expandafter\endgroup
+\fi
+%</internal> 
+%<package> \NeedsTeXFormat{LaTeX2e}[2021-06-01]
+%<package> \RequirePackage{expl3, xparse, xtemplate, l3keys2e}[2021-06-01]
+%<package> \RequirePackage{keyparse}[2021-08-18]
+%<package> \ProvidesExplPackage
+%<package> {lambdax}                                                  % Package name
+%<package> {2021-08-18}                                               % Release date
+%<package> {1.1}                                                      % Release version
+%<package> {lambdax --- Lambda expression                         }   % Description
+%<*driver> 
+\documentclass[show-notes]{l3doc}%^^A full
+% ^^A \listfiles
+\usepackage[french, german, english]{babel}
+\usepackage{bookmark, enumitem, tcolorbox, xparse}
+\usepackage[bibencoding=auto, backend=biber, sorting=ynt]{biblatex}
+\usepackage[T1]{fontenc}
+\ExplSyntaxOn
+% ^^A *** Sectioning
+\tl_gset:Nn \partname {Part}%^^A allows to test w/o babel
+% ^^A 
+\ExplSyntaxOff
+% ^^A *** Typesetting
+\ProvideDocumentCommand{\docdescrf}{}{\sffamily\bfseries\tiny{}}
+% ^^A *** bibliography
+\begin{filecontents*}{\jobname.bib}
+@misc{erw-ccool,
+  author       = {Rogard, Erwann},
+  title        = {The \pkg{ccool} package for \LaTeX},
+  note         = {\url{https://github.com/rogard/ccool/blob/master/ccool.pdf}},
+  year         = {2020}}
+@misc{erw-keyparse,
+  author       = {Rogard, Erwann},
+  title        = {The \pkg{keyparse} package for \LaTeX},
+  note         = {\url{https://github.com/rogard/keyparse/blob/master/keyparse.pdf}},
+  year         = {2021}}
+@manual{xparse,
+  title        = {The \pkg{xparse} package},
+  author       = {The \LaTeX3 Project Team},
+  year         = {2019},
+  note         = {\url{https://ctan.math.illinois.edu/macros/latex/contrib/l3packages/xparse.pdf}},
+  annote       = {} }
+@misc{a-188053,
+  author       = {@{}sean-allred},
+  title        = {``How to create lambda expressions?''},
+  year         = {2014},
+  note         = {\url{https://tex.stackexchange.com/a/188053/112708}}}
+@misc{q-610349,
+  author       = {@{}Erwann},
+  title        = {``Troubleshooting \PrintIndex \PrintChanges''},
+  year         = {2021},
+  note         = {\url{https://tex.stackexchange.com/questions/610349/troubleshooting-printindex-printchanges}}}
+\end{filecontents*}
+\addbibresource{\jobname.bib}
+% ^^A *** Lists
+\newlist{arab-inl}{enumerate*}{1}
+\setlist[arab-inl]{label=\arabic*)}
+\newlist{colon-inl}{itemize*}{1}
+\setlist[colon-inl]
+{ %^^Abefore=\noindent,
+  label={},
+  itemjoin={{; }},
+  after={{.}}}
+\newlist{descr}{description}{1}
+\setlist[descr]{nosep, align=left, itemindent=0pt,
+  font=\sffamily\tiny}
+% ^^A *** This package's loading
+\usepackage{lambdax}
+\usepackage{hyperref} %^^A comes last
+\begin{document}
+\DocInput{\jobname.dtx}
+\end{document}
+%</driver> 
+% \fi
+% 
+% \GetFileInfo{\jobname.sty}
+% \title{The \pkg{lambdax} package\thanks{^^A
+% This file describes version \fileversion, last revised \filedate.^^A
+% }^^A
+% }
+%   \author{Erwann Rogard\thanks{first.lastname at gmail.com}}
+%   
+%   \date{Released \filedate}
+%   \begin{documentation}
+%     \maketitle
+%     \begin{abstract}
+%       This is a \LaTeX package that provides `lambda expressions', in other words
+%       an interface by which one consecutively, first,
+%       specifies the parameters and replacement code of a document-command\cite{xparse},
+%       and, second, evaluates it with compatible arguments.
+%       Optionally, one can recurse.
+%       For example,
+%       |\LambdaX[mm]<t^>{$#1$#2}{x}|
+%       |{,~}^{y}{~and~}^{z}{.}|,
+%       where |<.>| specifies the recurse paramater,
+%       expands to ``\LambdaX[mm]<t^>{$#1$#2}{x}{,~}^{y}{~and~}^{z}{.}''
+%     \end{abstract}
+%     \part{Usage}\label{part:usage}
+%
+%     \tableofcontents
+%   
+%     \section{Settings}
+%     
+%     The options hereafter are load-time-only.
+%     
+%     \DescribeOption{xparse-command}
+%     \begin{descr}
+%     \item[Side effect] Sets the xparse-document-command used by \cs{lambdax:nn}
+%     \item[Initial] \cs[no-index]{DeclareDocumentCommand}
+%     \end{descr}
+%     
+%     \section{Programming}
+%     \begin{function}
+%       {\lambdax:nn}
+%       \begin{syntax}
+%         \cs{lambdax:nn}\Arg{argspec}\Arg{code}\meta{args}
+%       \end{syntax}
+%     \end{function}
+%     \begin{descr}
+%     \item[Expands to] \meta{code}, \meta{args} replacing the parameters implied by \meta{argspec}
+%     \end{descr}
+%     
+%     \begin{function}
+%       {\lambdax:nnn}
+%       \begin{syntax}
+%         \cs{lambdax:nn}\Arg{argspec}\Arg{code}\Arg{bool-arg-type}\meta{args}\meta{bool-arg}
+%       \end{syntax}
+%     \end{function}
+%     \begin{descr}
+%     \item[Limitation] That of \pkg{keyparse}\cite{erw-keyparse}'s \texttt{argspec} collection.
+%     \item[Argspec] Examples of \meta{bool-arg-type}\cite{xparse} and \meta{bool-arg} are |s| and |*|, respectively.
+%     \item[Semantics] That of \cs{lambdax:nn} and recurse if applicable.
+%   \end{descr}
+%
+%     \begin{function}[EXP]
+%       {\lambdax_xcmd_if:NTF}
+%       \begin{syntax}
+%         \cs{lambdax_xcmd_if:NTF:Nn}\meta{xparse-command}\Arg{code~if~true}\Arg{code~if~false}
+%       \end{syntax}
+%     \end{function}
+%
+%     \section{Document}
+%     \begin{function}
+%       {\LambdaX}
+%       \begin{syntax}
+%         \cs[no-index]{LambdaX}\oarg{argspec}|<|\meta{bool-arg-type}|>|\Arg{code}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Adapts] \cs{lambda:nn} and \cs{lambda:nnn}
+%       \end{descr}
+%     \end{function}
+%
+%     \part{Other}
+%     \section{Acknowledgment}
+%     The basis for \cs{lambdax:nn} originates with \cite{a-188053}. Except for chaining, it was already provided by \cite{erw-ccool}.
+%     
+%     \section{Bibliograhy}
+%     \printbibliography[heading=none]
+%     
+%     \changes{Version 1.0}
+%     {2020/08/03}
+%     {Initial version}
+%     \changes{Version 1.1}
+%     {2020/08/18}
+%     {Dependency lex.sty renamed keyparse.sty}
+%     \clearpage
+%     \StopEventually{
+%     \PrintChanges
+%^^A     \PrintIndex % waiting for a response to \cite{q-610349}
+%     }
+%
+% \end{documentation}
+% \begin{implementation}
+%
+%   \part{Implementation}\label{part:impl}
+%
+%    \begin{macrocode}
+%<*package>      
+%<@@=lambdax>      
+\ExplSyntaxOn
+%    \end{macrocode}
+% \section{Auxiliary}
+%    \begin{macrocode}
+\cs_generate_variant:Nn\tl_count:n{e}
+\cs_generate_variant:Nn\int_eval:n{e}
+\cs_generate_variant:Nn\bool_if:nT{o, e}
+%    \end{macrocode}
+% \begin{macro}{\@@_str_case_empty:n}
+%    \begin{macrocode}
+\cs_new:Nn
+\@@_str_case_empty:n
+{{#1}
+  {\c_empty_tl}}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{xcmdif}}
+% \begin{macro}[int]{not-xparse}
+%    \begin{macrocode}
+\msg_new:nnn{@@}
+{not-xparse}
+{Expecting~an~xparse~command,~got~#2}
+%    \end{macrocode}
+% \end{macro}
+% \begin{variable}
+%   {\c@@_xcmdname_tl}
+%    \begin{macrocode}
+\tl_const:Nn
+\c@@_xcmdname_tl
+{  {NewDocumentCommand}
+  {RenewDocumentCommand}
+  {ProvideDocumentCommand}
+  {DeclareDocumentCommand}
+  {NewExpandableDocumentCommand}
+  {RenewExpandableDocumentCommand}
+  {ProvideExpandableDocumentCommand}
+  {DeclareExpandableDocumentCommand} }
+%    \end{macrocode}
+% \end{variable}
+% \begin{macro}
+%   {\@@_xcmd_if:nTF,
+%   \@@_xcmd_if:eTF,
+%   \lambdax_xcmd_if:NTF, 
+%   \@@_xcmd_else_error:Nn}
+%    \begin{macrocode}
+\prg_new_conditional:Nnn
+\@@_xcmd_if:n{TF}
+{\exp_args:Nnx
+  \str_case:nnTF{#1}
+  {  \tl_map_function:NN
+    \c@@_xcmdname_tl
+    \@@_str_case_empty:n} 
+  {\prg_return_true:}
+  {\prg_return_false:}}
+\cs_generate_variant:Nn\@@_xcmd_if:nTF{e}
+\cs_new:Nn
+\lambdax_xcmd_if:NTF
+{\@@_xcmd_if:eTF
+  {\cs_to_str:N#1}{#2}{#3}}
+\cs_new:Nn
+\@@_xcmd_else_error:Nn
+{  \lambdax_xcmd_if:NTF#1
+  { #2 }
+  { \msg_error:nne{@@}
+    {not-xparse}
+    {\token_to_str:N#1} } }
+%    \end{macrocode}
+% \end{macro}
+% \begin{variable}
+%   {\c@@_xenv_tl}
+%    \begin{macrocode}
+\tl_const:Nn
+\c@@_xenv_tl
+{ {NewDocumentEnvironment}
+  {RenewDocumentEnvironment}
+  {ProvideDocumentEnvironment}
+  {DeclareDocumentEnvironment} }
+%    \end{macrocode}
+% \end{variable}
+% \begin{macro}[int]
+%   {\@@_msg_name:n}
+%    \begin{macrocode}
+\cs_new:Nn
+\@@_msg_name:n{msg_\g@@_opt_msg_tl{}:#1}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{lambda}}\label{impl:lambda}
+% \begin{macro}
+%   {\@@_placeholder:n,
+%   \@@_placeholder:e,
+%   \@@_argspec:n,
+%   \@@_argspec_count:n,
+%   \@@_chain_position:n,
+%   \@@_chain_placeholder:n}
+% \begin{macrocode}
+\cs_new:Nn\@@_placeholder:n{#### #1}
+\cs_generate_variant:Nn\@@_placeholder:n{o,e}
+\cs_new:Nn\@@_argspec:n{\keyparse_eval:nn{argspec}{#1}}
+\cs_new:Nn\@@_argspec_count:n{\tl_count:e{\@@_argspec:n{#1}}}
+\cs_new:Nn\@@_chain_position:n{\int_eval:e{\@@_argspec_count:n{#1}+1}}
+\cs_new:Nn\@@_chain_placeholder:n
+{\@@_placeholder:e
+  {\@@_chain_position:n{#1}}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}
+%   {\@@_lambda:Nnn,
+%   \@@_lambda_dev:N,
+%   \@@_lambda_doc:NN }
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_lambda:Nnn
+{\exp_args:NNx 
+  #1 \@@_lambda
+  {#2}
+  {#3}
+  \@@_lambda}
+\cs_generate_variant:Nn\@@_lambda:N{c}
+\cs_new_protected:Nn
+\@@_lambda_chain:Nnnn
+{ \tl_set:Nn
+  \l@@_head_tl
+  {\exp_args:NNx#1 \@@_lambda_chain
+    {#2#3} }
+  \exp_args:Nx
+  \l@@_head_tl
+  {\exp_not:n{#4} \exp_not:N
+    \bool_if:oT
+    {\@@_chain_placeholder:n{#2}}
+    {\exp_not:N\@@_lambda_chain}}
+  \@@_lambda_chain}
+\cs_set_protected:Nn
+\@@_lambda_dev:N
+{ \cs_new_protected:Nn
+  \lambdax:nn
+  {  \@@_lambda:Nnn #1
+    {##1}{##2} }
+  \cs_new_protected:Nn
+  \lambdax:nnn
+  {  \@@_lambda_chain:Nnnn #1
+    {##1}{##2}{##3} } }
+\cs_set_protected:Nn
+\@@_lambda_doc:N
+{ \NewDocumentCommand
+  #1 { O{m} d<>  m }
+  {\IfValueTF{##2}
+    { \lambdax:nnn { ##1 } { ##2 } { ##3 } }
+    { \lambdax:nn { ##1 } { ##3 } } } }
+\cs_generate_variant:Nn\@@_lambda_doc:N{c}
+%    \end{macrocode}
+% \end{macro}
+% \section{Settings}
+%    \begin{macrocode}
+\keys_define:nn{ @@ }
+{ dev.code:n = {
+    \@@_xcmd_else_error:Nn#1
+    {\@@_lambda_dev:N#1 }
+  },
+  internal / document-command-name.code:n = { \@@_lambda_doc:c{#1} },
+  internal / document-command-name.initial:n = { LambdaX },
+  xparse-command.code:n =
+  { \@@_xcmd_else_error:Nn #1
+    { \keys_set:nn{ @@ }{ dev = #1 } } },
+  xparse-command .initial:n = { \DeclareDocumentCommand }
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\ProcessKeysOptions{@@}
+\ExplSyntaxOff
+%</package> 
+%    \end{macrocode}
+% \end{implementation}
+% \Finale
+\endinput

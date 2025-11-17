@@ -1,0 +1,131 @@
+%% $Id: pst-hsb.tex 350 2021-12-16 10:20:18Z herbert $
+%%
+%% This is file `pst-hsb.tex',
+%%
+%% IMPORTANT NOTICE:
+%%
+%% Package `pst-hsb.tex'
+%%
+%% Denis Girout
+%% Manuel Luque
+%% Herbert Voss <hvoss@tug.org>
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%%
+%% DESCRIPTION:
+%%   `pst-hsb' is a PSTricks package for continous color
+%%
+%%
+\csname PSThsbLoaded\endcsname
+\let\PSThsbLoaded\endinput
+
+\ifx\PSTricksLoaded\endinput\else\input pstricks.tex\fi
+\ifx\PSTplotLoaded\endinput\else \input pst-plot \fi
+\ifx\PSTXKeyLoaded\endinput\else \input pst-xkey.tex \fi
+%
+\edef\PstAtCode{\the\catcode`\@} \catcode`\@=11\relax
+% interface to the `xkeyval' package
+\pst@addfams{pst-hsb}
+%
+\def\fileversion{0.02}
+\def\filedate{2021/12/16}
+\message{`PST-hsb' v\fileversion, \filedate\space (hv)}
+%
+\define@key[psset]{pst-hsb}{HueBegin}{\def\psparametricplotHSB@HueBegin{#1}}% Between 0 and 1
+\define@key[psset]{pst-hsb}{HueEnd}{\def\psparametricplotHSB@HueEnd{#1}}% Between 0 and 1
+\define@boolkey[psset]{pst-hsb}[Pst@]{HSB}[true]{}
+% Default values
+\psset[pst-hsb]{HueBegin=0,HueEnd=1,HSB=true}
+\psset{dimen=outer}
+ 
+\def\psparametricplotHSB{\pst@object{psparametricplotHSB}}
+\def\psparametricplotHSB@i#1#2#3{{%
+  \begin@ClosedObj
+  \addto@pscode{%
+    /t #1 def
+    /dt #2 t sub \psk@plotpoints\space div def
+    /t t dt sub def
+    /F@pstplot 
+      \ifPst@algebraic (#3)
+         \ifx\psk@PlotDerivative\@none\else
+           \psk@PlotDerivative\space { (t) tx@Derive begin Derive end } repeat
+         \fi
+         tx@AlgToPs begin AlgToPs end cvx
+      \else 
+         { #3 } 
+      \fi  
+    def
+    /Counter 0 def
+    1 setlinejoin
+    \psk@plotpoints {
+      /t t dt add def
+      /Counter Counter 1 add def
+      t F@pstplot
+      \pst@number\psyunit mul exch
+      \pst@number\psxunit mul exch
+      1 Counter eq { moveto currentpoint /OldY ED /OldX ED } % First point
+        {\ifPst@HSB % Other points than the first one
+          /PointY exch def
+          /PointX exch def
+          Counter \psk@plotpoints\space div
+          \psparametricplotHSB@HueEnd\space
+          \psparametricplotHSB@HueBegin\space sub mul
+          \psparametricplotHSB@HueBegin\space add
+          1 1 sethsbcolor
+          OldX OldY PointX PointY lineto lineto 
+          stroke
+          PointX PointY moveto
+          /OldX PointX def /OldY PointY def
+        \else lineto \fi } ifelse
+     } repeat }% fin du code ps
+   \end@ClosedObj
+   }\ignorespaces} 
+%
+\def\pslineHSB{\pst@object{pslineHSB}}
+\def\pslineHSB@i(#1)(#2){{%
+  \begin@OpenObj
+  \pst@getcoor{#1}\pst@tempA
+  \pst@getcoor{#2}\pst@tempB
+  \addto@pscode{%
+    \pst@tempA 
+    /y0 ED /x0 ED
+    \pst@tempB 
+    /y1 ED /x1 ED
+    /dx x1 x0 sub \psk@plotpoints\space div def
+    /m y1 y0 sub x1 x0 sub div def
+    /t x0 dx sub def
+    /Counter 0 def
+    gsave
+    x0 y0 translate
+    \psk@plotpoints {
+      /t t dx add def
+      /Counter Counter 1 add def
+      t dup m mul
+      1 Counter eq 
+        { moveto currentpoint /OldY ED /OldX ED } % First point
+        {\ifPst@HSB % Other points than the first one
+          /PointY exch def
+          /PointX exch def
+          Counter \psk@plotpoints\space div
+          \psparametricplotHSB@HueEnd\space
+          \psparametricplotHSB@HueBegin\space sub mul
+          \psparametricplotHSB@HueBegin\space add
+          1 1 sethsbcolor
+          OldX OldY PointX PointY lineto lineto 
+          stroke
+          PointX PointY moveto
+	  /OldX PointX def /OldY PointY def
+         \else lineto \fi 
+        } ifelse
+     } repeat 
+     grestore
+   }%
+   \end@OpenObj
+   }\ignorespaces} 
+\catcode`\@=\TheAtCode\relax
+%
+\endinput
+%%
+%% END pst-hsb.tex

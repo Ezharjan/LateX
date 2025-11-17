@@ -1,0 +1,1924 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2015-2022 by Tibor Tomacs
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+% http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{bookcover.dtx}
+\newcommand{\eifiledate}{2022/08/08}
+\newcommand{\eifilever}{v3.4}
+%</driver>
+%<class>
+%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<class>\ProvidesClass{bookcover}[2022/08/08 v3.4 class for book covers and dust jackets]
+%
+%<*driver>
+\documentclass{ltxdoc}
+\OnlyDescription
+\usepackage[T1]{fontenc}
+\AddToHook{begindocument/before}[doc/hyperref]{\hypersetup{pdfstartview=FitH,bookmarksnumbered,colorlinks,allcolors=teal}}
+\usepackage[paperwidth=210mm,paperheight=295mm,textwidth=160mm,top=25mm,bottom=25mm,outer=25mm]{geometry}
+\usepackage[english]{babel}
+\usepackage{graphicx,listings,calc,multirow,array,paralist,eso-pic,tikz}
+
+\colorlet{command}{blue!80!black}
+\colorlet{param}{green!50!black}
+
+\lstnewenvironment{examplelst}{\lstset{
+    gobble=2,
+    aboveskip=1.4pt,
+    basicstyle=\small\ttfamily,
+    backgroundcolor=\color{black!10},
+    columns=fullflexible,
+    comment=[l][\ttfamily\color{purple}]{\%},
+    frame=trbl,
+    framesep=3pt,
+    xleftmargin=3.4pt,
+    xrightmargin=3.4pt, 
+    keepspaces}}{}
+
+\lstnewenvironment{commandlst}{\lstset{
+    literate={<}{{$\langle$}}1{>}{{$\rangle$}}1,
+    delim=[is][\color{param}\normalfont\itshape\small]{!}{!},
+    gobble=2,
+    belowskip=-4pt,
+    aboveskip=4pt,
+    basicstyle=\color{command}\ttfamily,
+    backgroundcolor=\color{white},
+    columns=fullflexible,
+    frame=trbl,
+    frameround=tttt,
+    framesep=3pt,
+    xleftmargin=3.4pt,
+    xrightmargin=3.4pt, 
+    keepspaces}}{}
+
+\lstdefinestyle{examplefile}{
+    literate={ü}{{\"u}}1{ó}{{\'o}}1{é}{{\'e}}1{á}{{\'a}}1{Á}{{\'A}}1,
+    basicstyle=\small\ttfamily,
+    backgroundcolor=\color{black!10},
+    columns=fullflexible,
+    keepspaces,
+    frame=trbl,
+    framesep=3pt,
+    xleftmargin=3.4pt,
+    xrightmargin=3.4pt, 
+    comment=[l][\ttfamily\color{purple}]{\%}}
+
+\newcommand{\commandinline}{\lstinline[
+    literate={<}{{$\langle$}}1{>}{{$\rangle$}}1,
+    delim={[is][\color{param}\normalfont\itshape\small]{!}{!}},
+    basicstyle=\color{command}\ttfamily,
+    columns=fullflexible,
+    keepspaces]}
+
+\def\meta#1{{\color{param}\normalfont\itshape\small$\langle$#1$\rangle$}}
+
+\def\example{{\setlength{\fboxsep}{3pt}\colorbox{command}{\footnotesize\sffamily\bfseries\color{white}EXAMPLE}}}
+
+\def\BookCover{{\def\sfdefault{ugq}\sffamily\bfseries
+    \color{black!90}\mbox{}\lower.15ex\hbox{[B}ook%
+    \color{red!70!black}\lower.15ex\hbox{C}over\lower.15ex\hbox{]}}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\renewcommand{\descriptionlabel}[1]{\hspace{0mm}}
+\setlength{\fboxsep}{0pt}
+\newcounter{partfig}
+
+\begin{document}
+    \DocInput{./bookcover.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CharacterTable
+% {Upper-case \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%     Lower-case \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%     Digits \0\1\2\3\4\5\6\7\8\9
+%     Exclamation         \!     Double quote    \"     Hash (number)   \#
+%     Dollar              \$     Percent         \%     Ampersand       \&
+%     Acute accent        \'     Left paren      \(     Right paren     \)
+%     Asterisk            \*     Plus            \+     Comma           \,
+%     Minus               \-     Point           \.     Solidus         \/
+%     Colon               \:     Semicolon       \;     Less than       \<
+%     Equals              \=     Greater than    \>     Question mark   \?
+%     Commercial at       \@     Left bracket    \[     Backslash       \\
+%     Right bracket       \]     Circumflex      \^     Underscore      \_
+%     Grave accent        \`     Left brace      \{     Vertical bar    \|
+%     Right brace         \}     Tilde           \~}
+%
+% \GetFileInfo{bookcover.cls}
+%
+% \title{{\Huge\BookCover\\[5mm]}
+%        \textsf{Class for book covers and dust jackets}\\[2mm]
+%        {\large\texttt{bookcover.cls}\\
+%        \eifilever\ (\eifiledate)}}
+% \author{Tibor T\'{o}m\'{a}cs\\{\normalsize\href{mailto:tomacs.tibor@uni-eszterhazy.hu}{\texttt{tomacs.tibor@uni-eszterhazy.hu}}}}
+% \date{}
+% \maketitle
+%
+% \AddToShipoutPictureBG*{\tikz[overlay]\fill[top color=black!50, bottom color=white] (current page.north west) rectangle +(\paperwidth,-11cm);}
+%
+% \section{Introduction}
+%
+% The \texttt{bookcover} document class can be used to create dust jackets and book covers of hardcover and paperback books.
+%
+% \paragraph{Dust jacket.}
+%
+% In the following picture you can see a typical dust jacket of a hardcover book, which is a detachable outer book cover. Its parts are back flap, back cover, spine, front cover and front flap.
+% \begin{center}
+% \includegraphics{figures/bookcover-dustjacket}
+% \end{center}
+% When you prepare a dust jacket for printing, some marks are needed to know where to trim or fold the cover. The crop marks determine a special area of the sheet, which is called ``bleed'' (see the gray area in the next figure). The bleed will be trimmed off. The background will be expanded onto the bleed, taking account of slight inaccuracy when trimming. If there is no bleed, the likelihood of having a white strip on the edge of the finished product is high. In the next schematics figure, the red lines are the marks. The marks closest to the corners are the crop marks, and the other ones are the fold marks.
+% \begin{center}
+% \includegraphics{figures/bookcover-scheme-withflaps}
+% \end{center}
+% The back/front ``wraps'' (see the black area in the previous figure) are the areas between the front cover and front flap, and back cover and back flap. The reason this is defined is that if the front and back covers have background colors or images that continue to the foreedge of each cover, they must continue onto the flap. Because putting the edge of color right at the edge of the board would result in an unsightly boundary line when the book is closed.
+%
+% \paragraph{Book cover for paperback book.}
+%
+% A book cover of a paperback book is glued to the spine of the book and usually has no flaps. The function of the bleed here is the same as before. The crop marks are closest to the corners, and the other ones are the fold marks.
+% \begin{center}
+% \includegraphics{figures/bookcover-scheme-withoutflaps}
+% \end{center}
+% Rarely, a book cover of a paperback book may have flaps. In this case, its scheme is similar to a dust jacket.
+%
+% \paragraph{Book cover for hardcover book.} 
+%
+% The outside of the cover of a hardcover book is glued to the boards of the book. Of course, this never has flaps.
+% \begin{center}
+% \includegraphics{figures/bookcover-scheme-foldingmargin}
+% \end{center}
+% In this case, the function of the bleed is not to eliminate cutting inaccuracies. It will not be trimmed off, but it will be a margin which is folded back and glued onto the inside of the book boards. This way, it will cover all the edges of the boards. The crop marks are closest to the corners, and the other ones are the fold marks.
+%
+% \section{Loading class and options}\label{sec:class}
+%
+% Load the class as usual, with
+% \begin{commandlst}
+% \documentclass[!<options>!]{bookcover}
+% \end{commandlst}
+%
+% \medskip The list of \meta{options}:
+%
+% \begin{compactdesc}
+% \item[]\commandinline|coverheight=!<length>!| Cover height (default \texttt{coverheight=240mm}).
+% \item[]\commandinline|coverwidth=!<length>!| Front/back cover width (default \texttt{coverwidth=170mm}).
+% \item[]\commandinline|spinewidth=!<length>!| Spine width (default \texttt{spinewidth=5mm}).
+% \item[]\commandinline|flapwidth=!<length>!| Flap width (default \texttt{flapwidth=0mm}).
+% \item[]\commandinline|wrapwidth=!<length>!| Wrap width (default \texttt{wrapwidth=0mm}). It has no effect with \texttt{flapwidth=0mm} option.
+% \item[]\commandinline|bleedwidth=!<length>!| Bleed width (default \texttt{bleedwidth=5mm}).
+% \item[]\commandinline|marklength=!<length>!| Mark length (default \texttt{marklength=10mm}).
+% \item[]\commandinline|foldingmargin| or \commandinline|foldingmargin=true| The bleed will not a trimmed area but a folding margin. The crop marks will be placed at the corners of the bleed and the options \texttt{flapwidth} and \texttt{wrapwidth} will be ineffective, meaning there will be no flaps.
+% \item[]\commandinline|foldingmargin=false| (Default.) 
+% \item[]\commandinline|10pt| (Default.) Normal font size is 10\,pt.
+% \item[]\commandinline|11pt| Normal font size is 11\,pt.
+% \item[]\commandinline|12pt| Normal font size is 12\,pt.
+% \item[]\commandinline|markthick=!<length>!| Thickness of marks (default \texttt{markthick=0.4pt}).
+% \item[]\commandinline|markcolor=!<color name>!| Color of marks (default \texttt{markcolor=red}).
+% \item[]\commandinline|pagecolor=!<color name>!| Color of page (default \texttt{pagecolor=white}).
+% \item[]\commandinline|trimmed| or \commandinline|trimmed=true| Trimmed version for demonstration.
+% \item[]\commandinline|trimmed=false| (Default.) No trimming. Use this for printing!
+% \item[]\commandinline|trimmingcolor=!<color name>!| Color of trimming (default \texttt{trimmingcolor=white}).
+% \end{compactdesc}
+%
+% The \texttt{bookcover.cls} requires the services of the \texttt{article} class and the following packages:  \texttt{kvoptions}, \texttt{geometry}, \texttt{graphicx}, \texttt{calc}, \texttt{tikz}, \texttt{xparse}, \texttt{etoolbox}, \texttt{fgruler}.
+%
+% \section{Commands and environments}
+% Use \commandinline{bookcover} environment in the document body to make a new book cover. If you need to edit both sides of the cover, you can do it with two \texttt{bookcover} environments (see an example in the Subsection~\ref{subsec-two-sided-example}). You can create a component of the book cover by the following command or environment in the \texttt{bookcover} environment:
+% \begin{commandlst}
+% \bookcovercomponent{!<component type>!}{!<part>!}[!<left>!,!<bottom>!,!<right>!,!<top>!]{!<content>!}
+% \end{commandlst}
+% or its equivalent
+% \begin{commandlst}
+% \begin{bookcoverelement}{!<component type>!}{!<part>!}[!<left>!,!<bottom>!,!<right>!,!<top>!]
+% !<content>!
+% \end{bookcoverelement}
+% \end{commandlst}
+%
+% \begin{description}
+% \item[]\meta{component type} It determines the bookcover component type (see the Section~\ref{sec:componenttypes}). Predefined component types: \commandinline{color}, \commandinline{tikz}, \commandinline{tikz clip}, \commandinline{picture}, \commandinline{normal}, \commandinline{center}, \commandinline{ruler}. 
+% \item[]\meta{part} This determines where in the book cover the \meta{content} is located. You can read the description of \meta{part} in the Section~\ref{sec:parts}. Some predefined parts: \commandinline{front} (front cover), \commandinline{bg front} (front cover expanded onto the bleed), \commandinline{back} (back cover), \commandinline{bg back} (back cover expanded onto the bleed), \commandinline{whole} (whole book cover), \commandinline{bg whole} (whole book cover expanded onto the bleed), \commandinline{spine}, etc. 
+% \item[]\meta{left},\meta{bottom},\meta{right},\meta{top} These are the margins of the \meta{part}. The default value of every margin is \texttt{0mm}. If the \meta{left}, \meta{bottom}, \meta{right} or \meta{top} is empty or space, then its value will be \texttt{0mm}. If the value of a margin is negative, the part size will increase instead of decrease.
+% \item[]\meta{content} This can be text, image, color, etc., which depends on the \meta{component type} (see the Section~\ref{sec:componenttypes}). This will be located in the \meta{part}.
+% \end{description}
+% You can use the following length commands in the \meta{content} and to specify the margins of the \meta{part}:
+%
+% \begin{compactdesc}
+% \item[]\commandinline{\partheight} The height of the \meta{part} (reduced by \meta{bottom} and \meta{top} in \meta{content}).
+% \item[]\commandinline{\partwidth} The width of the \meta{part} (reduced by \meta{left} and \meta{right} in \meta{content}).
+% \item[]\commandinline{\coverheight} Cover height.
+% \item[]\commandinline{\coverwidth} Front/back cover width.
+% \item[]\commandinline{\spinewidth} Spine width.
+% \item[]\commandinline{\flapwidth} Flap width.
+% \item[]\commandinline{\wrapwidth} Wrap width.
+% \item[]\commandinline{\bleedwidth} Bleed width.
+% \item[]\commandinline{\marklength} Mark length.
+% \end{compactdesc}
+%
+% Every |\bookcovercomponent| command and |bookcoverelement| environment generates a layer on the sheet. The first one generates the bottom layer and the last one generates the top layer.
+%
+% In the following example we use |\bookcovercomponent| commands.
+%
+% \example
+% \begin{examplelst}
+% \documentclass[spinewidth=15mm,markcolor=black]{bookcover}
+% \begin{document}
+% \begin{bookcover}
+%     \bookcovercomponent{color}{bg whole}{orange}
+%     \bookcovercomponent{normal}{front}[,,,0.4\partheight]{
+%         \centering\bfseries\huge Book title\par}
+% \end{bookcover}
+% \end{document}
+% \end{examplelst}
+%
+% In the following example we use |bookcoverelement| environments. This example is equivalent to the previous one.
+%
+% \example
+% \begin{examplelst}
+% \documentclass[spinewidth=15mm,markcolor=black]{bookcover}
+% \begin{document}
+% \begin{bookcover}
+%     \begin{bookcoverelement}{color}{bg whole}
+%         orange
+%     \end{bookcoverelement}
+%     \begin{bookcoverelement}{normal}{front}[,,,0.4\partheight]
+%         \centering\bfseries\huge Book title\par
+%     \end{bookcoverelement}
+% \end{bookcover}
+% \end{document}
+% \end{examplelst}
+%
+% Use \commandinline{bookcoverdescription} environment in the document body for adding the description of the book cover and other information. Don't use it in |bookcover| environment! You can set the page geometry of the description by the following command:
+% \begin{commandlst}
+% \bookcoverdescgeometry{!<geometry parameteres>!}
+% \end{commandlst}
+% The possible \meta{geometry parameteres} are the same as for |\newgeometry| in the |geometry| package. Its default value is |margin=1in|. Unlike |\newgeometry|, it can be used in the preamble as well. See an example in the Subsection~\ref{subsec:desc}.
+%
+% If the value of the \texttt{trimmed} option is \texttt{true}, then you can set the trimmed part by the following command before any \texttt{bookcover} environment:
+% \begin{commandlst}
+% \bookcovertrimmedpart{!<trimmed part>!}[!<left>!,!<bottom>!,!<right>!,!<top>!]
+% \end{commandlst}
+%
+% Without this command, or if the \meta{trimmed part} is empty or space, then its value will be \texttt{whole} (see the Section~\ref{sec:parts}). The \meta{left}, \meta{bottom}, \meta{right} and \meta{top} are the margins of the \meta{trimmed part}. The default value of every margin is \texttt{0mm}. If the \meta{left}, \meta{bottom}, \meta{right} or \meta{top} is empty or space, then its value will be \texttt{0mm}. The trimmed area will be the \meta{trimmed part} reduced by the margins. If the value of a margin is negative, the \meta{trimmed part} size will increase instead of decrease.
+%
+% You can change some options before any \texttt{bookcover} environment by the following command:
+% \begin{commandlst}
+% \setbookcover{!<options>!}
+% \end{commandlst}
+% The \meta{options} can be as follows: \commandinline|markthick=!<length>!|, \commandinline|markcolor=!<color name>!|, \commandinline|pagecolor=!<color name>!|, \commandinline|trimmed|, \commandinline|trimmed=false|, \commandinline|trimmingcolor=!<color name>!| (see the Section~\ref{sec:class}). See an example in the Subsection~\ref{subsec:trimming}
+%
+% \section{Book cover parts}\label{sec:parts}
+%
+% Each predefined \meta{part} is illustrated in this section. 
+%
+% The background parts are expanded onto the bleed, taking account of slight inaccuracy when trimming. In contrast, the foreground parts do not extend onto the bleed. The names of the background parts start with \commandinline{bg}.
+%
+% If your book will also have printing on the inside cover, the layout for the inside cover will be the exact opposite of the outside cover. Therefore, these parts also have synonymous names. The synonymous names contain \commandinline{inside front} instead of \commandinline{back} and \commandinline{inside back} instead of \commandinline{front}. For example \commandinline{bg front} is the same as \commandinline{bg inside back}, \commandinline{above back} is the same as \commandinline{above inside front}, etc.
+%
+% You can also use short names to specify foreground and background parts. The elements of the abbreviations are as follows: \commandinline{F} (flap), \commandinline{W} (wrap), \commandinline{C} (cover), \commandinline{S} (spine), \commandinline{l} (a part to the left of the spine), \commandinline{r} (a part to the right of the spine). For example \commandinline{lC} is the abbreviation of the left cover, i.e.\ the back cover of the outside cover, or the inside front cover of the inside cover. It is not extended onto the bleed, i.e.\ it is a foreground part. If you want to extend that part onto the bleed, type \commandinline{bg} and then a space in the front of the name. For example \commandinline{bg lC} is the left cover extended onto the bleed. Use a hyphen to specify multi-piece parts. For example \commandinline{lW-S} is the part from the left wrap to the spine, which is not extended onto the bleed.
+%
+% The following figures also show the normal and abbreviated names of the blue parts.
+%
+% \subsection{Book cover widthout flaps, background parts}
+%
+% \setcounter{partfig}{1}
+% \loop
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\hfill\stepcounter{partfig}
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\par\smallskip\stepcounter{partfig}
+% \ifnum\value{partfig}<7\repeat
+%
+% \subsection{Book cover widthout flaps, foreground parts}
+%
+% \loop
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\hfill\stepcounter{partfig}
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\par\smallskip\stepcounter{partfig}
+% \ifnum\value{partfig}<13\repeat
+%
+% \subsection{Book cover widthout flaps, other parts}
+%
+% \loop
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\hfill\stepcounter{partfig}
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\par\smallskip\stepcounter{partfig}
+% \ifnum\value{partfig}<17\repeat
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\stepcounter{partfig}
+%
+% \subsection{Book cover width flaps, background parts}
+%
+% \loop
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\hfill\stepcounter{partfig}
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\par\smallskip\stepcounter{partfig}
+% \ifnum\value{partfig}<46\repeat
+%
+% \subsection{Book cover width flaps, foreground parts}
+%
+% \loop
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\hfill\stepcounter{partfig}
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\par\smallskip\stepcounter{partfig}
+% \ifnum\value{partfig}<74\repeat
+%
+% \subsection{Book cover width flaps, other parts}
+%
+% \loop
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\hfill\stepcounter{partfig}
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}\par\smallskip\stepcounter{partfig}
+% \ifnum\value{partfig}<78\repeat
+% \fbox{\includegraphics[page=\thepartfig]{figures/bookcover-parts.pdf}}
+%
+% \subsection{Defining part}
+% You can define a new rectangular part or redefine a defined part with the following commands:
+% \begin{commandlst}
+% \newbookcoverpart{!<new part>!}{!<setting>!}
+% \renewbookcoverpart{!<defined part>!}{!<setting>!}
+% \end{commandlst}
+%
+% \medskip In \meta{setting} you have to set the new part sizes, the coordinates of its upper left corner (the origin is the upper left corner of the printed area), and the parameters of the \texttt{trimmed part} rectangle node in \texttt{tikz} and \texttt{tikz clip} component types (see in the Section~\ref{sec:componenttypes}). For this purpose, use the following commands:
+% \begin{commandlst}
+% \setpartposx{!<coord x>!}
+% \setpartposy{!<coord y>!}
+% \setpartwidth{!<width>!}
+% \setpartheight{!<height>!}
+% \settrimmedpart{!<width minus>!}{!<height minus>!}{!<shift x>!}{!<shift y>!}
+% \end{commandlst}
+%
+% \begin{center}
+% \includegraphics{./figures/bookcover-newpart}
+% \end{center}
+%
+% To give the previous lengths, you can use the following length commands, which are declared by the options of the document class:
+%
+% \begin{compactdesc}
+% \item[]\commandinline{\coverheight} Cover height.
+% \item[]\commandinline{\coverwidth} Front/back cover width.
+% \item[]\commandinline{\spinewidth} Spine width.
+% \item[]\commandinline{\flapwidth} Flap width.
+% \item[]\commandinline{\wrapwidth} Wrap width.
+% \item[]\commandinline{\bleedwidth} Bleed width.
+% \item[]\commandinline{\marklength} Mark length.
+% \end{compactdesc}
+%
+% \example
+% \begin{examplelst}
+% \documentclass[flapwidth=3cm]{bookcover} % Also try it with flapwidth=0cm option!
+%
+% \newbookcoverpart{bg half front}{
+%     \setpartposx{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\spinewidth+1.5\coverwidth}
+%     \setpartposy{\marklength}
+%     \setpartheight{\coverheight+2\bleedwidth}
+%     \ifdim\flapwidth>0mm
+%         \setpartwidth{.5\coverwidth}
+%         \settrimmedpart{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+%     \else
+%         \setpartwidth{.5\coverwidth+\bleedwidth}
+%         \settrimmedpart{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+%
+% \begin{document}
+%
+% \begin{bookcover}
+%     \bookcovercomponent{tikz}{bg half front}{
+%         \fill[blue] (part.south west) rectangle (part.north east);
+%         \fill[green] (trimmed part.south west) rectangle (trimmed part.north east);}
+% \end{bookcover}
+%
+% \end{document}
+% \end{examplelst}
+%
+% You can rename a defined part with the following commands:
+% \begin{commandlst}
+% \newnamebookcoverpart{!<new part>!}{!<defined part>!}
+% \letnamebookcoverpart{!<new part>!}{!<defined part>!}[!<left>!,!<bottom>!,!<right>!,!<top>!]
+% \end{commandlst}
+%
+% \medskip Using |\newnamebookcoverpart|, the definition of the \meta{new part} and the \meta{defined part} are always the same, even if you redefine the \meta{defined part} later with the |\renewbookcoverpart|.
+%
+% Using |\letnamebookcoverpart|, the definition of the \meta{new part} is the same as the current definition of the \meta{defined part} reduced by the \meta{left}, \meta{bottom}, \meta{right} and \meta{top} margins. If you change the \meta{defined part} later with the |\renewbookcoverpart|, the \meta{new part} doesn't change with it. The default value of every margin is \texttt{0mm}. If the \meta{left}, \meta{bottom}, \meta{right} or \meta{top} is empty or space, then its value will be \texttt{0mm}. If the value of a margin is negative, the part size will increase instead of decrease. You can use the following length commands to specify the margins:
+%
+% \begin{compactdesc}
+% \item[]\commandinline{\partheight} The height of the \meta{defined part}.
+% \item[]\commandinline{\partwidth} The width of the \meta{defined part}.
+% \item[]\commandinline{\coverheight} Cover height.
+% \item[]\commandinline{\coverwidth} Front/back cover width.
+% \item[]\commandinline{\spinewidth} Spine width.
+% \item[]\commandinline{\flapwidth} Flap width.
+% \item[]\commandinline{\wrapwidth} Wrap width.
+% \item[]\commandinline{\bleedwidth} Bleed width.
+% \item[]\commandinline{\marklength} Mark length.
+% \end{compactdesc}
+%
+% \example
+% \begin{examplelst}
+% \documentclass[spinewidth=2cm]{bookcover}
+%
+% \letnamebookcoverpart{extended bg spine}{bg spine}[-\spinewidth,,-\spinewidth,]
+%
+% \begin{document}
+%
+% \begin{bookcover}
+%     \bookcovercomponent{color}{bg whole}{blue}
+%     \bookcovercomponent{color}{extended bg spine}{opacity=0.5}
+% \end{bookcover}
+%
+% \end{document}
+% \end{examplelst}
+%
+% \section{Book cover component types}\label{sec:componenttypes}
+%
+% Predefined \meta{component type}: \commandinline{color}, \commandinline{tikz}, \commandinline{tikz clip}, \commandinline{picture}, \commandinline{normal}, \commandinline{center}, \commandinline{ruler}.
+%
+% \subsection{The color component type}
+% It determines the color of the \meta{part}. The \meta{content} is the options of the |\fill| in the \texttt{tikz} package:
+% \begin{compactdesc}
+% \item[]\commandinline{!<color name>!} (See it in the \texttt{xcolor} package.)
+% \item[]\commandinline{color=!<color name>!} (It is equivalent to the previous one.)
+% \item[]\commandinline{top color=!<color name>!}
+% \item[]\commandinline{bottom color=!<color name>!}
+% \item[]\commandinline{middle color=!<color name>!}
+% \item[]\commandinline{inner color=!<color name>!}
+% \item[]\commandinline{outer color=!<color name>!}
+% \item[]\commandinline{ball color=!<color name>!}
+% \item[]\commandinline{shading angle=!<degree>!} It rotates the shading by the given angle.
+% \item[]\commandinline{opacity=!<value>!} Sets the filling opacity. The \meta{value} is between 0 and 1.
+% \end{compactdesc}
+%
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+%     \bookcovercomponent{color}{bg front}{red}
+%     \bookcovercomponent{color}{bg back}{
+%         top color=white, bottom color=blue!50!black, shading angle=60}
+% \end{bookcover}
+% \end{examplelst}
+%
+% \subsection{The tikz component type}
+% The \meta{content} is a Ti\emph{k}Z code without |\tikz| command and |tikzpicture| environment. The origin of the Ti\emph{k}Z figure is the lower left corner of the \meta{part}. Two rectangle nodes come into being: \commandinline{part} and \commandinline{trimmed part}. (Thanks to Zunbeltz Izaola for the idea.)
+%
+% \begin{minipage}{\textwidth}
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+% \bookcovercomponent{tikz}{bg whole}{
+%     \fill[black] (part.south west) rectangle (part.north east);
+%     \fill[gray] (trimmed part.south east) rectangle (trimmed part.north west);}
+% \bookcovercomponent{tikz}{bg front}{
+%     \fill[blue] (part.south west) -- (part.center) -- (part.north west) -- cycle;}
+% \end{bookcover}
+% \end{examplelst}
+% \end{minipage}
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics{figures/bookcover-tikz}}
+% \end{center}
+%
+% \subsection{The tikz clip component type}
+% It works the same way as the \texttt{tikz} component type, but it clips the \meta{part}.
+%
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+% \bookcovercomponent{tikz clip}{front}{
+%     \fill[blue] (part.west) circle [radius=8mm];}
+% \bookcovercomponent{tikz}{front}{
+%     \fill[gray] (part.west) circle [radius=4mm];}
+% \end{bookcover}
+% \end{examplelst}
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics{figures/bookcover-tikzclip}}
+% \end{center}
+%
+% \subsection{The picture component type}
+% The \meta{content} is a picture file, which will be rescaled according to the sizes of the \meta{part}.
+%
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+%     \bookcovercomponent{picture}{bg whole}{fig.png}
+% \end{bookcover}
+% \end{examplelst}
+%
+% \subsection{The normal component type}
+% In this case, the \meta{content} is not specific. You can choose it as text or picture etc.
+%
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+%     \bookcovercomponent{normal}{front}[,,,5cm]{
+%         \centering
+%         {\bfseries\huge Book title}\\[5mm]
+%         \includegraphics[width=0.4\partwidth]{fig.png}\\}
+% \end{bookcover}
+% \end{examplelst}
+%
+% \subsection{The center component type}
+% It works the same way as the \texttt{normal} component type, but the position of the content is the center of the part horizontally and vertically.
+%
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+%     \bookcovercomponent{center}{above front}{
+%         \textcolor{blue}{Remark above front}}
+%     \bookcovercomponent{center}{spine}{
+%         \rotatebox[origin=c]{-90}{\bfseries\Large Book title}}
+% \end{bookcover}
+% \end{examplelst}
+%
+% \subsection{The ruler component type}
+% Use the \texttt{ruler} component type to check the dimensions of the part. It draws a square ruler at the borders of the part. The \meta{content} is
+% \begin{commandlst}
+% !<unit>!,!<origin>!,!<color name>!
+% \end{commandlst}
+%
+% \begin{description}
+% \item[]\meta{unit} The ruler unit:
+% \begin{compactdesc}
+% \item[]\commandinline{cm} Metric ruler (centimeter). If the \meta{unit} is empty or space, then its value will be \texttt{cm}.
+% \item[]\commandinline{in} English ruler (inch).
+% \end{compactdesc}
+%
+% \item[]\meta{origin} The origin of the square ruler:
+% \begin{compactdesc}
+% \item[]\commandinline{upperleft } The origin is the upper left corner of the part. Directions: down and right. If the \meta{origin} is empty or space, then its value will be \texttt{upperleft}.
+% \item[]\commandinline{upperright} The origin is the upper right corner of the part. Directions: down and left.
+% \item[]\commandinline{lowerleft } The origin is the lower left corner of the part. Directions: up and right.
+% \item[]\commandinline{lowerright} The origin is the lower right corner of the part. Directions: up and left.
+% \end{compactdesc}
+%
+% \item[]\meta{color name} The color of the ruler. If it is empty or space, then its value will be the color of the marks.
+% \end{description}
+%
+% \example
+% \begin{examplelst}
+% \begin{bookcover}
+%     \bookcovercomponent{ruler}{back}{,,}
+%     \bookcovercomponent{ruler}{back}[2cm,,,1cm]{,,blue}
+%     \bookcovercomponent{ruler}{front}{,lowerright,green}
+%     \bookcovercomponent{ruler}{front}[,1cm,2cm,]{,lowerright,gray}
+% \end{bookcover}
+% \end{examplelst}
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics{figures/bookcover-ruler}}
+% \end{center}
+%
+% \subsection{Defining component type}
+% You can define a new component type, redefine or rename a defined component type with the following commands:
+% \begin{commandlst}
+% \newbookcovercomponenttype{!<new component type>!}{!<formatting>!}
+% \renewbookcovercomponenttype{!<defined component type>!}{!<formatting>!}
+% \newnamebookcovercomponenttype{!<new component type>!}{!<defined component type>!}
+% \letnamebookcovercomponenttype{!<new component type>!}{!<defined component type>!}
+% \end{commandlst}
+%
+% \medskip Using |\newnamebookcovercomponenttype|, the definition of the \meta{new component type} and the \meta{defined component type} are always the same, even if you redefine the \meta{defined component type} later with the |\renewbookcovercomponenttype|.
+%
+% Using |\letnamebookcovercomponenttype|, the definition of the \meta{new component type} is the same as the current definition of the \meta{defined component type}. If you change the \meta{defined component type} later with |\renewbookcovercomponenttype|, the \meta{new component type} doesn't change with it.
+%
+% You can use the following length commands in \meta{formatting}:
+%
+% \begin{compactdesc}
+% \item[]\commandinline{\partwidth} The width of the part (reduced by the margins) in which you are using the defined component type.
+% \item[]\commandinline{\partheight} The height of the part (reduced by the margins) in which you are using the defined component type.
+% \end{compactdesc}
+%
+% You have to referrence the content as \verb|#1|. 
+%
+% \example
+% \begin{examplelst}
+% \documentclass{bookcover}
+% \newbookcovercomponenttype{center picture}{
+%     \vfill
+%     \centering
+%     \includegraphics[width=0.5\partwidth]{#1}
+%     \vfill}
+% \begin{document}
+% \begin{bookcover}
+%     \bookcovercomponent{center picture}{front}{fig.pdf}
+% \end{bookcover}
+% \end{document}
+% \end{examplelst}
+%
+% \newpage\section{Examples}
+%
+% \subsection{Barcode and QR code}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[width=\textwidth-.8pt]{figures/bookcover-barcode}}
+% \end{center}
+%
+% \begin{examplelst}
+% \documentclass[spinewidth=15mm]{bookcover}
+% \usepackage{GS1,qrcode}
+%
+% \begin{document}
+%
+% \begin{bookcover}
+%
+% \bookcovercomponent{color}{bg whole}{blue!50}
+%
+% \bookcovercomponent{normal}{back}[,1cm,,]{
+%     \vfill
+%     \centering
+%     \savebox0{\EANBarcode[module_height=25mm]{ISBN 978-615-5297-19-9}}
+%     \colorbox{white}{%
+%         \usebox0
+%         \raisebox{\depth}{\qrcode[height=\ht0]{https://www.ctan.org/pkg/bookcover}}}}
+%
+% \end{bookcover}
+%
+% \end{document}
+% \end{examplelst}
+%
+% \newpage\subsection{Description}\label{subsec:desc}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[page=1,width=\textwidth-.8pt]{figures/bookcover-description}}\\[5mm]
+% \fcolorbox{black!50}{white}{\includegraphics[page=2,width=\textwidth-.8pt]{figures/bookcover-description}}
+% \end{center}
+%
+% \newpage
+% \begin{examplelst}
+% \documentclass[markcolor=black,spinewidth=15mm]{bookcover}
+%
+% \usepackage[english]{babel}
+% \usepackage{kantlipsum,multicol,microtype}
+% \bookcoverdescgeometry{vmargin=25mm,hmargin=9cm}
+% 
+% \begin{document}
+% 
+% % Description text
+% \begin{bookcoverdescription}
+%     \title{Description}
+%     \author{John Taylor}
+%     \date{}
+%     \maketitle
+%     \begin{multicols}{3}
+%         \kant[1-5]
+%     \end{multicols}
+% \end{bookcoverdescription}
+% 
+% % Book cover
+% \begin{bookcover}
+%     \bookcovercomponent{center}{front}{\Huge BOOK TITLE}
+% \end{bookcover}
+% 
+% \end{document}
+% \end{examplelst}
+%
+% \newpage\subsection{Usage of margins}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[width=\textwidth-.8pt]{figures/bookcover-margins}}
+% \end{center}
+%
+% \begin{examplelst}
+% \documentclass[spinewidth=30mm]{bookcover}
+% \begin{document}
+%
+% \begin{bookcover}
+%     \bookcovercomponent{color}{bg whole}{gray}
+%     \bookcovercomponent{color}{back}{blue}
+%     \bookcovercomponent{color}{back}[5mm,5mm,5mm,5mm]{blue!50}
+%     \bookcovercomponent{color}{front}{red}
+%     \bookcovercomponent{color}{front}[5mm,5mm,5mm,5mm]{red!50}
+%     \bookcovercomponent{color}{spine}{green!50!black}
+%     \bookcovercomponent{color}{spine}[5mm,5mm,5mm,5mm]{green!50}
+%     \bookcovercomponent{color}{spine}
+%         [-\spinewidth,15mm,-\spinewidth,\partheight-\spinewidth-15mm]{opacity=0.5}
+% \end{bookcover}
+%
+% \end{document}
+% \end{examplelst}
+%
+% or its equivalent
+%
+% \bigskip
+% \begin{examplelst}
+% \documentclass[spinewidth=30mm]{bookcover}
+%
+% \letnamebookcoverpart{back typing area}{back}[5mm,5mm,5mm,5mm]
+% \letnamebookcoverpart{front typing area}{front}[5mm,5mm,5mm,5mm]
+% \letnamebookcoverpart{spine typing area}{spine}[5mm,5mm,5mm,5mm]
+% \letnamebookcoverpart{spine bottom}{spine}
+%     [-\spinewidth,15mm,-\spinewidth,\partheight-\spinewidth-15mm]
+%
+% \begin{document}
+%
+% \begin{bookcover}
+%     \bookcovercomponent{color}{bg whole}{gray}
+%     \bookcovercomponent{color}{back}{blue}
+%     \bookcovercomponent{color}{back typing area}{blue!50}
+%     \bookcovercomponent{color}{front}{red}
+%     \bookcovercomponent{color}{front typing area}{red!50}
+%     \bookcovercomponent{color}{spine}{green!50!black}
+%     \bookcovercomponent{color}{spine typing area}{green!50}
+%     \bookcovercomponent{color}{spine bottom}{opacity=0.5}
+% \end{bookcover}
+%
+% \end{document}
+% \end{examplelst}
+%
+% \newpage\subsection{A dust jacket}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[width=\textwidth-.8pt]{bookcover-example1}}
+% \end{center}
+% \lstinputlisting[style=examplefile]{bookcover-example1.tex}
+%
+% \newpage\subsection{A two-sided book cover}\label{subsec-two-sided-example}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[page=1,width=\textwidth-.8pt]{bookcover-example2}}\\[5mm]
+% \fcolorbox{black!50}{white}{\includegraphics[page=2,width=\textwidth-.8pt]{bookcover-example2}}
+% \end{center}
+% \lstinputlisting[style=examplefile]{bookcover-example2.tex}
+%
+% \newpage\subsection{Trimming and checking dimensions}\label{subsec:trimming}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[page=1,width=\textwidth-.8pt]{figures/bookcover-trimming}}\\[5mm]
+% \fcolorbox{black!50}{white}{\includegraphics[page=2,width=\textwidth-.8pt]{figures/bookcover-trimming}}
+% \end{center}
+%
+% This example shows the usage of the \texttt{trimmed} option and the |\bookcovertrimmedpart| command. These allow you to view the finished product for demonstration purposes. We also check the cover dimensions. Set the value of the \texttt{trimmed} option \texttt{false} and clear \texttt{ruler} component type before printing!
+%
+% \bigskip
+% \begin{examplelst}
+% \documentclass[
+%     spinewidth=15mm,
+%     markcolor=black,
+%     trimmed,
+%     trimmingcolor=gray,
+%     ]{bookcover}
+%
+% \usepackage[latin]{babel}
+% \usepackage{lipsum,microtype}
+% 
+% \begin{document}
+%
+% % Trimmed outside cover
+% \begin{bookcover}
+% 
+% \bookcovercomponent{color}{bg whole}{
+%     top color=white, bottom color=green!30!black}
+% 
+% \bookcovercomponent{normal}{front}[22mm,60mm,22mm,70mm]{
+%     \centering
+%     {\huge\bfseries ANNALES\\ INFORMATICAE\par}
+%     \vfill
+%     {\large\bfseries TOMUS 43.~(2020)}
+%     \vfill
+%     {\large COMMISSIO REDACTORIUM}\\[3mm]
+%     \lipsum[2]}
+% 
+% \bookcovercomponent{normal}{back}[22mm,10mm,22mm,30mm]{
+%     {\centering\large ABSTRACTUM\\[5mm]}
+%     \lipsum[1-4]}
+% 
+% \bookcovercomponent{center}{spine}{
+%     \rotatebox[origin=c]{-90}{\footnotesize\bfseries
+%         ANNALES INFORMATICAE 43.~(2020)}}
+% 
+% \bookcovercomponent{ruler}{whole}{,,} % Check dimensions
+%
+% \end{bookcover}
+% 
+% % Trimmed inside back cover
+% \setbookcover{trimmingcolor=black,markcolor=white}
+% \bookcovertrimmedpart{inside back}
+% 
+% \begin{bookcover}
+% 
+% \bookcovercomponent{normal}{inside back}[22mm,10mm,22mm,30mm]{
+%     {\centering\large GRATULATIO\\[5mm]}
+%     \lipsum[1-4]}
+% 
+% \end{bookcover}
+% 
+% \end{document}
+% \end{examplelst}
+%
+% \newpage\subsection{A book cover with folding margin for hardcover book}
+%
+% \begin{center}
+% \fcolorbox{black!50}{white}{\includegraphics[width=\textwidth-.8pt]{figures/bookcover-foldingmargin}}
+% \end{center}
+%
+% \begin{examplelst}
+% \documentclass[
+%     coverwidth=150mm,
+%     coverheight=220mm,
+%     spinewidth=25mm,
+%     bleedwidth=20mm,
+%     markcolor=black,
+%     foldingmargin,
+%     12pt,
+% %    trimmed % Show only trimmed part!
+%     ]{bookcover}
+% 
+% %\bookcovertrimmedpart{front} % Trimmed part is the front cover
+% %\bookcovertrimmedpart{back} % Trimmed part is the back cover
+% %\bookcovertrimmedpart{spine} % Trimmed part is the spine
+% 
+% \letnamebookcoverpart{front with margin}{front}[5mm,5mm,5mm,5mm]
+% \letnamebookcoverpart{front upper third}{front with margin}[,2\partheight/3,,]
+% \letnamebookcoverpart{front lower third}{front with margin}[,,,2\partheight/3]
+% \letnamebookcoverpart{back with margin}{back}[5mm,5mm,5mm,5mm]
+% \letnamebookcoverpart{back text area}{back}[27mm,,22mm,27mm]
+% \letnamebookcoverpart{bg spine bottom}{bg spine}[,,,\partheight-\bleedwidth-\spinewidth]
+% 
+% \newbookcovercomponenttype{center rotate}{
+%     \vfill\centering\rotatebox[origin=c]{-90}{#1}\vfill}
+% 
+% \usepackage[english]{babel}
+% \usepackage{kantlipsum,microtype}
+% \usepackage{transparent} % It works only with pdflatex
+% 
+% \begin{document}
+% 
+% \begin{bookcover}
+% 
+% \bookcovercomponent{color}{bg whole}{orange}
+% 
+% \bookcovercomponent{color}{front upper third}{red!60!black}
+% 
+% \bookcovercomponent{color}{front lower third}{red!60!black}
+% 
+% \bookcovercomponent{color}{back with margin}{red!60!black}
+% 
+% \bookcovercomponent{tikz}{front with margin}{
+%     \draw[opacity=0.4,red,line width=10mm] (\partwidth-15mm,0) -- +(0,\partheight);}
+% 
+% \bookcovercomponent{tikz}{back with margin}{
+%     \draw[opacity=0.4,red,line width=10mm] (15mm,0) -- +(0,\partheight);}
+% 
+% \bookcovercomponent{tikz}{whole}[5mm,,5mm,]{
+%     \draw[opacity=0.4,red,line width=10mm] (0,\partheight-20mm) -- +(\partwidth,0);}
+% 
+% \bookcovercomponent{color}{bg spine bottom}{black}
+% 
+% \bookcovercomponent{center}{front upper third}{
+%     \resizebox*{\partwidth-5mm}{\partheight-5mm}{%
+%         \color{white}\transparent{0.1}\bfseries\LaTeX}}
+% 
+% \bookcovercomponent{center}{front lower third}{
+%     \resizebox*{\partwidth-5mm}{\partheight-5mm}{%
+%         \color{white}\transparent{0.1}\bfseries\LaTeX}}
+% 
+% \bookcovercomponent{center}{front}{
+%     \resizebox{90mm}{!}{\bfseries\color{white}\LaTeX}}
+% 
+% \bookcovercomponent{normal}{back text area}{\color{white}\kant[1-2]}
+% 
+% \bookcovercomponent{center rotate}{spine}{
+%     \resizebox{50mm}{!}{\bfseries\color{white}\LaTeX}}
+% 
+% \end{bookcover}
+% 
+% \end{document}
+% \end{examplelst}
+%
+% \StopEventually{}
+%
+%    \begin{macrocode}
+
+%% OPTIONS
+
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=bookcover,prefix=bookcover@}
+\DeclareVoidOption{10pt}{\PassOptionsToClass{10pt}{article}}
+\DeclareVoidOption{11pt}{\PassOptionsToClass{11pt}{article}}
+\DeclareVoidOption{12pt}{\PassOptionsToClass{12pt}{article}}
+\DeclareStringOption[170mm]{coverwidth}
+\DeclareStringOption[240mm]{coverheight}
+\DeclareStringOption[5mm]{spinewidth}
+\DeclareStringOption[0mm]{flapwidth}
+\DeclareStringOption[0mm]{wrapwidth}
+\DeclareStringOption[10mm]{marklength}
+\DeclareStringOption[.4pt]{markthick}
+\DeclareStringOption[5mm]{bleedwidth}
+\DeclareStringOption[red]{markcolor}
+\DeclareStringOption[white]{pagecolor}
+\DeclareStringOption[white]{trimmingcolor}
+\DeclareBoolOption[false]{trimmed}
+\DeclareBoolOption[false]{foldingmargin}
+\DeclareBoolOption[false]{bgtikznodes}% for old method
+\DeclareBoolOption[false]{bgtikzclip}% for old method
+\ProcessKeyvalOptions{bookcover}
+
+%% CLASS AND PACKAGES
+
+\LoadClass{article}
+\@ifundefined{AddToHook}{\RequirePackage{lthooks,picture}}{}% for LaTeX format older than 2020/10/01
+\RequirePackage{geometry,graphicx,calc,tikz,xparse,etoolbox}
+\RequirePackage[nonefgrulers]{fgruler}
+
+%% PAGE STYLE
+
+\pagestyle{empty}
+\def\ps@plain{}
+
+%% NEW IF
+
+\newif\if@inbookcoverenv
+
+%% USER LENGTHS
+
+\newlength{\coverwidth}
+\newlength{\coverheight}
+\newlength{\spinewidth}
+\newlength{\flapwidth}
+\newlength{\wrapwidth}
+\newlength{\marklength}
+\newlength{\markthick}
+\newlength{\bleedwidth}
+
+%% INTERNAL LENGTHS
+
+\newlength{\bookcover@templength@a}
+\newlength{\bookcover@templength@b}
+\newlength{\bookcover@templength@c}
+\newlength{\bookcover@templength@d}
+\newlength{\bookcover@xpos@}
+\newlength{\bookcover@ypos@}
+\newlength{\bookcover@partwidth@}
+\newlength{\bookcover@partheight@}
+\newlength{\bookcover@tikz@trimmed@part@width@minus}
+\newlength{\bookcover@tikz@trimmed@part@height@minus}
+\newlength{\bookcover@tikz@trimmed@part@push@right}
+\newlength{\bookcover@tikz@trimmed@part@push@up}
+\let\partheight\bookcover@partheight@
+\let\partwidth\bookcover@partwidth@
+
+%% USER LENGTHS SETTING
+
+\setlength{\coverwidth}{\bookcover@coverwidth}
+\setlength{\coverheight}{\bookcover@coverheight}
+\setlength{\spinewidth}{\bookcover@spinewidth}
+\ifbookcover@foldingmargin\else\setlength{\flapwidth}{\bookcover@flapwidth}\fi
+\ifdim\flapwidth>0pt\setlength{\wrapwidth}{\bookcover@wrapwidth}\fi
+\setlength{\marklength}{\bookcover@marklength}
+\setlength{\markthick}{\bookcover@markthick}
+\setlength{\bleedwidth}{\bookcover@bleedwidth}
+
+%% PAGE DIMENSIONS SETTING
+
+\geometry{%
+    margin=0pt,
+    paperwidth=2\marklength+2\bleedwidth+2\coverwidth+2\flapwidth+2\wrapwidth+\spinewidth,
+    paperheight=2\marklength+2\bleedwidth+\coverheight}
+
+%% INTERNAL LENGTHS SETTING
+
+\def\bookcover@xpos#1{\setlength{\bookcover@xpos@}{#1}}
+\def\bookcover@ypos#1{\setlength{\bookcover@ypos@}{#1}}
+\def\bookcover@partwidth#1{\setlength{\bookcover@partwidth@}{#1}}
+\def\bookcover@partheight#1{\setlength{\bookcover@partheight@}{#1}}
+\def\bookcover@tikz@trimmed@part@param#1#2#3#4{%
+    \setlength{\bookcover@tikz@trimmed@part@width@minus}{#1}%
+    \setlength{\bookcover@tikz@trimmed@part@height@minus}{#2}%
+    \setlength{\bookcover@tikz@trimmed@part@push@right}{#3}%
+    \setlength{\bookcover@tikz@trimmed@part@push@up}{#4}}
+\let\setpartposx\bookcover@xpos
+\let\setpartposy\bookcover@ypos
+\let\setpartwidth\bookcover@partwidth
+\let\setpartheight\bookcover@partheight
+\let\settrimmedpart\bookcover@tikz@trimmed@part@param
+
+%% SETBOOKCOVER
+
+\newif\if@oldsetbookcover% for old method
+
+\long\def\setbookcover#1{%
+    \@for\bookcover@firstparam:={bgcolor,bgpic,bgtikz,fgsecond}\do{% for old method
+        \ifdefstring{\bookcover@firstparam}{#1}{\global\@oldsetbookcovertrue}{}}% for old method
+    \if@oldsetbookcover% for old method
+        \gdef\bookcover@firstparam{#1}% for old method
+    \else% for old method
+        \gdef\oldsetbookcover@{}% for old method
+        \setkeys{bookcover}{#1}%
+        \setlength{\markthick}{\bookcover@markthick}%
+    \fi\oldsetbookcover@% for old method
+    }
+
+%% BOOKCOVERDESCGEOMETRY
+
+\def\bookcoverdescgeometry#1{\def\bookcover@descgeometry{#1}}
+\def\bookcover@descgeometry{margin=1in}
+
+%% BOOKCOVERDESCRIPTION
+
+\newenvironment{bookcoverdescription}{%
+    \if@inbookcoverenv\@latexerr{Don't use 'bookcoverdescription' in 'bookcover' environment!}{}\fi}{}
+\AddToHook{env/bookcoverdescription/before}{\expandafter\newgeometry\expandafter{\bookcover@descgeometry}}
+\AddToHook{env/bookcoverdescription/after}{\restoregeometry}
+
+%% POSBOX
+
+\newcommand{\bookcover@posbox}[5]{%
+    \setlength{\bookcover@templength@a}{#4}%
+    \put(#3,-\bookcover@templength@a){%
+        \parbox[b][0pt][t]{#1}{%
+            \parbox[t][#2][t]{#1}{#5}}}}
+
+%% MARKS
+
+\def\bookcover@marks{\bookcovercomponent{bookcovertype@tikz}{bookcoverpart@wholepage}{
+    \begin{scope}[line width=\markthick,\bookcover@markcolor]
+        \draw (\marklength+\bleedwidth,0mm) -- +(0mm,\marklength);
+        \ifdim\flapwidth>0mm\draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth,0) -- +(0,\marklength);\fi
+        \draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth,0) -- +(0,\marklength);
+        \draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth,0) -- +(0,\marklength);
+        \ifdim\flapwidth>0mm\draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth+2\coverwidth+\spinewidth,0) -- +(0,\marklength);\fi
+        \draw (\marklength+\bleedwidth+2\flapwidth+2\wrapwidth+2\coverwidth+\spinewidth,0) -- +(0,\marklength);
+        \draw (\marklength+\bleedwidth,\paperheight) -- +(0,-\marklength);
+        \ifdim\flapwidth>0mm\draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth,\paperheight) -- +(0,-\marklength);\fi%
+        \draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth,\paperheight) -- +(0,-\marklength);
+        \draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth,\paperheight) -- +(0,-\marklength);
+        \ifdim\flapwidth>0mm\draw (\marklength+\bleedwidth+\flapwidth+\wrapwidth+2\coverwidth+\spinewidth,\paperheight) -- +(0,-\marklength);\fi
+        \draw (\marklength+\bleedwidth+2\flapwidth+2\wrapwidth+2\coverwidth+\spinewidth,\paperheight) -- +(0,-\marklength);
+        \draw (0,\paperheight-\marklength-\bleedwidth) -- +(\marklength,0);
+        \draw (0,\marklength+\bleedwidth) -- +(\marklength,0);
+        \draw (\paperwidth,\paperheight-\marklength-\bleedwidth) -- +(-\marklength,0);
+        \draw (\paperwidth,\marklength+\bleedwidth) -- +(-\marklength,0);
+        \ifbookcover@foldingmargin
+            \draw (\marklength,0) -- +(0,\marklength);
+            \draw (\paperwidth-\marklength,0) -- +(0,\marklength);
+            \draw (\marklength,\paperheight) -- +(0,-\marklength);
+            \draw (\paperwidth-\marklength,\paperheight) -- +(0,-\marklength);
+            \draw (0,\marklength) -- +(\marklength,0);
+            \draw (0,\paperheight-\marklength) -- +(\marklength,0);
+            \draw (\paperwidth,\marklength) -- +(-\marklength,0);
+            \draw (\paperwidth,\paperheight-\marklength) -- +(-\marklength,0);\fi
+    \end{scope}}}
+
+%% TRIMMING
+
+\def\bookcover@trimming@part{%
+    \expandafter\ifblank\expandafter{\bookcover@trimmedpart}{\def\bookcover@trimmedpart{bookcoverpart@whole}}{}%
+    \@ifundefined{bookcover@part@param@\bookcover@trimmedpart}{\@latexerr{Part '\bookcover@trimmedpart' is undefined.}{}}{%
+        \begingroup%
+        \csname bookcover@part@param@\bookcover@trimmedpart\endcsname%
+        \expandafter\bookcover@setpartmargin\expandafter(\bookcover@trimmedmargin)%
+        \ifdim\bookcover@partwidth@>0mm
+            \ifdim\bookcover@partheight@>0mm
+                \bookcover@posbox{\paperwidth}{\paperheight}{0mm}{0mm}{%
+                    \begin{tikzpicture}
+                        \begin{scope}[\bookcover@trimmingcolor]
+                        \fill (0,0) rectangle (\paperwidth,\paperheight-\bookcover@ypos@-\bookcover@partheight@);
+                        \fill (0,\paperheight) rectangle (\paperwidth,\paperheight-\bookcover@ypos@);
+                        \fill (0,0) rectangle (\bookcover@xpos@,\paperheight);
+                        \fill (\bookcover@xpos@+\bookcover@partwidth@,0) rectangle (\paperwidth,\paperheight);
+                        \end{scope}
+                    \end{tikzpicture}}\fi\fi
+        \endgroup}}
+
+\NewDocumentCommand{\bookcovertrimmedpart}{ m O{,,,} }{\def\bookcover@trimmedpart{#1}\def\bookcover@trimmedmargin{#2}}
+\bookcovertrimmedpart{bookcoverpart@whole}
+
+%% BOOKCOVER ENVIRONMENT
+
+\def\bookcover{%
+    \@inbookcoverenvtrue%
+    \newpage%
+    \pagecolor{\bookcover@pagecolor}
+    \noindent%
+    \begin{picture}(\paperwidth,\paperheight)(0,-\paperheight)}
+
+\def\endbookcover{%
+    \ifbookcover@trimmed\bookcover@trimming@part\fi%
+    \bookcover@marks%
+    \end{picture}%
+    \par\@inbookcoverenvfalse}
+
+%% BOOKCOVER COMPONENT
+
+\def\bookcover@setpartmargin(#1,#2,#3,#4){%
+    \setlength{\bookcover@templength@a}{0mm}
+    \setlength{\bookcover@templength@b}{0mm}
+    \setlength{\bookcover@templength@c}{0mm}
+    \setlength{\bookcover@templength@d}{0mm}
+    \ifblank{#1}{}{\setlength{\bookcover@templength@a}{#1}}%
+    \ifblank{#2}{}{\setlength{\bookcover@templength@b}{#2}}%
+    \ifblank{#3}{}{\setlength{\bookcover@templength@c}{#3}}%
+    \ifblank{#4}{}{\setlength{\bookcover@templength@d}{#4}}%
+    \addtolength{\bookcover@xpos@}{\bookcover@templength@a}%
+    \addtolength{\bookcover@partwidth@}{-\bookcover@templength@a}%
+    \addtolength{\bookcover@partheight@}{-\bookcover@templength@b}%
+    \addtolength{\bookcover@partwidth@}{-\bookcover@templength@c}%
+    \addtolength{\bookcover@ypos@}{\bookcover@templength@d}%
+    \addtolength{\bookcover@partheight@}{-\bookcover@templength@d}%
+    \ifdim\bookcover@tikz@trimmed@part@width@minus>\dimexpr\bookcover@tikz@trimmed@part@push@right+\bookcover@templength@c\relax%
+        \addtolength{\bookcover@tikz@trimmed@part@width@minus}{-\bookcover@tikz@trimmed@part@push@right-\bookcover@templength@c}%
+        \else\setlength{\bookcover@tikz@trimmed@part@width@minus}{0mm}\fi%
+    \ifdim\bookcover@tikz@trimmed@part@push@right>\bookcover@templength@a%
+        \addtolength{\bookcover@tikz@trimmed@part@push@right}{-\bookcover@templength@a}%
+        \else\setlength{\bookcover@tikz@trimmed@part@push@right}{0mm}\fi%
+    \addtolength{\bookcover@tikz@trimmed@part@width@minus}{\bookcover@tikz@trimmed@part@push@right}%
+    \ifdim\bookcover@tikz@trimmed@part@height@minus>\dimexpr\bookcover@tikz@trimmed@part@push@up+\bookcover@templength@d\relax%
+        \addtolength{\bookcover@tikz@trimmed@part@height@minus}{-\bookcover@tikz@trimmed@part@push@up-\bookcover@templength@d}%
+        \else\setlength{\bookcover@tikz@trimmed@part@height@minus}{0mm}\fi%
+    \ifdim\bookcover@tikz@trimmed@part@push@up>\bookcover@templength@b%
+        \addtolength{\bookcover@tikz@trimmed@part@push@up}{-\bookcover@templength@b}%
+        \else\setlength{\bookcover@tikz@trimmed@part@push@up}{0mm}\fi%
+    \addtolength{\bookcover@tikz@trimmed@part@height@minus}{\bookcover@tikz@trimmed@part@push@up}}
+
+\NewDocumentCommand{\bookcovercomponent}{ m m O{,,,} +m }{%
+    \if@inbookcoverenv\else%
+        \@latexerr{Use \string\bookcovercomponent\space or 'bookcoverelement' in 'bookcover' environment!}{}\fi%
+    \@ifundefined{bookcover@part@param@#2}{\@latexerr{Part '#2' is undefined.}{}}{%
+        \@ifundefined{bookcover@componenttype@#1}{\@latexerr{Component type '#1' is undefined.}{}}{%
+            \ifblank{#4}{}{%
+                \begingroup%
+                \csname bookcover@part@param@#2\endcsname%
+                \bookcover@setpartmargin(#3)%
+                \ifdim\bookcover@partwidth@>0mm%
+                    \ifdim\bookcover@partheight@>0mm%
+                        \csname bookcover@componenttype@#1\endcsname{#4}\fi\fi%
+                \endgroup}}}}
+
+%% BOOKCOVERELEMENT ENVIRONMENT
+
+\NewDocumentEnvironment{bookcoverelement}{ m m O{,,,} +b }{\bookcovercomponent{#1}{#2}[#3]{#4}}
+
+%% NEW BOOKCOVER PART
+
+\def\newbookcoverpart#1#2{%
+    \@ifundefined{bookcover@part@param@#1}{%
+        \expandafter\def\csname bookcover@part@param@#1\endcsname{#2}}
+    {\@latexerr{Part '#1' is already defined.}{}}}
+
+%% RENEW BOOKCOVER PART
+
+\def\renewbookcoverpart#1#2{%
+    \ifstrequal{#1}{bookcoverpart@wholepage}{\@latexerr{Part '#1' is protected.}{}}%
+    \ifstrequal{#1}{bookcoverpart@whole}{\@latexerr{Part '#1' is protected.}{}}%
+    \@ifundefined{bookcover@part@param@#1}{\@latexerr{Part '#1' is undefined.}{}}{%
+        \expandafter\def\csname bookcover@part@param@#1\endcsname{#2}}}
+
+%% NEW NAME BOOKCOVER PART
+
+\def\newnamebookcoverpart#1#2{%
+    \@ifundefined{bookcover@part@param@#1}{%
+        \@ifundefined{bookcover@part@param@#2}{\@latexerr{Part '#2' is undefined.}{}}{%
+            \expandafter\def\csname bookcover@part@param@#1\endcsname{%
+                \csname bookcover@part@param@#2\endcsname}}}
+    {\@latexerr{Part '#1' is already defined.}{}}}
+
+%% LET NAME BOOKCOVER PART
+
+\NewDocumentCommand{\letnamebookcoverpart}{ m m O{,,,} }{%
+    \@ifundefined{bookcover@part@param@#1}{%
+        \@ifundefined{bookcover@part@param@#2}{\@latexerr{Part '#2' is undefined.}{}}{%
+            \csletcs{bookcover@part@baseparam@#1}{bookcover@part@param@#2}%
+            \protected@csedef{bookcover@part@margin@#1}{\bookcover@setpartmargin(#3)}%
+            \protected@csedef{bookcover@part@param@#1}{\csuse{bookcover@part@baseparam@#1}\csuse{bookcover@part@margin@#1}}}}
+    {\@latexerr{Part '#1' is already defined.}{}}}
+
+%% NEW BOOKCOVER COMPONENT TYPE
+
+\def\newbookcovercomponenttype#1#2{%
+    \@ifundefined{bookcover@componenttype@#1}{%
+        \long\expandafter\def\csname bookcover@componenttype@#1\endcsname##1{%
+        \bookcover@posbox{\bookcover@partwidth@}{\bookcover@partheight@}{\bookcover@xpos@}{\bookcover@ypos@}{#2}}}
+    {\@latexerr{Component type '#1' is already defined.}{}}}
+
+%% RENEW BOOKCOVER COMPONENT TYPE
+
+\def\renewbookcovercomponenttype#1#2{%
+    \ifstrequal{#1}{bookcovertype@tikz}{\@latexerr{Component type '#1' is protected.}{}}%
+    \@ifundefined{bookcover@componenttype@#1}{\@latexerr{Component type '#1' is undefined.}{}}{%
+        \long\expandafter\def\csname bookcover@componenttype@#1\endcsname##1{%
+        \bookcover@posbox{\bookcover@partwidth@}{\bookcover@partheight@}{\bookcover@xpos@}{\bookcover@ypos@}{#2}}}}
+
+%% NEW NAME BOOKCOVER COMPONENT TYPE
+
+\def\newnamebookcovercomponenttype#1#2{%
+    \@ifundefined{bookcover@componenttype@#1}{%
+        \@ifundefined{bookcover@componenttype@#2}{\@latexerr{Component type '#2' is undefined.}{}}{%
+            \expandafter\def\csname bookcover@componenttype@#1\endcsname{%
+                \csname bookcover@componenttype@#2\endcsname}}}
+    {\@latexerr{Component type '#1' is already defined.}{}}}
+
+%% LET NAME BOOKCOVER COMPONENT TYPE
+
+\def\letnamebookcovercomponenttype#1#2{%
+    \@ifundefined{bookcover@componenttype@#1}{%
+        \@ifundefined{bookcover@componenttype@#2}{\@latexerr{Component type '#2' is undefined.}{}}{%
+            \csletcs{bookcover@componenttype@#1}{bookcover@componenttype@#2}}}
+    {\@latexerr{Component type '#1' is already defined.}{}}}
+
+%% COMPONENT TYPES
+
+\newbookcovercomponenttype{color}{%
+    \tikz\fill\expandafter[#1] (0,0) rectangle (\bookcover@partwidth@,\bookcover@partheight@);}
+
+\newbookcovercomponenttype{picture}{%
+    \includegraphics[width=\bookcover@partwidth@,height=\bookcover@partheight@]{#1}}
+
+\def\bookcover@tikz@content#1{%
+    \begin{tikzpicture}[overlay,yshift=-\bookcover@partheight@]
+    \begingroup
+        \pgfset{minimum width=\bookcover@partwidth@,minimum height=\bookcover@partheight@}
+        \pgfnode{rectangle}{south west}{}{part}{\pgfusepath{}}
+        \pgfset{minimum width=\bookcover@partwidth@-\bookcover@tikz@trimmed@part@width@minus,
+                minimum height=\bookcover@partheight@-\bookcover@tikz@trimmed@part@height@minus}
+        \pgftransformshift{\pgfpoint{\bookcover@tikz@trimmed@part@push@right}
+                                    {\bookcover@tikz@trimmed@part@push@up}}
+        \pgfnode{rectangle}{south west}{}{trimmed part}{\pgfusepath{}}
+        \pgfnodealias{current trimmed part}{trimmed part}% for old method
+        \pgfnodealias{current part}{part}% for old method
+    \endgroup
+    #1
+    \end{tikzpicture}}
+
+\newbookcovercomponenttype{tikz}{\bookcover@tikz@content{#1}}
+
+\letnamebookcovercomponenttype{bookcovertype@tikz}{tikz} % bookcovertype@tikz is protected type
+
+\newbookcovercomponenttype{tikz clip}{\bookcover@tikz@content{\clip (part.south west) rectangle (part.north east);#1}}
+
+\newbookcovercomponenttype{normal}{#1}
+
+\newbookcovercomponenttype{center}{\vfill{\centering#1\\}\vfill}
+
+\newbookcovercomponenttype{ruler}{\expandafter\bookcover@setruler\expandafter(#1)}
+
+\def\bookcover@setruler(#1,#2,#3){%
+    \rulernorotatenum%
+    \ifblank{#3}{\rulerparams{}{}{\bookcover@markcolor}{}{}}{\rulerparams{}{}{#3}{}{}}%
+    \ifblank{#2}%
+        {\ifblank{#1}%
+            {\squareruler{upperleft}{\bookcover@partwidth@}{\bookcover@partheight@}}%
+            {\squareruler[#1]{upperleft}{\bookcover@partwidth@}{\bookcover@partheight@}}}%
+        {\ifblank{#1}%
+            {\squareruler{#2}{\bookcover@partwidth@}{\bookcover@partheight@}}%
+            {\squareruler[#1]{#2}{\bookcover@partwidth@}{\bookcover@partheight@}}}}
+
+%% BOOKCOVER PARTS
+
+\newbookcoverpart{bg back flap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength}
+        \bookcover@partheight{\coverheight+2\bleedwidth}
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{\flapwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back wrap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength}
+        \bookcover@partheight{\coverheight+2\bleedwidth}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@partwidth{\coverwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{\coverwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg spine}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partwidth{\spinewidth}
+    \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}}
+
+\newbookcoverpart{bg front}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@partwidth{\coverwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@partwidth{\coverwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front wrap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength}
+        \bookcover@partheight{\coverheight+2\bleedwidth}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+2\coverwidth+\spinewidth}
+        \bookcover@partwidth{\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front flap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength}
+        \bookcover@partheight{\coverheight+2\bleedwidth}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+2\wrapwidth+2\coverwidth+\spinewidth}
+        \bookcover@partwidth{\flapwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back flap and wrap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength}
+        \bookcover@partheight{\coverheight+2\bleedwidth}
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{\flapwidth+\wrapwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back and wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{\coverwidth+\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{\coverwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back and spine}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@partwidth{\coverwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{\coverwidth+\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front and spine}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@partwidth{\coverwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@partwidth{\coverwidth+\spinewidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front and wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@partwidth{\coverwidth+\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@partwidth{\coverwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front flap and wrap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength}
+        \bookcover@partheight{\coverheight+2\bleedwidth}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+2\coverwidth+\spinewidth}
+        \bookcover@partwidth{\flapwidth+\wrapwidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back and flap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength}
+    \bookcover@partwidth{\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}}
+
+\newbookcoverpart{bg back and spine and wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{\wrapwidth+\coverwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{\wrapwidth+\coverwidth+\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back and spine and front}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@partwidth{2\coverwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front and spine and wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@partwidth{\coverwidth+\spinewidth+\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@partwidth{\coverwidth+\spinewidth+\bleedwidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front and flap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \bookcover@partwidth{\coverwidth+\flapwidth+\wrapwidth+\bleedwidth}
+    \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}}
+
+\newbookcoverpart{bg back and flap and spine}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength}
+    \bookcover@partwidth{\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}}
+
+\newbookcoverpart{bg back and spine and front and back wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{2\coverwidth+\spinewidth+\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg back and spine and front and front wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@partwidth{2\coverwidth+\spinewidth+\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg front and flap and spine}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partwidth{\coverwidth+\flapwidth+\bleedwidth+\wrapwidth+\spinewidth}
+    \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0pt}{\bleedwidth}}
+
+\newbookcoverpart{bg whole without front flap and wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength}
+    \ifdim\flapwidth>0mm
+        \bookcover@partwidth{2\coverwidth+\flapwidth+\wrapwidth+\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}
+    \else
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg whole without flaps}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{2\coverwidth+\spinewidth+2\wrapwidth}
+        \bookcover@tikz@trimmed@part@param{0pt}{2\bleedwidth}{0pt}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg whole without back flap and wrap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@partwidth{2\coverwidth+\flapwidth+\wrapwidth+\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0mm}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg whole without front flap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength}
+    \ifdim\flapwidth>0mm
+        \bookcover@partwidth{2\coverwidth+\flapwidth+2\wrapwidth+\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}
+    \else
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg whole without back flap}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \ifdim\flapwidth>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{2\coverwidth+\flapwidth+2\wrapwidth+\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{\bleedwidth}{2\bleedwidth}{0mm}{\bleedwidth}
+    \else
+        \bookcover@xpos{\marklength}
+        \bookcover@partwidth{2\coverwidth+2\bleedwidth+\spinewidth}
+        \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}\fi}
+
+\newbookcoverpart{bg whole}{
+    \bookcover@ypos{\marklength}
+    \bookcover@partheight{\coverheight+2\bleedwidth}
+    \bookcover@xpos{\marklength}
+    \bookcover@partwidth{2\coverwidth+2\bleedwidth+2\flapwidth+2\wrapwidth+\spinewidth}
+    \bookcover@tikz@trimmed@part@param{2\bleedwidth}{2\bleedwidth}{\bleedwidth}{\bleedwidth}}
+
+\newbookcoverpart{whole page}{
+    \bookcover@partheight{\paperheight}
+    \bookcover@partwidth{\paperwidth}}
+
+\letnamebookcoverpart{bookcoverpart@wholepage}{whole page} % bookcoverpart@wholepage is protected part
+
+\newbookcoverpart{back flap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength+\bleedwidth}
+        \bookcover@partheight{\coverheight}
+        \bookcover@xpos{\marklength+\bleedwidth}
+        \bookcover@partwidth{\flapwidth}\fi}
+
+\newbookcoverpart{back wrap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength+\bleedwidth}
+        \bookcover@partheight{\coverheight}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+        \bookcover@partwidth{\wrapwidth}\fi}
+
+\newbookcoverpart{back}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+    \bookcover@partwidth{\coverwidth}}
+
+\newbookcoverpart{spine}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partwidth{\spinewidth}}
+
+\newbookcoverpart{front}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \bookcover@partwidth{\coverwidth}}
+
+\newbookcoverpart{front wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+2\coverwidth+\spinewidth}
+    \bookcover@partwidth{\wrapwidth}}
+
+\newbookcoverpart{front flap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength+\bleedwidth}
+        \bookcover@partheight{\coverheight}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+2\wrapwidth+2\coverwidth+\spinewidth}
+        \bookcover@partwidth{\flapwidth}\fi}
+
+\newbookcoverpart{above front}{
+    \ifdim\marklength>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+        \bookcover@ypos{0mm}
+        \bookcover@partwidth{\coverwidth}
+        \bookcover@partheight{\marklength}\fi}
+
+\newbookcoverpart{below front}{
+    \ifdim\marklength>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+        \bookcover@ypos{\marklength+2\bleedwidth+\coverheight}
+        \bookcover@partwidth{\coverwidth}
+        \bookcover@partheight{\marklength}\fi}
+
+\newbookcoverpart{above back}{
+    \ifdim\marklength>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@ypos{0mm}
+        \bookcover@partwidth{\coverwidth}
+        \bookcover@partheight{\marklength}\fi}
+
+\newbookcoverpart{below back}{
+    \ifdim\marklength>0mm
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+        \bookcover@ypos{\marklength+2\bleedwidth+\coverheight}
+        \bookcover@partwidth{\coverwidth}
+        \bookcover@partheight{\marklength}\fi}
+
+\newbookcoverpart{back flap and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth}
+    \bookcover@partwidth{\flapwidth+\wrapwidth}}
+
+\newbookcoverpart{back and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+    \bookcover@partwidth{\coverwidth+\wrapwidth}}
+
+\newbookcoverpart{back and spine}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+    \bookcover@partwidth{\coverwidth+\spinewidth}}
+
+\newbookcoverpart{front and spine}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partwidth{\coverwidth+\spinewidth}}
+
+\newbookcoverpart{front and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \bookcover@partwidth{\coverwidth+\wrapwidth}}
+
+\newbookcoverpart{front flap and wrap}{
+    \ifdim\flapwidth>0mm
+        \bookcover@ypos{\marklength+\bleedwidth}
+        \bookcover@partheight{\coverheight}
+        \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+2\coverwidth+\spinewidth}
+        \bookcover@partwidth{\flapwidth+\wrapwidth}\fi}
+
+\newbookcoverpart{back and flap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth}
+    \bookcover@partwidth{\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partheight{\coverheight}}
+
+\newbookcoverpart{back and spine and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+    \bookcover@partwidth{\coverwidth+\spinewidth+\wrapwidth}}
+
+\newbookcoverpart{back and spine and front}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+    \bookcover@partwidth{2\coverwidth+\spinewidth}}
+
+\newbookcoverpart{front and spine and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partwidth{\coverwidth+\spinewidth+\wrapwidth}}
+
+\newbookcoverpart{front and flap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \bookcover@partwidth{\coverwidth+\flapwidth+\wrapwidth}}
+
+\newbookcoverpart{back and flap and spine}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@xpos{\marklength+\bleedwidth}
+    \bookcover@partwidth{\flapwidth+\wrapwidth+\coverwidth+\spinewidth}
+    \bookcover@partheight{\coverheight}}
+
+\newbookcoverpart{back and spine and front and back wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+    \bookcover@partwidth{2\coverwidth+\spinewidth+\wrapwidth}}
+
+\newbookcoverpart{back and spine and front and front wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+    \bookcover@partwidth{2\coverwidth+\spinewidth+\wrapwidth}}
+
+\newbookcoverpart{front and flap and spine}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth+\coverwidth}
+    \bookcover@partwidth{\coverwidth+\flapwidth+\wrapwidth+\spinewidth}}
+
+\newbookcoverpart{whole without front flap and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth}
+    \bookcover@partwidth{2\coverwidth+\flapwidth+\wrapwidth+\spinewidth}}
+
+\newbookcoverpart{whole without flaps}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+    \bookcover@partwidth{2\coverwidth+\spinewidth+2\wrapwidth}}
+
+\newbookcoverpart{whole without back flap and wrap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth+\wrapwidth}
+    \bookcover@partwidth{2\coverwidth+\flapwidth+\wrapwidth+\spinewidth}}
+
+\newbookcoverpart{whole without front flap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth}
+    \bookcover@partwidth{2\coverwidth+\flapwidth+2\wrapwidth+\spinewidth}}
+
+\newbookcoverpart{whole without back flap}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth+\flapwidth}
+    \bookcover@partwidth{2\coverwidth+\flapwidth+2\wrapwidth+\spinewidth}}
+
+\newbookcoverpart{whole}{
+    \bookcover@ypos{\marklength+\bleedwidth}
+    \bookcover@partheight{\coverheight}
+    \bookcover@xpos{\marklength+\bleedwidth}
+    \bookcover@partwidth{2\coverwidth+2\flapwidth+2\wrapwidth+\spinewidth}}
+
+\letnamebookcoverpart{bookcoverpart@whole}{whole} % bookcoverpart@whole is protected part
+
+%% SYNONYMOUS PART NAMES FOR INSIDE COVER ('INSIDE FRONT' = 'BACK', 'INSIDE BACK' = 'FRONT')
+
+\@for\bookcover@partname@:={%
+bg back flap,bg back wrap,bg back,bg front,bg front wrap,bg front flap,%
+bg back flap and wrap,bg back and wrap,bg back and spine,bg front and spine,bg front and wrap,bg front flap and wrap,%
+bg back and flap,bg back and spine and wrap,bg back and spine and front,bg front and spine and wrap,bg front and flap,%
+bg back and flap and spine,bg back and spine and front and back wrap,bg back and spine and front and front wrap,bg front and flap and spine,%
+bg whole without front flap and wrap,bg whole without back flap and wrap,%
+bg whole without front flap,bg whole without back flap,%
+back flap,back wrap,back,front,front wrap,front flap,above back,above front,below back,below front,%
+back flap and wrap,back and wrap,back and spine,front and spine,front and wrap,front flap and wrap,%
+back and flap,back and spine and wrap,back and spine and front,front and spine and wrap,front and flap,%
+back and flap and spine,back and spine and front and back wrap,back and spine and front and front wrap,front and flap and spine,%
+whole without front flap and wrap,whole without back flap and wrap,%
+whole without front flap,whole without back flap}%
+\do{%
+\let\bookcover@partname@original@\bookcover@partname@%
+\patchcmd{\bookcover@partname@}{back}{b@ck}{}{}%
+\patchcmd{\bookcover@partname@}{front}{fr@nt}{}{}%
+\patchcmd{\bookcover@partname@}{b@ck}{inside front}{}{}%
+\patchcmd{\bookcover@partname@}{fr@nt}{inside back}{}{}%
+\letnamebookcoverpart{\bookcover@partname@}{\bookcover@partname@original@}}
+
+%% SHORT PART NAMES
+
+\def\bookcover@shortpartname@#1=#2.{\letnamebookcoverpart{#1}{#2}\letnamebookcoverpart{bg #1}{bg #2}}
+\@for\bookcover@partname@:={%
+lF=back flap.,lW=back wrap.,lC=back.,S=spine.,rC=front.,rW=front wrap.,rF=front flap.,%
+lF-lW=back flap and wrap.,lW-lC=back and wrap.,lC-S=back and spine.,S-rC=front and spine.,rC-rW=front and wrap.,rW-rF=front flap and wrap.,%
+lF-lC=back and flap.,lW-S=back and spine and wrap.,lC-rC=back and spine and front.,S-rW=front and spine and wrap.,rC-rF=front and flap.,%
+lF-S=back and flap and spine.,lW-rC=back and spine and front and back wrap.,lC-rW=back and spine and front and front wrap.,S-rF=front and flap and spine.,%
+lF-rC=whole without front flap and wrap.,lW-rW=whole without flaps.,lC-rF=whole without back flap and wrap.,%
+lF-rW=whole without front flap.,lW-rF=whole without back flap.,%
+lF-rF=whole.}%
+\do{\expandafter\bookcover@shortpartname@\bookcover@partname@}
+
+%% OLD METHOD
+
+\def\bookcover@reset{
+    \def\bookcover@bgcolor@whole{}
+    \def\bookcover@bgcolor@wholewf{}
+    \def\bookcover@bgcolor@back{}
+    \def\bookcover@bgcolor@front{}
+    \def\bookcover@bgcolor@backflap{}
+    \def\bookcover@bgcolor@frontflap{}
+    \def\bookcover@bgcolor@spine{}
+    \def\bookcover@bgpic@whole{}
+    \def\bookcover@bgpic@wholewf{}
+    \def\bookcover@bgpic@back{}
+    \def\bookcover@bgpic@front{}
+    \def\bookcover@bgpic@backflap{}
+    \def\bookcover@bgpic@frontflap{}
+    \def\bookcover@bgpic@spine{}
+    \def\bookcover@bgtikz@whole{}
+    \def\bookcover@bgtikz@wholewf{}
+    \def\bookcover@bgtikz@back{}
+    \def\bookcover@bgtikz@front{}
+    \def\bookcover@bgtikz@backflap{}
+    \def\bookcover@bgtikz@frontflap{}
+    \def\bookcover@bgtikz@spine{}
+    \def\bookcover@fgsecond@back{}
+    \def\bookcover@fgsecond@front{}
+    \def\bookcover@fgsecond@spine{}
+    \def\bookcover@fgsecond@backflap{}
+    \def\bookcover@fgsecond@frontflap{}
+    \def\bookcover@fgfirst@back{}
+    \def\bookcover@fgfirst@front{}
+    \def\bookcover@fgfirst@spine{}
+    \def\bookcover@fgfirst@backflap{}
+    \def\bookcover@fgfirst@frontflap{}
+    \def\bookcover@fgfirst@abovefront{}
+    \def\bookcover@fgfirst@belowfront{}
+    \def\bookcover@fgfirst@aboveback{}
+    \def\bookcover@fgfirst@belowback{}}
+
+\bookcover@reset
+
+\long\def\oldsetbookcover@#1#2{
+    \ifdefstring{\bookcover@firstparam}{bgcolor}{
+        \ifstrequal{#1}{whole}{\def\bookcover@bgcolor@whole{\bookcovercomponent{color}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{whole without flaps}{\def\bookcover@bgcolor@wholewf{\bookcovercomponent{color}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back}{\def\bookcover@bgcolor@back{\bookcovercomponent{color}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front}{\def\bookcover@bgcolor@front{\bookcovercomponent{color}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back flap}{\def\bookcover@bgcolor@backflap{\bookcovercomponent{color}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front flap}{\def\bookcover@bgcolor@frontflap{\bookcovercomponent{color}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{spine}{\def\bookcover@bgcolor@spine{\bookcovercomponent{color}{bg #1}{#2}}}{}}{}
+    \ifdefstring{\bookcover@firstparam}{bgpic}{
+        \ifstrequal{#1}{whole}{\def\bookcover@bgpic@whole{\bookcovercomponent{picture}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{whole without flaps}{\def\bookcover@bgpic@wholewf{\bookcovercomponent{picture}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back}{\def\bookcover@bgpic@back{\bookcovercomponent{picture}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front}{\def\bookcover@bgpic@front{\bookcovercomponent{picture}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back flap}{\def\bookcover@bgpic@backflap{\bookcovercomponent{picture}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front flap}{\def\bookcover@bgpic@frontflap{\bookcovercomponent{picture}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{spine}{\def\bookcover@bgpic@spine{\bookcovercomponent{picture}{bg #1}{#2}}}{}}{}
+    \ifdefstring{\bookcover@firstparam}{bgtikz}{
+        \ifbookcover@bgtikzclip
+        \ifstrequal{#1}{whole}{\def\bookcover@bgtikz@whole{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{whole without flaps}{\def\bookcover@bgtikz@wholewf{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back}{\def\bookcover@bgtikz@back{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front}{\def\bookcover@bgtikz@front{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back flap}{\def\bookcover@bgtikz@backflap{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front flap}{\def\bookcover@bgtikz@frontflap{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{spine}{\def\bookcover@bgtikz@spine{\bookcovercomponent{tikz clip}{bg #1}{#2}}}{}
+        \else
+        \ifstrequal{#1}{whole}{\def\bookcover@bgtikz@whole{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{whole without flaps}{\def\bookcover@bgtikz@wholewf{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back}{\def\bookcover@bgtikz@back{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front}{\def\bookcover@bgtikz@front{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{back flap}{\def\bookcover@bgtikz@backflap{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{front flap}{\def\bookcover@bgtikz@frontflap{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \ifstrequal{#1}{spine}{\def\bookcover@bgtikz@spine{\bookcovercomponent{tikz}{bg #1}{#2}}}{}
+        \fi}{}
+    \ifdefstring{\bookcover@firstparam}{fgsecond}{
+        \ifstrequal{#1}{back}{\def\bookcover@fgsecond@back{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{front}{\def\bookcover@fgsecond@front{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{spine}{\def\bookcover@fgsecond@spine{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{back flap}{\def\bookcover@fgsecond@backflap{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{front flap}{\def\bookcover@fgsecond@frontflap{\bookcovercomponent{normal}{#1}{#2}}}{}}{}
+    \ifdefstring{\bookcover@firstparam}{fgfirst}{
+        \ifstrequal{#1}{back}{\def\bookcover@fgfirst@back{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{front}{\def\bookcover@fgfirst@front{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{spine}{\def\bookcover@fgfirst@spine{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{back flap}{\def\bookcover@fgfirst@backflap{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{front flap}{\def\bookcover@fgfirst@frontflap{\bookcovercomponent{normal}{#1}{#2}}}{}
+        \ifstrequal{#1}{remark}{\def\bookcover@fgfirst@abovefront{\bookcovercomponent{center}{#1}{#2}}}{}
+        \ifstrequal{#1}{above front}{\def\bookcover@fgfirst@abovefront{\bookcovercomponent{center}{#1}{#2}}}{}
+        \ifstrequal{#1}{below front}{\def\bookcover@fgfirst@belowfront{\bookcovercomponent{center}{#1}{#2}}}{}
+        \ifstrequal{#1}{above back}{\def\bookcover@fgfirst@aboveback{\bookcovercomponent{center}{#1}{#2}}}{}
+        \ifstrequal{#1}{below back}{\def\bookcover@fgfirst@belowback{\bookcovercomponent{center}{#1}{#2}}}{}}{}}
+
+\long\def\makebookcover{%
+    \begin{bookcover}
+        \bookcover@bgcolor@whole
+        \bookcover@bgcolor@wholewf
+        \bookcover@bgcolor@back
+        \bookcover@bgcolor@front
+        \bookcover@bgcolor@backflap
+        \bookcover@bgcolor@frontflap
+        \bookcover@bgcolor@spine
+        \bookcover@bgpic@whole
+        \bookcover@bgpic@wholewf
+        \bookcover@bgpic@back
+        \bookcover@bgpic@front
+        \bookcover@bgpic@backflap
+        \bookcover@bgpic@frontflap
+        \bookcover@bgpic@spine
+        \bookcover@bgtikz@whole
+        \bookcover@bgtikz@wholewf
+        \bookcover@bgtikz@back
+        \bookcover@bgtikz@front
+        \bookcover@bgtikz@backflap
+        \bookcover@bgtikz@frontflap
+        \bookcover@bgtikz@spine
+        \bookcover@fgsecond@back
+        \bookcover@fgsecond@front
+        \bookcover@fgsecond@spine
+        \bookcover@fgsecond@backflap
+        \bookcover@fgsecond@frontflap
+        \bookcover@fgfirst@back
+        \bookcover@fgfirst@front
+        \bookcover@fgfirst@spine
+        \bookcover@fgfirst@backflap
+        \bookcover@fgfirst@frontflap
+        \bookcover@fgfirst@abovefront
+        \bookcover@fgfirst@belowfront
+        \bookcover@fgfirst@aboveback
+        \bookcover@fgfirst@belowback
+    \end{bookcover}
+    \bookcover@reset}
+
+%    \end{macrocode}
+% \Finale
+\endinput

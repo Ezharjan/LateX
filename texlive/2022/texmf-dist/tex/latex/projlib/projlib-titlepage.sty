@@ -1,0 +1,163 @@
+%%
+%% This is file `projlib-titlepage.sty',
+%% generated with the docstrip utility.
+%%
+%% Copyright (C) 2021-2022 by Jinwen XU
+%% 
+%% This is part of the ProjLib Toolkit.
+%% 
+%% This work may be distributed and/or modified under the conditions of the
+%% LaTeX Project Public License, either version 1.3c of this license or (at
+%% your option) any later version. The latest version of this license is in
+%% 
+%%     http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX version
+%% 2005/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
+\ProvidesExplPackage
+  {projlib-titlepage}
+  {2022/08/05} {}
+  {Commands for rendering the title page}
+
+\keys_define:nn { projlib-titlepage }
+  {
+    , unknown           .code:n             = {}
+  }
+\ProcessKeyOptions [ projlib-titlepage ]
+
+\RequirePackage { projlib-logo }
+\RequirePackage { projlib-paper }
+
+\RequirePackage { tikz }
+\ExplSyntaxOff
+\usetikzlibrary { calc }
+\ExplSyntaxOn
+
+\tl_new:N \l_projlib_titlepage_logo_tl
+\tl_new:N \l_projlib_titlepage_title_tl
+\tl_new:N \l_projlib_titlepage_subtitle_tl
+\tl_new:N \l_projlib_titlepage_author_tl
+\tl_new:N \l_projlib_titlepage_date_tl
+\tl_new:N \l_projlib_titlepage_style_tl
+
+\NewDocumentCommand \ProjLibTitlePage { O{} m }
+  {
+    \keys_set:nn { projlib-titlepage-config } { #1 }
+    \projlib_titlepage_render:n { #2 }
+  }
+\ProvideDocumentCommand \TitlePage { O{} m }
+  {
+    \ProjLibTitlePage [ #1 ] { #2 }
+  }
+
+\cs_new_protected:Nn \projlib_titlepage_set_color:nn
+  {
+    \colorlet { titlepage- #1 } { #2 }
+  }
+
+\keys_define:nn { projlib-titlepage-config }
+  {
+    , logo              .code:n             = { \tl_set:Nn \l_projlib_titlepage_logo_tl { \tl_trim_spaces:n { #1 } } }
+    , logo              .initial:n          = { \scalebox { 2 } { \ProjLib } }
+    , title             .code:n             = { \tl_set:Nn \l_projlib_titlepage_title_tl { \tl_trim_spaces:n { #1 } } }
+    , subtitle          .code:n             = { \tl_set:Nn \l_projlib_titlepage_subtitle_tl { \tl_trim_spaces:n { #1 } } }
+    , author            .code:n             = { \tl_set:Nn \l_projlib_titlepage_author_tl { \tl_trim_spaces:n { #1 } } }
+    , date              .code:n             = { \tl_set:Nn \l_projlib_titlepage_date_tl { \tl_trim_spaces:n { #1 } } }
+    , style             .tl_set:N           = \l_projlib_titlepage_style_tl
+    , style             .initial:n          = { default }
+    , color             .code:n             = {
+                                                \keyval_parse:nnn
+                                                  { \use_none:n }
+                                                  { \projlib_titlepage_set_color:nn }
+                                                  { #1 }
+                                              }
+    , unknown           .code:n             = {}
+  }
+
+\colorlet { titlepage-main } { blue!50!cyan!50!black }
+\colorlet { titlepage-back } { blue!50!cyan!15!yellow!25 }
+
+\cs_new_protected:Nn \projlib_titlepage_render:n
+  {
+    \keys_set:nn { projlib-titlepage-config } { #1 }
+    \begin { titlepage }
+      \cs_if_exist_use:c { projlib_titlepage_render_with_style_ \l_projlib_titlepage_style_tl : }
+    \end   { titlepage }
+    \setcounter { page } { 0 }
+  }
+
+\cs_new_protected:Nn \projlib_titlepage_render_with_style_default:
+  {
+    \begin{tikzpicture}[overlay,remember~picture]
+      \fill [color=titlepage-main] ($(current~page.south~west)$) rectangle ($(current~page.north~east)+(0,-.3\paperheight)$);
+      \fill [color=titlepage-back] ($(current~page.south~west)$) rectangle ($(current~page.north~west)+(.125\paperwidth,-.3\paperheight)$);
+      \fill [color=titlepage-main] ($(current~page.north~west)$) rectangle ($(current~page.north~west)+(.125\paperwidth,-.3\paperheight)$);
+      \fill [color=titlepage-back] ($(current~page.north~east)$) rectangle ($(current~page.north~west)+(.125\paperwidth,-.3\paperheight)$);
+      \node[text~width=.3\paperwidth, text~height=.2\paperheight, align=flush~left]
+        at ($(current~page.north~west)+(.32\paperwidth,-.17\paperheight)$)
+          {
+            \l_projlib_titlepage_logo_tl
+          };
+      \node[text~width=.8\paperwidth, text~height=.5\paperheight, align=flush~left]
+        at ($(current~page.north~west)+(.57\paperwidth,-.28\paperheight)$)
+          {
+            \color{titlepage-back}
+            \sffamily
+            \fontsize{24pt}{36pt}\selectfont
+            \textsc{ \l_projlib_titlepage_title_tl }\\[1.5em]
+            \fontsize{18pt}{27pt}\selectfont
+            \l_projlib_titlepage_subtitle_tl
+          };
+      \node[text~width=.5\paperwidth, text~height=.4\paperheight, align=flush~left]
+        at ($(current~page.south)+(.135\paperwidth,.35\paperheight)$)
+          {
+            \color{titlepage-back}
+            \begin{flushright}
+              \fontsize{16pt}{24pt}\selectfont
+              \textsc{ \l_projlib_titlepage_author_tl }\\[1em]
+              \fontsize{12pt}{18pt}\selectfont
+              \l_projlib_titlepage_date_tl
+            \end{flushright}
+          };
+    \end{tikzpicture}
+  }
+
+\cs_new_protected:Nn \projlib_titlepage_render_with_style_simple:
+  {
+    \begin{tikzpicture}[overlay,remember~picture]
+      \fill[color=white] ($(current~page.south~west)$) rectangle ($(current~page.north~east)$);
+      \fill[color=titlepage-main] ($(current~page.south~west)$) rectangle ($(current~page.north~east)+(0,-.3\paperheight)$);
+      \node[text~width=.3\paperwidth, text~height=.2\paperheight, align=flush~left]
+        at ($(current~page.north~west)+(.27\paperwidth,-.15\paperheight)$)
+          {
+            \l_projlib_titlepage_logo_tl
+          };
+      \node[text~width=.8\paperwidth, text~height=.5\paperheight, align=flush~left]
+        at ($(current~page.north~west)+(.52\paperwidth,-.28\paperheight)$)
+          {
+            \color{white}
+            \sffamily
+            \fontsize{24pt}{36pt}\selectfont
+            \textsc{ \l_projlib_titlepage_title_tl }\\[1.5em]
+            \fontsize{18pt}{27pt}\selectfont
+            \l_projlib_titlepage_subtitle_tl
+          };
+      \node[text~width=.5\paperwidth, text~height=.4\paperheight, align=flush~left]
+        at ($(current~page.south)+(.135\paperwidth,.35\paperheight)$)
+          {
+            \color{white}
+            \begin{flushright}
+              \fontsize{16pt}{24pt}\selectfont
+              \textsc{ \l_projlib_titlepage_author_tl }\\[1em]
+              \fontsize{12pt}{18pt}\selectfont
+              \l_projlib_titlepage_date_tl
+            \end{flushright}
+          };
+    \end{tikzpicture}
+  }
+
+\endinput
+%%
+%% End of file `projlib-titlepage.sty'.

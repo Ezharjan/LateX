@@ -1,0 +1,1511 @@
+%%
+%% This is file `projlib-theorem.sty',
+%% generated with the docstrip utility.
+%%
+%% Copyright (C) 2021-2022 by Jinwen XU
+%% 
+%% This is part of the ProjLib Toolkit.
+%% 
+%% This work may be distributed and/or modified under the conditions of the
+%% LaTeX Project Public License, either version 1.3c of this license or (at
+%% your option) any later version. The latest version of this license is in
+%% 
+%%     http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX version
+%% 2005/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
+\ProvidesExplPackage
+  {projlib-theorem}
+  {2022/08/05} {}
+  {Configuration of theorem-like environments}
+
+\keys_define:nn { projlib-theorem }
+  {
+    , no-theorems           .bool_set:N         = \l__projlib_theorem_no_theorems_bool
+    , no-theorems           .initial:n          = { false }
+    , no~theorems           .bool_set:N         = \l__projlib_theorem_no_theorems_bool
+    , no theorems           .bool_set:N         = \l__projlib_theorem_no_theorems_bool
+    , nothms                .bool_set:N         = \l__projlib_theorem_no_theorems_bool
+    , no-theorem-numbering  .bool_set:N         = \l__projlib_theorem_no_theorem_numbering_bool
+    , no-theorem-numbering  .initial:n          = { false }
+    , no~theorem~numbering  .bool_set:N         = \l__projlib_theorem_no_theorem_numbering_bool
+    , no theorem numbering  .bool_set:N         = \l__projlib_theorem_no_theorem_numbering_bool
+    , nothmnum              .bool_set:N         = \l__projlib_theorem_no_theorem_numbering_bool
+    , theorem-numbering     .tl_set:N           = \l__projlib_theorem_theorem_numbering_tl
+    , theorem-numbering     .default:n          = { * }
+    , theorem~numbering     .tl_set:N           = \l__projlib_theorem_theorem_numbering_tl
+    , theorem~numbering     .default:n          = { * }
+    , theorem numbering     .tl_set:N           = \l__projlib_theorem_theorem_numbering_tl
+    , theorem numbering     .default:n          = { * }
+    , thmnum                .tl_set:N           = \l__projlib_theorem_theorem_numbering_tl
+    , thmnum                .default:n          = { * }
+    , theorem-style         .tl_set:N           = \l__projlib_theorem_theorem_style_tl
+    , theorem-style         .initial:n          = { }
+    , theorem-style         .value_required:n   = true
+    , theorem~style         .tl_set:N           = \l__projlib_theorem_theorem_style_tl
+    , theorem~style         .value_required:n   = true
+    , theorem style         .tl_set:N           = \l__projlib_theorem_theorem_style_tl
+    , theorem style         .value_required:n   = true
+    , complex-name          .bool_set:N         = \l__projlib_theorem_complexname_bool
+    , complex-name          .initial:n          = { true }
+    , complex~name          .bool_set:N         = \l__projlib_theorem_complexname_bool
+    , complex name          .bool_set:N         = \l__projlib_theorem_complexname_bool
+    , simple-name           .bool_set_inverse:N = \l__projlib_theorem_complexname_bool
+    , simple~name           .bool_set_inverse:N = \l__projlib_theorem_complexname_bool
+    , simple name           .bool_set_inverse:N = \l__projlib_theorem_complexname_bool
+    , no-preset-names       .bool_set_inverse:N = \l__projlib_theorem_presetname_bool
+    , no-preset-names       .initial:n          = { false }
+    , no~preset~names       .bool_set_inverse:N = \l__projlib_theorem_presetname_bool
+    , no preset names       .bool_set_inverse:N = \l__projlib_theorem_presetname_bool
+    , unknown               .code:n             = { \PassOptionsToPackage { \CurrentOption } { create-theorem } }
+  }
+\ProcessKeyOptions [ projlib-theorem ]
+
+\clist_const:Nn \c_projlib_theorem_supported_clist
+  {
+    application               ,
+    assertion                 ,
+    assumption                ,
+    axiom                     ,
+    claim                     ,
+    conclusion                ,
+    conjecture                ,
+    construction              ,
+    convention                ,
+    corollary                 ,
+    definition                ,
+    example                   ,
+    exercise                  ,
+    fact                      ,
+    hypothesis                ,
+    lemma                     ,
+    notation                  ,
+    observation               ,
+    postulate                 ,
+    problem                   ,
+    property                  ,
+    proposition               ,
+    question                  ,
+    recall                    ,
+    remark                    ,
+    theorem                   ,
+    definition-corollary      ,
+    definition-proposition    ,
+    definition-theorem        ,
+    corollary-definition      ,
+    proposition-definition    ,
+    theorem-definition        ,
+  }
+
+\@ifclassloaded { beamer }
+  {
+    \RequirePackage { silence }
+    \WarningFilter { cleveref } { hyperref~package~loaded~with~implicit=false~option }
+    \bool_set_true:N \l__projlib_theorem_no_theorem_numbering_bool
+    \bool_if:NF \l__projlib_theorem_no_theorems_bool
+      {
+        \cs_undefine:c { theorem    } \cs_undefine:c { endtheorem    }
+        \cs_undefine:c { lemma      } \cs_undefine:c { endlemma      }
+        \cs_undefine:c { corollary  } \cs_undefine:c { endcorollary  }
+        \cs_undefine:c { definition } \cs_undefine:c { enddefinition }
+        \cs_undefine:c { fact       } \cs_undefine:c { endfact       }
+        \cs_undefine:c { example    } \cs_undefine:c { endexample    }
+        \cs_undefine:c { problem    } \cs_undefine:c { endproblem    }
+      }
+  } {}
+
+\RequirePackage { projlib-language }
+
+
+\cs_new_protected:Nn \projlib_theorem_preset_theorem_style:nn
+  {
+    \str_case:nnTF { #1 }
+      {
+        { theorem-with-name } { }
+        { proof } { }
+      }
+      {
+        \tl_const:cn { c_crthm_theorem_style_preset_ #1 _inner _tl } { #2 }
+      }
+      {
+        \tl_const:cn { c_crthm_theorem_style_preset_ #1 _tl } { #2 }
+      }
+  }
+
+\cs_generate_variant:Nn \keyval_parse:nnn { nno }
+\keyval_parse:nno
+  { \use_none:n }
+  { \projlib_theorem_preset_theorem_style:nn }
+  { \l__projlib_theorem_theorem_style_tl }
+
+\cs_if_exist:cF { c_crthm_theorem_style_preset_ proof_inner _tl }
+  {
+    \tl_const:cn { c_crthm_theorem_style_preset_ proof_inner _tl } { remark }
+  }
+
+\RequirePackage { amsthm }
+\RequirePackage { create-theorem }
+
+\RenewCommandCopy \cref \crefthe
+\RenewCommandCopy \Cref \Crefthe
+
+\bool_if:NF \l__projlib_theorem_no_theorems_bool
+  {
+    \bool_if:NTF \l__projlib_theorem_no_theorem_numbering_bool
+      {
+        \exp_args:Nv \CreateTheorem { c_projlib_theorem_supported_clist } { numberless, create starred version }
+      }
+      {
+        \tl_if_blank:oTF \l__projlib_theorem_theorem_numbering_tl
+          {
+            \cs_if_exist:cTF { c@chapter }
+              { % with \chapter
+                \CreateTheorem { theorem } { parent counter = chapter, create starred version }
+              }
+              { % without \chapter
+                \CreateTheorem { theorem } { parent counter = section, create starred version }
+              }
+          }
+          {
+            \tl_if_eq:NnTF \l__projlib_theorem_theorem_numbering_tl { * }
+              {
+                \CreateTheorem { theorem } { create starred version }
+              }
+              {
+                \CreateTheorem { theorem } { parent counter = \l__projlib_theorem_theorem_numbering_tl, create starred version }
+              }
+          }
+
+        \exp_args:Nv \CreateTheorem { c_projlib_theorem_supported_clist } { shared counter = theorem, create starred version, quiet }
+      }
+  }
+
+\newcounter { theorem-with-name }
+\newcounter { proof }
+\crthm_counter_alias:nn { theorem-with-name } { theorem }
+
+\tl_new:N \l_projlib_theorem_name_of_theorem_with_name_tl
+\CreateTheorem { theorem-with-name_inner }
+  {
+    , name = {
+               , heading = { \l_projlib_theorem_name_of_theorem_with_name_tl }
+               , crefname = {}{}
+               , Crefname = {}{}
+             }
+    , create-starred-version
+    , shared-counter = theorem-with-name
+  }
+
+\NewDocumentEnvironment { theorem-with-name } { m O{} }
+  {
+    \tl_set:Nn \l_projlib_theorem_name_of_theorem_with_name_tl { #1 }
+    \begin { theorem-with-name_inner } [ #2 ]
+  }
+  {
+    \end { theorem-with-name_inner }
+  }
+\NewDocumentEnvironment { theorem-with-name* } { m O{} }
+  {
+    \tl_set:Nn \l_projlib_theorem_name_of_theorem_with_name_tl { #1 }
+    \begin { theorem-with-name_inner* } [ #2 ]
+  }
+  {
+    \end { theorem-with-name_inner* }
+  }
+
+\SetTheoremBinding { theorem-with-name } { theorem-with-name_inner }
+\SetTheoremBinding { theorem-with-name* } { theorem-with-name_inner* }
+
+\tl_new:N \l_projlib_theorem_name_of_proof_tl
+\CreateTheorem { proof_inner } { name = { heading = { \l_projlib_theorem_name_of_proof_tl } }, create-starred-version, qed, shared-counter = proof }
+
+\cs_undefine:c { proof }
+\cs_undefine:c { endproof }
+
+\NewDocumentEnvironment { proof } { O{\proofname} }
+  {
+    \tl_set:Nn \l_projlib_theorem_name_of_proof_tl { #1 }
+    \begin { proof_inner }
+  }
+  {
+    \end { proof_inner }
+  }
+\NewDocumentEnvironment { proof* } { O{\proofname} }
+  {
+    \tl_set:Nn \l_projlib_theorem_name_of_proof_tl { #1 }
+    \begin { proof_inner* }
+  }
+  {
+    \end { proof_inner* }
+  }
+
+\SetTheoremBinding { proof } { proof_inner }
+\SetTheoremBinding { proof* } { proof_inner* }
+
+\cs_new_protected:Nn \projlib_theorem_disable_theorem_numbering:n
+  {
+    \clist_map_inline:nn { #1 }
+      {
+        \__projlib_theorem_disable_theorem_numbering_do:n { ##1 }
+      }
+  }
+\cs_new_protected:Nn \__projlib_theorem_disable_theorem_numbering_do:n
+  {
+    \CreateTheorem { #1 } { copy-existed = #1* }
+  }
+
+\NewDocumentCommand \DisableTheoremNumbering { m }
+  {
+    \projlib_theorem_disable_theorem_numbering:n { #1 }
+  }
+
+\cs_new_protected:Nn \projlib_theorem_switch_theorem_numbering:n
+  {
+    \clist_map_inline:nn { #1 }
+      {
+        \__projlib_theorem_switch_theorem_numbering_do:n { ##1 }
+      }
+  }
+\cs_new_protected:Nn \__projlib_theorem_switch_theorem_numbering_do:n
+  {
+    \CreateTheorem { #1_projlib_theorem_temp } { copy-existed = #1* }
+    \CreateTheorem { #1* } { copy-existed = #1 }
+    \CreateTheorem { #1 } { copy-existed = #1_projlib_theorem_temp }
+  }
+
+\NewDocumentCommand \SwitchTheoremNumbering { m }
+  {
+    \projlib_theorem_switch_theorem_numbering:n { #1 }
+  }
+
+\SwitchTheoremNumbering { theorem-with-name, proof }
+
+\AddLanguageSetting [ schinese ]
+  {
+    \crefname { equation } { 式 } { 式 }
+    \crefname { figure } { 图 } { 图 }
+    \crefname { table } { 表 } { 表 }
+    \crefname { appendix } { 附录 } { 附录 }
+    \Crefname { equation } { 式 } { 式 }
+    \Crefname { figure } { 图 } { 图 }
+    \Crefname { table } { 表 } { 表 }
+    \Crefname { appendix } { 附录 } { 附录 }
+    \tl_gset:Nn { \crefpairconjunction } { 、 }
+    \tl_gset:Nn { \crefmiddleconjunction } { 、 }
+    \tl_gset:Nn { \creflastconjunction } { \nobreakspace 和 \nobreakspace }
+    \tl_gset:Nn { \crefpairgroupconjunction } { \nobreakspace 和 \nobreakspace }
+    \tl_gset:Nn { \crefmiddlegroupconjunction } { 、 }
+    \tl_gset:Nn { \creflastgroupconjunction } { \nobreakspace 以及 \nobreakspace }
+    \tl_gset:Nn { \crefrangeconjunction } { ～ }
+  }
+
+\AddLanguageSetting [ tchinese ]
+  {
+    \crefname { equation } { 式 } { 式 }
+    \crefname { figure } { 圖 } { 圖 }
+    \crefname { table } { 表 } { 表 }
+    \crefname { appendix } { 附錄 } { 附錄 }
+    \Crefname { equation } { 式 } { 式 }
+    \Crefname { figure } { 圖 } { 圖 }
+    \Crefname { table } { 表 } { 表 }
+    \Crefname { appendix } { 附錄 } { 附錄 }
+    \tl_gset:Nn { \crefpairconjunction } { 、 }
+    \tl_gset:Nn { \crefmiddleconjunction } { 、 }
+    \tl_gset:Nn { \creflastconjunction } { \nobreakspace 與 \nobreakspace }
+    \tl_gset:Nn { \crefpairgroupconjunction } { \nobreakspace 與 \nobreakspace }
+    \tl_gset:Nn { \crefmiddlegroupconjunction } { 、 }
+    \tl_gset:Nn { \creflastgroupconjunction } { \nobreakspace 以及 \nobreakspace }
+    \tl_gset:Nn { \crefrangeconjunction } { ～ }
+  }
+
+\AddLanguageSetting [ japanese ]
+  {
+    \crefname { equation } { 式 } { 式 }
+    \crefname { figure } { 図 } { 図 }
+    \crefname { table } { 表 } { 表 }
+    \Crefname { appendix } { 付録 } { 付録 }
+    \Crefname { equation } { 式 } { 式 }
+    \Crefname { figure } { 図 } { 図 }
+    \Crefname { table } { 表 } { 表 }
+    \Crefname { appendix } { 付録 } { 付録 }
+    \tl_gset:Nn { \crefpairconjunction } { \nobreakspace と \nobreakspace }
+    \tl_gset:Nn { \crefmiddleconjunction } { \nobreakspace と \nobreakspace }
+    \tl_gset:Nn { \creflastconjunction } { \nobreakspace と \nobreakspace }
+    \tl_gset:Nn { \crefpairgroupconjunction } { \nobreakspace と \nobreakspace }
+    \tl_gset:Nn { \crefmiddlegroupconjunction } { \nobreakspace と \nobreakspace }
+    \tl_gset:Nn { \creflastgroupconjunction } { \nobreakspace 及び \nobreakspace }
+    \tl_gset:Nn { \crefrangeconjunction } { ～ }
+  }
+
+\AddLanguageSetting [ russian ]
+  {
+    \crefname { equation } { уравнение } { уравнения }
+    \crefname { figure } { рис. } { рис. }
+    \crefname { table } { таблица } { таблицы }
+    \crefname { appendix } { приложение } { приложения }
+    \Crefname { equation } { Уравнение } { Уравнения }
+    \Crefname { figure } { Рис. } { Рис. }
+    \Crefname { table } { Таблица } { Таблицы }
+    \Crefname { appendix } { Приложение } { Приложения }
+    \tl_gset:Nn { \crefpairconjunction } { \nobreakspace и \nobreakspace }
+    \tl_gset:Nn { \crefmiddleconjunction } { , \nobreakspace }
+    \tl_gset:Nn { \creflastconjunction } { \nobreakspace и \nobreakspace }
+    \tl_gset:Nn { \crefpairgroupconjunction } { \nobreakspace и \nobreakspace }
+    \tl_gset:Nn { \crefmiddlegroupconjunction } { , \nobreakspace  }
+    \tl_gset:Nn { \creflastgroupconjunction } { \nobreakspace и \nobreakspace }
+    \tl_gset:Nn { \crefrangeconjunction } { \nobreakspace \textasciitilde \nobreakspace }
+  }
+
+\AddLanguageSetting [ portuguese ]
+  {
+    \crefname { equation } { eq. } { eqs. }
+    \crefname { figure } { fig. } { figs. }
+    \crefname { table } { tabela } { tabelas }
+    \crefname { appendix } { apêndice } { apêndices }
+    \Crefname { equation } { Eq. } { Eqs. }
+    \Crefname { figure } { Fig. } { Figs. }
+    \Crefname { table } { Tabela } { Tabelas }
+    \Crefname { appendix } { Apêndice } { Apêndices }
+    \tl_gset:Nn { \crefpairconjunction } { \nobreakspace e \nobreakspace }
+    \tl_gset:Nn { \crefmiddleconjunction } { , \nobreakspace }
+    \tl_gset:Nn { \creflastconjunction } { \nobreakspace e \nobreakspace }
+    \tl_gset:Nn { \crefpairgroupconjunction } { \nobreakspace e \nobreakspace }
+    \tl_gset:Nn { \crefmiddlegroupconjunction } { , \nobreakspace }
+    \tl_gset:Nn { \creflastgroupconjunction } { \nobreakspace e \nobreakspace }
+    \tl_gset:Nn { \crefrangeconjunction } { \nobreakspace a \nobreakspace }
+  }
+
+\bool_if:NF \l__projlib_theorem_presetname_bool { \endinput }
+\bool_if:NT \l__projlib_theorem_complexname_bool { \endinput }
+
+\NameTheorem { application }
+  {
+    , heading =   {
+                    , english     = Application
+                    , french      = Application
+                    , ngerman     = Anwendung
+                    , italian     = Applicazione
+                    , portuguese  = Aplicação
+                    , brazilian   = Aplicação
+                    , spanish     = Aplicación
+                    , schinese    = 应用
+                    , tchinese    = 應用
+                    , japanese    = 応用
+                    , russian     = Применение
+                  }
+    , crefname =  {
+                    , english     = {Application}{Application}
+                    , french      = [l']{Application}[les]{Application}
+                    , ngerman     = {Anwendung}{Anwendung}
+                    , italian     = [l']{Applicazione}[le]{Applicazione}
+                    , portuguese  = [a]{Aplicação}[as]{Aplicação}
+                    , brazilian   = [a]{Aplicação}[as]{Aplicação}
+                    , spanish     = [la]{Aplicación}[las]{Aplicación}
+                    , schinese    = {应用}{应用}
+                    , tchinese    = {應用}{應用}
+                    , japanese    = {応用}{応用}
+                    , russian     = {Применение}{Применение}
+                  }
+    , Crefname =  {
+                    , english     = {Application}{Application}
+                    , french      = [L']{Application}[Les]{Application}
+                    , ngerman     = {Anwendung}{Anwendung}
+                    , italian     = [L']{Applicazione}[Le]{Applicazione}
+                    , portuguese  = [A]{Aplicação}[As]{Aplicação}
+                    , brazilian   = [A]{Aplicação}[As]{Aplicação}
+                    , spanish     = [La]{Aplicación}[Las]{Aplicación}
+                    , schinese    = {应用}{应用}
+                    , tchinese    = {應用}{應用}
+                    , japanese    = {応用}{応用}
+                    , russian     = {Применение}{Применение}
+                  }
+  }
+
+\NameTheorem { assertion }
+  {
+    , heading =   {
+                    , english     = Assertion
+                    , french      = Assertion
+                    , ngerman     = Behauptung
+                    , italian     = Asserzione
+                    , portuguese  = Asserção
+                    , brazilian   = Asserção
+                    , spanish     = Aserción
+                    , schinese    = 断言
+                    , tchinese    = 斷言
+                    , japanese    = 断言
+                    , russian     = Утверждение
+                  }
+    , crefname =  {
+                    , english     = {Assertion}{Assertion}
+                    , french      = [l']{Assertion}[les]{Assertion}
+                    , ngerman     = {Behauptung}{Behauptung}
+                    , italian     = [l']{Asserzione}[le]{Asserzione}
+                    , portuguese  = [a]{Asserção}[as]{Asserção}
+                    , brazilian   = [a]{Asserção}[as]{Asserção}
+                    , spanish     = [la]{Aserción}[las]{Aserción}
+                    , schinese    = {断言}{断言}
+                    , tchinese    = {斷言}{斷言}
+                    , japanese    = {断言}{断言}
+                    , russian     = {Утверждение}{Утверждение}
+                  }
+    , Crefname =  {
+                    , english     = {Assertion}{Assertion}
+                    , french      = [L']{Assertion}[Les]{Assertion}
+                    , ngerman     = {Behauptung}{Behauptung}
+                    , italian     = [L']{Asserzione}[Le]{Asserzione}
+                    , portuguese  = [A]{Asserção}[As]{Asserção}
+                    , brazilian   = [A]{Asserção}[As]{Asserção}
+                    , spanish     = [La]{Aserción}[Las]{Aserción}
+                    , schinese    = {断言}{断言}
+                    , tchinese    = {斷言}{斷言}
+                    , japanese    = {断言}{断言}
+                    , russian     = {Утверждение}{Утверждение}
+                  }
+  }
+
+\NameTheorem { assumption }
+  {
+    , heading =   {
+                    , english     = Assumption
+                    , french      = Supposition
+                    , ngerman     = Annahme
+                    , italian     = Supposizione
+                    , portuguese  = Suposição
+                    , brazilian   = Suposição
+                    , spanish     = Suposición
+                    , schinese    = 假定
+                    , tchinese    = 假定
+                    , japanese    = 仮定
+                    , russian     = Предположение
+                  }
+    , crefname =  {
+                    , english     = {Assumption}{Assumption}
+                    , french      = [la]{Supposition}[les]{Supposition}
+                    , ngerman     = {Annahme}{Annahme}
+                    , italian     = [la]{Supposizione}[le]{Supposizione}
+                    , portuguese  = [a]{Suposição}[as]{Suposição}
+                    , brazilian   = [a]{Suposição}[as]{Suposição}
+                    , spanish     = [la]{Suposición}[las]{Suposición}
+                    , schinese    = {假定}{假定}
+                    , tchinese    = {假定}{假定}
+                    , japanese    = {仮定}{仮定}
+                    , russian     = {Предположение}{Предположение}
+                  }
+    , Crefname =  {
+                    , english     = {Assumption}{Assumption}
+                    , french      = [La]{Supposition}[Les]{Supposition}
+                    , ngerman     = {Annahme}{Annahme}
+                    , italian     = [la]{Supposizione}[le]{Supposizione}
+                    , portuguese  = [A]{Suposição}[As]{Suposição}
+                    , brazilian   = [A]{Suposição}[As]{Suposição}
+                    , spanish     = [La]{Suposición}[Las]{Suposición}
+                    , schinese    = {假定}{假定}
+                    , tchinese    = {假定}{假定}
+                    , japanese    = {仮定}{仮定}
+                    , russian     = {Предположение}{Предположение}
+                  }
+  }
+
+\NameTheorem { axiom }
+  {
+    , heading =   {
+                    , english     = Axiom
+                    , french      = Axiome
+                    , ngerman     = Axiom
+                    , italian     = Assioma
+                    , portuguese  = Axioma
+                    , brazilian   = Axioma
+                    , spanish     = Axioma
+                    , schinese    = 公理
+                    , tchinese    = 公理
+                    , japanese    = 公理
+                    , russian     = Аксиома
+                  }
+    , crefname =  {
+                    , english     = {Axiom}{Axiom}
+                    , french      = [l']{Axiome}[les]{Axiome}
+                    , ngerman     = {Axiom}{Axiom}
+                    , italian     = [l']{Assioma}[gli]{Assioma}
+                    , portuguese  = [o]{Axioma}[os]{Axioma}
+                    , brazilian   = [o]{Axioma}[os]{Axioma}
+                    , spanish     = [el]{Axioma}[los]{Axioma}
+                    , schinese    = {公理}{公理}
+                    , tchinese    = {公理}{公理}
+                    , japanese    = {公理}{公理}
+                    , russian     = {Аксиома}{Аксиома}
+                  }
+    , Crefname =  {
+                    , english     = {Axiom}{Axiom}
+                    , french      = [L']{Axiome}[Les]{Axiome}
+                    , ngerman     = {Axiom}{Axiom}
+                    , italian     = [L']{Assioma}[Gli]{Assioma}
+                    , portuguese  = [O]{Axioma}[Os]{Axioma}
+                    , brazilian   = [O]{Axioma}[Os]{Axioma}
+                    , spanish     = [El]{Axioma}[Los]{Axioma}
+                    , schinese    = {公理}{公理}
+                    , tchinese    = {公理}{公理}
+                    , japanese    = {公理}{公理}
+                    , russian     = {Аксиома}{Аксиома}
+                  }
+  }
+
+\NameTheorem { claim }
+  {
+    , heading =   {
+                    , english     = Claim
+                    , french      = Affirmation
+                    , ngerman     = Affirmation
+                    , italian     = Affermazione
+                    , portuguese  = Afirmação
+                    , brazilian   = Afirmação
+                    , spanish     = Afirmación
+                    , schinese    = 断言
+                    , tchinese    = 斷言
+                    , japanese    = 断言
+                    , russian     = Утверждение
+                  }
+    , crefname =  {
+                    , english     = {Claim}{Claim}
+                    , french      = [l']{Affirmation}[les]{Affirmation}
+                    , ngerman     = {Affirmation}{Affirmation}
+                    , italian     = [l']{Affermazione}[le]{Affermazione}
+                    , portuguese  = [a]{Afirmação}[as]{Afirmação}
+                    , brazilian   = [a]{Afirmação}[as]{Afirmação}
+                    , spanish     = [la]{Afirmación}[las]{Afirmación}
+                    , schinese    = {断言}{断言}
+                    , tchinese    = {斷言}{斷言}
+                    , japanese    = {断言}{断言}
+                    , russian     = {Утверждение}{Утверждение}
+                  }
+    , Crefname =  {
+                    , english     = {Claim}{Claim}
+                    , french      = [L']{Affirmation}[Les]{Affirmation}
+                    , ngerman     = {Affirmation}{Affirmation}
+                    , italian     = [L']{Affermazione}[Le]{Affermazione}
+                    , portuguese  = [A]{Afirmação}[As]{Afirmação}
+                    , brazilian   = [A]{Afirmação}[As]{Afirmação}
+                    , spanish     = [La]{Afirmación}[Las]{Afirmación}
+                    , schinese    = {断言}{断言}
+                    , tchinese    = {斷言}{斷言}
+                    , japanese    = {断言}{断言}
+                    , russian     = {Утверждение}{Утверждение}
+                  }
+  }
+
+\NameTheorem { conclusion }
+  {
+    , heading =   {
+                    , english     = Conclusion
+                    , french      = Conclusion
+                    , ngerman     = Schlussfolgerung
+                    , italian     = Conclusione
+                    , portuguese  = Conclusão
+                    , brazilian   = Conclusão
+                    , spanish     = Conclusión
+                    , schinese    = 结论
+                    , tchinese    = 結論
+                    , japanese    = 結論
+                    , russian     = Вывод
+                  }
+    , crefname =  {
+                    , english     = {Conclusion}{Conclusion}
+                    , french      = [la]{Conclusion}[Les]{Conclusion}
+                    , ngerman     = {Schlussfolgerung}{Schlussfolgerung}
+                    , italian     = [la]{Conclusione}[le]{Conclusione}
+                    , portuguese  = [a]{Conclusão}[as]{Conclusão}
+                    , brazilian   = [a]{Conclusão}[as]{Conclusão}
+                    , spanish     = [la]{Conclusión}[las]{Conclusión}
+                    , schinese    = {结论}{结论}
+                    , tchinese    = {結論}{結論}
+                    , japanese    = {結論}{結論}
+                    , russian     = {Вывод}{Вывод}
+                  }
+    , Crefname =  {
+                    , english     = {Conclusion}{Conclusion}
+                    , french      = [La]{Conclusion}[Les]{Conclusion}
+                    , ngerman     = {Schlussfolgerung}{Schlussfolgerung}
+                    , italian     = [La]{Conclusione}[Le]{Conclusione}
+                    , portuguese  = [A]{Conclusão}[As]{Conclusão}
+                    , brazilian   = [A]{Conclusão}[As]{Conclusão}
+                    , spanish     = [La]{Conclusión}[Las]{Conclusión}
+                    , schinese    = {结论}{结论}
+                    , tchinese    = {結論}{結論}
+                    , japanese    = {結論}{結論}
+                    , russian     = {Вывод}{Вывод}
+                  }
+  }
+
+\NameTheorem { conjecture }
+  {
+    , heading =   {
+                    , english     = Conjecture
+                    , french      = Conjecture
+                    , ngerman     = Vermutung
+                    , italian     = Congettura
+                    , portuguese  = Conjetura
+                    , brazilian   = Conjectura
+                    , spanish     = Conjetura
+                    , schinese    = 猜想
+                    , tchinese    = 猜想
+                    , japanese    = 予想
+                    , russian     = Гипотеза
+                  }
+    , crefname =  {
+                    , english     = {Conjecture}{Conjecture}
+                    , french      = [la]{Conjecture}[les]{Conjecture}
+                    , ngerman     = {Vermutung}{Vermutung}
+                    , italian     = [la]{Congettura}[le]{Congettura}
+                    , portuguese  = [a]{Conjetura}[as]{Conjetura}
+                    , brazilian   = [a]{Conjectura}[as]{Conjectura}
+                    , spanish     = [la]{Conjetura}[las]{Conjetura}
+                    , schinese    = {猜想}{猜想}
+                    , tchinese    = {猜想}{猜想}
+                    , japanese    = {予想}{予想}
+                    , russian     = {Гипотеза}{Гипотеза}
+                  }
+    , Crefname =  {
+                    , english     = {Conjecture}{Conjecture}
+                    , french      = [La]{Conjecture}[Les]{Conjecture}
+                    , ngerman     = {Vermutung}{Vermutung}
+                    , italian     = [La]{Congettura}[Le]{Congettura}
+                    , portuguese  = [A]{Conjetura}[As]{Conjetura}
+                    , brazilian   = [A]{Conjectura}[As]{Conjectura}
+                    , spanish     = [La]{Conjetura}[Las]{Conjetura}
+                    , schinese    = {猜想}{猜想}
+                    , tchinese    = {猜想}{猜想}
+                    , japanese    = {予想}{予想}
+                    , russian     = {Гипотеза}{Гипотеза}
+                  }
+  }
+
+\NameTheorem { construction }
+  {
+    , heading =   {
+                    , english     = Construction
+                    , french      = Construction
+                    , ngerman     = Konstruktion
+                    , italian     = Costruzione
+                    , portuguese  = Construção
+                    , brazilian   = Construção
+                    , spanish     = Construcción
+                    , schinese    = 构造
+                    , tchinese    = 構造
+                    , japanese    = 構造
+                    , russian     = Конструкция
+                  }
+    , crefname =  {
+                    , english     = {Construction}{Construction}
+                    , french      = [la]{Construction}[les]{Construction}
+                    , ngerman     = {Konstruktion}{Konstruktion}
+                    , italian     = [la]{Costruzione}[le]{Costruzione}
+                    , portuguese  = [a]{Construção}[as]{Construção}
+                    , brazilian   = [a]{Construção}[as]{Construção}
+                    , spanish     = [la]{Construcción}[las]{Construcción}
+                    , schinese    = {构造}{构造}
+                    , tchinese    = {構造}{構造}
+                    , japanese    = {構造}{構造}
+                    , russian     = {Конструкция}{Конструкция}
+                  }
+    , Crefname =  {
+                    , english     = {Construction}{Construction}
+                    , french      = [La]{Construction}[Les]{Construction}
+                    , ngerman     = {Konstruktion}{Konstruktion}
+                    , italian     = [La]{Costruzione}[Le]{Costruzione}
+                    , portuguese  = [A]{Construção}[As]{Construção}
+                    , brazilian   = [A]{Construção}[As]{Construção}
+                    , spanish     = [La]{Construcción}[Las]{Construcción}
+                    , schinese    = {构造}{构造}
+                    , tchinese    = {構造}{構造}
+                    , japanese    = {構造}{構造}
+                    , russian     = {Конструкция}{Конструкция}
+                  }
+  }
+
+\NameTheorem { convention }
+  {
+    , heading =   {
+                    , english     = Convention
+                    , french      = Convention
+                    , ngerman     = Konvention
+                    , italian     = Convenzione
+                    , portuguese  = Convenção
+                    , brazilian   = Convenção
+                    , spanish     = Convención
+                    , schinese    = 约定
+                    , tchinese    = 約定
+                    , japanese    = 慣例
+                    , russian     = Конвенция
+                  }
+    , crefname =  {
+                    , english     = {Convention}{Convention}
+                    , french      = [la]{Convention}[les]{Convention}
+                    , ngerman     = {Konvention}{Konvention}
+                    , italian     = [la]{Convenzione}[le]{Convenzione}
+                    , portuguese  = [a]{Convenção}[as]{Convenção}
+                    , brazilian   = [a]{Convenção}[as]{Convenção}
+                    , spanish     = [la]{Convención}[las]{Convención}
+                    , schinese    = {约定}{约定}
+                    , tchinese    = {約定}{約定}
+                    , japanese    = {慣例}{慣例}
+                    , russian     = {Конвенция}{Конвенция}
+                  }
+    , Crefname =  {
+                    , english     = {Convention}{Convention}
+                    , french      = [La]{Convention}[Les]{Convention}
+                    , ngerman     = {Konvention}{Konvention}
+                    , italian     = [La]{Convenzione}[Le]{Convenzione}
+                    , portuguese  = [A]{Convenção}[As]{Convenção}
+                    , brazilian   = [A]{Convenção}[As]{Convenção}
+                    , spanish     = [La]{Convención}[Las]{Convención}
+                    , schinese    = {约定}{约定}
+                    , tchinese    = {約定}{約定}
+                    , japanese    = {慣例}{慣例}
+                    , russian     = {Конвенция}{Конвенция}
+                  }
+  }
+
+\NameTheorem { corollary }
+  {
+    , heading =   {
+                    , english     = Corollary
+                    , french      = Corollaire
+                    , ngerman     = Korollar
+                    , italian     = Corollario
+                    , portuguese  = Corolário
+                    , brazilian   = Corolário
+                    , spanish     = Corolario
+                    , schinese    = 推论
+                    , tchinese    = 推論
+                    , japanese    = 系
+                    , russian     = Следствие
+                  }
+    , crefname =  {
+                    , english     = {Corollary}{Corollary}
+                    , french      = [le]{Corollaire}[les]{Corollaire}
+                    , ngerman     = {Korollar}{Korollar}
+                    , italian     = [il]{Corollario}[i]{Corollario}
+                    , portuguese  = [o]{Corolário}[os]{Corolário}
+                    , brazilian   = [o]{Corolário}[os]{Corolário}
+                    , spanish     = [el]{Corolario}[los]{Corolario}
+                    , schinese    = {推论}{推论}
+                    , tchinese    = {推論}{推論}
+                    , japanese    = {系}{系}
+                    , russian     = {Следствие}{Следствие}
+                  }
+    , Crefname =  {
+                    , english     = {Corollary}{Corollary}
+                    , french      = [Le]{Corollaire}[Les]{Corollaire}
+                    , ngerman     = {Korollar}{Korollar}
+                    , italian     = [Il]{Corollario}[I]{Corollario}
+                    , portuguese  = [O]{Corolário}[Os]{Corolário}
+                    , brazilian   = [O]{Corolário}[Os]{Corolário}
+                    , spanish     = [El]{Corolario}[Los]{Corolario}
+                    , schinese    = {推论}{推论}
+                    , tchinese    = {推論}{推論}
+                    , japanese    = {系}{系}
+                    , russian     = {Следствие}{Следствие}
+                  }
+  }
+
+\NameTheorem { definition }
+  {
+    , heading =   {
+                    , english     = Definition
+                    , french      = Définition
+                    , ngerman     = Definition
+                    , italian     = Definizione
+                    , portuguese  = Definição
+                    , brazilian   = Definição
+                    , spanish     = Definición
+                    , schinese    = 定义
+                    , tchinese    = 定義
+                    , japanese    = 定義
+                    , russian     = Определение
+                  }
+    , crefname =  {
+                    , english     = {Definition}{Definition}
+                    , french      = [la]{Définition}[les]{Définition}
+                    , ngerman     = {Definition}{Definition}
+                    , italian     = [la]{Definizione}[le]{Definizione}
+                    , portuguese  = [a]{Definição}[as]{Definição}
+                    , brazilian   = [a]{Definição}[as]{Definição}
+                    , spanish     = [la]{Definición}[las]{Definición}
+                    , schinese    = {定义}{定义}
+                    , tchinese    = {定義}{定義}
+                    , japanese    = {定義}{定義}
+                    , russian     = {Определение}{Определение}
+                  }
+    , Crefname =  {
+                    , english     = {Definition}{Definition}
+                    , french      = [La]{Définition}[Les]{Définition}
+                    , ngerman     = {Definition}{Definition}
+                    , italian     = [La]{Definizione}[Le]{Definizione}
+                    , portuguese  = [A]{Definição}[As]{Definição}
+                    , brazilian   = [A]{Definição}[As]{Definição}
+                    , spanish     = [La]{Definición}[Las]{Definición}
+                    , schinese    = {定义}{定义}
+                    , tchinese    = {定義}{定義}
+                    , japanese    = {定義}{定義}
+                    , russian     = {Определение}{Определение}
+                  }
+  }
+
+\NameTheorem { example }
+  {
+    , heading =   {
+                    , english     = Example
+                    , french      = Exemple
+                    , ngerman     = Beispiel
+                    , italian     = Esempio
+                    , portuguese  = Exemplo
+                    , brazilian   = Exemplo
+                    , spanish     = Ejemplo
+                    , schinese    = 例
+                    , tchinese    = 例
+                    , japanese    = 例
+                    , russian     = Пример
+                  }
+    , crefname =  {
+                    , english     = {Example}{Example}
+                    , french      = [l']{Example}[les]{Example}
+                    , ngerman     = {Beispiel}{Beispiel}
+                    , italian     = [l']{Esempio}[gli]{Esempio}
+                    , portuguese  = [o]{Exemplo}[os]{Exemplo}
+                    , brazilian   = [o]{Exemplo}[os]{Exemplo}
+                    , spanish     = [el]{Ejemplo}[los]{Ejemplo}
+                    , schinese    = {例}{例}
+                    , tchinese    = {例}{例}
+                    , japanese    = {例}{例}
+                    , russian     = {Пример}{Пример}
+                  }
+    , Crefname =  {
+                    , english     = {Example}{Example}
+                    , french      = [L']{Example}[Les]{Example}
+                    , ngerman     = {Beispiel}{Beispiel}
+                    , italian     = [L']{Esempio}[Gli]{Esempio}
+                    , portuguese  = [O]{Exemplo}[Os]{Exemplo}
+                    , brazilian   = [O]{Exemplo}[Os]{Exemplo}
+                    , spanish     = [El]{Ejemplo}[Los]{Ejemplo}
+                    , schinese    = {例}{例}
+                    , tchinese    = {例}{例}
+                    , japanese    = {例}{例}
+                    , russian     = {Пример}{Пример}
+                  }
+  }
+
+\NameTheorem { exercise }
+  {
+    , heading =   {
+                    , english     = Exercise
+                    , french      = Exercice
+                    , ngerman     = Übung
+                    , italian     = Esercizio
+                    , portuguese  = Exercício
+                    , brazilian   = Exercício
+                    , spanish     = Ejercicio
+                    , schinese    = 练习
+                    , tchinese    = 練習
+                    , japanese    = 練習
+                    , russian     = Упражнение
+                  }
+    , crefname =  {
+                    , english     = {Exercise}{Exercise}
+                    , french      = [l']{Exercice}[les]{Exercice}
+                    , ngerman     = {Übung}{Übung}
+                    , italian     = [l']{Esercizio}[gli]{Esercizio}
+                    , portuguese  = [o]{Exercício}[os]{Exercício}
+                    , brazilian   = [o]{Exercício}[os]{Exercício}
+                    , spanish     = [el]{Ejercicio}[los]{Ejercicio}
+                    , schinese    = {练习}{练习}
+                    , tchinese    = {練習}{練習}
+                    , japanese    = {練習}{練習}
+                    , russian     = {Упражнение}{Упражнение}
+                  }
+    , Crefname =  {
+                    , english     = {Exercise}{Exercise}
+                    , french      = [L']{Exercice}[Les]{Exercice}
+                    , ngerman     = {Übung}{Übung}
+                    , italian     = [L']{Esercizio}[Gli]{Esercizio}
+                    , portuguese  = [O]{Exercício}[Os]{Exercício}
+                    , brazilian   = [O]{Exercício}[Os]{Exercício}
+                    , spanish     = [El]{Ejercicio}[Los]{Ejercicio}
+                    , schinese    = {练习}{练习}
+                    , tchinese    = {練習}{練習}
+                    , japanese    = {練習}{練習}
+                    , russian     = {Упражнение}{Упражнение}
+                  }
+  }
+
+\NameTheorem { fact }
+  {
+    , heading =   {
+                    , english     = Fact
+                    , french      = Fait
+                    , ngerman     = Fakt
+                    , italian     = Fatto
+                    , portuguese  = Facto
+                    , brazilian   = Fato
+                    , spanish     = Hecho
+                    , schinese    = 事实
+                    , tchinese    = 事實
+                    , japanese    = 事実
+                    , russian     = Факт
+                  }
+    , crefname =  {
+                    , english     = {Fact}{Fact}
+                    , french      = [le]{Fait}[les]{Fait}
+                    , ngerman     = {Fakt}{Fakt}
+                    , italian     = [il]{Fatto}[i]{Fatto}
+                    , portuguese  = [o]{Facto}[os]{Facto}
+                    , brazilian   = [o]{Fato}[os]{Fato}
+                    , spanish     = [el]{Hecho}[los]{Hecho}
+                    , schinese    = {事实}{事实}
+                    , tchinese    = {事實}{事實}
+                    , japanese    = {事実}{事実}
+                    , russian     = {Факт}{Факт}
+                  }
+    , Crefname =  {
+                    , english     = {Fact}{Fact}
+                    , french      = [Le]{Fait}[Les]{Fait}
+                    , ngerman     = {Fakt}{Fakt}
+                    , italian     = [Il]{Fatto}[I]{Fatto}
+                    , portuguese  = [O]{Facto}[Os]{Facto}
+                    , brazilian   = [O]{Fato}[Os]{Fato}
+                    , spanish     = [El]{Hecho}[Los]{Hecho}
+                    , schinese    = {事实}{事实}
+                    , tchinese    = {事實}{事實}
+                    , japanese    = {事実}{事実}
+                    , russian     = {Факт}{Факт}
+                  }
+  }
+
+\NameTheorem { hypothesis }
+  {
+    , heading =   {
+                    , english     = Hypothesis
+                    , french      = Hypothèse
+                    , ngerman     = Hypothese
+                    , italian     = Ipotesi
+                    , portuguese  = Hipótese
+                    , brazilian   = Hipótese
+                    , spanish     = Hipótesis
+                    , schinese    = 假设
+                    , tchinese    = 假設
+                    , japanese    = 仮設
+                    , russian     = Гипотеза
+                  }
+    , crefname =  {
+                    , english     = {Hypothesis}{Hypothesis}
+                    , french      = [l']{Hypothèse}[les]{Hypothèse}
+                    , ngerman     = {Hypothese}{Hypothese}
+                    , italian     = [l']{Ipotesi}[le]{Ipotesi}
+                    , portuguese  = [a]{Hipótese}[as]{Hipótese}
+                    , brazilian   = [a]{Hipótese}[as]{Hipótese}
+                    , spanish     = [la]{Hipótesis}[las]{Hipótesis}
+                    , schinese    = {假设}{假设}
+                    , tchinese    = {假設}{假設}
+                    , japanese    = {仮設}{仮設}
+                    , russian     = {Гипотеза}{Гипотеза}
+                  }
+    , Crefname =  {
+                    , english     = {Hypothesis}{Hypothesis}
+                    , french      = [L']{Hypothèse}[Les]{Hypothèse}
+                    , ngerman     = {Hypothese}{Hypothese}
+                    , italian     = [L']{Ipotesi}[Le]{Ipotesi}
+                    , portuguese  = [A]{Hipótese}[As]{Hipótese}
+                    , brazilian   = [A]{Hipótese}[As]{Hipótese}
+                    , spanish     = [La]{Hipótesis}[Las]{Hipótesis}
+                    , schinese    = {假设}{假设}
+                    , tchinese    = {假設}{假設}
+                    , japanese    = {仮設}{仮設}
+                    , russian     = {Гипотеза}{Гипотеза}
+                  }
+  }
+
+\NameTheorem { lemma }
+  {
+    , heading   = {
+                    , english     = Lemma
+                    , french      = Lemme
+                    , ngerman     = Lemma
+                    , italian     = Lemma
+                    , portuguese  = Lema
+                    , brazilian   = Lema
+                    , spanish     = Lema
+                    , schinese    = 引理
+                    , tchinese    = 引理
+                    , japanese    = 補題
+                    , russian     = Лемма
+                  }
+    , crefname  = {
+                    , english     = {Lemma}{Lemma}
+                    , french      = [le]{Lemme}[les]{Lemme}
+                    , ngerman     = {Lemma}{Lemma}
+                    , italian     = [il]{Lemma}[i]{Lemma}
+                    , portuguese  = [o]{Lema}[os]{Lema}
+                    , brazilian   = [o]{Lema}[os]{Lema}
+                    , spanish     = [el]{Lema}[las]{Lema}
+                    , schinese    = {引理}{引理}
+                    , tchinese    = {引理}{引理}
+                    , japanese    = {補題}{補題}
+                    , russian     = {Лемма}{Лемма}
+                  }
+    , Crefname  = {
+                    , english     = {Lemma}{Lemma}
+                    , french      = [Le]{Lemme}[Les]{Lemme}
+                    , ngerman     = {Lemma}{Lemma}
+                    , italian     = [Il]{Lemma}[I]{Lemma}
+                    , portuguese  = [O]{Lema}[Os]{Lema}
+                    , brazilian   = [O]{Lema}[Os]{Lema}
+                    , spanish     = [el]{Lema}[las]{Lema}
+                    , schinese    = {引理}{引理}
+                    , tchinese    = {引理}{引理}
+                    , japanese    = {補題}{補題}
+                    , russian     = {Лемма}{Лемма}
+                  }
+  }
+
+\NameTheorem { notation }
+  {
+    , heading =   {
+                    , english     = Notation
+                    , french      = Notation
+                    , ngerman     = Notation
+                    , italian     = Notazione
+                    , portuguese  = Notação
+                    , brazilian   = Notação
+                    , spanish     = Notación
+                    , schinese    = 记号
+                    , tchinese    = 記號
+                    , japanese    = 記法
+                    , russian     = Нотация
+                  }
+    , crefname =  {
+                    , english     = {Notation}{Notation}
+                    , french      = [la]{Notation}[les]{Notation}
+                    , ngerman     = {Notation}{Notation}
+                    , italian     = [la]{Notazione}[le]{Notazione}
+                    , portuguese  = [a]{Notação}[as]{Notação}
+                    , brazilian   = [a]{Notação}[as]{Notação}
+                    , spanish     = [la]{Notación}[las]{Notación}
+                    , schinese    = {记号}{记号}
+                    , tchinese    = {記號}{記號}
+                    , japanese    = {記法}{記法}
+                    , russian     = {Нотация}{Нотация}
+                  }
+    , Crefname =  {
+                    , english     = {Notation}{Notation}
+                    , french      = [La]{Notation}[Les]{Notation}
+                    , ngerman     = {Notation}{Notation}
+                    , italian     = [La]{Notazione}[Le]{Notazione}
+                    , portuguese  = [A]{Notação}[As]{Notação}
+                    , brazilian   = [A]{Notação}[As]{Notação}
+                    , spanish     = [La]{Notación}[Las]{Notación}
+                    , schinese    = {记号}{记号}
+                    , tchinese    = {記號}{記號}
+                    , japanese    = {記法}{記法}
+                    , russian     = {Нотация}{Нотация}
+                  }
+  }
+
+\NameTheorem { observation }
+  {
+    , heading =   {
+                    , english     = Observation
+                    , french      = Observation
+                    , ngerman     = Beobachtung
+                    , italian     = Osservazione
+                    , portuguese  = Observação
+                    , brazilian   = Observação
+                    , spanish     = Observación
+                    , schinese    = 观察
+                    , tchinese    = 觀察
+                    , japanese    = 観察
+                    , russian     = Наблюдение
+                  }
+    , crefname =  {
+                    , english     = {Observation}{Observation}
+                    , french      = [la]{Observation}[les]{Observation}
+                    , ngerman     = {Beobachtung}{Beobachtung}
+                    , italian     = [l']{Osservazione}[le]{Osservazione}
+                    , portuguese  = [a]{Observação}[as]{Observação}
+                    , brazilian   = [a]{Observação}[as]{Observação}
+                    , spanish     = [la]{Observación}[las]{Observación}
+                    , schinese    = {观察}{观察}
+                    , tchinese    = {觀察}{觀察}
+                    , japanese    = {観察}{観察}
+                    , russian     = {Наблюдение}{Наблюдение}
+                  }
+    , Crefname =  {
+                    , english     = {Observation}{Observation}
+                    , french      = [La]{Observation}[Les]{Observation}
+                    , ngerman     = {Beobachtung}{Beobachtung}
+                    , italian     = [L']{Osservazione}[Le]{Osservazione}
+                    , portuguese  = [A]{Observação}[As]{Observação}
+                    , brazilian   = [A]{Observação}[As]{Observação}
+                    , spanish     = [La]{Observación}[Las]{Observación}
+                    , schinese    = {观察}{观察}
+                    , tchinese    = {觀察}{觀察}
+                    , japanese    = {観察}{観察}
+                    , russian     = {Наблюдение}{Наблюдение}
+                  }
+  }
+
+\NameTheorem { postulate }
+  {
+    , heading =   {
+                    , english     = Postulate
+                    , french      = Postulat
+                    , ngerman     = Postulat
+                    , italian     = Postulato
+                    , portuguese  = Postulado
+                    , brazilian   = Postulado
+                    , spanish     = Postulado
+                    , schinese    = 公设
+                    , tchinese    = 公設
+                    , japanese    = 公準
+                    , russian     = Постулат
+                  }
+    , crefname =  {
+                    , english     = {Postulate}{Postulate}
+                    , french      = [le]{Postulat}[les]{Postulat}
+                    , ngerman     = {Postulat}{Postulat}
+                    , italian     = [il]{Postulato}[i]{Postulato}
+                    , portuguese  = [o]{Postulado}[os]{Postulado}
+                    , brazilian   = [o]{Postulado}[os]{Postulado}
+                    , spanish     = [el]{Postulado}[los]{Postulado}
+                    , schinese    = {公设}{公设}
+                    , tchinese    = {公設}{公設}
+                    , japanese    = {公準}{公準}
+                    , russian     = {Постулат}{Постулат}
+                  }
+    , Crefname =  {
+                    , english     = {Postulate}{Postulate}
+                    , french      = [Le]{Postulat}[Les]{Postulat}
+                    , ngerman     = {Postulat}{Postulat}
+                    , italian     = [Il]{Postulato}[I]{Postulato}
+                    , portuguese  = [O]{Postulado}[Os]{Postulado}
+                    , brazilian   = [O]{Postulado}[Os]{Postulado}
+                    , spanish     = [El]{Postulado}[Los]{Postulado}
+                    , schinese    = {公设}{公设}
+                    , tchinese    = {公設}{公設}
+                    , japanese    = {公準}{公準}
+                    , russian     = {Постулат}{Постулат}
+                  }
+  }
+
+\NameTheorem { problem }
+  {
+    , heading =   {
+                    , english     = Problem
+                    , french      = Problème
+                    , ngerman     = Problem
+                    , italian     = Problema
+                    , portuguese  = Problema
+                    , brazilian   = Problema
+                    , spanish     = Problema
+                    , schinese    = 问题
+                    , tchinese    = 問題
+                    , japanese    = 問題
+                    , russian     = Проблема
+                  }
+    , crefname =  {
+                    , english     = {Problem}{Problem}
+                    , french      = [le]{Problème}[les]{Problème}
+                    , ngerman     = {Problem}{Problem}
+                    , italian     = [il]{Problema}[i]{Problema}
+                    , portuguese  = [o]{Problema}[os]{Problema}
+                    , brazilian   = [o]{Problema}[os]{Problema}
+                    , spanish     = [el]{Problema}[los]{Problema}
+                    , schinese    = {问题}{问题}
+                    , tchinese    = {問題}{問題}
+                    , japanese    = {問題}{問題}
+                    , russian     = {Проблема}{Проблема}
+                  }
+    , Crefname =  {
+                    , english     = {Problem}{Problem}
+                    , french      = [Le]{Problème}[Les]{Problème}
+                    , ngerman     = {Problem}{Problem}
+                    , italian     = [Il]{Problema}[I]{Problema}
+                    , portuguese  = [O]{Problema}[Os]{Problema}
+                    , brazilian   = [O]{Problema}[Os]{Problema}
+                    , spanish     = [El]{Problema}[Los]{Problema}
+                    , schinese    = {问题}{问题}
+                    , tchinese    = {問題}{問題}
+                    , japanese    = {問題}{問題}
+                    , russian     = {Проблема}{Проблема}
+                  }
+  }
+
+\NameTheorem { property }
+  {
+    , heading =   {
+                    , english     = Property
+                    , french      = Propriété
+                    , ngerman     = Eigenschaft
+                    , italian     = Proprietà
+                    , portuguese  = Propriedade
+                    , brazilian   = Propriedade
+                    , spanish     = Propiedad
+                    , schinese    = 性质
+                    , tchinese    = 性質
+                    , japanese    = 性質
+                    , russian     = Имущество
+                  }
+    , crefname =  {
+                    , english     = {Property}{Property}
+                    , french      = [la]{Propriété}[les]{Propriété}
+                    , ngerman     = {Eigenschaft}{Eigenschaft}
+                    , italian     = [la]{Proprietà}[le]{Proprietà}
+                    , portuguese  = [a]{Propriedade}[as]{Propriedade}
+                    , brazilian   = [a]{Propriedade}[as]{Propriedade}
+                    , spanish     = [la]{Propiedad}[las]{Propiedad}
+                    , schinese    = {性质}{性质}
+                    , tchinese    = {性質}{性質}
+                    , japanese    = {性質}{性質}
+                    , russian     = {Имущество}{Имущество}
+                  }
+    , Crefname =  {
+                    , english     = {Property}{Property}
+                    , french      = [La]{Propriété}[Les]{Propriété}
+                    , ngerman     = {Eigenschaft}{Eigenschaft}
+                    , italian     = [La]{Proprietà}[Le]{Proprietà}
+                    , portuguese  = [A]{Propriedade}[As]{Propriedade}
+                    , brazilian   = [A]{Propriedade}[As]{Propriedade}
+                    , spanish     = [La]{Propiedad}[Las]{Propiedad}
+                    , schinese    = {性质}{性质}
+                    , tchinese    = {性質}{性質}
+                    , japanese    = {性質}{性質}
+                    , russian     = {Имущество}{Имущество}
+                  }
+  }
+
+\NameTheorem { proposition }
+  {
+    , heading =   {
+                    , english     = Proposition
+                    , french      = Proposition
+                    , ngerman     = Proposition
+                    , italian     = Proposizione
+                    , portuguese  = Proposição
+                    , brazilian   = Proposição
+                    , spanish     = Proposición
+                    , schinese    = 命题
+                    , tchinese    = 命題
+                    , japanese    = 命題
+                    , russian     = Предложение
+                  }
+    , crefname =  {
+                    , english     = {Proposition}{Proposition}
+                    , french      = [la]{Proposition}[les]{Proposition}
+                    , ngerman     = {Proposition}{Proposition}
+                    , italian     = [la]{Proposizione}[le]{Proposizione}
+                    , portuguese  = [a]{Proposição}[as]{Proposição}
+                    , brazilian   = [a]{Proposição}[as]{Proposição}
+                    , spanish     = [la]{Proposición}[las]{Proposición}
+                    , schinese    = {命题}{命题}
+                    , tchinese    = {命題}{命題}
+                    , japanese    = {命題}{命題}
+                    , russian     = {Предложение}{Предложение}
+                  }
+    , Crefname =  {
+                    , english     = {Proposition}{Proposition}
+                    , french      = [La]{Proposition}[Les]{Proposition}
+                    , ngerman     = {Proposition}{Proposition}
+                    , italian     = [La]{Proposizione}[Le]{Proposizione}
+                    , portuguese  = [A]{Proposição}[As]{Proposição}
+                    , brazilian   = [A]{Proposição}[As]{Proposição}
+                    , spanish     = [La]{Proposición}[Las]{Proposición}
+                    , schinese    = {命题}{命题}
+                    , tchinese    = {命題}{命題}
+                    , japanese    = {命題}{命題}
+                    , russian     = {Предложение}{Предложение}
+                  }
+  }
+
+\NameTheorem { question }
+  {
+    , heading =   {
+                    , english     = Question
+                    , french      = Question
+                    , ngerman     = Frage
+                    , italian     = Domanda
+                    , portuguese  = Pergunta
+                    , brazilian   = Pergunta
+                    , spanish     = Pregunta
+                    , schinese    = 问题
+                    , tchinese    = 問題
+                    , japanese    = 問題
+                    , russian     = Вопрос
+                  }
+    , crefname =  {
+                    , english     = {Question}{Question}
+                    , french      = [la]{Question}[les]{Question}
+                    , ngerman     = {Frage}{Frage}
+                    , italian     = [la]{Domanda}[le]{Domanda}
+                    , portuguese  = [a]{Pergunta}[as]{Pergunta}
+                    , brazilian   = [a]{Pergunta}[as]{Pergunta}
+                    , spanish     = [la]{Pregunta}[las]{Pregunta}
+                    , schinese    = {问题}{问题}
+                    , tchinese    = {問題}{問題}
+                    , japanese    = {問題}{問題}
+                    , russian     = {Вопрос}{Вопрос}
+                  }
+    , Crefname =  {
+                    , english     = {Question}{Question}
+                    , french      = [La]{Question}[Les]{Question}
+                    , ngerman     = {Frage}{Frage}
+                    , italian     = [La]{Domanda}[Le]{Domanda}
+                    , portuguese  = [A]{Pergunta}[As]{Pergunta}
+                    , brazilian   = [A]{Pergunta}[As]{Pergunta}
+                    , spanish     = [La]{Pregunta}[Las]{Pregunta}
+                    , schinese    = {问题}{问题}
+                    , tchinese    = {問題}{問題}
+                    , japanese    = {問題}{問題}
+                    , russian     = {Вопрос}{Вопрос}
+                  }
+  }
+
+\NameTheorem { recall }
+  {
+    , heading =   {
+                    , english     = Recall
+                    , french      = Rappel
+                    , ngerman     = Rückruf
+                    , italian     = Richiamo
+                    , portuguese  = Recordação
+                    , brazilian   = Recordação
+                    , spanish     = Recuerdo
+                    , schinese    = 回顾
+                    , tchinese    = 回顧
+                    , japanese    = 回顧
+                    , russian     = Напоминание
+                  }
+    , crefname =  {
+                    , english     = {Recall}{Recall}
+                    , french      = [le]{Rappel}[les]{Rappel}
+                    , ngerman     = {Rückruf}{Rückruf}
+                    , italian     = [il]{Richiamo}[i]{Richiamo}
+                    , portuguese  = [a]{Recordação}[as]{Recordação}
+                    , brazilian   = [a]{Recordação}[as]{Recordação}
+                    , spanish     = [el]{Recuerdo}[los]{Recuerdo}
+                    , schinese    = {回顾}{回顾}
+                    , tchinese    = {回顧}{回顧}
+                    , japanese    = {回顧}{回顧}
+                    , russian     = {Напоминание}{Напоминание}
+                  }
+    , Crefname =  {
+                    , english     = {Recall}{Recall}
+                    , french      = [Le]{Rappel}[Les]{Rappel}
+                    , ngerman     = {Rückruf}{Rückruf}
+                    , italian     = [Il]{Richiamo}[I]{Richiamo}
+                    , portuguese  = [A]{Recordação}[As]{Recordação}
+                    , brazilian   = [A]{Recordação}[As]{Recordação}
+                    , spanish     = [El]{Recuerdo}[Los]{Recuerdo}
+                    , schinese    = {回顾}{回顾}
+                    , tchinese    = {回顧}{回顧}
+                    , japanese    = {回顧}{回顧}
+                    , russian     = {Напоминание}{Напоминание}
+                  }
+  }
+
+\NameTheorem { remark }
+  {
+    , heading =   {
+                    , english     = Remark
+                    , french      = Remarque
+                    , ngerman     = Bemerkung
+                    , italian     = Commento
+                    , portuguese  = Comentário
+                    , brazilian   = Comentário
+                    , spanish     = Comentario
+                    , schinese    = 备注
+                    , tchinese    = 備註
+                    , japanese    = 注釈
+                    , russian     = Замечание
+                  }
+    , crefname =  {
+                    , english     = {Remark}{Remark}
+                    , french      = [la]{Remarque}[les]{Remarque}
+                    , ngerman     = {Bemerkung}{Bemerkung}
+                    , italian     = [il]{Commento}[i]{Commento}
+                    , portuguese  = [o]{Comentário}[os]{Comentário}
+                    , brazilian   = [o]{Comentário}[os]{Comentário}
+                    , spanish     = [el]{Comentario}[los]{Comentario}
+                    , schinese    = {备注}{备注}
+                    , tchinese    = {備註}{備註}
+                    , japanese    = {注釈}{注釈}
+                    , russian     = {Замечание}{Замечание}
+                  }
+    , Crefname =  {
+                    , english     = {Remark}{Remark}
+                    , french      = [La]{Remarque}[Les]{Remarque}
+                    , ngerman     = {Bemerkung}{Bemerkung}
+                    , italian     = [Il]{Commento}[I]{Commento}
+                    , portuguese  = [O]{Comentário}[Os]{Comentário}
+                    , brazilian   = [O]{Comentário}[Os]{Comentário}
+                    , spanish     = [El]{Comentario}[Los]{Comentario}
+                    , schinese    = {备注}{备注}
+                    , tchinese    = {備註}{備註}
+                    , japanese    = {注釈}{注釈}
+                    , russian     = {Замечание}{Замечание}
+                  }
+  }
+
+\NameTheorem { theorem }
+  {
+    , heading =   {
+                    , english     = Theorem
+                    , french      = Théorème
+                    , ngerman     = Satz
+                    , italian     = Teorema
+                    , portuguese  = Teorema
+                    , brazilian   = Teorema
+                    , spanish     = Teorema
+                    , schinese    = 定理
+                    , tchinese    = 定理
+                    , japanese    = 定理
+                    , russian     = Теорема
+                  }
+    , crefname =  {
+                    , english     = {Theorem}{Theorem}
+                    , french      = [le]{Théorème}[les]{Théorème}
+                    , ngerman     = {Satz}{Satz}
+                    , italian     = [il]{Teorema}[i]{Teorema}
+                    , portuguese  = [o]{Teorema}[os]{Teorema}
+                    , brazilian   = [o]{Teorema}[os]{Teorema}
+                    , spanish     = [el]{Teorema}[los]{Teorema}
+                    , schinese    = {定理}{定理}
+                    , tchinese    = {定理}{定理}
+                    , japanese    = {定理}{定理}
+                    , russian     = {Теорема}{Теорема}
+                  }
+    , Crefname =  {
+                    , english     = {Theorem}{Theorem}
+                    , french      = [Le]{Théorème}[Les]{Théorème}
+                    , ngerman     = {Satz}{Satz}
+                    , italian     = [Il]{Teorema}[I]{Teorema}
+                    , portuguese  = [O]{Teorema}[Os]{Teorema}
+                    , brazilian   = [O]{Teorema}[Os]{Teorema}
+                    , spanish     = [El]{Teorema}[Los]{Teorema}
+                    , schinese    = {定理}{定理}
+                    , tchinese    = {定理}{定理}
+                    , japanese    = {定理}{定理}
+                    , russian     = {Теорема}{Теорема}
+                  }
+  }
+
+\NameTheorem { definition-corollary } { combined = { definition ; corollary } }
+\NameTheorem { definition-proposition } { combined = { definition ; proposition } }
+\NameTheorem { definition-theorem } { combined = { definition ; theorem } }
+
+\NameTheorem { corollary-definition } { combined = { corollary ; definition } }
+\NameTheorem { proposition-definition } { combined = { proposition ; definition } }
+\NameTheorem { theorem-definition } { combined = { theorem ; definition } }
+
+\endinput
+%%
+%% End of file `projlib-theorem.sty'.

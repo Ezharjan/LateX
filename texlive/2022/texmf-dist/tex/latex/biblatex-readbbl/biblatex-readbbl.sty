@@ -1,0 +1,68 @@
+%% $Id: biblatex-readbbl.sty 401 2022-01-09 14:16:40Z herbert $
+%%
+%% This is file `biblatex-readbbl.sty',
+%%
+%% IMPORTANT NOTICE:
+%%
+%% (C) Herbert Voss <hvoss _at_ tug.org>, 2020
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%%
+%% DESCRIPTION:
+%%   `biblatex-readbbl' is a package for reading a bbl file created by biber
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{biblatex-readbbl}[2022/01/09 v 0.01 read bbl file]
+\RequirePackage{xkeyval}
+
+\def\bbl@read@file{}
+\DeclareOptionX{bblfile}{\def\bbl@read@file{#1}}
+\ProcessOptionsX\relax
+%
+\begingroup
+%% Convert \verb sections like:
+%      \verb{urlraw}
+%      \verb http://mirror.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf
+%      \endverb
+%      \verb{url}
+%      \verb http://mirror.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf
+%      \endverb
+%%
+%%   into 
+%
+%      \field{urlraw}{http://mirror.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf}
+%      \field{url}{http://mirror.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf}
+%
+%\def\verb#1 \noexpand#2 #3\endverb{\field{#1}{#3}}
+%
+
+\expandafter\ifx\expandafter\relax\bbl@read@file\relax  
+  \gdef\bbl@read@file{\jobname}% 
+\fi
+
+%\typeout{>>>>> Read bbl file: \bbl@read@file}
+
+\gdef\blx@bblfile{%
+  \blx@secinit
+  \begingroup
+  \blx@bblstart
+%%%%  Start erzeugte Datei \jobname.bbl %%%%
+%
+\IfFileExists{\bbl@read@file.bbl}{\input{\bbl@read@file.bbl}}{\typeout{!!File \bbl@read@file.bbl does not exist!!!}}
+%
+%%%%  Ende erzeugte Datei \jobname.bbl %%%%
+  \global\toggletrue{blx@bbldone}%
+  \blx@generate@bbl@mdfivesum@found{\jobname.bbl}
+  \blx@bblend
+  \endgroup
+  % Check if Biber rerun was not carried out.
+  % If so, ask for it again.
+%  \blx@check@bbl@rerun@mdfivesum
+  % global sorting as this is called at BeginDocument
+  \csnumgdef{blx@labelnumber@\the\c@refsection}{0}%
+}
+
+\endgroup
+

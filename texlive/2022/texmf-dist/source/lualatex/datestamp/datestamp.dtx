@@ -1,0 +1,253 @@
+% \iffalse meta-comment
+%
+% File: datestamp.dtx
+% ----------------------------------------------------------
+% Package:     datestamp
+% Version:     v0.3 (14 December, 2021)
+% Author:      निरंजन
+% Description: Fixed date-stamps with LuaLaTeX.
+% Repository:  http://puszcza.gnu.org.ua/projects/datestamp
+% License:     GPLv3+, GFDLv1.3+
+% ----------------------------------------------------------
+%
+% LaTeX Package datestamp v0.3
+% Copyright © 2021 निरंजन
+%
+% This program is free software: you can redistribute it
+% and/or modify it under the terms of the GNU General Public
+% License as published by the Free Software Foundation,
+% either version 3 of the License, or (at your option) any
+% later version.
+%
+% This program is distributed in the hope that it will be
+% useful, but WITHOUT ANY WARRANTY; without even the implied
+% warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+% PURPOSE. See the GNU General Public License for more
+% details.
+%
+% You should have received a copy of the GNU General Public
+% License along with this program. If not, see
+% <https://www.gnu.org/licenses/>.
+%
+% The current maintainer of this work is निरंजन.
+%
+% This work consists of the files datestamp.dtx
+%                                 datestamp.ins
+% and the derived file            datestamp.sty.
+% \fi
+% \iffalse
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+-----------------------------------------------------------
+Package:     datestamp
+Version:     v0.3 (14 December, 2021)
+Author:      निरंजन
+Description: Fixed date-stamps with LuaLaTeX
+Repository:  http://puszcza.gnu.org.ua/projects/datestamp
+License:     GPLv3+, GFDLv1.3+
+-----------------------------------------------------------
+%</readme> 
+%<*internal>
+\fi
+%</internal>
+%<*driver|package>
+\def\datestampname{datestamp}
+\def\datestampversion{0.3}
+\def\datestampdate{2021-12-14}
+\def\datestampdescription{%
+  Fixed date-stamps with LuaLaTeX.%
+}
+%</driver|package>
+%<*driver>
+\documentclass{l3doc}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\hypersetup{%
+  unicode,%
+  colorlinks,%
+  urlcolor=blue!60!black,%
+  linkcolor=blue!60!black,%
+  citecolor=green!60!black,%
+  pdftitle={The datestamp package},%
+  pdfauthor={निरंजन},%
+  pdfsubject={\datestampdescription}
+}%
+\usepackage{fontspec}
+\newfontfamily\devanagari[%
+  Script=Devanagari,%
+  Scale=0.8%
+]%
+{Shobhika}
+\newcommand\textcode[1]{\Verb|#1|}
+
+\begin{document}
+    \DocInput{\datestampname.dtx}
+\end{document}
+%</driver>
+% \fi
+% \title{The \pkg{\datestampname} package}
+% \author{{\devanagari निरंजन}}
+% \date
+% {^^A
+%   Version \datestampversion\ --- \datestampdate\\[1ex]^^A
+%   {^^A
+%     \small\faIcon{link}\quad
+%     \url{https://ctan.org/pkg/datestamp}^^A
+%   }\\^^A
+%   {^^A
+%     \small\faIcon{bug}\quad
+%     \url{http://puszcza.gnu.org/bugs/?group=datestamp}^^A
+%   }^^A
+% }
+%
+% \maketitle
+% 
+% \begin{documentation}
+%   \begin{abstract}
+%     \href{https://tex.stackexchange.com/q/611721/174620}%
+%     {This} question on SE inspired me to write a code
+%     which can store and recall dates whenever needed.
+%     Lua\LaTeX\ provided a smooth interface for achieving
+%     this and thus this package was developed.
+%   \end{abstract}
+%   \section{Documentation}
+%   \begin{function}{\adddatestamp}
+%     \begin{syntax}
+%       \cs{adddatestamp} \marg{key}
+%     \end{syntax}
+%     This command takes one mandatory argument which is the
+%     key that we set for printing the date. The key is
+%     printed in the auxiliary file with extension
+%     \verb|.ds|. If in case one loses their auto-generated
+%     \verb|.ds| file, they can simply write one with
+%     whichever dates of their choice. e.g.\ A sample
+%     \verb|.ds| file might look like the following.
+% \begin{verbatim}
+% firstdate = "August 21, 2021"
+% seconddate = "September 21, 2021"
+% thirddate = "October 22, 2021"
+% \end{verbatim}
+%     One can fool the program by writing a file like this
+%     themselves!
+%   \end{function}
+%   \begin{function}{\addmonthstamp}
+%     \begin{syntax}
+%       \cs{addmonthstamp} \marg{key}
+%     \end{syntax}
+%     Similar to \cs{adddatestamp}, this command prints a
+%     fixed month-stamp.
+%   \end{function}
+%   \begin{function}{\addyearstamp}
+%     \begin{syntax}
+%       \cs{addyearstamp} \marg{key}
+%     \end{syntax}
+%     This command prints a fixed year-stamp.
+%   \end{function}
+%   \vfill
+%
+%   \hrule
+%
+%   \medskip
+%   {^^A
+%     \setlength{\parindent}{0pt}
+%     \LaTeX\ package \pkg{datestamp}
+%     
+%     Copyright © 2021 {\devanagari निरंजन}
+%   
+%     Permission is granted to copy, distribute and/or
+%     modify this document under the terms of the GNU Free
+%     Documentation License, Version 1.3 or any later
+%     version published by the Free Software Foundation;
+%     with no Invariant Sections, no Front-Cover Texts, and
+%     no Back-Cover Texts. A copy of the license is included
+%     in the section entitled ``GNU Free Documentation
+%     License''.
+%   }%
+% \end{documentation}
+% \newpage
+% \begin{implementation}
+% \section{Implementation}
+% Provide package with its basic information.
+%    \begin{macrocode}
+%<@@=datestamp>
+%<*package>
+\ProvidesPackage{datestamp}[2021/12/14 v0.3
+Fixed date-stamps with LuaLaTeX.]
+%    \end{macrocode}
+% Load package \pkg{xparse} for declaring the robust command
+% \cs{luacodefordatestamp}. This is a generic \& internal
+% command. We will Call \cs{directlua} \& open a file in
+% append mode so that it will be created if doesn't exist \&
+% just appended if exists. The following code creates a file
+% with the extension \verb|.ds| \& the name of the root
+% file. Note that using \verb|a+| mode also enables the
+% \verb|read| mode.
+%    \begin{macrocode}
+\RequirePackage{xparse}
+\NewDocumentCommand{\luacodefordatestamp}{ m m }{%
+  \directlua{%
+    dsfile = io.open("\jobname.ds", "a+")
+%    \end{macrocode}
+% Now we store the content of the \verb|.ds| file in a
+% variable named \verb|dscontent|.
+%    \begin{macrocode}
+    dscontent = dsfile:read "*a"
+%    \end{macrocode}
+% We first check if the key used in the argument of
+% \cs{adddatestamp} is already present in our aux file and
+% if it is present, our code does nothing. It adds the key
+% followed by the \verb|=| sign and the date to the
+% \verb|.ds| file if the key is absent. We close the file
+% when this job is done \& we end the if-conditional.
+%    \begin{macrocode}
+    if string.find(dscontent, "#1") then
+    else
+      dsfile:write("#1 = \string\"#2\string\"\string\n")
+      io.close(dsfile)
+    end
+%    \end{macrocode}
+% With \verb|dofile| command we execute the \verb|.ds| file
+% as a Lua code. With this our keys automatically become Lua
+% variables which store the dates.
+%    \begin{macrocode}
+    dofile("\jobname.ds")
+%    \end{macrocode}
+% Finally we print the date by calling the key as a Lua
+% variable (which is by the way our \TeX-argument XD).
+%    \begin{macrocode}
+    tex.sprint(#1)
+  }%
+}
+%    \end{macrocode}
+% After creating this generic internal command, we use it
+% for producing various stamps. i.e.\ date, month \& year. I
+% am using the default \TeX-commands for producing them as
+% these commands have great localization-support.
+%    \begin{macrocode}
+\NewDocumentCommand{\adddatestamp}{ m }{%
+  \luacodefordatestamp{#1}{\today}%
+}%
+\NewDocumentCommand{\addyearstamp}{ m }{%
+  \luacodefordatestamp{#1}{\the\year}%
+}%
+\NewDocumentCommand{\addmonthstamp}{ m }{%
+  \luacodefordatestamp{#1}{\the\month}%
+}%
+\NewDocumentCommand{\adddaystamp}{ m }{%
+  \luacodefordatestamp{#1}{\the\day}%
+}%
+%    \end{macrocode}
+% End of the package.
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+% \end{implementation}
+% \newpage
+% \phantomsection
+% \addcontentsline{toc}{section}{GNU Free Documentation License}
+% \include{gfdl-tex.tex}
+% \Finale

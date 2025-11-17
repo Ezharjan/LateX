@@ -1,0 +1,1005 @@
+%%
+%% This is file `thermodynamics.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% thermodynamics.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2017-2018 by Karl D. Hammond
+%% 
+%% Karl D. Hammond,
+%% Department of Chemical Engineering
+%% University of Missouri
+%% Contact: hammondkd@missouri.edu
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{thermodynamics}
+    [2022/04/29 v1.00 thermodynamics package]
+\RequirePackage{amstext}
+\AtBeginDocument{
+    \@ifpackageloaded{pxfonts}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}%
+    }{}
+    \@ifpackageloaded{newpxmath}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}%
+    }{}
+    \@ifpackageloaded{txfonts}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-11mu d}}%
+    }{}
+    \@ifpackageloaded{mathptmx}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-10mu d}}%
+    }{}
+    \@ifpackageloaded{newtxmath}{%
+        \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-12mu d}}%
+    }{}
+    \@ifpackageloaded{mathdesign}{%
+        \def\@charter{mdbch}%
+        \def\@utopia{mdput}%
+        \def\@garamond{mdugm}%
+        \ifx\MD@default@family\@utopia
+            \providecommand*{\dbar}{{\mkern8mu\mathchar'26\mkern-20mu d}}%
+        \fi
+        \ifx\MD@default@family\@charter
+            \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-15mu d}}%
+        \fi
+        \ifx\MD@default@family\@garamond
+            \providecommand*{\dbar}{{\mkern5mu\mathchar'26\mkern-17mu d}}%
+        \fi
+    }{}
+    % Defaults to Computer Modern
+    \providecommand*{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+}
+\newcommand*{\totalenergy@symbol}{E}
+\newcommand*{\internalenergy@symbol}{U}
+\newcommand*{\Helmholtz@symbol}{A}
+\newcommand*{\Gibbs@symbol}{G}
+\newcommand*{\Landau@symbol}{\Omega}
+\newcommand*{\enthalpy@symbol}{H}
+\newcommand*{\entropy@symbol}{S}
+\newcommand*{\area@symbol}{a}
+\newcommand*{\volume@symbol}{V}
+\newcommand*{\mole@symbol}{n}
+\newcommand*{\heat@symbol}{Q}
+\newcommand*{\work@symbol}{W}
+\newcommand*{\temperature@symbol}{T}
+\newcommand*{\pressure@symbol}{P}
+\newcommand*{\thermo@underline}[1]{%
+  \mkern1mu\underline{\mkern-1mu #1\mkern-4mu}\mkern4mu%
+}
+\newcommand*{\thermo@overline}[1]{%
+  \mkern2mu\overline{\mkern-2mu #1\mkern-1mu}\mkern1mu%
+}
+\newcommand*{\PartialOpen}{(}
+\newcommand*{\PartialClose}{)}
+\newcommand*{\PartialEmptyClose}{)}
+\DeclareOption{EUAGHan}{}% the default
+\DeclareOption{EUAGHaN}{\renewcommand*{\mole@symbol}{N}}%
+\DeclareOption{EUHAGan}{\ExecuteOptions{EUAGHan}}
+\DeclareOption{EUHAGaN}{\ExecuteOptions{EUAGHaN}}
+\DeclareOption{EUFGHAn}{% this is my favorite set of symbols
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+}
+\DeclareOption{EUFGHAN}{% this is my second favorite set of symbols
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EEFGHAn}{% this treats all energy the same way(?)
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+}
+\DeclareOption{EEFGHAN}{% this treats all energy the same way(?)
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\area@symbol}{A}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EEFGHan}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}
+}
+\DeclareOption{EEFGHaN}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\Helmholtz@symbol}{F}
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EEAGHan}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+}
+\DeclareOption{EEAGHaN}{%
+  \renewcommand*{\internalenergy@symbol}{E}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EUAGHAn}{% Helmholtz free energy and area look the same here
+  \renewcommand*{\area@symbol}{A}%
+}
+\DeclareOption{EUAGHAN}{% Helmholtz free energy and area look the same here
+  \renewcommand*{\area@symbol}{A}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{EUFGHan}{%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+}
+\DeclareOption{EUFGHaN}{%
+  \renewcommand*{\Helmholtz@symbol}{F}%
+  \renewcommand*{\mole@symbol}{N}%
+}
+\DeclareOption{delta}{\let\dbar\delta}
+\let\@extensive\relax
+\let\@intensive\relax
+\let\@specific\hat
+\DeclareOption{extensive-plain}{%
+    \let\@extensive\relax
+    \let\@intensive\thermo@underline
+}
+\DeclareOption{intensive-plain}{% the default
+    \let\@extensive\thermo@underline
+    \let\@intensive\relax
+}
+\DeclareOption{intensive-lowercase}{% PLEASE don't use this!
+    \let\@extensive\MakeUppercase
+    \let\@intensive\MakeLowercase
+    \def\@specific#1{\MakeLowercase{\hat #1}}
+    \AtEndOfPackage{
+        \renewcommand*{\partialmolar}[1]{%
+            \gdef\pm@symbol{\MakeLowercase #1}\generic@pm}
+        \renewcommand*{\heatcapacitysymbol}{c}
+    }
+}
+\DeclareOption{extensive-superscript}{%
+    \gdef\@extensive#1{{#1}^t}%
+    \let\@intensive\relax%
+    \AtEndOfPackage{%
+      \renewcommand*{\URt}{\internalenergy@symbol^{\residual,t}}
+      \renewcommand*{\HRt}{\enthalpy@symbol^{\residual,t}}
+      \renewcommand*{\FRt}{\Helmholtz@symbol^{\residual,t}}
+      \renewcommand*{\GRt}{\Gibbs@symbol^{\residual,t}}
+      \renewcommand*{\VRt}{\volume@symbol^{\residual,t}}
+      \renewcommand*{\SRt}{\entropy@symbol^{\residual,t}}
+      \renewcommand*{\UEt}{\internalenergy@symbol^{\excess,t}}
+      \renewcommand*{\HEt}{\enthalpy@symbol^{\excess,t}}
+      \renewcommand*{\FEt}{\Helmholtz@symbol^{\excess,t}}
+      \renewcommand*{\GEt}{\Gibbs@symbol^{\excess,t}}
+      \renewcommand*{\VEt}{\volume@symbol^{\excess,t}}
+      \renewcommand*{\SEt}{\entropy@symbol^{\excess,t}}
+    }
+}
+\newif\if@subscripted
+\@subscriptedtrue
+\DeclareOption{subscripts}{\@subscriptedtrue}
+\DeclareOption{nosubscripts}{\@subscriptedfalse}
+\DeclareOption{parentheses}{}
+\DeclareOption{brackets}{%
+  \renewcommand*{\PartialOpen}{[}%
+  \renewcommand*{\PartialClose}{]}%
+  \renewcommand*{\PartialEmptyClose}{]}%
+}
+\DeclareOption{braces}{%
+  \renewcommand*{\PartialOpen}{\{}%
+  \renewcommand*{\PartialClose}{\}}%
+  \renewcommand*{\PartialEmptyClose}{\}}%
+}
+\DeclareOption{bar}{%
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{\rvert}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+}
+\DeclareOption{plain-derivatives}{% This implies dU(S,V,N)/dS notation
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{.}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+  \ExecuteOptions{nosubscripts}%
+}
+\newcommand*{\ncomponents}{C}
+\newcommand*{\allNs}{\allcomponents{\Nt}}
+\newcommand*{\allXs}{\allcomponents{x}}
+\newcommand*{\allYs}{\allcomponents{y}}
+\newcommand*{\allmus}{\allcomponents{\mu}}
+\newcommand*{\allMs}{\allcomponents{m}}
+\newcommand*{\allWs}{\allcomponents{w}}%
+\newcommand*{\allNsbut}[2][j]{\allbut[#1]{#2}{\Nt}}
+\newcommand*{\allXsbut}[2][j]{\allbutlastand[#1]{#2}{x}}
+\newcommand*{\allYsbut}[2][j]{\allbutlastand[#1]{#2}{y}}
+\newcommand*{\allmusbut}[2][j]{\allbut[#1]{#2}{\mu}}
+\newcommand*{\allMsbut}[2][j]{\allbut[#1]{#2}{m}}
+\newcommand*{\allWsbut}[2][j]{\allbutlastand[#1]{#2}{w}}%
+\newcommand*{\allcomponents}[1]{\vec{#1}}
+\newcommand*{\allbut}[3][j]{%
+  \def\tmp@arg{#2}%
+  \def\tmp@@arg{#1}%
+  \ifx\tmp@arg\tmp@@arg
+    {#3}_{k\neq #2}%
+  \else
+    {#3}_{#1\neq #2}%
+  \fi
+}
+\newcommand*{\allbutlastand}[3][j]{%
+  \edef\tmp@arg{#1}%
+  \edef\tmp@@arg{#2}%
+  \ifx\tmp@@arg\ncomponents
+    {#3}_{#1 \neq #2}%
+  \else
+    \ifx\tmp@arg\tmp@@arg
+      {#3}_{k \neq #2,\ncomponents}%
+    \else
+      {#3}_{#1 \neq #2,\ncomponents}%
+    \fi
+  \fi
+}
+\DeclareOption{moles-index}{}
+\DeclareOption{moles-range}{%
+  \renewcommand*{\allcomponents}[1]{{#1}_1,\dots,{#1}_{\ncomponents}}
+  \renewcommand*{\allbut}[3][j]{%
+    \def\@one{1}%
+    \edef\tmp@arg{#2}%
+    \ifx\tmp@arg\@one
+      {#3}_2,\dots,{#3}_{\ncomponents}%
+    \else
+      \ifx\tmp@arg\ncomponents
+        {#3}_1,\dots,{#3}_{\ncomponents-1}%
+      \else
+        {#3}_1,\dots,[{#3}_{#2}],\dots,{#3}_{\ncomponents}%
+      \fi
+    \fi
+  }
+  \renewcommand*{\allbutlastand}[3][j]{%
+    \def\@one{1}%
+    \edef\tmp@arg{#2}%
+    \edef\@ncminusone{\ncomponents-1}%
+    \ifx\tmp@arg\@one
+      {#3}_2,\dots,{#3}_{\ncomponents-1}%
+    \else
+      \ifx\tmp@arg\@ncminusone
+        {#3}_1,\dots,{#3}_{\ncomponents-2}%
+      \else
+        \ifx\tmp@arg\ncomponents
+          {#3}_1,\dots,{#3}_{\ncomponents-1}%
+      \else
+          {#3}_1,\dots,[{#3}_{#2}],\dots,{#3}_{\ncomponents}%
+        \fi
+      \fi
+    \fi
+  }
+}
+\DeclareOption{Bejan}{
+  \ExecuteOptions{EUFGHAN,intensive-lowercase,delta}
+  \let\@specific\MakeLowercase
+  \def\@intensive#1{\MakeLowercase{\bar #1}}
+  \AtEndOfPackage{
+    \DeclareSubscrSymbol{cV}{\bar\heatcapacitysymbol}{v}
+    \DeclareSubscrSymbol{cVs}{\heatcapacitysymbol}{v}
+    \DeclareSubscrSymbol{cVt}{\Nt\heatcapacitysymbol}{v}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\ncomponents}{n}
+  }
+}
+\DeclareOption{CBK}{
+  \ExecuteOptions{EUAGHAN,intensive-lowercase}
+  \AtEndOfPackage{
+    \let\thermo@overline\widetilde
+    \let\@specific\MakeLowercase
+    \renewcommand*{\@intensive}[1]{\MakeLowercase{\bar{#1}}}
+    \renewcommand*{\pressure@symbol}{p}
+    \renewcommand*{\Deltarxn}[1]{#1_R}
+    \renewcommand*{\compressibilitysymbol}{\beta}
+    \renewcommand*{\expansivitysymbol}{\alpha}
+  }
+}
+\DeclareOption{ElliottLira}{
+  \AtEndOfPackage{
+    \renewcommand*{\allcomponents}[1]{#1}
+    \renewcommand*{\Deltarxn}[1]{\Delta #1}
+  }
+}
+\DeclareOption{Koretsky}{
+  \ExecuteOptions{EUAGHAn,brackets,intensive-lowercase,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\partialmolar}[1]{\gdef\pm@symbol{#1}\generic@pm}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\IS}{{\text{ideal}}}
+    \renewcommand*{\residual}{{\text{dep}}}
+    \renewcommand*{\IG}{{\text{ideal}}}
+    \renewcommand*{\IGM}{{\text{ideal}}}
+    \renewcommand*{\Deltafus}[1]{\Delta{#1}_\fusion}
+    \renewcommand*{\Deltasub}[1]{\Delta{#1}_\sublimation}
+    \renewcommand*{\Deltavap}[1]{\Delta{#1}_\vaporization}
+    \renewcommand*{\Henryrat}{{\mathcal{H}}}
+    \renewcommand*{\gammarat}{\gamma^\text{Henry's}}
+    \let\phipure\varphi
+    \renewcommand*{\phimix}{\hat\varphi}
+    \renewcommand*{\phisat}{\varphi^\sat}
+    \let\Delta@fus@sym\relax
+    \DeclareSubscrSymbol{@Deltafus}{\Delta@fus@sym}{\fusion}
+    \renewcommand*{\Deltafus}[1]{\def\Delta@fus@sym{\Delta #1}\@Deltafus}
+    \let\Delta@vap@sym\relax
+    \DeclareSubscrSymbol{@Deltavap}{\Delta@vap@sym}{\vaporization}
+    \renewcommand*{\Deltasub}[1]{\def\Delta@sub@sym{\Delta #1}\@Deltasub}
+    \let\Delta@sub@sym\relax
+    \DeclareSubscrSymbol{@Deltasub}{\Delta@sub@sym}{\sublimation}
+    \renewcommand*{\Deltasub}[1]{\def\Delta@sub@sym{\Delta #1}\@Deltasub}
+  }
+}
+\DeclareOption{MSBB}{
+  \ExecuteOptions{EUFGHAn,intensive-lowercase,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\IGM}{\ast}
+    \renewcommand*{\IG}{\ast}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\allcomponents}[1]{#1}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}%
+      \else
+        {#3}_{#1}%
+      \fi
+    }
+    \let\Helmholtz@symbol\psi
+    \renewcommand*{\Ft}{\Psi}
+    \def\@intensive#1{\MakeLowercase{\thermo@overline #1}}
+    \let\@specific\MakeLowercase
+    \renewcommand*{\partialmolar}[1]{\gdef\pm@symbol{#1}\generic@pm}
+    \renewcommand*{\fmix}{\bar f}
+    \renewcommand*{\phimix}{\bar\phi}
+    \renewcommand*{\pressure@symbol}{p}
+  }
+}
+\DeclareOption{Prausnitz}{
+  \ExecuteOptions{intensive-lowercase}
+  \AtEndOfPackage{
+    \renewcommand*{\fmix}{f}
+    \let\phimix\phi
+    \renewcommand*{\fsat}{\fpure^\sat}
+    \DeclareSubscrSymbol{fpure}{f}{{\text{pure}}}
+    \DeclareSubscrSymbol{phipure}{\phi}{{\text{pure}}}
+    \renewcommand*{\residual}{{{\mathcal{R}}}}
+    \renewcommand*{\allcomponents}[1]{{#1}_i}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}%
+      \else
+        {#3}_{#1}%
+      \fi
+    }
+  }
+}
+\DeclareOption{Sandler}{
+  \ExecuteOptions{EUAGHaN,extensive-plain}
+  \AtEndOfPackage{
+    \renewcommand*{\sat}{{\text{vap}}}
+    \renewcommand*{\excess}{{\text{{ex}}}}
+    \renewcommand*{\residual}{{\text{r}}}
+    \renewcommand*{\ncomponents}{\mathcal{C}}
+    \renewcommand*{\fmix}{\bar f}
+    \renewcommand*{\fstd}{\bar f^\circ}
+    \renewcommand*{\phimix}{\bar\phi}
+    \renewcommand*{\allcomponents}[1]{\thermo@underline{#1}}
+    \renewcommand*{\IG}{{\text{IG}}}
+    \renewcommand*{\IGM}{{\text{IGM}}}
+    \renewcommand*{\IS}{{\text{IM}}}
+    \renewcommand*{\Deltamix}[1]{\Delta_\mixing #1}
+    \renewcommand*{\Deltarxn}[1]{\Delta_\reaction #1}
+    \renewcommand*{\Deltasub}[1]{\Delta_\sublimation #1}
+    \renewcommand*{\Deltafus}[1]{\Delta_\fusion #1}
+    \renewcommand*{\Deltavap}[1]{\Delta_\vaporization #1}
+    \renewcommand*{\Henryrat}{H}
+    \DeclareSubscrSymbol{cV}{\heatcapacitysymbol}{\volume@symbol}
+    \DeclareSubscrSymbol{cP}{\heatcapacitysymbol}{\pressure@symbol}
+    \DeclareSubscrSymbol{cVt}{\Nt\heatcapacitysymbol}{\volume@symbol}
+    \DeclareSubscrSymbol{cPt}{\Nt\heatcapacitysymbol}{\pressure@symbol}
+  }
+}
+\DeclareOption{SVNAS}{
+  \ExecuteOptions{extensive-superscript}
+  \AtEndOfPackage{
+    \renewcommand*{\allcomponents}[1]{#1}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}%
+      \else
+        {#3}_{#1}%
+      \fi
+    }
+    \renewcommand*{\IG}{{ig}}
+    \renewcommand*{\IGM}{{ig}}
+    \renewcommand*{\IS}{{id}}
+    \renewcommand*{\expansivitysymbol}{\beta}
+    \renewcommand*{\Deltarxn}[1]{\Delta #1}
+    \DeclareSubscrSymbol{cVt}{\Nt\heatcapacitysymbol}{\volume@symbol}
+    \DeclareSubscrSymbol{cPt}{\Nt\heatcapacitysymbol}{\pressure@symbol}
+  }
+}
+\DeclareOption{TesterModell}{
+  \ExecuteOptions{EUAGHaN,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\ncomponents}{n}
+    \renewcommand*{\allcomponents}[1]{{#1}_i}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_k\relax[#2]
+      \else
+        {#3}_{#1}\relax[#2]
+      \fi
+    }
+    \renewcommand*{\allbutlastand}[3][j]{%
+      \edef\tmp@arg{#1}%
+      \edef\tmp@@arg{#2}%
+      \ifx\tmp@@arg\ncomponents
+        {#3}_{#1}\relax[#2]%
+      \else
+        \ifx\tmp@arg\tmp@@arg
+          {#3}\relax[#2,\ncomponents]%
+        \else
+          {#3}\relax[#2,\ncomponents]%
+        \fi
+      \fi
+    }
+    \renewcommand*{\IG}{{ig}}
+    \renewcommand*{\IGM}{{igm}}
+    \renewcommand*{\IS}{{ID}}
+    \renewcommand*{\excess}{{EX}}%
+    \renewcommand*{\reaction}{{rx}}
+    \renewcommand*{\Henryrat}{f^{\ast\ast}}
+    \renewcommand*{\Henrymol}{f^\ast}
+    \renewcommand*{\gammarat}{\gamma^{\ast\ast}}
+    \renewcommand*{\gammamol}{\gamma^\ast}
+  }
+}
+\DeclareOption{Thompson}{
+  \ExecuteOptions{EUAGHAn,delta}
+  \AtEndOfPackage{
+    \renewcommand*{\excess}{{EX}}
+    \renewcommand*{\residual}{{R}}
+    \renewcommand*{\allcomponents}[1]{{#1}_j}
+    \renewcommand*{\ncomponents}{c}
+    \renewcommand*{\IS}{{IS}}
+    \renewcommand*{\IG}{{IG}}
+    \let\IGM\IG
+    \def\@fpure_#1{f_{#1}\@ifnextchar^{}{^\bullet}}
+    \renewcommand*{\fpure}{\@ifnextchar_{\@fpure}{f}}
+    \def\@phi@pure_#1{\phi_{#1}\@ifnextchar^{}{^\bullet}}
+    \renewcommand*{\phipure}{\@ifnextchar_{\@phi@pure}{\phi}}
+    \renewcommand*{\mixing}{{MIX}}
+    \renewcommand*{\Deltamix}[1]{\Delta_\mixing #1}
+    \renewcommand*{\Deltarxn}[1]{\Delta #1}
+    \def\@@intensive_#1{_{#1}\@ifnextchar^{}{^\bullet}}
+    \newcommand*{\@intensive}[1]{#1\@ifnextchar_{\@@intensive}{}}
+    \renewcommand*{\allbut}[3][j]{%
+      \def\tmp@arg{#2}%
+      \def\tmp@@arg{#1}%
+      \ifx\tmp@arg\tmp@@arg
+        {#3}_{k}\neq{#3}_{#2}%
+      \else
+        {#3}_{#1}\neq{#3}_{#2}%
+      \fi
+    }
+  }
+}
+\ExecuteOptions{EUAGHan,subscripts,parentheses,intensive-plain,moles-index}
+\ProcessOptions
+\newlength{\Partial@const@width}
+\newlength{\operator@width}
+\settowidth{\operator@width}{=}
+\newlength{\adjust@width}
+\setlength{\adjust@width}{0.1\operator@width}
+\addtolength{\operator@width}{\adjust@width}
+\def\Partial@start{\left\PartialOpen}
+\def\Partial@end{\right\PartialClose}
+\def\Partial@empty@end{\right\PartialEmptyClose}
+\def\Partial{\@ifstar\Partial@star\Partial@nostar}
+\newif\iftwo@has@Nt
+\two@has@Ntfalse
+\newif\iftwo@has@xory
+\two@has@xoryfalse
+\newif\ifthree@has@Nt
+\three@has@Ntfalse
+\newif\ifthree@has@xory
+\three@has@xoryfalse
+\AtEndOfPackage{%
+  \edef\thermo@Nt{\Nt}%
+  \edef\thermo@x{x}%
+  \edef\thermo@y{y}%
+}
+\def\thermo@parse@two#1\relax{%
+  \@tfor\@i:=#1\do{%
+    \edef\@@i{\@i}%
+    \ifx\@@i\thermo@Nt
+      \two@has@Nttrue
+      \@break@tfor
+    \fi
+    \ifx\@@i\thermo@x
+      \two@has@xorytrue
+      \@break@tfor
+    \fi
+    \ifx\@@i\thermo@y
+      \two@has@xorytrue
+      \@break@tfor
+    \fi
+  }
+}
+\newcommand*{\Partial@nostar}[3]{%
+  \def\tmp@arg{#3}%
+  \if@subscripted
+    % Handles situation of empty variables held constant
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial #1}
+                                     {\partial #2}\Partial@empty@end}%
+    \else
+      \ensuremath{\Partial@start\frac{\partial #1}
+                                     {\partial #2}\Partial@end_{#3}}%
+    \fi
+  \else
+    % If not subscripted, we put the arguments (if any) in the derivative
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial #1}
+                                     {\partial #2}\Partial@empty@end}%
+    \else
+      % Check for whether #3 contains \allNsbut{i}/etc. and #2 is \Nt_i/etc.
+      \thermo@parse@two#2\relax
+      \iftwo@has@Nt
+        \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+        \ensuremath{\Partial@start\frac{\partial #1(#3)}
+                                       {\partial #2}\Partial@end}%
+      \else
+        \iftwo@has@xory
+          \renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+          \ensuremath{\Partial@start\frac{\partial #1(#3)}
+                                         {\partial #2}\Partial@end}%
+        \else
+          \ensuremath{\Partial@start\frac{\partial #1(#2,#3)}
+                                         {\partial #2}\Partial@end}%
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\newcommand*{\Partial@star}[3]{%
+  \settowidth{\Partial@const@width}{\ensuremath{#3}}%
+  \addtolength{\Partial@const@width}{-0.15\Partial@const@width}%
+  \Partial@nostar{#1}{#2}{#3}%
+  \if@subscripted
+    \ifdim\operator@width<\Partial@const@width
+      \kern -\operator@width
+    \else
+      \kern -\Partial@const@width
+    \fi
+  \fi
+}
+\def\PartialBigg{%
+  \def\Partial@start{\Biggl\PartialOpen}%
+  \def\Partial@end{\Biggr\PartialClose}%
+  \def\Partial@empty@end{\Biggr\PartialClose}%
+  \Partial%
+}
+\def\Partialbigg{%
+  \def\Partial@start{\biggl\PartialOpen}%
+  \def\Partial@end{\biggr\PartialClose}%
+  \def\Partial@empty@end{\biggr\PartialClose}%
+  \Partial%
+}
+\def\PartialSecond{\@ifstar\PartialSecond@star\PartialSecond@nostar}
+\newcommand*{\PartialSecond@nostar}[3]{%
+  \def\tmp@arg{#3}%
+  \if@subscripted
+  % Handles situation of empty variables held constant
+    \ifx\tmp@arg\@empty
+        \ensuremath{\Partial@start\frac{\partial^2 #1}
+                                       {\partial #2^2}\Partial@empty@end}%
+    \else
+        \ensuremath{\Partial@start\frac{\partial^2 #1}
+                                       {\partial #2^2}\Partial@end_{#3}}%
+    \fi
+  \else
+    \ifx\tmp@arg\@empty
+        \ensuremath{\Partial@start\frac{\partial^2 #1}
+                                       {\partial #2^2}\Partial@empty@end}%
+    \else
+      % Check for whether #3 contains \allNsbut{i}/etc. and #2 is \Nt_i/etc.
+      \thermo@parse@two#2\relax
+      \iftwo@has@Nt
+        \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+        \ensuremath{\Partial@start\frac{\partial^2 #1(#3)}
+                                       {\partial #2^2}\Partial@end}%
+      \else
+        \iftwo@has@xory
+          \renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+          \ensuremath{\Partial@start\frac{\partial^2 #1(#3)}
+                                         {\partial #2^2}\Partial@end}%
+        \else
+          \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#3)}
+                                         {\partial {#2}^2}\Partial@end}%
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\newcommand*{\PartialSecond@star}[3]{%
+    \settowidth{\Partial@const@width}{\ensuremath{#3}}%
+    \addtolength{\Partial@const@width}{-0.15\Partial@const@width}%
+    \PartialSecond@nostar{#1}{#2}{#3}%
+    \if@subscripted
+      \ifdim\operator@width<\Partial@const@width
+        \kern -\operator@width
+      \else
+        \kern -\Partial@const@width
+      \fi
+    \fi
+}
+\def\PartialSecondBigg{%
+  \def\Partial@start{\expandafter\Biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\Biggr\PartialClose}%
+  \PartialSecond%
+}
+\def\PartialSecondbigg{%
+  \def\Partial@start{\expandafter\biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\biggr\PartialClose}%
+  \PartialSecond%
+}
+\def\PartialMixSecond{\@ifstar\PartialMixSecond@star\PartialMixSecond@nostar}
+\newcommand*{\PartialMixSecond@nostar}[4]{%
+  \def\tmp@arg{#4}%
+  \if@subscripted
+  % Handles situation of empty variables held constant
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial^2 #1}
+                           {\partial #2\partial#3}\Partial@empty@end}%
+    \else
+      \ensuremath{\Partial@start\frac{\partial^2 #1}
+                           {\partial #2\partial#3}\Partial@end_{#4}}%
+    \fi
+  \else
+    \ifx\tmp@arg\@empty
+      \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#3)}
+                           {\partial #2\partial#3}\Partial@empty@end}%
+    \else
+      % This time, we check whether #2 OR #3 are \Nt_i/etc.
+      \thermo@parse@two#3\relax
+      \iftwo@has@Nt\three@has@Nttrue\fi
+      \iftwo@has@xory\three@has@xorytrue\fi
+      \two@has@Ntfalse
+      \two@has@xoryfalse
+      \thermo@parse@two#2\relax
+      \iftwo@has@Nt
+        \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+        \ensuremath{\Partial@start\frac{\partial^2 #1(#3,#4)}
+                                       {\partial #2\partial#3}\Partial@end}%
+      \else
+        \iftwo@has@xory
+          \renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+          \ensuremath{\Partial@start\frac{\partial^2 #1(#3,#4)}
+                                         {\partial #2\partial#3}\Partial@end}%
+        \else
+          \ifthree@has@Nt
+            \renewcommand*{\allbut}[3][j]{\allcomponents{##3}}%
+            \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#4)}
+                                      {\partial #2\partial#3}\Partial@end}%
+          \else
+            \ifthree@has@xory
+              \PackageWarning{thermodynamics}{GOT HERE}
+              %\renewcommand*{\allbutlastand}[3][j]{\allbut{\ncomponents}{##3}}%
+              \renewcommand*{\allbutlastand}[3][j]{SCREW YOU}%
+              \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#4)}
+                                        {\partial #2\partial#3}\Partial@end}%
+            \else
+              \ensuremath{\Partial@start\frac{\partial^2 #1(#2,#3,#4)}
+                                        {\partial #2\partial#3}\Partial@end}%
+            \fi
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\newcommand*{\PartialMixSecond@star}[4]{%
+    \settowidth{\Partial@const@width}{\ensuremath{#4}}%
+    \addtolength{\Partial@const@width}{-0.25\Partial@const@width}%
+    \PartialMixSecond@nostar{#1}{#2}{#3}{#4}%
+    \if@subscripted
+      \ifdim\operator@width<\Partial@const@width
+        \kern -\operator@width
+      \else
+        \kern -\Partial@const@width
+      \fi
+    \fi
+}
+\def\PartialMixSecondBigg{%
+  \def\Partial@start{\expandafter\Biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\Biggr\PartialClose}%
+  \PartialMixSecond%
+}
+\def\PartialMixSecondbigg{%
+  \def\Partial@start{\expandafter\biggl\PartialOpen}%
+  \def\Partial@end{\expandafter\biggr\PartialClose}%
+  \PartialMixSecond%
+}
+\AtBeginDocument{%
+  \@ifpackageloaded{amsmath}{}{%
+      \PackageWarningNoLine{thermodynamics}
+        {Package amsmath not loaded; load to make PartialBigg and friends
+            work correctly}%
+      \let\PartialBigg\Partial
+      \let\Partialbigg\Partial
+      \let\PartialSecondBigg\PartialSecond
+      \let\PartialSecondbigg\PartialSecond
+      \let\PartialMixSecondBigg\PartialMixSecond
+      \let\PartialMixSecondbigg\PartialMixSecond
+  }%
+}
+\newenvironment*{thermoparentheses}{
+  \renewcommand*{\PartialOpen}{(}%
+  \renewcommand*{\PartialClose}{)}%
+  \renewcommand*{\PartialEmptyClose}{)}%
+}{}
+\newenvironment*{thermobrackets}{%
+  \renewcommand*{\PartialOpen}{[}%
+  \renewcommand*{\PartialClose}{]}%
+  \renewcommand*{\PartialEmptyClose}{]}%
+}{}
+\newenvironment*{thermobraces}{%
+  \renewcommand*{\PartialOpen}{\{}%
+  \renewcommand*{\PartialClose}{\}}%
+  \renewcommand*{\PartialEmptyClose}{\}}%
+}{}
+\newenvironment*{thermobar}{%
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{\rvert}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+}{}
+\newenvironment*{thermoplain}{%
+  \renewcommand*{\PartialOpen}{.}%
+  \renewcommand*{\PartialClose}{.}%
+  \renewcommand*{\PartialEmptyClose}{.}%
+  \@subscriptedfalse
+}{}
+\newenvironment*{thermoNOsubscripts}{\@subscriptedfalse}{}
+\newenvironment*{thermosubscripts}{\@subscriptedtrue}{}
+\newcommand*{\DeclareSubscrSymbol}[3]{%
+  \expandafter\def\csname #1\endcsname{%
+    \@ifnextchar^{\csname @#1\endcsname}
+                 {\@ifnextchar_{\csname @@#1\endcsname}{{#2}_{#3}}}
+  }
+  \expandafter\def\csname @#1\endcsname ##1##2{%
+    {#2}^{##2}\@ifnextchar_{\csname @@@#1\endcsname}{_{#3}}%
+  }
+  \expandafter\def\csname @@#1\endcsname ##1##2{{#2}_{#3,##2}}
+  \expandafter\def\csname @@@#1\endcsname ##1##2{_{#3,##2}}
+}
+\newcommand*{\heatcapacitysymbol}{C}
+\newcommand*{\compressibilitysymbol}{\kappa}
+\newcommand*{\expansivitysymbol}{\alpha}
+\DeclareSubscrSymbol{cV}{\@intensive\heatcapacitysymbol}{\volume@symbol}
+\DeclareSubscrSymbol{cP}{\@intensive\heatcapacitysymbol}{\pressure@symbol}
+\DeclareSubscrSymbol{cVt}{\@extensive\heatcapacitysymbol}{\volume@symbol}
+\DeclareSubscrSymbol{cPt}{\@extensive\heatcapacitysymbol}{\pressure@symbol}
+\DeclareSubscrSymbol{cVs}{\@specific\heatcapacitysymbol}{\volume@symbol}
+\DeclareSubscrSymbol{cPs}{\@specific\heatcapacitysymbol}{\pressure@symbol}
+\DeclareSubscrSymbol{kappaT}{\compressibilitysymbol}{\temperature@symbol}
+\DeclareSubscrSymbol{kappaS}{\compressibilitysymbol}{\entropy@symbol}
+\DeclareSubscrSymbol{alphaP}{\expansivitysymbol}{\pressure@symbol}
+\DeclareSubscrSymbol{alphaS}{\expansivitysymbol}{\entropy@symbol}
+\newcommand*{\sat}{{\text{sat}}}
+\newcommand*{\Psat}{P^\sat}
+\let\Pvap\Psat
+\newcommand*{\phisat}{\phi^\sat}
+\newcommand*{\fsat}{f^\sat}
+\let\std\circ
+\newcommand*{\Pstd}{P^\std}
+\newcommand*{\fstd}{f^\std}
+\newcommand*{\mixing}{{\text{mix}}}
+\newcommand*{\Deltamix}[1]{\Delta{#1}_\mixing}
+\newcommand*{\fusion}{{\text{fus}}}
+\newcommand*{\reaction}{{\text{rxn}}}
+\newcommand*{\sublimation}{{\text{sub}}}
+\newcommand*{\vaporization}{{\text{vap}}}
+\newcommand*{\formation}{f}
+\newcommand*{\Deltafus}[1]{\Delta{#1}^\fusion}
+\newcommand*{\Deltasub}[1]{\Delta{#1}^\sublimation}
+\newcommand*{\Deltavap}[1]{\Delta{#1}^\vaporization}
+\let\Delta@rxn@sym\relax
+\DeclareSubscrSymbol{@DeltarxncP}{\Delta@rxn@sym}{\pressure@symbol,\reaction}
+\DeclareSubscrSymbol{@Deltarxn}{\Delta@rxn@sym}{\reaction}
+\newcommand*{\Deltarxn}[1]{%
+    \def\tmp@arg{#1}%
+    \def\tmp@@arg{\cP}%
+    \ifx\tmp@arg\tmp@@arg\relax
+      \def\@command{\def\Delta@rxn@sym{\Delta\@intensive\heatcapacitysymbol}%
+                    \@DeltarxncP}
+    \else
+      \def\@command{\def\Delta@rxn@sym{\Delta{#1}}\@Deltarxn}
+    \fi
+    \@command
+}
+\let\Delta@f@sym\relax
+\DeclareSubscrSymbol{@Deltaf}{\Delta@f@sym}{f}
+\newcommand*{\Deltaf}[1]{\def\Delta@f@sym{\Delta{#1}}\@Deltaf}
+\newcommand*{\fmix}{\hat{f}}
+\newcommand*{\phimix}{\hat\phi}
+\newcommand*{\fpure}{f}
+\let\phipure\phi
+\let\pm@symbol\relax
+\newcommand*{\partialmolar}[1]{\gdef\pm@symbol{#1}\generic@pm}
+\def\generic@pm{\@ifnextchar_\@generic@pm\@@generic@pm}
+\def\@generic@pm#1#2{%
+    \gdef\pm@arg{#2}%
+    % if nextchar after argument is ^
+    \@ifnextchar^\@@@generic@pm\@@@@generic@pm
+}
+\def\@@@generic@pm#1#2{\thermo@overline{\pm@symbol^{#2}_{\pm@arg}}}
+\def\@@@@generic@pm{\thermo@overline{\pm@symbol_{\pm@arg}}}
+\def\@@generic@pm{\@ifnextchar^\@@@@@generic@pm\@pm@bracket@check}
+\def\@@@@@generic@pm#1#2#3#4{\thermo@overline{\pm@symbol^{#2}_{#4}}}
+\def\@pm@bracket@check{\@ifnextchar[\@pm@bracket@yes\@pm@bracket@no}
+\def\@pm@bracket@yes[#1]#2{\thermo@overline{\pm@symbol^{#1}_{#2}}}
+\def\@pm@bracket@no#1{\thermo@overline{\pm@symbol_{#1}}}
+\newcommand*{\Nt}{\mole@symbol}
+\newcommand*{\Et}{\@extensive\totalenergy@symbol}
+\newcommand*{\Ut}{\@extensive\internalenergy@symbol}
+\newcommand*{\Ft}{\@extensive\Helmholtz@symbol}
+\newcommand*{\Gt}{\@extensive\Gibbs@symbol}
+\newcommand*{\Ht}{\@extensive\enthalpy@symbol}
+\newcommand*{\Lt}{\@extensive\Landau@symbol}
+\newcommand*{\At}{\@extensive\area@symbol}
+\newcommand*{\St}{\@extensive\entropy@symbol}
+\newcommand*{\Vt}{\@extensive\volume@symbol}
+\newcommand*{\Qt}{\@extensive\heat@symbol}
+\newcommand*{\Wt}{\@extensive\work@symbol}
+\newcommand*{\Mt}{\@extensive M}
+\newcommand*{\Bt}{\@extensive B}
+\newcommand*{\Em}{\@intensive\totalenergy@symbol}
+\newcommand*{\Um}{\@intensive\internalenergy@symbol}
+\newcommand*{\Fm}{\@intensive\Helmholtz@symbol}
+\newcommand*{\Gm}{\@intensive\Gibbs@symbol}
+\newcommand*{\Hm}{\@intensive\enthalpy@symbol}
+\newcommand*{\Lm}{\@intensive\Landau@symbol}
+\newcommand*{\Am}{\@intensive\area@symbol}
+\newcommand*{\Sm}{\@intensive\entropy@symbol}
+\newcommand*{\Vm}{\@intensive\volume@symbol}
+\newcommand*{\Qm}{\@intensive\heat@symbol}
+\newcommand*{\Wm}{\@intensive\work@symbol}
+\newcommand*{\Mm}{\@intensive M}
+\newcommand*{\Bm}{\@intensive B}
+\newcommand*{\Us}{\@specific\internalenergy@symbol}
+\newcommand*{\Es}{\@specific\totalenergy@symbol}
+\newcommand*{\Fs}{\@specific\Helmholtz@symbol}
+\newcommand*{\Gs}{\@specific\Gibbs@symbol}
+\newcommand*{\Hs}{\@specific\enthalpy@symbol}
+\newcommand*{\Ls}{\@specific\Landau@symbol}
+\newcommand*{\As}{\@specific\area@symbol}
+\newcommand*{\Ss}{\@specific\entropy@symbol}
+\newcommand*{\Vs}{\@specific\volume@symbol}
+\newcommand*{\Qs}{\@specific\heat@symbol}
+\newcommand*{\Ws}{\@specific\work@symbol}
+\newcommand*{\Ms}{\@specific M}
+\newcommand*{\Bs}{\@specific B}
+\newcommand*{\Epm}{\partialmolar{\totalenergy@symbol}}
+\newcommand*{\Upm}{\partialmolar{\internalenergy@symbol}}
+\newcommand*{\Hpm}{\partialmolar{\enthalpy@symbol}}
+\newcommand*{\Fpm}{\partialmolar{\Helmholtz@symbol}}
+\newcommand*{\Gpm}{\partialmolar{\Gibbs@symbol}}
+\newcommand*{\Apm}{\partialmolar{\area@symbol}}
+\newcommand*{\Spm}{\partialmolar{\entropy@symbol}}
+\newcommand*{\Vpm}{\partialmolar{\volume@symbol}}
+\newcommand*{\Lpm}{\partialmolar{\Omega}}
+\newcommand*{\Mpm}{\partialmolar{M}}
+\newcommand*{\Bpm}{\partialmolar{B}}
+\newcommand*{\cPpm}{%
+  \def\@@@generic@pm##1##2{%
+    \thermo@overline{\pm@symbol^{##2}_{\pressure@symbol,\pm@arg}}}%
+  \def\@@@@generic@pm{\thermo@overline{\pm@symbol_{\pressure@symbol,\pm@arg}}}%
+  \def\@@@@@generic@pm##1##2##3##4{%
+    \thermo@overline{\pm@symbol^{##2}_{\pressure@symbol,##4}}}%
+  \def\@pm@bracket@yes[##1]##2{%
+    \thermo@overline{\pm@symbol^{##1}_{\pressure@symbol,##2}}}%
+  \def\@pm@bracket@no##1{\thermo@overline{\pm@symbol_{\pressure@symbol,##1}}}%
+  \partialmolar{\heatcapacitysymbol}%
+}
+\newcommand*{\cVpm}{%
+  \def\@@@generic@pm##1##2{%
+    \thermo@overline{\pm@symbol^{##2}_{\volume@symbol,\pm@arg}}}%
+  \def\@@@@generic@pm{\thermo@overline{\pm@symbol_{\volume@symbol,\pm@arg}}}%
+  \def\@@@@@generic@pm##1##2##3##4{%
+    \thermo@overline{\pm@symbol^{##2}_{\volume@symbol,##4}}}%
+  \def\@pm@bracket@yes[##1]##2{%
+    \thermo@overline{\pm@symbol^{##1}_{\volume@symbol,##2}}}%
+  \def\@pm@bracket@no##1{\thermo@overline{\pm@symbol_{\volume@symbol,##1}}}%
+  \partialmolar{\heatcapacitysymbol}%
+}
+\newcommand*{\residual}{R}
+\newcommand*{\excess}{E}
+\newcommand*{\UR}{\Um^\residual}
+\newcommand*{\HR}{\Hm^\residual}
+\newcommand*{\FR}{\Fm^\residual}
+\newcommand*{\GR}{\Gm^\residual}
+\newcommand*{\VR}{\Vm^\residual}
+\newcommand*{\SR}{\Sm^\residual}
+\newcommand*{\URt}{\Ut^\residual}
+\newcommand*{\HRt}{\Ht^\residual}
+\newcommand*{\FRt}{\Ft^\residual}
+\newcommand*{\GRt}{\Gt^\residual}
+\newcommand*{\VRt}{\Vt^\residual}
+\newcommand*{\SRt}{\St^\residual}
+\newcommand*{\URs}{\Us^\residual}
+\newcommand*{\HRs}{\Hs^\residual}
+\newcommand*{\FRs}{\Fs^\residual}
+\newcommand*{\GRs}{\Gs^\residual}
+\newcommand*{\VRs}{\Vs^\residual}
+\newcommand*{\SRs}{\Ss^\residual}
+\newcommand*{\URpm}{\partialmolar{\internalenergy@symbol^\residual}}
+\newcommand*{\HRpm}{\partialmolar{\enthalpy@symbol^\residual}}
+\newcommand*{\FRpm}{\partialmolar{\Helmholtz@symbol^\residual}}
+\newcommand*{\GRpm}{\partialmolar{\Gibbs@symbol^\residual}}
+\newcommand*{\VRpm}{\partialmolar{\volume@symbol^\residual}}
+\newcommand*{\SRpm}{\partialmolar{\entropy@symbol^\residual}}
+\newcommand*{\UE}{\Um^\excess}
+\newcommand*{\FE}{\Fm^\excess}
+\newcommand*{\HE}{\Hm^\excess}
+\newcommand*{\GE}{\Gm^\excess}
+\newcommand*{\SE}{\Sm^\excess}
+\newcommand*{\VE}{\Vm^\excess}
+\newcommand*{\UEt}{\Ut^\excess}
+\newcommand*{\FEt}{\Ft^\excess}
+\newcommand*{\HEt}{\Ht^\excess}
+\newcommand*{\GEt}{\Gt^\excess}
+\newcommand*{\SEt}{\St^\excess}
+\newcommand*{\VEt}{\Vt^\excess}
+\newcommand*{\UEs}{\Us^\excess}
+\newcommand*{\FEs}{\Fs^\excess}
+\newcommand*{\HEs}{\Hs^\excess}
+\newcommand*{\GEs}{\Gs^\excess}
+\newcommand*{\SEs}{\Ss^\excess}
+\newcommand*{\VEs}{\Vs^\excess}
+\newcommand*{\UEpm}{\partialmolar{\internalenergy@symbol^\excess}}
+\newcommand*{\HEpm}{\partialmolar{\enthalpy@symbol^\excess}}
+\newcommand*{\FEpm}{\partialmolar{\Helmholtz@symbol^\excess}}
+\newcommand*{\GEpm}{\partialmolar{\Gibbs@symbol^\excess}}
+\newcommand*{\VEpm}{\partialmolar{\volume@symbol^\excess}}
+\newcommand*{\SEpm}{\partialmolar{\entropy@symbol^\excess}}
+\newcommand*{\sumall}{\@ifnextchar_\@sumall\@@sumall}
+\def\@sumall#1#2{\sum_{#2=1}^{\ncomponents}}
+\def\@@sumall#1{\sum_{#1=1}^{\ncomponents}}
+\newcommand*{\sumallbutlast}{\@ifnextchar_\@sumallbutlast\@@sumallbutlast}
+\def\@sumallbutlast#1#2{\sum_{#2=1}^{\ncomponents-1}}
+\def\@@sumallbutlast#1{\sum_{#1=1}^{\ncomponents-1}}
+\newcommand*{\prodall}{\@ifnextchar_\@prodall\@@prodall}
+\def\@prodall#1#2{\prod_{#2=1}^{\ncomponents}}
+\def\@@prodall#1{\prod_{#1=1}^{\ncomponents}}
+\newcommand*{\IG}{{\text{IG}}}
+\newcommand*{\IGM}{{\text{IGM}}}
+\newcommand*{\IS}{{\text{IS}}}
+\newcommand*{\Henryrat}{h}
+\newcommand*{\Henrymol}{{\mathcal{H}}}
+\AtBeginDocument{%
+  \providecommand*{\square}{%
+    \text{\leavevmode
+      \hbox to.77778em{%
+      \hfil\vrule
+      \vbox to.6em{\hrule width.6em\vfil\hrule}%
+      \vrule\hfil}%
+    }%
+  }%
+}
+\newcommand*{\gammarat}{\gamma^\ast}
+\newcommand*{\gammamol}{\gamma^\square}
+\newcommand*{\Jacobian}[4]{\frac{\partial{(#1,#2)}}{\partial{(#3,#4)}}}%
+\endinput
+%%
+%% End of file `thermodynamics.sty'.

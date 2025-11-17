@@ -1,0 +1,486 @@
+% \iffalse meta-comment
+% !TEX program  = pdfLaTeX
+%<*internal> 
+\iffalse
+%</internal> 
+%<*readme> 
+-----------------------------------------------------------------
+##### keyparse --- key-based parser 
+- Source repository: https://github.com/rogard/keyparse
+- Released under the LaTeX Project Public License v1.3c or later
+- See http://www.latex-project.org/lppl.txt
+-----------------------------------------------------------------
+%</readme> 
+%<*internal> 
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+\expandafter\begingroup
+\fi
+%</internal> 
+%<*install> 
+\input l3docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+-----------------------------------------------------------------------------
+keyparse ---  key-based parser 
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2021 by Erwann Rogard
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Erwann Rogard.
+
+This work consists of the file keyparse.dtx and the derived files:
+keyparse.sty, and keyparse.pdf.
+
+\endpostamble
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install> 
+%<install> \endbatchfile
+%<*internal> 
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\generate{
+  \file{README.md}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+\expandafter\endbatchfile
+\else
+\expandafter\endgroup
+\fi
+%</internal> 
+%<package> \NeedsTeXFormat{LaTeX2e}[2021-06-01]
+%<package> \RequirePackage{expl3, xparse, l3keys2e}[2021-06-01]
+%<package> \ProvidesExplPackage
+%<package> {keyparse}                                             % Package name
+%<package> {2021-08-18}                                           % Release date
+%<package> {1.1}                                                  % Release version
+%<package> {keyparse --- key-based parser  }                      % Description
+%<*driver>
+\documentclass[show-notes]{l3doc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+%^^A\documentclass[full, show-notes]{l3doc}
+%^^A \listfiles
+\usepackage{amsmath, bookmark, enumitem, mathtools, microtype, tcolorbox, xparse}
+\usepackage[french, german, english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[bibencoding=auto, backend=biber, sorting=ynt]{biblatex}
+\begin{filecontents*}{\jobname.bib}
+@manual{interface3,
+  title        = {The \LaTeX3 interfaces},
+  author       = {The \LaTeX3 Project Team},
+  year         = {2019},
+  note         = {\url{https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/l3kernel/expl3.pdf}},
+  annote       = {} }
+@manual{xparse,
+  title        = {The \pkg{xparse} package},
+  author       = {The \LaTeX3 Project Team},
+  year         = {2019},
+  note         = {\url{https://ctan.math.illinois.edu/macros/latex/contrib/l3packages/xparse.pdf}},
+  annote       = {} }
+@misc{a-188053,
+  author       = {@{}sean-allred},
+  title        = {``How to create lambda expressions?''},
+  year         = {2014},
+  note         = {\url{https://tex.stackexchange.com/a/188053/112708}}}
+\end{filecontents*}
+\addbibresource{\jobname.bib}
+\ExplSyntaxOn
+%^^A *** Sectioning
+\tl_gset:Nn \partname {Part}%^^A allows to test w/o babel
+\makeatletter
+\newcommand*{\docsetnameref}
+{\def\@currentlabelname}%https://tex.stackexchange.com/questions/537751
+\makeatother
+\newcounter{cscounter}
+\ProvideDocumentCommand
+\DocPhantomSection{sO{subsection}D<>{}mo}
+{\leavevmode
+  \refstepcounter{cscounter}
+  \IfBooleanF{#1}{\addcontentsline{toc}{#2}{#4}}
+  \IfValueT{#5}
+  {\docsetnameref{#3#4}\label{#5}}}
+% ^^A *** Msg
+\msg_new:nnn{__keyparse_doc}{unknown}{~#1:#2~unknown}
+% ^^A *** Expressions
+\ProvideDocumentCommand{\pkgpattpair}{mm}{\texttt{>\{#1\}\{#2\}}}
+\ProvideDocumentCommand{\pkgrule}{}{\texttt{$\rightarrow$}}
+% ^^A *** L3 package
+\ProvideDocumentCommand{\docplaceh}{mO{1}}{\texttt{\prg_replicate:nn{#2}{\#}#1}}
+% ^^A *** Lists
+\newlist{arab-inl}{enumerate*}{1}
+\setlist[arab-inl]{label=\arabic*)}
+\newlist{colon-inl}{itemize*}{1}
+\setlist[colon-inl]
+{ %^^Abefore=\noindent,
+  label={},
+  itemjoin={{; }},
+  after={{.}}}
+\newlist{descr}{description}{1}
+\setlist[descr]{nosep, align=right, itemindent=0pt, font=\sffamily\tiny}
+\ExplSyntaxOff
+%^^A *** listing
+\tcbuselibrary{listings, breakable}
+\newtcblisting[auto counter]
+{listing}[2][]{
+  noparskip,
+  breakable,
+  colback=white,
+  colframe=black,
+  opacitybacktitle=.8,%
+  fonttitle=\bfseries,
+  title={Listing~\thetcbcounter. #1},
+  arc=0pt,
+  outer arc=0pt,
+  boxrule=1pt,
+  listing and text,
+  #2}
+\newtcblisting
+{internal}
+{text only,
+  breakable,
+  colback=white,
+  fontupper=\sffamily,
+  arc=1pt,
+  outer arc=1pt,
+  boxrule=0pt,
+  halign=left,
+  fontupper=\small\sffamily,
+  left=0pt,
+  top=0pt,
+  bottom=0pt}
+\usepackage{keyparse}
+\usepackage{hyperref} %^^A comes last
+\begin{document}
+\DocInput{\jobname.dtx}
+\end{document}
+%</driver> 
+% \fi
+% 
+% \GetFileInfo{\jobname.sty}
+% \title{The \pkg{keyparse} package\thanks{^^A
+% This file describes version \fileversion, last revised \filedate.^^A
+% }^^A
+% }
+%   \author{Erwann Rogard\thanks{first.lastname at gmail.com}}
+%   
+%   \date{Released \filedate}
+%   \begin{documentation}
+%     
+%     \maketitle
+%     
+%     \begin{abstract} 
+%       This \LaTeX package provides an interface to define and evaluate key-based replacement rules\cite{interface3}.
+%     It can be used to parse the argument specification of a document command\cite{xparse}.
+%     \end{abstract}
+%     
+%     \tableofcontents 
+%     
+%     \part{Usage}\label{part:usage}
+%
+%     \section{Document command}
+%     \begin{function}{KeyparseKeys}
+%       \begin{syntax}
+%         \cs{KeyparseKeys}\Arg{rule}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Expands~to] The keys associated with \meta{rule}
+%       \end{descr}
+%     \end{function}
+%
+%     \begin{function}{KeyparseEval}
+%       \begin{syntax}
+%         \cs{KeyparseEval}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Adapts] \nameref{cs:keyparse:eval}
+%       \end{descr}
+%     \end{function}
+%
+%     \section{Programming}
+%     \DocPhantomSection*{\cs{keyparse_set:nnnnn}}[cs:keyparse:rule]
+%     \begin{function}{\keyparse_set:nnnnn}
+%       \begin{syntax}
+%         \cs{keyparse_set:nnnnn}\Arg{rule}\Arg{key}\Arg{signature}\Arg{replacement}\Arg{recurse}
+%       \end{syntax}
+%     \begin{descr}
+%     \item[Requires]
+%       \begin{colon-inl}
+%       \item \meta{rule} is a token~list
+%       \item \meta{key}\meta{signature} is a valid \enquote{weird} argument specifier\cite[Naming functions and variables]{interface3}
+%       \item \meta{replacement} and \meta{recurse} are in terms of \meta{signature}
+%       \end{colon-inl}
+%     \item[Semantics] As shown under {\sffamily\tiny{}Expands~to} for \nameref{cs:keyparse:eval}
+%     \item[Tip] Using |{|\meta{token}|}| as \meta{replacement}, one can iterate over the result of \nameref{cs:keyparse:eval} using \cs[no-index]{tl_map_function:nN}.
+%       Using \meta{token}, instead, merges the \meta{tokens}'s.
+%     \end{descr}
+%     \end{function}
+%     
+%     \DocPhantomSection*{\cs{keyparse_eval:nn}}[cs:keyparse:eval]
+%     \begin{function}[EXP]{\keyparse_eval:nn}
+%       \begin{syntax}
+%         \cs{keyparse_eval:nn}\Arg{rule}|{|\meta{key}\meta{args}|}|
+%       \end{syntax}
+%     \end{function}
+%     \begin{descr}
+%     \item[Requires] \meta{args} is compatible with \meta{signature} for that \meta{rule} and \meta{key}
+%     \item[Expands~to] \meta{replacement}\nameref{cs:keyparse:eval}\Arg{rule}\Arg{recurse}
+%     \end{descr}
+%
+%     \subsection*{Other}
+%     \begin{function}[EXP]{\keyparse_argspec_e:n}
+%       \cs{keyparse_argspec_e:n}\Arg{token list}
+%     \end{function}
+%
+%     \section{Rule}
+%     Hereafter are rules defined with \nameref{cs:keyparse:rule}.
+%
+%     \DocPhantomSection{\textsf{argspec}}[keyparse:argspec]
+%     \DescribeEnv{argspec}
+%     \begin{descr}
+%     \item[Keys] \KeyparseKeys{argspec}
+%     \item[Requires] \meta{key_i}\meta{arg_i} is a valid document-command argument specifier\cite{xparse}
+%     \item[Rule i] \meta{key_i}\meta{arg_i}\pkgrule|{|\meta{key_i}\meta{arg_i}|}|
+%     \end{descr}
+%     
+%     \DocPhantomSection{\textsf{pair/first}}[keyparse:pair:first]
+%     \DescribeEnv{pair/first}
+%     \begin{descr}
+%     \item[Keys] \KeyparseKeys{pair/first}
+%     \item[Rule 1] \pkgpattpair{\meta{first}}{\meta{second}}\pkgrule\meta{first}
+%     \end{descr}
+%     
+%     \DocPhantomSection{\textsf{pair/merge}}[keyparse:pair:merge]
+%     \DescribeEnv{pair/merge}
+%     \begin{descr}
+%    \item[Keys] \KeyparseKeys{pair/merge}
+%     \item[Rule 1] \pkgpattpair{\meta{first}}{\meta{second}}\pkgrule\meta{first}\meta{second}
+%     \end{descr}
+%    
+% \clearpage
+% \part{Listing}\label{part:listing}
+% \addcontentsline{toc}{subsection}
+% {\ref{listing:keyparse:plain}.
+% Making rules for \texttt{\&}, \texttt{>\{.\}}, and \texttt{+.+}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}
+  [Making rules for \texttt{\&}, \texttt{>\{.\}}, and \texttt{+.+}]
+  {label=listing:keyparse:plain}
+  \ExplSyntaxOn
+  \group_begin:
+  \keyparse_set:nnnnn{foo}{&}{#1}{{&}}{#1}
+  \keyparse_set:nnnnn{foo}{>}{#1#2}{{#1}}{#2}
+  \keyparse_set:nnnnn{foo}{+}{#1+#2}{{#1}}{#2}
+  \exp_args:Nx
+  \tl_map_inline:nn
+  {\keyparse_eval:nn{foo}{&>{123}+xyz+}}
+  {\texttt{(\tl_to_str:n{#1})}}
+  \group_end:
+  \ExplSyntaxOff
+ \end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}
+% {\ref{listing:keyparse:leslie}. Embedding `\LaTeX' in \enquote{Leslie Lamport built \dots}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}
+  [Embedding `\LaTeX' in \enquote{Leslie Lamport built \dots}]
+  {label=listing:keyparse:leslie}
+  \begingroup
+  \KeyparseEval{pair/first}
+  {>{}{Leslie~}
+    >{La}{mport~built~LaTeX~on~top~of~Donald~Knuth's~}
+    >{TeX}{.}}
+  \endgroup
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}
+% {\ref{listing:keyparse:argspec}. \nameref{keyparse:argspec}.}
+% \iffalse
+%<*guardlisting> 
+% \fi
+ \begin{listing}
+   [\nameref{keyparse:argspec}]
+   {label=listing:keyparse:argspec}
+   \ExplSyntaxOn
+   \group_begin:
+   \tl_set:Nx\l_tmpa_tl
+   {\keyparse_eval:nn{argspec}{msotae{_^}r<]d[>}}
+   \exp_args:Nx
+   \tl_map_inline:Nn
+   \l_tmpa_tl
+   {\texttt{(\tl_to_str:n{#1})}}
+   \group_end:
+   \ExplSyntaxOff
+ \end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+%
+% \section{Support}\label{other:support}
+% 
+% This package is available from \url{https://github.com/rogard/keyparse}.
+%
+% \changes{Version 1.0}
+% {2020/08/03}
+% {Initial version}
+% \changes{Version 1.1}
+% {2020/08/18}
+% {Name change from lex to keyparse at request of ctan}
+%
+%   \StopEventually{
+%    \clearpage
+%      \PrintChanges
+%   ^^A   \PrintIndex % https://tex.stackexchange.com/q/610349/112708
+%   }
+%\end{documentation}
+% \begin{implementation}
+%   \part{Implementation}\label{part:impl}
+%    \begin{macrocode}
+%<*package>      
+%<@@=keyparse>      
+\ExplSyntaxOn
+%    \end{macrocode}
+% \section{\textsf{keyparse}}
+% \subsection{Interface}
+% \begin{macro}[int]
+%   {not-set}
+%    \begin{macrocode}
+\msg_new:nnn
+{@@}
+{not-set}
+{recursion~for~rule~#1~is~not~set}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}
+%   {\@@_keyparse_rule_w:n,
+%   \@@_keyparse_rule:n,
+%   \@@_keyparse_eval_aux:nn,
+%   \@@_keyparse_eval_aux:ne}
+%   \begin{arguments}
+%   \item rule
+%   \end{arguments}
+%    \begin{macrocode}
+\cs_new_protected:Nn
+\@@_keyparse_rule_w:n
+{\clist_clear_new:c{@@_keys_#1_clist}
+  \cs_new:cpn
+  {@@_keyparse_eval_#1:w} ##1 ##2 \q_recursion_stop
+  {\quark_if_recursion_tail_stop:n{##1}
+    \use:c{@@_keyparse_eval_#1_##1:w}##2\q_recursion_stop }}
+\cs_new_protected:Nn
+\@@_keyparse_rule:n{\@@_keyparse_rule_w:n{#1}}
+\cs_new:Nn
+\@@_keyparse_eval_aux:nn
+{\cs_if_exist:cTF
+  {@@_keyparse_eval_#1:w}
+  { \use:c{@@_keyparse_eval_#1:w}#2
+    \q_recursion_tail
+    \q_recursion_stop}
+  {\msg_error:nnn{@@}
+    {not-set}
+    {#1}}}
+\cs_generate_variant:Nn\@@_keyparse_eval_aux:nn{ne}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}
+%   {\keyparse_eval:nn,
+%   \keyparse_set:nnnnn}
+%    \begin{macrocode}
+\cs_new:Nn
+\keyparse_eval:nn
+{\@@_keyparse_eval_aux:ne{#1}
+  {\tl_trim_spaces:n{#2}}}
+\cs_new_protected:Nn
+\keyparse_set:nnnnn
+{\cs_if_exist:cTF
+  {@@_keyparse_eval_#1:w}
+  {\clist_put_right:cn
+    {@@_keys_#1_clist}{\texttt{\tl_to_str:n{#2}}}
+    \cs_new:cpn
+    {@@_keyparse_eval_#1_#2:w}#3 \q_recursion_stop
+    {#4\use:c{@@_keyparse_eval_#1:w}#5 \q_recursion_stop}}
+  {\@@_keyparse_rule:n{#1}
+    \keyparse_set:nnnnn
+    {#1}{#2}{#3}{#4}{#5}}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\KeyparseKeys, \KeyparseEval}
+%    \begin{macrocode}
+\ProvideDocumentCommand
+{\KeyparseKeys}
+{m}
+{\clist_use:cnnn
+  {@@_keys_#1_clist}
+  {~and~}{,~}{~and~}}
+\NewDocumentCommand{\KeyparseEval}
+{mm}
+{\keyparse_eval:nn{#1}{#2}}
+%    \end{macrocode}
+% \end{macro}
+% \subsection{\textsf{argspec}}\label{impl:argspec}
+% \begin{macro}
+%   {\keyparse_argspec_e:n}
+%    \begin{macrocode}
+\cs_new:Nn\keyparse_argspec_e:n{{e{#1}}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}[int]
+%   {argspec}
+%   Expandability forbids inline, hence \cs{keyparse_argspec_e:n} for key `e'
+%    \begin{macrocode}
+\keyparse_set:nnnnn{argspec}{e}{#1#2}
+{  \tl_map_function:nN{#1}\keyparse_argspec_e:n}{#2}
+\keyparse_set:nnnnn{argspec}{d}{#1#2#3}{{d#1#2}}{#3}
+\keyparse_set:nnnnn{argspec}{m}{#1}{{m}}{#1}
+\keyparse_set:nnnnn{argspec}{o}{#1}{{o}}{#1}
+\keyparse_set:nnnnn{argspec}{r}{#1#2#3}{{r#1#2}}{#3}
+\keyparse_set:nnnnn{argspec}{s}{#1}{{s}}{#1}
+\keyparse_set:nnnnn{argspec}{t}{#1#2}{{t#1}}{#2}
+%    \end{macrocode}
+% \end{macro}
+% \subsection{\textsf{pair}}\label{impl:pair}
+% \begin{macro}[int]
+%   {pair/first,
+%   pair/merge}
+%    \begin{macrocode}
+\keyparse_set:nnnnn{pair/first}{>}{#1#2#3}{#1}{#3}
+\keyparse_set:nnnnn{pair/merge}{>}{#1#2#3}{#1#2}{#3}
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
+\ExplSyntaxOff
+%</package> 
+%    \end{macrocode}
+% \end{implementation}
+% \Finale
+\endinput

@@ -1,0 +1,760 @@
+% \iffalse
+% Copyright 2022 Jiro Senju
+%
+% This package is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% any later version.
+%
+% This package is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this package.  If not, see <http://www.gnu.org/licenses/>.
+% \fi
+%
+% \section{Individual Box (\texttt{ft-individual.dtx})}
+%
+% \DescribeMacro{\indvdldef}
+% \indent
+% \cmd{\indvdldef
+%   \oarg{child mark}
+%   \marg{new box name}
+%   \oarg{title}
+%   \marg{individual name}
+%   \oarg{additional info}
+%   \oarg{maleline xlength}
+% }
+% \medskip
+%
+% Defines a new box named \meta{new box name}, and layouts the
+% given arguments in that box.
+%
+% \begin{enumerate}
+% \item \oarg{child mark}
+% \par
+% The type of a line which is located ahead of the individual name.
+% \par
+% Specify one of |\ftbiological|,
+% |\ftadopted|,
+% |\fttop|,
+% or |\ftblank|.
+% Details are discussed later.
+%
+% \item \marg{new box name}
+% \par
+% The name of a new box.
+% \par
+% This is not a \CS{} (no backslash).
+%
+% \item \oarg{title}
+% \par
+% One's title.
+% \par
+% Put at the shoulder of the individual name with a smaller font
+% (|\relsize{-2}|).
+%
+% \item \marg{individual name}
+% \par
+% One's name.
+%
+% \item \oarg{additional info}
+% \par
+% Additional information.
+% \par
+% Anything can be added such as birth\slash death year-month-date and alias.
+% Put with a little smaller font (|\relsize{-1}|) at next to the individual name.
+% Also the attributes (discussed later),
+% |\ftmaleline| (|\ftfemaleline|, |\ftpatrilineal|, |\ftmatrilineal|),
+% \allowbreak|\fthaschild|,
+% |\ftprivate| are specified here.
+%
+% \item \oarg{maleline xlength}
+% \par
+% When you draw a line from an individual (instead of a marriage box) to
+% a child, the length of the line can be adjusted by this argument.
+% But in the sibling box, the line length will be adjusted automatically
+% regardless this argument.
+% \end{enumerate}
+%
+% Also |\indvdldef| defines some connection points as \CS. The origin is
+% left-bottom of the box and the unit is |pt|.
+%
+% \begin{table}
+% \hfil\begin{tabular}{ll}
+% \meta{box name}|nameX| &
+% the tail of the individual name
+% \\
+%
+% \meta{box name}|nameCX| &
+% the center of the width of individual name
+% \\
+%
+% \meta{box name}|nameCY| &
+% the center of the height of individual name
+% \end{tabular}
+% \end{table}
+%
+% For \oarg{child mark}, you can specify one of these values.
+%
+% \begin{itemize}
+% \item |\biological| or |\ftbiological|
+% \par
+% a single line to represent a biological\slash real child.
+%
+% \item |\adopted| or |\ftadopted|
+% \par
+% a double line to represent an adopted child.
+%
+% \item |\fttop| (or |\top|)
+% \par
+% no line at all.
+%
+% \item |\blank| or |\ftblank|
+% \par
+% put a space whose size is equal to the |\biological| or |\adopted| mark,
+% assuming used for the spouse in a marriage box.
+% \end{itemize}
+% \bigskip
+%
+% For \oarg{additional info}, you can specify any of these attributes.
+%
+% \begin{itemize}
+% \item |\haschild| or |\fthaschild|
+% \par
+% represents a spouse who has a child.
+% draws a line in a marriage box to their child from the center of the
+% double line which represents a marriage.
+%
+% \item |\private| or |\ftprivate|
+% \par
+% represents the marriage is not official.
+% draws a dashed double line.
+%
+% \item |\maleline| or |\ftmaleline|
+% \par
+% draws a line to a child from the individual name instead of the double
+% line in the marriage box.
+% |\ftfemaleline|,
+% |\ftpatrilineal|,
+% |\ftmatrilineal| are all equivalent.
+% \end{itemize}
+% \bigskip
+%
+% The individual box consists of a few smaller boxes.
+%
+% \begin{itemize}
+% \item |\ft@titlebox|
+% \item |\ft@namebox|
+% \par
+% In |\ft@namebox|, there are |\ft@cmarkbox| which represents the
+% \meta{child mark}
+% and |\ft@malelinebox| which represents \meta{maleline}.
+%
+% \item |\ft@optbox|
+% \end{itemize}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Customization}
+%
+% \DescribeMacro{\nameboxcfg}
+% \indent
+% \cmd{\nameboxcfg
+%   \marg{space from the child mark}
+%   \marg{font}
+%   \marg{space to the maleline}
+%   \marg{maleline length}
+% }
+% \medskip
+%
+% \DescribeMacro{\cmarkboxcfg}
+% \cmd{\cmarkboxcfg
+%   \marg{space between two lines, for adopted}
+%   \marg{line length}
+% }
+% \medskip
+%
+% \DescribeMacro{\titleboxcfg}
+% \cmd{\titleboxcfg
+%   \marg{indent}
+%   \marg{font}
+%   \marg{linestretch}
+%   \marg{vspace to the individual name}
+% }
+% \medskip
+%
+% \DescribeMacro{\optboxcfg}
+% \cmd{\optboxcfg
+%   \marg{vspace from the individual name}
+%   \marg{indent}
+%   \marg{font}
+%   \marg{linestretch}
+% }
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \needspace{12ex}
+% \subsection{Example}
+%
+% \begin{enumerate}
+% \item
+% \srcfig{fig1Robert1}
+%
+% \item
+% \srcfig{fig1Robert2}
+% \end{enumerate}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsectImpl
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Child-mark box}
+%
+% \parag{Customization}
+%
+% \DescribeMacro{\ftcmarkboxcfg}
+% \DescribeMacro{\cmarkboxcfg}
+%
+%    \begin{macrocode}
+\newlength{\ft@cmarkbox@adopted@sep}
+\setlength{\ft@cmarkbox@adopted@sep}{4pt}
+\newlength{\ft@cmarkbox@length}
+\setlength{\ft@cmarkbox@length}{1\ft@unit}
+\newcommand{\ftcmarkboxcfg}[2]{% adopted-sep line-length
+  \ifx#1\empty\else%
+    \setlength{\ft@cmarkbox@adopted@sep}{#1}%
+  \fi%
+  \ifx#2\empty\else%
+    \setlength{\ft@cmarkbox@length}{#2}%
+  \fi%
+}
+\ft@alias{cmarkboxcfg}
+%    \end{macrocode}
+%
+% \parag{Define a box}
+%
+% \DescribeMacro{\fttop}
+% \DescribeMacro{\top}
+% \DescribeMacro{\ftbiological}
+% \DescribeMacro{\biological}
+% \DescribeMacro{\ftadopted}
+% \DescribeMacro{\adopted}
+% \DescribeMacro{\ftblank}
+% \DescribeMacro{\blank}
+%
+%    \begin{macrocode}
+\chardef\fttop=0
+\chardef\ftbiological=1
+\chardef\ftadopted=2
+\chardef\ftblank=3
+\ft@alias{top}
+\ft@alias{biological}
+\ft@alias{adopted}
+\ft@alias{blank}
+%    \end{macrocode}
+%
+% \DescribeMacro{\ft@indvdl@nameH}
+% \DescribeMacro{\ft@indvdl@nameD}
+% \DescribeMacro{\ft@indvdl@nameCY}
+% \DescribeMacro{\ft@do@cmarkdef}
+% \DescribeMacro{\ft@cmarkdef}
+%
+%    \begin{macrocode}
+\newsavebox{\ft@cmarkbox}
+\newlength{\ft@cmarkW}
+\newlength{\ft@indvdl@nameH}
+\newlength{\ft@indvdl@nameD}
+\newlength{\ft@indvdl@nameCY}
+\newcommand{\ft@do@cmarkdef}[4]{% cmarkbox-name cmark width line-length
+  \ft@savenamebox{#1}{%
+    \edef\@w{\strip@pt#3}%
+    \edef\@h{\strip@pt\ft@indvdl@nameH}%
+    \edef\@l{\strip@pt#4}%
+    \begin{picture}(\@w,\@h)%
+      \ft@dbgframe{\@w,\@h}%
+      \ifcase#2% fttop
+      \or% ftbiological
+        \put(0,\strip@pt\ft@indvdl@nameCY){\line(1,0){\@l}}%
+      \or% ftadopted
+        \ft@y=\dimexpr\ft@indvdl@nameCY%
+          + .5\ft@cmarkbox@adopted@sep\relax%
+        \put(0,\strip@pt\ft@y){\line(1,0){\@l}}%
+        \advance\ft@y -\ft@cmarkbox@adopted@sep%
+        \put(0,\strip@pt\ft@y){\line(1,0){\@l}}%
+      \or% \ftblank
+      \fi%
+    \end{picture}%
+  }%
+  \ft@nameboxsz{#1}{\ft@indvdl@nameH}{\ft@indvdl@nameD}%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand{\ft@cmarkdef}[4]{%
+  % cmarkbox-name cmark cmark-xlength cmark-space
+  \ft@savenamebox{#1}{}% empty
+  \ifcase#2% fttop
+  \else%
+    \ft@len=\dimexpr\ft@cmarkbox@length + #3\relax\relax%
+    \ifdim\ft@len>0pt%
+      \ft@do@cmarkdef{#1}{#2}{\dimexpr\ft@len + #4\relax}{\ft@len}%
+    \fi%
+  \fi%
+  \ft@dbgbox{\@nameuse{#1}}%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \needspace{3\baselineskip}
+% \subsubsection{Additional info box}
+% \nopagebreak
+%
+% \parag{Customization}
+%
+% \DescribeMacro{\ftoptboxcfg}
+% \DescribeMacro{\optboxcfg}
+%
+%    \begin{macrocode}
+\newlength{\ft@optbox@vsp}
+\setlength{\ft@optbox@vsp}{.1\baselineskip}
+\newlength{\ft@optbox@indent}
+\setlength{\ft@optbox@indent}{1.1\ft@unit}
+\newcommand{\ft@optbox@font}{\relsize{-1}}%{\footnotesize}
+\newcommand{\ft@optbox@linestretch}{.75}
+\newcommand{\ftoptboxcfg}[4]{% vsp indent font linestretch
+  \ifx#1\empty\else%
+    \setlength{\ft@optbox@vsp}{#1}%
+  \fi%
+  \ifx#2\empty\else%
+    \setlength{\ft@optbox@indent}{#2}%
+  \fi%
+  \ifx#3\empty\else%
+    \renewcommand{\ft@optbox@font}{#3}%
+  \fi%
+  \ifx#4\empty\else%
+    \renewcommand{\ft@optbox@linestretch}{#4}%
+  \fi%
+}
+\ft@alias{optboxcfg}
+%    \end{macrocode}
+%
+% \parag{Parsing}
+%
+% \DescribeMacro{\ftmaleline}
+% \DescribeMacro{\maleline}
+% \DescribeMacro{\fthaschild}
+% \DescribeMacro{\haschild}
+% \DescribeMacro{\ftprivate}
+% \DescribeMacro{\private}
+%
+%    \begin{macrocode}
+\newcommand{\ftmaleline}{ft@attr0}
+\let\ftfemaleline=\ftmaleline
+\let\ftpatrilineal=\ftmaleline
+\let\ftmatrilineal=\ftmaleline
+\newcommand{\fthaschild}{ft@attr1}
+\newcommand{\ftprivate}{ft@attr2}
+\ft@alias{maleline}
+\ft@alias{femaleline}
+\ft@alias{patrilineal}
+\ft@alias{matrilineal}
+\ft@alias{haschild}
+\ft@alias{private}
+%    \end{macrocode}
+%
+% \DescribeMacro{\ft@optlist}
+%
+% Extracts the attributes from \meta{option-list} (which is
+% \meta{additional info} itself) and sets a global flag whose name is
+% generated using \meta{box-name}.
+% Other than the attributes are appended another list, \meta{list} which
+% will be printed later.
+%
+%    \begin{macrocode}
+\newcommand{\ft@optlist}[3]{% list box-name option-list
+  \edef\@male{\ftmaleline}%
+  \edef\@hasch{\fthaschild}%
+  \edef\@priv{\ftprivate}%
+  \@for\@temptokena:=#3\do{%
+    \edef\@opt{\@temptokena}%
+    \ft@dbgmsg{\@opt}%
+    \ifx\@opt\@male%
+      \global\ft@malelinetrue%
+      \ft@namexdef{#2hasmaleline}{\ftmaleline}%
+    \else%
+      \ifx\@opt\@hasch%
+        \ft@namexdef{#2haschild}{\fthaschild}%
+      \else%
+        \ifx\@opt\@priv%
+          \ft@namexdef{#2private}{\ftprivate}%
+        \else%
+          \ft@list@append{#1}{\@opt}%
+        \fi%
+      \fi%
+    \fi%
+  }%
+}
+%    \end{macrocode}
+%
+% \parag{Define a box}
+%
+% \DescribeMacro{\ft@opt}
+%
+%    \begin{macrocode}
+\newsavebox{\ft@optbox}
+\newcommand{\ft@opt}[1]{% option-list
+  \savebox{\ft@optbox}{%
+    \hspace{\ft@cmarkW}%
+    \hspace{\ft@optbox@indent}%
+    \vbox{%
+      \def\baselinestretch{\ft@optbox@linestretch}%
+      \ft@optbox@font%
+      \vspace{\ft@optbox@vsp}%
+      \@for\@temptokena:=#1\do{%
+        \vss%
+        \hbox{\@temptokena}%
+        \setbox\@tempboxa=\hbox{\@temptokena}%
+        \global\ft@depth=\dp\@tempboxa%
+      }%
+    }%
+  }%
+  \ft@len=\dimexpr\ht\ft@optbox + \dp\ft@optbox - \ft@depth\relax%
+  \ft@boxsz{\ft@optbox}{\ft@len}{\ft@depth}%
+  \ft@dbgbox{\ft@optbox}%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Name box}
+%
+% \parag{Customization}
+%
+% \DescribeMacro{\ftnameboxcfg}
+% \DescribeMacro{\nameboxcfg}
+%
+%    \begin{macrocode}
+\newlength{\ft@namebox@sp}
+\setlength{\ft@namebox@sp}{.25\ft@unit}
+\newcommand{\ft@namebox@font}{}% empty
+\newlength{\ft@namebox@maleline@sp}
+\setlength{\ft@namebox@maleline@sp}{.25\ft@unit}
+\newlength{\ft@namebox@maleline@length}
+\setlength{\ft@namebox@maleline@length}{1.5\ft@unit}
+\newcommand{\ftnameboxcfg}[4]{% sp font maleline-sp maleline-length
+  \ifx#1\empty\else%
+    \setlength{\ft@namebox@sp}{#1}%
+  \fi%
+  \ifx#2\empty\else%
+    \renewcommand{\ft@namebox@font}{#2}%
+  \fi%
+  \ifx#3\empty\else%
+    \setlength{\ft@namebox@maleline@sp}{#3}%
+  \fi%
+  \ifx#4\empty\else%
+    \setlength{\ft@namebox@maleline@length}{#4}%
+  \fi%
+}
+\ft@alias{nameboxcfg}
+%    \end{macrocode}
+%
+% \parag{Define a box}
+%
+% \DescribeMacro{\ft@name}
+%
+% Internally layouts |\ft@cmarkbox|, \meta{individual-name}, and
+% |\ft@malelinebox|.
+% It was difficult to set the length of |maleline|, ie. where to begin the
+% line. Which is better for the head of |maleline|, at the box end of the
+% \meta{individual-name} or at the box end including all the
+% \meta{title}, \meta{individual-name} and \meta{additional info}?
+%
+% The latter looks good, especially when the defined individual box is
+% used alone. But it makes hard for other box definitions to calculate the
+% extra line length to align equal.
+% For such calculation, the former is better since it just has to calculate
+% the difference of the length of names.
+% Finally, I decided to start the line at the end of
+% \meta{individual-name}, and the default length is
+% |\ft@namebox@maleline@length|.
+%
+% In other words, it can happen when an individual box is used alone, the
+% \meta{title} or the \meta{additional info} may be longer than |maleline|.
+%
+%    \begin{macrocode}
+\newif\ifft@maleline
+\newsavebox{\ft@malelinebox}
+\newsavebox{\ft@namebox}
+\newcommand{\ft@name}[3]{% box-name individual-name maleline-xlength
+  \setbox\@tempboxa=\hbox{\ft@namebox@font#2}%
+  \ft@len=\dimexpr\wd\@tempboxa + \ft@cmarkW%
+    + \ft@namebox@maleline@sp\relax%
+  \ft@namexdefstrip{#1nameX}{\ft@len}%
+  %
+  \ft@len=\dimexpr\wd\@tempboxa/2 + \ft@cmarkW\relax%
+  \ft@namexdefstrip{#1nameCX}{\ft@len}%
+  %
+  \def\@nm{\ft@namebox@font#2}%
+  \ifft@maleline%
+    % why are two 'relax'es necessary?
+    \@tempskipb=\dimexpr\ft@namebox@maleline@length%
+      - \ft@cmarkbox@length + #3\relax\relax%
+    \ifdim\@tempskipb>0pt%
+      \ft@cmarkdef{ft@malelinebox}{\ftbiological}{\@tempskipb}{0pt}%
+      \def\@nm{%
+        {\ft@namebox@font#2}%
+        \hspace{\ft@namebox@maleline@sp}%
+        \usebox{\ft@malelinebox}%
+      }%
+    \fi%
+  \fi%
+  \ft@dbgmsg{H \the\ht\@tempboxa, D \the\dp\@tempboxa}%
+  \ft@dbgmsg{H \the\ht\ft@cmarkbox, D \the\dp\ft@cmarkbox}%
+  \savebox{\ft@namebox}{%
+    \usebox{\ft@cmarkbox}%
+    \@nm%
+  }%
+  \ft@boxsz{\ft@namebox}{\ht\@tempboxa}{\dp\@tempboxa}%
+  \ft@dbgbox{\ft@namebox}%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \needspace{2\baselineskip}
+% \subsubsection{Title box}
+%
+% \parag{Customization}
+%
+% \hyphenation{line-stretch}
+% \DescribeMacro{\fttitleboxcfg}
+% \DescribeMacro{\titleboxcfg}
+%
+%    \begin{macrocode}
+\newlength{\ft@titlebox@indent}
+\setlength{\ft@titlebox@indent}{-.25\ft@unit}
+\newcommand{\ft@titlebox@font}{\relsize{-2}}%{\scriptsize}
+\newcommand{\ft@titlebox@linestretch}{.25}
+\newlength{\ft@titlebox@vsp}
+\setlength{\ft@titlebox@vsp}{.1\baselineskip}
+\newcommand{\fttitleboxcfg}[4]{% indent font linestretch vsp
+  \ifx#1\empty\else%
+    \setlength{\ft@titlebox@indent}{#1}%
+  \fi%
+  \ifx#2\empty\else%
+    \renewcommand{\ft@titlebox@font}{#2}%
+  \fi%
+  \ifx#3\empty\else%
+    \renewcommand{\ft@titlebox@linestretch}{#3}%
+  \fi%
+  \ifx#4\empty\else%
+    \setlength{\ft@titlebox@vsp}{#4}%
+  \fi%
+}
+\ft@alias{titleboxcfg}
+%    \end{macrocode}
+%
+% \parag{Define a box}
+%
+% \DescribeMacro{\ft@title}
+%
+%    \begin{macrocode}
+\newsavebox{\ft@titlebox}
+\newcommand{\ft@title}[1]{% title
+  \ft@len=\dimexpr\ft@cmarkW + \ft@titlebox@indent\relax%
+  \savebox{\ft@titlebox}{%
+    \vbox{%
+      \def\baselinestretch{\ft@titlebox@linestretch}%
+      \ft@titlebox@font%
+      %
+      \setbox\@tempboxa=\hbox{#1}%
+      \ft@dbgmsg{H \the\ht\@tempboxa, D \the\dp\@tempboxa}%
+      \global\ft@depth=\dp\@tempboxa%
+      \hbox{\hspace{\ft@len}#1}%
+      \vspace{\ft@titlebox@vsp}%
+      \global\advance\ft@depth \ft@titlebox@vsp%
+    }%
+  }%
+  \ft@dbgmsg{H \the\ht\ft@titlebox, D \the\dp\ft@titlebox}%
+  \ft@len=\dimexpr\ht\ft@titlebox + \dp\ft@titlebox - \ft@depth\relax%
+  \ft@boxsz{\ft@titlebox}{\ft@len}{\ft@depth}%
+  \ft@dbgbox{\ft@titlebox}%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Combine the boxes --- core}
+%
+% \parag{Generate the boxes}
+%
+% \DescribeMacro{\ft@indvdlbox@gen}
+% \NoDescription
+%    \begin{macrocode}
+\newcommand{\ft@indvdlbox@gen}[4]{%
+  % box-name title individual-name maleline-xlength
+  \ft@width=0pt%
+  \IfValueT{#2}{%
+      \ft@title{#2}%
+      \ft@width=\wd\ft@titlebox%
+  }%
+  \global\@tempswafalse%
+  \ifx\ft@indvdl@opts\empty\else%
+    \global\@tempswatrue%
+    \ft@opt{\ft@indvdl@opts}%
+    \ifdim\ft@width<\wd\ft@optbox%
+      \ft@width=\wd\ft@optbox%
+    \fi%
+  \fi%
+  \ft@name{#1}{#3}{#4}%
+}
+%    \end{macrocode}
+%
+% \parag{Calculate the size of a name box}
+%
+% \DescribeMacro{\ft@indvdlbox@calc}
+% \NoDescription
+%    \begin{macrocode}
+\newcommand{\ft@indvdlbox@calc}[2]{% box-name title
+  \global\ft@width=0pt%
+  \global\ft@height=0pt%
+  \global\ft@depth=0pt%
+  \def\ft@dpri##1{\ft@dbgmsg{##1 W \the\ft@width, H \the\ft@height,%
+      D \the\ft@depth}}%
+  \ft@dpri{h0}%
+  \IfValueT{#2}{%
+    \global\ft@width=\wd\ft@titlebox%
+    \global\ft@height=\dimexpr\ht\ft@titlebox + \dp\ft@titlebox\relax%
+    \ft@dpri{h1}%
+  }%
+  %
+  \global\advance\ft@height \ht\ft@namebox%
+  %
+  % mark this point of the height, to invert it later
+  \ft@y=\dimexpr\ft@height - \ft@indvdl@nameCY\relax%
+  %
+  \ifdim\ft@width<\wd\ft@namebox%
+    \global\ft@width=\wd\ft@namebox%
+  \fi%
+  \if@tempswa%
+    \global\advance\ft@height \dp\ft@namebox%
+  \else%
+    \global\ft@depth=\dp\ft@namebox%
+  \fi%
+  \ft@dpri{h2}%
+  %
+  \if@tempswa%
+    \ifdim\ft@width<\wd\ft@optbox%
+      \global\ft@width=\wd\ft@optbox%
+    \fi%
+    \global\advance\ft@height \ht\ft@optbox%
+    \global\ft@depth=\dp\ft@optbox%
+    \ft@dpri{h3}%
+  \fi%
+  \ft@dpri{h4}%
+  %
+  % invert the y
+  \ft@len=\dimexpr\ft@height - \ft@y\relax%
+  \ft@namexdefstrip{#1nameCY}{\ft@len}%
+}
+%    \end{macrocode}
+%
+% \parag{Layout them by \texttt{picture}}
+%
+% \DescribeMacro{\ft@indvdlbox@layout}
+% \NoDescription
+%    \begin{macrocode}
+\newcommand{\ft@indvdlbox@layout}[2]{% box-name title
+  \ft@newnamebox{#1}{%
+    \edef\@w{\strip@pt\ft@width}%
+    \edef\@h{\strip@pt\ft@height}%
+    \begin{picture}(\@w,\@h)%
+      \ft@dbgframe{\@w,\@h}%
+      \ft@dbgplot{0,\@nameuse{#1nameCY}}%
+      %
+      \IfValueT{#2}{%
+        \advance\ft@height -\dimexpr\ht\ft@titlebox%
+          + \dp\ft@titlebox\relax%
+        \put(0,\strip@pt\ft@height){\usebox{\ft@titlebox}}%
+      }%
+      \advance\ft@height -\ht\ft@namebox%
+      \put(0,\strip@pt\ft@height){\usebox{\ft@namebox}}%
+      \advance\ft@height -\dp\ft@namebox%
+      \if@tempswa%
+        \advance\ft@height -\ht\ft@optbox%
+        \put(0,\strip@pt\ft@height){\usebox{\ft@optbox}}%
+      \fi%
+    \end{picture}%
+  }%
+  % height should hold the original value
+  \ft@nameboxsz{#1}{\ft@height}{\ft@depth}%
+}
+%    \end{macrocode}
+%
+% \parag{Main function to combine the boxes}
+%
+% \DescribeMacro{\ft@indvdlbox}
+% \NoDescription
+%    \begin{macrocode}
+\newcommand{\ft@indvdlbox}[4]{%
+  % box-name title individual-name  maleline-xlength
+  \ft@indvdlbox@gen{#1}{#2}{#3}{#4}%
+  \ft@indvdlbox@calc{#1}{#2}%
+  \ft@indvdlbox@layout{#1}{#2}%
+  %
+  \ft@dbgbox[\ft@dbgplot{0,\@nameuse{#1nameCY}}%
+    \ft@dbgplot{\@nameuse{#1nameCX},\strip@pt\ft@height}%
+    \ft@dbgplot{\@nameuse{#1nameX},\strip@pt\ft@height}%
+  ]{\@nameuse{#1}}%
+}
+%    \end{macrocode}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Individual box --- interface}
+%
+% \DescribeMacro{\ftindvdldef}
+% \DescribeMacro{\indvdldef}
+%
+%    \begin{macrocode}
+% [child-mark] box-name [title] individual-name
+%       [option-list...] [maleline-xlength]
+\NewDocumentCommand{\ftindvdldef}{O{\ftbiological}momoO{0pt}}{%
+  \setbox\@tempboxa=\hbox{\ft@namebox@font#4}%
+  \global\ft@indvdl@nameH=\ht\@tempboxa%
+  \global\ft@indvdl@nameD=\dp\@tempboxa%
+  \if@tate%
+    \global\ft@indvdl@nameCY%
+      =\dimexpr(\ft@indvdl@nameH - \ft@indvdl@nameD)/2\relax%
+  \else%
+    \@ifundefined{jlreqsetup}{%
+      % not jlreq
+      \global\ft@indvdl@nameCY=\dimexpr(\ft@indvdl@nameH%
+        - \ft@indvdl@nameD) / 2\relax\relax%
+    }{%
+      % jlreq
+      % magic number! depends on font?
+      \global\ft@indvdl@nameCY=\dimexpr\ft@indvdl@nameH/2 - .66pt\relax%
+    }%
+  \fi%
+  \ft@dbgmsg{H \the\ft@indvdl@nameH, D \the\ft@indvdl@nameD,%
+    CY \the\ft@indvdl@nameCY}%
+  %
+  \ft@cmarkdef{ft@cmarkbox}{#1}{0pt}{\ft@namebox@sp}%
+  \ifcase#1% fttop
+    \ft@namexdef{#2hascmark}{#1}%
+  \or% ftbiological
+    \ft@namexdef{#2hascmark}{#1}%
+  \or% ftadopted
+    \ft@namexdef{#2hascmark}{#1}%
+  \fi%
+  \global\ft@cmarkW=\wd\ft@cmarkbox%
+  %
+  \global\ft@malelinefalse%
+  \xdef\ft@indvdl@opts{}%
+  \IfValueT{#5}{%
+    \ft@optlist{\ft@indvdl@opts}{#2}{#5}%
+    \ft@dbgmsg{opt \ft@indvdl@opts}%
+  }%
+  %
+  \ft@indvdlbox{#2}{#3}{#4}{#6}%
+}
+\ft@alias{indvdldef}
+%    \end{macrocode}

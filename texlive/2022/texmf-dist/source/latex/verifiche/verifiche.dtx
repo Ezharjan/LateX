@@ -1,0 +1,1908 @@
+% \iffalse meta-comment
+%
+%  Copyright (LPPL) 2020 - 2022 by Francesco Raccanello
+%
+% This file may be distributed and/or modified under the 
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or any later version.
+%  The latest version of this license is in:
+%
+%      http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of 
+% LaTeX version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{verifiche} [2022/09/17 v6.0 .dtx verifiche file]
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, italian]{babel}
+%\usepackage[a4paper]{geometry}
+\usepackage{listings}
+\lstset{
+	language=[LaTeX]TeX, 
+	morekeywords={\setlength, \institute, \asyear, \testtype, \instruction, \duration, \printheading, 
+				 \institutefont, \asyearfont, \testtypefont, \instructiondelimiter, \headerfont, \instrunctionfont,
+				 \durationfont, \exerciselabel, \solutionfont, \solutionlabel, \diffsymb, \closedquestionitem,
+				 \inlinesol, \completetext, \truefalse, \openquestion, \linedopenquestion, \squaredopenquestion, 
+				 \headercandidatenamelabel, \checked, \finderror, \textandimage, \partialpt, \ptprefix, \ptlabel, 
+				 \partialptlabel, \partialptdelimiters, \ptdelimiters, \partialptprefix, \checkmaker, \ref, \tikz, \makecolumn,
+				 \columnseparation, \subtitle, \subtitlefont},
+	keywordstyle=\color{blue},
+	escapeinside={*@}{@*},
+	inputencoding=utf8,
+	basicstyle=\small\ttfamily}
+\usepackage{xparse}
+\usepackage{tcolorbox}
+\tcbuselibrary{listingsutf8, skins}
+\tcbset{listing engine=listings}
+\usepackage[solutions]{verifiche}
+\newcounter{id}
+\newtcblisting{esempio}{listing outside text, righthand width=.3\textwidth,lower separated=true,  skin=bicolor, colbacklower=red!50!white}
+\newcommand{\esempiodicodice}[1]{\begin{esempio}#1\end{esempio}}
+\NewDocumentCommand{\example}{+v m}{%
+	\stepcounter{id}%
+	\begin{minipage}{.6\textwidth}%
+	\begin{tcolorbox}[equal height group=\theid, title={Esempio di codice}, sharp corners=east, leftupper=.5ex, halign=left]%
+		\begin{lstlisting}%
+		^^J#1^^J
+ 		\end{lstlisting}
+    	\end{tcolorbox}
+	\end{minipage}
+	\begin{minipage}{.4\textwidth}
+	\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black, equal height group=\theid, title={Esempio visivo}, sharp corners=west, halign=left]
+	#2
+    	\end{tcolorbox}
+	\end{minipage}
+}
+%
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\parindent0pt
+\begin{document}
+	\DocInput{verifiche.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{997}
+% \changes{v1.0}{2020/06/14}{Initial version.}
+% \changes{v2.0}{2020/06/26}{Better performance in exercise environment.}
+% \changes{v2.1}{2020/06/30}{Introduced closedquestionitem to control |item| symbol.}
+% \changes{v2.2}{2020/07/01}{Modify reference to points of an exercise.}
+% \changes{v3.0}{2021/02/14}{Remove fancyhdr and introduce a new page style. Improve the printheading command.}
+% \changes{v4.0}{2021/02/15}{Introduce comando to change the aspect of the exercise score.}
+% \changes{v4.1}{2021/02/16}{Introduce ptrulerlength to change the aspect of the exercise score.}
+% \changes{v4.2}{2021/08/18}{Solved truefalse issue in solutionsmode. Add noexercisept global option to hide the score of each exercise.}
+% \changes{v4.3}{2022/02/10}{Move |parindent{0pt}| inside the environment.}
+% \changes{v4.4}{2022/03/10}{Minor update. Fixed labels issues.}
+% \changes{v5.0}{2022/05/18}{Major update. Remove some unnecessary packages. Remove spurious space in closedquestion environment. Add a starred version of closedquestion environment. Add the possibility to add local label to soluzione environment. Add a new command: makecolumn.}
+% \changes{v5.1}{2022/06/16}{Minor update. Clean the code for printheading command; better appearance for openquestion command.}
+% \changes{v5.2}{2022/06/21}{Minor update. Resolve bugs in printheading command.}
+% \GetFileInfo{verifiche.sty}
+% \DoNotIndex{\newcommand,\newenvironment,\def,\begin,\end,\par}
+% \DoNotIndex{\DeclareOption,\ExecuteOptions,\ProcessOptions,\RequirePackage}
+% \DoNotIndex{\LoadClass,\AtBeginDocument,\SetSymbolFont}
+% \DoNotIndex{\tiny, \scriptsize, \footnotesize, \normalfont, \large, \Large, \Large, \huge, \Huge}
+% \DoNotIndex{\newif,\geometry,\pagestyle,\setISOcompliance,\IntelligentComma}
+% \DoNotIndex{\relax,\let,\phi,\theta,\varphi,\vartheta,\else,\fi,\undefined}
+% \DoNotIndex{\renewcommand,\newlength,\hline,\textbf,\textit,\\,\setlength}
+% \DoNotIndex{\DeclarePairedDelimiter,\MakeUppercase,\MessageBreak,\ClassError}
+% \DoNotIndex{\widthof,\textwidth,\ifdefined,\null,\vspace,\noindent,\hfill}
+% \DoNotIndex{\hrulefill,\makebox,\linewidth,\small,\centering,\lvert,\rvert}
+% \DoNotIndex{\newunicodechar,\ensuremath,\circ,\textsuperscript,\,}
+% \DoNotIndex{\varepsilon,\delta,\Delta,\displaystyle,\mathbb,\arraystretch}
+% \DoNotIndex{\bm,\box,\DeclareFontShape,\DeclareFontFamily,\DeclareMathAccent}
+% \DoNotIndex{\DeclareSymbolFont,\doublespacing,\frac,\mathstrut,\bfseries}
+% \DoNotIndex{\usefont,\symbol,\mathpalette,\sbox,\vbox,\hbox,\box}
+% \DoNotIndex{\m@th,\wd,\resizebox,\height,\nointerlineskip,\mathord}
+% \DoNotIndex{\mathrm,\labelitemi,\blacktriangleright,\textup,\fbox,\parbox}
+% \DoNotIndex{\alph,\newlist,\renewlist,\setlist,\hspace,\iflanguage,\protect}
+% \DoNotIndex{\ifdim,\newcounter,\newsavebox,\savebox,\setcounter,\linenumbers}
+% \DoNotIndex{\thelinenumbers,\addtocounter,\multido,\i,\phantom,\newline}
+% \DoNotIndex{\value,\leavevmode,\leaders,\hss,\kern,\real,\tabcolsep,\space}
+% \DoNotIndex{\doublespacing,\singlespacing,\@nil,\@nnil,\vphantom,\today}
+% \DoNotIndex{\nolinebreak,\null,\textsc,\ifx,\tmp,\mbox,\vfill,\LARGE,\Huge}
+% \DoNotIndex{\enitkv@key,\item,\@ifpackageloaded,\@ifpackagewith}
+% \DoNotIndex{\addvspace, \baselineskip, \bgroup, \cdot, \color, \CurrentOption}
+% \DoNotIndex{\DeclareOptionX, \define@choicekey, \define@key, \draw, \egroup}
+% \DoNotIndex{\ExectureOptionsX, \fill, \foreach, \gdef, \ifmmode, \IfSubStr, \IfValueT}
+% \DoNotIndex{\ignorespaces, \ignorespacesafterend, \item, \itshape, \marginpar, \marginparwidth, \mathit}
+% \DoNotIndex{\NewDocumentCommand, \NewDocumentEnvironment, \newlabel, \nobreak, \node, \nr}
+% \DoNotIndex{\or, \overset, \PackageError, \PackageWarning, \parindent, \pgfmathparse, \pgfmathresult}
+% \DoNotIndex{\ProcessOptionsX, \protected@write, \ref, \refstepcounter, \reversemarginpar, \rule}
+% \DoNotIndex{\scshape, setkeys, \sffamily, \sisetup, \spacedim, \string, \tikz, \underline, \usetikzlibrary}
+% \DoNotIndex{\val, \xout, \y, \usebox, \romannumeral, \@ifundefined, \ltx@zero, \rc@default, \rc@extract@, \chardef, \llap} 
+% \DoNotIndex{\toks1} 
+%
+%
+% \title{Il pacchetto \textsf{verifiche}%
+% \thanks{Questo documento corrisponde al pacchetto \textsf{verifiche}~\fileversion,
+% in data~\filedate.}
+%\\ {\normalsize \fileversion}}
+% \author{Francesco Raccanello\\ \texttt{raccanello.francesco@gmail.com}}
+%
+% \maketitle
+%\begin{otherlanguage}{english}
+%\begin{abstract}
+% The aim of this package is to manage the elements of a middle or hight school test. It can compose the headings of the page, the exercises and their solutions. The exercises can show numerical ID, difficulty and score.
+% The package manages some standard test typology: plain exercise, complete-the-text, true or false, open questions, closed questions, find-the-error.
+%\end{abstract}
+%\end{otherlanguage}
+%\begin{abstract}
+%Il presente pacchetto si propone di gestire gli elementi che generalmente compongono
+%una prova scritta per le scuole secondarie di primo e secondo grado:
+%l'intestazione della pagina, gli esercizi della verifica e le loro soluzioni.
+%Gli esercizi possono presentare una numerazione, un punteggio e un grado di difficoltà.
+%Alcuni comandi permettono di generare alcune tipologie di test: esercizi semplici, esercizi di completamento, vero o falso, domande aperte e chiuse e trova l'errore.
+%Ciascun esercizio può presentare la soluzione corretta che viene riportata nel documento in base ad un'apposita opzione del pacchetto.
+%\end{abstract}
+%\clearpage
+%\tableofcontents
+%\clearpage
+%
+%\section{Introduzione}
+%Il pacchetto \textsf{verifiche} nasce dalla necessità di creare verifiche cartacee per la scuola secondaria di primo e secondo grado.
+%L'intento è di ottenere un supporto che controlli la parte di test, nonché la gestione delle soluzioni all'interno dello stesso documento.\par
+%Riguardo la parte di esercizi, il presente pacchetto si occupa della suddivisione delle domande (numerate o meno) e della gestione del loro punteggio inserendolo a mano, oppure calcolandolo come totale di punteggi parziali (si veda pagina \pageref{sec:esercizio}). 
+%Sono presenti comandi o ambienti ad hoc per realizzare quesiti di vero/falso, domande aperte o chiuse,
+%esercizi di "caccia all'errore" e la gestione di testi e immagini affiancate.
+%
+%Per quanto riguarda le soluzioni, ogni elemento di test presenta la possibilità di mostrare la soluzione corretta, qualora venga venga inserita una specifica opzione del pacchetto che attivi la così detta  in "modalità \texttt{solutions}" indicata nel seguito anche con "modalità soluzioni".
+%
+%Infine, il codice carica alcuni pacchetti necessari per la gestioni dei comandi implementati, ma anche
+% per rendere fruibili da subito comandi utili soprattutto per la gestione della matematica, le unità di misura,
+% e la parte grafica. Nel seguito si riportano i pacchetti principali:
+%\begin{itemize}
+%\item |enumitem| per la gestione avanzata degli elenchi puntati e numerati (sono attivate le opzioni |shortlabels| e |inline|
+%\item  |amsmath|, |amssymb| per la gestione della matematica;
+%\item |siunitx| per la gestione delle unità di misura;
+%\item |graphicx|, |xcolor| e |tikz| per la gestione grafica;
+%\end{itemize}
+%
+%\section{Come usare il pacchetto \textsf{verifiche} e le sue opzioni}
+%Per usare il pacchetto \textsf{verifiche} è sufficiente copiare il file \texttt{\filename} nella cartella di lavoro 
+%o installarlo secondo le  procedure relative al proprio sistema operativo.
+%
+%Una volta installato è sufficiente caricare il pacchetto attraverso il comando:\\
+%\begin{center} |\usepackage|\oarg{options}|{verifiche}|\end{center}
+%Il pacchetto \textsf{verifiche} prevede alcune opzioni per modificare globalmente il proprio comportamento.
+%Queste gestiscono l'aspetto dell'intestazione, la numerazione globale dei quesiti nonché l'attivazione della "modalità soluzioni" per poter visualizzare, nel documento, le soluzioni e variarne il colore del font.
+%
+%\begin{center}
+%\begin{tabular}{ll}
+%\textbf{\meta{options}}&	\textbf{Descrizione} \\[.5em]
+%\hline\\
+%|noinstitute|		& 	non stampa il nome dell'istituto.\\
+%|nocandidatename|&	non stampa la sezione per il nome del candidato\\
+%|noinstruction|	&	non stampa le istruzioni della prova\\
+%|noduration|		&	non stampa la durata della prova\\
+%|noasyear|		&	non stampa l'anno scolastico\\
+%|notesttype|		&	non stampa il tipo di prova	\\
+%|nonumbered|	&	quesiti non numerati\\
+%|noexercisept|	&	non stampa il punteggio degli esercizi, anche se dichiarati\\
+%|nosubtitle|		&	non stampa il sottotitolo\\
+%|solutions|		&	stampa le soluzioni degli esercizi (si veda pag. \pageref{sec:solutions})\\
+%|red|			&	il colore del font delle soluzioni è rosso\\
+%|blue|			&	il colore del font delle soluzioni è blu\\
+%|color|=\meta{color}&	il colore del font delle soluzioni è \meta{color}\\[.5em]
+%\hline
+%\end{tabular}
+%\end{center}
+%Nel seguito si indicherà con "modalità test", il pacchetto caricato senza l'opzione |solutions|, altrimenti questa verrà detta "modalità soluzione" o "modalità solutions".
+%
+%\section{Intestazione}\label{sec:intestazione}
+%\subsection*{Comandi}
+%Il pacchetto \textsf{verifiche} fornisce alcuni comandi per realizzare una semplice intestazione del documento che prevede il nome dell'istituto, l'anno scolastico il tipo di prova, le istruzioni e la durata della prova.
+%Tutte queste voci vanno dichiarate prima del comando |\printheading| che si occupa della produzione del risultato finale. 
+%Le \emph{opzioni} del pacchetto permettono la soprressione della visualizzazione di alcune di queste voci.
+%
+%\vspace{1em}
+%\DescribeMacro{\institute}\label{par:institute}Il nome dell'istituto può essere indicato tramite il comando:
+%
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\institute*@\marg{nome dell'istituto}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%il cui argomento verrà stampato al centro dell'intestazione della pagina con un font largo, senza grazie e di colore grigio scuro.
+%Il font può essere modificato ridefinendo il comando |\institutefont|.
+%
+%\DescribeMacro{\asyear}\label{par:asyear}L'anno scolastico viene indicato tramite l'apposito comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\asyear*@\oarg{preambolo}\marg{anno scolastico}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%il cui argomento viene riportato, al centro della pagina, anteponendo il \meta{preambolo} (che di default riporta la dicitura ‘‘Anno scolastico’’). Il font ed il posizionamento del testo possono essere cambiati ridefinendo il comando |\asyearfont|.
+%
+%\DescribeMacro{\testtype}\label{par:testtype}La tipologia di prova può essere indicata tramite il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\testtype*@\marg{tipo di compito}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%il cui argomento viene riportato, per default, al centro della pagina. La modifica del font e del posizionamento può essere operato ridefinendo il comando |\testtypefont|.
+%
+%\DescribeMacro{\instruction}\label{par:instruction}Le istruzioni della prova possono essere racchiuse all'interno del comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\instruction*@\marg{istruzioni}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%che provvede a racchiudere tra due delimitatori (di default una riga orizzontale) il testo delle istruzioni. Ridefinendo il comando |\instrunctionfont| è possibile cambiare il font delle istruzioni.
+%
+%\DescribeMacro{\duration}La durata della prova può venir indicata tramite il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\duration*@\oarg{preambolo}\marg{durata}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+% che viene riportata sotto le istruzioni, al centro, anteponendo all'argomento il \meta{preambolo} (che di default riporta la dicitura ‘‘’Tempo della prova:’’). L'aspetto di questo comando può essere modificato ridefinendo il comando |\durationfont|.
+%
+%\DescribeMacro{\subtitle} Il comando |\subtitle| introduce un sottotitolo al di sotto di quanto visualizzato dal comando |\texttype|. L'aspetto ed il posizionamento di questo testo possono essere modificati ridefinendo il comando |\subtitlefont|.
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\subtitle*@\marg{testo del sottotitolo}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\printheading}\label{par:printheading}L'intestazione, ovvero l'output di tutti i comandi appena definiti, viene riportata nel documento solo in presenza del comando
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\printheading
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\vspace{1em}
+%Riassumendo, il pacchetto fornisce i seguenti comandi per gestire e la stampa  dell'intestazione del documento:
+%
+%\begin{center}
+%\begin{tabular}{lll}
+%\textbf{Comando}	&	\textbf{Font}	&	\textbf{Descrizione}\\
+%\hline
+%|\institute|  		&	|\institutefont|	&	Definisce il nome dell'istituto.\\
+%|\asyear|		&	|\asyearfont|	&	Definisce l'anno scolastico.\\
+%|\testtype|		&	|\testtypefont|	&	Definisce il tipo di prova.\\
+%|\instruction|		&	|\instrunctionfont|&	Definisce le istruzioni delle prove.\\
+%|\duration|		&	|\durationfont|	&	Definisce la durata della prova.\\
+%|\subtitle|		&	|\subtitlefont|	&	Definisce il sottotitolo.\\
+%|\printheading| 	&				&	Stampa l'intestazione.\\
+%\hline
+%\end{tabular}
+%\end{center}
+%
+%\subsection*{Stili di pagina}
+% Il pacchetto definisce due stili di pagina \emph{ad hoc}: |mainverifiche| e |verifiche|. Il primo è evocato quando si definisce il comando |\institute| e stampa sulla prima pagina l'argomento di questo comando. \DescribeMacro{verifiche}Il secondo, invece, può essere utilizzato dall'utente tramite il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\pagestyle{verifiche}
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%e riproduce, nelle pagine dispari diversa dalla prima, l'intestazione per l'identificazione del candidato: il nome, la classe e la data.
+%\section{Comandi ed ambienti per le \textsf{verifiche}}
+%Nel seguito verranno presentati i comandi che permettono di strutturare un test.
+%Il pacchetto fornisce un ambiente di esercizio in cui racchiudere le domande.
+%Vi è la possibilità di predisporre domande chiuse a scelta multipla, prove di vero-falso, ‘‘trova l'errore’’ e domande a risposta aperta (fornendo una base su cui scrivere come un foglio a quadretti o a righe).
+%Ogni comando prevede la possibilità di fornire le soluzioni che vengono visualizzato quando il pacchetto è caricato attivando l'opzione |solutions|.
+%
+%\vspace{1em}
+% \DescribeEnv{esercizio}\label{sec:esercizio}Gli esercizi od i quesiti del test vengono gestiti dall'ambiente |esercizio|.
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\begin{esercizio}[label=*@\meta{label}@*,diff=*@\meta{number}@*,pt=*@\meta{number}@*,partialpt]
+...
+\end{esercizio}
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%Senza specificare alcun argomento opzionale, viene stampata la dicitura "Quesito" seguita da un indice numerico crescente ed il testo contenuto nel corpo dell'ambiente.
+%Le modifiche dell'aspetto e del comportamento sono previste tramite delle opzioni espresse nel formato \texttt{key=val}, eventualmente separate da virgola se presenti in contemporanea:\par
+%\begin{center}
+%\begin{tabular}{ll}
+%|label|=\meta{label}	&	 definisce il titolo del quesito\\
+%|diff|=\meta{number}	&	 definisce la difficoltà sotto forma di stelle\\
+%|pt|=\meta{number}	&	 definisce il punteggio della prova\\
+%|partialpt|			&	 somma in automatico i punteggi parziali\\
+%\end{tabular}
+%\end{center}
+%
+%Nel seguito si mostrano alcuni dei possibili risultati visivi.\\
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+{\begin{esercizio}
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+%
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}[label=Esercizio]
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+{\begin{esercizio}[label=Esercizio]
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}[diff=2]
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+{\begin{minipage}{.2\linewidth}
+\hfill$\bigstar\bigstar$
+\end{minipage}
+\raisebox{-1.3\baselineskip}{
+\begin{minipage}{.7\linewidth}
+\begin{esercizio}
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}
+\end{minipage}}}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}[pt=2]
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+{\begin{minipage}{.4\linewidth}
+\underline{\phantom{1cm}}/ 2 pt
+\end{minipage}
+\raisebox{-1.7\baselineskip}{
+\begin{minipage}{.5\linewidth}
+\begin{esercizio}
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}
+\end{minipage}}}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}[pt=2, diff=2]
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}}
+{\begin{minipage}{.4\linewidth}
+\hfill$\bigstar\bigstar$\newline
+\underline{\phantom{1cm}}/ 2 pt
+\end{minipage}
+\raisebox{-1.3\baselineskip}{
+\begin{minipage}{.5\linewidth}
+\begin{esercizio}
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio}
+\end{minipage}}}
+% \iffalse
+%</example>
+% \fi
+%
+%È possibile fare dei riferimenti incrociati usando gli usuali comandi presenti in \LaTeX{}. L'etichetta viene dichiarata tramite l'usuale comando |\label=|\marg{label} introdotto dopo l'apertura dell'ambiente |esercizio|.
+%I riferimenti incrociati possono essere richiamati tramite l'usuale comando |\ref|\marg{label}, che produce il numero dell'esercizio e |\pageref|\marg{label} che stampa la pagina del riferimento.\\
+%
+%
+%\DescribeMacro{\partialpt}Il comando |\partialpt|, da non confondere con l'opzione omonima |partialpt| dell'ambiente |esercizio|, permette di riportare il punteggio parziale per le domande di un esercizio. Questo viene stampato a margine e racchiuso tra parentesi tonde.\\
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}
+\begin{enumerate}
+\item\partialpt{1} Domanda 1 
+\item\partialpt{3} Domanda 2
+\end{enumerate}
+\end{esercizio}}
+{\begin{minipage}[t]{.3\linewidth}
+\vspace{-.4em}
+\phantom{1cm/ 4 pt\\[.5em]}
+\vspace{.8em}
+(1 pt)\\
+(3 pt)
+\end{minipage}
+\raisebox{\baselineskip}{
+\begin{minipage}[t]{.6\linewidth}
+\begin{esercizio}
+\begin{enumerate}[leftmargin=*]
+\item Domanda 1
+\item Domanda 2
+\end{enumerate}
+\end{esercizio}
+\end{minipage}}
+}
+% \iffalse
+%</example>
+% \fi
+%
+%Quando usato negli ambienti |enumerate| o |itemize|, il comando introduce uno spazio spurio che può essere rimosso posponendo il comando |\noindent|.
+%
+%Quando viene esplicitata l'\emph{opzione} |partialpt| nella definizione dell'ambiente esercizio, il pacchetto si occupa della somma complessiva dei singoli punteggi parziali riportandola come punteggio totale del quesito. In questo caso il documento dev'essere compilato \emph{due volte} per ottenere correttamente il risultato finale.\\
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio}[partialpt]
+\begin{enumerate}
+\item\partialpt{1} Domanda 1 
+\item\partialpt{3} Domanda 2
+\end{enumerate}
+\end{esercizio}}
+{\begin{minipage}[t]{.39\linewidth}
+\vspace{-.7em}
+\underline{\hspace{.7cm}}/4 pt\\[.9em]
+\vspace{.8em}
+\hspace*{\fill}(1 pt)\\
+\hspace*{\fill}(3 pt)
+\end{minipage}
+\raisebox{.5\baselineskip}{
+\begin{minipage}[t]{.54\linewidth}
+\begin{esercizio}
+\begin{enumerate}[leftmargin=*]
+\small
+\item Domanda 1
+\item Domanda 2
+\end{enumerate}
+\end{esercizio}
+\end{minipage}}
+}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%Il punteggio dei quesiti può essere richiamato in qualunque punto del documento attraverso il comando
+%\begin{center} |\ref{ptes@|\meta{n.es}|}|\end{center}
+%dove \meta{n.es} indica il numero dell'esercizio riportato nell'intestazione dello stesso.
+%
+%\vspace{1em}
+%\DescribeEnv{esercizio*}L'ambiente |esercizio| produce sempre quesiti numerati. Se si desidera indicare test non numerati è possibile farlo tramite l'ambiente |esercizio*| che prevede gli stessi argomenti opzionali definiti per l'ambiente precedente. 
+%
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\begin{esercizio*}[label=*@\meta{label}@*,diff=*@\meta{number}@*,pt=*@\meta{number}@*,partialpt]
+...
+\end{esercizio*}
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{esercizio*}[pt=2]
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio*}}
+{\begin{minipage}{.4\linewidth}
+\underline{\phantom{1cm}}/ 2 pt
+\end{minipage}
+\raisebox{-1.8\baselineskip}{
+\begin{minipage}{.5\linewidth}
+\begin{esercizio*}
+Testo dell'esercizio 
+che voglio somministrare
+\end{esercizio*}
+\end{minipage}}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\vspace{1em}
+%\DescribeEnv{soluzione}\label{sec:solutions}L'ambiente |soluzione| racchiude al suo interno tutto il materiale utile ad essere visualizzato solo in presenza dell'\emph{opzione} |solutions| del pacchetto \textsf{verifiche}. Quando il pacchetto è in modalità "test" il contenuto dell'ambiente |soluzione| viene ignorato. L'etichetta che introduce l'ambiente può essere modificata localmente tramite l'opzione |label|.
+%
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\begin{soluzione}[label=*@\meta{label}@*]
+...
+\end{soluzione}
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{soluzione}
+Testo della soluzione  
+dell'esercizio somministrato
+\end{soluzione}}
+{\begin{soluzione}
+Testo della soluzione  
+dell'esercizio somministrato
+\end{soluzione}}
+% \iffalse
+%</example>
+% \fi
+%
+%\DescribeMacro{\inlinesol}Il pacchetto presenta il comando |\inlinesol| per produrre soluzioni in linea, ovvero testo che in modalità "test" viene ignorato, ma che invece viene visualizzato nella modalità "soluzioni" (opzione |solutions| del pacchetto). 
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\inlinesol*@\marg{testo}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example{Questa e' una \inlinesol{soluzione}
+ in linea}
+{\solfalse Questa e' una \inlinesol{soluzione} in linea.\\
+ \soltrue Questa e' una \inlinesol{soluzione} in linea}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\DescribeMacro{\completetext}Gli esercizi di completamento del testo possono venir realizzati tramite il comando:
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\completetext*@\oarg{dim}\marg{testo}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%che produce uno spazio vuoto largo \meta{dim} (che di default è di \SI{4.5}{cm}) e che in modalità "soluzioni" riproduce il \meta{testo}.
+%
+% \iffalse
+%<*example>
+% \fi
+\example{La \completetext[2cm]{soluzione}}{
+\solfalse La \completetext[2cm]{soluzione}\\
+\soltrue La \completetext[2cm]{soluzione}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\DescribeMacro{\truefalse}I quesiti con domande vero-falso possono essere realizzati tramite il comando
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\truefalse*@\marg{V/F}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%Il comando produce due riquadri quadrati allineati con le lettere \texttt V e \texttt F; l'argomento obbligatorio richiede di indicare la lettera |V| o |F| al fine di poter realizzare un segno di spunta ($\checkmark$) sulla casella giusta nella modalità |solutions| del pacchetto. Tale simbolo può essere modificato ridefinendo il comando \DescribeMacro{\checkmaker}|\checkmaker|.
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\renewcommand{\checkmaker}*@\marg{...}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+% \iffalse
+%<*example>
+% \fi
+\example{Vero o Falso? \truefalse{V}}{
+\solfalse Vero o Falso? \truefalse{V}\\
+\soltrue Vero o Falso? \truefalse{V}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\DescribeEnv{closedquestion}Le domande a scelta multipla possono essere realizzate tramite l'ambiente |closedquestion|. Questo comando genera un elenco verticale di elementi ciascuno introdotto dal comando \DescribeMacro{\item}|\item| che realizza un quadrato davanti ad ogni voce. 
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\begin{closedquestion}[...]
+\item ...
+\end{closedquestion}
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%La soluzione (o le soluzioni) possono essere segnate tramite il comando \DescribeMacro{\checked}|\checked| posto come argomento opzionale del comando |\item| e che, nella modalità |solutions|, produce un segno di spunta ($\checkmark$) sulla casella selezionata. Anche in questo caso tale simbolo può essere modificato ridefinendo il comando |\checkmaker|. Il pacchetto ammette degli argomenti opzionali che possono essere tutti quelli descritti nel pacchetto |enumitem|.
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\renewcommand{\checkmaker}*@\marg{...}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\begin{closedquestion}
+\item Primo 
+\item[\checked] Secondo
+\item Terzo
+\item Quarto
+\end{closedquestion}}
+{\begin{closedquestion}
+\item Primo
+\item[\checked] Secondo
+\end{closedquestion}
+\begin{closedquestion}
+\item Terzo
+\item Quarto
+\end{closedquestion}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+% L'ambiente \DescribeEnv{closeduestion}|closeduestion*| è analogo al precedente, fatto salvo che è adibito a produrre elenchi in linea; gli elementi vengono spaziati orizzontalmente in modo da riempire tutto lo spazio disponibile. Anche in questo caso i comandi del pacchetto |enumitem| possono essere usati tra le opzioni dell'ambiente.
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\begin{closedquestion*}[...]
+\item ...
+\end{closedquestion*}
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\DescribeMacro{\openquestion}Il comando produce una base di supporto per la scrittura, ovvero delle linee o dei quadretti. La sintassi del comando è la seguente:
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\openquestion[type=*@\meta{lines/squares}@*, width=*@\meta{dim}@*, height=*@\meta{dim}@*, 
+	      spacedim=*@\meta{dim}@*, linecolor=*@\meta{color}@*]*@\marg{soluzione}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%La il testo dell'argomento obbligatorio (\meta{soluzione}) viene visualizzato solo in modalità |solutions|.
+%Il comando gestisce alcune opzioni:\\
+%
+%\begin{tabular}{ll}
+%|type| 	&	accetta due valori: \texttt{lines} e \texttt{squares} (default: |squares|)\\
+%|width| 	&	gestisce la dimensione orizzontale del campo di testo (default: 12 cm)\\
+%|height| 	&	gestisce la dimensione verticale del campo di testo (default: 20 cm)\\
+%|spacedim|&	gestisce la dimensione dei quadretti o delle linee (default: 0.5 cm)\\
+%|linecolor| 	&	colore delle linee guida (default: gray)
+%\end{tabular}
+%\vspace{1em}
+%
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\openquestion{
+    Prova del testo della soluzione 
+    della domanda aperta
+}}
+{\vspace*{1em}\openquestion[width=4cm, height=2cm]{Prova del testo della soluzione della domanda aperta}}
+% \iffalse
+%</example>
+% \fi
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\openquestion[type=lines]{
+    Prova del testo della soluzione 
+    della domanda aperta
+}}
+{\vspace*{1em}\openquestion[type=lines, width=4cm, height=2cm]{Prova del testo della soluzione della domanda aperta}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\DescribeMacro{\finderror}Gli esercizi della tipologia ‘‘trova l'errore’’ possono essere composti tramite il comando
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\finderror*@\marg{testo sbagliato}\marg{testo giusto}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%Il comando visualizza la stringa \meta{testo sbagliato} nella modalità "test", mentre mostra una cancellatura ed il testo corretto nella modalità |solutions|.\\
+%
+%
+% \iffalse
+%<*example>
+% \fi
+\example
+{\finderror{sbagliato}{corretto}}
+{\finderror{sbagliato}{corretto}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\vspace{1em}
+%\DescribeMacro{\textandimage}L'impaginazione del testo con affiancato un'immagine viene agevolato dal comando |\textandimage| che ha la seguente sintassi:
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\textandimage*@\oarg{left width}\oarg{right width}\marg{sx material}\marg{dx material}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+%Il \meta{rx material} viene affiancato all'\meta{dx material}. La larghezza della colonna sinistra (risp. destra) è controllata tramite l'argomento opzionale \meta{left width} (risp. \meta{right width}).\\
+% \iffalse
+%<*example>
+% \fi
+\example
+{\textandimage[2cm][1cm]{Testo}{
+\tikz{\draw(0,0) circle (.4cm)}}}
+{\phantom{.}\vspace{1em}\textandimage[2cm][1cm]{Testo}{\tikz{\draw(0,0) circle (.4cm)}}}
+% \iffalse
+%</example>
+% \fi
+%
+%
+%\vspace{1em}
+%\DescribeMacro{\makecolumn} Il pacchetto |verifiche| definisce anche un proprio comando per produrre del testo in colonna tramite il comando |\makecolumn| che ha la seguente sintassi:
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\makecolumn*@\marg{width}\marg{text}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+% La larghezza è controllata tramite l'argomento opzionale \meta{width}, mentre il testo da mettere in colonne può risiedere, anche con paragrafi, entro il campo \meta{text}. La spaziatura tra le colonne può essere modificata ridefinendo la lunghezza |\columnseparation| (di default viene inizializzata col valore |\hfill|).
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\setlength{\columnseparation}*@\marg{dim}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+% \iffalse
+%<*example>
+% \fi
+\example
+{\makecolumn{.3\textwidth}{Colonna 1}
+\makecolumn{.3\textwidth}{Colonna 2}}
+{\makecolumn{2.5cm}{Colonna 1} \makecolumn{2.5cm}{Colonna 2}}% \iffalse
+%</example>
+% \fi
+%
+%\clearpage
+%\section{Personalizzazione}
+%Il pacchetto prevede un certo numero di comandi per gestire l'aspetto del documento finale.
+%\subsection*{Font}
+%Per l'intestazione tutti i font sono definiti secondo lo schema:
+%\begin{center}
+%\meta{comando intestazione}|font|
+%\end{center}
+%ed oltre a gestire l'aspetto del carattere, alcuni di questi, specificano la posizione occupata del testo ed eventuali prefissi.
+%
+%\DescribeMacro{\headerfont} Il font delle intestazioni quando viene usato lo stile di pagina |verifiche|, può essere modifica ridefinendo il comando |\headerfont|:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\headerfont}[1]*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%\DescribeMacro{\institutefont}Il font dell'istituto, generato dal comando |\institute|, è gestito dal comando |\institutefont|. Per variare le caratteristiche del font è necessario ridefinire il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\institutefont}[1]*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\asyearfont}Il font dell'anno scolastico, generato dal comando |\asyear|, è gestito dal comando |\asyearfont|. Per variare le caratteristiche del font è necessario ridefinire il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\asyearfont}[1]*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\testtypefont}Il font tipo di test, generato dal comando |\testtype|, è gestito dal comando |\testtypefont|. Per variare le caratteristiche del font è necessario ridefinire il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\testtypefont}[1]*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\instrunctionfont}Il font delle istruzioni, generate dal comando |\instrunction|, è gestito dal comando |\instrunctionfont|. Per variare le caratteristiche del font è necessario ridefinire il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\instrunctionfont}[1]*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\solutionfont}Le soluzioni degli esercizi vengono stampate, quando viene esplicitata l'opzione |solutions| quando viene caricato il pacchetto, con un font più piccolo e in corsivo. Per modificare il font delle soluzioni è sufficiente ridefinire il comando |\solutionfont|:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\solutionfont}*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\subsection*{Intestazione}
+%\DescribeMacro{\instructiondelimiter}Le istruzioni e la durata della prova sono racchiuse tra due delimitatori che normalmente sono due righe orizzontali. Per cambiare, o rimuovere, questi delimitatori è sufficiente ridefinire il seguente comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\instructiondelimiter}*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\headercandidatenamelabel}\DescribeMacro{\headerdatelabel}Quando viene composta l'intestazione principale nella prima pagina, compare una riga in cui il candidato può scrivere il proprio nome e cognome, la data e la classe. L'etichetta della prima voce è determinata dal comando |\headercandidatenamelabel|, che può essere opportunamente cambiata tramite il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\headercandidatenamelabel}*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%Allo stesso modo è possibile modificare la descrizione della classe \DescribeMacro{\headerclasslabel}tramite la redefinizione del comando |\headerclasslabel| e della data\DescribeMacro{\headerdatelabel} tramite comando |\headerdatelabel|.
+% Tutte queste tre voci prevedono, per ciascuna, una riga vuota ove scrivere l'informazione richiesta.\DescribeMacro{\candidatenamerulerlength}\DescribeMacro{\classrulerlength}\DescribeMacro{\daterulerlength} Le lunghezze delle tre righe possono essere modificate impostando le lunghezze desiderate 
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\setlength{\...rulerlength}*@\marg{dim}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%Attraverso questi comandi è possibile anche rimuovere una (o più) delle tre voci. Se ad esempio non si vuole visualizzare la classe d'appartenenza del candidato, sarà sufficiente ridefinire gli opportuni comandi nel seguente modo: |\renewcommand{\headerclasslabel}{}|, così da non visualizzare alcuna scritta, e |\setlength{\classrulerlength}{0pt}| per rimuovere la riga associata.
+%
+%\subsection*{Ambiente \texttt{esercizio}}
+%\DescribeMacro{\exerciselabel}Gli esercizi vengono inseriti anteponendo al loro testo la dicitura ‘‘Quesito’’ seguito (eventualmente) da un numero. Per cambiare questa dicitura, a livello globale, ovvero per ogni esercizio, è sufficiente ridefinire il comando |\exerciselabel|.
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\exerciselabel}*@\marg{Preambolo dell'esercizio}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%L'ambiente |esercizio| permette di riportare anche il punteggio complessivo e parziale per le sotto-domande. Di default il punteggio totale del quesito viene riportato anteponendo un tratto orizzontale seguito da uno slash il valore del punteggio ed un'etichetta indicante la sigla \emph{pt}.
+% Per quanto riguarda il punteggio parziale, questo viene riportato racchiuso tra parentesi tonde.
+% L'aspetto complessivo del punteggio, quindi, può essere così schematizzato:
+%\begin{center}
+%\texttt{prefisso delimitatore punteggio label delimitatore}
+%\end{center}
+%
+%\DescribeMacro{\ptprefix} Il comando |\ptprefix| permette di modificare il \texttt{prefisso} del punteggio. Di default traccia una linea, la cui lunghezza può essere variata modificando la lunghezza |ptrulerlength|, ed uno slash. Se si vuole modificarne l'aspetto è sufficiente evocare il comando.
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\ptprefix*@\marg{...}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%\DescribeMacro{\partialptprefix} Allo stesso modo il comando |\partialptprefix| definisce un \texttt{prefisso} per il punteggio parziale.
+%
+%\DescribeMacro{\ptdelimiters}\DescribeMacro{\partialptdelimiters} I punteggi sono racchiusi tra due \texttt{delimitatori}. Il punteggio totale non presenta alcun simbolo, mentre quello parziale è racchiuso tra parentesi tonde. È possibile definire dei nuovi delimitatori utilizzando i comandi |\partialptdelimiters| e |\ptdelimiters| i quali argomenti contengono due caratteri che fungono da delimitatore dentro e sinistro. 
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\ptdelimiters*@\marg{coppia di caratteri}@*
+\partialptdelimiters*@\marg{coppia di caratteri}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%\DescribeMacro{\ptlabel}\DescribeMacro{\partialptlabel} Il punteggio viene riportato indicando anche una \texttt{label}. Questa di default è "pt" sia per il punteggio parziale che per quello totale. È possibile definire un nome alternativo usando il comando |\ptlabel| per il punteggio totale o |\partialptlabel| per quello parziale. I comandi prevedono un argomento obbligatorio che è valido per tutti i punteggi, ma anche uno facoltativo che viene usato quanto il valore del punteggio è pari a 1 e che necessita quindi di un sostantivo singolare al posto di quello plurale (i.e. "punto" al posto di "punti").
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\ptlabel*@\oarg{sing.}\marg{plur.}@*
+\partialptlabel*@\oarg{sing.}\marg{plur.}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%\DescribeMacro{\diffsymb}L'ambiente esercizi prevede di poter descrivere la difficoltà tramite un simbolo grafico. Di default questo è una stella ($\bigstar$), tuttavia è possibile cambiare il tipo di simbolo ridefinendo il comando |\diffsymb|:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\diffsymb}*@\marg{codice del simbolo}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%
+%
+%\subsection*{Ambiente \texttt{closedquestion}}
+%\DescribeMacro{\closedquestionitem}Il simbolo delle domande chiuse è controllato dal comando |\closedquestionitem| che di default è un quadrato ($\square$). Per modificare questo simbolo è sufficiente ridefinire il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\closedquestionitem}*@\marg{codice del simbolo}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%Il segno di spunta che viene stampato nella modalità soluzione, può essere cambiato ridefinendo il comando\DescribeMacro{\checkmaker}|\checkmaker|
+% \iffalse
+%<*example>
+% \fi
+\begin{lstlisting}
+\renewcommand{\checkmaker}*@\marg{...}@*
+\end{lstlisting}
+% \iffalse
+%</example>
+% \fi
+
+%
+%\subsection*{Ambiente \texttt{soluzione}}
+% Per quel che riguarda l'ambiente |soluzione| è possibile cambiare il nome dell'ambente ridefinendo il comando |\solutionlabel|\DescribeMacro{\solutionlabel}.
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\renewcommand{\solutionlabel}*@\marg{Preambolo della soluzione}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%\clearpage
+%\section{Test multipli}
+%Uno degli aspetti peculiari della produzione di test tramite software tipografici come \LaTeX{} è quello di poter usufruire della sua versatilità per produrre un numero definito a priori dall'utente di test diversi a partire da uno stesso schema di base.
+%
+%Le modalità e le strategie per fare questo sono molteplici.
+% Uno di questi metodi è utilizzare il pacchetto\footnote{https://ctan.org/pkg/datatool} |datatool| che permette di leggere un database (solitamente salvato come file |csv|) al cui interno sono contenute le domande, i dati ed eventualmente le soluzioni degli esercizi. Il pacchetto, poi, mette a disposizione il comando |\DTLforeach| che, interrogando tutto il database precedentemente costruito, permette di popolare un unico documento in cui si variano taluni elementi al fine di ottenere prove didattiche differenti. Una soluzione di questo tipo necessita di scrivere almeno due file. Il primo, con estensione |tex|, è la struttura della prova di verifica al cui interno presenta tutti i comandi per utilizzare i dati contenuti nel secondo file. Quest'ultimo è un file di tipo |csv| al cui interno, organizzate per colonne, si trovano tutte le domande che si vogliono personalizzare ed ogni riga corrisponde ad un differente compito.
+%Il pacchetto permette anche di generare un database direttamente interno a \LaTeX{}, senza quindi dover creare un file a parte, tramite i comandi:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\DTLnewdb*@\marg{nome del database}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+% per creare un database chiamato |nome del database|; per creare una nuova riga, corrispondente ad una prova diversa, si usa il comando
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\DTLnewrow*@\marg{nome del database}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%e ciascuna entrata di questa riga viene popolata introducendo un'entrata tramite il comando:
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\DTLnewdbentry*@\marg{nome del database}\marg{nome colonna}\marg{dato}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%Come nel caso precedente il database può essere utilizzato tramite il comando\footnote{Si rimanda alla documentazione ufficiale per ulteriori approfondimenti. Si faccia attenzione che l'ultima voce del secondo argomento del comando, ovvero |comando=nome colonna| non deve contenere spazi, si consiglia quindi di concludere la riga con il carattere \%}
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\DTLforeach**@\marg{nome del database}\marg{comando=nome colonna}\marg{dato}\marg{testo}@*
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%dichiarato subito dopo |\begin{document}| ed il |testo| non è altro che l'intero corpo del documento.
+%\subsection*{L'ambiente |multitest|}
+% Il pacchetto |verifiche| mette a disposizione una soluzione interna per generare un numero definito dall'utente di prove personalizzate e che si basa sugli strumenti messi a disposizione da |pgf| e |tikz|.
+%\DescribeEnv{multitest}L'ambiente |multitest| racchiude all'interno del suo corpo lo schema della prova che si vuole somministrare ed eventualmente i comandi che permettono personalizzare la prova.
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\begin{multitest}[n]
+...
+\end{multitest}
+\end{lstlisting}
+%\iffalse
+%</example>
+%\fi
+%L'ambiente accetta un argomento opzionale |n| che è il numero di prove che si vogliono realizzare. Normalmente l'ambiente viene aperto dopo |\begin{document}| e chiuso prima di |\end{document}|.
+%
+%\bigskip
+%La personalizzazione dei dati del problema può avvenire tramite i comandi di gestione dei numeri casuali e delle liste casuali messi a disposizione dal pacchetto |pgf| che vengono di seguito riassunti lasciando il loro approfondimento alla documentazione ufficiale\footnote{https://www.ctan.org/pkg/pgf}.
+%\iffalse
+%<*example>
+%\fi
+\begin{lstlisting}
+\pgfmathrnd
+\pgfmathrand
+\pgfmathrandom{x,y}
+\pgfmathgeneratepseudorandomnumber
+\pgfmathrandominteger*@\marg{macro}\marg{min}\marg{max}@*
+\pgfmathdeclarerandomlist*@\marg{nome lista}\{ \marg{item 1} \marg{item 2} ...\}@*
+\pgfmathrandomitem*@\marg{macro}\marg{nome lista}@*
+\pgfmathsetseed*@\marg{numero intero}@*
+\end{lstlisting}
+%Il comando inizializza il seme dei numeri casuali col numero del compito prodotto, in modo tale da produrre gli stessi compiti casuali ad ogni compilazione.
+%\DescribeMacro{multitestcounter}Il contatore |multitestcounter| permette di identificare il numero della traccia generata.
+%\iffalse
+%</example>
+%\fi
+%\clearpage
+% \StopEventually{\clearpage\PrintChanges \clearpage\PrintIndex}
+% \section{Implementation}
+%\subsection{Require packages}
+% The implementation of the \textsf{verifiche} package starts with the required packages:
+%    \begin{macrocode}
+\RequirePackage{xparse}
+\RequirePackage{xkeyval}	
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{pgffor}
+\RequirePackage[shortlabels, inline]{enumitem}
+\RequirePackage{siunitx}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{booktabs}
+\RequirePackage[normalem]{ulem}
+%    \end{macrocode}
+%
+%
+%\subsection{Packages and library options}
+%The package loads |tikz| and some useful library. 
+%The |siunitx| package is tuned in order to be used for the Italian math document.
+%\iffalse
+%%Forse si può cancellare questo
+%\fi
+%    \begin{macrocode}
+\usetikzlibrary{calc,shapes.geometric,patterns,positioning,angles,quotes}
+\sisetup{
+    output-decimal-marker = {,},
+    exponent-product = \cdot,
+    per-mode=symbol-or-fraction,
+    separate-uncertainty
+}
+%    \end{macrocode}
+%
+%\subsection{newif}
+%Some conditionals are defined and initiated:
+%\iffalse
+%%newif
+%\fi
+%    \begin{macrocode}
+\newif\ifsol
+\newif\ifinstitute\institutetrue
+\newif\ifinstruction\instructiontrue
+\newif\ifduration\durationtrue
+\newif\ifasyear\asyeartrue
+\newif\ifsolutionscolor\solutionscolorfalse
+\newif\ifcandidatename\candidatenametrue
+\newif\iftesttype\testtypetrue
+\newif\ifsubtitle\subtitletrue
+\newif\ifshowinstructiondelimiter\showinstructiondelimiterfalse
+\newif\ifprintedheading\printedheadingfalse
+\newif\ifexercisesnumbered\exercisesnumberedtrue
+\newif\ifshowmarginexercise\showmarginexercisefalse
+\newif\ifshowexercisept\showexercisepttrue
+\newif\ifopenquestionlines\openquestionlinesfalse
+\newif\ifopenquestionsquared\openquestionsquaredfalse
+%    \end{macrocode}
+%\subsection{Package options declaration}
+%The package provides some options to control the aspect of the document and the mode of the document ("test" mode or "solutions" mode).
+%\iffalse
+%%Package option declaration
+%\fi
+%    \begin{macrocode}
+\DeclareOptionX{solutions}[]{\soltrue}
+\DeclareOptionX{noinstitute}[]{\institutefalse}
+\DeclareOptionX{noinstruction}[]{\instructionfalse}
+\DeclareOptionX{noduration}[]{\durationfalse}
+\DeclareOptionX{noasyear}[]{\asyearfalse}
+\DeclareOptionX{nocandidatename}[]{\candidatenamefalse}
+\DeclareOptionX{notesttype}[]{\testtypefalse}
+\DeclareOptionX{nosubtitle}[]{\subtitlefalse}
+\DeclareOptionX{nonumbered}[]{\exercisesnumberedfalse}
+\DeclareOptionX{noexercisept}[]{\showexerciseptfalse}
+\DeclareOptionX{color}[red]{\solutionscolortrue\def\solutionscolor{#1}}
+\DeclareOptionX{red}[]{\ExecuteOptionsX{color=red}}
+\DeclareOptionX{blue}[]{\ExecuteOptionsX{color=blue}}
+\DeclareOptionX*{\PackageWarning{verifiche}{Unknown ‘\CurrentOption’}}
+\ProcessOptionsX
+%    \end{macrocode}
+%
+%\subsection{Counters}
+%The package use some predefined counters: the number of the exercise is controlled by |exercisenumber|, while the partial points of an exercise are summed into |partialpoints| (and it's reseted every new exercise) to produce the sum of the partial points for a given exercise.
+%\iffalse
+%%counters
+%\fi
+%    \begin{macrocode}
+\newcounter{exercisenumber}
+\newcounter{partialpoints}[exercisenumber]
+%    \end{macrocode}
+%\subsection{Length}
+%\iffalse
+%%newlenght
+%\fi
+%In order to fine-tuning the dimension of the rulers in the headers and to leave the possibility to the user to redefine their dimensions, some length are introduced.
+%    \begin{macrocode}
+\newlength{\candidatenamerulerlength}
+\newlength{\classrulerlength}
+\newlength{\daterulerlength}
+\newlength{\ptrulerlength}
+\newlength{\columnseparation}
+\newlength{\verifiche@remainingvspace}
+\newlength{\verifiche@remaininghspace}
+\newlength{\verifiche@truefalsesquares}
+\newlength{\spacedim}
+\setlength{\candidatenamerulerlength}{.35\textwidth}
+\setlength{\classrulerlength}{.1\textwidth}
+\setlength{\daterulerlength}{.15\textwidth}
+\setlength{\ptrulerlength}{1cm}
+\setlength{\columnseparation}{\fill}
+\setlength{\verifiche@truefalsesquares}{.7\baselineskip}
+%    \end{macrocode}
+%
+%\subsection{Labels}
+%\iffalse
+%%labels
+%\fi
+%Some labels are define as a variable in order to leave the user the possibility of customization the predefine texts.
+%If the package \textsf{babel} or \textsf{polyglossia} is loaded with the italian language specify, than the predefine labels are redefine:
+%    \begin{macrocode}
+\newcommand{\@verifiche@durationlabeldefault}{Time:}%
+\newcommand{\@verifiche@asyearlabeldefault}{School year}%
+\newcommand{\@verifiche@headercandidatenamelabel}{Name and Surname}%
+\newcommand{\@verifiche@headerclasslabel}{Class}%
+\newcommand{\@verifichhe@headerdatelabel}{Date}%
+\newcommand{\@verifiche@exerciselabel}{Exercise}%
+\newcommand{\@verifiche@solutionlabel}{Solution}%
+\newcommand{\@verifiche@Tletter}{T}%
+\newcommand{\@verifiche@Fletter}{F}%
+%
+\newcommand{\italiandictiornary}{%
+    \renewcommand{\@verifiche@durationlabeldefault}{Tempo della prova:}%
+    \renewcommand{\@verifiche@asyearlabeldefault}{Anno scolastico}%
+    \renewcommand{\@verifiche@headercandidatenamelabel}{Nome e Cognome}%
+    \renewcommand{\@verifiche@headerclasslabel}{Classe}%
+    \renewcommand{\@verifichhe@headerdatelabel}{Data}%
+    \renewcommand{\@verifiche@exerciselabel}{Quesito}%
+    \renewcommand{\@verifiche@solutionlabel}{Soluzione}%
+    \renewcommand{\@verifiche@Tletter}{V}%
+    \renewcommand{\@verifiche@Fletter}{F}%
+}%
+\@ifpackageloaded{babel}{% if babel is loaded 
+    \addto\captionsitalian{\italiandictiornary}%
+}{%else if polyglossia is loaded
+    \@ifpackageloaded{polyglossia}{%
+        \addto\captionsitalian{\italiandictiornary}%
+    }{}%
+}%
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\@durationlabeldefault}{\@verifiche@durationlabeldefault}%
+\newcommand{\@asyearlabeldefault}{\@verifiche@asyearlabeldefault}%
+\newcommand{\headercandidatenamelabel}{\@verifiche@headercandidatenamelabel}%
+\newcommand{\headerclasslabel}{\@verifiche@headerclasslabel}%
+\newcommand{\headerdatelabel}{\@verifichhe@headerdatelabel}%
+\newcommand{\exerciselabel}{\@verifiche@exerciselabel}%
+\newcommand{\solutionlabel}{\@verifiche@solutionlabel}% 
+%    \end{macrocode} 
+%\subsection{Macro and environment}
+%\iffalse
+%%macro and environment
+%\fi
+%\paragraph{Global variables}The package defined some global variable, that are used to indicate the institute, the year, the duration of the test, its type, the instructions and the scolar year.
+%\iffalse
+%%global variable
+%\fi
+%    \begin{macrocode}
+\newcommand{\institute}[1]{%
+    \gdef\@institute{#1}}
+\newcommand{\duration}[2][\@durationlabeldefault]{%
+    \gdef\@durationpreamble{#1}\gdef\@duration{#2}%
+    \showinstructiondelimitertrue}%
+\newcommand{\testtype}[1]{%
+    \gdef\@testtype{#1}}
+\newcommand{\subtitle}[1]{%
+    \gdef\@subtitle{#1}}%
+\newcommand{\instruction}[1]{%
+    \gdef\@instruction{\ignorespaces#1}%
+    \showinstructiondelimitertrue}
+\newcommand{\asyear}[2][\@asyearlabeldefault]{%
+    \gdef\@asyearpreamble{#1}\gdef\@asyear{#2}}
+%    \end{macrocode}
+%
+%\paragraph{Fonts and aspects}
+%One of the feature of this package is the flexibility about the aspect of the final result. All the main font or typographic elements (like instructions delimiters or the difficulty symbol) are defined as macro.
+%\iffalse
+%%fonts and aspects
+%\fi
+%    \begin{macrocode}
+\newcommand{\headerfont}[1]{%
+    \sffamily\color{darkgray}#1}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\institutefont}[1]{%
+    \large \sffamily\color{darkgray}#1}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\asyearfont}[1]{%
+    \hspace*{\fill} #1\hspace*{\fill}}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\testtypefont}[1]{%
+    \bgroup\hspace*{\fill}\scshape\huge#1\hspace*{\fill}\egroup}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\subtitlefont}[1]{%
+    \bgroup\hspace*{\fill}\Large\scshape#1\hspace*{\fill}\egroup}%
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\instructiondelimiter}{%
+   \hrulefill}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\instrunctionfont}[1]{%
+    \sffamily#1}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\durationfont}[1]{%
+    \bgroup\hspace*{\fill}\@durationpreamble\space\bfseries #1\hspace*{\fill}\egroup}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\@header@candidatename}{%
+    \noindent\headercandidatenamelabel%
+    \space\underline{\hspace{\candidatenamerulerlength}}}
+\newcommand{\@header@class}{%
+    \headerclasslabel\space%
+    \underline{\hspace{\classrulerlength}}}
+\newcommand{\@header@date}{%
+    \headerdatelabel\space%
+    \underline{\hspace{\daterulerlength}}}
+\newcommand{\@header}{%
+    \@header@candidatename\hfill\@header@class\hfill\@header@date}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\solutionfont}{%
+    \footnotesize%
+    \ifsolutionscolor\color{\solutionscolor}\fi%
+    \itshape}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\diffsymb}{%
+    $\bigstar$}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\closedquestionitem}{%
+    $\square$}
+%    \end{macrocode}
+%\iffalse
+%%pt prefix
+%\fi
+%    \begin{macrocode}
+\newcommand{\@ptprefix}{%
+    \underline{\hspace{\ptrulerlength}}/}
+\newcommand{\ptprefix}[1]{%
+    \renewcommand{\@ptprefix}{#1}}
+%    \end{macrocode}
+%\iffalse
+%%partialpt prefix
+%\fi
+%    \begin{macrocode}
+\newcommand{\@partialptprefix}{}
+\newcommand{\partialptprefix}[1]{%
+    \renewcommand{\@partialptprefix}{#1}}
+%    \end{macrocode}
+%\iffalse
+%%pt label
+%\fi
+%    \begin{macrocode}
+\newcommand{\@ptsinglabel}{pt}
+\newcommand{\@ptplurlabel}{pt}
+\NewDocumentCommand{\ptlabel}{o m}{%
+    \renewcommand{\@ptplurlabel}{#2}%
+    \renewcommand{\@ptsinglabel}{\IfNoValueTF{#1}{#2}{#1}}}%
+\newcommand{\@useptlabel}[1]{%
+    \ifnum#1=1 \@ptsinglabel \else \@ptplurlabel\fi}
+%    \end{macrocode}
+%\iffalse
+%%partialpt label
+%\fi
+%    \begin{macrocode}
+\newcommand{\@partialptsinglabel}{pt}
+\newcommand{\@partialptplurlabel}{pt}
+\NewDocumentCommand{\partialptlabel}{o m}{%
+    \renewcommand{\@partialptplurlabel}{#2}%
+    \renewcommand{\@partialptsinglabel}{\IfNoValueTF{#1}{#2}{#1}}}%
+\newcommand{\@usepartialptlabel}[1]{%
+    \ifnum#1=1 \@partialptsinglabel \else \@partialptplurlabel\fi}
+%    \end{macrocode}
+%\iffalse
+%%partialpt delimiter
+%\fi
+%    \begin{macrocode}
+\newcommand{\@lpartialpt@delimiter}{(}
+\newcommand{\@rpartialpt@delimiter}{)}
+\newcommand{\@definepartialptdelimiter}[2]{
+    \renewcommand{\@lpartialpt@delimiter}{#1}
+    \renewcommand{\@rpartialpt@delimiter}{#2}}
+\newcommand{\partialptdelimiters}[1]{%
+    \@definepartialptdelimiter#1}
+%    \end{macrocode}
+%\iffalse
+%%pt delimiter
+%\fi
+%    \begin{macrocode}
+\newcommand{\@lpt@delimiter}{}
+\newcommand{\@rpt@delimiter}{}
+\newcommand{\@defineptdelimiter}[2]{%
+    \renewcommand{\@lpt@delimiter}{#1}%
+    \renewcommand{\@rpt@delimiter}{#2}}
+\newcommand{\ptdelimiters}[1]{%
+    \@defineptdelimiter#1}
+%    \end{macrocode}
+%\iffalse
+%% checkmaker
+%\fi
+%    \begin{macrocode}
+\newcommand{\checkmarker}{$\checkmark$}%
+\newcommand{\verifiche@checkmarker}{%
+	\bgroup%
+	\ifsolutionscolor\color{\solutionscolor}\fi%
+	\checkmarker%
+	\egroup}%
+%    \end{macfrocode}
+%\iffalse
+%% convert ref to num
+%\fi
+%    \begin{macrocode}
+\newcommand*{\convertreftonum}[1]{%
+    \romannumeral
+    \@ifundefined{r@#1}{%
+        \expandafter\ltx@zero
+        \rc@default}{%
+    \expandafter\expandafter\expandafter\rc@extract@
+    \expandafter\expandafter\expandafter!%
+    \csname r@#1\expandafter\endcsname
+    \expandafter{\rc@default}\@nil}%
+}
+\def\rc@default{0}%
+\long\def\rc@extract@#1#2#3\@nil{%
+    \ltx@zero
+    #2}
+\chardef\ltx@zero=0%
+%    \end{macrocode}
+%\iffalse
+%% init vertical/horizontal remaining space
+%\fi
+%    \begin{macrocode}
+\newcommand{\verifiche@initremainingvspace}{%
+    \pgfmathsetlength{\verifiche@remainingvspace}{%
+        floor((\dimexpr\pagegoal-\pagetotal-.5\baselineskip\relax)/\spacedim)*\spacedim%
+    }%
+}%
+\newcommand{\verifiche@initremaininghspace}{%
+	\pgfmathsetlength{\verifiche@remaininghspace}{%
+	    floor(\linewidth/\spacedim)*\spacedim%
+	}%
+}%
+%    \end{macrocode}
+
+%\paragraph{Page styles}
+%The package define two new pagestyle: \texttt{mainverifiche} and \texttt{verifiche}. The former is used if \verb|\@institute| is defined (or if \verb|noinstitute| is not declared) as \verb|\thispagestyle| mode. The latter can be used by the user and print, on the odd pages, the name, date and class of the candidate.
+%\iffalse
+%%pagestyles
+%\fi
+%    \begin{macrocode}
+\newcommand{\ps@mainverifiche}{%
+    \renewcommand\@oddhead{%
+        \parbox{\textwidth}{\centering \institutefont{\@institute}}%
+    }%
+    \renewcommand\@evenhead{}%
+    \renewcommand{\@oddfoot}{\hfill\normalfont\textrm\thepage\hfill}%
+    \let\evenfoot\@oddfoot%
+}
+\newcommand{\ps@verifiche}{%
+    \renewcommand\@oddhead{
+        \ifodd\thepage\parbox{\textwidth}{\headerfont\@header}\fi}%
+    \renewcommand{\@oddfoot}{\hfill\normalfont\textrm\thepage\hfill}%
+    \let\evenfoot\@oddfoot%
+}
+%    \end{macrocode}
+%
+%\paragraph{Print the heading}The purpose of |\printheading| macro is to typeset the headings of the page, printing the name of the institute (if included), the type of the test (if included) and so on.
+%\iffalse
+%%print headings
+%\fi
+%    \begin{macrocode}
+\newcommand{\printheading}{%
+    {\ifdefined\@institute\ifinstitute\thispagestyle{mainverifiche}\fi\else\thispagestyle{plain}\fi}%
+    {\ifcandidatename\@header\par\vspace{\baselineskip}\fi}%
+    {\ifdefined\@asyear\ifasyear\asyearfont{\@asyearpreamble\space\@asyear}\par\vspace{\baselineskip}\fi\fi}%
+    {\ifdefined\@testtype\iftesttype\testtypefont{\@testtype}\par\fi\fi}%
+    {\ifdefined\@subtitle\ifsubtitle\vspace{\baselineskip}\subtitlefont{\@subtitle}\par\fi\fi}%
+    {\ifshowinstructiondelimiter\noindent\instructiondelimiter\par\fi}%
+    {\ifdefined\@instruction\ifinstruction\instrunctionfont{\noindent\@instruction}}\par\fi\fi%
+    {\ifdefined\@duration\ifduration\durationfont\@duration\par\fi\fi}%
+    {\ifshowinstructiondelimiter\noindent\instructiondelimiter\par\fi}%
+}
+%    \end{macrocode}
+
+%\paragraph{Esercizio.} The main element of the package is the |esericizio| environment. 
+%It accepts some options define via |xkeyval| package. The element that are reproduced in the left margin are stored into a box and produce if |showmargin| boolean variable is switch to \textit{true}.\par
+%\iffalse
+%%ambiente esercizio
+%\fi
+%    \begin{macrocode}
+\define@key{esercizio}{label}[\exerciselabel]{%
+    \def\tempeserciziolabel{#1}}%
+\define@key{esercizio}{diff}[none]{
+    \def\diffstar{\hfill\foreach \i in {1,..., #1}{\diffsymb}}%
+    \showmarginexercisetrue}%
+\define@key{esercizio}{pt}[none]{
+    \ifshowexercisept%
+    \def\pointes{#1}%
+    \def\espoint{%
+        \hfill\@ptprefix\@lpt@delimiter%
+        \pointes\space\@useptlabel{\pointes}%
+        \@rpt@delimiter}
+    \showmarginexercisetrue
+    \fi}%
+\define@key{esercizio}{partialpt}[none]{%
+    \ifshowexercisept%
+    \def\@totalpartialpt{\convertreftonum{ptes@\theexercisenumber}}%
+    \def\sumpartialpt{%
+        \@ptprefix\@lpt@delimiter%
+        \@totalpartialpt\space\@useptlabel{\@totalpartialpt}%
+        \@rpt@delimiter}%
+    \showmarginexercisetrue
+    \fi}%
+%    \end{macrocode}
+%
+%
+%The part of the exercise (i.e. the title and the margin note) are stored into macro in order to streamline the code. 
+%    \begin{macrocode}
+\newcommand{\exercisetitle}{%
+    \ifdefined\tempeserciziolabel\tempeserciziolabel%
+    \else \exerciselabel\fi%
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newsavebox{\box@marginexercise}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newcommand{\exercisemargin}{%
+    \sbox{\box@marginexercise}{\parbox[t]{\marginparwidth}{%
+        \ifdefined\diffstar\hfill\diffstar\par\fi% stelle di difficoltà
+        \ifdefined\espoint\hfill\espoint\par\fi%[-\baselineskip] %punteggio
+        \ifdefined\sumpartialpt\hfill\sumpartialpt\fi} %punteggio parziale automatico
+    }%
+    \reversemarginpar\marginpar{\usebox{\box@marginexercise}}%
+}%
+%    \end{macrocode}
+%
+% If the exercise admit points, they are stored in the .aux file of the main document in order to be recalled via |\ref| command.
+%    \begin{macrocode}
+\newcommand{\savepointsaux}{%
+    \ifdefined\sumpartialpt%
+        \protected@write \@auxout {}{\string\newlabel {ptes@\theexercisenumber}{{\thepartialpoints}{}}}%
+    \fi%
+    \ifdefined\espoint%
+        \protected@write \@auxout {}{\string\newlabel {ptes@\theexercisenumber}{{\pointes}{}}}%
+    \fi%
+}%
+%    \end{macrocode}
+
+%\begin{environment}{esercizio}
+%The content of the exercise are managed by the |esercizio| environment.
+%For every |esercizio| the counter |exercisenumber| is increased, the |showmarginexercise| are reset to false (to avoid the generation of spurious margin note if unnecessary) and the keys are set.
+%After that, the code produces the label of the environment, the body and manages the space before e after the environment in the page. If the exercise presents some scores, they are stored via |savepointsaux|.
+%    \begin{macrocode}
+\NewDocumentEnvironment{esercizio}{o +b}{%
+    \refstepcounter{exercisenumber}%
+    \showmarginexercisefalse%
+    \IfValueT{#1}{\setkeys{esercizio}{#1}}%
+    \par\addvspace{\baselineskip}%
+    {\noindent\bfseries\exercisetitle\ifexercisesnumbered\space\theexercisenumber\fi}%
+    \ifshowmarginexercise\exercisemargin\fi%
+    \par% newline after label
+    \setlength\parindent{0pt}%no parindent
+    \nobreak\ignorespaces#2%body of the environment
+}{% 
+   \par%
+   \ignorespacesafterend%
+   \savepointsaux%
+}%
+%    \end{macrocode}
+%\end{environment}
+%
+%
+%\begin{environment}{esercizio*}
+%The |esercizio*| environment has the same structure of the previous one, except for the code used to show the number of the exercise.
+%    \begin{macrocode}
+\NewDocumentEnvironment{esercizio*}{o +b}{%
+    \showmarginexercisefalse%
+    \IfValueT{#1}{\setkeys{esercizio}{#1}}%
+    \par\addvspace{\baselineskip}{\noindent\bfseries\exercisetitle}%
+    \ifshowmarginexercise\exercisemargin\fi%
+    \par% newline after label
+    \setlength\parindent{0pt}%no parindent
+    \nobreak\ignorespaces#2% body of the environment
+}{%
+    \par%
+    \ignorespacesafterend
+    \savepointsaux%print partial pt sum
+}%
+%    \end{macrocode}
+%\end{environment}
+%
+%\begin{macro}{\partialpt}The |partialpt| macro define the content of the margin note where it's used.
+%    \begin{macrocode}
+\NewDocumentCommand{\partialpt}{m}{%
+    \ifshowexercisept%
+    \leavevmode\reversemarginpar\marginpar{%
+        \hfill\@partialptprefix%
+        \@lpartialpt@delimiter#1\space\@usepartialptlabel{#1}%
+        \@rpartialpt@delimiter%
+        \addtocounter{partialpoints}{#1}}\ignorespaces%
+        \fi}%
+%    \end{macrocode}
+%\end{macro}
+%\paragraph{Soluzione}
+%\begin{environment}{soluzione}
+%The main element for the "solutions" mode is the |soluzione| environment.
+%    \begin{macrocode}
+\define@key{soluzione}{label}[\solutionlabel]{%
+    \def\verifiche@tempsoluzionelabel{#1}%
+}
+\newcommand{\verifiche@solutionlabel}{%
+    \ifdefined\verifiche@tempsoluzionelabel\verifiche@tempsoluzionelabel%
+    \else\solutionlabel\fi%
+}%
+\NewDocumentEnvironment{soluzione}{o +b}{%
+    \IfValueT{#1}{\setkeys{soluzione}{#1}}%
+    \ifsol%
+        \par\addvspace{\baselineskip}%
+        {\noindent\bfseries%
+        \ifsolutionscolor\color{\solutionscolor}\fi%
+        \verifiche@solutionlabel}%
+        \par\nobreak\noindent\ignorespaces%
+        \setlength\parindent{0pt}%no parindent
+        \solutionfont #2%
+    \fi%
+}{%
+    \ifsol%
+        \par\ignorespacesafterend
+    \fi%
+}%
+%    \end{macrocode}
+%\end{environment}
+%
+%\begin{macro}{\inlinesol}
+%The code inside |\inlinesol| is composed only if in "solutions" mode.
+%    \begin{macrocode}
+\newcommand{\inlinesol}[1]{%
+    \ifsol%
+        \bgroup%
+            \ifmmode\mathit{\solutionfont#1}%
+            \else{\solutionfont#1}%
+            \fi%
+        \egroup%
+    \else\ignorespaces%
+    \fi%
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%
+%\begin{macro}{\completetext}
+%The |\completetext| print a horizontal line on which write the solution if the "solutions" mode is active.
+%    \begin{macrocode}
+\newcommand{\completetext}[2][4.5cm]{%
+    \ifsol%
+        $\overset{\displaystyle\text{\solutionfont#2}}{\underline{\hspace{#1}}}$%
+    \else%
+        $\overset{\relax}{\underline{\hspace{#1}}}$%
+    \fi}%
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\truefalse}
+%The |\truefalse| is generated via |\tikz| macro. 
+%    \begin{macrocode}
+\newcommand{\truefalse}[1]{%
+    %True
+    \framebox{\parbox[c][\verifiche@truefalsesquares]{\verifiche@truefalsesquares}{\centering\@verifiche@Tletter}}%
+    \ifsol\llap{%
+        \if#1\@verifiche@Tletter%
+            \Large\verifiche@checkmarker\hspace{-1pt}%
+        \fi}%
+     \fi%
+     \quad%
+     %False
+    \fbox{\parbox[c][\verifiche@truefalsesquares]{\verifiche@truefalsesquares}{\centering\@verifiche@Fletter}}%
+     \ifsol\llap{%
+         \if#1\@verifiche@Fletter%
+             \Large\verifiche@checkmarker\hspace{-1pt}%
+         \fi}%
+     \fi%%	
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%
+%\begin{macro}{\finderror}
+%The |\finderror| write the wrong text in "test mode" and than superimpose some mark (thanks to \textsf{ulem} package) and the correct text in "solutions mode".
+%    \begin{macrocode}
+\newcommand{\finderror}[2]{%
+    \ifsol%
+        $\overset{\text{{\solutionfont#2}}}{\text{\xout{#1}}}$%
+    \else%
+        #1%
+    \fi%
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%
+%\begin{environment}{closedquestion}
+%The |closedquestion| environment define a new list whose item elements are preceded by square symbol, and every item is |\hfill| spaced. The |\checked| symbol is controlled and generated (in the "solutions mode") via |\tikz|.
+%    \begin{macrocode}
+\newlist{crocette}{itemize}{1}%
+\newlist{crocette*}{itemize*}{1}%
+\setlist[crocette]{label=\closedquestionitem, leftmargin=*, parsep=0pt }%
+\setlist[crocette*]{label=\closedquestionitem, itemjoin={\hfill}}%
+\newcommand{\checked}{%
+    \ifsol%
+        \closedquestionitem\llap{\verifiche@checkmarker\hspace{-1pt}}%
+    \else%
+        \closedquestionitem%
+    \fi}
+\NewDocumentEnvironment{closedquestion}{O{}+b}{%
+    \begin{crocette}[#1]#2%
+}{%
+    \end{crocette}%
+}%
+\NewDocumentEnvironment{closedquestion*}{O{} +b}{%
+    \begin{crocette*}[#1]#2%
+}{%
+    \end{crocette*}%
+}%
+%    \end{macrocode}
+%\end{environment}
+
+%\begin{macro}{\openquestion}
+%The |\openquestion| use key-value options defined as following presented.
+%    \begin{macrocode}
+\define@key{openquestion}{spacedim}[0.5cm]{\setlength{\spacedim}{#1}\verifiche@initremainingvspace\verifiche@initremaininghspace}%
+\define@key{openquestion}{height}[\the\verifiche@remainingvspace]{\def\openquestionheight{#1}}%
+\define@key{openquestion}{width}[\the\verifiche@remaininghspace]{\def\openquestionwidth{#1}}%
+\define@key{openquestion}{linecolor}[gray]{\def\openquestionlinecolor{#1}}%
+\define@choicekey*+{openquestion}{type}[\val\nr]{lines, squares}[squares]{%
+    \ifcase\nr\relax%
+        % lines
+        \openquestionsquaredfalse\openquestionlinestrue%
+    \or%
+        % squares
+        \openquestionsquaredtrue\openquestionlinesfalse%
+    \fi}%
+    {\PackageError{verifiche}{Errore nell'opzione openquestion}{Inserire lines o squares}}
+%    \end{macrocode}
+%
+%The macro starts with an initiation of predefined type of |\openquestion|, than possible options are overloaded.
+%Depending on  the |type| of the |\openquestion|, squared or ruled background is composed and in the foreground is reproduce the text of the argument of the command (in the "solutions mode").
+%    \begin{macrocode}
+\NewDocumentCommand{\openquestion}{o m}{%
+    \setkeys{openquestion}{type, spacedim, width, height, linecolor} %init
+    \IfValueT{#1}{\setkeys{openquestion}{#1}}%
+    \vspace{-\baselineskip}%
+	\begin{center}
+	\ifopenquestionsquared% if squared open question
+        \begin{tikzpicture}%
+            \draw[step=\the\spacedim, \openquestionlinecolor]%
+            (0,0) grid (\openquestionwidth,-\openquestionheight);%
+            \node[%
+                anchor=base west,%
+                align=left, text width=\openquestionwidth,%
+                inner sep=0cm,%
+                font=\solutionfont,%
+                execute at begin node=\setlength{\baselineskip}{\the\spacedim}]% 
+            at (0, -\the\spacedim){\ifsol#2\fi};
+        \end{tikzpicture}%
+    \else% if lined open question
+        \begin{tikzpicture}%
+            \pgfmathparse{int(\openquestionheight/\the\spacedim)}%
+             \foreach \y in {1, ..., \pgfmathresult}%
+             \draw[\openquestionlinecolor] (0, -\y*\the\spacedim) -- +(\openquestionwidth,0);%
+             \node[%
+                 anchor=base west,align=left,%
+                 text width=\openquestionwidth,%
+                 inner sep=0cm, font=\solutionfont,%
+                 execute at begin node=\setlength{\baselineskip}{\the\spacedim}]%
+             at (0, -\the\spacedim){\ifsol#2\fi};%
+    \end{tikzpicture}%
+    \fi%
+    \end{center}%
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%
+%\begin{macro}{\textandimage}
+%The |\textandimage| manages two column material via |minipage| environment.
+%    \begin{macrocode}
+\NewDocumentCommand{\textandimage}{O{.7\textwidth} O{.3\textwidth} m m}{%
+    \begin{minipage}{#1}
+       {#3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{#2}
+        {#4}
+    \end{minipage}
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%
+%\begin{macro}{\makecolumn}
+%The |\makecolumn| give the possibility to create multiple column in the document.
+%    \begin{macrocode}
+\NewDocumentCommand{\makecolumn}{O{t} m +m}{%
+    \parbox[#1]{#2}{#3}%
+    \@ifnextchar\makecolumn{\hspace*{\columnseparation}}{}%
+}%
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{environment}{multitest} The environment |multitest| handle the possibility of generating variation of the same test.
+%    \begin{macrocode}
+\NewDocumentEnvironment{multitest}{O{1} +b}{
+    \newcounter{multitestcounter}
+    \toks1={\foreach \i in {1,...,#1}}
+        \the\toks1{%
+            \setcounter{multitestcounter}{\i}%
+            \setcounter{page}{1}%
+            \setcounter{exercisenumber}{0}%
+            \pgfmathsetseed{\i}%
+            #2%
+            \clearpage%
+        }%
+}{}
+%    \end{macrocode}
+%\end{environment}
+
+% \Finale
+\endinput

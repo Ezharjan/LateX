@@ -1,0 +1,406 @@
+% \iffalse meta-comment
+% This package was written for pdfLaTeX.
+% In particular, there is no guarantee that this works for other tex engines.
+%
+% Copyright (C) 2021 Dennis Chen <proofprogram@gmail.com>
+%
+% This work may be distributed and/or modified under
+% the conditions the LaTeX Project Public License (LPPL),
+% either version 1.3 of this license or (at your option)
+% any later version. The latest version of this license
+% can be found in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+# The LaTeX package palette - version 1.1.0 (2021/07/29)
+
+**palette** provides the ability to create custom color palettes and symbol palettes ("symbol suites"), and swap one palette in for another easily. It also allows the user to create a variable that represents the selected palette, and provides checks in case the variable represents a palette that does not exist.
+
+The package is split into `colorpalette` and `symbolpalette`.
+
+## Installation instructions
+
+A working TeX installation is required.
+
+This is a self-extracting dtx file, so run
+
+    pdflatex palette.dtx
+
+to generate the README, documentation, and packages.
+%</readme>
+% \fi
+
+% \iffalse
+
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+    \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+
+This is a generated file.
+
+Copyright (C) 2021 Dennis Chen <proofprogram@gmail.com>
+
+This work may be distributed and/or modified under
+the conditions the LaTeX Project Public License (LPPL),
+either version 1.3 of this license or (at your option)
+any later version. The latest version of this license
+can be found in
+
+    http://www.latex-project.org/lppl.txt
+
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+To produce the documentation, run palette.dtx through pdflatex.
+
+\endpreamble
+\postamble
+
+This package consists of the file palette.dtx,
+          and the generated files colorpalette.sty,
+                                  symbolpalette.sty,
+                                  palette.pdf.
+\endpostamble
+
+\usedir{tex/latex/palette}
+\generate{
+    \file{colorpalette.sty}{\from{\jobname.dtx}{color}}
+    \file{symbolpalette.sty}{\from{\jobname.dtx}{symbol}}
+}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* files into a directory searched by TeX:                   *}
+\Msg{*                                                           *}
+\Msg{*     colorpalette.sty                                      *}
+\Msg{*     symbolpalette.sty                                       *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation, run the file                *}
+\Msg{* palette.dtx through LaTeX.                                *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+%</install>
+%<install>\endbatchfile
+%<*internal>
+
+\usedir{source/latex/palette}
+\generate{
+    \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+
+\usedir{doc/latex/palette}
+\generate{
+    \file{README.md}{\from{\jobname.dtx}{readme}}
+}
+
+\ifx\fmtname\nameofplainTeX
+    \expandafter\endbatchfile
+\else
+    \expandafter\endgroup
+\fi
+%</internal>
+%
+%<color|symbol>\NeedsTeXFormat{LaTeX2e}
+%<color>\ProvidesPackage{colorpalette}
+%<symbol>\ProvidesPackage{symbolpalette}
+%<color|symbol>[2021/07/29 v1.1.0 Create palettes for colors and symbols]
+%<color>\RequirePackage{xcolor}
+%<*color|symbol>
+\RequirePackage{macrolist}
+%</color|symbol>
+%<*driver>
+\ProvidesFile{\jobname.dtx}[2021/07/29 v1.1.0 Create palettes for colors and symbols]
+\documentclass{ltxdoc}
+
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\begin{document}
+    \DocInput{\jobname.dtx}
+    \PrintIndex
+    \PrintChanges
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.dtx}
+%
+% \changes{v1.1.0}{2021/07/29}{Update macrolist (to get compatibility with etoolbox)}
+% \changes{v1.0.0}{2021/07/27}{Initial version}
+%
+% \title{\textsf{palette} -- Create palettes for colors and symbols}
+% \author{Dennis Chen \\ proofprogram@gmail.com}
+% \date{\fileversion{} (\filedate)}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   The \textsf{palette} package provides \textsf{colorpalette.sty} and \textsf{symbolpalette.sty}, which can be used to create and manage palettes of colors and symbols, respectively.
+% \end{abstract}
+%
+% \section{Overview}
+% We will go over the basic structure of the user interface in broad terms first (i.e. no macros or environments yet). We will use \textsf{colorpalette} as our example here, but \textsf{symbolpalette} behaves virtually identically.
+%
+% First, the user can create palette \emph{themes}, which are independent from each other. Then, you can add colors to themes. Finally, you can make a palette associated with a theme and set its colors.
+%
+% \section{colorpalette.sty}
+%
+% \subsection{Usage}
+%
+% \DescribeMacro{\newpalettetheme}
+% To create a new palette theme called \textsf{theme}, write |\newpalettetheme{theme}|.
+%
+% \iffalse
+%<*color>
+\newcommand\newpalettetheme[1]{
+    \macronewlist{colorpalette@theme@#1@palettes}
+    \macronewlist{colorpalette@theme@#1@colors}
+}
+%</color>
+% \fi
+% \DescribeMacro{\addcolortotheme}
+% To add a color \textsf{color} to theme \textsf{theme}, write |\addcolortotheme{theme}{color}|.
+%
+% \iffalse
+%<*color>
+\newcommand\addcolortotheme[2]{
+    \colorpalette@themecheck{#1}
+    \macrolistadd{colorpalette@theme@#1@colors}{#2}
+}
+%</color>
+% \fi
+%
+% \DescribeMacro{\newpalette}
+% To create a new palette \textsf{palette} based on theme \textsf{theme}, write |\newpalette{theme}{palette}|.
+%
+% Palette names only need to be unique across the same theme. This means that you can have two palettes with the same name if they are associated with different themes.
+%
+% \iffalse
+%<*color>
+\newcommand\newpalette[2]{
+    % Check that the theme exists
+    \colorpalette@themecheck{#1}
+    \macrolistadd{colorpalette@theme@#1@palettes}{#2}
+}
+%</color>
+% \fi
+%
+% \DescribeMacro{\setpalettecolor}
+% To set the color \textsf{color} (which was defined with respect to the theme of the palette) as the color value \textsf{value} in the format \textsf{encoding} (which by default is HTML) of palette \textsf{palette} in theme \textsf{theme}, write \begin{verbatim}\setpalettecolor{theme}{palette}{color}[encoding]{value}\end{verbatim}
+%
+% \iffalse
+%<*color>
+\newcommand\setpalettecolor[3]{
+    \colorpalette@themecheck{#1}
+    \colorpalette@palettecheck{#1}{#2}
+    \colorpalette@colorcheck{#1}{#3}
+    \def\colorpalette@temp@themename{#1}
+    \def\colorpalette@temp@palettename{#2}
+    \def\colorpalette@temp@colorname{#3}
+    \colorpalette@setpalettecolor
+}
+\newcommand\colorpalette@setpalettecolor[2][HTML]{
+    \definecolor{colorpalette@\colorpalette@temp@themename @\colorpalette@temp@palettename @\colorpalette@temp@colorname}{#1}{#2}
+}
+%</color>
+% \fi
+%
+% \DescribeMacro{\activepalette}
+% This sets the active palette of a theme. (This is how palettes are ``swapped in'' with respect to a theme.) To set the active palette of theme \textsf{theme} as \textsf{palette}, write |\activepalette{theme}{palette}|.
+%
+% \iffalse
+%<*color>
+\newcommand\activepalette[2]{%
+    \colorpalette@themecheck{#1}
+    \colorpalette@palettecheck{#1}{#2}
+    \expandafter\def\csname colorpalette@#1@active\endcsname{#2}%
+}
+%</color>
+% \fi
+%
+% \DescribeMacro{\getcolor}
+% To use, write |\getcolor{theme}{color}|. This gets the \emph{internal} color name from the \emph{active} palette of \textsf{theme}. No errors will be thrown even if you pass in an undefined theme or color (with respect to the theme). This limitation is because we must be able to parse |\getcolor|.
+%
+% \iffalse
+%<*color>
+\newcommand\getcolor[2]{colorpalette@#1@\csname colorpalette@#1@active\endcsname @#2}
+%</color>
+% \fi
+%
+% \DescribeMacro{\applycolor}
+% To use, write |\applycolor{theme}{color}|. This applies color \textsf{color} from the \emph{active} palette of theme \textsf{theme}. (This means that the newly defined color is passed into |\color|.) If \textsf{theme} has no active palette, an error will be thrown.
+%
+% To make it clearer what |\applycolor| does, we will just show the macro definition directly (since it is quite simple). (The macros |\colorpalette@themecheck| and |\colorpalette@colorcheck| are just for error handling.)
+%
+%    \begin{macrocode}
+%<*color>
+\newcommand\applycolor[2]{%
+    \colorpalette@themecheck{#1}%
+    \colorpalette@colorcheck{#1}{#2}%
+    \color{\getcolor{#1}{#2}}%
+}
+%</color>
+%    \end{macrocode}
+%
+% \subsection{Error Messages}
+% \iffalse
+%<*color>
+\newcommand\colorpalette@themecheck[1]{\macrolistexists{colorpalette@theme@#1@palettes}{}{\colorpalette@error@theme{#1}}}
+\newcommand\colorpalette@palettecheck[2]{\macrolistcontains{colorpalette@theme@#1@palettes}{#2}{}{\colorpalette@error@palette{#1}{#2}}}
+\newcommand\colorpalette@colorcheck[2]{\macrolistcontains{colorpalette@theme@#1@colors}{#2}{}{\colorpalette@error@color{#1}{#2}}}
+%</color>
+% \fi
+%
+% If a nonexistent theme is passed in, the following error will be thrown:
+% \begin{verbatim}The palette passed in is not a defined palette of theme `#1'\end{verbatim}
+% where |#1| is the name of the theme.
+% \iffalse
+%<color>\newcommand\colorpalette@error@theme[1]{\PackageError{colorpalette}{The theme `#1' passed in is not defined}{}}
+% \fi
+%
+% If a palette that does not belong to a theme is passed in, the following error will be thrown:
+% \begin{verbatim}The palette `#2' passed in is not a defined palette of theme `#1'\end{verbatim}
+% where |#1| is the name of the theme and |#2| is the name of the palette.
+% \iffalse
+%<color>\newcommand\colorpalette@error@palette[2]{\PackageError{colorpalette}{The palette `#2' passed in is not a defined palette of theme `#1'}{}}
+% \fi
+%
+% If a color that does not belong to a theme is passed in, the following error will be thrown:
+% \begin{verbatim}The color `#2' passed in is not a defined color of theme `#1'\end{verbatim}
+% where |#1| is the name of the theme and |#2| is the name of the color.
+% \iffalse
+%<color>\newcommand\colorpalette@error@color[2]{\PackageError{colorpalette}{The color `#2' passed in is not a defined color of theme `#1'}{}}
+% \fi
+%
+% \section{symbolpalette.sty}
+%
+% Despite the name \textsf{symbolpalette} (which is used to identify it as one of the files of the package \textsf{palette}), the main keyword is a \emph{suite}. This is because the keyword \emph{palette} is already used for \textsf{colorpalette}.
+%
+% This package is nearly analogous to \textsf{colorpalette}. A \emph{suite} is analogous to a \emph{palette}, and a \emph{symbol} is analogous to a \emph{color}. \emph{Themes} are used in both packages.
+%
+% \subsection{Usage}
+%
+% \DescribeMacro{\newsuitetheme}
+% To create a new suite theme called \textsf{theme}, write |\newsuitetheme{theme}|.
+%
+% \iffalse
+%<*symbol>
+\newcommand\newsuitetheme[1]{
+    \macronewlist{symbolsuite@theme@#1@suites}
+    \macronewlist{symbolsuite@theme@#1@symbols}
+}
+%</symbol>
+% \fi
+% \DescribeMacro{\addsymboltotheme}
+% To add a symbol \textsf{symbol} to theme \textsf{theme}, write |\addsymboltotheme{theme}{symbol}|.
+%
+% \iffalse
+%<*symbol>
+\newcommand\addsymboltotheme[2]{
+    \symbolsuite@themecheck{#1}
+    \macrolistadd{symbolsuite@theme@#1@symbols}{#2}
+}
+%</symbol>
+% \fi
+%
+% \DescribeMacro{\newsuite}
+% To create a new suite \textsf{suite} based on theme \textsf{theme}, write |\newsuite{theme}{suite}|.
+%
+% Suite names only need to be unique across the same theme. This means that you can have two suites with the same name if they are associated with different themes.
+%
+% \iffalse
+%<*symbol>
+\newcommand\newsuite[2]{
+    \symbolsuite@themecheck{#1}
+    \macrolistadd{symbolsuite@theme@#1@suites}{#2}
+}
+%</symbol>
+% \fi
+%
+% \DescribeMacro{\setsuitesymbol}
+% To set the symbol \textsf{symbol} (which was defined with respect to the theme of the suite) as the icon \textsf{icon} of suite \textsf{suite} in theme \textsf{theme}, write \begin{verbatim}\setsuitesymbol{theme}{suite}{symbol}{icon}\end{verbatim}
+%
+% \iffalse
+%<symbol>\newcommand\setsuitesymbol[4]{\expandafter\def\csname symbolsuite@#1@#2@#3\endcsname{#4}}
+% \fi
+%
+% \DescribeMacro{\activesuite}
+% This sets the active suite of a theme. (This is how suites are ``swapped in'' with respect to a theme.) To set the active suite of theme \textsf{theme} as \textsf{suite}, write |\activesuite{theme}{suite}|.
+%
+% \iffalse
+%<*symbol>
+\newcommand\activesuite[2]{
+    \symbolsuite@themecheck{#1}
+    \symbolsuite@suitecheck{#1}{#2}
+    \expandafter\def\csname symbolsuite@#1@active\endcsname{#2}
+}
+%</symbol>
+% \fi
+%
+% \DescribeMacro{\printsymbol}
+% To use, write |\printsymbol{theme}{symbol}|. This is similar to \textsf{colorpalette.sty}'s |\applycolor|.
+% \iffalse
+%<*symbol>
+\newcommand\printsymbol[2]{%
+    \symbolsuite@themecheck{#1}%
+    \symbolsuite@symbolcheck{#1}{#2}%
+    \csname symbolsuite@#1@\csname symbolsuite@#1@active\endcsname @#2\endcsname%
+}
+%</symbol>
+% \fi
+%
+% \subsection{Error Messages}
+% \iffalse
+%<*symbol>
+\newcommand\symbolsuite@themecheck[1]{\macrolistexists{symbolsuite@theme@#1@suites}{}{\symbolsuite@error@theme{#1}}}
+\newcommand\symbolsuite@suitecheck[2]{\macrolistcontains{symbolsuite@theme@#1@suites}{#2}{}{\symbolsuite@error@suite{#1}{#2}}}
+\newcommand\symbolsuite@symbolcheck[2]{\macrolistcontains{symbolsuite@theme@#1@symbols}{#2}{}{\symbolsuite@error@symbol{#1}{#2}}}
+%</symbol>
+% \fi
+%
+% If a nonexistent theme is passed in, the following error will be thrown:
+% \begin{verbatim}The palette passed in is not a defined palette of theme `#1'\end{verbatim}
+% where |#1| is the name of the theme.
+% \iffalse
+%<symbol>\newcommand\symbolsuite@error@theme[1]{\PackageError{symbolpalette}{The theme `#1' passed in is not defined}{}}
+% \fi
+%
+% If a suite that does not belong to a theme is passed in, the following error will be thrown:
+% \begin{verbatim}The suite `#2' passed in is not a defined suite of theme `#1'\end{verbatim}
+% where |#1| is the name of the theme and |#2| is the name of the suite.
+% \iffalse
+%<symbol>\newcommand\symbolsuite@error@suite[2]{\PackageError{symbolpalette}{The suite `#2' passed in is not a defined suite of theme `#1'}{}}
+% \fi
+%
+% If a symbol that does not belong to a theme is passed in, the following error will be thrown:
+% \begin{verbatim}The symbol `#2' passed in is not a defined symbol of theme `#1'\end{verbatim}
+% where |#1| is the name of the theme and |#2| is the name of the symbol.
+% \changes{v1.0.1}{2020/07/28}{Make error message refer to symbol, not color}
+% \iffalse
+%<symbol>\newcommand\symbolsuite@error@symbol[2]{\PackageError{symbolpalette}{The symbol `#2' passed in is not a defined symbol of theme `#1'}{}}
+% \fi
+% \Finale
+%
+\endinput

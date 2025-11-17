@@ -1,0 +1,183 @@
+% musixjt.tex :Jazz Text font definitions for MusiXTeX
+%
+% usage: 
+%
+%    \input musixtex
+%    \input musixjt
+%    ...
+%
+%   MusiXjt.tex is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2, or (at your option)
+%   any later version.
+%
+%   MusiXjt.tex is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with MusiXTeX; see the file COPYING.  If not, write to
+%   the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+%   Boston, MA 02111-1307, USA.
+%
+%   Copyright 2015-2017  Bob Tennent rdt@cs.queensu.ca
+%
+\ifx\undefined\startpiece\errmessage{Input musixtex.tex before musixjt.tex}\fi
+\immediate\write16{MusiXjt\space<2021/08/28>}
+%
+
+% 7pt 
+\font\sevenrm=MuseJazzText at 7pt
+\font\sevenbf=MuseJazzText at 7pt
+\font\sevenit=MuseJazzText at 7pt
+\font\sevenbi=MuseJazzText at 7pt
+\font\sevensc=MuseJazzText at 7pt
+% 8pt 
+\font\eightrm=MuseJazzText at 8pt
+\font\eightbf=MuseJazzText at 8pt
+\font\eightit=MuseJazzText at 8pt
+\font\eightbi=MuseJazzText at 8pt
+\font\eightsc=MuseJazzText at 8pt
+% 9pt
+\font\ninerm=MuseJazzText at 9pt
+\font\ninebf=MuseJazzText at 9pt
+\font\nineit=MuseJazzText at 9pt
+\font\ninebi=MuseJazzText at 9pt
+\font\ninesc=MuseJazzText at 9pt
+% 10pt
+\font\tenrm=MuseJazzText at 10pt
+\font\tenbf=MuseJazzText at 10pt
+\font\tenit=MuseJazzText at 10pt
+\font\tenbi=MuseJazzText at 10pt
+\font\tensc=MuseJazzText at 10pt
+% 11pt
+\font\elevenrm=MuseJazzText at 11pt
+\font\elevenbf=MuseJazzText at 11pt
+\font\elevenit=MuseJazzText at 11pt
+\font\elevenbi=MuseJazzText at 11pt
+\font\elevensc=MuseJazzText at 11pt
+% 12pt
+\font\twelverm=MuseJazzText at 12pt
+\font\twelvebf=MuseJazzText at 12pt
+\font\twelveit=MuseJazzText at 12pt
+\font\twelvebi=MuseJazzText at 12pt
+\font\twelvesc=MuseJazzText at 12pt
+% 14pt
+\font\frtrm=MuseJazzText at 14pt
+\font\frtbf=MuseJazzText at 14pt
+\font\frtit=MuseJazzText at 14pt
+\font\frtbi=MuseJazzText at 14pt
+\font\frtsc=MuseJazzText at 14pt
+% 17pt
+\font\svtrm=MuseJazzText at 17pt
+\font\svtbf=MuseJazzText at 17pt
+\font\svtit=MuseJazzText at 17pt
+\font\svtbi=MuseJazzText at 17pt
+\font\svtsc=MuseJazzText at 17pt
+% 20pt
+\font\twtyrm=MuseJazzText at 20pt
+\font\twtybf=MuseJazzText at 20pt
+\font\twtyit=MuseJazzText at 20pt
+\font\twtybi=MuseJazzText at 20pt
+\font\twtysc=MuseJazzText at 20pt
+% 25pt
+\font\twfvrm=MuseJazzText at 25pt
+\font\twfvbf=MuseJazzText at 25pt
+\font\twfvit=MuseJazzText at 25pt
+\font\twfvbi=MuseJazzText at 25pt
+\font\twfvsc=MuseJazzText at 25pt
+%
+% large fonts for titles
+%
+\def\bigtype{\bigfont}
+\def\Bigtype{\Bigfont}
+\def\BIgtype{\BIgfont}
+\def\BIGtype{\BIGfont}
+
+%
+\font\ppfftwelve=MuseJazzText at 8pt
+\font\ppffsixteen=MuseJazzText at 10pt
+\font\ppfftwenty=MuseJazzText at 12pt
+\font\ppfftwentyfour=MuseJazzText at 14pt
+\font\ppfftwentynine=MuseJazzText at 17pt
+%
+\def\f{{\ppff f}}
+\def\ff{{\ppff ff}}
+\def\fp{{\ppff fp}}
+\def\fff{{\ppff fff}}
+\def\ffff{{\ppff ffff}}
+\def\mf{{\ppff mf}}
+\def\p{{\ppff p}}
+\def\pp{{\ppff pp}}
+\def\ppp{{\ppff ppp}}
+\def\pppp{{\ppff pppp}}
+%
+\edef\catcodeat{\the\catcode`\@}\catcode`\@=11
+%
+\def\sF{{\ppff s\p@kern f}}
+\def\sfz{{\ppff s\p@kern f\f@kern z}}
+\def\sfzp{{\ppff s\p@kern f\f@kern z\p@kern p}}
+
+\def\mp@{{\ppff mp}}
+\let\mezzopiano\mp@
+
+\catcode`\@=\catcodeat
+
+%
+% Redefine accented characters for 8-bit font, suggested by David Carlisle:
+%
+
+\ifx\documentclass\undefined
+\catcode`\@=11
+\def\ProvidesFile#1[#2]{}
+\def\DeclareFontEncoding#1#2#3{}
+\def\DeclareTextAccent#1#2#3{%
+\def#1##1{%
+\expandafter\ifx\csname T1\string#1-\string##1\endcsname\relax
+{\accent#1 ##1}%
+\else
+\csname T1\string#1-\string##1\expandafter\endcsname
+\fi}}
+\def\DeclareTextCommand#1#2{\xdtcmd}%not today
+\def\xdtcmd#1#{\xxdtcmd}%not today
+\def\xxdtcmd#1{}%not today
+\def\DeclareTextCompositeCommand#1#2#3#4{}%not today
+\def\DeclareTextSymbol#1#2#3{%
+\def#1{\char#3\relax}}
+\def\DeclareTextComposite#1#2#3#4{%
+\expandafter\def\csname T1\string#1-\string#3\endcsname{\char#4\relax}}
+
+\input t1enc.def 
+
+% \c needs special treatment
+\def\c#1{\leavevmode\ifx c#1\char231 \else\setbox\z@\hbox{#1}\ifdim\ht\z@=1ex\accent11 #1%
+     \else{\ooalign{\unhbox\z@\crcr
+        \hidewidth\char11\hidewidth}}\fi\fi}
+\catcode`\@=\catcodeat
+\fi
+
+%  tt fonts needed by musixsty
+%
+\font\eighttt=ectt0800
+\font\ninett=ectt0900
+\font\tentt=ectt1000
+\font\twelvett=ectt1200
+\font\frttt=ectt1440
+\font\svttt=ectt1728
+\font\twtytt=ectt2074
+\font\twfvtt=ectt2488
+%
+%  sl fonts needed by musixsty
+%
+\font\eightsl=ecsl0800
+\font\ninesl=ecsl0900
+\font\tensl=ecsl1000
+\font\twelvesl=ecsl1200
+\font\frtsl=ecsl1440
+\font\svtsl=ecsl1728
+\font\twtysl=ecsl2074
+\font\twfvsl=ecsl2488
+
+\normtype
+\endinput

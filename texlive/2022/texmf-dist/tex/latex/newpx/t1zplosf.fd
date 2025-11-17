@@ -1,0 +1,39 @@
+\ProvidesFile{t1zplosf.fd}[2021/05/25 v1.0 font definition file for T1/zpl/OsF]
+
+\@ifundefined{ifzpl@sl}{\let\ifzpl@sl\iftrue}{}
+
+\expandafter\ifx\csname zpl@scaled\endcsname\relax
+  \global\let\zpl@scaled\@empty%
+\fi
+\gdef\zpl@lsfx{}
+\def\zpl@makelsfx{\ifzpl@largesc\gdef\zpl@lsfx{l}\fi}
+\ifdefined\zpl@largescfalse \zpl@makelsfx\fi
+\ifdefined\zpl@spacing \else\global\let\zpl@spacing\@empty\fi
+
+
+\DeclareFontFamily{T1}{zplOsF}{\zpl@spacing}
+\DeclareFontShape{T1}{zplOsF}{b}{sc}{<-> \zpl@scaled zpl-Bold-osf-sc\zpl@lsfx-t1}{}
+\DeclareFontShape{T1}{zplOsF}{b}{n}{<-> \zpl@scaled zpl-Bold-osf-t1}{}
+\DeclareFontShape{T1}{zplOsF}{b}{scit}{<-> \zpl@scaled zpl-BoldItalic-osf-sc\zpl@lsfx-t1}{}
+\DeclareFontShape{T1}{zplOsF}{b}{it}{<-> \zpl@scaled zpl-BoldItalic-osf-t1}{}
+\DeclareFontShape{T1}{zplOsF}{m}{sc}{<-> \zpl@scaled zpl-Regular-osf-sc\zpl@lsfx-t1}{}
+\DeclareFontShape{T1}{zplOsF}{m}{n}{<-> \zpl@scaled zpl-Regular-osf-t1}{}
+\DeclareFontShape{T1}{zplOsF}{m}{scit}{<-> \zpl@scaled zpl-Italic-osf-sc\zpl@lsfx-t1}{}
+\DeclareFontShape{T1}{zplOsF}{m}{it}{<-> \zpl@scaled zpl-Italic-osf-t1}{}
+\DeclareFontShape{T1}{zplOsF}{bx}{sc}{<->ssub * zplOsF/b/sc}{}
+\DeclareFontShape{T1}{zplOsF}{bx}{n}{<->ssub * zplOsF/b/n}{}
+\DeclareFontShape{T1}{zplOsF}{bx}{scit}{<->ssub * zplOsF/b/scit}{}
+\DeclareFontShape{T1}{zplOsF}{bx}{it}{<->ssub * zplOsF/b/it}{}
+\ifzpl@sl % point to real slanted fonts
+  \DeclareFontShape{T1}{zplOsF}{m}{sl}{<-> \zpl@scaled zpl-Slanted-osf-t1}{}
+  \DeclareFontShape{T1}{zplOsF}{b}{sl}{<-> \zpl@scaled zpl-BoldSlanted-osf-t1}{}
+  \DeclareFontShape{T1}{zplOsF}{bx}{sl}{<->ssub * zplOsF/b/sl}{}
+\else %point to theorem font
+  \DeclareFontShape{T1}{zplOsF}{m}{sl}{<-> \zpl@scaled zplth-Italic-osf-t1}{}
+  \DeclareFontShape{T1}{zplOsF}{b}{sl}{<->ssub * zplOsF/m/sl}{}
+  \DeclareFontShape{T1}{zplOsF}{bx}{sl}{<->ssub * zplOsF/m/sl}{}
+\fi
+\DeclareFontShape{T1}{zplOsF}{b}{scsl}{<->ssub * zplOsF/b/scit}{}
+\DeclareFontShape{T1}{zplOsF}{m}{scsl}{<->ssub * zplOsF/m/scit}{}
+\DeclareFontShape{T1}{zplOsF}{bx}{scsl}{<->ssub * zplOsF/b/scit}{}
+\endinput

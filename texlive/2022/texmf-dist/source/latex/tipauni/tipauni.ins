@@ -1,0 +1,54 @@
+% File: tipauni.ins
+\input l3docstrip.tex
+
+\keepsilent
+\askforoverwritefalse
+
+\preamble
+
+---------------------------------------------------------------------------
+Package:      tipauni
+Author:       निरंजन
+Description:  For producing Unicode characters with TIPA commands.
+Repository:   https://git.gnu.org.ua/tipauni.git
+Bug tracker:  https://puszcza.gnu.org.ua/bugs/?group=tipauni
+License:      GPL v3.0+, GFDL 1.3+
+---------------------------------------------------------------------------
+
+LaTeX Package tipauni v0.6
+Copyright © 2021, 2022 निरंजन
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+The current maintainers of this work are निरंजन.
+
+This work consists of the files tipauni.dtx
+                                tipauni.ins
+and the derived file            tipauni.sty.
+---------------------------------------------------------------------------
+
+\endpreamble
+
+\usedir{tex/latex/\jobname}
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+
+\nopreamble\nopostamble
+\usedir{doc/latex/\jobname}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+
+\endbatchfile

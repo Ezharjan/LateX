@@ -1,0 +1,50 @@
+% tkz-obj-eu-draw-triangles.tex
+% Copyright 2022  Alain Matthes
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% This work has the LPPL maintenance status “maintained”. 
+% The Current Maintainer of this work is Alain Matthes.
+
+\def\fileversion{4.23c}
+\def\filedate{2022/08/24} 
+\typeout{2022/08/24 4.23c tkz-obj-eu-draw-triangles.tex} 
+\makeatletter  
+%<--------------------------------------------------------------------------–>
+%                       Draw Triangles
+%<--------------------------------------------------------------------------–>
+
+\def\tkzDrawTriangle{\pgfutil@ifnextchar[{\tkz@DrawTriangle}{%
+                                         \tkz@DrawTriangle[]}}
+\def\tkz@DrawTriangle[#1](#2,#3,#4){%
+\begingroup
+\draw[line style,line join=round,#1] (#2)--(#3)--(#4)--cycle;
+\endgroup
+}
+
+%<--------------------------------------------------------------------------–>
+\def\tkz@multitriangles#1 #2\@nil{% 
+\protected@edef\tkz@temp{
+%\noexpand \tkzDrawTriangle[\tkz@opttrianle](#1)}\tkz@temp% 
+\noexpand \tkzDrawPolygon[\tkz@opttrianle](#1)}\tkz@temp% 
+\def\tkz@nextArg{#2}%
+\ifx\tkzutil@empty\tkz@nextArg
+     \let\next\@gobble
+\fi
+\next#2\@nil
+}
+%<--------------------------------------------------------------------------–>
+\def\tkzDrawTriangles{\pgfutil@ifnextchar[{\tkz@DrawTriangles}{\tkz@DrawTriangles[]}} 
+\def\tkz@DrawTriangles[#1](#2){%
+\xdef\tkz@opttrianle{#1} 
+\begingroup
+   \let\next\tkz@multitriangles
+   \next#2 \@nil %    
+\endgroup     
+}% 
+\makeatother
+\endinput

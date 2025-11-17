@@ -1,0 +1,90 @@
+\ProvidesFile{t1gentium.fd}
+    [2022/05/30 Font definitions for gentium.]
+
+\expandafter\ifx\csname gentium@scale\endcsname\relax
+    \let\gentium@@scale\@empty
+\else
+    \edef\gentium@@scale{s*[\csname gentium@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{T1}{gentium}{}
+
+\DeclareFontShape{T1}{gentium}{m}{n}{
+            <->     \gentium@@scale ec-gentiumplus-regular
+}{}
+
+\DeclareFontShape{T1}{gentium}{m}{it}{
+            <->     \gentium@@scale ec-gentiumplus-italic
+}{}
+
+\DeclareFontShape{T1}{gentium}{b}{n}{
+            <->     \gentium@@scale ec-gentiumplus-bold
+}{}
+
+\DeclareFontShape{T1}{gentium}{b}{it}{
+            <->     \gentium@@scale ec-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{T1}{gentium}{sb}{n}{
+            <->     \gentium@@scale ec-gentiumbook-regular
+}{}
+
+\DeclareFontShape{T1}{gentium}{sb}{it}{
+            <->     \gentium@@scale ec-gentiumbook-italic
+}{}
+
+\DeclareFontShape{T1}{gentium}{eb}{n}{
+            <->     \gentium@@scale ec-gentiumbook-bold
+}{}
+
+\DeclareFontShape{T1}{gentium}{eb}{it}{
+            <->     \gentium@@scale ec-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{T1}{gentium}{m}{sc}{
+            <->     \gentium@@scale ec-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{m}{scit}{
+            <->     \gentium@@scale ec-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{b}{sc}{
+            <->     \gentium@@scale ec-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{b}{scit}{
+            <->     \gentium@@scale ec-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{sb}{sc}{
+            <->     \gentium@@scale ec-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{sb}{scit}{
+            <->     \gentium@@scale ec-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{eb}{sc}{
+            <->     \gentium@@scale ec-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{eb}{scit}{
+            <->     \gentium@@scale ec-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{T1}{gentium}{m}{sl}{<->ssub * gentium/m/it}{}
+\DeclareFontShape{T1}{gentium}{b}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{T1}{gentium}{bx}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{T1}{gentium}{bx}{it}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{T1}{gentium}{bx}{n}{<->ssub * gentium/b/n}{}
+\DeclareFontShape{T1}{gentium}{sb}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{T1}{gentium}{sbx}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{T1}{gentium}{sbx}{it}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{T1}{gentium}{sbx}{n}{<->ssub * gentium/sb/n}{}
+\DeclareFontShape{T1}{gentium}{eb}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{T1}{gentium}{ebx}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{T1}{gentium}{ebx}{it}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{T1}{gentium}{ebx}{n}{<->ssub * gentium/eb/n}{}
+
+\endinput

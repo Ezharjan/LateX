@@ -1,0 +1,43 @@
+{
+   "abstract" : "A pure perl BibTeX parser",
+   "author" : [
+      "Gerhard Gossen <gerhard.gossen@googlemail.com>",
+      "Boris Veytsman <borisv@lk.net>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.120921, CPAN::Meta::Converter version 2.133380",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "BibTeX-Parser",
+   "prereqs" : {
+      "build" : {
+         "requires" : {}
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "File::Spec" : "0",
+            "IO::File" : "0",
+            "IO::String" : "0",
+            "LaTeX::ToUnicode" : "0.02",
+            "Test::More" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0.88"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "version" : "1.02"
+}

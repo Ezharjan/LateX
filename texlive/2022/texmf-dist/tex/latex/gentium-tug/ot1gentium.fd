@@ -1,0 +1,90 @@
+\ProvidesFile{ot1gentium.fd}
+    [2022/05/30 Font definitions for gentium.]
+
+\expandafter\ifx\csname gentium@scale\endcsname\relax
+    \let\gentium@@scale\@empty
+\else
+    \edef\gentium@@scale{s*[\csname gentium@scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{OT1}{gentium}{}
+
+\DeclareFontShape{OT1}{gentium}{m}{n}{
+            <->     \gentium@@scale ot1-gentiumplus-regular
+}{}
+
+\DeclareFontShape{OT1}{gentium}{m}{it}{
+            <->     \gentium@@scale ot1-gentiumplus-italic
+}{}
+
+\DeclareFontShape{OT1}{gentium}{b}{n}{
+            <->     \gentium@@scale ot1-gentiumplus-bold
+}{}
+
+\DeclareFontShape{OT1}{gentium}{b}{it}{
+            <->     \gentium@@scale ot1-gentiumplus-bolditalic
+}{}
+
+\DeclareFontShape{OT1}{gentium}{sb}{n}{
+            <->     \gentium@@scale ot1-gentiumbook-regular
+}{}
+
+\DeclareFontShape{OT1}{gentium}{sb}{it}{
+            <->     \gentium@@scale ot1-gentiumbook-italic
+}{}
+
+\DeclareFontShape{OT1}{gentium}{eb}{n}{
+            <->     \gentium@@scale ot1-gentiumbook-bold
+}{}
+
+\DeclareFontShape{OT1}{gentium}{eb}{it}{
+            <->     \gentium@@scale ot1-gentiumbook-bolditalic
+}{}
+
+\DeclareFontShape{OT1}{gentium}{m}{sc}{
+            <->     \gentium@@scale ot1-gentiumplus-regular-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{m}{scit}{
+            <->     \gentium@@scale ot1-gentiumplus-italic-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{b}{sc}{
+            <->     \gentium@@scale ot1-gentiumplus-bold-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{b}{scit}{
+            <->     \gentium@@scale ot1-gentiumplus-bolditalic-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{sb}{sc}{
+            <->     \gentium@@scale ot1-gentiumbook-regular-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{sb}{scit}{
+            <->     \gentium@@scale ot1-gentiumbook-italic-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{eb}{sc}{
+            <->     \gentium@@scale ot1-gentiumbook-bold-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{eb}{scit}{
+            <->     \gentium@@scale ot1-gentiumbook-bolditalic-sc
+}{}
+
+\DeclareFontShape{OT1}{gentium}{m}{sl}{<->ssub * gentium/m/it}{}
+\DeclareFontShape{OT1}{gentium}{b}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{OT1}{gentium}{bx}{sl}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{OT1}{gentium}{bx}{it}{<->ssub * gentium/b/it}{}
+\DeclareFontShape{OT1}{gentium}{bx}{n}{<->ssub * gentium/b/n}{}
+\DeclareFontShape{OT1}{gentium}{sb}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{OT1}{gentium}{sbx}{sl}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{OT1}{gentium}{sbx}{it}{<->ssub * gentium/sb/it}{}
+\DeclareFontShape{OT1}{gentium}{sbx}{n}{<->ssub * gentium/sb/n}{}
+\DeclareFontShape{OT1}{gentium}{eb}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{OT1}{gentium}{ebx}{sl}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{OT1}{gentium}{ebx}{it}{<->ssub * gentium/eb/it}{}
+\DeclareFontShape{OT1}{gentium}{ebx}{n}{<->ssub * gentium/eb/n}{}
+
+\endinput

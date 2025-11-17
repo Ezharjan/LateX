@@ -1,0 +1,165 @@
+% \file{style/mu/fithesis-sci.sty}
+% \changes{v1.0.0}{2021/02/21}{Files were renamed after
+%   breaking changes in package loading after PR 438 in \LaTeXe. [VN]}
+% \changes{v1.0.0}{2021/03/19}{Updated urls to show the most recent
+%   requirements and recommendations used in preparation of the
+%   template. [TV]}
+% This is the style file for the theses written at the Faculty of
+% Science at the Masaryk University in Brno. It has been
+% prepared in accordance with the formal requirements published at
+% the website of the faculty\footnote{See
+% \url{https://is.muni.cz/auth/do/sci/normy/OD/OD-2019_3/OD_3_2019^^A
+% _-_Pokyny_pro_vypracovani_bc._dipl._a_rigor.praci.pdf}}.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fithesis/style/mu/fithesis-mu-sci}[2021/07/18]
+%    \end{macrocode}
+% The file defines the color scheme of the respective faculty. Note
+% the the color definitions are in RGB, which makes the resulting
+% files generally unsuitable for printing.
+%    \begin{macrocode}
+\thesis@color@setup{
+  links={HTML}{20E366},
+  tableEmph={HTML}{8EDEAA},
+  tableOdd={HTML}{EDF7F1},
+  tableEven={HTML}{CCEDD8}}
+%    \end{macrocode}
+% The bibliography support is enabled. The |iso-numeric| citations
+% are used and the bibliography is sorted in citation order.
+%    \begin{macrocode}
+\thesis@bibliography@setup{
+  style=iso-numeric,
+  sorting=none}
+\thesis@bibliography@load
+%    \end{macrocode}
+% \changes{v0.3.45}{2017/05/23}{Defined the
+%   \cs{ifthesis@czech} macro in
+%   \texttt{style/mu/fithesis-sci.sty}. The patch was submitted by
+%   Juraj Pálenik. [VN]}
+% \changes{v0.3.45}{2017/05/24}{Defined the
+%   \texttt{abstractonsinglepage} option in
+%   \texttt{style/mu/fithesis-sci.sty}. The patch was submitted by
+%   Juraj Pálenik. [VN]}
+% \changes{v1.0.0}{2021/05/06}{Added redefinition of the conditionals
+%   to exclude the study programme and the study field from the title
+%   page. [TV]}
+% \changes{v1.0.0}{2021/03/12}{^^A
+%   The style file of the Faculty of Science at the Masaryk
+%   University in Brno, Czech Republic no longer defines the
+%   \cs{ifthesis@czech}, \cs{thesis@blocks@bibEntry},
+%   \cs{thesis@blocks@bibEntryCs}, \cs{thesis@blocks@bibEntryEn},
+%   \cs{thesis@blocks@abstractCs} macros, no longer defines the
+%   \texttt{abstractCs}, \texttt{programmeCs}, \texttt{fieldCs},
+%   \texttt{titleCs}, \texttt{keywordsCs}, \texttt{departmentCs},
+%   \texttt{TeXkeywordsCs}, and \texttt{TeXtitleCs} extra data
+%   fields, no longer defines the \texttt{abstractonsinglepage}
+%   option, and no longer overrides the \cs{thesis@blocks@cover},
+%   \cs{thesis@blocks@titlePage}, \cs{thesis@blocks@thanks}, and
+%   \cs{thesis@blocks@declaration} macros. [VN]}
+% \changes{v0.3.45}{2017/05/26}{Bibliographical entries in
+%   \texttt{style/mu/fithesis-sci.sty} now face each other when the
+%   main locale is either Czech or English. [VN]}
+% \changes{v0.3.45}{2017/05/28}{Defined the
+%   \cs{thesis@blocks@abstractCs} macro in
+%   \texttt{style/mu/fithesis-sci.sty}. The patch was submitted by
+%   Juraj Pálenik. [VN]}
+% \changes{v0.3.45}{2017/05/21}{Defined the
+%   \cs{thesis@blocks@bibEntryCs} macro in
+%   \texttt{style/mu/fithesis-sci.sty}. The patch was submitted by
+%   Juraj Pálenik. [VN]}
+% Enable the inclusion of the scanned assignment inside the digital
+% version of the document.
+% \begin{macrocode}
+\thesis@blocks@titlePage@field@false
+\thesis@blocks@titlePage@programme@false
+
+\thesis@blocks@assignment@hideIfDigital@false
+%    \end{macrocode}
+% \begin{macro}{\thesis@blocks@frontMatter}
+% The |\thesis@blocks@frontMatter| macro sets up the style
+% of the front matter front matter of the thesis. The front matter
+% is typeset without any visible numbering, as mandated by the
+% formal requirements of the faculty.
+% \changes{v1.0.1}{2021/07/18}{^^A
+%   Display page numbers for the Faculty of Science starting with
+%   the table of contents. [VN]}
+%    \begin{macrocode}
+\def\thesis@blocks@frontMatter{%
+  \thesis@blocks@clear
+  \pagestyle{empty}
+  \parindent 1.5em
+  \setcounter{page}{1}
+  \pagenumbering{arabic}}
+%    \end{macrocode}
+% The |\thesis@blocks@mainMatter| macro sets up the style
+% of the main matter of the thesis. The page numbering doesn't
+% reset at the beginning of the main thesis in accordance with the
+% formal requirements of the faculty.
+% \changes{v1.0.1}{2021/07/18}{^^A
+%   Display page numbers for the Faculty of Science starting with
+%   the table of contents. [VN]}
+%    \begin{macrocode}
+\def\thesis@blocks@mainMatter{%
+  \thesis@blocks@clear
+  \pagestyle{thesisheadings}
+  \parindent 1.5em\relax}
+%    \end{macrocode}
+% \end{macro}
+% \changes{v1.0.0}{2018/11/18}{^^A
+%   The \cs{bfseries} command switches to the sans serif typeface
+%   and to the secondary color in the style files of the Masaryk
+%   University in Brno, Czech Republic.}
+% \changes{v0.3.45}{2017/05/24}{Redefined the
+%   \cs{thesis@blocks@thanks} and \cs{thesis@blocks@declaration}
+%   macros in \texttt{style/mu/fithesis-sci.sty}. The patch was
+%   submitted by Juraj Pálenik. [VN]}
+%
+% All blocks within the autolayout preamble and postamble that are
+% not defined within this file are defined in the
+% \texttt{style/mu/fithesis-base.sty} file.
+% \changes{v1.0.0}{2021/03/22}{Reorganised the blocks to fit the
+%   faculty's requirements. [TV]}
+% \changes{v1.0.0}{2021/04/24}{^^A
+%   Change \cs{thesis@facultyLogo},
+%   \cs{thesis@blocks@facultyLogo@monochrome}, and
+%   \cs{thesis@blocks@facultyLogo@color} to use the new logotype
+%   of the Masaryk University in Brno in the correct size and
+%   localization. Add \cs{thesis@blocks@seal}. [VN]}
+%    \begin{macrocode}
+\def\thesis@blocks@preamble{
+  \thesis@blocks@coverMatter
+    \thesis@blocks@cover
+  \thesis@blocks@frontMatter
+    \thesis@blocks@titlePage
+    \thesis@blocks@seal
+    \ifx\thesis@type\thesis@proposal
+%    \end{macrocode}
+% \changes{v1.0.1}{2021/07/18}{^^A
+%   Display page numbers for the Faculty of Science starting with
+%   the table of contents. [VN]}
+%    \begin{macrocode}
+      \thesis@blocks@clear
+        \pagestyle{plain}
+        \thesis@blocks@toc
+    \else
+      \thesis@blocks@bibEntry
+      \thesis@blocks@bibEntryEn
+      \thesis@blocks@clear
+        \thesis@blocks@abstract
+      \thesis@blocks@clearRight
+        \thesis@blocks@abstractEn
+      \thesis@blocks@assignment
+      \thesis@blocks@thanks
+      \thesis@blocks@declaration
+%    \end{macrocode}
+% \changes{v1.0.1}{2021/07/18}{^^A
+%   Display page numbers for the Faculty of Science starting with
+%   the table of contents. [VN]}
+%    \begin{macrocode}
+      \thesis@blocks@clear
+        \pagestyle{plain}
+        \thesis@blocks@tables
+    \fi}
+\def\thesis@blocks@postamble{%
+  \thesis@blocks@bibliography}
+%    \end{macrocode}

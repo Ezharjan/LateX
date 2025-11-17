@@ -1,0 +1,2125 @@
+% \iffalse
+% !TEX encoding = UTF-8 Unicode
+% Remember to use \StopEventually{}, otherwise no Check Sum
+%<*internal>
+\begingroup
+\input docstrip.tex
+\keepsilent
+\preamble
+
+Copyright (C) 1991-2003 by Donald Arseneau  (asnd@triumf.ca)
+Copyright (C) 2021-2022 by Claudio Beccari (claudio.beccari@gmail.com)
+License information appended
+  
+\endpreamble
+
+\postamble
+
+Distributable under the LaTeX Project Public License,
+version 1.3c or higher (your choice). The latest version of
+this license is at: http://www.latex-project.org/lppl.txt
+
+This work is "maintained"
+
+This work  consists of file  wrapfig2.dtx, and the derived  files 
+wrapfig2.sty and wrapfig2.pdf, plus this file README.txt.
+
+\endpostamble
+\askforoverwritefalse
+
+\generate{\file{wrapfig2.sty}{\from{wrapfig2.dtx}{package}}}
+
+\def\tmpa{plain}
+\ifx\tmpa\fmtname\endgroup\expandafter\bye\fi
+\endgroup
+%</internal>
+% \fi
+%
+% \iffalse
+%<*package>
+%<package>\NeedsTeXFormat{LaTeX2e}[2019/01/01]
+%</package>
+%<*driver>
+\ProvidesFile{wrapfig2.dtx}%
+%</driver>
+%<+package>\ProvidesPackage{wrapfig2}%
+%^^A<+readme>File README.txt for package wrapfig2
+%<*package|readme>
+ [2022-02-16 v.6.0.0 Wrap text around figures, tables, framed text blocks]
+%</package|readme>
+%<*driver>
+%
+\documentclass{ltxdoc}\errorcontextlines=100
+\hfuzz 10pt
+\usepackage[greek.ancient, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{mflogo}
+\usepackage{multicol,amsmath,fancyvrb,verbatim,microtype}
+\usepackage{wrapfig2,kantlipsum,xspace}
+%
+\GetFileInfo{wrapfig2.dtx}
+\title{The \textsf{wrapfig2} package}
+\author{Claudio Beccari\thanks{E-mail: \texttt{claudio dot beccari at gmail dot com}}}
+\date{Version \fileversion~--~Last revised \filedate.}
+%
+\providecommand*\diff{\mathop{}\!\mathrm{d}}
+\providecommand*\ped[1]{\ensuremath{_{\mathrm{#1}}}}
+\renewcommand\meta[1]{{\normalfont\textlangle\textit{#1}\textrangle}}
+\renewcommand\marg[1]{\texttt{\{\meta{#1}\}}}
+\providecommand\opz{}
+\renewcommand\opz[1]{{\normalfont\texttt{\itshape#1}}}
+\providecommand\Marg{}
+\renewcommand\Marg[1]{\texttt{\{#1\}}}
+\providecommand\oarg{}
+\renewcommand\oarg[1]{\texttt{[\meta{#1}]}}
+\providecommand\Oarg{}
+\renewcommand\Oarg[1]{\texttt{[#1]}}
+\providecommand\aarg{}
+\renewcommand*\aarg[1]{\texttt{<\meta{#1}>}}
+\providecommand\Aarg{}
+\renewcommand\Aarg[1]{\texttt{<#1>}}
+\providecommand\barg{}
+\renewcommand\barg[1]{\texttt{\string|\meta{#1}\string|}}
+\providecommand\Barg{}
+\renewcommand\Barg[1]{\texttt{\string|#1\string|}}
+\providecommand\parg{}
+\renewcommand\parg[1]{\texttt{(\meta{#1})}}
+\providecommand\Parg{}
+\renewcommand\Parg[1]{\texttt{(#1)}}
+\providecommand\eTeX{}
+\renewcommand\eTeX{\lower0.5ex\hbox{$\varepsilon\!$}\TeX}
+\providecommand\pack{}
+\renewcommand\pack[1]{{\normalfont\texttt{#1}}}
+\providecommand\class{}
+\renewcommand\class[1]{{\normalfont\texttt{#1}}}
+\providecommand\env{}
+\renewcommand\env[1]{\meta{\textsf{\slshape#1}}}\let\amb\env
+\providecommand\Env{}
+\renewcommand\Env[1]{\textsf{\slshape#1}}\let\Amb\Env
+\providecommand\opt{}
+\renewcommand\opt[1]{\textsl{\meta{#1}}}
+\providecommand*\Bambiente[1]{\texttt{\char92begin\{#1\}}}
+\providecommand*\Eambiente[1]{\texttt{\char92end\{#1\}}}
+\let\Bamb\Bambiente \let\Benv\Bamb
+\let\Eamb\Eambiente \let\Eenv\Eamb
+
+\ProvideDocumentCommand\goodpagebreak{O{4}}{%
+\dimen10=#1\baselineskip
+\dimen8=\dimexpr\pagegoal-\pagetotal\relax
+\ifdim\dimen8 < \dimen10 \newpage\fi}
+
+
+
+\makeatletter
+
+\AfterEndPreamble{%
+\apptocmd{\TeX}{{}\xspace}{}{}
+\apptocmd{\LaTeX}{{}\xspace}{}{}}
+
+\DeclareRobustCommand\LaTeXe{%
+  \LaTeX\@killglue\kern0.15em2$_{\textstyle \varepsilon}${}\xspace}
+\DeclareRobustCommand\LaTeXccix{%
+  \LaTeX\@killglue\nobreakspace2.09{}\xspace}
+\DeclareRobustCommand\LaTeXiii{\LaTeX\@killglue\kern0.15em3{}\xspace}
+\DeclareRobustCommand*\pdfLaTeX{pdf\/\LaTeX}
+\DeclareRobustCommand*\LuaLaTeX{Lua\LaTeX}
+\DeclareRobustCommand*\XeLaTeX{%
+X\ifdim\fontdimen1\font=0pt\kern-0.15em\fi
+\lower.5ex\hbox{\rotatebox[origin=c]{180}{E}}%
+\ifdim\fontdimen1\font=0pt\kern-0.15em\else\kern-0.275em\fi
+\LaTeX}
+
+\providecommand\setfontsize{}
+\RenewDocumentCommand\setfontsize{O{1.2} m}{%
+  \fontsize{#2}{\fpeval{#1*#2}}\selectfont}
+
+\providecommand\hz{\hskip0pt}
+
+\newenvironment{ttsintassi}{\begin{lrbox}{0}
+  \minipage{\dimexpr\linewidth-2\fboxrule-2\fboxsep}\ttfamily\obeylines}%
+{\endminipage\end{lrbox}\center\fbox{\box0}\endcenter}
+    
+
+%
+\begin{document}\errorcontextlines=100
+\maketitle
+\columnseprule=0.4pt
+\begin{multicols}{2}
+ \tableofcontents
+ \end{multicols}
+ \DocInput{wrapfig2.dtx}
+ 
+\end{document}
+%</driver>
+% \fi
+%
+% \begin{abstract}
+% This new package \pack{wrapfig2} is a fork that extends Donald
+% Arseneau's package \pack{wrapfig} (version 3.6, dated 2003) by
+% adding some \LaTeXiii definitions that accept a final optional star;
+% its presence changes the meaning of the first optional
+% argument so that it becomes a correction to the number of lines
+% that must be indented in order to receive the wrapped object.
+% A new environment is added to the original \Env{wrapfigure}
+% and \Env{wraptable}, namely \Env{wraptext}; it may be used
+% to wrap a small framed text block on a coloured background; the
+% philosophy of this new environment is similar to that of the
+% other two environments, but the syntax was different with
+% version~4 of this package, and is very similar with 
+% version 5.0; a further important enhancement is implemented
+% in version~6. Fall back options are available for backwards
+% compatibility.
+% \end{abstract}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% {\color{red}\paragraph{Caution} This package requires a fairly recent
+% \LaTeX kernel, otherwise it won't work; any \LaTeX kernel dated
+% at least 2020 is~OK.
+%
+% Read carefully this document, because the are several pieces of
+% information concerning other packages that may be incompatible
+% with this \pack{wrapfig2} version. Special warnings are typeset
+% in red as this one.}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Introduction}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The purpose of this package is manyfold. On one side it tries
+% to upgrade the original software by Donald Arseneau by
+% using some parts of the \LaTeXiii modern language. On another it
+% creates a new environment, with the same philosophy
+% of the original Arseneau's ones, such that a document author
+% can emphasise short blocks of wrapped text by framing them while
+% typesetting the text on a coloured background.
+%
+% The original software had some idiosyncrasies; Donald Arseneau
+% described them in the documentation of his package; we are sorry
+% to admit that such idiosyncrasies might have been slightly reduced;
+% but in any case in order to avoid such peculiar anomalies, it is
+% sufficient to wrap the inserted object with a reasonable
+% number of lines, i.e. by reasonably long paragraphs.
+%
+% The above implies that no wrapped object code should be specified
+% in the source file close the end of a paragraph, unless it is
+% followed by other paragraphs; again no object code should be inserted
+% within any list; not even close to the end or to the beginning of a
+% section. Arseneau's code is capable of specifying the wrapping
+% number of lines such that two or more paragraphs can be indented
+% so as to wrap a longish insertion, but it is wise to avoid such
+% risky situations. Moreover, if the inserted object has a numbered
+% caption, the number might not result in the correct sequence with
+% the normal corresponding floating objects.
+%
+% Therefore the usefulness of the wrapping procedure depends very
+% much on the document authors' ability to move around their code
+% until a suitable position is found. Certainly a good place is
+% within a longish  paragraph especially at the beginning of a
+% section; or at the beginning of a chapter that starts with plain
+% text, in particular just at the beginning of the first paragraph.
+%
+% The code of this package does very little, if anything, to correct
+% such idiosyncrasies. They are caused by the limitations of the
+% \cs{ShipOut} \LaTeXe kernel macro, and very little we were able
+% to do in addition to what Arseneau already did.
+%
+% Another purpose of this package is to add another optional argument
+% so that the \meta{number of indented lines} argument does not mean
+% the total number, but the correction number to add-to or subtract-from 
+% the value computed by the default mechanism devised by Arseneau.
+%
+% We assume that most users first use the software to insert an object
+% to be wrapped by the surrounding text without specifying any value
+% with the specific optional argument; then they evaluate the result,
+% and if the space below the wrapped object is too large, or if such
+% space is too small they count the necessary number of lines and
+% specify it to be processed during another document compilation.
+% When the object to be wrapped is tall, it is very easy to miscount
+% the necessary number of lines, while is is very easy to evaluate the
+% necessary small correction to the computed value.
+%
+% A further purpose of this package is to define a new environment,
+% \Env{wraptext}, to wrap a framed text block typeset on a coloured
+% background. On \texttt{texstackexchange} a solution was suggested
+% to a user who was asking for such an arrangement; the solution
+% resorted to a specific use of the \Env{wrapfigure} environment and
+% used the \Env{tcolorbox} environment.
+%
+% We thought that an \emph{ad hoc} solution would be a better one,
+% since the parameters to be used for a figure have nothing or
+% little to do with a text, therefore most of them would be useless
+% with a wrapped text. Nevertheless the \meta{location} of the wrapped
+% text and the optional correction of the indented lines number would
+% still be necessary. We added also the possibility of optionally
+% specifying the measure of the wrapped text, even if it
+% should not be too different from a half of the wrapping text measure.
+% In facts, with a value too different from \texttt{0.5\cs{linewidth}}
+% either the wrapped text has problems with inter word spaces and
+% hyphenation because of the small measure, or, on the opposite, the
+% indented lines of the wrapping text would have similar problems. 
+%
+% Notice that the first implementation of this package, version~4,
+% achieved the desired result but there were two drawbacks: $(a)$
+% the syntax was rather different from that of the other environments,
+% and $(b)$ any possible caption was typeset within the same
+% framing environment. In version~5 both drawbacks were
+% eliminated, but since the environment syntax is different,
+% in oder to assure backwards compatibility a package option
+% was defined in order to fall back to the previous version~4
+% behaviour. In version 6.0 the \Env{wraptext} environment was
+% further enhanced so as to accept several \texttt{key=value} settings
+% concerned wit the text appearance, the colours, and other details
+% relative to the wrapping process. Again another fall back option
+% was defined in order to use the same functionalities of version~5.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Environment syntax}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The new syntax for \Env{wrapfigure} and \Env{wraptable} is backwards
+% compatible with the original one: just a final optional star is
+% added to the original list of arguments. 
+%
+% The optional star is available only for the standard \Env{wrapfigure}
+% and \Env{wraptable} environments because the backwards compatibility
+% requires the first four optional and mandatory arguments to be
+% maintained identical. When the optional star is specified, the
+% \meta{indented lines number} is interpreted as the correction to the
+% computed value.
+%
+% Notice the different syntax in versions~4, 5, and~6 of the
+% \Env{wraptext} syntax.
+%
+% \begin{ttsintassi}\setfontsize{8.00}
+%\Bambiente{wrapfigure}\oarg{indented lines number}\marg{location}\oarg{overhang}\oarg{width}\meta{$\star$}
+%\qquad\meta{figure}
+%\Eambiente{wrapfigure}
+%~
+%\Bambiente{wraptable}\oarg{indented lines number}\marg{location}\oarg{overhang}\oarg{width}\meta{$\star$}
+%\qquad\meta{table}
+%\Eambiente{wraptable}
+%~
+%\textnormal{\color{red}Package option \opt{WFold} required for backwards compatibility with version 4.*}.
+%~
+%\Bambiente{wraptext}\oarg{location}\barg{width}\aarg{indented line number correction}\parg{caption label}
+%\qquad\meta{text to frame}
+%\Eambiente{wraptext}
+%~
+%\textnormal{\color{red}Package option \opt{WFfive} required for backwards compatibility with version 5.*}.
+%~
+%\Bambiente{wraptext}\oarg{indented lines number correction} \marg{location} \oarg{overhang} \marg{width}
+%\qquad \meta{optional colour settings}
+%\qquad\cs{includeframedtext}\oarg{insertion measure}\marg{text to frame}\oarg{\meta{frame thickness},\meta{frame separation}}\oarg{radius}
+%\Eambiente{wraptext}
+%~
+%\textnormal{\color{red} No package option required for version~6.*}.
+%~
+%\Bambiente{wraptext}\oarg{indented lines number correction}\marg{location}\oarg{overhang}\marg{width}
+%\qquad \meta{optional style settings}
+%\qquad\cs{includeframedtext}\oarg{insertion measure}\marg{text to frame}\oarg{settings}\oarg{radius}
+%\Eambiente{wraptext}
+% \end{ttsintassi}
+%^^A
+% Please notice that all three syntaxes, thanks to  differently
+% delimited optional arguments with peculiar default values,
+% become very similar when such optional arguments are reduced
+% to a minimum; only the \meta{location} argument is delimited
+% by brackets with the old version and with braces with the newer
+% ones.
+%
+% It may be useful to compare the \cs{includeframedtext} macro,
+% used to insert a framed test into a \Env{wraptext} environment,
+% with \cs{includegraphics}, used to insert an external image into
+% a \Env{figure} environment. Their functions are similar even if
+% they refer to different objects to include. Their codes are
+% obviously very different and the latter is much more complex
+% than the former. The solution for a framed text used by
+% version~4 was inspired by the information found on
+% \texttt{texstackexchange} that used the very elaborate \Env{tcolorbox}
+% environment; version~5 uses instead a much simpler command
+% \cs{framedbox} based on the \pack{curve2e} package macro
+% \cs{Curve}. Version 6.0 admits many settings, not just the
+% \meta{frame thickness} and the space around the framed text, but
+% several others ones collectively indicated with \meta{settings};
+% such settings refer to colours, dimensions, styles, and so on,
+% relative to the text and to the frame; moreover they are set by
+% means of the \texttt{key=value} syntax. As it can be seen, the
+% logic, not the code, behind these different macros are very similar.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Examples}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We display some examples by using fake objects and suitably
+% long paragraphs; some fake-language long-paragraphs are
+% obtained by means of the \pack{kantlipsum} package functionalities;
+% they are emphasised with an italic font.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{A wrapped figure}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{wrapfigure}{r}{50mm}
+%\centering\unitlength=1mm
+%\begin{picture}(40,30)
+%\polygon(0,0)(40,0)(40,30)(0,30)
+%\Line(0,0)(40,30)\Line(0,30)(40,0)
+%\end{picture}
+%\caption{A rectangle with its diagonals}\label{fig:figure}
+%\end{wrapfigure}
+%{\itshape \kant[1]}
+% The code used to type figure~\ref{fig:figure} is the following:
+%
+%\begin{flushleft}\ttfamily\obeylines%
+%\noindent\Bambiente{wrapfigure}\Marg{r}\Marg{50mm}
+%\cs{centering}\cs{unitlength}=1mm
+%\Bambiente{picture}\texttt{(40,30)}
+%\cs{polygon}\texttt{(0,0)(40,0)(40,30)(0,30)}
+%\cs{Line}\texttt{(0,0)(40,30)}\cs{Line}\texttt{(0,30)(40,0)}
+%\Eambiente{picture}
+%\cs{caption}\Marg{A rectangle with its diagonals}\cs{label}\Marg{fig:figure}
+%\Eambiente{wrapfigure}
+%\Marg{\cs{itshape} \cs{kant}\Oarg{1}}
+%\end{flushleft}
+%
+% No asterisk was used because the package succeeded to correctly
+% compute the necessary number of indented lines.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{A wrapped table}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{wraptable}[-1]{l}*
+%\centering 
+%  \begin{tabular}{cc}
+%  \hline
+%  First & Second\\
+%  Third & Fourth\\
+%  \hline
+%\end{tabular}
+%\caption{A small table}\label{tab;small-table}
+%\end{wraptable}
+%{\itshape \kant[2]}
+%
+% The wrapped small table~\ref{tab;small-table} has been typeset
+% by means of the following code.
+%\begin{flushleft}\ttfamily\obeylines
+%\Bambiente{wraptable}\Oarg{-1}\Marg{l}* 
+%\quad\cs{centering} 
+%\quad\Bambiente{tabular}\Marg{cc}
+%\qquad\cs{hline}
+%\qquad First \& Second\string \\
+%\qquad Third \& Fourth\string \\
+%\qquad\cs{hline}
+%\quad\Eambiente{tabular}
+%\quad\cs{caption}\Marg{A small table}
+%\Eambiente{wraptable}
+%\Marg{\cs{itshape} \cs{kant}\Oarg{2}}
+%\end{flushleft}
+%
+% Wrapping a small table is a little more difficult than wrapping
+% a figure, because the width of the inserted object is not known
+% exactly in advance, and it is difficult to estimate; therefore
+% it might be necessary to execute several trial compilations. In any
+% case a \cs{centering} command might help to center the table
+% within the indention of the wrapping text. Nevertheless the
+% software can compute the object width if a zero value is specified,
+% or if the \meta{width} parameter is completely omitted together
+% with its braces; this second possibility is a feature of this
+% package, that uses a \LaTeXiii property by which even a braced
+% argument can be treated as an optional argument with a predefined
+% default value; see below more details about this feature.
+%
+%\begin{wraptable}[5]{l}
+%\centering 
+%  \begin{tabular}{cc}
+%  \hline
+%  First & Second\\
+%  Third & Fourth\\
+%  \hline
+%\end{tabular}
+%\caption{A small table}\label{tab:wrong-wrapped-table}
+%\end{wraptable}
+%{\itshape \kant[2]}
+%
+% Notice the absence of the braced width value; as said above,
+% this braced value is optional, and the software autonomously
+% computes the width of the wrapped object. This feature may be
+% useful in many instances, although a smart use of
+% this width parameter might yield better looking results.
+% 
+% On the opposite if the user estimates that the table with its
+% caption might use 5~lines, and specified such a value as the
+% first (optional) argument to the environment, the result is
+% shown in table~\ref{tab:wrong-wrapped-table}, but it is a very
+% poor one, with the last caption line overlapping the wrapping text.
+%
+%^^A\goodpagebreak
+%^^A \newpage
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{A wrapped text}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \begin{wraptext}{l}
+% \includeframedtext{Text, text, text, text, text, text, text, text, text, text, text.}
+% \end{wraptext}
+% {\itshape \kant[3]}
+% 
+% The above example was typeset with this simple code:
+%\begin{flushleft}\obeylines
+% \Bamb{wraptext}\Marg{l}
+% \cs{includeframedtext}\Marg{\ttfamily Text, text, text, text, text, text, text, text, text, text, text.}
+% \Eamb{wraptext}
+% \Marg{\cs{itshape} \cs{kant}[3]}
+%\end{flushleft}
+%
+% The result is the same as that obtainable with version~4 of this 
+% package, but the  \meta{location} argument specification is braced
+% instead of bracketed.
+%
+% If a caption is specified, version~4 would print it within the
+% framed box, while versions~5 and~6 print it outside the framed box.
+% 
+% \begin{wraptext}{r}
+% \includeframedtext{Text, text, text, text, text, text, text, text, text, text, text.}
+%\caption{A wrapped text}%
+% \end{wraptext}
+% {\itshape \kant[3]}
+%
+% The further feature introduced by version~5 is the
+% possibility of choosing the colours for all three elements of the
+% framed text; if within the environment \Env{wraptext} and before using
+% \cs{includeframedtext} the following colours are set, it is
+% possible to set different colours from the default light grey for
+% the background, the black text, and the almost black frame:
+% \begin{ttsintassi}
+%\cs{SetWFfrm}\marg{frame colour}
+%\cs{SetWFbgd}\marg{background colour}
+%\cs{SetWFtxt}\marg{text colour}
+% \end{ttsintassi}
+% Such commands, in version~6, are already taken care by the relevant
+% \texttt{key=value} options. With version~5 these are user commands.
+% See figure~\ref{fig:framed text} typeset with various version~6
+% options.
+%
+%\begin{figure}
+%\makebox[\textwidth]{\includeframedtext{Text}[insertionwidth=0.45\linewidth]
+%\hfill
+%\includeframedtext{Text}[insertionwidth=0.45\linewidth,fboxrule=3pt]}\\[2ex]
+%\makebox[\textwidth]{\includeframedtext{Text}[insertionwidth=0.45\linewidth,textcolor=red,fboxrule=2pt]
+%\hfill
+%\includeframedtext{Text}[insertionwidth=0.45\linewidth,fontstyle=\Large]}\\[2ex]
+%\makebox[\textwidth]{\includeframedtext{Text}[insertionwidth=0.45\linewidth,backgroundcolor=yellow]
+%\hfill
+%\includeframedtext{Text}[insertionwidth=0.45\linewidth,framecolor=blue,backgroundcolor=yellow,fboxrule=1mm]}\\[2ex]
+% \makebox[\textwidth]{\includeframedtext{Text}[insertionwidth=0.5\linewidth, fboxrule=0pt, backgroundcolor=cyan, textcolor=white, fontstyle=\Huge\bfseries]}
+%\caption{Some framed text boxes with different dimension parameters,
+% different font size, and different colours}\label{fig:framed text}
+%\end{figure}
+%
+% Figure~\ref{fig:framed text} used the following code, where it is
+% evident that the \cs{includeframedtext} command is available even
+% outside the \Env{wraptext} environment.
+%\begin{flushleft}\ttfamily\obeylines
+%\Bambiente{figure}
+%\cs{makebox}[\cs{textwidth}]\Marg{\cs{includeframedtext}\Marg{Text}\%
+%\qquad [insertionwidth=0.45\cs{linewidth}]
+%\quad\cs{hfill}
+%\quad\cs{includeframedtext}\Marg{Text}\%
+%\quad [insertionwidth=0.45\cs{linewidth},fboxrule=3pt]}\cs{\char92}[2ex]
+%\%
+%\cs{makebox}[\cs{textwidth}]\Marg{\cs{includeframedtext}\Marg{Text}\%
+%\quad [insertionwidth=0.45\cs{linewidth},textcolor=red,fboxrule=2pt]
+%\quad\cs{hfill}
+%\quad\cs{includeframedtext}\Marg{Text}\%
+%\qquad[insertionwidth=0.45\cs{linewidth},fontstyle=\cs{Large}]}\cs{\char92}[2ex]
+%\%
+%\cs{makebox}[\cs{textwidth}]{\cs{includeframedtext}\Marg{Text}\%
+%\quad[insertionwidth=0.45\cs{linewidth}, backgroundcolor=yellow]
+%\quad\cs{hfill}
+%\quad\cs{includeframedtext}\Marg{Text}\%
+%\qquad[insertionwidth=0.45\cs{linewidth},framecolor=blue,
+%\qquad backgroundcolor=yellow,fboxrule=1mm]}\cs{\char92}[2ex]
+%\%
+% \cs{makebox}[\cs{textwidth}]{\cs{includeframedtext}\Marg{Text}\%
+%\quad [insertionwidth=0.5\cs{linewidth}, fboxrule=0pt,\%
+%\qquad backgroundcolor=cyan,textcolor=white,fontstyle=\cs{Huge}\cs{bfseries}]}
+%\cs{caption}\Marg{Some framed text boxes ... different colours}
+%\cs{label}\Marg{fig:framed text}
+%\Eambiente{figure}
+%\end{flushleft}
+%
+%
+% As it is possible to notice from figure~\ref{fig:framed text},
+% version~6 adds another facility; the colours and dimensions of the
+% elements of the wrapped objects are inserted as
+% \textit{key=value} options to the \cs{includeframedtext} third
+% argument \meta{settings}; its default value is “empty”; the
+% users can introduce as many options as they desire, among the
+% valid ones; if an option is misspelled or its value is not
+% coherent with its nature, either the option is ignored, or an
+% error is raised. The valid options are the following; they are
+% listed in alphabetical order, because the options described with the
+% \texttt{key=value} syntax do not require either a specific order
+% or their presence; the users can therefore specify from zero to
+% nine options.
+%\begin{description}
+%^^A
+%\item{\ttfamily backgroundcolor} sets the background colour among
+%    those defined by the default set provided by package \pack{xcolor}.
+%    The default colour is a light grey.
+%^^A
+% \item{\ttfamily fboxrule} sets the thickness of the line
+%    around the frame; a zero value is allowed, otherwise it should
+%    not be smaller than \texttt{0.4pt}; on the opposite it
+%    should not be set too large and \texttt{1mm} appears as
+%    a thick enough line around the wrapped text.
+%^^A
+% \item{\ttfamily fboxsep} sets the distance of the frame from
+%    the wrapped text; by default it is set to \texttt{1ex};
+%    also in this case it is better to avoid exaggerations.
+%    Notice that the default value depends on the wrapping text
+%    font x-height.
+%^^A
+%\item{\ttfamily fontstyle} sets any available \emph{declaration}
+%    that changes the characteristics of a font: size, series,
+%    shape; it is possible to use also the \cs{usefont} command
+%    with all its four arguments, even the font encoding. This
+%    \pack{wrapfig2} has available also the \cs{setfontsize}
+%    command that can select any size with any font that has
+%    available at least a step wise continuous size set; for
+%    example the Latin Modern fonts have a stepwise continuous
+%    size set, while Computer Modern have available only a discrete
+%    size set.
+%^^A
+%\item{\ttfamily framecolor} sets the color of the frame; the colours
+%    available are those available with package \pack{xcolor} to which
+%    no options have been specified; see its documentation and in case
+%    load \pack{xcolor} with the desired options before this package
+%    \pack{wrapfig2}. The default colour is a very dark grey.
+%^^A
+%\item{\ttfamily insertionwidth} sets the insertion width; as
+%    it was previously specified, if this width is too small
+%    or too large it will be automatically reassigned a value
+%    within the allowed range.
+%^^A
+%\item{\ttfamily radius} sets the optional radius of the frame
+%    rounded “corners”; if it is not specified, such radius is
+%    equal to the default value of \cs{fboxsep}. Although it is
+%    possible to use it, we suggest to abide from using it.
+%^^A
+% \item{\ttfamily scalefactor} sets the value that establishes
+%    a reasonable range of the insertion width; users can specify
+%    any value in the range $xy_0 = y\ped{min} \leq y \leq
+%    y\ped{max} = y_0/x$ , where $y_0$ is the default value,
+%    and $x$ is the scaling factor that by default equals $0.8$;
+%    this means $y_0$ equals half the current measure and the
+%    inserted wrapped text produces an indentation of the wrapping
+%    lines approximately between 60\% and 40\% the current measure;
+%    the wrapped text should never have a too short measure and the
+%    wrapping indented lines never have a too short measure. If users
+%    specify a different value to this key, they might get problems
+%    with inter word spacing and of hyphenation.
+%^^A
+%\item{\ttfamily textcolor} sets the text colour among those available
+%    among those available with the default set provided by package
+%    \pack{xcolor}. The default colour is black.
+%^^A
+%\end{description}
+%
+% This version~6 has a more flexible way compared to version~5
+% to specify the details relative to the framed text, but they are
+% relevant only for the \cs{includeframedtext} command; the syntax
+% for the \Env{wraptext} environment opening command is identical.
+% As it was previously shown, the syntax of environment \Env{wraptext}
+% for version~6 and~5 is practically identical to the one used for the
+% other two environments; actually, as it can be seen below in 
+% the code description of version~6 and~5, it has a fairly
+% longer definition; it is required by the necessity of avoiding 
+% the \cs{caption} changes foreseen in package{wrapfig} when
+% \pack{float} is used to define another floating object, but in
+% effects the new definition of the \Env{wraptext} environment uses
+% the same \cs{wrapfloat} and \cs{endwrapfloat} commands. 
+%
+% In all three cases the \meta{width} parameter is a \emph{braced optional
+% argument}; for the \Env{wraptext} environment its preset value is
+% half the column width, that in one column typesetting mode
+% coincides with the text width. The wrapped text is typeset
+% in justified mode within a \cs{parbox} argument; the
+% measure of this text box should not be too small (unless
+% the text is less than one line long) otherwise the inter
+% word spacing might be too large; at the same time the measure
+% of the mini paragraph cannot be too large, otherwise the indented
+% wrapping lines, generally justified, might get a bad word
+% spacing. As it was already explained, it is recoommended to avoid
+% specifying the optional \meta{widh} outside the range of 40\% to 60\%
+% the column width. Actually specifying \texttt{0.2\cs{textwidth}}
+% or \texttt{0.4\cs{columnwidth}} when typesetting in two column
+% mode produces approximately the same result, because
+% \cs{columnwidth} is a little less than half the \cs{textwidth}.
+% In any case versions~6 and~5 of \Env{wrapfig2} reset any specified
+% width outside the above range to the nearest range bound.
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Remarks}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The syntax of the original environments \amb{wrapfigure} and
+% \amb{wraptable} has not been changed, except for a last optional
+% star. The fact that the last \emph{braced argument is optional} does not
+% change the backward compatibility with the original environments.
+%
+% Therefore the optional \meta{line number} argument maintains its
+% meaning, unless the optional star is specified; in such a case that
+% number assumes the meaning of a correction to the computed number
+% of the indented lines.
+%
+% The mandatory \meta{location} maintains its meaning and the legal
+% values are \texttt{l} (left), \texttt{r} (right), \texttt{L}
+% (floating left), \texttt{R} (floating right), \texttt{i}
+% (inner margin), \texttt{o} (outer margin), \texttt{I}
+% (floating inner margin), \texttt{O} (floating outer margin).
+% 
+% We tested all of them, but as a (possibly questionable) personal
+% choice we prefer to place the wrapped object at the left of the text,
+% without floating it and irrespective of the folio parity.
+%
+%\begin{wraptext}{l}{0.5\textwidth}%
+%\includegraphics[width=\hsize]{stele-todi-small}
+%\caption{The Todi stela written in Gallic and Latin. Gregorian Etruscan Museum in Rome.}\label{txt:todi-stela}
+%\end{wraptext}
+%{\itshape\kant[4]}
+%
+% As in the previous examples, we prefer to specify the wrapping
+% environment just before a sufficiently long paragraph. Should the
+% paragraph be too short to completely wrap the object, all
+% the environments are capable of counting the number of used indented
+% lines and to apply the remaining number (and the \cs{overhang} amount) 
+% to the following paragraph(s); in these circumstances
+% it might be necessary to recourse to the optional star in order
+% to correct the indention, since the mechanism does not consider
+% the inter paragraph spacing that \LaTeX introduces only at ship~out
+% time.
+%
+% We avoid also to enter the wrapping environment before paragraphs
+% that are close to a page break; this action would tickle the
+% idiosyncrasies of the software, and requires moving the wrapping
+% environment some paragraphs before or after the preferred one; but
+% this can be done only while reviewing the document, because any
+% change in the previous source text might change the situation
+% if this adjustment is done while still editing the document. 
+% 
+% Juan Luis Varona Malumbres, whom we thank very much, noticed  that
+% if the space left at the bottom of a page is scarse, it may be
+% that a section title falls alone at the bottom of the page and
+% the wrapping environment with its wrapping text gets typeset on the next
+% page; this of course is not acceptable. We found the place to
+% correct and versions~6 and~5 more often than not do not
+% exhibit any more this “feature”. Unfortunately in some rare cases
+% this “feature” pops up again; a \cs{newpage} command before the
+% section title solves the problem. This rare feature could be avoided
+% if the sectioning commands are redefined; but this would imply
+% modifications to a large number of redefinitions due to the large
+% varieties of classes and packages that redefine such sectioning
+% commands.
+%
+% With the standard environments the optional parameter \meta{overhang} 
+% does exactly what its name implies: the wrapped object protrudes
+% into the adjacent margin exactly by the specified amount. This
+% parameter is not available for the \Env{wraptext} environment,
+% or better, it is still available in versions~6 and~5, but we recommend
+% to abide from using it; we believe that a wrapped text logically
+% pairs the wrapping text; of course this personal opinion might be wrong.
+%
+%
+% The \meta{width} parameter has been already sufficiently described;
+% we just remember that for \Env{wraptext} this parameter is optional
+% and its default value amounts to half the current measure; this
+% insertion width can be specified but it should not be too different
+% from its default value $y_0$, set to 50\% of the current measure.
+% For the standard environments this parameter value appears to be
+% mandatory; actually it is a braced really optional argument only for the
+% redefined environments \env{wrapfigure} and \env{wraptable}.
+%
+% Matter of facts, for the \Env{wraptext} environment we defined a
+% command in order to specify a factor $x$ so as to avoid getting the
+% object width outside the range  $xy_0 \leq y \leq y_0/x$, where $y_0$
+% is the preset default width; if the authors specified
+% a value outside this range, the above environment automatically
+% resets the insertion width $y$ to the nearest bound. Of course authors
+% have the possibility to change the preset $x$ value, if they redefine
+% the \cs{WFscalefactor} macro, but such resetting is strongly
+% discouraged; the default value is~$0.8$.
+%
+%\begin{wraptext}{l}
+%\includeframedtext{^^A
+% \foreignlanguage{greek}{Κα᾽γὼ σὲ πατάξας διαλύσω τὸ κρανὶον}}
+% \caption{A sample text in Greek}\label{txt:greek}
+%\end{wraptext}
+%{\itshape\kant[7]}
+%
+% If optional parameters are not used and the mandatory ones are
+% reduced to a minimum (remember the \meta{width}, in spite of being
+% braced is optional) the three environments produce the same results;
+% the difference, in spite of the nature of the wrapped object differs
+% only with the environment name. Text~\ref{txt:todi-stela} displays
+% an \emph{image} that contains some text; it is reasonable  to insert
+% it with the \Env{wrapfigure} environment, but it is not absurd to insert
+% it with the \Env{wraptext} one as we did with text~\ref{txt:todi-stela}.
+%
+% The wrapped text may be written also in a foreign language, even
+% if it uses a differente alphabet. Evidently this language should
+% be specified in the preamble of the author's document, either
+% when using \pack{babel} or \pack{polyglossia}. The example
+% text~\ref{txt:greek} was typeset with the following code:
+%\begin{flushleft}\ttfamily\obeylines
+%\Bamb{wraptext}\Marg{l}
+%\cs{includeframedtext}\Marg{\%
+%\qquad\cs{foreignlanguage}\Marg{greek}\Marg{\foreignlanguage{greek}{Κα᾽γὼ σὲ πατάξας διαλύσω τὸ κρανὶον}}}
+%\cs{caption}\Marg{A sample text in Greek}\cs{label}\Marg{txt:greek}
+%\Eamb{wraptext}
+%\end{flushleft}
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Other floating objects}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pictures and textual arrays may be floated by means of the standard
+% \amb{figure} and \amb{table} environments. But other floating
+% objects may be defined by means of other packages, such as
+% \pack{float}, or classes, such as \class{memoir}. Besides floating,
+% the main difference is the name of the caption “label”: Figure, Table,
+% Algorithm, Example, and so on, and the lists of such objects.
+%
+% If floating is not necessary, this package (as well as the original
+% one) allows to use the underlying  environment \Env{wrapfloat}
+% that uses the same syntax as \Env{wrapfigure} plus the mandatory
+% name of the new object: even a figure  might be introduced without
+% using \amb{wrapfigure}, by using instead:
+%\begin{flushleft}\setfontsize{9.275}\ttfamily\obeylines
+%\Benv{wrapfloat}\Marg{figure}\oarg{line number}\marg{placement}\oarg{overhang}\marg{width}\meta{$\star$}
+%\quad\qquad\meta{image}
+%\Eenv{wrapfloat}
+%\end{flushleft}
+% Another \meta{object} might be wrapped by using:
+%\begin{flushleft}\ttfamily\obeylines
+%\Benv{wrapfloat}\marg{object name}\oarg{line number}\marg{location}\%
+%\quad \oarg{overhang}\marg{width}\meta{$\star$}
+%\qquad\qquad\meta{object}
+%\Eenv{wrapfloat}
+%\end{flushleft}
+%
+% By reading the documentation of the original \pack{wrapfig} package,
+% it may be assumed that, if the floating \meta{location} codes have to
+% be used, another floating object with the desired \meta{object name}
+% has to be previously defined by means of the functionalities of other
+% packages or classes. But, if the non floating \meta{location} codes
+% are used, the presence of another \meta{floating object} environment
+% appears to be unnecessary.
+%
+% This is actually possible by “cheating” a little bit: it can be actually
+% wrapped any \meta{object} by using the \Env{wrapfigure} environment,
+% while assigning a different name to the caption label; something
+% similar to typeset a small figure within a non floating environment.
+% The obvious draw back is that the caption is numbered as a figure.
+%
+% In order to avoid such drawbacks and to have a real floating
+% \meta{other object} environment it is necessary to procede by defining
+% a new real floating environment with that name. To do this task,
+% \pack{wrapfig2} versions~5 and~6 use the \pack{float} package.
+%
+% As it is possible to verify by reading the section where the
+% code is documented, the operation is not that simple because
+% \pack{float} redefines several internal macros that are incompatible
+% with both \pack{wrapfig} and \pack{wrapfig2}. This is why, even 
+% with \pack{wrapfig2} in versions~5 and~6, that load the \pack{float}
+% package, the code for this environment redefines the \cs{caption}
+% command so that Arseneau had to define some adjusting macros in order
+% to deal with something different from what it was with the \LaTeXe
+% kernel. We did not modify what Arseneau defined, although it did not
+% work correctly with the new \Env{text} floating environment. Therefore
+% we reinstated the \LaTeXe kernel relevant definitions.
+%
+% It is possible that such resetting of the original definition is
+% necessary also with floating objects defined by other means, for
+% example by using the functionalities of \class{memoir}. We admit
+% we did not test this package functionality with class
+% \class{memoir}; \textcolor{red}{feedback on this compatibility issue
+% is very welcome}. 
+% 
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section*{Acknowledgements}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% We gratefully thank  Donald Arseneau  who gave the \TeX community
+% the original \Env{wrapfig} package. For what concerns wrapped text,
+% we did not use Arseneau's \pack{framed} package, because we wanted a
+% frame with rounded corners. Nevertheless, while developing our package,
+% we experimented also with his package that yields good results but
+% with the ordinary right angle frame corners.
+%
+% Thanks to Heinrich Fleck who submitted to our attention the
+% \texttt{texstackexchange} message where the problem of wrapping text was
+% presented possibly for the first time. The solution presented in
+% \texttt{texstackexchange} appears to be oversimple, almost trivial;
+% especially it does not solve the problem of a caption if one is desired
+% to describe that wrapped text.
+% Moreover the solution of \texttt{texstackexchange} used in a very
+% simple way the \Env{tcolorbox} environment, that behind the
+% scenes uses a very heavy set of multifunctional macros that offer
+% functionalities that are not required for this problem.
+%
+% Warm thanks also to Juan Luis Varona Malumbres for his precious
+% feedback and his suggestions. 
+%
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \CheckSum{1411}
+% \StopEventually{}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\iffalse
+%<*package>
+%\fi
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{The code}
+%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Here we describe and comment the code of this package; essentially 
+% only the initial parts need some comments; because the final ones
+% are almost identical to Arseneau's original code.
+%
+% The usual specification of the format name and date, and the
+% identification of this specific package have been already specified
+% by the \texttt{.dtx} file.
+%
+% First of all we check if certain packages have already been
+% loaded; some of these packages, such as \pack{wrapfig}, that
+% might have been previously directly loaded, or might have been
+% loaded by other packages, are incompatible with this package
+% \pack{wrapfig2}. \pack{wrapfig} might have been loaded by other
+% packages, such as \pack{caption} or \pack{subcaption}, that redefine
+% some internals that we did not want to replace so as to avoid other
+% possible incompatibilities. We first check if a specific macro
+% with the \texttt{WF} prefix has already been defined; if so,
+% this package \emph{loading} is aborted with a very evident error
+% message. In contrast the \emph{job} is not aborted, because the presence
+% of the original \pack{wrapfig} package might still be sufficient;
+% evidently there will be many errors if some new user commands
+% or environments are used.
+%
+%{\color{red}\paragraph{Caution} besides the evident error message,
+% that might be neglected by the user, the job may continue but it
+% may produce several errors difficult to interpret. Please,
+% in these cases read the \texttt{.log} file and look for error
+% messages; there you are going to discover what has gone wrong
+% with your way of using this package.}
+%
+%    \begin{macrocode}
+\ifcsname c@WF@wrappedlines\endcsname
+\PackageError{wrapfig2}{                              \MessageBreak
+  ****************************************************\MessageBreak
+  Package `wrapfig' has already been loaded perhaps   \MessageBreak
+  by other packages, for example caption or subcaption.\MessageBreak
+  Such packages are incompatible with wrapfig2        \MessageBreak
+  Loading of`wrapfig2' is aborted                     \MessageBreak
+  ****************************************************\MessageBreak
+}{You might type X <return> and might get along without\MessageBreak
+  this package if you don't use the new environment   \MessageBreak
+ `wraptext' and the new commands; otherwise you get   \MessageBreak
+  errors about such environment not being defined;    \MessageBreak
+  you must kill your job!}
+\expandafter\endinput\fi
+
+%    \end{macrocode}
+% We keep the original definition of the \cs{WF@warning} and the
+% original definition of the \opt{verbose} option; but we add the
+% new \opt{WFold} and \opt{WFfivw} options in order to fall back
+% to the functionalities of the previous version~4 or~5, at least
+% for what concerns the \Env{wraptext} environment.
+%
+% 
+%    \begin{macrocode}
+\def\WF@warning{\PackageWarning{wrapfig2}}
+\DeclareOption{verbose}{\def\WF@info{\PackageInfo{wrapfig2}}}
+\newif\ifWFnew \let\ifWFnew\iftrue
+\newif\ifWFfive \let\ifWFfive\iffalse
+\DeclareOption{WFold}{\let\ifWFnew\iffalse}
+\DeclareOption{WFfive}{\let\ifWFnew\iffalse \let\ifWFfive\iftrue}
+\ProcessOptions
+
+%    \end{macrocode}
+%
+% We load the \pack{etoolbox} package, in order to have available
+% its powerful macros. 
+%
+% If is was not previously loaded, we load the \pack{xfp} package,
+% that allows us to perform precise calculations. Loading the
+% \pack{xparse} package is necessary in order to use one of its
+% rare features that did not migrate to the \LaTeX kernel. From the
+% \LaTeX News Letter dated October 2020:
+%\begin{quote}
+% Most, but not all, of the argument types defined by \pack{xparse}
+% are now supported at the kernel level. In particular, the types
+% \texttt{g/G}, \texttt{l} and \texttt{u}, are not provided by the
+% kernel code; these are \emph{deprecated} but still available by
+% explicitly loading \pack{xparse}. All other argument types are
+% now available directly within the \LaTeXe kernel.
+%\end{quote}
+% Their availability eases the treatment of the backwards
+% compatibility of this software with the original \pack{wrapfig} and
+% \pack{wraptable} functionality. It deals with the mandatory
+% \meta{width} argument of the \Env{wrapfigure}, \Env{wraptable}, 
+% the new \Env{wraptext}, and \Env{wrapfloat} environments, where
+% it was possible to specify a zero value. Now it is possible to
+% omit it completely because it is a \emph{braced optional argument}
+% with a \texttt{0pt} default value. 
+%
+%
+%    \begin{macrocode}
+\RequirePackage{xparse}
+\@ifpackageloaded{xfp}{}{\RequirePackage{xfp}}
+\@ifpackageloaded{etoolbox}{}{\RequirePackage{etoolbox}}
+\@ifpackageloaded{float}{}{\RequirePackage{float}}
+\@ifpackageloaded{color}{}{%
+   \@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}%
+ }
+\@ifpackageloaded{curve2e}{}{\RequirePackage{curve2e}}
+\@ifpackageloaded{xkeyval}{}{\RequirePackage{xkeyval}}
+
+%    \end{macrocode}
+% Notice that we loaded the \pack{xcolor} package without any option
+% in order to avoid option clash errors, and users who want to use
+% \pack{xcolor} with options should load it \emph{before} this package
+% \pack{wrapfig2}, version~5 and~6. {\color{red}Users are warned
+% to pay attention to this \pack{color} package loading: they should load
+% it neither before nor after loading \pack{wrapfig2}; if they do, they
+% receive various warning or error messages because \pack{xcolor}
+% redefines some \pack{color} internal commands; everything is
+% explained in the \pack{xcolor} documentation.}
+%
+% In order to define the new floating object \texttt{text} we have
+% to load the package \pack{float}, but only if versions~5 or~6
+% ae used; in other words only if the \cs{ifWFnew} switch
+% is \texttt{true}.
+%
+% If the \cs{chapter} command is or is not defined we have to load
+% the \pack{float} package with different options; for example, if
+% we are using the \class{article} class, the \cs{chapter} command
+% is undefined, and the last option might become \opt{section} (although
+% in the standard \class{article} class, no floating object counter
+% belongs to any other counter reset list) so as to have the floating
+% \Env{text} environment correctly reset the right counter with the
+% right label before the object number.
+%    \begin{macrocode}
+\ifboolexpr{ bool{WFfive} or bool{WFnew} }%
+   {\floatstyle{plain}%
+  \ifcsname chapter\endcsname
+    \newfloat{text}{tbp}{lotx}[chapter]%
+  \else
+    \newfloat{text}{tbp}{lotx}%
+  \fi
+  \floatname{text}{Text}% come personalizzare con le diverse lingue?
+  \let\WF@text@caption\float@caption
+  }{}
+
+%    \end{macrocode}
+%
+% If the users wanted to add the \texttt{text} counter to some
+% sectioning command counter reset list, they might use the
+% \cs{counterwithin} command now available with the recent updates
+% of the \LaTeX kernel; see the \LaTeX newsletter~28 for details
+% (terminal command \texttt{texdoc ltnews28}). Its syntax is the
+% following:
+%\begin{ttsintassi}
+%\cs{counterwithin}\marg{counter}\marg{main counter reset list}
+%\end{ttsintassi}
+%
+% Next we define some dimensions, boxes, token registers, \TeX counters,
+% and alias names, plus some color and macro definitions.
+% The \cs{WF@correctlines@switch} \TeX numeric register
+% (not a \LaTeX counter) is going to be used as a boolean switch: if its
+% value is zero, il means “false”, otherwise it is “true”; in the other
+% definitions below,  it will be set only to 0 or 1, depending on the
+% presence of the optional star.
+%    \begin{macrocode}
+\newdimen\wrapoverhang \wrapoverhang\z@
+\newdimen\WF@size
+\newcount\c@WF@wrappedlines 
+\newbox\WF@box 
+\newbox\NWF@box
+\newtoks\WF@everypar
+\newif\ifWF@float
+\newcount\WF@correctlines@switch
+\let\@@parshape\parshape
+\let\WF@@everypar\everypar
+
+\newdimen\insertwidth 
+\newdimen\radius
+\newdimen\WFinsertwidthL
+\newdimen\WFinsertwidthH
+
+\definecolor{WFbackground}{rgb}{0.95,0.95,0.95}
+\definecolor{WFframe}{rgb}{0.1,0.1,0.1}
+\colorlet{WFtext}{black}
+\def\SetWFbgd#1{\colorlet{WFbackground}{#1}}
+\def\SetWFfrm#1{\colorlet{WFframe}{#1}}
+\def\SetWFtxt#1{\colorlet{WFtext}{#1}}
+
+
+\def\WFsplitdimens#1,#2!{\fboxrule=#1\relax\fboxsep=#2\relax}
+
+\providecommand\setfontsize{}
+\RenewDocumentCommand\setfontsize{O{1.2} m}{%
+  \fontsize{#2}{\fpeval{#1*#2}}\selectfont}
+
+\def\WFscalefactor{0.8}%
+\newcommand*\WFscalewidth{%
+  \WFinsertwidthL=\fpeval{\WFscalefactor*0.5\columnwidth}\p@
+  \WFinsertwidthH=\fpeval{0.5\columnwidth/\WFscalefactor}\p@
+  \ifdim\insertwidth<\WFinsertwidthL
+    \insertwidth=\WFinsertwidthL
+  \else
+    \ifdim\insertwidth>\WFinsertwidthH
+      \insertwidth=\WFinsertwidthH
+    \fi
+  \fi
+}%
+
+%    \end{macrocode}
+% We define several options that use the \texttt{key=value} syntax.
+% Above we have already loaded the \pack{xkeyval} package that
+% offers also some ‘X’ labeled macros that mimic the corresponding
+% \LaTeXe kernel macros, but that are necessary for using the
+% \pack{xkeyval} internal macros. We chose the \texttt{wraptext}
+% option family name, because such options are to be used mostly within
+% the \cs{includeframedtext} macro.
+% The \cs{ExecuteOptionX} used here stands for a general
+% initialisation of the listed options, but it will be used also
+% within the \cs{includeframedtext} command in order to set the
+% specified options for the specific use of this command.
+%    \begin{macrocode}
+\DeclareOptionX<wraptext>{scalefactor}[0.8]{\def\WFscalefactor{#1}}
+\DeclareOptionX<wraptext>{fboxrule}[1pt]{\fboxrule=#1}
+\DeclareOptionX<wraptext>{fboxsep}[1ex]{\fboxsep=#1}
+\DeclareOptionX<wraptext>{framecolor}[WFframe]{\SetWFfrm{#1}}
+\DeclareOptionX<wraptext>{backgroundcolor}[WFbackground]{\SetWFbgd{#1}}
+\DeclareOptionX<wraptext>{textcolor}[WFtext]{\SetWFtxt{#1}}
+\DeclareOptionX<wraptext>{fontstyle}[\normalfont]{#1}
+\DeclareOptionX<wraptext>{radius}[\fboxsep]{\radius=#1}
+\DeclareOptionX<wraptext>{insertionwidth}[0.5\columnwidth]{\insertwidth=#1}
+
+\DeclareOptionX*{\PackageWarning{wrapfig2}{`\CurrentOption' ignored}}
+
+\ExecuteOptionsX<wraptext>{scalefactor, fboxrule, fboxsep, framecolor, 
+backgroundcolor, textcolor, fontstyle, radius, insertionwidth}
+
+\ProcessOptionsX*
+
+%    \end{macrocode}
+%
+%
+% {\color{red}Should the format file be not so up to date, a multitude
+% of errors would be produced, and the user should take care to load the
+% \pack{xparse} and \pack{xfp} packages before loading \pack{wrapfig2}.
+% Notice that most of the \pack{xparse} package functionalities are
+% already included in the format file  at the date required for this
+% file. The \pack{xparse} package has been available since about 2018;
+% should the users have available a definitely older \TeX system
+% installation, either they upgrade it, or they must avoid using this
+% \pack{wrapfig2} package and should use the original \pack{wrapfig} one;
+% if they need to wrap text, they should resort to some ingenious,
+% not so trivial tricks to do it.}
+%
+% Originally version~4 used the \pack{tcolrbox} package to frame
+% the wrapped text; we thought that loading that package was too
+% heavy on memory, even if the modern computers have large working
+% memories. But in order to maintain and track possible errors
+% the traced \texttt{.log} file would become too large to be of any
+% help; therefore in oder to draw a framed box with rounded corners
+% we thought it would be much simpler to load the \pack{curve2e}
+% package, just a second level extension of the original \Env{picture}
+% environment defined in the \LaTeXe kernel; only some 30 lines of code
+% are sufficient to replace the extremely powerful \pack{tcolorbox}
+% functionalities otherwise required to frame wrapped text with this
+% \pack{wrapfig2} package. 
+%
+% The definitions of the \Env{wrapfigure} and \Env{wraptable}
+% environments are very simple by means of the underlaying
+% \Env{wrapfloat} environments.
+%    \begin{macrocode}
+\NewDocumentEnvironment{wrapfigure}{o m o G{0pt}}%
+  {\wrapfloat{figure}[#1]{#2}[#3]{#4}}%
+  {\endwrapfloat}
+  
+\NewDocumentEnvironment{wraptable}{o m o G{0pt}}%
+  {\wrapfloat{table}[#1]{#2}[#3]{#4}}%
+  {\endwrapfloat}
+  
+%    \end{macrocode}
+% 
+% Notice that the argument descriptor \texttt{s} for the optional
+% star is not present in these definitions; if a star is being used,
+% it will be read by successive macros or environments.
+%
+% In order to include the text to be wrapped the floating object
+% \Env{text} has already been defined, but we need a suitable command
+% to insert it with its frame into the \Env{wraptext} environment body.
+% Here is the code of some extra macros and of the \Env{wraptext}
+% environment.
+%
+% We start with two different \cs{includeframedtext}, one for
+% version~6, that accepts \texttt{key=velue} options, and
+% another one for version~5, that requires only a comma
+% separated list of dimensional values.
+%    \begin{macrocode}
+\ifbool{WFnew}{%
+\NewDocumentCommand\includeframedtext{O{\insertwidth} m O{} o}{\bgroup%
+  \ExecuteOptionsX<wraptext>{#3}%     executes possible key=value options
+  \insertwidth=#1\WFscalewidth
+  \framedbox{#2}{\fboxrule}{\fboxsep}[\radius]\egroup}
+}{}
+
+\ifbool{WFfive}{%
+\NewDocumentCommand\includeframedtext{O{\insertwidth} m O{1pt,1ex} o}%
+{\bgroup 
+  \WFsplitdimens #3!\relax 
+  \IfNoValueTF{#4}%
+    {\framedbox{#2}{\fboxrule}{\fboxsep}}%
+    {\framedbox{#2}{\fboxrule}{\fboxsep}[#4]}
+\egroup}%
+}{}
+
+%    \end{macrocode}
+%
+% Their simple syntaxes are the following
+%\begin{ttsintassi}
+%~
+%\% for version 6.0
+%\cs{includeframedtext}\oarg{text width}\marg{text}\oarg{options}\oarg{radius}
+%
+%\% for version 5.0
+%\cs{includeframedtext}\oarg{text width}\marg{text}\oarg{dimensions}\oarg{radius}
+%\end{ttsintassi}
+% 
+% The optional \meta{text width} is the (possibly scaled) width computed
+% by the \Env{wraptext} environment; but if the authors use this command
+% outside the \Env{wraptext} environment, they should specify a width;
+% in any case the default value is half the current measure
+% \cs{linewidth}. The \meta{text} is the unformatted text to be wrapped;
+% it will be boxed and framed by the service macro \cs{framedbox}; the
+% \meta{dimensions} are passed on to \cs{framedbox} command; they are a
+% comma separated list of dimensions, namely the thickness of the frame
+% and the necessary frame distance from the formatted text. The
+% \meta{options} contains a comma separated list of zero to nine options
+% with the syntax \texttt{key=vale} that are going to be used by both
+% the \cs{includeframedtext} and \cs{framedbox}. The last optional
+% \meta{radius} is the curvature radius of the rounded frame corners;
+% the default value is going to be set to \cs{fboxsep}: in
+% version~5 \cs{framedbox} by default sets it equal to the frame
+% separation width, while with version~6 its value is received with
+% the option \texttt{radius=\meta{dimension}}; the default value is
+% certainly the best one, but the users can specify a different value,
+% of course not too different from the default one. See some examples
+% in figure~\ref{fig:framed text}.
+%
+% The definition of the \cs{framedbox} command appears to be
+% complicated; it is just an apparent complication due to the
+% fact that it uses the powerful \cs{Curve} command that draws an
+% arbitrary curved line or fills the area delimited by such
+% curved line; it suffices to specify the nodes and the tangents
+% to each node; the nodes are the points the line should pass
+% through, their tangents may be specified with arbitrary vector
+% components along the horizontal and vertical axes. For a
+% rectangle such vector components are just 0 or $\pm 1$. The
+% node coordinates of the rounded corners, on the opposite, must be
+% determined with accuracy; we used the \cs{fpeval} function of
+% package \pack{xfp}, that performs precise computations on operands
+% in fractional decimal numbers; if the operands are dimensions, the
+% operands are their fractional decimal values in printer points, the
+% results of such operations are  pure fractional decimal numbers
+% without units; if the numerical result is to be interpreted again
+% as the measure of a dimensional entity, \texttt{pt} must be appended
+% to the assignments to a dimension register; within the \Env{picture}
+% environment, any coordinate is expressed in multiples of 
+% \cs{unitlength}, therefore no unit of measure is necessary, once
+% \cs{unitlength} has been specified.
+%
+% For a rectangle with curved corners of a given radius \cs{R}
+% we have four quarter circles joined by straight lines; therefore
+% we need eight nodes.
+%
+% The shaded background and the coloured frame have the same contour;
+% but the former is filled, while the latter is stroked; we have to
+% draw the same curve two times; first the shaded background, then we
+% superimpose the frame
+%
+% This shaded framed curved corners rectangle is at the center of the
+% coordinate system of a \Env{piture} environment, and has the correct
+% dimensions to receive the boxed text; it is trivial to center the text
+% by means of a zero dimensioned box, typical of the \Env{picture}
+% environment.
+% 
+% The code of this long but simple code is the following.
+%    \begin{macrocode}
+\NewDocumentCommand\framedbox{ m m m O{#3}}{\bgroup
+\fboxrule=#2\fboxsep=#3\relax
+\setbox0\hbox{\fboxrule=\z@\fboxsep=#3\relax
+\framebox{\parbox{%                    draw a framed box without the frame
+  \fpeval{\insertwidth-2\fboxrule-2\fboxsep}\p@}{\textcolor{WFtext}{#1}}}}
+  
+\unitlength=\fpeval{\wd0/100}\p@ %             set the picture \unitlength
+ %   determine the picture coordinates and displacement of the axes origin
+\edef\x{100}%
+\edef\y{\fpeval{(\ht0 +\dp0)/\unitlength}}%
+\edef\xc{50}%
+\edef\yc{\fpeval{\y/2}}\edef\R{\fpeval{#4/\unitlength}}% 
+\edef\R{\fpeval{#4/\unitlength}}%                   radius in unit lengths
+ %        compute the horizontal and vertical shifts of the corner extrema
+\edef\WFXds{\fpeval{-\xc+\R}}\edef\WFXsd{-\WFXds}% 
+\edef\WFYuo{\fpeval{\yc-\R}}\edef\WFYou{-\WFYuo}%
+ %             compute the coordinates of the curved corners frame contour
+\edef\PSEl{\WFXsd,-\yc}\edef\PSEu{\xc,\WFYou}\edef\PNEd{\xc,\WFYuo}%
+\edef\PNEl{\WFXsd,\yc}\edef\PNWr{\WFXds,\yc}\edef\PNWd{-\xc,\WFYuo}%
+\edef\PSWu{-\xc,\WFYou}\edef\PSWr{\WFXds,-\yc}%
+
+\def\WFrectangle{%            define the contour as the argument of \Curve
+  (\WFXsd,-\yc)<1,0>(\xc,\WFYou)<0,1>(\xc,\WFYuo)<0,1>%
+  (\WFXsd,\yc)<-1,0>(\WFXds,\yc)<-1,0>(-\xc,\WFYuo)<0,-1>%
+  (-\xc,\WFYou)<0,-1>(\WFXds,-\yc)<1,0>(\WFXsd,-\yc)<1,0>}%
+\def\CurveStar{\Curve*}%            define a macro for adding the asterisk
+
+\begin{picture}(\x,\y)(-\xc,-\yc)
+{\color{WFbackground}\expandafter\CurveStar\WFrectangle}%  draw background
+\ifdim\fboxrule>\z@%           draw the frame if its thickness is not zero
+  {\color{WFframe}\linethickness{#2}\expandafter\Curve\WFrectangle}%
+\fi
+ %              put the text block in a null box at the coordinates origin
+\put(0,0){\makebox(0,0)[cc]{\box0}}%
+\end{picture}
+\egroup}
+
+%    \end{macrocode}
+% Its syntax is the following.
+%\begin{ttsintassi}\setfontsize{8.5}\obeylines
+%\cs{framedbox}\marg{text to be wrapped}\marg{frame thickness}\marg{frame separation}\oarg{corner radius}
+%\end{ttsintassi}
+%
+% The default value of the \meta{corner radius} is assigned to
+% equal argument number~3, that is the \meta{frame separation} and both
+% have a default value of \texttt{1ex}; therefore they vary with the
+% current font size. See figure~\ref{fig:framed text}. The frame
+% thickness is given a default value of \texttt{1pt} if the command is
+% used within the body of the \cs{includeframedtext}; but if this
+% command received a different value the frame may be thicker,
+% or even vanish; we discourage values higher than \texttt{3pt}
+% (about \texttt{1mm}) and lower than \texttt{1pt} unless is zero.
+%
+% The definition of the \Env{wraptext} environment is more detailed,
+% because most of the computations must be done on the actual text
+% to be wrapped, that does not have a specific width; moreover the
+% inserted text must not be too wide, nor too short in order to avoid
+% problems with its justification or the justification of the wrapping
+% lines. The framed box width is preset to 50\% of the normal text
+% measure, but it can be optionally specified to a different value (not
+% too different from 50\%); as with the other wrapping environments,
+% with versions~6 and~5  the inserted material width is a \emph{braced
+% optional argument}; with version 6.0 the default value of
+% the \opz{radius} option is equal to \cs{fboxsep}.
+%
+% For what concerns \Env{wraptext}, the opening statement argument
+% description list does not contain any descriptor for an optional
+% star. There is no need because the computation of the insertion
+% block height is pretty precise and at most the user might desire
+% one line more or less depending on the  measure of the whole text,
+% and that of the inserted block and/or the measure of the indented
+% wrapping lines; sometimes it might be necessary to get rid of the
+% space below the inserted block when it gets typeset at the bottom
+% of a page. The asterisk is not needed because for this environment
+% the optional first argument is always interpreted as the indented
+% lines number correction.
+%
+% It is true that some of the input parameters specified to the opening
+% command of any environment with \LaTeXiii are available also to the
+% closing commands; see the last paragraph of section~2 in the
+% \pack{xparse} documentation. 
+%
+% But the following definition uses the separate opening and closing
+% macros of the \Env{wrapfloat} environment; such procedure
+% breaks this second availability of the input parameters,
+% therefore it is necessary to save them into local macros or count
+% registers (assignments to \TeX count registers are \emph{local},
+% while assignment to \LaTeX\ named counters, through the
+% \cs{setcounter} macro and its siblings, are \emph{global}) so 
+% that we can use their values within the closing commands.
+%
+% The \cs{NWF@box} box register has been allocated at the code beginning;
+% remember that \LaTeXiii registers of any kind are not limited in number
+% as they were some years ago with \LaTeXe.
+% 
+% The last opening commands are conceived to box the object to be
+% wrapped, typeset within a coloured box with the default of
+% specified width; compared to version~4, these new versions~5
+% and~6 do not use anymore the functionalities provided by package
+% \pack{tcolorbox}; instead they use the \pack{curve2e} package
+% functionalities to draw similar framed and shaded boxes; this
+% implies much less memory used by the almost unlimited,
+% but unused, functionalities of the \pack{tikz} package on which
+% \pack{tcolorbox} relies. Notice that the plain \Env{picture}
+% environment extended with the \pack{pict2e} package can draw
+% “ovals”, that is rectangles with rounded corners, but as far as
+% we know they have the frame but cannot be filled.
+%
+% Notice the \Env{wraptext} has two or three definitions depending on the
+% logical switches \texttt{WFnew} and \texttt{WFfive}; if one of these
+% switches is \texttt{true} the definitions apply to either version~5
+% or~6 of this package; otherwise the last definition is a fall back to
+% the functionality and the syntax of the previous version~4 of this
+% package; in this case, in spite of the fact the the previous version
+% used package \pack{tcolorbox}, the new code relies on the
+% \pack{curve2e} functionalities in oder to get the same results
+% without using the memory heavy \pack{tcolorbox} package.
+%
+% With version 6.0, the frame that surrounds the wrapped text
+% has the desired rounded corners; it is possible to easily
+% specify the background and the frame colours, that by default
+% are maintained to light grey and almost black respectively; this
+% flexibility allows to set also the frame thickness and the
+% separation width of the frame from its contents; by default
+% they are~1pt for the frame thickness, and~1ex for the separation
+% width, that changes with the font size.
+% The number of indented lines is computed by  means of the
+% \cs{fpeval} \LaTeXiii function; among the operands of this
+% function there is the number \texttt{2} used to take into
+% account the vertical space above and below the framed box.
+% It is possible that a value of \texttt{3} might reduce the
+% probability of using the \meta{line number correction}. But
+% it is not always true and we found that the chosen value is
+% a better choice.
+%
+% Eventually the opening \Env{wrapfloat} statement is created by
+% expanding the whole line complete of its arguments, by means of the
+% usual trick of defining a dummy macro within a group that contains
+% among its expansion the group closing command, so that while
+% it is being executed, it deletes itself from memory.
+%
+% Notice that the syntax of the new \Env{wraptext} environment is
+% absolutely identical to that of the other two wrapping environments
+% in terms of \meta{line number correction}, mandatory \meta{location},
+% optional \meta{overhang} and braced optional \meta{width}. See below
+% for the very different syntax of the fall back version~4 opening
+% \Env{wraptext} statement; they become almost identical when no
+% optional parameters are specified, the only little difference being
+% that the \meta{location} argument is mandatory for versions~5 and~6,
+% while it is optional for version~4.
+%    \begin{macrocode}
+\ifboolexpr{bool{WFnew} or bool{WFfive}}{% definition for versions 5 and 6
+\NewDocumentEnvironment{wraptext}{O{0} m O{0pt} G{0.5\columnwidth}}{%
+  \insertwidth=#4\WFscalewidth
+  \def\textplacement{#2}%
+  \def\textcorrection{#1}%
+  \def\textoverhang{#3}%
+  \bgroup\edef\x{\egroup\noexpand\wrapfloat{text}%
+    [\textcorrection]{\textplacement}[\textoverhang]{\insertwidth}*}\x%
+  \def\caption{\unskip
+    \refstepcounter\@captype
+    \let\@tempf\@caption
+    \unless\ifcsname @float@c@\@captype\endcsname
+      \expandafter\expandafter\let
+        \expandafter\@tempf\csname @float@c@\@captype\endcsname
+    \fi
+    \@dblarg{\@caption\@captype}%
+    }%
+}{\endwrapfloat\ignorespaces}%
+%    \end{macrocode}
+%
+% For the fallback to version!4 definition of this \Env{wraptext}
+% environment  we have to start with the old list of specifically
+% delimited optional arguments. We remember that this opening statement
+% receives in order a bracket delimited optional \meta{location}
+% parameter, a vertical bar delimited optional \meta{width}, an angle
+% bracket delimited optional \meta{line number correction}, a round
+% parenthesis delimited optional \meta{caption label}; the different
+% delimiters allow to specify any optional argument without regard with
+% the other ones, provided they are in the same logical order when more
+% than one optional argument is specified.
+%
+% Notice that the third optional argument contains the
+% \meta{line number correction}, therefore the star used with the
+% other environments is useless; if an asterisk is indadvertedly
+% specified, it is typeset as the first token of the wrapped test.
+%
+% The text to be wrapped, that forms the body of the environment,
+% must be first boxed into a correct width vertical box; this is
+% easily obtained with a \Env{minipage} environment, of which the
+% internal commands are used; this insures that the text is
+% typeset with the correct measure; with the closing commands 
+% this boxed text is fed to the \cs{framedbox} command, in
+% order to be framed and assigned a default background color.
+% There is no possibility of specifying the colours unless the
+% whole \Env{wraptext}  environment, preceded by explicit color
+% settings, is confined within a group delimited, for example,
+% by the  \cs{begingroup} and \cs{endgroup} commands.
+%    \begin{macrocode}
+}{%                                     definition for version 4 fall back
+% 
+  \NewDocumentEnvironment{wraptext}%
+        {O{l}    D||{0.5\columnwidth} D<>{0}   D(){text}    }%
+  {%                                                      Open environment
+    \insertwidth=#2
+    \def\textplacement{#1}%
+    \def\textcorrection{#3}%
+    \def\WF@caption@label{#4}%
+    \setbox0\hbox\bgroup
+      \minipage{\dimexpr\insertwidth-2pt-6ex}%
+}{%                                                      Close environment
+  \endminipage\egroup
+    \begin{lrbox}{\NWF@box}%
+      \framedbox{\box0}{1pt}{1ex}%
+    \end{lrbox}
+    \edef\NWF@wli]{\fpeval{%
+      round((\ht\NWF@box+\dp\NWF@box)/\baselineskip,0)+2+\textcorrection}%
+                          }%  
+    \unles\ifhmode
+      \leavevmode\noindent
+    \fi
+    \bgroup\edef\x{\egroup\noexpand\wrapfloat{\WF@caption@label}[\NWF@wli]%
+        {\textplacement}{\the\insertwidth}}\x
+      \box\NWF@box 
+    \endwrapfloat
+    \ignorespaces
+  }
+}
+
+%    \end{macrocode}
+%
+% The opening command of the \Env{wrapfloat} environment receives
+% the mandatory and optional arguments plus the name of the particular
+% object to be wrapped. It is used to define the prefix label of the
+% caption number in case that the object is described with a caption. The
+% optional star is not explicit, because it is going to be read by
+% the \cs{WF@wr} macro.
+%
+% The closing command of \Env{wrapfloat} performs most of
+% the work necessary to wrap the box that contains the object
+% to be wrapped, but certain tasks are demanded to other service
+% macros.
+%
+% It is possible to set the width of the box if the \meta{width}
+% parameter is specified; otherwise it closes the \cs{hbox} that was used;
+% then it closes the main vertical box \cs{WF@box}. After executing
+% \cs{WF@floatstyhook}, necessary when package \pack{float.sty}
+% has been used, it saves the \meta{overhang} value to be used when
+% wrapping is actually performed; then it verifies if the box height
+% is too high to fit, or is too short; possibly re-boxes this box
+% in the same box register with a negative initial vertical skip
+% that raises the box contents.
+%
+% Now comes the new actual definition of the fundamental environment
+% \Env{wrapfloat}; compared to the original Arseneau's definition it is
+% much longer, but it contains the code that Arseneau, who used the
+% \LaTeXe language, and had to split it in several macros in order to
+% handle the multitude of interspersed mandatory and optional arguments.
+%
+% The main function of this environment is to handle the box that
+% contains the figure, or the table, or the framed text, or what
+% else, so that the inserted box is preceded and followed by 
+% suitable vertical spaces, and it is possible to compute the
+% number of lines to be indented; often this computed number is correct;
+% but in certain cases, when the code is used too close or
+% within prohibited wrapping text, such number might need to be
+% corrected. As it can be seen the optional star is not among
+% the argument descriptors of the opening commands; it will be
+% the following macro \cs{WR@wr} responsible of taking care of
+% the list of arguments and see if a star has been specified but
+% is still in the input flow.
+%
+% In order to handle any kind of wrapped object, this environment
+% first argument is the \meta{caption label}. It may remain blank;
+% but for wrapping figures or tables their respective definitions
+% specify the name of the floating object they belong to; it is 
+% necessary that there exists a floating environment with the same
+% name of the wrapped object, even when its wrapping environment
+% is not specified with a floating \meta{location} argument.
+%
+%    \begin{macrocode}
+\NewDocumentEnvironment{wrapfloat}{m o m o G{\z@}}%
+{%                                                   open environment code
+    \def\@captype{#1}\WF@wr[#2]{#3}[#4]{#5}%
+}{%                                                 close environment code
+  \ifdim\hsize>\z@ 
+    \par\hrule\@width\hsize\@height\z@ %   force width with invisible rule
+  \else 
+%    \unskip %                                   is the \unskip necessary?
+    \egroup \box\z@  %                                       or close hbox
+  \fi 
+ \egroup %                      close the vtop box; its width now is known 
+  \WF@floatstyhook %                                 support for float.sty
+  \def\width{\wd\WF@box}%
+  \setlength\wrapoverhang{\WF@ovh}%
+  \xdef\WF@ovh{\the\wrapoverhang}%                     save until wrapping
+  \ifdim\ht\WF@box>\topskip \ht\WF@box\z@ \fi%          too high, set flag
+  \ifdim\ht\WF@box<.5\p@ %                              too short, move up
+    \global\setbox\WF@box\vtop{\vskip-1.4ex\unvbox\WF@box}%
+  \fi
+   \global\WF@size=%                  compute total box hight with \fpeval
+     \fpeval{\ht\WF@box+\dp\WF@box+1.5\baselineskip+\tw@\intextsep}\p@
+   \aftergroup\WF@startfloating %        use even when not really floating
+  \unless\ifWF@float 
+    \ifhmode
+      {\unskip \parfillskip\z@skip \par \vskip-\parskip}%
+      \aftergroup\noindent
+    \fi
+  \fi 
+  \global\@ignoretrue
+}
+
+%    \end{macrocode}
+%
+% The working macro \cs{WF@wr} is defined with the \LaTeXiii
+% language; it grabs all the optional and mandatory arguments
+% in a single step, contrary to \LaTeXe that requires to split
+% the various steps in separate macros. In the definition code
+% we use also some commands, such as \cs{unless}, originally
+% defined by the \eTeX typesetting program extensions, that have
+% been included in the \pdfLaTeX, \XeLaTeX and \LuaLaTeX kernels
+% several years ago.
+%
+% Notice that the optional first (optional) argument, that represents
+% the number of indented lines or their correction number, is saved
+% into the macro \cs{WF@wli}, but if this argument is not specified,
+% \cs{WF@wli} is assigned the value zero. The same happens for the
+% \meta{overhang} optional argument.
+%
+% After these adjustments, the software computes the box total height
+% plus some fixed amounts needed mostly to set the wrapped material
+% below the wrapping text first line. Here is where the \LaTeXiii
+% \cs{fpeval} computing function comes into play so as to assign such
+% height to \cs{WF@size}. Afterwards some unusual macros are executed;
+% they were devised by Arseneau to deal with possibly floating wrapped
+% objects. The optional star is not accepted by this macro; if the user
+% specified it, it is still in the input flow; notice that the
+% \Env{wraptext} environment does not accept the optional star; if the
+% user indadvertedly specifies it for this environment, an
+% asterisk appears at the beginning of the wrapped text with version~4;
+% with versions~5 and~6 the asterisk appears at the left of the framed
+% text. In all three cases, in facts, the first optional parameter is
+% always interpreted as the \meta{line number correction}.
+%
+% The braced \meta{width} fourth parameter (actually a
+% \textit{braced optional parameter}) may be specified
+% to be \texttt{0pt}; in any case \texttt{0pt} is the default parameter
+% value; if so, the object is treated at its natural width, by
+% boxing it into an hbox and using this box width as the working
+% width of course this works only with \Env{wrapfigure} and
+% \Env{wraptable}, because what is being wrapped has its own natural
+% width; with text the natural width is the default setting made
+% with the \emph{braced optional argument} described with the
+% \texttt{G} descriptor.
+%    \begin{macrocode}
+\NewDocumentCommand\WF@wr{o m o m s}{%
+  \xdef\WF@wfname{wrap\@captype\space}%
+  \unless\ifvoid\WF@box 
+    \WFclear \WF@collision 
+  \fi
+  \xdef\WF@place{\string`\@car#2r\@nil}%
+  \ifnum\lccode\WF@place=\WF@place 
+      \global\WF@floatfalse
+  \else 
+      \global\WF@floattrue 
+  \fi
+  \ifx\parshape\WF@fudgeparshape 
+    \unless\ifWF@float\\WF@collision\fi 
+  \else
+    \ifx\par\@@par 
+      \ifnum\@@parshape>\z@\WF@conflict\fi 
+    \else 
+      \WF@conflict
+    \fi
+   \fi 
+   \IfValueTF{#1}%                 save optional line number or correction
+     {\gdef\WF@wli{#1}}%
+     {\gdef\WF@wli{0}}%
+% 
+  \IfValueTF{#3}%                                   save optional overhang
+      {\gdef\WF@ovh{#3}}%
+      {\gdef\WF@ovh{\z@}}% 
+%
+   \global\setbox\WF@box\vtop\bgroup \setlength\hsize{#4}%       set width
+   \ifdim\hsize>\z@
+     \@parboxrestore
+   \else
+     \setbox\z@\hbox\bgroup
+     \let\wf@@caption\caption
+     \let\caption\wf@caption
+     \ignorespaces
+   \fi
+  \IfBooleanTF{#5}%    if the asterisk is present set the numerical switch
+              {\global\WF@correctlines@switch=\@ne}% 
+              {\global\WF@correctlines@switch=\z@}%
+
+}
+%    \end{macrocode}
+%
+% At this point the main box \cs{WF@box} is opened in order to
+% store the object to be wrapped; with this box height the software
+% is going to compute the number of lines to be indented, unless
+% such a number has been specified and no star was added to the
+% input parameters.
+%
+% Also the \amb{wraptext} environment uses a box to collect the
+% framed text; the name of this second box must be different from
+% \cs{WF@box} otherwise interference of the various tasks produces
+% unrecoverable errors. This is why at the beginning of this
+% package we defined two different boxes: \cs{WF@box} and \cs{NWF@box}.
+%
+% The trick of creating an alias for the \cs{caption} macro is
+% used by Arseneau to redefine one of the two macros according to
+% certain conditions. Here \cs{wf@caption} is actually redefined
+% if the \meta{width} parameter has been specified.
+%    \begin{macrocode}
+\def\wf@caption{\relax%        redefine \wf@caption in case \hsize is zero
+  \ifdim\hsize>\z@ 
+    \let\caption\wf@@caption 
+  \else
+    \unskip \egroup \hsize\wd\z@ \@parboxrestore \box\z@%      empty \box0
+  \fi 
+  \caption
+}
+
+%    \end{macrocode}
+%
+% One of these unusual macros was introduced by Arseneau
+% to deal with paragraph parameters and possibly to float the
+% object to be wrapped.
+%    \begin{macrocode}
+\def\WF@startfloating{%
+ \WF@everypar\expandafter{\the\everypar}\let\everypar\WF@everypar
+ \WF@@everypar{\ifvoid\WF@box\else\WF@floathand\fi \the\everypar
+ \WF@wraphand
+}}
+
+%    \end{macrocode}
+% The following macro is for floating wrapping environments.
+%    \begin{macrocode}
+\def\WF@floathand{%
+  \ifx\parshape\WF@fudgeparshape 
+    \WF@fltmes
+  \else
+    \ifx\par\@@par
+      \ifnum\@@parshape=\z@
+        \ifdim\hangindent=\z@
+          \setbox\z@\lastbox \begingroup
+          \@@par \WF@@everypar{}\WF@putfigmaybe
+          \endgroup %                      after this group start wrapping
+          \unless\ifvoid\z@ %                          replace indentation
+              \box\z@
+          \fi 
+        \else
+          \WF@fltmes
+        \fi
+      \else
+        \WF@fltmes
+      \fi
+    \else
+      \WF@fltmes
+    \fi
+  \fi}
+
+%    \end{macrocode}
+%
+% On the contrary if there is enough space or if the wrapped object
+% cannot float, it gets output here.
+%    \begin{macrocode}
+\def\WF@putfigmaybe{%
+\ifinner
+  \vskip-\parskip \global\WF@floatfalse
+  \let\pagetotal\maxdimen %              kludge flag for "not top of page"
+\else %                                                         outer page
+  {\advance\parskip\@tempdima\vskip-\parskip}%        back up to base line
+  \penalty\interlinepenalty %                       update page parameters
+  \@tempdimb\dimexpr\pagegoal - \pagetotal \relax%       room left on page 
+  \ifdim \@tempdimb<\z@ %                                page already full
+    \global\WF@floatfalse
+    \unless\ifdim-\@tempdimb>\pageshrink \pagebreak \fi
+  \else
+    \ifdim\WF@size>\@tempdimb%     box too high does not fit in \@tempdimb
+      \ifWF@float
+        \dimen@ 0.5\baselineskip 
+      \else
+        \dimen@ 2\baselineskip
+      \fi
+      \ifdim\pagestretch>\dimen@ \dimen@\pagestretch \fi
+      \ifdim\pagefilstretch>\z@ \dimen@\@tempdimb \fi
+      \ifdim\pagefillstretch>\z@ \dimen@\@tempdimb \fi
+      \advance\dimen@ 0.5\baselineskip
+      \ifdim\dimen@>\@tempdimb %                     stretch page contents
+        \global\WF@floatfalse \pagebreak
+      \fi
+    \else %                                         box fits in \@tempdimb
+      \global\WF@floatfalse
+    \fi
+  \fi
+  \vskip\@tempdima%                               return erased page depth
+\fi
+\noindent
+\ifWF@float
+  \WF@fltmes
+\else %                                               place insertion here
+  \WF@info{Put \WF@wfname here:}%
+  {\ifodd
+     \if@twoside\c@page\else\@ne\fi %          assign l/r to i/o placement
+     \lccode`i`l\lccode`o`r\else \lccode`i`r\lccode`o`l%
+   \fi
+   \xdef\WF@place{\the\lccode\lccode\WF@place}%
+                 }%                               twice to get only l or r
+  \hbox to\z@{% llap o rlap depending on l or r; determine effective width
+    \@tempdima\wd\WF@box \@tempdimb\WF@ovh
+    \advance\@tempdima-\@tempdimb \advance\@tempdima\columnsep
+    \@tempdimb\hsize \advance\@tempdimb-\@tempdima
+    \xdef\WF@adjlw{\the\@tempdima}%
+    \ifnum `l=\WF@place %                                   object on left
+      \hss 
+      \def\@tempa{\kern\columnsep}%             take right gap into action
+    \else %                                                object on right
+      \@tempdima\z@ %                                  no left indentation
+      \kern\@tempdimb \kern\columnsep
+      \def\@tempa{\hss}%                object overlaps space to the right
+    \fi
+    \ifdim\@tempdimb<\hsize
+      \xdef\WF@wrapil{\the\@tempdima \the\@tempdimb}%  indent.n and length
+      \xdef\WF@adjtlm{\the\@tempdima}%
+    \else
+      \xdef\WF@wrapil{\z@ \the\hsize}%
+      \xdef\WF@adjlw{\z@}\xdef\WF@adjtlm{\z@}%
+    \fi
+    \ifdim\pagetotal=\z@ %              put object at top of page \thepage
+      \global\advance\WF@size-\intextsep
+    \else %                               put object in middle of the page
+      \setbox\WF@box\hbox{\lower\intextsep\box\WF@box}%
+    \fi 
+    \dp\WF@box\z@ 
+    \box\WF@box 
+    \@tempa
+  }%                                                      end \hbox to 0pt
+  \aftergroup\WF@startwrapping  
+\fi
+}
+
+%    \end{macrocode}
+%
+% Here comes the very important macro that counts the indented wrapping
+% lines, so that wrapping is correct; of course the limitations
+% of the \LaTeX processing (needed to ship out a complete
+% page) forbid to take into account the spaces inserted between
+% paragraphs and/or those inserted between entries of various
+% listings. The idiosyncrasies of this package arise from the
+% fact that this macro cannot preview actions that have not
+% yet taken place when this macro is executed.
+%
+% This macro counts the lines to be indented by rounding the division
+% of the box height by the current base line skip. Notice that
+% \texttt{WF@wrappedlines} is the name of a \LaTeX named counter,
+% not of a \TeX numeric register; therefore special \LaTeX commands,
+% such as \cs{setcounter} or \cs{value}, have to be used in order
+% to  set or access the numerical value stored within the \TeX
+% register associated to the \LaTeX counter name.
+%    \begin{macrocode}
+\def\WF@startwrapping{%
+  \ifnum\WF@wli=\z@ %                              no number was specified
+    \setcounter{WF@wrappedlines}%
+      {\fpeval{round(\WF@size/\baselineskip,0)}}%
+    \xdef\WF@wli{\value{WF@wrappedlines}}%
+  \else
+    \ifnum\WF@correctlines@switch>\z@ %             line number correction
+      \setcounter{WF@wrappedlines}
+        {\fpeval{round((\WF@size)/\baselineskip,0)+\WF@wli}}%
+      \xdef\WF@wli{\the\c@WF@wrappedlines}%
+    \else
+      \setcounter{WF@wrappedlines}{\WF@wli}%      absolute number of lines
+      \stepcounter{WF@wrappedlines}%
+    \fi
+  \fi
+  \ifnum\c@WF@wrappedlines>\@ne %                              fine tuning
+    \let\parshape\WF@fudgeparshape \let\WF@pspars\@empty \let\WF@@par\par
+    \def\@setpar##1{\def\WF@@par{##1}}\def\par{\@par}\let\@par\WF@mypar
+    \xdef\WF@restoretol{\tolerance\the\tolerance}\tolerance9999\relax
+    \advance\linewidth-\WF@adjlw \advance\@totalleftmargin\WF@adjtlm
+  \fi
+}
+
+%    \end{macrocode}
+%
+% The next macro is the one that actually indents the wrapping text lines
+% and keeps track of the number of such processed lines. It can work
+% on more than a single paragraph. It resorts to service macros that
+% reiterate as long as the number of indented lines is lower than the
+% computed number of lines. Possibly this process could be defined by
+% means od the \texttt{dowhile} or \texttt{whiledo} \LaTeXiii functions.
+% By now we did not afford this task, because first we would like to
+% see if the overall software is reliable.
+%    \begin{macrocode}
+\def\WF@wraphand{%                    for indenting one or more paragraphs
+  \ifnum\c@WF@wrappedlines<\tw@ 
+    \WF@finale
+  \else \begingroup %                            create a parshape command
+    \@tempcnta\@ne \let\WF@wrapil\relax \gdef\WF@ps{}%
+    \@whilenum 
+      \@tempcnta<\c@WF@wrappedlines\do{%              repeated indentation
+      \xdef\WF@ps{\WF@ps\WF@wrapil}\advance\@tempcnta\@ne
+      }%
+    \endgroup
+    \ifx\WF@pspars\@empty
+      \@@parshape\c@WF@wrappedlines \WF@ps \WF@noil
+    \else %           use external `parshape' values to modify my parshape
+      \WF@modps
+    \fi
+  \fi
+}
+
+%    \end{macrocode}
+%
+% This macro resets the paragraph properties and terminates the job.
+%    \begin{macrocode}
+\def\WF@mypar{\relax
+  \WF@@par 
+  \ifnum\@@parshape=\z@ 
+    \let\WF@pspars\@empty %                                 reset parshape
+  \fi
+  \global\advance\c@WF@wrappedlines-\prevgraf \prevgraf\z@
+  \ifnum\c@WF@wrappedlines<\tw@ 
+    \WF@finale 
+  \fi
+}
+
+%    \end{macrocode}
+%
+% These macros modify the paragraph settings.
+%    \begin{macrocode}
+\def\WF@modps{\begingroup
+  \afterassignment\@tempdimb \@tempdima\WF@pspars %  a=indent.num, b=width
+  \advance\@tempdima-\WF@adjtlm \advance\@tempdimb\WF@adjlw
+  \let\WF@wrapil\WF@pspars
+  \edef\@tempb{\@@parshape\c@WF@wrappedlines 
+                \WF@ps \the\@tempdima \the\@tempdimb}%
+  \expandafter\endgroup\@tempb
+}
+
+\let\@@setpar\@setpar
+\def\WF@noil{\z@ \hsize}
+\let\WF@pspars\@empty
+
+\def\WF@fudgeparshape{\relax 
+  \ifnum\c@WF@wrappedlines<\tw@ 
+    \WF@finale
+  \else 
+    \afterassignment\WF@fudgeparshapee \fam
+  \fi
+}
+
+\def\WF@fudgeparshapee{%
+  \ifnum\fam=\@ne \expandafter 
+    \WF@parshapeee 
+  \else
+    \WF@conflict \@@parshape\fam 
+  \fi
+}
+  
+\def\WF@parshapeee#1#2{%
+  \begingroup\delimitershortfall#1%
+  \nulldelimiterspace#2%         \advance \nulldelimiterspace by \WF@adjlw
+  \edef\@tempa{\def\noexpand\WF@pspars{%
+      \the\delimitershortfall \the\nulldelimiterspace}}%
+  \expandafter\endgroup\@tempa \WF@wraphand
+}
+
+%    \end{macrocode}
+%
+% The following macro is the one that actually ends the single
+% wrapping job.
+%    \begin{macrocode}
+\def\WF@finale{%
+  \ifx\parshape\WF@fudgeparshape
+    \WF@restoretol \let\@setpar\@@setpar \let\par\WF@@par
+    \advance\linewidth\WF@adjlw \advance\@totalleftmargin-\WF@adjtlm
+    \WF@info{Finish wrapping text}%
+    \ifx\par\@@par 
+      \def\@par{\let\par\@@par\par}%
+    \else 
+      \let\@par\WF@@par 
+    \fi
+    \let\parshape\@@parshape
+    \parshape=\ifx\WF@pspars\@empty 
+                \z@ 
+              \else 
+                \@ne \WF@pspars
+              \fi 
+  \fi
+  \ifvoid\WF@box 
+    \ifx\everypar\WF@everypar
+      \let\everypar\WF@@everypar \everypar\expandafter{\the\WF@everypar}%
+    \fi
+  \fi
+}
+
+%    \end{macrocode}
+%
+% At the very end everything is restored, and the used boxes are emptied.
+%    \begin{macrocode}
+\newcommand{\WFclear}{\par 
+  \unless\ifvoid\WF@box
+    \vskip\bigskipamount \box\WF@box
+    \let\everypar\WF@@everypar \everypar\expandafter{\the\WF@everypar}%
+  \fi 
+  \global\c@WF@wrappedlines\z@ \WF@finale
+  \global\WF@correctlines@switch\z@
+}
+
+%    \end{macrocode}
+%
+% The following code is one of those “dirty tricks” by which a macro 
+% defined within a group is executed with the help of an 
+%\cs{expandafter} command that bypasses an \cs{endgroup}; by so doing,
+% after execution nothing local to the group remains in memory.
+%    \begin{macrocode}
+\begingroup
+ \toks0={\let\everypar\WF@@everypar
+         \everypar\expandafter{\the\WF@everypar}%
+         \let\parshape\@@parshape 
+         \let\@setpar\@@setpar 
+        }
+ \toks1=\expandafter{\@arrayparboxrestore}%
+ \toks2=\expandafter{\clearpage}%
+ \edef\@tempa{%
+      \def\noexpand\@arrayparboxrestore{\the\toks0 \the\toks1}%
+      \def\noexpand\clearpage
+      {\noexpand\protect\noexpand\WFclear \the\toks2}}%
+ \expandafter
+ \endgroup\@tempa
+
+%    \end{macrocode}
+%
+% Donald Arseneau classifies the following macro as the one
+% that “pampers the RevTeX's stupidity”.
+%    \begin{macrocode}
+\@ifundefined{@capwidth}{\let\@capwidth\hsize}{}% 
+
+%    \end{macrocode}
+%
+% This one, instead, issues a warning if a specific name conflicts
+% with another.
+%    \begin{macrocode}
+\def\WF@conflict{\WF@warning
+  {\WF@wfname used inside a conflicting environment}}%
+
+%    \end{macrocode}
+%
+% While this one issues a warning when a wrapping environment is
+% too close to another one.
+%    \begin{macrocode}
+\def\WF@collision{\WF@warning{Collision between wrapping environments}}%
+
+%    \end{macrocode}
+%
+% And this one is when two wrapping environments are too close to
+% one another so that the second one is forced to move.
+%    \begin{macrocode}
+\def\WF@fltmes{%                                        message for floats
+  \ifWF@float 
+    \WF@info{\WF@wfname floats}%
+ \else 
+   \WF@warning{Stationary \WF@wfname forced to float}%
+ \fi
+}
+
+%    \end{macrocode}
+%
+% These two aliases are just service macros for this package; in
+% particular, the second one is used to insert info of any kind
+% within a source file.
+%    \begin{macrocode}
+\let\WF@warning\@warning
+\let\WF@info\@gobble
+
+%    \end{macrocode}
+%
+% Arseneau says that his \pack{wrapfig} package is already compatible
+% with  package \pack{float.sty}, since, after defining a new float
+% \meta{foo}, it suffices to define the new environment
+% \Env{wrap\meta{foo}}. This fork version of his package should do
+% the same: it suffices to mimic the definitions of environments
+% \Env{wrapfigure} or \Env{wraptable}.
+%
+% Here there is some Arseneau's code that renders his \pack{wrapfig}
+% code compatible with \cs{newfloat} of class \class{memoir}, and
+% with \cs{newfloatlist} of package \pack{ccaption}. We keep his code,
+% but we did not test it with this package.
+%    \begin{macrocode}
+\let\WF@floatstyhook\relax
+
+\@ifundefined{newfloat}{}{%         \newfloat comes from somewhere besides
+ %                                                               float.sty
+  \@ifundefined{restylefloat}{%
+    \@ifclassloaded{memoir}{%
+      \toks@=\expandafter\expandafter\expandafter
+       {\csname\string\newfloat\endcsname [{#1}]{#2}{#3}{#4}%
+       \newenvironment{wrap#2}{\wrapfloat{#2}}{\endwrapfloat}%
+      }%                             Mmmm; this might be wrong. Not tested
+   \edef\@tempa{\def\expandafter\noexpand\csname\string\newfloat\endcsname
+        [##1]##2##3##4{\the\toks@}}%
+      \@tempa
+     }%                                                 end memoir support
+     {}%                                  other origins of \newfloat here?
+  }{%          float.sty handler. Ops: Two versions for different versions
+ %           Changing \floatstyle or \restylefloat changes also \newfloat.
+  \@ifundefined{float@restyle}%
+    {%                                                     older float.sty
+    
+      \toks@=\expandafter{\restylefloat{##1}%       env. might be undefined
+      \@namedef{wrap#1}{%
+        \def\@captype{#1}\@nameuse{fst@#1}%
+        \def\WF@floatstyhook{\let\@currbox\WF@box \columnwidth\wd\WF@box 
+          \global\setbox\WF@box\float@makebox}%
+      \@ifnextchar[\WF@wr{\WF@wr[]}}%
+      \expandafter\let\csname endwrap#1\endcsname \endwrapfigure
+      }%
+    \edef\@tempa{\def\noexpand\restylefloat##1{\the\toks@}}%
+  }{%             newer float.sty: uses \float@restyle, and \float@makebox
+%                                                          takes width arg
+      \toks@=\expandafter{\float@restyle{#1}%      env. might be undefined 
+        \@namedef{wrap#1}{\def\@captype{#1}\@nameuse{fst@#1}%
+          \def\WF@floatstyhook{\let\@currbox\WF@box 
+            \global\setbox\WF@box\float@makebox{\wd\WF@box}}%
+        \@ifnextchar[\WF@wr{\WF@wr[]}}%
+        \expandafter\let\csname endwrap#1\endcsname \endwrapfigure
+      }%
+      \edef\@tempa{\def\noexpand\float@restyle##1{\the\toks@}}%
+    }%
+    \@tempa %                                        perform redefinitions
+%
+    }%                                               end float.sty handler
+}%                                          end redefinitions of \newfloat
+
+\ifcsname newfloatlist\endcsname%                     support ccaption.sty 
+  \toks@=\expandafter\expandafter\expandafter
+    {\csname\string\newfloatlist\endcsname [{#1}]{#2}{#3}{#4}{#5}%
+  \@namedef{wrap#2}{\wrapfloat{#2}}%
+  \expandafter\let\csname endwrap#2\endcsname \endwrapfloat
+  }%
+  \edef\@tempa{%
+  \def\expandafter\noexpand\csname\string\newfloatlist\endcsname
+   [##1]##2##3##4##5{\the\toks@}}%
+  \@tempa
+\fi
+
+%    \end{macrocode}
+%
+%\iffalse
+%</package>
+%\fi
+% \Finale
+%
+%^^A \endinput

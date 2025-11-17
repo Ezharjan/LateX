@@ -1,0 +1,318 @@
+%%
+%% This is file `piton.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% piton.dtx  (with options: `package')
+%% 
+%% Copyright (C) 2022 by F. Pantigny
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version.  The latest version of this license is in:
+%% 
+%%      http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+\def\myfileversion{0.6a}
+\def\myfiledate{2022/09/19}
+
+
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{l3keys2e}
+\ProvidesExplPackage
+  {piton}
+  {\myfiledate}
+  {\myfileversion}
+  {Highlight Python codes with LPEG on LuaLaTeX}
+\msg_new:nnn { piton } { LuaLaTeX~mandatory }
+  { The~package~'piton'~must~be~used~with~LuaLaTeX.\\ It~won't~be~loaded. }
+\sys_if_engine_luatex:F { \msg_critical:nn { piton } { LuaLaTeX~mandatory } }
+\RequirePackage { luatexbase }
+\keys_define:nn { piton / package }
+  {
+    escape-inside .tl_set:N = \c__piton_escape_inside_tl ,
+    unknown .code:n = \msg_error:nn { piton } { unknown~key~for~package }
+  }
+\msg_new:nnn { piton } { unknown~key~for~package }
+  {
+    Unknown~key\\
+    You~have~used~the~key~'\l_keys_key_str'~but~the~only~key~available~here~
+    is~the~key~'escape-inside'.\\
+    That~key~will~be~ignored.
+  }
+\tl_clear_new:N \c__piton_escape_inside_tl
+\ProcessKeysOptions { piton / package }
+\begingroup
+\cs_new_protected:Npn \__piton_set_escape_char:nn #1 #2
+  {
+    \directlua { begin_escape = "#1" }
+    \directlua { end_escape = "#2" }
+  }
+\cs_generate_variant:Nn \__piton_set_escape_char:nn { x x }
+\__piton_set_escape_char:xx
+  { \tl_head:V \c__piton_escape_inside_tl }
+  { \tl_tail:V \c__piton_escape_inside_tl }
+\endgroup
+\AtBeginDocument
+  {
+    \@ifpackageloaded { xcolor }
+      { }
+      { \msg_fatal:nn { piton } { xcolor~not~loaded } }
+  }
+\msg_new:nnn { piton } { xcolor~not~loaded }
+  {
+    xcolor~not~loaded \\
+    The~package~'xcolor'~is~required~by~'piton'.\\
+    This~error~is~fatal.
+  }
+\msg_new:nnn { piton } { piton.lua~not~found }
+  {
+    The~file~'piton.lua'~can't~be~found.\\
+    The package~'piton'~won't be loaded.
+  }
+\file_if_exist:nF { piton.lua }
+  { \msg_critical:nn { piton } { piton.lua~not~found} }
+\lua_now:e { require("piton.lua") }
+\cs_new:Npn \pitonEOL
+  {
+    \par \leavevmode
+    \__piton_print_number:
+  }
+\cs_new_protected:Npn \__piton_print_number:
+  {
+    \bool_if:NT \l__piton_line_numbers_bool
+      { \__piton_actually_print_number: }
+  }
+\cs_new_protected:Npn \__piton_actually_print_number:
+  {
+    \bool_if:NF \l__piton_all_line_numbers_bool
+      { \peek_meaning:NF \pitonEOL }
+    \__piton_actually_print_number_i:
+  }
+\cs_new_protected:Npn \__piton_actually_print_number_i:
+  {
+    \int_incr:N \l__piton_lineno_int
+    \hbox_overlap_left:n
+      {
+        { \color{gray} \footnotesize \int_to_arabic:n \l__piton_lineno_int }
+        \quad
+      }
+  }
+\int_new:N \l__piton_lineno_int
+\int_new:N \l__piton_gobble_int
+\cs_new_protected:Npn \__piton_define_gobble_syntax:n #1
+  { \lua_now:n { define_gobble_syntax(#1) } }
+\NewDocumentCommand { \piton } { v }
+  {
+    \group_begin:
+    \ttfamily
+    \lua_now:e { Parse(token.scan_argument()) } { #1 }
+    \group_end:
+  }
+\NewDocumentCommand { \PitonInputFile } { m }
+  {
+    \group_begin:
+      \ttfamily
+      \bool_if:NT \l__piton_line_numbers_bool
+        {
+          \__piton_actually_print_number:
+          \vspace{-\baselineskip}
+        }
+      \lua_now:e { ParseFile(token.scan_argument()) } { #1 }
+    \group_end:
+  }
+\bool_new:N \l__piton_line_numbers_bool
+\bool_new:N \l__piton_all_line_numbers_bool
+\keys_define:nn { PitonOptions }
+  {
+    gobble           .int_set:N         = \l__piton_gobble_int ,
+    gobble           .value_required:n  = true ,
+    auto-gobble      .code:n            = \int_set:Nn \l__piton_gobble_int { -1 } ,
+    auto-gobble      .value_forbidden:n = true ,
+    env-gobble       .code:n            = \int_set:Nn \l__piton_gobble_int { -2 } ,
+    env-gobble       .value_forbidden:n = true ,
+    line-numbers     .bool_set:N        = \l__piton_line_numbers_bool ,
+    line-numbers     .default:n         = true ,
+    all-line-numbers .code:n =
+      \bool_set_true:N \l__piton_line_numbers_bool
+      \bool_set_true:N \l__piton_all_line_numbers_bool ,
+    all-line-numbers .value_forbidden:n = true  ,
+    unknown          .code:n =
+      \msg_error:nn { piton } { Unknown~key~for~PitonOptions }
+  }
+\msg_new:nnn { piton } { Unknown~key~for~PitonOptions }
+  {
+    Unknown~key \\
+    The~key~'\l_keys_key_str'~is~unknown~for~\token_to_str:N \PitonOptions.~The~
+    available~keys~are:~all-line-numbers,~auto-gobble,~env-gobble,~gobble~and~
+    line-numbers.\\
+    If~you~go~on,~that~key~will~be~ignored.
+  }
+\NewDocumentCommand \PitonOptions { }
+  { \keys_set:nn { PitonOptions } }
+\NewDocumentCommand { \NewPitonEnvironment } { m m m m }
+  {
+    \use:x
+      {
+        \cs_set_protected:Npn
+          \use:c { __piton_collect_ #1 :w }
+          ####1
+          \c_backslash_str end \c_left_brace_str #1 \c_right_brace_str
+      }
+          {
+            \group_end:
+            \par \addvspace { 0.5 em }
+            {
+              \dim_set_eq:NN \parindent \c_zero_dim
+              \ttfamily
+              \bool_if:NT \l__piton_line_numbers_bool
+                {
+                  \__piton_actually_print_number:
+                  \vspace{-\baselineskip}
+                }
+              \int_case:nnF \l__piton_gobble_int
+                {
+                  0
+                  { \lua_now:e { Parse(token.scan_argument()) } }
+                  { -1 }
+                  { \lua_now:e { AutoGobbleParse(token.scan_argument()) } }
+                  { -2 }
+                  { \lua_now:e { EnvGobbleParse(token.scan_argument()) } }
+                }
+                {
+                   \exp_args:NV \__piton_define_gobble_syntax:n \l__piton_gobble_int
+                   \lua_now:e { GobbleParse(token.scan_argument()) }
+                }
+              { ##1 }
+            }
+            \par \addvspace { 0.5 em }
+            \end { #1 }
+          }
+    \NewDocumentEnvironment { #1 } { #2 }
+      {
+        #3
+        \group_begin:
+        \tl_map_function:nN
+          { \ \\ \{ \} \$ \& \# \^ \_ \% \~ }
+          \char_set_catcode_other:N
+        \use:c { __piton_collect_ #1 :w }
+      }
+      { #4 }
+    \AddToHook { env / #1 / begin } { \char_set_catcode_other:N \^^M }
+  }
+\NewPitonEnvironment { Piton } { } { } { }
+\NewDocumentCommand { \PitonStyle } { m } { \csname pitonStyle#1\endcsname }
+\NewDocumentCommand { \SetPitonStyle } { } { \keys_set:nn { piton } }
+\cs_new_protected:Npn \__piton_math_scantokens:n #1
+  { \normalfont \scantextokens { $#1$ } }
+\keys_define:nn { piton }
+  {
+    String.Interpol  .tl_set:c = pitonStyle String.Interpol ,
+    String.Interpol  .value_required:n = true ,
+    FormattingType   .tl_set:c = pitonStyle FormattingType ,
+    FormattingType   .value_required:n = true ,
+    Dict.Value       .tl_set:c = pitonStyle Dict.Value ,
+    Dict.Value       .value_required:n = true ,
+    Name.Decorator   .tl_set:c = pitonStyle Name.Decorator ,
+    Name.Decorator   .value_required:n = true ,
+    Name.Function    .tl_set:c = pitonStyle Name.Function ,
+    Name.Function    .value_required:n = true ,
+    Keyword          .tl_set:c = pitonStyle Keyword ,
+    Keyword          .value_required:n = true ,
+    Keyword.Constant .tl_set:c = pitonStyle Keyword.Constant ,
+    Keyword.constant .value_required:n = true ,
+    String.Doc       .tl_set:c = pitonStyle String.Doc ,
+    String.Doc       .value_required:n = true ,
+    Interpol.Inside  .tl_set:c = pitonStyle Interpol.Inside ,
+    Interpol.Inside  .value_required:n = true ,
+    String.Long      .tl_set:c = pitonStyle String.Long ,
+    String.Long      .value_required:n = true ,
+    String.Short     .tl_set:c = pitonStyle String.Short ,
+    String.Short     .value_required:n = true ,
+    String           .meta:n = { String.Long = #1 , String.Short = #1 } ,
+    Comment.Math     .tl_set:c = pitonStyle Comment.Math ,
+    Comment.Math     .default:n = \__piton_math_scantokens:n ,
+    Comment.Math     .initial:n = ,
+    Comment          .tl_set:c = pitonStyle Comment ,
+    Comment          .value_required:n = true ,
+    InitialValues    .tl_set:c = pitonStyle InitialValues ,
+    InitialValues    .value_required:n = true ,
+    Number           .tl_set:c = pitonStyle Number ,
+    Number           .value_required:n = true ,
+    Name.Namespace   .tl_set:c = pitonStyle Name.Namespace ,
+    Name.Namespace   .value_required:n = true ,
+    Name.Class       .tl_set:c = pitonStyle Name.Class ,
+    Name.Class       .value_required:n = true ,
+    Name.Builtin     .tl_set:c = pitonStyle Name.Builtin ,
+    Name.Builtin     .value_required:n = true ,
+    Name.Type        .tl_set:c = pitonStyle Name.Type ,
+    Name.Type        .value_required:n = true ,
+    Operator         .tl_set:c = pitonStyle Operator ,
+    Operator         .value_required:n = true ,
+    Operator.Word    .tl_set:c = pitonStyle Operator.Word ,
+    Operator.Word    .value_required:n = true ,
+    Post.Function    .tl_set:c = pitonStyle Post.Function ,
+    Post.Function    .value_required:n = true ,
+    Exception        .tl_set:c = pitonStyle Exception ,
+    Exception        .value_required:n = true ,
+    Comment.LaTeX    .tl_set:c = pitonStyle Comment.LaTeX ,
+    Comment.LaTeX    .value_required:n = true ,
+    unknown          .code:n = \msg_error:nn { piton }{ Unknown~key~for~SetPitonStyle }
+  }
+\msg_new:nnn { piton } { Unknown~key~for~SetPitonStyle } {
+  The~style~'\l_keys_key_str'~is~unknown.\\
+  This~key~will~be~ignored.\\
+  The~available~styles~are~(in~alphabetic~order):~
+  Comment,~
+  Comment.LaTeX,~
+  Dict.Value,~
+  Exception,~
+  InitialValues,~
+  Keyword,~
+  Keyword.Constant,~
+  Name.Builtin,~
+  Name.Class,~
+  Name.Decorator,~
+  Name.Function,~
+  Name.Namespace,~
+  Number,~
+  Operator,~
+  Operator.Word,~
+  String,~
+  String.Doc,~
+  String.Long,~
+  String.Short,~and~
+  String.Interpol. }
+\SetPitonStyle
+  {
+    Comment          = \color[HTML]{0099FF} \itshape ,
+    Exception        = \color[HTML]{CC0000} ,
+    Keyword          = \color[HTML]{006699} \bfseries ,
+    Keyword.Constant = \color[HTML]{006699} \bfseries ,
+    Name.Builtin     = \color[HTML]{336666} ,
+    Name.Decorator   = \color[HTML]{9999FF},
+    Name.Class       = \color[HTML]{00AA88} \bfseries ,
+    Name.Function    = \color[HTML]{CC00FF} ,
+    Name.Namespace   = \color[HTML]{00CCFF} ,
+    Number           = \color[HTML]{FF6600} ,
+    Operator         = \color[HTML]{555555} ,
+    Operator.Word    = \bfseries ,
+    String           = \color[HTML]{CC3300} ,
+    String.Doc       = \color[HTML]{CC3300} \itshape ,
+    String.Interpol  = \color[HTML]{AA0000} ,
+    Comment.LaTeX    = \normalfont \color[rgb]{.468,.532,.6} ,
+    Name.Type        = \color[HTML]{336666} ,
+    InitialValues    = \piton ,
+    Dict.Value       = \piton ,
+    Post.Function    = \piton ,
+    Interpol.Inside  = \color{black}\piton ,
+  }
+
+\endinput
+%%
+%% End of file `piton.sty'.

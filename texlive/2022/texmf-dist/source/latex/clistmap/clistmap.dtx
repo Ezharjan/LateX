@@ -1,0 +1,2080 @@
+% \iffalse meta-comment
+% !TEX program  = pdfLaTeX
+%<*internal> 
+\iffalse
+%</internal> 
+%<*readme> 
+-----------------------------------------------------------------
+##### Comma separated list partition, differentiated mapping
+- Source repository: https://github.com/rogard/clistmap
+- Released under the LaTeX Project Public License v1.3c or later
+- See http://www.latex-project.org/lppl.txt
+-----------------------------------------------------------------
+%</readme> 
+%<*internal> 
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+\expandafter\begingroup
+\fi
+%</internal> 
+%<*install> 
+\input l3docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+----------------------------------------------------------------------------
+clistmap ---  Partition a comma separated list, map differentiatedly across
+components
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2022 by Erwann Rogard
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Erwann Rogard.
+
+This work consists of the file clistmap.dtx and the derived files:
+clistmap.sty, and clistmap.pdf.
+
+\endpostamble
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install> 
+%<install> \endbatchfile
+%<*internal> 
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\generate{
+  \file{README.md}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+\expandafter\endbatchfile
+\else
+\expandafter\endgroup
+\fi
+%</internal> 
+%<package> \NeedsTeXFormat{LaTeX2e}[2021-06-01]
+%<package> \RequirePackage{xparse, xtemplate, l3keys2e}[2021-06-01]
+%<package> \RequirePackage{erw-l3}[2022-01-28]
+%<package> \ProvidesExplPackage
+%<package> {clistmap}                                  %^^A Package name
+%<package> {2022-01-29}                                %^^A Release date
+%<package> {1.2}                                       %^^A Release version
+%<package> {Partition a comma separated list,          %^^A Description
+%<package> map differentiatedly across components}
+%<*driver> 
+\documentclass{l3doc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+% ^^A\documentclass[full, show-notes]{l3doc}
+% ^^A \listfiles
+\usepackage{amsmath, amssymb, bookmark, enumitem, mathtools, microtype, tcolorbox, xparse, clistmap}
+\usepackage[bibencoding=auto, backend=biber, sorting=ynt]{biblatex}
+\begin{filecontents*}{\jobname.bib}
+@manual{interface3,
+  title        = {The \LaTeX3 interfaces},
+  author       = {The \LaTeX3 Project Team},
+  year         = {2019},
+  note         = {\url{https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/l3kernel/expl3.pdf}},
+  annote       = {} }
+\end{filecontents*}
+\addbibresource{\jobname.bib}
+\usepackage[french, german, english]{babel}
+\usepackage[T1]{fontenc}
+\newlist{descr}{description}{3}
+\setlist[descr]{nosep, align=left, itemindent=0pt, font=\sffamily\tiny}
+\ProvideDocumentCommand{\docfillblank}{}{\begin{minipage}[t]{\linewidth}\end{minipage}}
+\ProvideDocumentCommand{\docpipe}{}{\textbar}
+\ProvideDocumentCommand{\docexp}{}{\texttt{e}\docpipe{}\texttt{f}\docpipe{}\texttt{x}}
+\ExplSyntaxOn
+% ^^A *** Kernel
+\cs_generate_variant:Nn\tl_map_inline:nn{e}
+% ^^A *** Sectioning
+\tl_gset:Nn \partname {Part}%^^A allows to test w/o babel
+\ExplSyntaxOff
+% ^^A *** Listing
+\tcbuselibrary{listings, breakable}
+\newtcblisting[auto counter]
+{listing}[2][]{
+  noparskip,
+  breakable,
+  colback=white,
+  colframe=black,
+  opacitybacktitle=.8,%
+  fonttitle=\bfseries,
+  title={Listing~\thetcbcounter. #1},
+  arc=0pt,
+  outer arc=0pt,
+  boxrule=1pt,
+  listing and text,
+  #2}
+\usepackage{hyperref} %^^A comes last
+\begin{document}
+\DocInput{\jobname.dtx}
+\end{document}
+%</driver> 
+% \fi
+% 
+% \GetFileInfo{\jobname.sty}
+% \title{The \pkg{clistmap}~package\thanks{^^A
+% This file describes version \fileversion, last revised \filedate.^^A
+% }^^A
+% }
+%   \author{Erwann Rogard\thanks{first.lastname at gmail.com}}
+%   
+%   \date{Released \filedate}
+%   \begin{documentation}
+%     \maketitle
+%     \begin{abstract}
+%       Let \meta{clist}$\doteq$\meta{e_1}|,...,|\meta{e_n}\cite[l3clist]{interface3}.
+%       This package provides a key-based interface for defining templates whose job is to
+%       partition \meta{clist}, and map differentiatedly across its components.
+%       \cs{clistmap:nnn}\Arg{clist}|{...,|\meta{instance_i}|,...}|\meta{args} iterates over the $i$'s.
+%       Implicit in \meta{instance_i} is \meta{rule sequence_i} (the template), \meta{cs name_i},
+%       and \meta{signature_i}$=$\meta{args}' signature.
+% A sequence of instances can be made into a new instance: 
+% |serial_math_and:N|$\doteq$|{first_math:N,serial_rest_math_and:N}|, and likewise for the second component.
+% |$\clistmap_inline:nnn{Z,C,Q,R}{serial_math_and:N}|\\|{\mathbb{#1}}$| expands to
+% \ExplSyntaxOn$\clistmap_inline:nnn{Z,C,Q,R}{serial_math_and:N}{\mathbb{#1}}$\ExplSyntaxOff.
+%       \cs{clistmap:nnnn} takes an additional argument, \meta{chain}$\sim$|end|\docpipe|append|\docpipe|nest|\docpipe|join|,
+%       narrowing the set of instances needed to obtain a particular behaviour. 
+%     \end{abstract}
+%     
+%     \tableofcontents
+%     
+%     \part{Usage}\label{part:usage}
+%     \section{Overview}
+%     Let \meta{clist}$\equiv$\meta{head}|,|\meta{rest}.
+%     The lifecycle has four stages.
+%     First, one provides templates called \emph{rule}s, parameterized by
+%     \meta{rule sequence}, \meta{cs name}, and \meta{signature}. 
+%     Typically, a rule checks for the recursion tail\cite[l3quark]{interface3} in some combination of \meta{head} and \meta{rest},
+%     based on which it does either of: stop, recurse, forward to \meta{rule sequence},
+%     and in each case optionally expands \cs[no-index]{\meta{cs name}:\meta{signature}n}\Arg{args}\Arg{head}.
+%     Second, one associates keys to sequences of rules, \emph{rule sequence}.
+%     Those preset are |first|, |middle|, |last|, |serial_second|, and |serial_last|,
+%     for which the stated expression is evaluated for each \meta{e_i} in their respective subsets.
+%     Brace groups are preserved.
+%     Third, one declares \emph{instance}s of combinations of
+%     \meta{rule sequence},  \meta{cs name}, and \meta{signature}. For example,
+%     |middle_comma:N| and |serial_middle:|
+%     bind together |middle| and |,#1{#2}|, and |,~#1|, respectively.
+%     Fourth, define sequences of instances under the constraint that \meta{signature} is identical across them,
+%     \emph{instance sequence}s. Among presets,
+%     |comma:N| and |serial:| comprise in their natural order the matches for |(?:first_apply|\docpipe|comma_middle|\docpipe|comma_last):N|,
+%     and |(?:first_apply|\docpipe|serial_middle|\docpipe|serial_second|\docpipe|serial_last):|, respectively.
+%     They expand to |#1{|\meta{e_1}|},...,#1{|\meta{e_n}|}|, and \meta{e_1}|,~...,~and~|\meta{e_n}, respectively.
+%     \cs{clistmap:nnn} works the same with an instance sequence or the list of its constituents.
+%     
+%     \section{Programming}
+%     \subsection{\textsf{key}}
+%     \begin{function}{rule}
+%       \begin{syntax}
+%         \cs{clistmap_keys_set:n}|{ rule = |\Arg{key}\Arg{code}| }|
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Parameter semantics]\docfillblank
+%         \begin{descr}
+%         \item[\#1] \meta{rule sequence}
+%         \item[\#2] \meta{cs name}
+%         \item[\#3] \meta{signature}
+%         \item[\#4] \meta{head is group}
+%         \item[\#5] \meta{arguments}
+%         \item[\#6] \meta{clist head}
+%         \item[\#7] \meta{clist rest}
+%         \end{descr}
+%       \item[Requirement] \meta{code} is in terms of \texttt{\#1-\#7}
+%       \end{descr}
+%     \end{function}
+%     \begin{function}{rule_if_rest_is_tail_eval_else, rule_if_empty_stop_else}
+%       \begin{syntax}
+%         \cs{clistmap_keys_set:n}|{ rule_if_rest_is_tail_eval_else = |\Arg{name}\Arg{code}| }|
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Semantics] Specialization of |rule|
+%       \end{descr}
+%     \end{function}
+%     \begin{function}{rule_sequence}
+%       \begin{syntax}
+%         \cs{clistmap_keys_set:n}|{ rule_sequence = {...,|\meta{key_j} = |{ ...|\Arg{rule_i}|...},...} }|
+%       \end{syntax}
+%     \end{function}
+%     \begin{function}{instance}
+%       \begin{syntax}
+%         \cs{clistmap_keys_set:n}|{ instance = { |\meta{key prefix}| = |\Arg{rule sequence}\Arg{cs name}\Arg{signature}| } }|
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Semantics] Associates \cs{clistmap_instance_key:nn}\Arg{key prefix}\Arg{signature} with the RHS of \meta{key prefix}| = |
+%       \end{descr}
+%     \end{function}
+%     \begin{function}{instance_sequence}
+%       \begin{syntax}
+%         \cs{clistmap_keys_set:n}|{ instance_sequence = { |\meta{key} = |{ ...,|\meta{instance_i}|,...},... } }|
+%       \end{syntax}
+%     \end{function}
+%     \subsection{\textsf{cs}}
+%     \begin{function}{clistmap_keys_set:n}
+%       \begin{syntax}
+%         \cs{clistmap_keys_set:n}\Arg{keyval list}
+%       \end{syntax}
+%     \end{function}
+%     \begin{function}[EXP]{\clistmap_info_clist:nn, \clistmap_info_prop:nn}
+%       \begin{syntax}
+%         \cs{clistmap_info_clist:nn}\Arg{key}\Arg{code}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Note] Used for generating this doc
+%       \end{descr}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\clistmap_signature:n,
+%       \clistmap_instance_key:nn}
+%       \begin{syntax}
+%         \cs{clistmap_instance_key:n}\Arg{key prefix}\Arg{signature}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Expands to] \meta{key prefix}|:|\meta{signature}
+%       \end{descr}
+%     \end{function}
+%     \begin{function}[EXP]
+%       { \clistmap_instance_sequence_p:n,
+%       \clistmap_instance_p:n }
+%       \begin{syntax}
+%         \cs{clistmap_instance_p:n}\Arg{key}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Semantics] Whether the instance has been registered 
+%       \end{descr}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\clistmap_use_w:nnnn,
+%       \clistmap_use_w:nnnnn,
+%       \clistmap_use_w_group:nnnnnn }
+%       \begin{syntax}
+%         \cs{clistmap_use_w:nnnnn}
+%         \Arg{rule}
+%         \Arg{rule sequence (internal) }
+%         \Arg{cs name}
+%         \Arg{signature}
+%         \Arg{head is group}\meta{more}\cs[no-index]{q_recursion_stop}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Semantics] Evaluates \meta{code} associated with \meta{rule}
+%       \item[Note] For use inside \meta{code} on the RHS of | rule = |\meta{rule bis}\meta{code}
+%       \end{descr}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\clistmap_bound_cs_group:nnnnn}
+%       \begin{syntax}
+%         \cs{clistmap_bound_cs_group:nnnnn}
+%         \Arg{cs name}
+%         \Arg{signature}
+%         \Arg{group}
+%         \Arg{args}
+%         \Arg{elem}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Definition] \meta{new elem}$=$|\bool_if:nTF|\Arg{group}|{|\Arg{elem}|}{|\meta{elem}|}|
+%       \item[Semantics] \cs{\meta{cs name}:\meta{signature}}\meta{args}\Arg{new elem}
+%       \item[Note] For use in conjunction with \cs{clistmap_use_w:nnnnn} and variants
+%       \end{descr}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\clistmap:nnn}
+%       \begin{syntax}
+%         \cs{clistmap:nnn}\Arg{clist}|{ ...,|\meta{instance_i}|,... }|\Arg{args}
+%         \cs{clistmap:nnn}\Arg{clist}|{ ...,|\meta{instance sequence_i}|,... }|\Arg{args}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Requirement]\docfillblank
+%         \begin{description}
+%         \item \meta{clist} has no trailing |,|
+%         \item \meta{args} has signature \cs{clistmap_signature:n}\Arg{instance_i}
+%         \end{description}
+%       \item[Expands to]\docfillblank
+%         \begin{descr}
+%         \item[First version] For each $i$, the \meta{code} associated with \meta{rule_i}.
+%         \item[Second version] Iterates over the constituents of \meta{rule sequence_i}
+%         \end{descr}
+%       \end{descr}
+%     \end{function}
+%     \begin{function}{\clistmap_inline:nnn}
+%       \begin{syntax}
+%         \cs{clistmap_inline:nnn}|{ ...,|\meta{instance_i}|,... }|\Arg{code}
+%         \begin{descr}
+%         \item[Requirement] \cs{clistmap_signature:n}\Arg{instance_i}$=$|N|
+%         \end{descr}
+%       \end{syntax}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\clistmap:nnnn}
+%       \begin{syntax}
+%         \cs{clistmap:nnnn}\Arg{clist}\Arg{instances}\Arg{args}\Arg{end}
+%         \cs{clistmap:nnnn}\Arg{clist}\Arg{instances}\Arg{args}\Arg{append}
+%         \cs{clistmap:nnnn}\Arg{clist}\Arg{instances}\Arg{args}\Arg{nest}
+%         \cs{clistmap:nnnn}\Arg{clist_1}\Arg{instances}\Arg{args}\Arg{join}\Arg{clist_2}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Semantics]\docfillblank
+%         \begin{descr}
+%         \item[end] \cs{clistmap:nnn}\Arg{clist}\Arg{instances}\Arg{args}
+%         \item[append] \meta{end}\cs{clistmap:nnnn}\Arg{clist}
+%         \item[nest] \cs{clistmap:nnnn}\Arg{end}
+%         \item[join] \cs{clistmap:nnnn}|{|\meta{end},\meta{clist_2}|}|
+%         \end{descr}
+%       \end{descr}
+%     \end{function}
+%     \begin{function}[EXP]
+%       {\clistmap_inline:nnnn}
+%       \begin{syntax}
+%         \cs{clistmap_inline:nnnn}\Arg{clist}\Arg{instances}\Arg{code}\Arg{chain}
+%       \end{syntax}
+%       \begin{descr}
+%       \item[Requirement] \cs{clistmap_signature:n}\Arg{instance_i}$=$|empty| or |N|
+%       \end{descr}
+%     \end{function}
+%     \clearpage
+%     \part{Listing}\label{part:listing}
+%     
+%     \section{Using keys}
+%     \addcontentsline{toc}{subsection}{\texttt{rule}}
+%     \iffalse
+%<*guardlisting>     
+%     \fi
+\begin{listing}[\texttt{rule}]
+  {label=lst:opt:rule,listing only}
+  \clistmap_keys_set:n
+  {%
+    rule = {if_rest_is_tail_stop_else_forward_rest}
+    {%    
+      \quark_if_recursion_tail_stop:n{#7}
+      \clistmap_use_w:nnne
+      {#1}{#2}{#3}
+      {\tl_if_head_is_group_p:n{#7}}#5#7\q_recursion_stop
+    }
+  }
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{rule_sequence}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{rule_sequence}]
+  {label=lst:opt:ruleseq, listing only}
+  \clistmap_keys_set:n
+  {
+    rule_sequence =
+    {
+      first =
+      {
+        {if_empty_stop_else_forward_head}
+        {if_rest_is_tail_eval_else_error}
+      }
+    }
+  }
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{instance}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{instance}]
+  {label=lst:opt:inst, listing only}
+  \clistmap_keys_set:n
+  {
+    instance =
+    {
+      {N}{first_apply}{first}{@@_apply},
+      {}{first_apply}{first}{@@_apply}
+    }
+  }
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{instance_sequence}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{instance_sequence}]
+  {label=lst:opt:inst_seq, listing only}
+  \clistmap_keys_set:n
+  {%
+    instance_sequence =
+    {
+      {N}{comma:}{first_apply:, rest_comma:},
+      {}{serial_and:}{first_apply:, serial_rest_and:},
+    }
+  }
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% \section{Preset keys}
+% \addcontentsline{toc}{subsection}{\texttt{rule}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{rule}]{label=lst:preset:rule, text only}
+  \ExplSyntaxOn
+  \begin{descr}
+    \clistmap_info_clist:nn{rule}{\item[#1]}
+  \end{descr}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{rule_sequence}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+% \begin{listing}[\texttt{rule_sequence}]{label=lst:preset:rule_sequence, text only}
+\ExplSyntaxOn
+\begin{descr}
+  \tl_map_inline:en
+  { \clistmap_info_prop:n{rule_sequence}}{\item[\use_i:nn#1]}
+\end{descr}
+\ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{instance}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{instance}]{label=lst:preset:instance, text only}
+  \ExplSyntaxOn
+  \begin{descr}
+    \tl_map_inline:en
+    { \clistmap_info_prop:n{instance} }
+    { \item[\use_i:nn#1]\docfillblank }
+  \end{descr}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{instance_sequence}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{instance_sequence}]{label=lst:preset:instance_sequence, text only}
+  \ExplSyntaxOn
+  \begin{descr}
+    \tl_map_inline:en
+    { \clistmap_info_prop:n{instance_sequence} }
+    { \item[\use_i:nn#1]\docfillblank }
+  \end{descr}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \section{\textsf{cs}}
+% \subsection{\textsf{plain}}
+% \addcontentsline{toc}{subsection}{\texttt{math}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{math}]{label=lst:cs:math}
+  \ExplSyntaxOn
+  \clistmap:nnn{Z, C, Q, R}
+  { first_math:N, serial_rest_math_and:N }
+  {\mathbb}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+%
+% \subsection{\textsf{chain}}
+% \addcontentsline{toc}{subsection}{\texttt{append}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{append}]{label=lst:cs:append}
+  \ExplSyntaxOn
+  \clistmap_inline:nnnn
+  {{J,u,l,e,s},Jim,Catherine}
+  {first_map:N}
+  {#1}
+  {append}
+  {middle_comma:N}
+  {~#1}
+  {append}
+  {%^^A
+    serial_second:N,%^^A ignored in this case
+    serial_last:N
+  }
+  {~et~#1}
+  {end}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{nest}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{nest}]{label=lst:cs:nest}
+  \ExplSyntaxOn
+  \noindent
+  \clistmap_inline:nnnn
+  {{foo},{bar,baz},{qux}}
+  {comma_unbrace:}
+  {}
+  {nest}
+  {newline:}
+  {}
+  {end}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% \addcontentsline{toc}{subsection}{\texttt{join}}
+% \iffalse
+%<*guardlisting> 
+% \fi
+\begin{listing}[\texttt{join}]{label=lst:cs:join}
+  \ExplSyntaxOn
+  \clistmap_inline:nnnn
+  {foo,bar}
+  {comma:}
+  {}
+  {join}
+  {baz}
+  {comma:}
+  {}
+  {end}
+  \ExplSyntaxOff
+\end{listing}
+% \iffalse
+%</guardlisting> 
+% \fi
+% 
+% 
+% \part{Other}
+% \section{Bibliograhy}
+% \printbibliography[heading=none]
+% \section{To do}\label{other:bug}
+% \begin{enumerate}
+% \item ``Warning: A control sequence of the form ...__clistmap''
+%   That's because of the way \cs[no-index]{__clist_instance_name:nn} is set up,
+%  and passing to it an internal control sequence. So?
+%  Modify \cs[no-index]{__clist_instance_name:nn}.
+% \end{enumerate}
+% \section{Support}\label{other:support}
+% 
+% This package is available from \url{https://github.com/rogard/clistmap}.
+% 
+% \changes{v1.0}
+% {2022/01/27}
+% {Initial version}
+% \changes{v1.1}
+% {2022/01/28}
+% {Updated dependency to erw-l3 (from 4.1 to 4.2)}
+% \changes{v1.2}
+% {2022/01/29}
+% {Pkg name change}
+%
+%   \StopEventually{
+%    \clearpage
+%     \PrintChanges
+%     \PrintIndex %^^A https://tex.stackexchange.com/q/610349/112708
+%   }
+%
+% \end{documentation}
+% \begin{implementation}
+%   \part{Implementation}\label{part:implem}
+%    \begin{macrocode}
+%<*package>      
+%<@@=clistmap>      
+%      \ExplSyntaxOn
+%    \end{macrocode}
+% \section{\textsf{boilerplate}}
+% \begin{macro}{\clistmap_keys_set:n, \clistmap_info_clist:nn}
+%    \begin{macrocode}
+\cs_generate_variant:Nn\str_if_eq:nnTF{e}
+\cs_generate_variant:Nn\tl_to_str:n{e}
+\cs_generate_variant:Nn\prop_gput:Nnn{Nee}
+\cs_generate_variant:Nn\erw_parameter:n{e}
+\cs_generate_variant:Nn\erw_argument:nn{ne}
+\cs_generate_variant:Nn\erw_parameter:nn{ne}
+\cs_generate_variant:Nn\erw_clist_tl:nn{ne}
+\cs_new:Npn\@@_empty:w#1\q_recursion_stop{}
+\clist_new:N\@@_helper_clist
+\cs_new_protected:Nn
+\clistmap_keys_set:n{ \keys_set:nn{ @@ }{ #1 } }
+\prop_new:N\@@_info_clist_prop
+\cs_new_protected:Npn
+\@@_info_clist_put:nn
+#1 % <key>
+#2 % <name:signature>
+{\prop_gput:Nnn\@@_info_clist_prop{#1}{#2}}
+\cs_new_protected:Npn
+\clistmap_info_clist:nn
+#1 % <key>
+#2 % <code>
+{\clist_map_inline:cn{\prop_item:Nn\@@_info_clist_prop{#1}}{#2}}
+\prop_new:N\@@_info_prop_prop
+\cs_new_protected:Npn
+\@@_info_prop_put:nn
+#1 % <key>
+#2 % <name:signature>
+{\prop_gput:Nnn\@@_info_prop_prop{#1}{#2}}
+\cs_new:Nn
+\@@_brace:nn{{{#1}{#2}}}
+\cs_new:Npn
+\clistmap_info_prop:n
+#1 % <key>
+{ \prop_map_function:cN
+  {\prop_item:Nn\@@_info_prop_prop{#1}}\@@_brace:nn }
+\cs_new:Npn
+\clistmap_info_prop:nn
+#1 % <key>
+#2 % <code>
+{ \prop_map_inline:cn
+  {\prop_item:Nn\@@_info_prop_prop{#1}}{#2} }
+\cs_new:Nn
+\@@_group_if:nn
+{\bool_if:nTF{#2}{{#1}}{#1}}
+\cs_generate_variant:Nn\@@_group_if:nn{e}
+\cs_new:Nn
+\@@_head_clist:n
+{%
+  \exp_args:Ne
+  \tl_head:n
+  { \clist_map_function:nN{#1}\@@_head_clist_aux:n }
+}
+\cs_new:Nn
+\@@_head_clist_aux:n{#1}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{name}}
+% \begin{macro}
+%   {
+%   \@@_rule_name:n,
+%   \@@_instance_name:nnn,
+%   \@@_instance_signature:n,
+%   \@@_rule_sequence_name:n
+% }
+%    \begin{macrocode}
+\cs_new:Npn
+\@@_rule_name:n
+#1 % <rules>
+{rule_#1}
+\cs_new:Npn
+\@@_instance_name:nn
+#1 % <rules>
+#2 % <cs name>
+{instance_#1_#2}
+\cs_new:Npn
+\@@_instance_name:nnn
+#1 % <rule>
+#2 % <next rules>
+#3 % <cs name>
+{\@@_instance_name:nn{#1_#2}{#3}}
+\cs_new:Npn
+\@@_instance_signature:n
+#1 % <signature>
+{n#1w}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{c}}
+%    \begin{macrocode}
+\cs_new:Npn
+\@@_c:n
+#1 % <name>
+{@@_#1}
+\cs_generate_variant:Nn\@@_c:n{e}
+\cs_new:Npn
+\@@_c:nn
+#1 % <name>
+#2 % <signature>
+{\@@_c:n{#1:#2}}
+\cs_generate_variant:Nn\@@_c:nn{e, ee}
+\cs_new:Npn
+\@@_bound_cs_c:nn
+#1 % <name>
+#2 % <signature>
+{#1:#2n}
+\cs_new:Npn
+\@@_rule_c:n
+#1 % <rule>
+{%
+  \@@_c:en
+  {\@@_rule_name:n{#1}}
+  {nnnnnnnn}
+}
+\cs_new:Npn
+\@@_instance_c:nn
+#1 % <rules>
+#2 % <cs name>
+{ \@@_c:e
+  { \@@_instance_name:nn{#1}{#2} } }
+\cs_generate_variant:Nn\@@_instance_c:nn{e}
+\cs_new:Npn
+\@@_instance_c:nnn
+#1 % <rules>
+#2 % <cs name>
+#3 % <signature>
+{%
+  \@@_c:ee
+  { \@@_instance_name:nn{#1}{#2} }
+  { \@@_instance_signature:n{#3} }
+}
+\cs_generate_variant:Nn\@@_instance_c:nnn{e, nne}
+\cs_new:Npn
+\@@_instance_c_this:nnnn
+#1 % <rule>
+#2 % <next rules>
+#3 % <cs name>
+#4 % <signature>
+{ \@@_instance_c:enn
+  {\@@_rule_link:nn{#1}{#2}}{#3}{#4} }
+%    \end{macrocode}
+% \section{\textsf{rule_link}}
+%    \begin{macrocode}
+\cs_new:Npn
+\@@_rule_link:nn
+#1 % <rule 1>
+#2 % <rule 2>
+{#1_#2}
+\cs_new:Npn
+\@@_rule_link:n
+#1 % <{rule{1}}...>
+{%
+  \@@_rule_link:w#1\q_recursion_tail\q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_rule_link:n{e}
+\cs_new:Npn
+\@@_rule_link:w
+#1
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#1}
+  \@@_rule_link:nw #1 \q_recursion_stop}
+\cs_new:Npn
+\@@_rule_link:nw
+#1 % <rules>
+#2 % <{rule{1}}...>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop_do:nn{#2}{#1}
+  \@@_rule_link:nnw{#1}#2\q_recursion_stop}
+\cs_generate_variant:Nn\@@_rule_link:nw{e}
+\cs_new:Npn
+\@@_rule_link:nnw
+#1 % <rules>
+#2 % <rule{1}>
+#3 % <{rule{2}}...>
+\q_recursion_stop
+{%
+  \@@_rule_link:ew
+  {%
+    \@@_rule_link:nn
+    {#1} % <rule 1>
+    {#2} % <rule 2>
+  } % <rules>
+  #3 % <{rule{1}}...>
+  \q_recursion_stop
+}
+%    \end{macrocode}
+% \section{\textsf{inline}}
+%    \begin{macrocode}
+\cs_new_protected:Nn
+\@@_inline_set_exp_nnnot:Nn
+{\cs_set:Nn#1
+  {\exp_not:n
+    {\exp_not:n
+      {\exp_not:n{#2}}}}}
+\cs_generate_variant:Nn\@@_inline_set_exp_nnnot:Nn{c}
+\cs_new:Nn\@@_inline_c:n{@@_#1:n}
+\cs_new:Nn\@@_inline_use:n
+{%^^A BUG
+  \use:c{\@@_inline_c:n{#1}}}
+\cs_new_protected:Nn
+\@@_inline_set_exp_nnnot:nn
+{\@@_inline_set_exp_nnnot:cn
+  {\@@_inline_c:n{#1}}{#2}}
+\msg_new:nnn{@@}
+{inline-empty-N}
+{instance~signature~must~be~empty~or~N;~got~'#1'}
+\msg_new:nnn{@@}
+{inline-empty-args}
+{instance~signature=empty;~so~should~args=#1}
+%    \end{macrocode}
+% \section{\textsf{eval}}
+% \begin{macro}
+%   {\clistmap:nnn, \clistmap_inline:nnn}
+%    \begin{macrocode}
+\msg_new:nnn{@@}{key}
+{no~match~for~#1~in~instance~or~instance~sequence}
+\msg_new:nnn{@@}{signature-mismatch}
+{instance~signature~must~be~#1;~instances:~#2}
+\cs_new_protected:Npn
+\clistmap_inline:nnn
+#1 % <clist>
+#2 % <instances>
+#3 % <empty|code using #1>
+{%^^A
+  \bool_if:nTF
+  { \__clistmap_instance_signature_p:nn{#2}{N} }
+  {%^^A
+    \__clistmap_inline_set_exp_nnnot:nn{a}{#3}
+    \clistmap:nnn
+    {#1} % <clist>
+    {#2} % <key 1>
+    {\__clistmap_a:n}
+  }
+  {%^^A
+    \bool_if:nTF
+    { \__clistmap_instance_signature_p:nn{#2}{} }
+    {%^^A
+      \tl_if_empty:nTF
+      {#3}
+      {%^^A
+        \clistmap:nnn
+        {#1} % <clist>
+        {#2} % <key 1>
+        {}
+      }
+      {%^^A
+        \msg_error:nnnn{__clistmap}
+        {inline-empty-args}
+        {#3}
+      }
+    }
+    {%^^A
+      \msg_error:nnnn{__clistmap}
+      {inline-empty-N}
+      {#2}
+    }
+  }
+}
+\cs_new:Npn
+\clistmap:nnn
+% ^^A Warning: trailing ',' inside #2 => Error
+#1 % <clist>
+#2 % <key,...>
+#3 % <arguments>
+{%  
+  \@@_eval:nenn
+  {#2} % <instance key>,...
+  {\tl_if_head_is_group_p:n{#1}} % <head is group>
+  {#3} % <arguments>
+  {#1} % <clist>
+}
+\cs_generate_variant:Nn\clistmap:nnn{e,f,x}
+\cs_new:Npn
+\@@_eval:nnnn
+#1 % <instance key>,...
+#2 % <head is group>
+#3 % <arguments>
+#4 % <clist>
+{%
+  \exp_args:Ne
+  \@@_eval_aux:nnnn
+  {\@@_instance_expand:n{#1}}
+  {#2} % <head is group>
+  {#3} % <arguments>
+  {#4} % <clist>
+}
+\cs_new:Npn
+\@@_eval_aux:nnnn
+#1 % <instance key>,...
+#2 % <head is group>
+#3 % <arguments>
+#4 % <clist>
+{%
+  \@@_eval:nnnw
+  {#2} % <head is group>
+  {#3} % <arguments>
+  {#4} % <clist>
+  #1 % <instance key>,...
+  , \q_recursion_tail
+  \q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_eval:nnnn{ ne }
+\cs_new:Npn
+\@@_eval:nnnw
+#1 % <head is group>
+#2 % <arguments>
+#3 % <clist>
+#4 % <instance key>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#4}
+  \@@_eval:nnnnw
+  {#1} % <head is group>
+  {#2} % <arguments>
+  {#3} % <clist>
+  #4 % <instance key>
+  \q_recursion_stop
+}
+\cs_new:Npn
+\@@_eval:nnnnw
+#1 % <head is group>
+#2 % <arguments>
+#3 % <clist>
+#4 % <instance key>
+, #5 % <instance key,...>
+\q_recursion_stop
+{%
+  \exp_last_unbraced:Ne
+  \@@_eval:nnnnnn
+  { \@@_instance_get:n{#4} }
+  {#1}{#2}{#3}
+  \@@_eval:nnnw
+  {#1} % <head is group>
+  {#2} % <arguments>
+  {#3} % <clist>
+  #5 % <instance key>
+  \q_recursion_stop
+}
+\cs_new:Npn
+\@@_eval:nnnnnn
+#1 % <rule sequence>
+#2 % <cs name>
+#3 % <signature>
+#4 % <head is group>
+#5 % <arguments>
+#6 % <clist>
+{%
+  \exp_args:Ne
+  \clistmap_use_w:nnnn
+  { \@@_rule_sequence_name:n{#1} } % <rule sequence>
+  {#2}  % <cs name>
+  {#3}  % <signature>
+  {#4} % <head is group>
+  #5
+  #6, \q_recursion_tail\q_recursion_stop
+}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{chain}}
+%    \begin{macrocode}
+\msg_new:nnn{@@}
+{chain}{unknown~chain~tag~#1}
+\cs_new_protected:Npn
+\@@_append:NNN
+#1 % <new>
+#2 % <\@@_append(?:_inline):nnn>
+#3 % <\clistmap(?_inline):nnnn>
+{%^^A
+  #1
+  #2  
+  {%^^A
+    \clistmap:nnn{##1}{##2}{##3}
+    #3{##1}
+  }
+}
+\@@_append:NNN
+\cs_new:Nn
+\@@_append:nnn
+\clistmap:nnnn
+\@@_append:NNN
+\cs_new_protected:Nn
+\@@_append_inline:nnn
+\clistmap_inline:nnnn
+\cs_new_protected:Npn
+\@@_nest:NNN
+#1 % <new>
+#2 % <\@@_nest(?:_inline):nnn>
+#3 % <\clistmap(?_inline):nnnn>
+{%^^A
+  #1
+  #2  
+  {%^^A
+    \exp_args:Ne
+    #3{ \clistmap:nnn{##1}{##2}{##3} }
+  }
+}
+\@@_nest:NNN
+\cs_new:Nn
+\@@_nest:nnn
+\clistmap:nnnn
+\@@_nest:NNN
+\cs_new_protected:Nn
+\@@_nest_inline:nnn
+\clistmap_inline:nnnn
+\cs_new_protected:Npn
+\@@_join:NNNN
+#1 % <new>
+#2 % <\@@_join(?:_inline):nnnn>
+#3 % <\@@_join(?:_inline):nnn>
+#4 % <\clistmap(?_inline):nnnn>
+{%^^A
+  #1
+  #2  
+  { #4{##1,##2}{##3}{##4} }
+  #1
+  #3
+  { #2{\clistmap:nnn{##1}{##2}{##3}} }  
+}
+\@@_join:NNNN
+\cs_new:Nn
+\@@_join:nnnn
+\@@_join:nnn
+\clistmap:nnnn
+\@@_join:NNNN
+\cs_new_protected:Nn
+\@@_join_inline:nnnn
+\@@_join_inline:nnn
+\clistmap_inline:nnnn
+\cs_new_protected:Npn
+\@@_chain:NNNNN
+#1 % <new>
+#2 % <@@_chain(?:_inline):nnnn>
+#3 % <@@_append(?:_inline):nnn>
+#4 % <@@_nest(?:_inline):nnn>
+#5 % <@@_join(?:_inline):nnn>
+{%^^A
+  #1
+  #2
+  {%^^A
+    \str_case:nnTF
+    {##4}
+    {%^^A
+      {end}
+      { \clistmap:nnn{##1}{##2}{##3} }
+      {append}
+      { #3{##1}{##2}{##3} }
+      {nest}
+      { #4{##1}{##2}{##3} }
+      {join}
+      { #5{##1}{##2}{##3} }
+    }
+    {}
+    { \msg_error:nnn{@@}{chain}{##4} }
+  }
+}
+\@@_chain:NNNNN
+\cs_new:Nn
+\clistmap:nnnn
+\@@_append:nnn
+\@@_nest:nnn
+\@@_join:nnn
+\@@_chain:NNNNN
+\cs_new_protected:Nn
+\@@_inline_aux:nnnn
+\@@_append_inline:nnn
+\@@_nest_inline:nnn
+\@@_join_inline:nnn
+\cs_new_protected:Npn
+\clistmap_inline:nnnn
+#1 % <clist>
+#2 % <inst>
+#3 % <args>
+#4 % <chain>
+{%^^A
+  \bool_if:nTF
+  { \@@_instance_signature_p:nn{#2}{N} }
+  {%^^A
+    \@@_inline_set_exp_nnnot:nn{a}{#3}
+    \@@_inline_aux:nnnn{#1}{#2}{\@@_a:n}{#4}
+  }
+  { \@@_inline_aux:nnnn{#1}{#2}{}{#4} }
+}
+%    \end{macrocode}
+% \section{\textsf{use_w}}\label{sec:code}
+% \begin{macro}
+%   {
+%   \clistmap_use_w_group:nnnnnn,
+%   \clistmap_use_w:nnnn,
+%   \clistmap_use_w:nnnnn
+% }
+%   For use inside \meta{code} inside \nameref{sec:rule}
+%    \begin{macrocode}
+\cs_new:Npn
+\clistmap_use_w_group:nnnnnn
+#1  % <rule sequence>
+#2  % <cs name>
+#3  % <signature>
+#4  % <head is group>
+#5  % <arguments>
+#6  % <clist head>
+{%
+  \clistmap_use_w:nnnn
+  {#1}{#2}{#3}
+  {#4}#5{#6}
+}
+\cs_new:Npn
+\clistmap_use_w:nnnn
+#1 % <rule sequence>
+#2 % <cs name>
+#3 % <signature>
+#4 % <head is group>
+{%
+  \use:c{ \@@_instance_c:nnn{#1}{#2}{#3} }{#4}
+}
+\cs_generate_variant:Nn\clistmap_use_w:nnnn{nnne}
+\cs_new:Npn
+\clistmap_use_w:nnnnn
+#1 % <rule>
+#2 % <next rule sequence>
+#3 % <cs name>
+#4 % <signature>
+#5 % <head is group>
+{%
+  \use:c{%
+    \@@_instance_c_this:nnnn
+    {#1} % <rule>
+    {#2} % <next rules>
+    {#3} % <cs name>
+    {#4} % <signature>
+  }{#5}
+}
+\cs_generate_variant:Nn\clistmap_use_w:nnnnn{nnnne}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}
+%   { \clistmap_bound_cs_group:nnnnn }
+%    \begin{macrocode}
+\cs_new:Npn
+\clistmap_bound_cs_group:nnnnn
+#1 % <cs name>
+#2 % <signature>
+#3 % <group (bool)>
+#4 % <arguments>
+#5 % <clist>
+{\@@_bound_cs:nnne{#1}{#2}{#4}{\bool_if:nTF{#3}{{#5}}{#5}}}
+\cs_generate_variant:Nn\clistmap_bound_cs_use_group:nnnnn{nnenn}
+\cs_new:Npn
+\@@_bound_cs:nnnn
+#1 % <cs name>
+#2 % <signature>
+#3 % <arguments>
+#4 % <clist>
+{ \use:c{\@@_bound_cs_c:nn{#1}{#2}}#3{#4} }
+\cs_generate_variant:Nn\@@_bound_cs:nnnn{nnne}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{rule}}\label{sec:rule}
+% \begin{macro}{rule}
+%    \begin{macrocode}
+\keys_define:nn{ @@ }
+{ rule.code:n = \@@_rule:nn#1 }
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\@@_rule:nn}
+%    \begin{macrocode}
+\prop_new:N\@@_rule_clist
+\@@_info_clist_put:nn{rule}{@@_rule_clist}
+\cs_new_protected:Npn
+\@@_rule:nn
+#1 % <rule>
+#2 % <code>
+{%
+  \clist_gput_right:Nn\@@_rule_clist{#1}
+  \exp_args:Nno
+  \cs_new_protected:cn
+  { \@@_rule_c:n{#1} } 
+  {%
+    \@@_rule_apply:nnnnnnnn
+    {#1} % {<rule>}
+    {#2} % {<code>}
+    {##1} % <next rule>
+    {##2} % <cs name>
+    {##3} % <signature>
+    {{##4}{##5}{##6}} % <head is group>
+    % ^^A <arguments>
+    % ^^A <clist head>
+    {##7} % <clist rest>
+    {##8} % <parameters}
+  }
+}
+% ^^A  ##1 % <next rules>
+% ^^A  ##2 % <cs name>
+% ^^A  ##3 % <signature>
+% ^^A  ##4 % <head is group>
+% ^^A  ##5 % <arguments>
+% ^^A  ##6 % <clist head>
+% ^^A  ##7 % <clist rest>
+% ^^A  ##8 % <parameters>
+\cs_new_protected:Npn
+\@@_rule_apply:nnnnnnnn
+#1 % <rule>
+#2 % <code>
+#3 % <next rules>
+#4 % <cs name>
+#5 % <signature>
+#6 % {<head is group>}{<arguments>}{<clist head>}
+#7 % <clist rest>
+#8 % <parameters>
+{%
+  \@@_rule_apply:ennnnnn
+  {\@@_instance_c_this:nnnn{#1}{#3}{#4}{#5}}
+  {#2}#6{#7}{#8}
+}
+\cs_new_protected:Npn
+\@@_rule_apply:nnnnnnn
+#1 % <instance>
+#2 % <code>
+#3 % <head is group>
+#4 % <arguments>
+#5 % <clist head>
+#6 % <clist rest>
+#7 % <parameters>
+{%
+  \cs_if_exist:cF{#1}
+  {%^^A
+    \cs_new:cpn{#1}
+    #3#7#5, #6\q_recursion_stop % <parameters>
+    {#2}
+  }
+}
+\cs_generate_variant:Nn\@@_rule_apply:nnnnnnn{e}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{rule template}}
+%    \begin{macrocode}
+\cs_new:Nn
+\@@_quark_if_recursion_tail_stop:nn
+{\quark_if_recursion_tail_stop:n{#1#2}}
+\cs_generate_variant:Nn\@@_quark_if_recursion_tail_stop:nn{e}
+%    \end{macrocode}
+% \begin{macro}
+%   {rule_if_rest_is_tail_eval_else}
+%    \begin{macrocode}
+\keys_define:nn{ @@ }
+{%
+  rule_if_rest_is_tail_eval_else.code:n
+  = {\@@_rule_if_rest_is_tail_eval_else:nn#1}
+}
+\cs_new_protected:Npn
+\@@_rule_if_rest_is_tail_eval_else:nn
+#1 % <name>
+#2 % <else code>
+{%
+  % ^^A  ##1 % <next rules>
+  % ^^A  ##2 % <cs name>
+  % ^^A  ##3 % <signature>
+  % ^^A  ##4 % <head is group>
+  % ^^A  ##5 % <arguments>
+  % ^^A  ##6 % <clist head>
+  % ^^A  ##7 % <clist rest>
+  % ^^A  ##8 % <parameters>
+  \clistmap_keys_set:n
+  {%
+    rule = {if_rest_is_tail_eval_else_#1}
+    {%
+      \quark_if_recursion_tail_stop_do:nn{##7}
+      {%
+        \clistmap_bound_cs_group:nnnnn
+        {##2} % <cs name>
+        {##3} % <signature>
+        {##4} % <head is group>
+        {##5} % <arguments>
+        {##6} % <clist>
+      }
+      #2
+    }
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{rule_if_empty_stop_else}
+%    \begin{macrocode}
+\keys_define:nn
+{ @@ }
+{
+  rule_if_empty_stop_else.code:n
+  = {\@@_rule_if_empty_stop_else:nn#1}
+}
+\cs_new_protected:Npn
+\@@_rule_if_empty_stop_else:nn
+#1 % <name>
+#2 % <else code>
+{%
+  % ^^A  ##1 % <next rules>
+  % ^^A  ##2 % <cs name>
+  % ^^A  ##3 % <signature>
+  % ^^A  ##4 % <head is group>
+  % ^^A  ##5 % <arguments>
+  % ^^A  ##6 % <clist head>
+  % ^^A  ##7 % <clist rest>
+  % ^^A  ##8 % <parameters>
+  \clistmap_keys_set:n
+  {%
+    rule = {if_empty_stop_else_#1}
+    {%
+      \@@_quark_if_recursion_tail_stop:en
+      {\bool_if:nTF{##4}{{##6}}{##6}}{##7}
+      #2
+    }
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{instantiate}}
+% \begin{macro}{\@@_instantiate:nnnn}
+%    \begin{macrocode}
+\cs_new_protected:Npn
+\@@_instantiate:nnnn
+#1 % <rule>
+#2 % <next rules>
+#3 % <cs name>
+#4 % <signature>
+{%
+  \exp_args:Ne
+  \@@_instantiate:nnnnn
+  {\tl_count:n{#4}} % <signature arity>
+  {#1} % <rule>
+  {#2} % <next rules>
+  {#3} % <cs name>
+  {#4} % <signature>
+}
+\cs_new_protected:Npn
+\@@_instantiate:nnnnn
+#1 % <signature arity>
+#2 % <rule>
+#3 % <next rules>
+#4 % <cs name>
+#5 % <signature>
+{%^^A
+  \@@_instantiate:eeeeennn
+  { \erw_parameter:n{ 1 } } % <head is group>
+  { \erw_parameter:ne{2}{ #1 } } % <parameters>
+  { \erw_parameter:e{ \int_eval:n{#1+2} } } % <clist head>
+  { \erw_parameter:e{ \int_eval:n{#1+3} } } % <clist rest>
+  { \erw_argument:ne{2}{ #5 } } % <arguments>
+  { #2 } % <rule>
+  { #3 } % <next rules>
+  { #4 } % <cs name>
+  { #5 } % <signature>
+}
+\cs_new:Npn
+\@@_instantiate:nnnnnnnn
+#1 % <head is group>
+#2 % <parameters>
+#3 % <clist head>
+#4 % <clist rest>
+#5 % <arguments>
+#6 % <rule>
+#7 % <next rules>
+#8 % <cs name>
+#9 % <signature>
+{%
+  \use:c{ \@@_rule_c:n{#6} }
+  {#7} % <next rules>
+  {#8} % <cs name>
+  {#9} % <signature>
+  {#1} % <head is group>
+  {#2} % <arguments>
+  {#3} % <clist head>
+  {#4} % <clist rest>
+  {#2} % <parameters>
+}
+\cs_generate_variant:Nn\@@_instantiate:nnnnnnnn{eeeee}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{property}}
+% \begin{macro}{rule_sequence}
+%    \begin{macrocode}
+\cs_new:Npn
+\@@_rule_sequence_name:n
+#1 % <rule sequence>
+{%
+  \@@_rule_link:e
+  {\@@_rule_sequence_get:n{#1}{null}}
+}
+\keys_define:nn{@@}
+{ rule_sequence.code:n = \@@_rule_sequence_from_keyval:n{#1} }
+\prop_new:N\@@_rule_sequence_prop
+\@@_info_prop_put:nn{rule_sequence}{@@_rule_sequence_prop}
+\cs_new_protected:Npn
+\@@_rule_sequence_from_keyval:n
+#1 % <key = {{rule{1}}...>
+{%
+  \prop_set_from_keyval:Nn
+  \@@_rule_sequence_prop{#1}
+}
+\cs_new:Npn
+\@@_rule_sequence_get:n
+#1 % <key>
+{%
+  \exp_args:Ne
+  \@@_rule_sequence_aux:n
+  {%
+    \prop_item:Nn
+    \@@_rule_sequence_prop{#1}
+  }
+}
+\cs_new:Npn
+\@@_rule_sequence_aux:n
+#1 % <value>
+{%
+  \prop_if_in:NnTF
+  \@@_rule_sequence_prop
+  {#1}
+  {\@@_rule_sequence_get:n{#1}}
+  {#1}
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\clistmap_signature:n, \clistmap_instance_p:n}
+%    \begin{macrocode}
+\prg_new_conditional:Npnn
+\clistmap_instance:n
+#1
+{p}
+{\prop_if_in:NnTF
+  \@@_instance_prop{#1}
+  {\prg_return_true:}
+  {\prg_return_false:}
+}
+\msg_new:nnn{@@}{instance-not}{#1~is~not~an~instance}
+\msg_new:nnn{@@}{key-conflict}{key~#1~already~exists~in~prop~#2}
+\prop_new:N\@@_instance_prop
+\@@_info_prop_put:nn{instance}{@@_instance_prop}
+\cs_new_protected:Npn
+\@@_instance_put:nnnn
+#1 % <key>
+#2 % <rule sequence>
+#3 % <name>
+#4 % <signature>
+{%
+  \prop_gput:Nnn
+  \@@_instance_prop{#1}
+  { {#2}{#3}{#4} }
+}
+\cs_new:Npn
+\@@_instance_get:n
+#1 % <key>
+{ \prop_item:Nn\@@_instance_prop{#1} }
+\cs_new:Nn
+\clistmap_signature:n
+{%^^A
+  \bool_if:nTF
+  { \clistmap_instance_p:n{#1} }
+  { \@@_instance_signature_get:n{#1} }
+  { \msg_error:nnn{@@}{instance-not}{#1} }
+}
+\cs_new:Npn
+\@@_instance_signature_get:n
+#1 % <instance>
+{\exp_last_unbraced:Ne\use_iii:nnn
+  {\@@_instance_get:n{#1}}}
+\cs_new:Npn
+\@@_instance_expand:n
+#1 %^^A <instance(?:_sequence)_1,...>
+{%^^A
+  \@@_instance_expand:w
+  #1, \q_recursion_tail
+  \q_recursion_stop
+}
+\cs_new:Npn
+\@@_instance_expand:w
+#1 %^^A <instance(?:_sequence)_1,...>
+,#2
+\q_recursion_stop
+{
+  \quark_if_recursion_tail_stop:n{#1#2}
+  \@@_instance_expand:nw#1, #2\q_recursion_stop
+}
+\cs_new:Npn
+\@@_instance_expand:nw
+#1 % <head>
+, #2 % <rest>
+\q_recursion_stop
+{
+  \bool_if:nTF
+  {\clistmap_instance_sequence_p:n{#1}}
+  {%^^A
+    \exp_args:Ne
+    \@@_instance_expand:n
+    { \@@_instance_sequence_get:n{#1} }
+  }
+  {%
+    \bool_if:nTF
+    {\clistmap_instance_p:n{#1}}
+    {#1}
+    {\msg_error:nnn{@@}{neither-inst-seq}{#1}}
+  }
+  \quark_if_recursion_tail_stop:n{#2},%^^A comma
+  \@@_instance_expand:nw#2\q_recursion_stop
+}
+\msg_new:nnn{@@}{neither-inst-seq}
+{#1~is~neither~an~instance~nor~a~sequence}
+\prg_new_conditional:Npnn
+\@@_instance_signature:nn
+#1 % <instance_1,...>
+#2 % <signature>
+{p}
+{%^^A
+  \bool_if:nTF
+  {
+    \exp_args:Ne
+    \@@_instance_signature_aux_p:nn
+    {%^^A
+      \exp_args:Ne
+      \clist_map_function:nN
+      { \@@_instance_expand:n{#1} }
+      \clistmap_signature:n
+    }
+    {#2}
+  }
+  {\prg_return_true:}
+  {\prg_return_false:}
+}
+\prg_new_conditional:Npnn
+\@@_instance_signature_aux:nn
+#1 % <signature_1,...>
+#2 % <signature>
+{p}
+{%
+  \tl_if_empty:nTF
+  {#1}
+  {%^^A
+    \tl_if_empty:nTF{#2}
+    {\prg_return_true:}
+    {\prg_return_false:}
+  }
+  {%^^A
+    \bool_if:nTF
+    {%^^A
+      \erw_and_tl_p:nn
+      { \str_if_eq_p:nn{#2} }
+      { #1 }
+    }
+    {\prg_return_true:}
+    {\prg_return_false:}
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{instance_sequence, \clistmap_instance_sequence_p:n}
+%    \begin{macrocode}
+\keys_define:nn{ @@ }
+{%^^A
+  instance_sequence.code:n
+  = {%^^A
+    \clist_map_function:nN{#1}
+    \@@_instance_sequence_put:n
+  }
+}
+\prg_new_conditional:Npnn
+\clistmap_instance_sequence:n
+#1
+{p}
+{%
+  \prop_if_in:NnTF
+  \@@_instance_sequence_prop{#1}
+  {\prg_return_true:}
+  {\prg_return_false:}
+}
+\prop_new:N
+\@@_instance_sequence_prop
+\@@_info_prop_put:nn{instance_sequence}{@@_instance_sequence_prop}
+\cs_new:Nn\@@_first_braced:nn{{#1}}
+\cs_new:Nn\@@_instance_sequence_keys:
+{%
+  \prop_map_function:NN
+  \@@_instance_sequence_prop
+  \@@_first_braced:nn
+}
+% ^^A\cs_new_protected:Npn
+% ^^A\@@_instance_sequence_put:n
+% ^^A#1 % <{key}{key{1},...}>
+% ^^A{ \@@_instance_sequence_put:nn#1 }
+\cs_new_protected:Npn
+\@@_instance_sequence_put:n
+#1 % <{signature}{prefix key}{prefix key{1},...}>
+{ \@@_instance_sequence_put:nnn#1 }
+\cs_new:Npn
+\@@_instance_sequence_value:nn
+#1 % <signature>
+#2 % <key prefix 1,...>
+{%
+  \exp_args:Nne
+  \erw_clist_tl:nn{\c_false_bool}
+  {%^^A
+    \clist_map_tokens:nn
+    {#2}
+    { \@@_instance_sequence_value_aux:nn{#1} }
+  }
+}
+\cs_new:Nn
+\@@_instance_sequence_value_aux:nn
+{{\clistmap_instance_key:nn{#2}{#1}}}
+\cs_new_protected:Npn
+\@@_instance_sequence_put:nnn
+#1 % <signature>
+#2 % <prefix key>
+#3 % <prefix key{1}>,...
+{%^^A
+  \exp_args:Nee
+  \@@_instance_sequence_put:nn
+  { \clistmap_instance_key:nn{#2}{#1} }
+  { \@@_instance_sequence_value:nn{#1}{#3} }
+}
+\cs_new_protected:Npn
+\@@_instance_sequence_put:nn
+#1 % <key>
+#2 % <instance key{1}>,...
+{%
+  \prop_if_in:NnTF
+  \@@_instance_prop{#1}
+  {\msg_error:nnnn{@@}{key-conflict}{#1}{instance}}
+  {%  
+    \prop_gput:Nnn
+    \@@_instance_sequence_prop{#1}
+    { #2 }
+  }
+}
+\cs_new:Nn
+\clistmap_instance_sequence:n
+{\@@_instance_sequence_get:n{#1}}
+\cs_new:Npn
+\@@_instance_sequence_get:n
+#1 % <key>
+{\prop_item:Nn\@@_instance_sequence_prop{#1}}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{instance}}
+% \begin{macro}{instance, \clistmap_instance_key:nn}
+%    \begin{macrocode}
+\keys_define:nn{@@}
+{ instance.code:n = \clist_map_function:nN{#1} \@@_instance:n }
+\cs_new_protected:Npn
+\@@_instance:n
+% ^^A#1 % {key prefix}{<rule sequence>}{<cs name>}{<signature>}
+#1 % {<signature>}{key prefix}{<rule sequence>}{<cs name>}
+{ \@@_instance:nnnn#1 }
+\cs_new_protected:Npn
+\@@_instance:nnnn
+% ^^A#1 % <key prefix>
+% ^^A#2 % <rule sequence>
+% ^^A#3 % <cs name>
+% ^^A#4 % <signature>
+#1 % <signature>
+#2 % <key prefix>
+#3 % <rule sequence>
+#4 % <cs name>
+{%
+  \exp_args:Ne
+  \@@_instance_aux:nnnn
+  { \clistmap_instance_key:nn{#2}{#1} }
+  {#3}{#4}{#1}
+}
+\cs_new:Npn
+\clistmap_instance_key:nn
+#1 % <key prefix>
+#2 % <signature>
+{#1:#2}
+\cs_new_protected:Npn
+\@@_instance_aux:nnnn
+#1 % <key>
+#2 % <rule sequence>
+#3 % <signature>
+#4 % <cs name>
+{%  
+  \@@_instance_put:nnnn{#1}{#2}{#3}{#4}
+  \@@_instance_using_key:nnn{#2}{#3}{#4}
+}
+\cs_new_protected:Npn
+\@@_instance_using_key:nnn
+#1 % <rule sequence>
+#2 % <cs name>
+#3 % <signature>
+{%
+  \@@_instance_using_list:enn
+  { \@@_rule_sequence_get:n{#1}{null} } % <{rule{1}}...>
+  {#2} % <cs name>
+  {#3}% <signature>
+}
+\cs_new_protected:Npn
+\@@_instance_using_list:nnn
+#1 % <{rule{1}}{rule{2}}...>
+#2 % <cs name>
+#3 % <signature>
+{%
+  \exp_last_unbraced:Ne
+  \@@_instance_backward:nnnnn
+  {%
+    { \tl_count:n{#3} } % <signature arity>
+    \erw_last:n{#1}  % <rule{n}>
+    { \erw_remove_first:e{\tl_reverse:n{#1}} } % <{rule{n-1}}{rule{n-2}}...>
+  }
+  { #2 } % <cs name>
+  { #3 } % <signature>
+}
+\cs_generate_variant:Nn\@@_instance_using_list:nnn{enn}
+\msg_new:nnn{@@}{null}
+{clistmap~expects~'null'~as~the~last~rule;~got~'#1'}
+\cs_new_protected:Npn
+\@@_instance_backward:nnnnn
+#1 % <signature arity>
+#2 % <rule{n}>
+#3 % <{rule{n-1}}{rule{n-2}}...>
+#4 % <cs name>
+#5 % <signature>
+{%
+  \str_case:nnTF{#2}
+  { {null}{} }
+  {%
+    \@@_instance_backward:nnnw
+    {#2} % <next rules>
+    {#4} % <cs name>
+    {#5} % <signature>
+    #3\q_recursion_tail % <{rule{n}}{rule{n-1}}...>
+    \q_recursion_stop
+  }
+  {%
+    \msg_error:nnn{@@}
+    {null}
+    {#2}
+  }
+}
+\cs_generate_variant:Nn\@@_instance_backward:nnnnn{eee}
+\cs_new_protected:Npn
+\@@_instance_backward:nnnw
+#1 % <next rules>
+#2 % <cs name>
+#3 % <signature>
+#4 % <{rule{n}}{rule{n-1}}...>
+\q_recursion_stop
+{%
+  \quark_if_recursion_tail_stop:n{#4}
+  \@@_instance_backward:nnnnw
+  {#1} % <next rules>
+  {#2} % <cs name>
+  {#3} % <signature>
+  #4 % <rule{n}>
+  % <{rule{n-1}}...>
+  \q_recursion_stop
+}
+\cs_generate_variant:Nn\@@_instance_backward:nnnw{e}
+\cs_new_protected:Npn
+\@@_instance_backward:nnnnw
+#1 % <next rules>
+#2 % <cs name>
+#3 % <signature>
+#4 % <rule{n}>
+#5 % <{rule{n-1}}...>
+\q_recursion_stop
+{%
+  \@@_instantiate:nnnn
+  {#4} % <rule>
+  {#1} % <next rules>
+  {#2} % <cs name>
+  {#3} % <signature>
+  \@@_instance_backward:ennw
+  {\@@_rule_link:nn{#4}{#1}} % <next rules>
+  {#2} % <cs name>
+  {#3} % <signature>
+  #5 % <{rule{n}}...>
+  \q_recursion_stop
+}
+%    \end{macrocode}
+% \end{macro}
+% \section{\textsf{preset}}
+% \subsection{\textsf{rule}}
+%    \begin{macrocode}
+\msg_new:nnn{@@}{tail}{expects~tail;~got~'#1'}
+% ^^A ##1 % <next rules>
+% ^^A ##2 % <cs name>
+% ^^A ##3 % <signature>
+% ^^A ##4 % <head is group>
+% ^^A ##5 % <arguments>
+% ^^A ##6 % <clist head>
+% ^^A ##7 % <clist rest>
+% ^^A ##8 % <args>
+\clistmap_keys_set:n
+{%
+  rule = {if_rest_is_tail_stop_else_eval_recurse}
+  {%
+    \quark_if_recursion_tail_stop:n{#7}
+    \clistmap_bound_cs_group:nnnnn
+    {#2} % <cs name>
+    {#3} % <signature>
+    {#4} % <head is group>
+    {#5} % <arguments>
+    {#6} % <clist>    
+    \clistmap_use_w:nnnne
+    {if_rest_is_tail_stop_else_eval_recurse} % <rule>
+    {#1} % <next rule rule sequence>
+    {#2} % <cs name>
+    {#3} % <signature>
+    {\tl_if_head_is_group_p:n{#7}}#5#7\q_recursion_stop % <head is group>
+  },
+  rule = {if_rest_is_tail_stop_else_forward_rest}
+  {%    
+    \quark_if_recursion_tail_stop:n{#7}
+    \clistmap_use_w:nnne
+    {#1}{#2}{#3}
+    {\tl_if_head_is_group_p:n{#7}}#5#7\q_recursion_stop
+  },
+  rule_if_empty_stop_else = {error}
+  {%
+    \msg_error:nnn{@@}{tail}{#6#7}
+    \@@_empty:w{}\q_recursion_stop
+  },  
+  rule_if_empty_stop_else = {forward_head}
+  {%
+    \bool_if:nTF{#4}
+    {%
+      \clistmap_use_w_group:nnnnnn{#1}{#2}{#3}{#4}{#5}{#6}
+      ,\q_recursion_tail\q_recursion_stop
+    }
+    {%
+      \clistmap_use_w:nnnn{#1}{#2}{#3}
+      {#4}#5#6,\q_recursion_tail\q_recursion_stop
+    }
+  },
+  rule_if_empty_stop_else = {forward_rest}
+  {%
+    \clistmap_use_w:nnne
+    {#1}{#2}{#3}
+    {\tl_if_head_is_group_p:n{#7}}#5#7\q_recursion_stop
+  },
+  rule_if_empty_stop_else = {forward_all}
+  {%
+    \bool_if:nTF{#4}
+    {%
+      \clistmap_use_w_group:nnnnnn{#1}{#2}{#3}{#4}{#5}{#6},
+      #7\q_recursion_stop
+    }
+    {%
+      \clistmap_use_w:nnnn
+      {#1}{#2}{#3}{#4}#5#6, #7\q_recursion_stop
+    }
+  },
+  rule_if_rest_is_tail_eval_else = {error}
+  {%
+    \msg_error:nnn{@@}{tail}{#6}
+    \@@_empty:w\q_recursion_stop
+  },
+  rule_if_rest_is_tail_eval_else = {stop}
+  {%
+    \@@_empty:w{}\q_recursion_stop
+  },  
+  rule_if_rest_is_tail_eval_else = {recurse}
+  {%
+    \clistmap_use_w:nnnne
+    {if_rest_is_tail_eval_else_recurse} % <rule>
+    {#1} % <next rule rule sequence>
+    {#2} % <cs name>
+    {#3} % <signature>
+    {\tl_if_head_is_group_p:n{#7}} % <head is group>
+    #5 % <argument>
+    #7 % <clist>
+    \q_recursion_stop
+  }
+}
+%    \end{macrocode}
+% \subsection{\textsf{rule_sequence}}
+%    \begin{macrocode}
+\clistmap_keys_set:n
+{%
+  rule_sequence =
+  {%
+    first =
+    {
+      {if_empty_stop_else_forward_head}
+      {if_rest_is_tail_eval_else_error}
+    },
+    middle =
+    {
+      {if_empty_stop_else_forward_all}
+      {if_rest_is_tail_stop_else_forward_rest}
+      {if_rest_is_tail_stop_else_eval_recurse}
+    },
+    last =
+    {
+      {if_empty_stop_else_forward_all}
+      {if_rest_is_tail_stop_else_forward_rest}
+      {if_rest_is_tail_eval_else_recurse}
+    },   
+    serial_second =
+    {
+      {if_empty_stop_else_forward_all}
+      {if_rest_is_tail_stop_else_forward_rest}
+      {if_rest_is_tail_eval_else_stop}
+    },
+    serial_last =
+    {
+      {if_empty_stop_else_forward_all}
+      {if_rest_is_tail_stop_else_forward_rest}
+      {if_rest_is_tail_stop_else_forward_rest}
+      {if_rest_is_tail_eval_else_recurse}
+    }
+  }
+}
+%    \end{macrocode}
+% \subsection{\textsf{cs}}
+%    \begin{macrocode}
+\msg_new:nnnn{@@}{text}{text~is~not~loaded}{amsmath}
+\cs_new:Nn\@@_unbrace_aux:n{#1}
+\erw_keys_set:n
+{
+  clist_map_inline =
+  {%
+    {Nn}{apply}{#1{#2}},
+    {Nn}{math}{\ensuremath{#1{#2}}},
+    {Nn}{comma_map}{,\clist_map_function:nN#2#1},
+    {Nn}{comma}{,#1{#2}},
+    {Nn}{serial_math}{\text{,~}\ensuremath{#1{#2}}},
+    {Nn}{serial_math_and}{\text{,~and~}\ensuremath{#1{#2}}},
+    {Nn}{map}{\clist_map_function:nN#2#1},
+    {Nn}{noindent}{\noindent},
+    {n}{apply}{#1},
+    {n}{math}{\ensuremath{#1}},
+    {n}{comma_math}{,\ensuremath{#1}},
+    {n}{newline}{\\#1},
+    {n}{comma_unbrace}{,\@@_unbrace_aux:n#1},
+    {n}{comma}{,#1},
+    {n}{noindent}{\noindent},
+    {n}{serial_and}{,~and~#1},
+    {n}{serial_math_and}{\text{,~and~}\ensuremath{#1}},
+    {n}{serial_math}{\text{,~}\ensuremath{#1}},
+    {n}{serial}{,~#1},
+    {n}{unbrace}{\@@_unbrace_aux:n#1}
+  }
+  {nnn}
+  {
+    \clist_gput_right:Nn\@@_helper_clist{#2:#1}
+    \cs_new:cn{@@_#2:#1}{#3}
+  }
+}
+%    \end{macrocode}
+% \subsection{\textsf{instance}}
+%    \begin{macrocode}
+\clistmap_keys_set:n
+{
+  instance =
+  {
+    {N}{first_apply}{first}{@@_apply},
+    {N}{first_map}{first}{@@_map},
+    {N}{first_math}{first}{@@_math},
+    {N}{first_noindent}{first}{@@_noindent},
+    {N}{last_apply}{last}{@@_apply},
+    {N}{last_comma_map}{last}{@@_comma_map},
+    {N}{last_comma_math}{last}{@@_comma_math},
+    {N}{last_comma}{last}{@@_comma},
+    {N}{serial_last}{serial_last}{@@_comma},
+    {N}{serial_second}{serial_second}{@@_comma},
+    {N}{middle_apply}{middle}{@@_apply},
+    {N}{middle_comma_map}{middle}{@@_comma_map},
+    {N}{middle_comma_math}{middle}{@@_comma_math},
+    {N}{middle_comma}{middle}{@@_comma},
+    {N}{serial_last_math_and}{serial_last}{@@_serial_math_and},
+    {N}{serial_middle_math}{middle}{@@_serial_math},
+    {N}{serial_second_math_and}{serial_second}{@@_serial_math_and},
+    {}{first_apply}{first}{@@_apply},
+    {}{first_math}{first}{@@_math},
+    {}{first_noindent}{first}{@@_noindent},
+    {}{first_unbrace}{first}{@@_unbrace},
+    {}{last_apply}{last}{@@_apply},
+    {}{last_comma_math}{last}{@@_comma_math},
+    {}{last_comma_unbrace}{last}{@@_comma_unbrace},
+    {}{last_comma}{last}{@@_comma},
+    {}{last_newline}{last}{@@_newline},
+    {}{last_unbrace}{last}{@@_unbrace},
+    {}{middle_apply}{middle}{@@_apply},
+    {}{middle_comma_math}{middle}{@@_comma_math},
+    {}{middle_comma_unbrace}{middle}{@@_comma_unbrace},
+    {}{middle_comma}{middle}{@@_comma},
+    {}{middle_newline}{middle}{@@_newline},
+    {}{middle_unbrace}{middle}{@@_unbrace},
+    {}{serial_last_and}{serial_last}{@@_serial_and},
+    {}{serial_last_math_and}{serial_last}{@@_serial_math_and},
+    {}{serial_middle_math}{middle}{@@_serial_math},
+    {}{serial_middle}{middle}{@@_serial},
+    {}{serial_second_and}{serial_second}{@@_serial_and},
+    {}{serial_second_math_and}{serial_second}{@@_serial_math_and},
+  }
+}
+%    \end{macrocode}
+% \subsection{\textsf{instance_sequence}}
+%    \begin{macrocode}
+\clistmap_keys_set:n
+{%
+  instance_sequence =
+  {
+    {N}{apply}{first_apply, rest_apply},
+    {N}{comma_map}{first_map, rest_comma_map},
+    {N}{comma_math}{first_math, rest_comma_math},
+    {N}{comma}{first_apply, rest_comma},
+    {N}{rest_apply}{middle_apply, last_apply},
+    {N}{rest_comma_map}{middle_comma_map, last_comma_map},
+    {N}{rest_comma_math}{middle_comma_math, last_comma_math},
+    {N}{rest_comma}{middle_comma, last_comma},
+    {N}{serial_and}{first_apply, serial_rest_and},
+    {N}{serial_math_and}{first_math, serial_rest_math_and},
+    {N}{serial_rest_and}{serial_middle, serial_second_and, serial_last_and},
+    %^^A <one long entry>
+    {N}
+    {serial_rest_math_and}
+    {serial_middle_math, serial_second_math_and, serial_last_math_and}
+    %^^A </one long entry>
+    ,
+    {}{apply}{first_apply, rest_apply},
+    {}{comma_math}{first_math, rest_comma_math},
+    {}{newline}{first_apply, rest_newline},
+    {}{comma_unbrace}{first_unbrace, rest_comma_unbrace},
+    {}{comma}{first_apply, rest_comma},
+    {}{rest_apply}{middle_apply, last_apply},
+    {}{rest_comma_math}{middle_comma_math, last_comma_math},
+    {}{rest_newline}{middle_newline, last_newline},
+    {}{rest_comma_unbrace}{middle_comma_unbrace, last_comma_unbrace},
+    {}{rest_comma}{middle_comma, last_comma},
+    {}{rest_unbrace}{middle_unbrace, last_unbrace},
+    {}{serial_and}{first_apply, serial_rest_and},
+    {}{serial_math_and}{first_apply, serial_rest_math_and},
+    {}{unbrace}{first_unbrace, rest_unbrace},
+    % ^^A <one long entry>
+    {}{serial_rest_and}
+    {serial_middle, serial_second_and, serial_last_and}
+    % ^^A </one long entry>
+    ,
+    % ^^A <one long entry>
+    {}{serial_rest_math_and}
+    {serial_middle_math, serial_second_math_and, serial_last_math_and}
+    % ^^A </one long entry>
+  }
+}
+%    \end{macrocode}
+% \section{\textsf{other}}
+%    \begin{macrocode}
+\ProcessKeysOptions{@@}
+\ExplSyntaxOff
+%</package> 
+%    \end{macrocode}
+% \end{implementation}
+% \Finale
+\endinput

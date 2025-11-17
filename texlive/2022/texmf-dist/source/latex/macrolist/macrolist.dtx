@@ -1,0 +1,417 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2021 Dennis Chen <proofprogram@gmail.com>
+%
+% This file may be distributed and/or modified under
+% the conditions the LaTeX Project Public License (LPPL),
+% either version 1.3 of this license or (at your option)
+% any later version. The latest version of this license
+% can be found in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% \fi
+%
+% \iffalse
+%<*package>
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{macrolist}[2021/07/31 v2.1.0 Create lists of macros and perform operations on them]
+
+\RequirePackage{pgffor}
+%</package>
+
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{macrolist}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+    \DocInput{macrolist.dtx}
+    \PrintIndex
+    \PrintChanges
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v2.0.0}{2021/07/29}{Add ``macro'' in front of each external command (to avoid conflicts with etoolbox)}
+% \changes{v1.0.2}{2021/07/17}{Print changelog in documentation}
+% \changes{v1.0.2}{2021/07/17}{Added comment markers to remove pars and fix spacing in listforeach}
+% \changes{v1.0.1}{2021/07/16}{Make a couple of defs and lets global to prevent scoping issues}
+% \changes{v1.0.1}{2021/07/16}{Add ``scope is always global'' to documentation}
+% \changes{v1.0.1}{2021/07/16}{Fix date in initial version changes entry}
+% \changes{v1.0.1}{2021/07/16}{Fix v. appearing in front of date in document title}
+% \changes{v1.0.0}{2021/07/12}{Initial version}
+%
+% \GetFileInfo{macrolist.sty}
+%
+% \title{\textsf{macrolist} -- Create lists of macros and manipulate them}
+% \author{Dennis Chen \\ proofprogram@gmail.com}
+% \date{\fileversion, \filedate\thanks{\url{https://github/com/chennisden/macrolist}}}
+%
+% \maketitle
+%
+% \begin{abstract}
+% The \textsf{macrolist} package allows you to create lists and manipulate them, with utilities such as |\macrolistforeach| and an implementation of arr.join() from Javascript. Contrary to the name of the package, non-macros and groups of macros can be put into an item of the list.
+% \end{abstract}
+%
+% \section{Usage}
+% The scope of lists is always global. This provides the most consistency and functionality for developers in places that are usually local (part of a group), such as environments and loops.
+%
+% \DescribeMacro{\macronewlist}
+% To create a list, pass in |\macronewlist{listname}| to create a list with the name \textsf{listname}.
+%
+% The package checks that \textsf{listname} is not the name of another list, and will throw an error if another list \textsf{listname} has already been defined.
+%
+% \iffalse
+\newcommand{\macronewlist}[1]{
+    \ifcsname c@macrolist@list@#1\endcsname
+        \PackageError{macrolist}{The list '#1' is already defined}{}
+    \else
+        \newcounter{macrolist@list@#1}
+        \setcounter{macrolist@list@#1}{0}
+    \fi
+}
+% \fi
+%
+% \changes{v1.1.0}{2021/07/22}{Add listexists}
+% \DescribeMacro{\macrolistexists}
+% Writing |\macrolistexists{listname}{true}{false}| will execute \textsf{true} if \textsf{listname} exists and \textsf{false} otherwise.
+%
+% \iffalse
+\newcommand{\macrolistexists}[3]{\ifcsname c@macrolist@list@#1\endcsname#2\else#3\fi}
+% \fi
+%
+% \DescribeMacro{\macrolistelement}
+%
+% To execute the \textsf{i}th element of \textsf{listname}, write |\macrolistelement{listname}{i}|. Note that \textit{lists are 1-indexed}, meaning the first element is numbered 1, the second element numbered 2, and so on.
+%
+% An error will be thrown if \textsf{listname} is not a defined list, if \textsf{i} is empty, or if \textsf{i} is greater than the size of the list.
+%
+% \iffalse
+\newcommand{\macrolistelement}[2]{%
+    \macrolist@inbounds{#1}{#2}%
+    \csname macrolist@list@#1\the\numexpr #2\relax\endcsname%
+}
+% \fi
+% \changes{}
+% \changes{v1.2.1}{2021/07/25}{Fix behavior of listindexof and listcontains for empty lists}
+% \changes{v1.2.0}{2021/07/23}{Add listindexof and listcontains}
+% \DescribeMacro{\macrolistindexof}
+%
+% This works similar to \textsf{indexof} in almost any ordinary programming language. Write |\macrolistindexof{list}{element}| to get the index of where \textsf{element} first appears in \textsf{list}. If it never does, then the macro will expand to \textsf{0}.
+%
+% The command uses |\ifx| instead of |\if|; this means that if you have |\macro| as an element with the definition \textsf{this is a macro} (assuming that \textsf{this is a macro} is not an element itself), then |\macrolistindexof{listname}{this is a macro}| will expand to \textsf{0}.
+%
+% Because of the implementation of this macro, it can't actually be parsed as a number. (See the `Limitations' section for more information.) 
+% \iffalse
+\newcommand{\macrolistindexof}[2]{%
+    \def\macrolist@listindex{0}%
+    \macrolist@exists{#1}%
+    \ifnum\macrolistsize{#1}>0\relax
+        \def\macrolist@el{#2}%
+        \macrolistforeach{#1}{\macrolist@listindexel}[\macrolistsize{#1}][1]{%
+            \ifx\macrolist@el\macrolist@listindexel
+                \xdef\macrolist@listindex{\macrolist@index}%
+            \fi
+        }%
+    \fi
+    \macrolist@listindex%
+    \let\macrolist@listindex\relax%
+}
+% \fi
+%
+% \DescribeMacro{\macrolistcontains}
+% Writing |\macrolistcontains{listname}{element}{true branch}{false branch}| checks whether list \textsf{listname} contains \textsf{element}, executing \textsf{true branch} if it does and \textsf{false branch} if it does not.
+%
+% \iffalse
+\newcommand{\macrolistcontains}[4]{%
+    \def\macrolist@listindex{0}%
+    \macrolist@exists{#1}%
+    \ifnum\macrolistsize{#1}>0\relax
+        \def\macrolist@el{#2}%
+        \macrolistforeach{#1}{\macrolist@listindexel}[\macrolistsize{#1}][1]{%
+            \ifx\macrolist@el\macrolist@listindexel
+                \xdef\macrolist@listindex{\macrolist@index}%
+            \fi
+        }%
+    \fi
+    \ifnum\macrolist@listindex>0\relax
+        #3%
+    \else
+        #4%
+    \fi
+}
+% \fi
+%
+% \DescribeMacro{\macrolistadd}
+% To add something to the list \textsf{listname}, pass in |\macrolistadd{listname}[position]{element}|, where \textsf{position} is an optional argument. If nothing is passed in for \textsf{position}, then by default \textsf{element} will be added to the end of the list.
+%
+% \iffalse
+\newcommand{\macrolistadd}[1]{
+    \macrolist@exists{#1}
+    \def\macrolist@currlist{#1}
+    \macrolist@listadd
+}
+%% We write \macrolistadd this way such that the optional argument will be positioned correctly
+\newcommand{\macrolist@listadd}[2][]{
+    \stepcounter{macrolist@list@\macrolist@currlist}
+
+    \if\relax\detokenize{#1}\relax
+        \expandafter\gdef\csname macrolist@list@\macrolist@currlist\macrolistsize{\macrolist@currlist}\endcsname{#2}
+    \else
+        \expandafter\ifnum\csname themacrolist@list@\macrolist@currlist\endcsname=#1
+            \expandafter\gdef\csname macrolist@list@\macrolist@currlist\macrolistsize{\macrolist@currlist}\endcsname{#2}
+        \else
+            \macrolist@inbounds{\macrolist@currlist}{#1}
+            \foreach \macrolist@index in {\macrolistsize{\macrolist@currlist}, ...,\the\numexpr #1+1\relax} {
+                \global\expandafter\let\csname macrolist@list@\macrolist@currlist\macrolist@index\expandafter\endcsname\csname macrolist@list@\macrolist@currlist\the\numexpr\macrolist@index-1\relax\endcsname
+            }
+            \expandafter\gdef\csname macrolist@list@\macrolist@currlist#1\endcsname{#2}
+        \fi
+    \fi
+}
+% \fi
+% \changes{v2.1.0}{2021/07/31}{Add macrolisteadd}
+% \DescribeMacro{\macrolisteadd}
+% To fully expand |element| before adding it to list |listname|, pass in |\macrolisteadd{listname}[position]{element}|. This behaves similarly to |\edef|.
+%
+% \iffalse
+\newcommand{\macrolisteadd}[1]{
+    \macrolist@exists{#1}
+    \def\macrolist@currlist{#1}
+    \macrolist@listeadd
+}
+\newcommand{\macrolist@listeadd}[2][]{
+    \stepcounter{macrolist@list@\macrolist@currlist}
+
+    \if\relax\detokenize{#1}\relax
+        \expandafter\xdef\csname macrolist@list@\macrolist@currlist\macrolistsize{\macrolist@currlist}\endcsname{#2}
+    \else
+        \expandafter\ifnum\csname themacrolist@list@\macrolist@currlist\endcsname=#1
+            \expandafter\gdef\csname macrolist@list@\macrolist@currlist\macrolistsize{\macrolist@currlist}\endcsname{#2}
+        \else
+            \macrolist@inbounds{\macrolist@currlist}{#1}
+            \foreach \macrolist@index in {\macrolistsize{\macrolist@currlist}, ...,\the\numexpr #1+1\relax} {
+                \global\expandafter\let\csname macrolist@list@\macrolist@currlist\macrolist@index\expandafter\endcsname\csname macrolist@list@\macrolist@currlist\the\numexpr\macrolist@index-1\relax\endcsname
+            }
+            \expandafter\xdef\csname macrolist@list@\macrolist@currlist#1\endcsname{#2}
+        \fi
+    \fi
+}
+% \fi
+% \DescribeMacro{\macrolistremove}
+% To remove an element in a list, write |\macrolistremove{listname}{index}|.
+%
+% \iffalse
+\newcommand{\macrolistremove}[2]{
+    \macrolist@inbounds{#1}{#2}
+
+    \ifnum\numexpr#2\relax=\macrolistsize{#1}
+    \else
+        \foreach \macrolist@index in {#2, ..., \the\numexpr\macrolistsize{#1}-1\relax} {
+            \global\expandafter\let\csname macrolist@list@#1\macrolist@index\expandafter\endcsname\csname macrolist@list@#1\the\numexpr\macrolist@index+1\endcsname
+        }
+    \fi
+
+    \global\expandafter\let\csname macrolist@list@#1\macrolistsize{#1}\endcsname\relax
+    \addtocounter{macrolist@list@#1}{-1}
+}
+% \fi
+%
+% \DescribeMacro{\macrolistremovelast}
+% To remove the last element in a list, write |\macrolistremovelast{listname}|. This behaves like C++'s |pop_back|.
+%
+% \iffalse
+\newcommand{\macrolistremovelast}[1]{
+    \macrolist@exists{#1}
+    \global\expandafter\let\csname macrolist@list@#1\macrolistsize{#1}\endcsname\relax
+    \addtocounter{macrolist@list@#1}{-1}
+}
+% \fi
+%
+% \DescribeMacro{\macrolistclear}
+% To clear a list, write |\macrolistclear{listname}|.
+%
+% \iffalse
+\newcommand{\macrolistclear}[2]{
+    \macrolist@inbounds{#1}{#2}
+
+    \foreach \macrolist@index in {1, ..., \macrolistsize{#1}} {
+        \global\expandafter\let\csname \macrolist@list@#1\macrolist@index\endcsname\relax
+    }
+
+    \setcounter{macrolist@list@#1}{0}
+}
+% \fi
+%
+% \DescribeMacro{\macrolistsize}
+% To get the size of a list, write |\macrolistsize{listname}|.
+%
+% \iffalse
+\newcommand*{\macrolistsize}[1]{%
+    \macrolist@exists{#1}%
+    \csname themacrolist@list@#1\endcsname
+}
+% \fi
+%
+% \DescribeMacro{\macrolistforeach}
+% \changes{v1.1.1}{2021/07/23}{Fix foreach doc by removing incorrect begin}
+% To write a for each loop, write
+% \begin{verbatim}
+%\macrolistforeach{listname}{\element}[begin][end]{action}
+% \end{verbatim}
+%
+%
+% Note that begin and end are optional arguments, and by default, they take the values \textsf{1} and |\macrolistsize{listname}|. If you pass in \textsf{begin}, you must also pass in \textsf{end}.
+%
+% \iffalse
+\newcommand{\macrolistforeach}[2]
+{%
+    \def\macrolist@foreachstart{0}% Reset
+    % This is used to make optional arguments line up correctly
+%
+    \def\macrolist@start{1}%
+    \def\macrolist@end{\macrolistsize{#1}}%
+    \def\macrolist@listname{#1}%
+    \def\macrolist@element{#2}%
+    \macrolist@listforeachi
+}
+
+\newcommand{\macrolist@listforeachi}[1][]{%
+    \if\relax\detokenize{#1}\relax
+    \else
+        \def\macrolist@start{#1}%
+        \def\macrolist@foreachstart{1}%
+    \fi
+    \macrolist@listforeachii
+}
+
+\newcommand{\macrolist@listforeachii}[1][]{%
+    \if\relax\detokenize{#1}\relax
+        \ifnum\macrolist@foreachstart=1
+            \PackageError{macrolist}{You must either pass in both a starting and ending position or neither}{}
+        \fi
+    \else
+        \def\macrolist@end{#1}%
+    \fi
+    \macrolist@listforeachaction
+}
+
+\newcommand{\macrolist@listforeachaction}[1]{%
+%
+    \macrolist@exists{\macrolist@listname}%
+%
+    \ifnum\numexpr\macrolist@start\relax>\macrolistsize{\macrolist@listname}%
+        \PackageError{macrolist}{The starting index of the loop is out of the bounds of list '\macrolist@listname'}{}
+    \fi
+%
+    \ifnum\numexpr\macrolist@end\relax>\macrolistsize{\macrolist@listname}
+        \PackageError{macrolist}{The ending index of the loop is out of the bounds of list '\macrolist@listname'}{}
+    \fi
+%
+    \foreach \macrolist@index in {\the\numexpr\macrolist@start\relax, ..., \the\numexpr\macrolist@end\relax} {%
+        \expandafter\expandafter\expandafter\let\expandafter\expandafter\macrolist@element\csname macrolist@list@\macrolist@listname\macrolist@index\endcsname
+        #1%
+    }%
+}
+% \fi
+%
+% \DescribeMacro{\macrolistjoin}
+% Executing |\macrolistjoin{listname}{joiner}| returns all of the elements separated by \textsf{joiner}. This behaves like Javascript's \textsf{arr.join()}.
+%
+% \iffalse
+\newcommand{\macrolistjoin}[2]{%
+    \ifnum\macrolistsize{#1}>1
+        \macrolistforeach{#1}{\macrolist@joinelement}[1][\macrolistsize{#1}-1]{\macrolist@joinelement#2}%
+    \fi
+    \ifnum\macrolistsize{#1}>0
+        \macrolistelement{#1}{\macrolistsize{#1}}%
+    \fi
+}
+% \fi
+%
+% \section{Example}
+% Here is the source code for a small document using \textsf{macrolist}.
+%
+% \begin{verbatim}
+%\documentclass{article}
+%\usepackage{macrolist}
+%
+%\begin{document}
+%
+%\macronewlist{mylist}
+%\macrolistadd{mylist}{Some text}
+%% List: Some text
+%
+%\newcommand\macro{This is a macro}
+%
+%\macrolistadd{mylist}{\macro}
+%% List: Some text, \macro
+%
+%\macrolistelement{mylist}{1}
+%% Prints out "Some text"
+%
+%\macrolistadd{mylist}[1]{Element inserted into beginning}
+%% List: Element inserted into beginning, Some text, \macro
+%
+%\macrolistremove{mylist}{1}
+%% List: Some text, \macro
+%
+%\macrolistforeach{mylist}{\element}{We're printing out \textbf{\element}. }
+%% We're printing out \textbf{Some text}. We're printing out \textbf{\macro}.
+%
+%\macrolistjoin{mylist}{, }
+%% Some text, \macro
+%
+%\end{document}
+% \end{verbatim}
+%
+% \section{Limitations}
+%
+% The |\macrolistindexof| macro cannot be parsed as a number. This is because we have to compare each element of the list to the passed in element and requires storing the index in a macro, which requires some unexpandable macros. (This is why we do not directly use |\macrolistindexof| when defining |\macrolistcontains|.)
+%
+% \section{Implementation details}
+%
+% All internal macros are namespaced to prevent package conflicts.
+%
+% \begin{macro}{\macrolist@exists}
+% One internal macro we use is |\macrolist@exists{listname}|, which checks that \textsf{listname} exists. It throws an error otherwise.
+%
+%    \begin{macrocode}
+\newcommand*{\macrolist@exists}[1]{%
+    \ifcsname c@macrolist@list@#1\endcsname
+    \else
+        \PackageError{macrolist}
+        {The first argument is not a defined list}
+        {Make sure you have defined the list before trying to operate on it.}
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\macrolist@inbounds}
+% We use |\macrolist@inbounds{listname}{index}| to check that first, \textsf{listname} is a defined list using |\macrolist@exists|, and second, that \textsf{index} is within bounds. It throws an error otherwise.
+%    \begin{macrocode}
+\newcommand*{\macrolist@inbounds}[2]{%
+    \macrolist@exists{#1}%
+    %
+    \if\relax\detokenize{#2}
+        \PackageError{macrolist}
+        {No number has been passed into the second argument of your command
+        }{Pass in a number to the second argument of your command.}
+    \fi
+    %
+    \ifnum\numexpr#2 \relax>\macrolistsize{#1}
+        \PackageError{macrolist}
+        {Index out of bounds}
+        {The number you have passed in to the second argument of your command\MessageBreak
+        is out of the bounds of list '#1'.}
+    \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput
