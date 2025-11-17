@@ -1,0 +1,26 @@
+name pmboxdraw
+category Package
+revision 53046
+shortdesc Poor man's box drawing characters
+longdesc This package declares box drawing characters of old code pages,
+longdesc e.g. cp437. It uses rules instead of using a font.
+containersize 7216
+containerchecksum d229b15e57fa76a9e8e9b903b5fbbb99d81d3c8a2b1818d71c103df7f2a1e9bcf79aa8396b6ab7a2ce054371d212375b968a4a5d572fa8686223baa8dccf4eff
+doccontainersize 594984
+doccontainerchecksum 42a439f2f88235faf7302400432d49166861476cdc43708f84780d153bdcbcb55dea1a6b31cde2045d0b99d48c2a4f51ddae8bdee08937308c5de02e9b16a523
+docfiles size=157
+ texmf-dist/doc/latex/pmboxdraw/README.md
+ texmf-dist/doc/latex/pmboxdraw/pmboxdraw.pdf details="Package documentation"
+srccontainersize 14376
+srccontainerchecksum 77220cba1cb61836f0be161566d1f177f2c503901b0fd4c0052dae81b457f59364596eaa4a32071b5c90623509f646ef3140f67e29a558b4910beb3a1d63cca6
+srcfiles size=36
+ texmf-dist/source/latex/pmboxdraw/pmboxdraw.dtx
+runfiles size=23
+ texmf-dist/tex/latex/pmboxdraw/pmboxdraw.sty
+ texmf-dist/tex/latex/pmboxdraw/pmboxdrawenc.dfu
+catalogue-contact-bugs https://github.com/ho-tex/pmboxdraw/issues
+catalogue-contact-repository https://github.com/ho-tex/pmboxdraw
+catalogue-ctan /macros/latex/contrib/pmboxdraw
+catalogue-license lppl1.3c
+catalogue-topics graphics-in-tex
+catalogue-version 1.4

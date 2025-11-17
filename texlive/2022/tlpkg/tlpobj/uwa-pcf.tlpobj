@@ -1,0 +1,31 @@
+name uwa-pcf
+category Package
+revision 64314
+shortdesc A Participant Consent Form (PCF) for a human research protocol at the University of Western Australia
+longdesc This LaTeX class generates a Participant Consent Form (PCF) for
+longdesc a human research protocol at the University of Western
+longdesc Australia. It requires the UWA logo in PDF format, which is
+longdesc available in SVG format at
+longdesc https://static-listing.weboffice.uwa.edu.au/visualid/core-rebra
+longdesc nd/img/uwacrest/, and uses the Arial and UWA Slab fonts by
+longdesc default. The class works with XeLaTeX and LuaLaTeX. It depends
+longdesc on the uwa-letterhead package.
+containersize 2924
+containerchecksum 7253cec362b89e105c7dbfec0f3bd27c7cbb52c7a437e9e71b307bd54107a0f2bd83fa077308bf97eac8b513481098f04765e48c3d8cd9f164d63c3fdb6efff3
+doccontainersize 52740
+doccontainerchecksum 9a603970cab7f4889255b9e91afa6ec4d446787ee1a653b5333a0be69caa33c8be0aaa8cbd84b6d9afc0c3d2e451212a4f09de53d7cdd19b6526cc163c3048e2
+docfiles size=15
+ texmf-dist/doc/latex/uwa-pcf/README details="Readme"
+ texmf-dist/doc/latex/uwa-pcf/uwa-pcf-example.tex
+ texmf-dist/doc/latex/uwa-pcf/uwa-pcf.pdf details="Package documentation"
+srccontainersize 6060
+srccontainerchecksum 29a84c23080baf83eb197a8aa360e3d95b7c8ba7b46aa97f1cfe3681430cc38f41d561cce370dc4c7f122c54a057d9ac084a8380eda8be8944745dafe13a4286
+srcfiles size=7
+ texmf-dist/source/latex/uwa-pcf/uwa-pcf.dtx
+ texmf-dist/source/latex/uwa-pcf/uwa-pcf.ins
+runfiles size=3
+ texmf-dist/tex/latex/uwa-pcf/uwa-pcf.cls
+catalogue-ctan /macros/unicodetex/latex/uwa-pcf
+catalogue-license lppl1.3
+catalogue-topics class std-conform
+catalogue-version 1.0.1

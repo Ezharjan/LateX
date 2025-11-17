@@ -1,0 +1,35 @@
+name chemmacros
+category Package
+revision 62655
+shortdesc A collection of macros to support typesetting chemistry documents
+longdesc The bundle offers a collection of macros and commands which are
+longdesc intended to make typesetting chemistry documents faster and
+longdesc more convenient. Coverage includes some nomenclature commands,
+longdesc oxidation numbers, thermodynamic data, newman projections, etc.
+longdesc The package relies on the following supporting packages:
+longdesc chemformula, providing a command for typesetting chemical
+longdesc formulae and reactions (doing a similar task to that of
+longdesc mhchem); chemgreek, offering support for use of greek letters;
+longdesc and ghsystem, providing for the UN globally harmonised chemical
+longdesc notation. The packages are written using current versions of
+longdesc the experimental LaTeX 3 coding conventions and the LaTeX 3
+longdesc support packages.
+containersize 42852
+containerchecksum 814995dfe7978e639594d51542ac7b86f419d48ffc3d39f069c24e84abee854e01b9d72047ab44311d500b98ac1d01308b56a77006cf14a975861e45d83b9f7c
+doccontainersize 1030160
+doccontainerchecksum dfe4411faa4ae403d9b46b9f8f0e821f810c1c9b5a8926149643f099b164c7d1f163ba3436c79a8b9eccf84ac234df74c080fd2e4a9ac58452b840c335b685dd
+docfiles size=293
+ texmf-dist/doc/latex/chemmacros/HISTORY
+ texmf-dist/doc/latex/chemmacros/README details="Readme"
+ texmf-dist/doc/latex/chemmacros/chemmacros-manual.pdf details="Chemmacros package documentation" language="en"
+ texmf-dist/doc/latex/chemmacros/chemmacros-manual.tex
+runfiles size=93
+ texmf-dist/tex/latex/chemmacros/chemmacros-2015-02-08.sty
+ texmf-dist/tex/latex/chemmacros/chemmacros-2020-03-07.sty
+ texmf-dist/tex/latex/chemmacros/chemmacros.sty
+catalogue-contact-bugs https://github.com/cgnieder/chemmacros/issues
+catalogue-contact-repository https://github.com/cgnieder/chemmacros/
+catalogue-ctan /macros/latex/contrib/chemmacros
+catalogue-license lppl1.3c
+catalogue-topics chemistry expl3
+catalogue-version 6.2a

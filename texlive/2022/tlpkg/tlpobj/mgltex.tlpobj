@@ -1,0 +1,36 @@
+name mgltex
+category Package
+revision 63255
+shortdesc High-quality graphics from MGL scripts embedded in LaTeX documents
+longdesc This package allows you to create high-quality
+longdesc publication-ready graphics directly from MGL scripts embedded
+longdesc into your LaTeX document, using the MathGL library. Besides
+longdesc following the LaTeX philosophy of allowing you to concentrate
+longdesc on content rather than output (mglTeX takes care of producing
+longdesc the output), mglTeX facilitates the maintenance of your
+longdesc document, since both code for text and code for plots are
+longdesc contained in a single file. MathGL. is a fast and efficient
+longdesc library by Alexey Balakin for the creation of high-quality
+longdesc publication-ready scientific graphics. Although it defines
+longdesc interfaces for many programming languages, it also implements
+longdesc its own scripting language, called MGL, which can be used
+longdesc independently.
+containersize 6348
+containerchecksum 920784d4332e4e1635e089878a55848ef4ad82a7b23e24a1bc81f71a08bb7af411ea54710533bf1f429e506c4ca5e94855c73d890929dc558274e108155e1a71
+doccontainersize 6576
+doccontainerchecksum a8954ba22a30368ce01329b930486c02b317375636d85c7fdb7f14cf032173ab3f7a28ff6261d20cebdb8995560d4c7f41c03ed6285cfcaa555d405a06891432
+docfiles size=17
+ texmf-dist/doc/latex/mgltex/README details="Readme"
+ texmf-dist/doc/latex/mgltex/README.TEXLIVE
+ texmf-dist/doc/latex/mgltex/Recompilation_decision.svg
+srccontainersize 31244
+srccontainerchecksum 63b874341f2e18f88862ec5e6cf7064e9d4219070d274f0daa2dbacf8eb0eee5b4206167bd86520d10ffa0316d7ffe93615604932924b4cc04936db352073d1c
+srcfiles size=40
+ texmf-dist/source/latex/mgltex/mgltex.dtx
+ texmf-dist/source/latex/mgltex/mgltex.ins
+runfiles size=7
+ texmf-dist/tex/latex/mgltex/mgltex.sty
+catalogue-ctan /graphics/mgltex
+catalogue-license gpl3 cc-by-sa-3
+catalogue-topics maths graphics-plot graphics-plotfn
+catalogue-version 4.2

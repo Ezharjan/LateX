@@ -1,0 +1,21 @@
+name leftindex
+category Package
+revision 56182
+shortdesc Left indices with better spacing
+longdesc This package provides commands for typesetting left indices.
+longdesc Unlike other similar packages, leftindex also indents the left
+longdesc superscript, providing much better spacing in general.
+containersize 1476
+containerchecksum 01e0687f0205c40d95e23b5a9fea2dc8aea95d2e8d5abc54a0c21c1b5934dd68b3705cb625b7e7c34ee30d590cb3028e816719dae6eaf80e5c435078fa3b908b
+doccontainersize 74940
+doccontainerchecksum 93b1c20788bc707ad90efd69194d8ecdf5154afe89870e51397c810e292b4e52fc7714de844580d0af5be0434a4493bca7464ca0d0b5f2641d9cf46a1f9c77ae
+docfiles size=21
+ texmf-dist/doc/latex/leftindex/README.md details="Readme"
+ texmf-dist/doc/latex/leftindex/leftindex.pdf details="Package documentation"
+ texmf-dist/doc/latex/leftindex/leftindex.tex
+runfiles size=1
+ texmf-dist/tex/latex/leftindex/leftindex.sty
+catalogue-ctan /macros/latex/contrib/leftindex
+catalogue-license lppl1.3c
+catalogue-topics subsup-pos maths expl3
+catalogue-version 0.1beta

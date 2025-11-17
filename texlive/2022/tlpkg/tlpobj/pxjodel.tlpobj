@@ -1,0 +1,89 @@
+name pxjodel
+category Package
+revision 64072
+shortdesc Help change metrics of fonts from japanese-otf
+longdesc This package changes the setup of the japanese-otf package so
+longdesc that the TFMs for direct input are all replaced by new ones
+longdesc with prefixed names; for example, nmlminr-h will be replaced by
+longdesc foo--nmlminr-h, where foo is a prefix specified by the user.
+longdesc This function will assist users who want to use the
+longdesc japanese-otf package together with tailored TFMs of Japanese
+longdesc fonts. The "jodel" part of the package name stands for
+longdesc "japanese-otf deluxe". Here "deluxe" is the name of
+longdesc japanese-otf's option for employing multi-weight Japanese font
+longdesc families. This option is probably the most likely reason for
+longdesc using japanese-otf. So pxjodel is really about japanese-otf's
+longdesc "deluxe" option, hence the name. It is not related to yodel
+longdesc singing, although some sense of word-play is intended.
+containersize 12536
+containerchecksum a44871d5c059df8962a135b6f40c3ab4d5d751bcefa5565e428d4efd8f242f34bdbb142a065e011065a8791a141dcef022d5e6ddd6d22cf78e369413b62f046c
+doccontainersize 110152
+doccontainerchecksum 3a85af8fe9f557ae10468e5aab8c6a19c45cc1f99dbae5a3e66530484074ea91f152177ae3ba54cbff8869178055e53b7282674eb748d82d789e767f16e075e3
+docfiles size=31
+ texmf-dist/doc/latex/pxjodel/LICENSE
+ texmf-dist/doc/latex/pxjodel/README.md details="Readme"
+ texmf-dist/doc/latex/pxjodel/pxjodel.pdf details="Package documentation"
+ texmf-dist/doc/latex/pxjodel/pxjodel.tex
+runfiles size=422
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothb-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothbn-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothbn-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgotheb-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothebn-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothebn-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothr-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothrn-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhgothrn-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhmgothe-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhmgothen-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhmgothen-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminb-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminbn-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminbn-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminl-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminln-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminln-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminr-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminrn-h.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/jodhminrn-v.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhgothb-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhgotheb-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhgothr-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhmgothe-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhminb-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhminl-hq.tfm
+ texmf-dist/fonts/tfm/public/pxjodel/zu-jodhminr-hq.tfm
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothb-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothbn-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothbn-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgotheb-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothebn-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothebn-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothr-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothrn-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhgothrn-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhmgothe-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhmgothen-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhmgothen-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminb-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminbn-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminbn-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminl-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminln-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminln-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminr-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminrn-h.vf
+ texmf-dist/fonts/vf/public/pxjodel/jodhminrn-v.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhgothb-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhgotheb-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhgothr-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhmgothe-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhminb-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhminl-hq.vf
+ texmf-dist/fonts/vf/public/pxjodel/zu-jodhminr-hq.vf
+ texmf-dist/tex/latex/pxjodel/pxjodel.sty
+catalogue-contact-repository https://github.com/zr-tex8r/PXjodel
+catalogue-ctan /macros/jptex/latex/pxjodel
+catalogue-license mit
+catalogue-topics font-mgmt japanese font-sel font-use font-cjk
+catalogue-version 0.3

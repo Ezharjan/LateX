@@ -1,0 +1,17 @@
+name jbact
+category Package
+revision 52717
+shortdesc BibTeX style for biology journals
+longdesc The style is a development of apalike.bst in the BibTeX bundle.
+longdesc The style serves two journals -- if the user executes
+longdesc "\nocite{TitlesOn}", the style serves for the Journal of
+longdesc Theoretical Biology; otherwise it serves for the Journal of
+longdesc Molecular Biology.
+containersize 9792
+containerchecksum 0f1cd72dca41b37c26d863aa734737ad128f5c39c508db13a3e91e4088477a99d9978aa1ed003ba0812e276bb4d80e527c80915cd7a08fd1cbe968816359814e
+runfiles size=9
+ texmf-dist/bibtex/bst/jbact/jbact.bst
+catalogue-ctan /biblio/bibtex/contrib/misc/jbact.bst
+catalogue-license other-free
+catalogue-topics bibtex-sty journalpub
+catalogue-version 1.30

@@ -1,0 +1,40 @@
+name tikz-karnaugh
+category Package
+revision 62040
+shortdesc Typeset Karnaugh maps using TikZ
+longdesc The tikz-karnaugh package is a LaTeX package used to draw
+longdesc Karnaugh maps. It uses TikZ to produce high quality graph from
+longdesc 1 to 12 variables, but this upper limit depends on the TeX
+longdesc memory usage and can be different for you. It is very good for
+longdesc presentation since TikZ allows for a better control over the
+longdesc final appearance of the map. You can control colour, styles and
+longdesc distances. It can be considered as an upgrade and extension of
+longdesc Andreas W. Wieland's karnaugh package towards TikZ supporting.
+longdesc Upgrade because uses TikZ for more option on typesetting and
+longdesc overall higher quality. Extension because it also supports
+longdesc American style and inputting the values as they would appear in
+longdesc the map or in the truth table. Complex maps with solution
+longdesc (implicants) pointed out can be generated with external java
+longdesc software (see documentation for details). It supports both
+longdesc American and traditional (simplified labels) styles and from
+longdesc version 1.3 on American style is natively supported, therefore,
+longdesc no more addition work is required to typeset Gray coded labels,
+longdesc variable names etc. From version 1.4, two new macros allow
+longdesc typesetting a map much more similarly as it should appear.
+longdesc Original order, as the values appear in the truth table, still
+longdesc being supported.
+containersize 6712
+containerchecksum aa7bb0cbaebbae2657002c01098e9904c21483bb9e67a415834d54b2bcdeae75514a2e98a53e98ba87996b3147af84226e43ec9d121eff52b4f77d57d1802db5
+doccontainersize 358532
+doccontainerchecksum 25ccf7b40c1e808bf5fc45241d3f811e603bdeb770b21e5d98779e04ccce1ff67e73012816b763a083d07f1c62a16cce8feffc0e1c87ced8b83339de84d4cd4f
+docfiles size=121
+ texmf-dist/doc/latex/tikz-karnaugh/README.txt details="Readme"
+ texmf-dist/doc/latex/tikz-karnaugh/tikz-karnaugh-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/tikz-karnaugh/tikz-karnaugh-doc.tex
+runfiles size=10
+ texmf-dist/tex/latex/tikz-karnaugh/tikzlibrarykarnaugh.code.tex
+catalogue-also karnaugh karnaugh-map karnaughmap
+catalogue-ctan /graphics/pgf/contrib/tikz-karnaugh
+catalogue-license lppl1
+catalogue-topics maths engineering pgf-tikz
+catalogue-version 1.5

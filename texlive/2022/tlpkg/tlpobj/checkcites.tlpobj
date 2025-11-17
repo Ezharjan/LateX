@@ -1,0 +1,24 @@
+name checkcites
+category Package
+revision 64155
+shortdesc Check citation commands in a document
+longdesc The package provides a lua script written for the sole purpose
+longdesc of detecting undefined and unused references from LaTeX
+longdesc auxiliary or bibliography files.
+depend checkcites.ARCH
+containersize 6124
+containerchecksum c28a2785348bdc7cf8e30d3339f301a355b6a9e513d143d34f2b2535a69a32f7cf8a8ae9c26b42c6db32d00021a10ca135891a22b0547c219f31c6c9720d8ca5
+doccontainersize 295572
+doccontainerchecksum a394ea5f70f48e7dc7c9d75de33bbf788904a5e1d8e3aefb5dd3bfd5207ee512b1a84ab4bc03bddfa15dedf962f330931d9e80593542e5a180fdda8a8aaf87c2
+docfiles size=78
+ texmf-dist/doc/support/checkcites/README details="Readme"
+ texmf-dist/doc/support/checkcites/checkcites-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/checkcites/checkcites-doc.tex
+runfiles size=7
+ texmf-dist/scripts/checkcites/checkcites.lua
+catalogue-contact-bugs https://gitlab.com/islandoftex/checkcites/issues
+catalogue-contact-repository https://gitlab.com/islandoftex/checkcites
+catalogue-ctan /support/checkcites
+catalogue-license lppl1.3
+catalogue-topics debug-supp
+catalogue-version 2.6

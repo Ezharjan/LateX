@@ -1,0 +1,32 @@
+name luamplib
+category Package
+revision 61587
+shortdesc Use LuaTeX's built-in MetaPost interpreter
+longdesc The package enables the user to specify MetaPost diagrams
+longdesc (which may include colour specifications from the color or
+longdesc xcolor packages) into a document, using LuaTeX's built-in
+longdesc MetaPost library. The facility is only available in PDF mode.
+containersize 12060
+containerchecksum daa0a03eca57570f485d2b7decf564eb9f6614a5799d93b798310c20ecb2f055b6dd469c87fbafc1722cb931dc387eada416bb83d609d76a9cfc8c482298edc8
+doccontainersize 156860
+doccontainerchecksum 13b6b7322faf3fda798049bada6d1737f30cb2ce7841ea858ac798fa3f63818ae6661a4e050e4dca336dab37ba9292fa19446a9e1d07a86509c0856793716975
+docfiles size=45
+ texmf-dist/doc/luatex/luamplib/NEWS
+ texmf-dist/doc/luatex/luamplib/README details="Readme"
+ texmf-dist/doc/luatex/luamplib/luamplib.pdf details="Package documentation"
+ texmf-dist/doc/luatex/luamplib/test-luamplib-latex.tex
+ texmf-dist/doc/luatex/luamplib/test-luamplib-plain.tex
+srccontainersize 27400
+srccontainerchecksum 097a263699067a731409704d7de358c85f4509bfc6426dccd2b193b85430413c441a2c5dc011da613e1e673e6670f7d7ed847e59c58c74d6caae66b7b3c2a29d
+srcfiles size=25
+ texmf-dist/source/luatex/luamplib/Makefile
+ texmf-dist/source/luatex/luamplib/luamplib.dtx
+runfiles size=13
+ texmf-dist/tex/luatex/luamplib/luamplib.lua
+ texmf-dist/tex/luatex/luamplib/luamplib.sty
+catalogue-contact-bugs https://github.com/lualatex/luamplib/issues
+catalogue-contact-repository https://github.com/lualatex/luamplib
+catalogue-ctan /macros/luatex/generic/luamplib
+catalogue-license gpl2
+catalogue-topics mp-use graphics-in-tex luatex
+catalogue-version 2.23.0

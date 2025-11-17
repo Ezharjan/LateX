@@ -1,0 +1,36 @@
+name easyfig
+category Package
+revision 56291
+shortdesc Simplifying the use of common figures
+longdesc The package provides the command \Figure[<key=value>...]{<image
+longdesc filename>} to simplify the business of including an image as
+longdesc figure in the most common form (centred and with caption and
+longdesc label). Caption and label are set using the caption and label
+longdesc keys; the label fig:<image filename> is used if none is given.
+longdesc If the here key is given, the figure is not 'floated', and the
+longdesc user is responsible for placement. The package uses the
+longdesc author's package adjustbox to centre an image and to simplify
+longdesc further modifications. As adjustbox now provides keys to turn
+longdesc images or other material into floats or non-floats, including
+longdesc captions, easyfig has become quite redundant.
+containersize 1936
+containerchecksum aebeb8d9baa7df84fb637351a13ac7f69697fc11c17b0eb5bfb9981195df584e74665a8bfa8062441c5eaf690c2fab446e1e0bad61175ebdf4dad58c531cfda2
+doccontainersize 175976
+doccontainerchecksum b1c91bb35bfa67edd2d2abaded6e6b8756d75c70d797c7bfb690ba802c3be6e23be71f7410a358cc262cd807f88b45d6395386d108ecf5f7ca4189a266296f34
+docfiles size=44
+ texmf-dist/doc/latex/easyfig/README details="Readme"
+ texmf-dist/doc/latex/easyfig/easyfig.pdf details="Package documentation"
+srccontainersize 5224
+srccontainerchecksum 4ca04322f0c10a33acc2f4ccd6a1127aaca1a27b4a4b5b1897a0d589cca73118c0e05d367e284e3a2922b2128a221be8ddbb8a24af1eaedac508ef6ace39a540
+srcfiles size=5
+ texmf-dist/source/latex/easyfig/easyfig.dtx
+ texmf-dist/source/latex/easyfig/easyfig.ins
+runfiles size=2
+ texmf-dist/tex/latex/easyfig/easyfig.sty
+catalogue-contact-bugs https://sourceforge.net/p/easyfig/tickets/
+catalogue-contact-home https://sourceforge.net/p/easyfig/
+catalogue-contact-repository https://sourceforge.net/p/easyfig/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/easyfig
+catalogue-license lppl1.3
+catalogue-topics float graphics-use
+catalogue-version 1.2a

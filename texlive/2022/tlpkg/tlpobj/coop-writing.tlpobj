@@ -1,0 +1,44 @@
+name coop-writing
+category Package
+revision 61607
+shortdesc Support for Cooperative Writing and editorial comments
+longdesc This package for Cooperative Writing supports editorial
+longdesc comments and gives some extra support for writing and
+longdesc submitting papers, such as anonymization commands for any
+longdesc document that involves more than one author or editor. The
+longdesc general behavior of this package is to provide different ways
+longdesc of marking your text, for example with comments or to-do-notes,
+longdesc suggestions to add, remove or change text that can be totally
+longdesc supressed from the output when desired. Mostly, this can be
+longdesc easily done using one of the three main option states: editing,
+longdesc submit, and publish. Users should use the editing state most of
+longdesc the time. In this state, all markings will appear and
+longdesc anonymization will be off. When submitting, the submit state
+longdesc will provide a clean article, without any markings, but
+longdesc anonymized. It is possible to use the options submit and
+longdesc noanonymize together. Publish will never anonymize. The goal is
+longdesc to make the submit and publish documents states minimally
+longdesc invasive, to avoid any clash with publishers' styles. Commands
+longdesc were inspired from different packages that do not work together
+longdesc very well, such as ed, todonotes, and color-edits.
+containersize 4912
+containerchecksum b00d0ba304a9aa88929a0f130b3e73bf8c095b25cebc6b33d8d01d15cc73766ac3db3a588719fe6480fb4105ed0bde32d5ab2354f2cc223c2e3bb90a8e6f877a
+doccontainersize 290348
+doccontainerchecksum 489060dd92b0044cb76c8e4f3f17aecf85da7b320406875b0c9b46fde2edf485868669e4986d9d602eb317ec0199e6ab81bb34096f7635fa4479203e03336577
+docfiles size=120
+ texmf-dist/doc/latex/coop-writing/README.md details="Readme"
+ texmf-dist/doc/latex/coop-writing/coop-writing.pdf details="Package documentation"
+srccontainersize 17168
+srccontainerchecksum f00f9b9db508f6fb924a4371413631eb6a269f1e70034891a1cf1f6b8df6d81f5f3e7d12e5ff7df29524d5354fd2e6123651d549e997457cf4723a8e723053e4
+srcfiles size=17
+ texmf-dist/source/latex/coop-writing/coop-writing.dtx
+ texmf-dist/source/latex/coop-writing/coop-writing.ins
+runfiles size=5
+ texmf-dist/tex/latex/coop-writing/coop-writing.sty
+catalogue-contact-announce https://github.com/xexeo/coop-writing/discussions/
+catalogue-contact-bugs https://github.com/xexeo/coop-writing/issues
+catalogue-contact-repository https://github.com/xexeo/coop-writing
+catalogue-ctan /macros/latex/contrib/coop-writing
+catalogue-license mit
+catalogue-topics editorial
+catalogue-version 1.2.4

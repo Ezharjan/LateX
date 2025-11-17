@@ -1,0 +1,21 @@
+name proflabo
+category Package
+revision 63147
+shortdesc Draw laboratory equipment
+longdesc This package was developed to help French chemistry teachers to
+longdesc create drawings (using TikZ) for laboratory stuff.
+containersize 2748
+containerchecksum 7270b65b821c303e84eec760126ad421dd65fbb5ff81309142690f8820c4865c3b1ff39b22b2cf700a10920b973e18085a1e73ea3f6c9d90da984d48a19bbca7
+doccontainersize 134096
+doccontainerchecksum 567ba9cd2d7eb724fd4ab20ec417f6804a795ff506bf8df582df9d7ace7ef2c5a8f95b46ff374391fed44918c6a536f6b14348ea3e0f3ff149fbe4fdafba9fa8
+docfiles size=38
+ texmf-dist/doc/latex/proflabo/ProfLabo-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/proflabo/ProfLabo-doc.tex
+ texmf-dist/doc/latex/proflabo/README.md details="Readme"
+runfiles size=3
+ texmf-dist/tex/latex/proflabo/ProfLabo.sty
+catalogue-also pst-labo
+catalogue-ctan /macros/latex/contrib/proflabo
+catalogue-license lppl
+catalogue-topics chemistry
+catalogue-version 1.0

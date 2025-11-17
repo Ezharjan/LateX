@@ -1,0 +1,29 @@
+name xkcdcolors
+category Package
+revision 54512
+shortdesc xkcd names of colors
+longdesc In the year 2010, Randall Munroe on posted a really funny and
+longdesc nice article on xkcd. He made a very curious experiment:
+longdesc showing colors to a lot of people and asking to name each one.
+longdesc Afterward, he processed the data and sorted the names for each
+longdesc color by popularity -- that means, how many people gave the
+longdesc same name to the same color. This package makes the collected
+longdesc color names usable with LaTeX.
+containersize 8680
+containerchecksum 4c7057d785c565e043daef78f4ddbb5dc307a3caa690044c803059034ef42fc1a14f61c93115b8060c330f480397040ab19b44636e167739a016175af61c2806
+doccontainersize 218124
+doccontainerchecksum ff112f54943d9f6f0e55cd0ef2a9b0cff1e088ea386c7853bfde9cf091b4ab762b38486c565da39fe5f0e63811c2d2b5661dbc5d98b740ffcc08982462214795
+docfiles size=62
+ texmf-dist/doc/latex/xkcdcolors/README.md details="Readme"
+ texmf-dist/doc/latex/xkcdcolors/lppl-1-3c_license.txt
+ texmf-dist/doc/latex/xkcdcolors/xkcdcolors-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/xkcdcolors/xkcdcolors-manual.tex
+runfiles size=6
+ texmf-dist/tex/latex/xkcdcolors/xkcdcolors.sty
+catalogue-contact-bugs https://github.com/Rmano/xkcdcolors/issues
+catalogue-contact-home http://rlog.rgtti.com/2015/10/23/xkcd-color-list-for-latex-users/
+catalogue-contact-repository https://github.com/Rmano/xkcdcolors
+catalogue-ctan /macros/latex/contrib/xkcdcolors
+catalogue-license lppl1.3c cc0
+catalogue-topics colour amusements
+catalogue-version 1.0.1

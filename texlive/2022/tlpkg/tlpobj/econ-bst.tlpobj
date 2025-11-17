@@ -1,0 +1,64 @@
+name econ-bst
+category Package
+revision 61499
+shortdesc BibTeX style for economics papers
+longdesc This is a BibTeX style file for papers in economics. It
+longdesc provides the following features: author-year type citation
+longdesc reference style used in economics papers highly customizable
+longdesc use of "certified random order" as proposed by Ray Robson
+longdesc (2018)
+containersize 20080
+containerchecksum f236b3a15da35eb09e878d56f6d7c4cd632b71f262b9c470c3c64dd96aa43d305a44400d93786b8bc7f3a59773812c4ea03d6e8901cd1e7e469aa36e948bfa26
+doccontainersize 1297384
+doccontainerchecksum 60761364032deb253bb69aaa13fc10d6e8ec2747fc6af77285cb5fd53f250465d1e461110ae221050fba8150a5b1b5db9d4879689df00a33f9c8106e3e385f4a
+docfiles size=696
+ texmf-dist/doc/bibtex/econ-bst/CHANGES.md
+ texmf-dist/doc/bibtex/econ-bst/README.md details="Readme"
+ texmf-dist/doc/bibtex/econ-bst/customization/README.md details="Readme"
+ texmf-dist/doc/bibtex/econ-bst/customization/cited-part.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-a.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-a.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-abbr.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-abbr.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-aea.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-aea.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-b.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-b.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-default.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-default.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-econometrica.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-econometrica.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-jet.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-jet.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-jie.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-jie.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-jpe.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-jpe.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-no-sort.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-no-sort.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-numbers.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-numbers.tex
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-old.pdf
+ texmf-dist/doc/bibtex/econ-bst/customization/econ-old.tex
+ texmf-dist/doc/bibtex/econ-bst/econ-example.bib
+ texmf-dist/doc/bibtex/econ-bst/econ-example.pdf details="Example of use"
+ texmf-dist/doc/bibtex/econ-bst/econ-example.tex
+runfiles size=255
+ texmf-dist/bibtex/bst/econ-bst/econ-a.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-abbr.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-aea.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-b.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-econometrica.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-jet.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-jie.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-jpe.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-no-sort.bst
+ texmf-dist/bibtex/bst/econ-bst/econ-old.bst
+ texmf-dist/bibtex/bst/econ-bst/econ.bst
+catalogue-also economic
+catalogue-contact-home https://github.com/ShiroTakeda/econ-bst
+catalogue-contact-repository https://github.com/ShiroTakeda/econ-bst
+catalogue-ctan /biblio/bibtex/contrib/econ-bst
+catalogue-license lppl1.3
+catalogue-topics bibtex-sty
+catalogue-version 3.1.1

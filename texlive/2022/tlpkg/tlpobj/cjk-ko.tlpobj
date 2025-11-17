@@ -1,0 +1,31 @@
+name cjk-ko
+category Package
+revision 63561
+shortdesc Extension of the CJK package for Korean typesetting
+longdesc The package supports typesetting UTF-8-encoded modern Korean
+longdesc documents with the help of the LaTeX2e CJK package. It provides
+longdesc some enhanced features focused on Korean typesetting culture,
+longdesc one of them being allowing line-break between Latin and CJK
+longdesc characters. The package requires nanumtype1 fonts.
+depend cjk
+containersize 8652
+containerchecksum be65ef03300b8fccc4012ece68570a86797e36267ea2f531fead77659cf7bf2a315cca1a3e3386f8d1dc09cbb3b44b20dafb3e0e0cbd53bddb1a368c984937b0
+doccontainersize 161584
+doccontainerchecksum 3ffcae00a4a0dcd175fcf864c3c0c578d7926917216b4a785c0a46074ef013eafe9458ba9010d14f081c63ab4ee0941d0597dace373eb178369de9caa210a16b
+docfiles size=49
+ texmf-dist/doc/latex/cjk-ko/ChangeLog
+ texmf-dist/doc/latex/cjk-ko/README details="Readme"
+ texmf-dist/doc/latex/cjk-ko/cjk-ko-doc.pdf details="Package documentation (Korean)" language="ko"
+ texmf-dist/doc/latex/cjk-ko/cjk-ko-doc.tex
+runfiles size=11
+ texmf-dist/tex/latex/cjk-ko/cjkutf8-josa.sty
+ texmf-dist/tex/latex/cjk-ko/cjkutf8-ko.sty
+ texmf-dist/tex/latex/cjk-ko/cjkutf8-nanummjhanja.sty
+ texmf-dist/tex/latex/cjk-ko/kolabels-utf.sty
+ texmf-dist/tex/latex/cjk-ko/konames-utf.sty
+ texmf-dist/tex/latex/cjk-ko/kotex.sty
+catalogue-contact-repository https://github.com/dohyunkim/cjk-ko
+catalogue-ctan /language/korean/cjk-ko
+catalogue-license gpl lppl pd
+catalogue-topics korean
+catalogue-version 2.3

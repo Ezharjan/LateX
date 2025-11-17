@@ -1,0 +1,42 @@
+name ctan-o-mat
+category Package
+revision 51578
+shortdesc Upload or validate a package for CTAN
+longdesc This program can be used to automate the upload of a package to
+longdesc CTAN. The description of the package is contained in a
+longdesc configuration file. The provided information is validated in
+longdesc any case. If the validation succeeds and not only the
+longdesc validation is requested, then the provided archive file will be
+longdesc placed in the incoming area of the CTAN for further processing
+longdesc by the CTAN team. In any case any finding during the validation
+longdesc is reported at the end of the processing. Note that the
+longdesc validation is the default and an official submission has to be
+longdesc requested by an appropriate command line option. ctan-o-mat
+longdesc requires an Internet connection to the CTAN server. Even the
+longdesc validation retrieves the known attributes and the basic
+longdesc constraints from the server.
+depend ctan-o-mat.ARCH
+containersize 5968
+containerchecksum a995dfc6d79ba77fe673aa501f28eaf9f057c34501fa032423569317e5a4eed048c3375d806eafacedefec02e91bcb587fa6bfb8c0ff980395bb877b2ce88c4c
+doccontainersize 54812
+doccontainerchecksum 423efc3f2f850c5a9bcbe787edb8155ef76e56ce5e3a1ba3332bb465b8239616bd1fcff2e8a58db6f5ce9d5191ae3209a5451f746250a3b081fe9b35d024eebd
+docfiles size=26
+ texmf-dist/doc/man/man1/ctan-o-mat.1
+ texmf-dist/doc/man/man1/ctan-o-mat.man1.pdf
+ texmf-dist/doc/support/ctan-o-mat/LICENSE
+ texmf-dist/doc/support/ctan-o-mat/README.md details="Readme"
+ texmf-dist/doc/support/ctan-o-mat/ctan-o-mat
+ texmf-dist/doc/support/ctan-o-mat/ctan-o-mat.bat
+ texmf-dist/doc/support/ctan-o-mat/ctan-o-mat.pdf details="Package documentation"
+ texmf-dist/doc/support/ctan-o-mat/ctan-o-mat.pkg
+ texmf-dist/doc/support/ctan-o-mat/lib/md2ltx.pl
+ texmf-dist/doc/support/ctan-o-mat/makefile
+runfiles size=5
+ texmf-dist/scripts/ctan-o-mat/ctan-o-mat.pl
+catalogue-contact-bugs https://github.com/ge-ne/ctan-o-mat/issues
+catalogue-contact-home https://github.com/ge-ne/ctan-o-mat
+catalogue-contact-repository https://github.com/ge-ne/ctan-o-mat
+catalogue-ctan /support/ctan-o-mat
+catalogue-license bsd3
+catalogue-topics ctan
+catalogue-version 1.2

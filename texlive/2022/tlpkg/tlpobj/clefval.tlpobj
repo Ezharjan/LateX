@@ -1,0 +1,37 @@
+name clefval
+category Package
+revision 55985
+shortdesc Key/value support with a hash
+longdesc This package provides only two macros viz. \TheKey and
+longdesc \TheValue to define then use pairs of key/value and gives a
+longdesc semblance of a hash. Syntax: \TheKey{key}{value} to define the
+longdesc value associated to the key, does not produce text;
+longdesc \TheValue{key} to return the value linked to the key. Both
+longdesc arguments of \TheKey are 'moving' as LaTeX defines the term and
+longdesc we have sometimes to protect them.
+containersize 1540
+containerchecksum 1d92e279264970ca6d7612c3850fd46d4f3deb74df8a9149d6e63ac19eb665e5affeb1ab9bfea44d07825b80245b0a3b951d3ec08af0834c228a21270bc45437
+doccontainersize 810948
+doccontainerchecksum d8242b0dc52ad63167fe13a88c28fb4b088061f7bddbe3137a7b541dd1f15aacc75a1c7c1c9b6aee2db1ff14278edf3b83d8eea5cbd77e112f16f8af9e36f19a
+docfiles size=216
+ texmf-dist/doc/latex/clefval/LISEZMOI.md
+ texmf-dist/doc/latex/clefval/MANIFEST.md
+ texmf-dist/doc/latex/clefval/README.md details="Package README"
+ texmf-dist/doc/latex/clefval/clefval.pdf details="Package documentation"
+ texmf-dist/doc/latex/clefval/example-utf8.pdf
+ texmf-dist/doc/latex/clefval/example-utf8.tex
+ texmf-dist/doc/latex/clefval/example.pdf details="Package example of use (English)"
+ texmf-dist/doc/latex/clefval/example.tex
+ texmf-dist/doc/latex/clefval/exemple.pdf details="Package examples of use (French)" language="fr"
+ texmf-dist/doc/latex/clefval/exemple.tex
+srccontainersize 8076
+srccontainerchecksum abf25917b9a6aac0c3ef310bdddad1063ccbb6c59e844c792638927de403da00013e93db8bb1e9c4a052a65ee8dfb46743404efcc9c8cca6191b2703a6ab16a1
+srcfiles size=6
+ texmf-dist/source/latex/clefval/clefval.dtx
+ texmf-dist/source/latex/clefval/clefval.ins
+runfiles size=1
+ texmf-dist/tex/latex/clefval/clefval.sty
+catalogue-ctan /macros/latex/contrib/clefval
+catalogue-license lppl1.3c
+catalogue-topics keyval
+catalogue-version 0.1

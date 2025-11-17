@@ -1,0 +1,22 @@
+name orientation
+category Package
+revision 57390
+shortdesc Set page orientation with dvips/Ghostscript (ps2pdf)
+longdesc This package provides commands for manual (per-page and
+longdesc per-document) orientation of pages in a PDF created with
+longdesc dvips/Ghostscript (ps2pdf). For future versions it is planned
+longdesc to add support for other drivers, allowing for PDF orientation
+longdesc to be set in (x)dvipdfmx and pdfmode pdfTeX using the same
+longdesc commands from the user perspective.
+containersize 928
+containerchecksum 729921d3152b76fc4c6c8385ce0b5a8ca2491670a7082133084c2e09774bd5c94b7c6c6b8ace1db787b4626f68a9b184550d43adace8dc6646ad36d2d9703f8d
+doccontainersize 900
+doccontainerchecksum 75d3d1dd0a71d34429584dc1519b9ba26e329f58f468ae8548e7f9ec9f92e6877917bda790b61af9642e595d6b42370e8fc511b2e1d9b974617a6f5bddf96821
+docfiles size=1
+ texmf-dist/doc/latex/orientation/README details="Readme"
+runfiles size=1
+ texmf-dist/tex/latex/orientation/orientation.sty
+catalogue-ctan /macros/latex/contrib/orientation
+catalogue-license cc0
+catalogue-topics landscape dvips-special
+catalogue-version 1.0

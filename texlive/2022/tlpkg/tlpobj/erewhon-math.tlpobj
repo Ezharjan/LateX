@@ -1,0 +1,23 @@
+name erewhon-math
+category Package
+revision 63230
+shortdesc Utopia based OpenType Math font
+longdesc OpenType version of the fourier Type1 fonts designed by Michel
+longdesc Bovani.
+containersize 235192
+containerchecksum 61f731cc7d65f675abd9d60613c870bc4e29d82a0da4b0653dc932a49de1c919ec1143280e82de6aa954e559fd3cf83c33bad68440ea0aba6d27bce821cdb6ae
+doccontainersize 1978964
+doccontainerchecksum 5f213646c075381518200a23f0329e2abeaf1ef3f583ff92e89f1b1115625ac0de510ee65dc0e71c3ac3f3c7b08ddef0951d76f7a8ffd5981cab29b88de7eb38
+docfiles size=511
+ texmf-dist/doc/fonts/erewhon-math/Erewhon-Math.ltx
+ texmf-dist/doc/fonts/erewhon-math/Erewhon-Math.pdf details="Package documentation"
+ texmf-dist/doc/fonts/erewhon-math/README.md details="Readme"
+ texmf-dist/doc/fonts/erewhon-math/unimath-erewhon.ltx
+ texmf-dist/doc/fonts/erewhon-math/unimath-erewhon.pdf details="List of glyphs"
+runfiles size=97
+ texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+ texmf-dist/tex/latex/erewhon-math/fourier-otf.sty
+catalogue-ctan /fonts/erewhon-math
+catalogue-license ofl lppl1.3
+catalogue-topics font font-proportional font-otf font-supp font-maths
+catalogue-version 0.53

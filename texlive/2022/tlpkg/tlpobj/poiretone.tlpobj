@@ -1,0 +1,58 @@
+name poiretone
+category Package
+revision 59125
+shortdesc PoiretOne family of fonts with LaTeX support
+longdesc This package provides LaTeX, pdfLaTeX, XeLaTeX and LuaLaTeX
+longdesc support for the PoiretOne family of fonts, designed by Denis
+longdesc Masharov. PoiretOne is a decorative geometric grotesque with a
+longdesc hint of Art Deco and constructivism. There is currently just a
+longdesc regular weight and an artificially emboldened bold.
+execute addMap PoiretOne.map
+containersize 172680
+containerchecksum 535ebe641bc1534c7e711286711bd005660d26ca524646e9d9b198c673e5166e567a5dbaddca178d5d6ef70acca221f043eb169000c6fb20ae39c537f0b91f5f
+doccontainersize 12968
+doccontainerchecksum 4739832d32d02a9e09a15dea1d0f18b8597f36bf9e7f777d3dd7c6862fceb35109552fe6a66d9c65959db04385adc59ef6db73abb87b8002653b9bb88fb88513
+docfiles size=7
+ texmf-dist/doc/fonts/poiretone/OFL.txt
+ texmf-dist/doc/fonts/poiretone/README details="Readme"
+ texmf-dist/doc/fonts/poiretone/poiret-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/poiretone/poiret-samples.tex
+runfiles size=95
+ texmf-dist/fonts/enc/dvips/poiretone/prtn_2rdbwn.enc
+ texmf-dist/fonts/enc/dvips/poiretone/prtn_bjsotj.enc
+ texmf-dist/fonts/enc/dvips/poiretone/prtn_nt5tbh.enc
+ texmf-dist/fonts/enc/dvips/poiretone/prtn_opucty.enc
+ texmf-dist/fonts/map/dvips/poiretone/PoiretOne.map
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-ly1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-ot1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-t1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Bold-lf-ts1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-ly1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-ot1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-t1.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/poiretone/PoiretOne-Regular-lf-ts1.tfm
+ texmf-dist/fonts/truetype/public/poiretone/PoiretOne-Bold.ttf
+ texmf-dist/fonts/truetype/public/poiretone/PoiretOne-Regular.ttf
+ texmf-dist/fonts/type1/public/poiretone/PoiretOne-Bold.pfb
+ texmf-dist/fonts/type1/public/poiretone/PoiretOne-Regular.pfb
+ texmf-dist/fonts/vf/public/poiretone/PoiretOne-Bold-lf-ly1.vf
+ texmf-dist/fonts/vf/public/poiretone/PoiretOne-Bold-lf-t1.vf
+ texmf-dist/fonts/vf/public/poiretone/PoiretOne-Bold-lf-ts1.vf
+ texmf-dist/fonts/vf/public/poiretone/PoiretOne-Regular-lf-ly1.vf
+ texmf-dist/fonts/vf/public/poiretone/PoiretOne-Regular-lf-t1.vf
+ texmf-dist/fonts/vf/public/poiretone/PoiretOne-Regular-lf-ts1.vf
+ texmf-dist/tex/latex/poiretone/LY1PoiretOne-LF.fd
+ texmf-dist/tex/latex/poiretone/OT1PoiretOne-LF.fd
+ texmf-dist/tex/latex/poiretone/PoiretOne.sty
+ texmf-dist/tex/latex/poiretone/T1PoiretOne-LF.fd
+ texmf-dist/tex/latex/poiretone/TS1PoiretOne-LF.fd
+catalogue-contact-home https://fonts.google.com/specimen/Poiret+One?selection.family=Poiret+One
+catalogue-ctan /fonts/poiretone
+catalogue-license ofl lppl
+catalogue-topics font font-sans font-mono font-otf font-type1 font-proportional font-t1enc

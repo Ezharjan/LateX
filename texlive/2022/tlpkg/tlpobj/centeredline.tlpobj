@@ -1,0 +1,22 @@
+name centeredline
+category Package
+revision 50971
+shortdesc A macro for centering lines
+longdesc This package provides a macro \centeredline{...} which allows
+longdesc to conveniently center a line inside a paragraph while allowing
+longdesc usage therein of \verb or other macros changing catcodes. It
+longdesc works nicely in list environments, and material whose natural
+longdesc width exceeds the current linewidth will get properly centered
+longdesc too.
+containersize 1168
+containerchecksum 7b1359bd93853830d85fd84c9132d997c1384211c504999f4bc819cd6fe85effbe9f0fba64cc502419484cea3cacedf02beae22052bd10a7a7dbad3f97583731
+doccontainersize 1288
+doccontainerchecksum 237af456a51f539d02d96bc1c2bfd1fde1328cb270985b50a0ee9760f4b6f3675610ca088af135a86f07c02a0cd84c651118726915a0a01546468030acd596f3
+docfiles size=1
+ texmf-dist/doc/latex/centeredline/README.md details="Readme"
+runfiles size=1
+ texmf-dist/tex/latex/centeredline/centeredline.sty
+catalogue-ctan /macros/latex/contrib/centeredline
+catalogue-license lppl1.3c
+catalogue-topics layout alignment
+catalogue-version 1.1

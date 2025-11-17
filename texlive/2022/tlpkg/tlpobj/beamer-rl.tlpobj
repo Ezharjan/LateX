@@ -1,0 +1,31 @@
+name beamer-rl
+category Package
+revision 63668
+shortdesc Right to left presentation with beamer and babel
+longdesc This class provides patches of some beamer templates and
+longdesc commands for presentation from right to left. It requires Babel
+longdesc with the LuaTeX engine.
+containersize 7416
+containerchecksum 8038171ba1b002a018cb7c2f821513f2a02b17f7861e15504b5cac113db63090376b9e67f6beec51eef1708c8047c8970e917c8094660a4d2089255a6ed271f7
+doccontainersize 217376
+doccontainerchecksum 51cb2cf3e295d48a7f447632a3e86eb9e54da01938a0efff43c17c5f13309d20f8c88397e50023656a8663cea942e2dad94e4d0c718b69299c427c85319cb965
+docfiles size=79
+ texmf-dist/doc/lualatex/beamer-rl/Example-of-use-ar.pdf details="Example of use (Arabic)" language="ar"
+ texmf-dist/doc/lualatex/beamer-rl/Example-of-use-ar.tex
+ texmf-dist/doc/lualatex/beamer-rl/Example-of-use-en.pdf details="Example of use (English)" language="en"
+ texmf-dist/doc/lualatex/beamer-rl/Example-of-use-en.tex
+ texmf-dist/doc/lualatex/beamer-rl/README.txt details="Readme"
+runfiles size=15
+ texmf-dist/tex/lualatex/beamer-rl/beamer-rl.cls
+ texmf-dist/tex/lualatex/beamer-rl/pgfpages-rl.sty
+ texmf-dist/tex/lualatex/beamer-rl/translator-basic-dictionary-Arabic.dict
+ texmf-dist/tex/lualatex/beamer-rl/translator-bibliography-dictionary-Arabic.dict
+ texmf-dist/tex/lualatex/beamer-rl/translator-environment-dictionary-Arabic.dict
+ texmf-dist/tex/lualatex/beamer-rl/translator-numbers-dictionary-Arabic.dict
+ texmf-dist/tex/lualatex/beamer-rl/translator-theorem-dictionary-Arabic.dict
+catalogue-contact-bugs https://github.com/seloumi/beamer-rl/issues
+catalogue-contact-repository https://github.com/seloumi/beamer-rl
+catalogue-ctan /macros/luatex/latex/beamer-rl
+catalogue-license lppl1.3c
+catalogue-topics class presentation bidi multilingual luatex
+catalogue-version 1.6

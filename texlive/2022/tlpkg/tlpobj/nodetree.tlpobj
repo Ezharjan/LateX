@@ -1,0 +1,33 @@
+name nodetree
+category Package
+revision 56742
+shortdesc Visualize node lists in a tree view
+longdesc nodetree is a development package that visualizes the structure
+longdesc of node lists. nodetree shows its debug informations in the
+longdesc console output when you compile a LuaTeX file. It uses a
+longdesc similar visual representation for node lists as the UNIX tree
+longdesc command for a folder structure.
+containersize 12332
+containerchecksum 315216d397894f9b49109c4749dd91953d4bde0c220c37eebdf762f2427bed4f5bc9657a7088a479c78832fd7dfebbbec1b09e25b0a2f5600505a8d5cc58869c
+doccontainersize 275876
+doccontainerchecksum 2a20d35c7a1f01657455b239916ad7c9fbdda81aac26d1cfd01d9c4e193ed75d02ee30dc884fef6df722042c3096fe350f6e29b73c00a3edbf4d2a85d364a1de
+docfiles size=70
+ texmf-dist/doc/luatex/nodetree/README.md details="Readme"
+ texmf-dist/doc/luatex/nodetree/nodetree.pdf details="Package documentation"
+srccontainersize 3752
+srccontainerchecksum 579e92f7185814a062cc74619641a3010b55c3e21fa2a8cc13d402b50db4ab5ba05527174a90361521d13e483a87b73758c4c52068b6e94d8e73d8aea76a88d4
+srcfiles size=5
+ texmf-dist/source/luatex/nodetree/nodetree.dtx
+ texmf-dist/source/luatex/nodetree/nodetree.ins
+runfiles size=15
+ texmf-dist/tex/luatex/nodetree/nodetree-embed.sty
+ texmf-dist/tex/luatex/nodetree/nodetree.lua
+ texmf-dist/tex/luatex/nodetree/nodetree.sty
+ texmf-dist/tex/luatex/nodetree/nodetree.tex
+catalogue-contact-bugs https://github.com/Josef-Friedrich/nodetree/issues
+catalogue-contact-development https://josef-friedrich.github.io/nodetree
+catalogue-contact-repository https://github.com/Josef-Friedrich/nodetree
+catalogue-ctan /macros/luatex/generic/nodetree
+catalogue-license lppl1.3
+catalogue-topics lua-supp
+catalogue-version 2.2

@@ -1,0 +1,39 @@
+name zref-check
+category Package
+revision 63845
+shortdesc Flexible cross-references with contextual checks based on zref
+longdesc This package provides an user interface for making LaTeX
+longdesc cross-references flexibly, while allowing to have them checked
+longdesc for consistency with the document structure as typeset.
+longdesc Statements such as "above", "on the next page", "previously",
+longdesc "as will be discussed", "on the previous chapter" and so on can
+longdesc be given to \zcheck in free-form, and a set of "checks" can be
+longdesc specified to be run against a given "label", which will result
+longdesc in a warning at compilation time if any of these checks fail.
+longdesc \zctarget and the zcregion environment are also defined as a
+longdesc means to easily set label targets to arbitrary places in the
+longdesc text which can be referred to by \zcheck.
+containersize 5652
+containerchecksum 108b5484c84aa27fe41c416a68a0a01a7990624697acbbe324776630b46d17aedc987cb2dcb5bbab7d8cd95c129ed8da451984dffe319fd8fed4363f376b617e
+doccontainersize 1070120
+doccontainerchecksum ca2dad2ff43c842de9a1cb63d7c8ded3b722113c39023774cd4744b17080e1993b886eb170e49c39ff641f04cf020bf0b8a0aec5f36e1d649d01d28414107700
+docfiles size=301
+ texmf-dist/doc/latex/zref-check/CHANGELOG.md
+ texmf-dist/doc/latex/zref-check/DEPENDS.txt
+ texmf-dist/doc/latex/zref-check/README.md details="Readme"
+ texmf-dist/doc/latex/zref-check/zref-check-code.pdf details="Code documentation"
+ texmf-dist/doc/latex/zref-check/zref-check-code.tex
+ texmf-dist/doc/latex/zref-check/zref-check.pdf details="User manual"
+ texmf-dist/doc/latex/zref-check/zref-check.tex
+srccontainersize 19412
+srccontainerchecksum c814c786a2a298cdf0ceac279a9718e26c406035a187acb9e08be1dab9749bdb725c4fc3276749569632e0478220031d8441970afe70959bcfb53ee8823b5d8c
+srcfiles size=23
+ texmf-dist/source/latex/zref-check/zref-check.dtx
+ texmf-dist/source/latex/zref-check/zref-check.ins
+runfiles size=11
+ texmf-dist/tex/latex/zref-check/zref-check.sty
+catalogue-contact-repository https://github.com/gusbrs/zref-check
+catalogue-ctan /macros/latex/contrib/zref-check
+catalogue-license lppl1.3c
+catalogue-topics label-ref expl3
+catalogue-version 0.3.2

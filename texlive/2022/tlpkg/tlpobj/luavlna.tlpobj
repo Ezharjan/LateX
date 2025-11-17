@@ -1,0 +1,43 @@
+name luavlna
+category Package
+revision 64142
+shortdesc Prevent line breaks after single letter words, units, or academic titles
+longdesc In some languages, like Czech or Polish, there should be no
+longdesc single letter words at the end of a line, according to
+longdesc typographical norms. This package handles such situations using
+longdesc LuaTeX's callback mechanism. In doing this, the package can
+longdesc detect languages used in the text and insert spaces only in
+longdesc parts of the document where languages requiring this feature
+longdesc are used. Another feature of this package is the inclusion of
+longdesc non-breakable space after initials (like in personal names),
+longdesc after or before academic degrees, and between numbers and
+longdesc units. The package supports both plain LuaTeX and LuaLaTeX.
+longdesc BTW: "vlna" is the Czech word for "wave" or "curl" and also
+longdesc denotes the tilde which, in TeX, is used for "unbreakable
+longdesc spaces".
+containersize 7636
+containerchecksum 58c16981ec1515c74a2ffd7632f16d0fb28b9fe32e6e954b49be602c721110e3537a66059b149a4d5c9b652ee717ee1c736ea03d2e4df3803c1b6c4465c50bf1
+doccontainersize 95244
+doccontainerchecksum a8d808e891ee8eb4958061912d0cd7b8c89da3d352ae984b08c92f56ae1222209132e8612172392787bc27e2e62a8a487e48fe1c728c545d8afef5fb7f23747e
+docfiles size=27
+ texmf-dist/doc/luatex/luavlna/README.md details="Readme"
+ texmf-dist/doc/luatex/luavlna/luavlna-doc.pdf details="Package documentation"
+ texmf-dist/doc/luatex/luavlna/luavlna-doc.tex
+runfiles size=14
+ texmf-dist/tex/luatex/luavlna/luavlna-csplain-langs.lua
+ texmf-dist/tex/luatex/luavlna/luavlna-langno.lua
+ texmf-dist/tex/luatex/luavlna/luavlna-predegrees.lua
+ texmf-dist/tex/luatex/luavlna/luavlna-presi.lua
+ texmf-dist/tex/luatex/luavlna/luavlna-si.lua
+ texmf-dist/tex/luatex/luavlna/luavlna-sufdegrees.lua
+ texmf-dist/tex/luatex/luavlna/luavlna.4ht
+ texmf-dist/tex/luatex/luavlna/luavlna.lua
+ texmf-dist/tex/luatex/luavlna/luavlna.sty
+ texmf-dist/tex/luatex/luavlna/luavlna.tex
+catalogue-also encxvlna xevlna
+catalogue-contact-bugs https://github.com/michal-h21/luavlna/issues
+catalogue-contact-repository https://github.com/michal-h21/luavlna
+catalogue-ctan /macros/luatex/generic/luavlna
+catalogue-license lppl1.3
+catalogue-topics typesetting czech slovak polish luatex
+catalogue-version 0.1j

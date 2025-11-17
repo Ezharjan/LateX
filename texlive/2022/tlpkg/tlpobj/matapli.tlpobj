@@ -1,0 +1,42 @@
+name matapli
+category Package
+revision 62632
+shortdesc Class for the french journal "MATAPLI"
+longdesc This is a class for the french journal "MATAPLI" of the Societe
+longdesc de Mathematiques Appliquees et Industrielles (SMAI).
+containersize 8724
+containerchecksum b8330a2fbbcb2b6c65a1f056fdf572cf14b6c3b8aff3abf91cd40a150a12feb37cb4a43b41e8239fbe00bb4a2168894c375f0bb35c7dbe2f1d8de0d5ae2ae476
+doccontainersize 4769908
+doccontainerchecksum 6c24ac9fc5b1968ee8c675c7aef8c8fcd3ce813e407886a412419a4a894942d6928d49cfebaf1d7ac7be7cc5c08847e8ba2c70390e3ea7973b0882a51d039ae1
+docfiles size=1928
+ texmf-dist/doc/latex/matapli/README.md details="Readme"
+ texmf-dist/doc/latex/matapli/auto/bibliomatapli.el
+ texmf-dist/doc/latex/matapli/auto/matapli-doc.el
+ texmf-dist/doc/latex/matapli/bibliomatapli.bib
+ texmf-dist/doc/latex/matapli/examples/couverture/3e.pdf
+ texmf-dist/doc/latex/matapli/examples/couverture/4e.pdf
+ texmf-dist/doc/latex/matapli/examples/couverture/CIMPA.png
+ texmf-dist/doc/latex/matapli/examples/couverture/Logo.pdf
+ texmf-dist/doc/latex/matapli/examples/couverture/corona.jpg
+ texmf-dist/doc/latex/matapli/examples/couverture/couverture.jpg
+ texmf-dist/doc/latex/matapli/examples/couverture/couvertureModele.pdf details="Example of use" language="fr"
+ texmf-dist/doc/latex/matapli/examples/couverture/couvertureModele.tex
+ texmf-dist/doc/latex/matapli/examples/couverture/fond-production.svg
+ texmf-dist/doc/latex/matapli/examples/couverture/fond.pdf
+ texmf-dist/doc/latex/matapli/examples/couverture/redactionModele.tex
+ texmf-dist/doc/latex/matapli/examples/modeleauteur/chap1.bib
+ texmf-dist/doc/latex/matapli/examples/modeleauteur/modele.pdf details="Example of use" language="fr"
+ texmf-dist/doc/latex/matapli/examples/modeleauteur/modele.tex
+ texmf-dist/doc/latex/matapli/examples/modeleauteur/portrait.png
+ texmf-dist/doc/latex/matapli/fond-doc.pdf
+ texmf-dist/doc/latex/matapli/matapli-doc.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/matapli/matapli-doc.tex
+ texmf-dist/doc/latex/matapli/matapli-title.pdf
+ texmf-dist/doc/latex/matapli/mataplidoc.cls
+runfiles size=9
+ texmf-dist/tex/latex/matapli/matapli.cls
+catalogue-contact-home https://plmlab.math.cnrs.fr/mchupin/matapli
+catalogue-ctan /macros/latex/contrib/matapli
+catalogue-license lppl1.3c
+catalogue-topics journalpub class french expl3
+catalogue-version 1.2.0

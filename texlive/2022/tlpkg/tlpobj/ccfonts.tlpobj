@@ -1,0 +1,32 @@
+name ccfonts
+category Package
+revision 61431
+shortdesc Support for Concrete text and math fonts in LaTeX
+longdesc LaTeX font definition files for the Concrete fonts and a LaTeX
+longdesc package for typesetting documents using Concrete as the default
+longdesc font family. The files support OT1, T1, TS1, and Concrete
+longdesc mathematics including AMS fonts (Ulrik Vieth's concmath).
+containersize 2164
+containerchecksum fb111cd33ec70fa672e759c9fc2894f6b0338e40bef7d1b2fda2c37a437fb1a5ad87ec87169ec389d9eb21068c890c960a5cc24efd6e443b5995d5001f4f7115
+doccontainersize 203648
+doccontainerchecksum b0e9b5ce6010b03afc52b6f4f7a978e8d5a8f1a382750bdbde0b758209e7f8dc57f84d950163e64381c2d7a8366a50a34c02286cc2011b9cde3e0d40810e01a4
+docfiles size=55
+ texmf-dist/doc/latex/ccfonts/LICENSE
+ texmf-dist/doc/latex/ccfonts/README details="Readme"
+ texmf-dist/doc/latex/ccfonts/ccfonts.pdf details="Package documentation"
+srccontainersize 5756
+srccontainerchecksum 30a301941132ba7b85c59b7e806d2b28ff314bcaae30c228337344f09846cc1051a73df1e4a2b76e36d499095c5a21000f250ec13f967a6080280ea120dbecc7
+srcfiles size=6
+ texmf-dist/source/latex/ccfonts/cc.fdd
+ texmf-dist/source/latex/ccfonts/ccfonts.dtx
+ texmf-dist/source/latex/ccfonts/ccfonts.ins
+runfiles size=3
+ texmf-dist/tex/latex/ccfonts/ccfonts.sty
+ texmf-dist/tex/latex/ccfonts/t1ccr.fd
+ texmf-dist/tex/latex/ccfonts/ts1ccr.fd
+catalogue-also ecc
+catalogue-contact-bugs https://gitlab.com/kjhtex/ccfonts/-/issues
+catalogue-contact-repository https://gitlab.com/kjhtex/ccfonts.git
+catalogue-ctan /macros/latex/contrib/ccfonts
+catalogue-license lppl
+catalogue-topics font-supp

@@ -1,0 +1,22 @@
+name lie-hasse
+category Package
+revision 61719
+shortdesc Draw Hasse diagrams
+longdesc This package draws Hasse diagrams of the partially ordered sets
+longdesc of the simple roots of any complex simple Lie algebra. It uses
+longdesc the Dynkin diagrams package dynkin-diagrams.
+containersize 10644
+containerchecksum b71ed475c73a94a92b8a8078a4edccc73f7d688bad7a1a5e6218bafba823b76a20b79da83c7591903fa234c6f0e7f776317dd8b740e5fd7cd014821f8dd77c94
+doccontainersize 575496
+doccontainerchecksum d846971b6b8429e58521ad0cc564906fc06623a3764117069fdb1912aeb84858e7af93ea2f4a7732c6e677f260f10a6a9b79488d43caf56ad158152245f8e4aa
+docfiles size=152
+ texmf-dist/doc/latex/lie-hasse/README details="Readme"
+ texmf-dist/doc/latex/lie-hasse/lie-hasse.bib
+ texmf-dist/doc/latex/lie-hasse/lie-hasse.pdf details="Package documentation"
+ texmf-dist/doc/latex/lie-hasse/lie-hasse.tex
+runfiles size=15
+ texmf-dist/tex/latex/lie-hasse/lie-hasse.sty
+catalogue-ctan /graphics/pgf/contrib/lie-hasse
+catalogue-license lppl1.3c
+catalogue-topics diagram pgf-tikz
+catalogue-version 1.0

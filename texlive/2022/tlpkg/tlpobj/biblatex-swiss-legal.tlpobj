@@ -1,0 +1,37 @@
+name biblatex-swiss-legal
+category Package
+revision 64314
+shortdesc Bibliography and citation styles following Swiss legal practice
+longdesc The package provides BibLaTeX bibliography and citation styles
+longdesc for documents written in accordance with Swiss legal citation
+longdesc standards in either French or German. However, according to
+longdesc https://tex.stackexchange.com/questions/426142/bibliography-usi
+longdesc ng-biblatex-swiss-legal-not-displayed-correctly the package is
+longdesc at present outdated and does not work properly with newer
+longdesc versions of BibLaTeX.
+containersize 18148
+containerchecksum 154f155a42afeeba45521b5a8fc6349cb416325368a43f49fdce86002473c296698c25f96703c05a2ab9e7f701d43db213f070d3c2e98ad789179a901f231f4a
+doccontainersize 513436
+doccontainerchecksum dc1151e5c4464f1ea5a0fa104ed7a0b62d40787d412bbbcf7994720a35004ec010096dd01fcb27b373ce3603492f321c50c595b263f490fc1fe2c04cfa7a4920
+docfiles size=145
+ texmf-dist/doc/latex/biblatex-swiss-legal/README details="Readme (French and English)"
+ texmf-dist/doc/latex/biblatex-swiss-legal/biblatex-swiss-legal.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/biblatex-swiss-legal/doc_source/biblatex-swiss-legal.bib
+ texmf-dist/doc/latex/biblatex-swiss-legal/doc_source/biblatex-swiss-legal.tex
+runfiles size=28
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-base.bbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-base.cbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-bibliography.bbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-bibliography.cbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-de.lbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-fr.lbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-general.bbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-general.cbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-longarticle.bbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-longarticle.cbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-shortarticle.bbx
+ texmf-dist/tex/latex/biblatex-swiss-legal/biblatex-swiss-legal-shortarticle.cbx
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-swiss-legal
+catalogue-license lppl1.3
+catalogue-topics legal french german biblatex
+catalogue-version 1.1.2a

@@ -1,0 +1,31 @@
+name fancyhdr
+category Package
+revision 63329
+shortdesc Extensive control of page headers and footers in LaTeX2e
+longdesc The package provides extensive facilities, both for
+longdesc constructing headers and footers, and for controlling their use
+longdesc (for example, at times when LaTeX would automatically change
+longdesc the heading style in use).
+containersize 5140
+containerchecksum dc40ba397e7fe2975712984282e67c8b04253e6a9b70d8104af3540518bfebac859d761b21ba242bd04f02c04543515a3646c33f0a0215d96d1833c290859d98
+doccontainersize 828876
+doccontainerchecksum cc7927f1ebc0c3f689ea550718f065b4fdcbb8ecf6085887e49e72c3dbc69af8ce0078d7a121d1e626a88e47fe33624093b8f0eab4155e67080c1234f5f95c67
+docfiles size=210
+ texmf-dist/doc/latex/fancyhdr/README details="Readme"
+ texmf-dist/doc/latex/fancyhdr/fancyhdr.pdf details="Users' manual (English)"
+srccontainersize 47076
+srccontainerchecksum 47bb2e1f7c80603be94233e3806b63f463c9f962229925c1f9b0f68253307d263ab942e55946ede197cf456bbf7071ce6e1ca74dc305a5f294ff7b029d7e9474
+srcfiles size=49
+ texmf-dist/source/latex/fancyhdr/fancyhdr.dtx
+ texmf-dist/source/latex/fancyhdr/fancyhdr.ins
+runfiles size=7
+ texmf-dist/tex/latex/fancyhdr/extramarks.sty
+ texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+ texmf-dist/tex/latex/fancyhdr/fancyheadings.sty
+catalogue-also titleps
+catalogue-contact-bugs https://github.com/pietvo/fancyhdr/issues
+catalogue-contact-repository https://github.com/pietvo/fancyhdr
+catalogue-ctan /macros/latex/contrib/fancyhdr
+catalogue-license lppl1.3
+catalogue-topics page-hf
+catalogue-version 4.0.3

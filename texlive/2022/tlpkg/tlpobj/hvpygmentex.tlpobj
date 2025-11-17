@@ -1,0 +1,25 @@
+name hvpygmentex
+category Package
+revision 62405
+shortdesc Syntax-Highlighting of program code
+longdesc The package is based on pygmentex but provides an automatic run
+longdesc from within the document itself, with the option
+longdesc --shell-escape. It does not need the additional action by the
+longdesc user to run the external program pygmentize to create the code
+longdesc snippets.
+containersize 3576
+containerchecksum 5770b9933ad2dc7c844ba2281a3717bc1d27f67a834de45a87effd400551fc74d111ba5087ceab96b2a9e6ed11293fd0d3dfbaf7ac89c4d9a1434911a2fbf734
+doccontainersize 22308
+doccontainerchecksum cd7b3a615ab8ca79e0d0e9feb7804cabd9036831d2f9761429b7bf528125d055e29f3f7a2e1eeb8efd4c73c1f6f8e0ed03a2ba47dbf9504fc1a750b4c278843c
+docfiles size=9
+ texmf-dist/doc/latex/hvpygmentex/Changes
+ texmf-dist/doc/latex/hvpygmentex/README.md details="Readme"
+ texmf-dist/doc/latex/hvpygmentex/hvpygmentex.pdf details="Package documentation"
+ texmf-dist/doc/latex/hvpygmentex/hvpygmentex.tex
+runfiles size=4
+ texmf-dist/tex/latex/hvpygmentex/hvpygmentex.sty
+catalogue-also pygmentex
+catalogue-ctan /macros/latex/contrib/hvpygmentex
+catalogue-license lppl1.3c
+catalogue-topics listing synt-hlt
+catalogue-version 0.01

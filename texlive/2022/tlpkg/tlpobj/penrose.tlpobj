@@ -1,0 +1,34 @@
+name penrose
+category Package
+revision 57508
+shortdesc A TikZ library for producing Penrose tilings
+longdesc This package provides a TikZ library for drawing Penrose tiles.
+longdesc It currently supports the kite/dart, rhombus, and pentagon tile
+longdesc sets. There are two main methods for their placement: one that
+longdesc automatically generates a tiling, and one that allows for "by
+longdesc hand" placement. Furthermore, the tiles themselves can be
+longdesc deformed and will still (hopefully!) fit together in the
+longdesc correct fashion.
+containersize 7448
+containerchecksum b8572b376e006126dfb925758e907f3993c7eb0a157a57a6a36c99103f3ed7ac58ae406f6888b7303fcea4c43b67e50162af0235d7d923e79c497c60403a3e2a
+doccontainersize 966168
+doccontainerchecksum a02fb2976c23ec8dc51ecc70fb6e702f62ff6c8e14de437e2bb3a478a432034e1a87f92266930e5c56931e4db8d2bb0bb8ab1c464ee4c8ccd15cea0df8624e61
+docfiles size=260
+ texmf-dist/doc/latex/penrose/README details="Readme"
+ texmf-dist/doc/latex/penrose/README.txt
+ texmf-dist/doc/latex/penrose/penrose.pdf details="User documentation"
+ texmf-dist/doc/latex/penrose/penrose.tex
+ texmf-dist/doc/latex/penrose/penrose_code.pdf details="Code documentation"
+srccontainersize 13256
+srccontainerchecksum d40b7a787431ac7ad6af14de17bdf749ec5743f3a95226f084bbf3bdf4ad720b43b597dc432c9831d871f030eee049e08e8bad9d2efae63e9d588db31ae15178
+srcfiles size=25
+ texmf-dist/source/latex/penrose/penrose_code.dtx
+ texmf-dist/source/latex/penrose/penrose_code.ins
+runfiles size=19
+ texmf-dist/tex/latex/penrose/tikzlibrarypenrose.code.tex
+catalogue-contact-bugs https://github.com/loopspace/penrose/issues
+catalogue-contact-repository https://github.com/loopspace/penrose
+catalogue-ctan /graphics/pgf/contrib/penrose
+catalogue-license lppl1.3c
+catalogue-topics maths pgf-tikz
+catalogue-version 1.4

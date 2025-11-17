@@ -1,0 +1,39 @@
+name gridslides
+category Package
+revision 54512
+shortdesc Free form slides with blocks placed on a grid
+longdesc This package allows creating free form slides with blocks
+longdesc placed on a grid. The blocks can be filled with text,
+longdesc equations, figures etc. The resulting slides are similar to the
+longdesc ones produced with LaTeX beamer, but more flexible. Sequential
+longdesc unconvering of elements is supported. A compiler script is
+longdesc provided which compiles each slide separately, this way
+longdesc avoiding long compile times.
+containersize 2532
+containerchecksum 9f9c3fc88cdf9e3641aae264eac0c116c3dc410ddab4c688521289baaf67cb4c8c605c734fbf45538b6498f7c337aeaaa4b90d2584c6becf06a97b81894c63c9
+doccontainersize 570220
+doccontainerchecksum ea3a2ed6334a5e160cb27b096e0868aae28908f77d67626b9d1d86840e615bf1b296ff5813ef5ed24ca0435eea39f4afe601216f243f2be585eb952f4df33255
+docfiles size=177
+ texmf-dist/doc/latex/gridslides/Makefile
+ texmf-dist/doc/latex/gridslides/README.md details="Readme"
+ texmf-dist/doc/latex/gridslides/compile.pl
+ texmf-dist/doc/latex/gridslides/example.pdf details="Example of use"
+ texmf-dist/doc/latex/gridslides/example.tex
+ texmf-dist/doc/latex/gridslides/figures/band02.png
+ texmf-dist/doc/latex/gridslides/figures/band08.png
+ texmf-dist/doc/latex/gridslides/figures/cnontrivial.pdf
+ texmf-dist/doc/latex/gridslides/figures/ctrivial.pdf
+ texmf-dist/doc/latex/gridslides/figures/qahe.pdf
+ texmf-dist/doc/latex/gridslides/figures/qshe.pdf
+ texmf-dist/doc/latex/gridslides/figures/skyrmion.pdf
+ texmf-dist/doc/latex/gridslides/figures/trivial.pdf
+ texmf-dist/doc/latex/gridslides/gridslides.pdf details="Package documentation"
+runfiles size=3
+ texmf-dist/tex/latex/gridslides/gridslides.cls
+ texmf-dist/tex/latex/gridslides/gridslides.sty
+catalogue-contact-bugs https://github.com/minad/gridslides/issues
+catalogue-contact-repository https://github.com/minad/gridslides
+catalogue-ctan /macros/latex/contrib/gridslides
+catalogue-license lppl1.3 gpl2
+catalogue-topics presentation class
+catalogue-version 0.1.1

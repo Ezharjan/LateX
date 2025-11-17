@@ -1,0 +1,41 @@
+name physconst
+category Package
+revision 58727
+shortdesc Macros for commonly used physical constants
+longdesc This package consists of several macros that are shorthand for
+longdesc a variety of physical constants, e.g. the speed of light. The
+longdesc package developed out of physics and astronomy classes that the
+longdesc author has taught and wanted to ensure that he had correct
+longdesc values for each constant and did not wish to retype them every
+longdesc time he uses them. The constants can be used in two forms, the
+longdesc most accurate available values, or versions that are rounded to
+longdesc 3 significant digits for use in typical classroom settings,
+longdesc homework assignments, etc. Most constants are taken from CODATA
+longdesc 2018, with the exception of the astronomical objects, whose
+longdesc values are taken from International Astronomical Union
+longdesc specified values. Constants that are derived from true
+longdesc constants, e.g. the fine structure constant, have been
+longdesc calculated using the accepted values of the fundamental
+longdesc constants.
+containersize 6016
+containerchecksum 3655aa79c067d01831e6f30d85f13ba7b06742d4731f2f2bbea8066205256fd4f6a5d3290812e667bde8805b9bcad82c4713d49e3eb357cde56a1f50ad065877
+doccontainersize 209684
+doccontainerchecksum 1824589dccba975de608260ab460a8a6be0d8aecb099571fb9e088e0ecd53f2f6e854a3f21eebacafd06717bfd53290ce23fbdc85467798c8f9b1189d64a58e9
+docfiles size=56
+ texmf-dist/doc/latex/physconst/CHANGELOG.md
+ texmf-dist/doc/latex/physconst/README.md details="Readme"
+ texmf-dist/doc/latex/physconst/makefile
+ texmf-dist/doc/latex/physconst/physconst.pdf details="Package documentation"
+srccontainersize 18756
+srccontainerchecksum 9e21baa7fe13e2ac201ce8d3d01e5217d078a5300c580fcb9e32fa321fa02ae5da58a4d44f81b4acdb31dc219ae6544196ab6580a123c891021185b65583362c
+srcfiles size=92
+ texmf-dist/source/latex/physconst/physconst.dtx
+ texmf-dist/source/latex/physconst/physconst.ins
+runfiles size=15
+ texmf-dist/tex/latex/physconst/physconst.sty
+catalogue-contact-bugs https://github.com/astrobit/physconst/issues
+catalogue-contact-repository https://github.com/astrobit/physconst
+catalogue-ctan /macros/latex/contrib/physconst
+catalogue-license lppl1.3c
+catalogue-topics physics numbers
+catalogue-version 1.1.2

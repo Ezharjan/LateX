@@ -1,0 +1,41 @@
+name filecontentsdef
+category Package
+revision 52208
+shortdesc filecontents + macro + verbatim
+longdesc The package provides two environments called filecontentsdef
+longdesc and filecontentshere. They are derived from the LaTeX
+longdesc filecontents environment as provided by Scott Pakin's
+longdesc filecontents package. In addition to the file creation they
+longdesc either store the (verbatim) contents in a macro
+longdesc (filecontentsdef) or typeset them (verbatim) on the spot
+longdesc (filecontentshere). The author developed the package to display
+longdesc TeX code verbatim in documentation and the same time produce
+longdesc the corresponding files during the LaTeX run in order to embed
+longdesc them in the PDF as file attachment annotations (by using Scott
+longdesc Pakin's package attachfile).
+containersize 2600
+containerchecksum 63b399a5e21d2d4946c195f380a0d5f269f8c978c0b504cda80c0796604dfcb66df38ca79d31078efa03c7475967bc0ebfb856e933bce6b21d12836368780e2a
+doccontainersize 129568
+doccontainerchecksum 26e7ca9971a0683325b62e2feeeb0db6ecdd3a732f07ae93515f2300ed58e97a44ff8a7504d194119c1e27d1d9bc4f367f29c17458c0e7f0b6a0a61fe18ea0ca
+docfiles size=41
+ texmf-dist/doc/latex/filecontentsdef/INSTALL
+ texmf-dist/doc/latex/filecontentsdef/INSTALL.md
+ texmf-dist/doc/latex/filecontentsdef/README.md details="Readme"
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef-ex1.tex
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef-ex2.tex
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef-ex3.tex
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef-tab.test
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef.pdf details="Package documentation"
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef.test
+ texmf-dist/doc/latex/filecontentsdef/filecontentsdef.tex
+srccontainersize 17028
+srccontainerchecksum f6e822a28e074fece05b911f0bf9d262e2b925c2a73559764e1eb5131d9081b48ace0ead5f46bb250bf648eac204eb1d5d7b362be508f58b40a50f70577de534
+srcfiles size=14
+ texmf-dist/source/latex/filecontentsdef/filecontentsdef.dtx
+runfiles size=2
+ texmf-dist/tex/latex/filecontentsdef/filecontentsdef.sty
+catalogue-also filecontents
+catalogue-ctan /macros/latex/contrib/filecontentsdef
+catalogue-license lppl1.3
+catalogue-topics file-mgmt
+catalogue-version 1.5

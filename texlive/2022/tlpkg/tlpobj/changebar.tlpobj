@@ -1,0 +1,31 @@
+name changebar
+category Package
+revision 63259
+shortdesc Generate changebars in LaTeX documents
+longdesc Identify areas of text to be marked with changebars with the
+longdesc \cbstart and \cbend commands; the bars may be coloured. The
+longdesc package uses 'drivers' to place the bars; the available drivers
+longdesc can work with dvitoln03, dvitops, dvips, the emTeX and TeXtures
+longdesc DVI drivers, and VTeX and pdfTeX.
+containersize 7004
+containerchecksum 1d47e3e98e6923fda580a8a34b8fcdcc7aad164306a6380ff8fd9ed77f1256225221f8b15da604303e562471ed6ffdb7109b6b95a397b25b80c48fdc4e565b62
+doccontainersize 376148
+doccontainerchecksum f3ece8b350ee00ecb596f0f66ef2ded81b7c507c618d226084d4a4e403441b9183a3686c2c26430654c45f15471092e83864a28cddad3d08e60c656d3af8ebe1
+docfiles size=99
+ texmf-dist/doc/latex/changebar/CATALOG
+ texmf-dist/doc/latex/changebar/MANIFEST
+ texmf-dist/doc/latex/changebar/README details="Readme"
+ texmf-dist/doc/latex/changebar/changebar.bug
+ texmf-dist/doc/latex/changebar/changebar.pdf details="Package documentation"
+srccontainersize 27104
+srccontainerchecksum 0615c7d0057e9138ba84e0f622560b7c0823d44021702ba31a77ab1e3bd13c24b8d59b1d96369d5e619d180797f2684c25d497e40a5c253a67eaf399b6cd0763
+srcfiles size=31
+ texmf-dist/source/latex/changebar/changebar.dtx
+ texmf-dist/source/latex/changebar/changebar.ins
+runfiles size=9
+ texmf-dist/tex/latex/changebar/changebar.sty
+catalogue-also chbar xechangebar backgrnd
+catalogue-ctan /macros/latex/contrib/changebar
+catalogue-license lppl1.3
+catalogue-topics editorial
+catalogue-version 3.6d

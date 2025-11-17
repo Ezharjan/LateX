@@ -1,0 +1,34 @@
+name tikztosvg
+category TLCore
+revision 60289
+shortdesc A utility for rendering TikZ diagrams to SVG
+longdesc This package provides a shell script that calls XeTeX and
+longdesc pdf2svg to convert TikZ environments to SVG files.
+depend tikztosvg.ARCH
+containersize 2052
+containerchecksum 0957b87c9a06771afab350de769e3fa9f97ec0aa09e4e740d0f916992948a65740a96446a0f8ac144273e94f228db2c6c0ddb22bd01ea9f0f66abe5adfe0125c
+doccontainersize 213584
+doccontainerchecksum 3d90c0963c570a115390603bcd5f39a224a155faea8ac6eec511b9689ab98383386d3d6e92076129e0f704d69bd18da52cf2f89f5db024a4d5c34a75c1edf279
+docfiles size=67
+ texmf-dist/doc/man/man1/tikztosvg.1
+ texmf-dist/doc/man/man1/tikztosvg.man1.pdf
+ texmf-dist/doc/support/tikztosvg/CHANGELOG.md
+ texmf-dist/doc/support/tikztosvg/LICENSE
+ texmf-dist/doc/support/tikztosvg/Makefile
+ texmf-dist/doc/support/tikztosvg/README.md details="Readme"
+ texmf-dist/doc/support/tikztosvg/example.svg
+ texmf-dist/doc/support/tikztosvg/example.tikz
+ texmf-dist/doc/support/tikztosvg/man.adoc
+ texmf-dist/doc/support/tikztosvg/tikztosvg.pdf details="Manual page (PDF)"
+runfiles size=2
+ texmf-dist/scripts/tikztosvg/tikztosvg
+catalogue-contact-announce https://lists.sr.ht/~pablo-pie/tikztosvg
+catalogue-contact-bugs https://lists.sr.ht/~pablo-pie/tikztosvg
+catalogue-contact-development https://lists.sr.ht/~pablo-pie/tikztosvg
+catalogue-contact-home https://git.sr.ht/~pablo-pie/tikztosvg
+catalogue-contact-repository https://git.sr.ht/~pablo-pie/tikztosvg
+catalogue-contact-support https://todo.sr.ht/~pablo-pie/tikztosvg
+catalogue-ctan /support/tikztosvg
+catalogue-license gpl3
+catalogue-topics cvt-other graphics pgf-tikz
+catalogue-version 0.3.0

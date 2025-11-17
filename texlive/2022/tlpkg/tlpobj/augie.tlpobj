@@ -1,0 +1,38 @@
+name augie
+category Package
+revision 61719
+shortdesc Calligraphic font for typesetting handwriting
+longdesc A calligraphic font for simulating American-style informal
+longdesc handwriting. The font is distributed in Adobe Type 1 format.
+execute addMap augie.map
+containersize 62124
+containerchecksum a862fc140ee85e9f48908e7251dca78f6f328bb194bc1031ce7b521feabc62bb148764e7574341b9ba39a1bc76bb4a718c3cfa45bba7480aff168eb17661d74a
+doccontainersize 3324
+doccontainerchecksum 434c1d88522ae41e8a41fbeda6685a059fafb8f6cdec26d8737b5f6a6ddcf1e4f2a443ffdffa6b62a74f4abd2ed2e947176f59e64bf5691debeb62d9d54e719b
+docfiles size=6
+ texmf-dist/doc/latex/augie/README.augie details="Readme"
+ texmf-dist/doc/latex/augie/augie.txt
+ texmf-dist/doc/latex/augie/other/Augie___.pfm
+ texmf-dist/doc/latex/augie/other/augie___.inf
+ texmf-dist/doc/latex/augie/vtex/augie.ali
+runfiles size=30
+ texmf-dist/fonts/afm/public/augie/augie___.afm
+ texmf-dist/fonts/map/dvips/augie/augie.map
+ texmf-dist/fonts/tfm/public/augie/augie7t.tfm
+ texmf-dist/fonts/tfm/public/augie/augie8c.tfm
+ texmf-dist/fonts/tfm/public/augie/augie8r.tfm
+ texmf-dist/fonts/tfm/public/augie/augie8t.tfm
+ texmf-dist/fonts/tfm/public/augie/augie___.tfm
+ texmf-dist/fonts/type1/public/augie/augie___.pfb
+ texmf-dist/fonts/vf/public/augie/augie7t.vf
+ texmf-dist/fonts/vf/public/augie/augie8c.vf
+ texmf-dist/fonts/vf/public/augie/augie8t.vf
+ texmf-dist/tex/latex/augie/ot1augie.fd
+ texmf-dist/tex/latex/augie/t1augie.fd
+ texmf-dist/tex/latex/augie/ts1augie.fd
+catalogue-also twcal
+catalogue-contact-bugs https://gitlab.com/kjhtex/augie/-/issues
+catalogue-contact-repository https://gitlab.com/kjhtex/augie.git
+catalogue-ctan /fonts/augie
+catalogue-license lppl
+catalogue-topics font font-calligraphic font-type1

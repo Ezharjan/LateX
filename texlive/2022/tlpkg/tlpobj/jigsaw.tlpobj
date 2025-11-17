@@ -1,0 +1,25 @@
+name jigsaw
+category Package
+revision 63937
+shortdesc Draw jigsaw pieces with TikZ
+longdesc This is a small LaTeX package to draw jigsaw pieces with TikZ.
+longdesc It is possible to draw individual pieces and adjust their
+longdesc shape, create tile patterns or automatically generate complete
+longdesc jigsaws.
+containersize 1532
+containerchecksum e4126aeafbbb3153a17a20bae5d0ff32b46b3e01a45200a7273893fd4d3892588e098e7800ae4ce2e507afcb858f3045d343f0996fd406a2cd8c81ae462598af
+doccontainersize 173688
+doccontainerchecksum 371df2db0ab8eeca347a0c7c813bacdb3d29b2775b155c23c5f46ce43ea3eeb29387a7cd1ec19fb3420535bab7e9a57a433f71abe780a3870827011465b3a857
+docfiles size=47
+ texmf-dist/doc/latex/jigsaw/README.md details="Readme"
+ texmf-dist/doc/latex/jigsaw/jigsaw-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/jigsaw/jigsaw-doc.tex
+runfiles size=1
+ texmf-dist/tex/latex/jigsaw/jigsaw.sty
+catalogue-contact-bugs https://github.com/samcarter/jigsaw/issues
+catalogue-contact-repository https://github.com/samcarter/jigsaw
+catalogue-contact-support https://github.com/samcarter/jigsaw/issues
+catalogue-ctan /graphics/pgf/contrib/jigsaw
+catalogue-license lppl1.3c
+catalogue-topics pgf-tikz
+catalogue-version 0.3

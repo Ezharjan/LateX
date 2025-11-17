@@ -1,0 +1,28 @@
+name datetime2-turkish
+category Package
+revision 52331
+shortdesc Turkish language module for the datetime2 package
+longdesc This module provides the "turkish" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. This package is
+longdesc currently unmaintained. Please see the README for the procedure
+longdesc to follow if you want to take over the maintenance.
+containersize 2480
+containerchecksum 7d4b756ab2f102c7981376d6f87e5a7f7b47d57b1ae9f821185bd5b04e7a5d9a81aebc7835a9bb43a217dffcfceb5b2c46b838bc652dab7c2f468d9510c2ee4a
+doccontainersize 71700
+doccontainerchecksum 6c95641444f2eb510a330c7002bba2c40cf28daeb63fd9092d74846673c03d2aeafd1e7d61d5a7470bac95117c3717cd75566907a896f5cb4b54ccbe952c6d65
+docfiles size=19
+ texmf-dist/doc/latex/datetime2-turkish/README details="Readme"
+ texmf-dist/doc/latex/datetime2-turkish/datetime2-turkish.pdf details="Package documentation"
+srccontainersize 4648
+srccontainerchecksum da530162bdacda3904b07bb2d9b0ab74c56cec0341f0c0457d6bd2e27e45b2d8c1f5ca298718d96924e3dce30e83beacd0fef919d1b5bdb5dedae29c7b3edcc1
+srcfiles size=5
+ texmf-dist/source/latex/datetime2-turkish/datetime2-turkish.dtx
+ texmf-dist/source/latex/datetime2-turkish/datetime2-turkish.ins
+runfiles size=4
+ texmf-dist/tex/latex/datetime2-turkish/datetime2-turkish-ascii.ldf
+ texmf-dist/tex/latex/datetime2-turkish/datetime2-turkish-utf8.ldf
+ texmf-dist/tex/latex/datetime2-turkish/datetime2-turkish.ldf
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-turkish
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.1

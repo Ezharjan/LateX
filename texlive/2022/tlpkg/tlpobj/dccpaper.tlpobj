@@ -1,0 +1,38 @@
+name dccpaper
+category Package
+revision 61763
+shortdesc Typeset papers for the International Journal of Digital Curation
+longdesc The LaTeX class ijdc-v14 produces camera-ready papers and
+longdesc articles suitable for inclusion in the International Journal of
+longdesc Digital Curation, with applicability from volume 14 onwards; a
+longdesc legacy class ijdc-v9 is provided for papers and articles
+longdesc written for volumes 9-13. The similar idcc class can be used
+longdesc for submissions to the International Digital Curation
+longdesc Conference, beginning with the 2015 conference.
+containersize 24808
+containerchecksum 98648e229632afa6503388edbf7418b2f92fb46351bdedf7d678132be91b3740927ce4c17ccb2ddbee6e24cfc0810b415c013cb61aa81db986efb5daef311aed
+doccontainersize 286284
+doccontainerchecksum e9809887d68592513d5d9992add687dc7fe82e7570fcbc46cf582f66152c94d5f9729735f0f5714245421556b470fcf0f6cb0129017fd79df20e96fc0f4548e2
+docfiles size=88
+ texmf-dist/doc/latex/dccpaper/README.md details="Readme"
+ texmf-dist/doc/latex/dccpaper/dccpaper-apacite.bib
+ texmf-dist/doc/latex/dccpaper/dccpaper-biblatex.bib
+ texmf-dist/doc/latex/dccpaper/dccpaper.pdf details="Package documentation"
+srccontainersize 26584
+srccontainerchecksum da0843ea5f46a187b0d454b5a421699865086af684512a2202aded1e50c240e1345130753fff0a779794d5897f32be793006802c59a7aa741a0f53b4ac002f91
+srcfiles size=26
+ texmf-dist/source/latex/dccpaper/Makefile
+ texmf-dist/source/latex/dccpaper/dccpaper.dtx
+runfiles size=27
+ texmf-dist/tex/latex/dccpaper/dccpaper-base.sty
+ texmf-dist/tex/latex/dccpaper/dccpaper-by.eps
+ texmf-dist/tex/latex/dccpaper/dccpaper-by.pdf
+ texmf-dist/tex/latex/dccpaper/idcc.cls
+ texmf-dist/tex/latex/dccpaper/ijdc-v14.cls
+ texmf-dist/tex/latex/dccpaper/ijdc-v9.cls
+catalogue-contact-bugs https://github.com/DigitalCurationCentre/dccpaper/issues
+catalogue-contact-repository https://github.com/DigitalCurationCentre/dccpaper
+catalogue-ctan /macros/latex/contrib/dccpaper
+catalogue-license lppl1.3c cc-by-4
+catalogue-topics journalpub confproc class
+catalogue-version 2.3

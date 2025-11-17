@@ -1,0 +1,51 @@
+name pmx
+category Package
+revision 62533
+shortdesc Preprocessor for MusiXTeX
+longdesc PMX provides a preprocessor for MusiXTeX. pmxab builds a TeX
+longdesc input file based on a .pmx input file in a much simpler
+longdesc language, making most of the layout decisions by itself. It has
+longdesc most of MusiXTeX's functionality, but it also permits in-line
+longdesc TeX to give access to virtually all of MusiXTeX. For
+longdesc proof-listening, pmxab will make a MIDI file of your score.
+longdesc scor2prt is an auxiliary program that makes parts from a score.
+depend pmx.ARCH
+containersize 10088
+containerchecksum b9eb6d7a007fb88d4a5c3cc429954ef26910d287f201eb8bdb474df171d9eda7761772b64421ad35598ed9cda8c5d2eecfaab499bf5115fa47da6341669fb10d
+doccontainersize 634948
+doccontainerchecksum c15f25b353edb048bd1b04a82240d2fe3b49a5556678a6a5f771f2fff3b4840786d42161769410e0a34aa0e361dc9635bc2d3e7c6d2699612f9f4ddd518e39d4
+docfiles size=314
+ texmf-dist/doc/generic/pmx/ChangeLog
+ texmf-dist/doc/generic/pmx/README details="Readme"
+ texmf-dist/doc/generic/pmx/accents.eps
+ texmf-dist/doc/generic/pmx/examples/barsant.pmx
+ texmf-dist/doc/generic/pmx/examples/dyntest.pmx
+ texmf-dist/doc/generic/pmx/examples/most.pmx
+ texmf-dist/doc/generic/pmx/examples/mwalmnd.pmx
+ texmf-dist/doc/generic/pmx/examples/netsoos.pmx
+ texmf-dist/doc/generic/pmx/examples/prad5x.pmx
+ texmf-dist/doc/generic/pmx/examples/staffcrossall.pmx
+ texmf-dist/doc/generic/pmx/file600.eps
+ texmf-dist/doc/generic/pmx/gapxmpl.eps
+ texmf-dist/doc/generic/pmx/gpl.txt
+ texmf-dist/doc/generic/pmx/pmx-install.pdf details="Installation details"
+ texmf-dist/doc/generic/pmx/pmx-install.tex
+ texmf-dist/doc/generic/pmx/pmx298.pdf details="Package manual"
+ texmf-dist/doc/generic/pmx/pmx298.tex
+ texmf-dist/doc/generic/pmx/pmxab.pdf
+ texmf-dist/doc/generic/pmx/ref298.pdf
+ texmf-dist/doc/generic/pmx/ref298.tex
+ texmf-dist/doc/generic/pmx/scor2prt.pdf
+ texmf-dist/doc/generic/pmx/sjb291.eps
+ texmf-dist/doc/generic/pmx/tremxmpl4.eps
+ texmf-dist/doc/man/man1/pmxab.1
+ texmf-dist/doc/man/man1/pmxab.man1.pdf
+ texmf-dist/doc/man/man1/scor2prt.1
+ texmf-dist/doc/man/man1/scor2prt.man1.pdf
+runfiles size=8
+ texmf-dist/tex/generic/pmx/pmx.tex
+catalogue-contact-home http://icking-music-archive.org/software/indexmt6.html
+catalogue-ctan /support/pmx
+catalogue-license gpl2
+catalogue-topics music
+catalogue-version 2.98a

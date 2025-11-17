@@ -1,0 +1,88 @@
+name testidx
+category Package
+revision 60966
+shortdesc Dummy text for testing index styles and indexing applications
+longdesc This is a LaTeX package that provides a command to produce
+longdesc dummy text interspersed with \index commands to test an index
+longdesc style or indexing application. The dummy text is mostly in
+longdesc English, but includes extended Latin characters provided either
+longdesc through LaTeX accent commands or directly with UTF-8
+longdesc characters, depending on the setup, to allow for testing
+longdesc extended Latin alphabets. The supplementary package
+longdesc testidx-glossaries.sty uses the indexing interface provided by
+longdesc the glossaries package.
+containersize 44064
+containerchecksum e4179ab827eb21f27fabdd06674302ac141b6abf889e87c4183b4d86253ae35b5ea277ecb8ac36e66d51a4e25556fae092f98bfdd768d34728412f3bb8b5faf7
+doccontainersize 3323724
+doccontainerchecksum 60761fa19984e3ab2a0b5420320a43b84c1174a4e6722c75523fcaff43206ca2bd01f24af74ee307b5cd7d12196238f86539f8cfafc27168bf134df74e2736df
+docfiles size=1320
+ texmf-dist/doc/latex/testidx/CHANGES
+ texmf-dist/doc/latex/testidx/README details="Readme"
+ texmf-dist/doc/latex/testidx/samples/sample-idx-a4.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-a4.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-amsmath.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-amsmath.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-babel-german.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-babel-german.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-german.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-german.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-hyp.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-hyp.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-letter.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-letter.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-lua.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-lua.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-subset.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-subset.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-t1.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-t1.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-utf8.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-utf8.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-xe-digraphs.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-xe-digraphs.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx-xe.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx-xe.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idx.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idx.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-bib2gls-xe.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-bib2gls-xe.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-bib2gls.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-bib2gls.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-desc.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-desc.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-xe-digraphs.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-xe-digraphs.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-xindy.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss-xindy.tex
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-idxgloss.tex
+ texmf-dist/doc/latex/testidx/samples/sample-noidxgloss.pdf
+ texmf-dist/doc/latex/testidx/samples/sample-noidxgloss.tex
+ texmf-dist/doc/latex/testidx/testidx-code.pdf details="Code documentation"
+ texmf-dist/doc/latex/testidx/testidx-manual.pdf details="User manual"
+ texmf-dist/doc/latex/testidx/testidx-manual.tex
+srccontainersize 51652
+srccontainerchecksum 358c712d4073983f872dc9664bd6e138c7c66a420d1253ec36646cefa584c9148573fd978026de87d98806c71ea8f8f45c1cd0160b3be738d6fb9cd535d774c1
+srcfiles size=98
+ texmf-dist/source/latex/testidx/testidx.dtx
+ texmf-dist/source/latex/testidx/testidx.ins
+runfiles size=90
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-diglyphs-utf8.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-markers.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-mathsym.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-nodiglyphs-utf8.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-nodiglyphs.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-numbers.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-samples-ascii.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-samples-utf8.bib
+ texmf-dist/bibtex/bib/testidx/testidx-glossaries-samples.bib
+ texmf-dist/tex/latex/testidx/testidx-glossaries-diglyphs.tex
+ texmf-dist/tex/latex/testidx/testidx-glossaries-nodiglyphs.tex
+ texmf-dist/tex/latex/testidx/testidx-glossaries-samples.tex
+ texmf-dist/tex/latex/testidx/testidx-glossaries.sty
+ texmf-dist/tex/latex/testidx/testidx.sty
+catalogue-also blindtext
+catalogue-ctan /macros/latex/contrib/testidx
+catalogue-license lppl1.3
+catalogue-topics index dummy-gen
+catalogue-version 1.2

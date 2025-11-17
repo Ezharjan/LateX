@@ -1,0 +1,26 @@
+name econlipsum
+category Package
+revision 58390
+shortdesc Generate sentences from economic articles
+longdesc This package is a blind text generator that ouputs sentences
+longdesc inferred from abstracts of economic articles. All the
+longdesc paragraphs are taken with permission from
+longdesc https://ipsum.mwt.me/.
+containersize 80636
+containerchecksum e3b007e83980cc9d7ef7fbc1f7cf067d757ba29c886d20f6c53d028236cc688fad23d7ad24cbfde19b6adb77a159b10f2bad617de009b2fa769aaba042a8ff01
+doccontainersize 567024
+doccontainerchecksum a540e4cb09c88d1614ea0dd46bc35396d9f11a39089dfc9d83c31587a2f72c0537f5d7fe3c8ba1a25559d8b7fa4dd75a577820eeb02386d50fe418b50c6fb8b9
+docfiles size=141
+ texmf-dist/doc/latex/econlipsum/README.md details="Readme"
+ texmf-dist/doc/latex/econlipsum/econlipsum.pdf details="Package documentation"
+srccontainersize 84044
+srccontainerchecksum bcbd36e3ee0ed9e941e34dece41fb4e927f5f826fccfda3612f4757d72b7485cd34e9569d867435eaddaa763b28199db765f9caec107b2e6954a3b9da8e44a37
+srcfiles size=67
+ texmf-dist/source/latex/econlipsum/econlipsum.dtx
+runfiles size=64
+ texmf-dist/tex/latex/econlipsum/econlipsum.sty
+catalogue-also kantlipsum antanilipsum
+catalogue-ctan /macros/latex/contrib/econlipsum
+catalogue-license lppl1.3c
+catalogue-topics dummy-gen
+catalogue-version 0.8.2

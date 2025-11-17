@@ -1,0 +1,30 @@
+name windycity
+category Package
+revision 61223
+shortdesc A Chicago style for BibLaTeX
+longdesc Windy City is a style for BibLaTeX that formats notes,
+longdesc bibliographies, parenthetical citations, and reference lists
+longdesc according to the 17th edition of The Chicago Manual of Style.
+containersize 20328
+containerchecksum 718ef4ce03405443de94581e45f8866053ce4b5d6b7c6e4576c4664d42adcf50570240fc8181f795f59733b94c648e15cc98ef92e4ae59843093663511829c4d
+doccontainersize 565924
+doccontainerchecksum 58107956e367dc318cc23320818c43f3fa91b75f69bc186b107687293f52c1c0cffb04912959e1a5c8d8abe3bb848c69da38ec621266e7a94b378a11d4c759e2
+docfiles size=194
+ texmf-dist/doc/latex/windycity/CHANGES.md
+ texmf-dist/doc/latex/windycity/LICENCE
+ texmf-dist/doc/latex/windycity/README.md details="Readme"
+ texmf-dist/doc/latex/windycity/windycity.bib
+ texmf-dist/doc/latex/windycity/windycity.pdf details="Package documentation"
+ texmf-dist/doc/latex/windycity/windycity.tex
+runfiles size=34
+ texmf-dist/tex/latex/windycity/american-windycity.lbx
+ texmf-dist/tex/latex/windycity/windycity.bbx
+ texmf-dist/tex/latex/windycity/windycity.cbx
+ texmf-dist/tex/latex/windycity/windycity.dbx
+ texmf-dist/tex/latex/windycity/windycity.sty
+catalogue-also biblatex-chicago
+catalogue-contact-bugs https://github.com/brianchase/windycity/issues
+catalogue-contact-repository https://github.com/brianchase/windycity
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/windycity
+catalogue-license lppl1.3
+catalogue-topics biblatex

@@ -1,0 +1,34 @@
+name xpiano
+category Package
+revision 61719
+shortdesc An extension of the piano package
+longdesc This package provides macros for typesetting virtual keyboards
+longdesc limited to two octaves for showing notes represented by a
+longdesc colored circle. Optionally, the number used for pitch analysis
+longdesc can be shown. It is an extension of piano.sty by Emile
+longdesc Daneault, written in expl3 in answer to a couple of questions
+longdesc on TeX.StackExchange:
+longdesc https://tex.stackexchange.com/questions/162184/
+longdesc https://tex.stackexchange.com/questions/246276/. It features
+longdesc extended syntax and several options, like setting the color,
+longdesc adding numbers for pitch analysis, one or two octaves, and
+longdesc others.
+containersize 2792
+containerchecksum 892f018e4bcad350e4418b2724b6bf2d18aca9f74aa01eb10906b90630b36ec3497a0b96b293e44ec136eee22648b53a13d7a9b614a36c0b79f5a7b94dc37403
+doccontainersize 556172
+doccontainerchecksum 467da8be6903252b1d1a9436750b8d2f0f5eb1f1f7ad1178acf0a1ddbea253ce38ddc842c89ab6a22c4bb72ec311a2ee2536dee5834ca3ead427c36592c35100
+docfiles size=138
+ texmf-dist/doc/latex/xpiano/README.txt
+ texmf-dist/doc/latex/xpiano/xpiano.pdf details="Package documentation"
+srccontainersize 6324
+srccontainerchecksum bfd5a1dde7e05755f3c0167f16b7af2d83881b25d31e96644d18d193f4afb8f9f359b5149fe4534e43243e9364c1ab6380576196422c79077c82c4269b7619a0
+srcfiles size=7
+ texmf-dist/source/latex/xpiano/xpiano.dtx
+ texmf-dist/source/latex/xpiano/xpiano.ins
+runfiles size=3
+ texmf-dist/tex/latex/xpiano/xpiano.sty
+catalogue-also piano
+catalogue-ctan /macros/latex/contrib/xpiano
+catalogue-license lppl1.3
+catalogue-topics music
+catalogue-version 1.0

@@ -1,0 +1,33 @@
+name texdoctk
+category TLCore
+revision 62186
+shortdesc Easy access to package documentation
+longdesc A Perl/Tk-based GUI for easy access to package documentation
+longdesc for TeX on Unix platforms; the databases it uses are based on
+longdesc the texmf/doc subtrees of teTeX, but database files for local
+longdesc configurations with modified/extended directories can be
+longdesc derived from them. Note that texdoctk is not a viewer itself,
+longdesc but an interface for finding documentation files and opening
+longdesc them with the appropriate viewer; so it relies on appropriate
+longdesc programs to be installed on the system. However, the choice of
+longdesc these programs can be configured by the sysadmin or user. Now
+longdesc only distributed as part of TeX Live, which includes a Windows
+longdesc executable.
+depend kpathsea
+depend texdoctk.ARCH
+containersize 26712
+containerchecksum f3300a088f5ecedfe66ca277f793d3565b5b0f111721a0d73a788d65b72f09d0103a11edda13679fb9e919f11ce9ed3662717c18e46be99a83b744a1f7ec88fe
+doccontainersize 30728
+doccontainerchecksum fb403dc17ad839ea64bcf6da84e59288a8745b5eb731051d7df8593138aa5d3b6891d56f52bdbe5c9a41e590f1f36db390e7e7a825d9aaf00d4fbc01c8dc16ba
+docfiles size=11
+ texmf-dist/doc/man/man1/texdoctk.1
+ texmf-dist/doc/man/man1/texdoctk.man1.pdf
+runfiles size=27
+ texmf-dist/scripts/texdoctk/texdoctk.pl
+ texmf-dist/texdoctk/texdocrc-win32.defaults
+ texmf-dist/texdoctk/texdocrc.defaults
+ texmf-dist/texdoctk/texdoctk.dat
+catalogue-also texdoc
+catalogue-license gpl
+catalogue-topics view-doc
+catalogue-version 0.6.0

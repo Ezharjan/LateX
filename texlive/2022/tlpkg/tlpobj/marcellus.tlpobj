@@ -1,0 +1,76 @@
+name marcellus
+category Package
+revision 64451
+shortdesc Marcellus fonts with LaTeX support
+longdesc This package provides LaTeX, pdfLaTeX, XeLaTeX and LuaLaTeX
+longdesc support for the Marcellus family of fonts, designed by Brian J.
+longdesc Bonislawsky. Marcellus is a flared-serif family, inspired by
+longdesc classic Roman inscription letterforms. There is currently just
+longdesc a regular weight and small-caps. The regular weight will be
+longdesc silently substituted for bold.
+execute addMap marcellus.map
+containersize 178108
+containerchecksum b6ba86cea7e275ae2cb6f35468300035fec789b85280307e65784bca9844aa8c834aa23e9f7e59de75d53879dbc609e64c084adcb1c38811483eeab15543f95f
+doccontainersize 19872
+doccontainerchecksum 5267a43751ac7a0aadfba28ec4427da7c1afbafac2425f09582a736520ab4bbd769e08ef02b86816225cd76bedcbb23f6cfd3e77352c9e4008f9443b826b48e9
+docfiles size=9
+ texmf-dist/doc/fonts/marcellus/OFL.txt
+ texmf-dist/doc/fonts/marcellus/README details="Readme"
+ texmf-dist/doc/fonts/marcellus/marcellus-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/marcellus/marcellus-samples.tex
+runfiles size=112
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_37huou.enc
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_5az7w7.enc
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_cvodtw.enc
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_rfafok.enc
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_rwr7kk.enc
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_rzkwvt.enc
+ texmf-dist/fonts/enc/dvips/marcellus/mrcls_stzmvz.enc
+ texmf-dist/fonts/map/dvips/marcellus/marcellus.map
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-ly1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-ot1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-t1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-lf-ts1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-sup-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-sup-ly1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-sup-ot1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-sup-t1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/Mrcls-Regular-sup-t1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-lf-sc-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-lf-sc-ly1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-lf-sc-ot1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-lf-sc-t1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-lf-sc-t1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-sup-sc-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-sup-sc-ly1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-sup-sc-ot1.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-sup-sc-t1--base.tfm
+ texmf-dist/fonts/tfm/public/marcellus/MrclsSC-Regular-sup-sc-t1.tfm
+ texmf-dist/fonts/truetype/public/marcellus/Marcellus-Regular.ttf
+ texmf-dist/fonts/truetype/public/marcellus/MarcellusSC-Regular.ttf
+ texmf-dist/fonts/type1/public/marcellus/Mrcls-Regular.pfb
+ texmf-dist/fonts/type1/public/marcellus/MrclsSC-Regular.pfb
+ texmf-dist/fonts/vf/public/marcellus/Mrcls-Regular-lf-ly1.vf
+ texmf-dist/fonts/vf/public/marcellus/Mrcls-Regular-lf-t1.vf
+ texmf-dist/fonts/vf/public/marcellus/Mrcls-Regular-lf-ts1.vf
+ texmf-dist/fonts/vf/public/marcellus/Mrcls-Regular-sup-ly1.vf
+ texmf-dist/fonts/vf/public/marcellus/Mrcls-Regular-sup-t1.vf
+ texmf-dist/fonts/vf/public/marcellus/MrclsSC-Regular-lf-sc-ly1.vf
+ texmf-dist/fonts/vf/public/marcellus/MrclsSC-Regular-lf-sc-t1.vf
+ texmf-dist/fonts/vf/public/marcellus/MrclsSC-Regular-sup-sc-ly1.vf
+ texmf-dist/fonts/vf/public/marcellus/MrclsSC-Regular-sup-sc-t1.vf
+ texmf-dist/tex/latex/marcellus/LY1Mrcls-LF.fd
+ texmf-dist/tex/latex/marcellus/LY1Mrcls-Sup.fd
+ texmf-dist/tex/latex/marcellus/OT1Mrcls-LF.fd
+ texmf-dist/tex/latex/marcellus/OT1Mrcls-Sup.fd
+ texmf-dist/tex/latex/marcellus/T1Mrcls-LF.fd
+ texmf-dist/tex/latex/marcellus/T1Mrcls-Sup.fd
+ texmf-dist/tex/latex/marcellus/TS1Mrcls-LF.fd
+ texmf-dist/tex/latex/marcellus/marcellus.sty
+catalogue-contact-home https://fonts.google.com/specimen/Marcellus
+catalogue-ctan /fonts/marcellus
+catalogue-license ofl lppl
+catalogue-topics font font-body font-proportional font-ttf font-type1 font-supp font-t1enc

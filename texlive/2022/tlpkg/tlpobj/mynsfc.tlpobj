@@ -1,0 +1,31 @@
+name mynsfc
+category Package
+revision 60280
+shortdesc XeLaTeX template for writing the main body of NSFC proposals
+longdesc The package provides a XeLaTeX template for writing the main
+longdesc body of National Natural Science Foundation of China (NSFC)
+longdesc proposals, which are allowed to apply online. The package
+longdesc defines styles of the outlines and uses BibLaTeX/biber for the
+longdesc management of references.
+containersize 2816
+containerchecksum 6736bcfc3e0285b4def1b690fa0be98da319ce91f3e77978f08afc81289bc64b9a7aaae1d23a535a437c68037ba3cf0c068846ded35e3a6f4a26fbb7fa1be382
+doccontainersize 450800
+doccontainerchecksum 0b8936f3a2f36f68be9b1b9ba7c90f60babf6a6c9c81ab165ea947829ce0cf4230cf9f53d0acef3dde83c2fad10867e7316f9dbee0757a7fb9dac98b683d811b
+docfiles size=116
+ texmf-dist/doc/xelatex/mynsfc/my-proposal-contents.tex
+ texmf-dist/doc/xelatex/mynsfc/my-proposal.bib
+ texmf-dist/doc/xelatex/mynsfc/my-proposal.pdf
+ texmf-dist/doc/xelatex/mynsfc/my-proposal.tex
+ texmf-dist/doc/xelatex/mynsfc/mynsfc.pdf details="Package documentation"
+srccontainersize 6004
+srccontainerchecksum 613c70050fcedf8917d39d2cc212b19fc2b1bc983e442d33bbce4f1fcf99cf73a8ee8a51c44eea090deb76fa57ed6b075b9fad12ed00516b80a2314d0202b988
+srcfiles size=4
+ texmf-dist/source/xelatex/mynsfc/mynsfc.dtx
+runfiles size=2
+ texmf-dist/tex/xelatex/mynsfc/mynsfc.cls
+catalogue-contact-bugs https://github.com/fredqi/mynsfc/issues
+catalogue-contact-repository https://github.com/fredqi/mynsfc
+catalogue-ctan /macros/xetex/latex/mynsfc
+catalogue-license lppl1.3c
+catalogue-topics proposal
+catalogue-version 1.30

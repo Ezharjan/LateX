@@ -1,0 +1,41 @@
+name xbmks
+category Package
+revision 53448
+shortdesc Create a cross-document bookmark tree
+longdesc The package defines the concept of a document bundle, which is
+longdesc a collection of documents that are to be built separately, but
+longdesc have a common bookmark tree. The only options are driver
+longdesc options, these are dvips (Acrobat Distiller or ps2pdf these can
+longdesc be used as the PDF creator), pdfLaTeX (and LuaLaTeX, which is
+longdesc treated the same as pdfLaTeX), and XeLaTeX. The package
+longdesc auto-detects pdfLaTeX and XeLaTeX, and dvips is the default, so
+longdesc there is actually no need to pass the driver option.
+containersize 4124
+containerchecksum e17701f9cd79d49467e4dd47ef9a504a8b0fb44b216fbfab0f5547e9215c4dc40f1fa46aabc209ff2221a4a9424221adacc52f6040d3f796d51f2d37dcd4e8c5
+doccontainersize 364224
+doccontainerchecksum 76d255a036a19d80c826eff4b18643523787c53f9b79e44710e03f9bb8a7648136559727dee246508c1cc6ff332cbc92b8d1c728b4583ae26502ce44538a61db
+docfiles size=118
+ texmf-dist/doc/latex/xbmks/README.md details="Readme"
+ texmf-dist/doc/latex/xbmks/docs/xbmks.pdf
+ texmf-dist/doc/latex/xbmks/docs/xbmksman.pdf details="Package documentation"
+ texmf-dist/doc/latex/xbmks/docs/xbmksman.tex
+ texmf-dist/doc/latex/xbmks/examples/doc1.pdf
+ texmf-dist/doc/latex/xbmks/examples/doc1.tex
+ texmf-dist/doc/latex/xbmks/examples/doc2.pdf
+ texmf-dist/doc/latex/xbmks/examples/doc2.tex
+ texmf-dist/doc/latex/xbmks/examples/master.pdf
+ texmf-dist/doc/latex/xbmks/examples/master.tex
+ texmf-dist/doc/latex/xbmks/examples/stand-alone.tex
+srccontainersize 8024
+srccontainerchecksum 4c3a9ade3d3c204db2c2d0e11a55bef0a18cf1e3e4dfa292c3da356ef5ef5aab9ed6021d07f6222f1ec722298c46ee4e4eff02658e76b99bb426e6e289fbc136
+srcfiles size=9
+ texmf-dist/source/latex/xbmks/xbmks.dtx
+ texmf-dist/source/latex/xbmks/xbmks.ins
+runfiles size=5
+ texmf-dist/tex/latex/xbmks/xbmks-pdfmark.def
+ texmf-dist/tex/latex/xbmks/xbmks-pdftex.def
+ texmf-dist/tex/latex/xbmks/xbmks-xetex.def
+ texmf-dist/tex/latex/xbmks/xbmks.sty
+catalogue-ctan /macros/latex/contrib/xbmks
+catalogue-license lppl1.2
+catalogue-topics pdfprocess adobe-distiller

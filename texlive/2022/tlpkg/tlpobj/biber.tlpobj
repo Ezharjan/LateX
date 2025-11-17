@@ -1,0 +1,41 @@
+name biber
+category Package
+revision 64367
+shortdesc A BibTeX replacement for users of BibLaTeX
+longdesc Biber is a BibTeX replacement for users of BibLaTeX. Biber
+longdesc supports full UTF-8, can (re)-encode input and output, supports
+longdesc highly configurable sorting, dynamic bibliography sets and many
+longdesc other features. The CTAN distribution offers a compressed tar
+longdesc archive of the sources, etc., together with "binary"
+longdesc distributions for a variety of platforms. Note: on SourceForge
+longdesc biber is formally named "biblatex-biber", to distinguish it
+longdesc from an earlier (now apparently moribund) project called
+longdesc "biber".
+depend biber.ARCH
+containersize 736
+containerchecksum 826f83519c0ed6b59217da068ccfac7c2506ae646bbd109ccbbe94f325acf6bc78a983322856625e905dba904dad8c282f4725ef7b6f9710998fd5a63a7daaac
+doccontainersize 265488
+doccontainerchecksum 84222f96d46c0cece4dbf4218ef8f90ef263177a3761edbd42f5a4aa42484f2786a4221012ea509aee942e440a48e19aeeaf7ac76b02e74885b3ec928064f7ee
+docfiles size=67
+ texmf-dist/doc/bibtex/biber/biber.pdf details="Manual"
+srccontainersize 963412
+srccontainerchecksum 30573b6b75af6c59c6a21703d947394e1fbf9c4e7f8f67e701b4514acf4a561e95590d8e199d459d3e1098fc39b36789a24d31530a826b00d8a36cfc1b1fef08
+srcfiles size=304
+ texmf-dist/source/bibtex/biber/Changes
+ texmf-dist/source/bibtex/biber/README.biber-cygwin
+ texmf-dist/source/bibtex/biber/README.biber-freebsd
+ texmf-dist/source/bibtex/biber/README.biber-linux
+ texmf-dist/source/bibtex/biber/README.biber-linux-musl
+ texmf-dist/source/bibtex/biber/README.biber-macos
+ texmf-dist/source/bibtex/biber/README.biber-windows
+ texmf-dist/source/bibtex/biber/README.md
+ texmf-dist/source/bibtex/biber/biblatex-biber.tar.gz
+ texmf-dist/source/bibtex/biber/utf8-macro-map.html
+catalogue-also bibtex crosstex biblatex
+catalogue-contact-bugs https://github.com/plk/biber/issues
+catalogue-contact-home http://biblatex-biber.sourceforge.net/
+catalogue-contact-repository https://github.com/plk/biber
+catalogue-ctan /biblio/biber/base
+catalogue-license artistic2
+catalogue-topics biblio
+catalogue-version 2.18

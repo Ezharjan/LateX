@@ -1,0 +1,25 @@
+name bangla
+category Package
+revision 60159
+shortdesc A comprehensive Bangla LaTeX package
+longdesc This package provides all the necessary LaTeX frontends for the
+longdesc Bangla language and comes with some fonts of its own.
+depend charissil
+depend doulossil
+containersize 208900
+containerchecksum adeed1b1f42ef1c76406c376d5f672870feedd4ccdc8db382b057dea6dceecca6e53de7d2c0ca154def6b0be67c05aa46e959c89829f564a3acc6805462bb4bc
+doccontainersize 75120
+doccontainerchecksum d62d6a72c268421033767b3d2c131583e62e0c139ea3e101094752616498111badc5f0544294e836715dc7b3fffd5da9d9e4d3a4103fd2090f38e7ee31afe5be
+docfiles size=25
+ texmf-dist/doc/latex/bangla/README details="Readme"
+ texmf-dist/doc/latex/bangla/bangla.pdf details="Package documentation"
+ texmf-dist/doc/latex/bangla/bangla.tex
+runfiles size=145
+ texmf-dist/fonts/truetype/public/bangla/fontkalpurush.ttf
+ texmf-dist/fonts/truetype/public/bangla/fontshimanto.ttf
+ texmf-dist/tex/latex/bangla/bangla.sty
+ texmf-dist/tex/latex/bangla/banglamap.tex
+catalogue-ctan /language/bengali/bangla
+catalogue-license lppl1.3c ofl
+catalogue-topics indic bengali font font-ttf font-indic font-supp expl3
+catalogue-version 2.0

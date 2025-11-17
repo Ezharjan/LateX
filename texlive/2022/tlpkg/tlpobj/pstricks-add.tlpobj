@@ -1,0 +1,48 @@
+name pstricks-add
+category Package
+revision 61407
+shortdesc A collection of add-ons and bugfixes for PSTricks
+longdesc Collects together examples that have been posted to the
+longdesc PSTricks mailing list, together with many additional features
+longdesc for the basic pstricks, pst-plot and pst-node, including:
+longdesc bugfixes; new options for the pspicture environment; arrows;
+longdesc braces as node connection/linestyle; extended axes for plots
+longdesc (e.g., logarithm axes); polar plots; plotting tangent lines of
+longdesc curves or functions; solving and printing differential
+longdesc equations; box plots; matrix plots; and pie charts. The package
+longdesc makes use of PostScript routines provided by pst-math.
+containersize 21888
+containerchecksum 85c329cfe915f85e3caa93296190041a0dc6078a1c7d7fdd3ded149ce1faa610780c962bda91ae6c0b0552ae131b0a679ab2b75334009cefd852c7dbf2957a75
+doccontainersize 9152100
+doccontainerchecksum 62b7f8dc64a071e70c358f1547dc3bf07bc3b336e0a2085806cc9390e41c5a77710245db515dd71064c08df0755cd3553e69088e083abf14ac5693acc285f755
+docfiles size=4947
+ texmf-dist/doc/generic/pstricks-add/Changes
+ texmf-dist/doc/generic/pstricks-add/History
+ texmf-dist/doc/generic/pstricks-add/README details="Readme"
+ texmf-dist/doc/generic/pstricks-add/data/contourN.data
+ texmf-dist/doc/generic/pstricks-add/data/data.data
+ texmf-dist/doc/generic/pstricks-add/data/data3.data
+ texmf-dist/doc/generic/pstricks-add/data/dataMul.data
+ texmf-dist/doc/generic/pstricks-add/data/demo0.data
+ texmf-dist/doc/generic/pstricks-add/data/demo1.data
+ texmf-dist/doc/generic/pstricks-add/data/demo2.data
+ texmf-dist/doc/generic/pstricks-add/data/demo3.data
+ texmf-dist/doc/generic/pstricks-add/data/dotmatrix.data
+ texmf-dist/doc/generic/pstricks-add/data/matrix.data
+ texmf-dist/doc/generic/pstricks-add/data/matrix1.data
+ texmf-dist/doc/generic/pstricks-add/data/matrix2.data
+ texmf-dist/doc/generic/pstricks-add/data/olympic.eps
+ texmf-dist/doc/generic/pstricks-add/data/olympic.pdf
+ texmf-dist/doc/generic/pstricks-add/data/olympic.tex
+ texmf-dist/doc/generic/pstricks-add/data/pstricks-add-doc.data
+ texmf-dist/doc/generic/pstricks-add/pstricks-add-doc.bib
+ texmf-dist/doc/generic/pstricks-add/pstricks-add-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/pstricks-add/pstricks-add-doc.tex
+runfiles size=26
+ texmf-dist/dvips/pstricks-add/pstricks-add.pro
+ texmf-dist/tex/generic/pstricks-add/pstricks-add.tex
+ texmf-dist/tex/latex/pstricks-add/pstricks-add.sty
+catalogue-ctan /graphics/pstricks/contrib/pstricks-add
+catalogue-license lppl
+catalogue-topics graphics-in-tex pstricks
+catalogue-version 3.92

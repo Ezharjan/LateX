@@ -1,0 +1,29 @@
+name formal-grammar
+category Package
+revision 61955
+shortdesc Typeset formal grammars
+longdesc This package provides a new environment and associated commands
+longdesc to typeset BNF grammars. It allows to easily write formal
+longdesc grammars. Its original motivation was to typeset grammars for
+longdesc beamer presentations, therefore, there are macros to emphasize
+longdesc or downplay some parts of the grammar (which is the main
+longdesc novelty compared to other BNF packages).
+containersize 1848
+containerchecksum 9a14266ff45b4d153000f27694869ce0b3a159d646ec0343726e4510ed8444d9e1ea08209f64ac2b88d8875e860880d048fbc67c5dd5292e60c02521f89de3be
+doccontainersize 235904
+doccontainerchecksum 48d80287ee514f4a846e45b3c0af655644817a3a8dfd2e95e7955fcf4866cb15d5b771e73076cd8cb6717d2d70bfd615e2b613ba58e79380905d3cbf23beeb9a
+docfiles size=59
+ texmf-dist/doc/latex/formal-grammar/README.md details="Readme"
+ texmf-dist/doc/latex/formal-grammar/formal-grammar.pdf details="Package documentation"
+srccontainersize 6752
+srccontainerchecksum 55c30bdefed19d9a794cccef0a437cac4fcc8d36b62f3fed1a8fee4c8ee68414fcbb5bf14203eb6510d4be32058388adc4829be1572aa9fc44915bfd362f67ae
+srcfiles size=6
+ texmf-dist/source/latex/formal-grammar/formal-grammar.dtx
+ texmf-dist/source/latex/formal-grammar/formal-grammar.ins
+runfiles size=1
+ texmf-dist/tex/latex/formal-grammar/formal-grammar.sty
+catalogue-contact-repository https://framagit.org/Bromind/LaTeX-packages/-/tree/master
+catalogue-ctan /macros/latex/contrib/formal-grammar
+catalogue-license lppl1.3
+catalogue-topics formal-spec
+catalogue-version 1.2

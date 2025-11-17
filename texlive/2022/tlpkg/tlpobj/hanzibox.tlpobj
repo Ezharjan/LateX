@@ -1,0 +1,31 @@
+name hanzibox
+category Package
+revision 63062
+shortdesc Boxed Chinese characters with Pinyin above and translation below
+longdesc This is a LaTeX package written to simplify the input of
+longdesc Chinese with Hanyu Pinyin and translation. Hanyu Pinyin is
+longdesc placed above Chinese with the xpinyin package, and the
+longdesc translation is placed below. The package can be used as a
+longdesc utility for learning to write and pronounce Chinese characters,
+longdesc for Chinese character learning plans, presentations, exercise
+longdesc booklets and other documentation work.
+containersize 7492
+containerchecksum 125406446426da598ff92398a7d0de5ea26e866d4f9248269191d113f50e8a613075e3e3d3f9d625ad3e9e0b1c5ca978a0420c2de9f31f12958d5adf7e2cbdeb
+doccontainersize 593704
+doccontainerchecksum 87ef15dc7f3920e11d0cc678f56365ba9dde31210e0add0d80763c1d271baae5b7e905f72f2081f5712c286edacc6943e38df4eb112c7ba17c125edb4d0582d5
+docfiles size=152
+ texmf-dist/doc/xelatex/hanzibox/README.md details="Readme"
+ texmf-dist/doc/xelatex/hanzibox/build.sh
+ texmf-dist/doc/xelatex/hanzibox/hanzibox.pdf details="Package documentation" language="zh"
+srccontainersize 19544
+srccontainerchecksum d3d557b65df0809561c99431377585a119994d516dc9e30f0011e423abba27eaa545af6a76a0eea7269d1e2ef57a77c316f7aca5b0f9134b709635f87df14e38
+srcfiles size=26
+ texmf-dist/source/xelatex/hanzibox/hanzibox.dtx
+runfiles size=13
+ texmf-dist/tex/xelatex/hanzibox/hanzibox.sty
+catalogue-contact-bugs https://gitee.com/nwafu_nan/hanzibox-l3/issues
+catalogue-contact-repository https://gitee.com/nwafu_nan/hanzibox-l3
+catalogue-ctan /macros/xetex/latex/hanzibox
+catalogue-license lppl1.3c
+catalogue-topics xetex expl3 chinese
+catalogue-version 2.3.0

@@ -1,0 +1,29 @@
+name cdcmd
+category Package
+revision 60742
+shortdesc Expandable conditional commands for LaTeX
+longdesc This package provides some conditional commands, just like the
+longdesc styledcmd package. The difference is that cdcmd can define
+longdesc expandable conditional commands.
+containersize 3588
+containerchecksum 677fd271bd209933428d0b655529b7e6c4bfd6022c37c3ef5456e1ce6fe25c599a9883474c28dc9510e293a2ee5e87a49b797bb562b750e888c622bf6ac6d37f
+doccontainersize 608048
+doccontainerchecksum bf6d3bb4422dae82e06d440713518dafa98ab7ef7b527268050ebe51880f90e45b76281c1d693f1b40e85f07d7f6d395f51ce2c642094e326c3b1d08534fcba2
+docfiles size=155
+ texmf-dist/doc/latex/cdcmd/README.md details="Readme"
+ texmf-dist/doc/latex/cdcmd/cdcmd-cn.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/cdcmd/cdcmd-cn.tex
+ texmf-dist/doc/latex/cdcmd/cdcmd-test.tex
+ texmf-dist/doc/latex/cdcmd/cdcmd.pdf details="Package documentation (English)"
+srccontainersize 6964
+srccontainerchecksum 50a2f50cc7432505c608aac180f7631d831742c8047a8f3da25bbdf6e83efd9121fe3b5256a2b139b1c3a29da4b2003304148f5f48c745734b811c1d853016de
+srcfiles size=10
+ texmf-dist/source/latex/cdcmd/cdcmd.dtx
+ texmf-dist/source/latex/cdcmd/cdcmd.ins
+runfiles size=5
+ texmf-dist/tex/latex/cdcmd/cdcmd.sty
+catalogue-contact-repository https://github.com/Sophanatprime/cdcmd
+catalogue-ctan /macros/latex/contrib/cdcmd
+catalogue-license lppl1.3c
+catalogue-topics macro-def macro-supp expl3
+catalogue-version 1.0

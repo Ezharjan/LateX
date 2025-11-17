@@ -1,0 +1,36 @@
+name gatherenum
+category Package
+revision 52209
+shortdesc A crossover of align* and enumerate
+longdesc This package (ab)uses the inline enumeration capabilities of
+longdesc enumitem to add a "displayed" enumeration mode, triggered by
+longdesc adding 'gathered' to the key-value option list of the enumerate
+longdesc environment. The end result is similar to a regular enumerate
+longdesc environment wrapped in a multicols environment, with the
+longdesc following advantages: Gathered enumerate can pack items
+longdesc depending on their actual width rather than a fixed, constant
+longdesc number per line. Gathered enumeration fills items in a
+longdesc line-major order (instead of column-major order), which my
+longdesc students found less confusing. YMMV. The package depends on
+longdesc enumitem, expl3, and xparse,
+containersize 1724
+containerchecksum f0a0897ca3b306341a8af5121d09b31d9169a90e073f3d2babc2b4a32b72d33b4f7ded73f2455e5b6e7454188112440cdff97c4332f3396c948ace8b2944598d
+doccontainersize 406000
+doccontainerchecksum 9e6e1c322aa19a1c3ccaa622cf8657dd314dccc0fedeb7056e182bfc648fa21b06b67e8d1bf2d529fbf84652a0d6eec9d5a4ffeea1003dcfd2cd195ba628c6f5
+docfiles size=107
+ texmf-dist/doc/latex/gatherenum/LICENSE
+ texmf-dist/doc/latex/gatherenum/README.md details="Readme"
+ texmf-dist/doc/latex/gatherenum/gatherenum.pdf details="Package documentation"
+srccontainersize 4180
+srccontainerchecksum 5696c57b7a05132487fa04c16a577531886e8e443aef06e2b3b6418f74d2d971160cb1d95df43ae29c81ebde9459f8611bdea151895f8390e03d5ff2193fb318
+srcfiles size=4
+ texmf-dist/source/latex/gatherenum/gatherenum.dtx
+ texmf-dist/source/latex/gatherenum/gatherenum.ins
+runfiles size=1
+ texmf-dist/tex/latex/gatherenum/gatherenum.sty
+catalogue-contact-bugs https://gitlab.com/frnchfrgg-latex/gatherenum/issues
+catalogue-contact-repository https://gitlab.com/frnchfrgg-latex/gatherenum
+catalogue-ctan /macros/latex/contrib/gatherenum
+catalogue-license gpl3+
+catalogue-topics list expl3
+catalogue-version 1.8

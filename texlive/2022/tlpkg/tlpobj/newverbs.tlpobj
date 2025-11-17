@@ -1,0 +1,35 @@
+name newverbs
+category Package
+revision 58256
+shortdesc Define new versions of \verb, including short verb versions
+longdesc The package allows the definition of \verb variants which add
+longdesc TeX code before and after the verbatim text (e.g., quotes or
+longdesc surrounding \fbox{}). When used together with the shortvrb
+longdesc package it allows the definition of short verbatim characters
+longdesc which use this package's variant instead of the normal \verb.
+longdesc In addition, it is possible to collect an argument verbatim to
+longdesc either typeset or write it into a file. The \Verbdef command
+longdesc defines verbatim text to a macro which can later be used to
+longdesc write the verbatim text to a file.
+containersize 2844
+containerchecksum 146e0d503ff458d22e002f11b9ec89bf17595ff758c0b0a1644f340ece93553b86fa46e8aae590e4973603a441634f86666a4926e1c828523a28969585546dea
+doccontainersize 221216
+doccontainerchecksum 950a4763975bfde9c28101e90f26e590d00889e67ae78e0d04d027bd9c5ec050c2d24c99e4c1ebb13f06b5a75c7ec16ed24d30c1d95ee5c121feff063268cd49
+docfiles size=56
+ texmf-dist/doc/latex/newverbs/README details="Readme"
+ texmf-dist/doc/latex/newverbs/newverbs.pdf details="Package documentation"
+srccontainersize 7484
+srccontainerchecksum aaaba6fee806ca1f85cc0ea822db6cf8ff508f0fd27fc7b9de2ced527df5c1464f30a049cdcb5bee1ce66c619997dda1253c9b6030c99572968f5480f7306cb2
+srcfiles size=9
+ texmf-dist/source/latex/newverbs/newverbs.dtx
+ texmf-dist/source/latex/newverbs/newverbs.ins
+runfiles size=2
+ texmf-dist/tex/latex/newverbs/newverbs.sty
+catalogue-also shortvrb
+catalogue-contact-bugs https://sourceforge.net/p/newverbs/tickets/
+catalogue-contact-home https://sourceforge.net/p/newverbs/
+catalogue-contact-repository https://sourceforge.net/p/newverbs/code/
+catalogue-ctan /macros/latex/contrib/newverbs
+catalogue-license lppl1.3
+catalogue-topics verbatim
+catalogue-version 1.6

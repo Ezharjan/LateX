@@ -1,0 +1,24 @@
+name textcsc
+category Package
+revision 64365
+shortdesc Simple commands for caps-to-small-caps text
+longdesc This package provides a simple command (\textcsc and \cscshape}
+longdesc for caps-to-small-caps text, to allow for small caps acronyms
+longdesc to be presented as uppercase in text (useful for things like
+longdesc copying and pasting from a PDF).
+containersize 1120
+containerchecksum e7ba38af0785d6ec4b326c84f122b6a22afca819c8fb815205c7aed8c11138987e3483fb4340951effdf5d2c38184f1bfa13ea36a484fb50ed7fb8468efe24d3
+doccontainersize 51980
+doccontainerchecksum 15ea5f3add1348a378fbe5fbb2e52abfc36c572f5d7777cc280cec7fc3ae207b2550db4d3286d7d8858896d9b4ca070a229e079ef3e65178ff82907312f6f0ef
+docfiles size=16
+ texmf-dist/doc/latex/textcsc/README details="Readme"
+ texmf-dist/doc/latex/textcsc/textcsc-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/textcsc/textcsc-documentation.tex
+ texmf-dist/doc/latex/textcsc/textcsc.pdf
+runfiles size=1
+ texmf-dist/tex/latex/textcsc/textcsc.sty
+catalogue-contact-home https://github.com/ezgranet/textcsc
+catalogue-ctan /macros/unicodetex/latex/textcsc
+catalogue-license lppl1.3 cc-by-sa-3
+catalogue-topics typesetting unicode
+catalogue-version 1.0.0

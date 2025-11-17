@@ -1,0 +1,48 @@
+name stepgreek
+category Package
+revision 57074
+shortdesc A free Times/Elsevier-style Greek font
+longdesc This is a beta version of the STEP Greek font. Only a regular
+longdesc face is available at present, though there are plans to add
+longdesc italic, bold and bold italic in the future. The font only
+longdesc supports LGR in TeX and is meant to serve as a Greek complement
+longdesc to a Times-like font such as STEP. The font supports polytonic
+longdesc Greek.
+execute addMap STEPGreekTest.map
+containersize 451624
+containerchecksum c322bb089a887b36c4008502160f0970ff2ca33f05391010adc38c12726b2079085bb1775934597fa1758effee14eda76647b886644971e7c40a451154e446f9
+doccontainersize 2856
+doccontainerchecksum c3f4c2b1ea06a012ba4d5f5ca72faa0a6c1b4ae5c132b17bda0b6bb895f34e555724f93cd791fad8c6ff846027dbedd723f874ae1e772de95c64bf54f5fa0265
+docfiles size=3
+ texmf-dist/doc/fonts/stepgreek/README details="Readme"
+ texmf-dist/doc/fonts/stepgreek/STEP-COPYING
+runfiles size=137
+ texmf-dist/fonts/enc/dvips/stepgreek/a_ewwrtj.enc
+ texmf-dist/fonts/enc/dvips/stepgreek/a_ntxmjl.enc
+ texmf-dist/fonts/enc/dvips/stepgreek/a_uo326q.enc
+ texmf-dist/fonts/enc/dvips/stepgreek/a_voidup.enc
+ texmf-dist/fonts/enc/dvips/stepgreek/a_wkkjyg.enc
+ texmf-dist/fonts/map/dvips/stepgreek/STEPGreekTest.map
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-sup-lgr--base.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-sup-lgr.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tlf-lgr--base.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tlf-lgr.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tlf-sc-lgr--base.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tlf-sc-lgr.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tosf-lgr--base.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tosf-lgr.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tosf-sc-lgr--base.tfm
+ texmf-dist/fonts/tfm/public/stepgreek/STEPGreekTest-Regular-tosf-sc-lgr.tfm
+ texmf-dist/fonts/type1/public/stepgreek/STEPGreekTest-Regular.pfb
+ texmf-dist/fonts/vf/public/stepgreek/STEPGreekTest-Regular-sup-lgr.vf
+ texmf-dist/fonts/vf/public/stepgreek/STEPGreekTest-Regular-tlf-lgr.vf
+ texmf-dist/fonts/vf/public/stepgreek/STEPGreekTest-Regular-tlf-sc-lgr.vf
+ texmf-dist/fonts/vf/public/stepgreek/STEPGreekTest-Regular-tosf-lgr.vf
+ texmf-dist/fonts/vf/public/stepgreek/STEPGreekTest-Regular-tosf-sc-lgr.vf
+ texmf-dist/tex/latex/stepgreek/LGRSTEPGreekTest-Sup.fd
+ texmf-dist/tex/latex/stepgreek/LGRSTEPGreekTest-TLF.fd
+ texmf-dist/tex/latex/stepgreek/LGRSTEPGreekTest-TOsF.fd
+catalogue-ctan /fonts/stepgreek
+catalogue-license ofl
+catalogue-topics font font-greek font-type1 font-supp
+catalogue-version 3.0b1

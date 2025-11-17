@@ -1,0 +1,29 @@
+name cmupint
+category Package
+revision 54735
+shortdesc Upright integral symbols for Computer Modern
+longdesc This package contains various upright integral symbols to match
+longdesc the Computer Modern font.
+execute addMixedMap cmupint.map
+containersize 44680
+containerchecksum ce08962145a80b7b6748145a7385cc78e361295d85ea96f24397aad3025b7eaa2e962d4d30380ca1a8d22da7175a3135abacef78a76d9d4615f03aed049a4b10
+doccontainersize 310712
+doccontainerchecksum 80cab8f9387e74db3b3650b8e7b055ecf1e094f75f0e43c4540b32658e43e392c82f3fa8ab6a6c08495ef6f9f2773501a7f282acaf7d7d640f0bd891cb8b1f08
+docfiles size=85
+ texmf-dist/doc/fonts/cmupint/README.md details="Readme"
+ texmf-dist/doc/fonts/cmupint/cmupint.pdf details="Package documentation"
+ texmf-dist/doc/fonts/cmupint/cmupint.tex
+runfiles size=42
+ texmf-dist/fonts/afm/public/cmupint/cmupint.afm
+ texmf-dist/fonts/map/dvips/cmupint/cmupint.map
+ texmf-dist/fonts/source/public/cmupint/cmupint.mf
+ texmf-dist/fonts/source/public/cmupint/upintsym.mf
+ texmf-dist/fonts/source/public/cmupint/upintsymd.mf
+ texmf-dist/fonts/tfm/public/cmupint/cmupint.tfm
+ texmf-dist/fonts/type1/public/cmupint/cmupint.pfb
+ texmf-dist/tex/latex/cmupint/cmupint.sty
+ texmf-dist/tex/latex/cmupint/ucmupint.fd
+catalogue-ctan /fonts/cmupint
+catalogue-license lppl
+catalogue-topics font-cm font-maths font-symbol-maths font-mf font-type1 font-supp
+catalogue-version 1.1

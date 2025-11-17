@@ -1,0 +1,26 @@
+name plantslabels
+category Package
+revision 29803
+shortdesc Write labels for plants
+longdesc The package defines a command \plant, which has three mandatory
+longdesc and seven optional argument. The package uses the labels
+containersize 1260
+containerchecksum 7e1724b32035ee32325c491bce57ead23f40ad7377b4c1d5572499fef920b874bd57298e654429203cbea726b8d645a0899807547db80825be163538c1d91537
+doccontainersize 218164
+doccontainerchecksum 999f132df73c15a7b3501487f350e48777543745c5cddbbaf314bcb62eca9b3ba41b51324b61d04e9f1d9cef4b9b8ab851d3528f8893bb21e612a7f50511da65
+docfiles size=94
+ texmf-dist/doc/latex/plantslabels/README details="Readme"
+ texmf-dist/doc/latex/plantslabels/doc/pdf/plantslabels.pdf details="Package documentation"
+ texmf-dist/doc/latex/plantslabels/doc/tex/Makefile
+ texmf-dist/doc/latex/plantslabels/doc/tex/perso.ist
+ texmf-dist/doc/latex/plantslabels/doc/tex/plantslabels.forlisting
+ texmf-dist/doc/latex/plantslabels/doc/tex/plantslabels.tex
+ texmf-dist/doc/latex/plantslabels/example/pdf/example.pdf
+ texmf-dist/doc/latex/plantslabels/example/tex/cactus.eps
+ texmf-dist/doc/latex/plantslabels/example/tex/example.tex
+runfiles size=1
+ texmf-dist/tex/latex/plantslabels/plantslabels.sty
+catalogue-ctan /macros/latex/contrib/plantslabels
+catalogue-license lppl
+catalogue-topics covers
+catalogue-version 1.0

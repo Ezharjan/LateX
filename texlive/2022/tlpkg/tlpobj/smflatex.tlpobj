@@ -1,0 +1,45 @@
+name smflatex
+category Package
+revision 58910
+shortdesc Classes for Societe mathematique de France publications
+longdesc The Societe mathematique de France provides a set of classes,
+longdesc packages and BibTeX styles that are used in its publications.
+longdesc They are based on AMS classes (whose code is sometimes
+longdesc recopied) and mainly 'upward-compatible'. Their main features
+longdesc are: quite different design; new environments for typesetting
+longdesc some information in two languages (altabstract, alttitle,
+longdesc altkeywords); if necessary, use of babel (option frenchb) and
+longdesc deactivation of some features of frenchb. Includes smfart.cls,
+longdesc smfbook.cls, smfplain.bst, smfalpha.bst, amongst others.
+containersize 28272
+containerchecksum 3723047537c97c42f23eaf15dd95941092300a86a5072cf261c2d9a4fdc09d17e3c09cefc6a1f632996b45300cfc5e3266dba4130decf4f6d33063b0b7f45d0f
+doccontainersize 828572
+doccontainerchecksum a0ead1f76c26126c3cf00bd735ae8002648ac874511de92a73b756197328af3d81d66697c0fb3d210047570dd267b5c975b26a7c6e42b0fa61b9b77a29bbf113
+docfiles size=273
+ texmf-dist/doc/latex/smflatex/README details="Readme"
+ texmf-dist/doc/latex/smflatex/smf-edoc.pdf details="Readme"
+ texmf-dist/doc/latex/smflatex/smf-edoc.tex
+ texmf-dist/doc/latex/smflatex/smf-fdoc.pdf details="Readme" language="fr"
+ texmf-dist/doc/latex/smflatex/smf-fdoc.tex
+ texmf-dist/doc/latex/smflatex/smfdoc.tex
+srccontainersize 51112
+srccontainerchecksum 99a45d290c450301108b032830b02c81d3487ebb281f19f17826df8ed267dada23b5bb039874f97de29850c1d33bb775097d53d7e4d8d4373de9143219aa57aa
+srcfiles size=64
+ texmf-dist/source/latex/smflatex/smflatex.dtx
+ texmf-dist/source/latex/smflatex/smflatex.ins
+runfiles size=53
+ texmf-dist/bibtex/bst/smflatex/smfalpha.bst
+ texmf-dist/bibtex/bst/smflatex/smfplain.bst
+ texmf-dist/tex/latex/smflatex/smfart.cls
+ texmf-dist/tex/latex/smflatex/smfbib.sty
+ texmf-dist/tex/latex/smflatex/smfbook.cls
+ texmf-dist/tex/latex/smflatex/smfbull.sty
+ texmf-dist/tex/latex/smflatex/smfenum.sty
+ texmf-dist/tex/latex/smflatex/smfgen.sty
+ texmf-dist/tex/latex/smflatex/smfhyperref.sty
+ texmf-dist/tex/latex/smflatex/smfmulti.sty
+ texmf-dist/tex/latex/smflatex/smfthm.sty
+catalogue-ctan /macros/latex/contrib/smflatex
+catalogue-license lppl1.3c
+catalogue-topics journalpub french
+catalogue-version 1.6

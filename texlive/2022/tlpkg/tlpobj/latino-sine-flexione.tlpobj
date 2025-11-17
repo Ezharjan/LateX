@@ -1,0 +1,32 @@
+name latino-sine-flexione
+category Package
+revision 53485
+shortdesc LaTeX support for documents written in Peano's Interlingua
+longdesc Latino sine Flexione (or Interlingua) is a language constructed
+longdesc by Giuseppe Peano at the beginning of the last century. This
+longdesc simplified Latin is designed to be an instrument for
+longdesc international cooperation, especially in the academic sphere.
+longdesc (Note that this "Interlingua" is different from the
+longdesc "Interlingua" that was created a few decades after Peano's work
+longdesc and which is supported by babel-interlingua!) This package
+longdesc provides the necessary translations to use the language within
+longdesc a LaTeX document. It also imports fontenc in order to be able
+longdesc to use ligatures and quotation marks. Finally, it offers a text
+longdesc in Interlingua that can be used as a dummy text: Fundamento de
+longdesc intelligentia. This article by H. Bijlsma was first published
+longdesc in Schola et Vita Anno I (1926).
+containersize 1392
+containerchecksum 6c6e7dacb974ba25fb5106ee1b846a22590c1ee3e5b19aa4c9cb90aab927216a19d15f977eb92f20fb589011769463a500ac2146c0c8cc807a91169da660bc13
+doccontainersize 3944
+doccontainerchecksum 204422bc4fc85ecf94cc3236a74acc368d34926b53effb45b6411e694c4bdd2b91c30250894868d3928b19c693372c49e7435f83974e09b829938b6237ef1957
+docfiles size=3
+ texmf-dist/doc/latex/latino-sine-flexione/README.md details="Readme"
+ texmf-dist/doc/latex/latino-sine-flexione/fundamento.tex
+runfiles size=1
+ texmf-dist/tex/latex/latino-sine-flexione/latino-sine-flexione.sty
+catalogue-contact-home https://github.com/AcProIL
+catalogue-contact-support http://reddit.com/r/LatinoSineFlexione/
+catalogue-ctan /macros/latex/contrib/latino-sine-flexione
+catalogue-license pd
+catalogue-topics interlingua
+catalogue-version 1.2

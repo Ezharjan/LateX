@@ -1,0 +1,31 @@
+name pbalance
+category Package
+revision 64002
+shortdesc Balance last page in two-column mode
+longdesc This package balances the columns on the last page of a
+longdesc two-column document. If the page is "simple" (no footnotes,
+longdesc floats, or marginpars), is uses the balance package; otherwise,
+longdesc it uses \enlargethispage to make the left column shorter,
+longdesc balancing the columns.
+containersize 7004
+containerchecksum 15d9a54d38158e1c3b48dc9d420b081efd011fc282775e68e83f758be4c3d1c40efdcca57f4ab29a9d206b09457afec0ca7bb0580e4bd337e0814a04d814b423
+doccontainersize 48960
+doccontainerchecksum 1e0f25b42dc5928269cbb2aa56ebb7b1bf4cc58ffac0c36db6bc8ada8c7cd09641a95b4daf5f248a9156cb3d95d3c3ef48a5410f1eef6437ce4878e0113c6aac
+docfiles size=15
+ texmf-dist/doc/latex/pbalance/LICENSE
+ texmf-dist/doc/latex/pbalance/README.md details="Readme"
+ texmf-dist/doc/latex/pbalance/pbalance.pdf details="Package documentation"
+srccontainersize 15960
+srccontainerchecksum 6489e6563c2f1265b841027b38720ccf55d2a9acd601e03a1173c2c6fe8de57bf1c7778239472d7265529a7c51bfe3f21c5dfd19f863b9b80ace3f6b68d211a1
+srcfiles size=17
+ texmf-dist/source/latex/pbalance/pbalance.dtx
+ texmf-dist/source/latex/pbalance/pbalance.ins
+runfiles size=8
+ texmf-dist/tex/latex/pbalance/pbalance.sty
+catalogue-also flushend
+catalogue-contact-bugs https://gitlab.com/lago/pbalance/issues
+catalogue-contact-home https://gitlab.com/lago/pbalance
+catalogue-ctan /macros/latex/contrib/pbalance
+catalogue-license lppl1.3c
+catalogue-topics multicol
+catalogue-version 1.4.0

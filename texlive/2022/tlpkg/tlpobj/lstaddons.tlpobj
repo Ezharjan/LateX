@@ -1,0 +1,33 @@
+name lstaddons
+category Package
+revision 56291
+shortdesc Add-on packages for listings: autogobble and line background
+longdesc The bundle contains a small collection of add-on packages for
+longdesc the listings package. Current packages are: lstlinebgrd: colour
+longdesc the background of some or all lines of a listing; and
+longdesc lstautogobble: set the standard "gobble" option to the indent
+longdesc of the first line of the code.
+containersize 2224
+containerchecksum a0fdffdcc648eaa59145c2668412e02f1ca6f5617c5068b80a767e1efa0df30e9c6b458279380bf062ac8aabb0b531585f65f8c9e7bd9d2d6ca057395cb7fe9e
+doccontainersize 366356
+doccontainerchecksum 823d63d53a4c7abc108d6d72244acf48a6197de00d3fca7b3f75a082c2b051091497c354429aa9aebb64682b65c6e45d5a90413f2a4248c8c47dddb0fecdf5a7
+docfiles size=99
+ texmf-dist/doc/latex/lstaddons/README details="Readme"
+ texmf-dist/doc/latex/lstaddons/lstautogobble.pdf details="lstautogobble package documentation"
+ texmf-dist/doc/latex/lstaddons/lstlinebgrd.pdf details="lstlinebgrd package documentation"
+srccontainersize 5572
+srccontainerchecksum 33c8822bfea19259db8792ece9d2796aed34323873dc18d5a0827844b17e6a43d9337a0f55e0f183e18cbc338f0b54d105860993462c3ccea595c7af4df38443
+srcfiles size=7
+ texmf-dist/source/latex/lstaddons/lstaddons.ins
+ texmf-dist/source/latex/lstaddons/lstautogobble.dtx
+ texmf-dist/source/latex/lstaddons/lstlinebgrd.dtx
+runfiles size=2
+ texmf-dist/tex/latex/lstaddons/lstautogobble.sty
+ texmf-dist/tex/latex/lstaddons/lstlinebgrd.sty
+catalogue-contact-bugs https://sourceforge.net/p/lstaddons/tickets/
+catalogue-contact-home https://sourceforge.net/projects/lstaddons/
+catalogue-contact-repository https://sourceforge.net/p/lstaddons/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/lstaddons
+catalogue-license lppl1.3
+catalogue-topics listing
+catalogue-version 0.1

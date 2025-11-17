@@ -1,0 +1,35 @@
+name tikzfill
+category Package
+revision 63947
+shortdesc TikZ libraries for filling with images and patterns
+longdesc This is a collection of TikZ libraries which add further
+longdesc options to fill TikZ paths with images and patterns. The
+longdesc libraries comprise fillings with images from files and from
+longdesc TikZ pictures. Also, patterns of hexagons and of rhombi are
+longdesc provided.
+containersize 4432
+containerchecksum f0c83eb9352dc6dd0aaf5e25ce340a5c586dfe600a620a0ff5b976f976361c35a68a71f78f675ce5f9fa61a1bc7a79f16a5813115e6f8b010fe18b0308d77ab1
+doccontainersize 622916
+doccontainerchecksum d1877f3e9035c27e750050367badfb4e0127706d0064c30ccf619673bdf403707e9509780a85bc6478a17b08d7bd7c84b302d863860941b85fdfcee7a7262c7c
+docfiles size=192
+ texmf-dist/doc/latex/tikzfill/CHANGES.md
+ texmf-dist/doc/latex/tikzfill/README.md details="Readme"
+ texmf-dist/doc/latex/tikzfill/tikzfill-doc.sty
+ texmf-dist/doc/latex/tikzfill/tikzfill.pdf details="Package documentation"
+ texmf-dist/doc/latex/tikzfill/tikzfill.tex
+runfiles size=13
+ texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
+ texmf-dist/tex/latex/tikzfill/tikzfill.hexagon.sty
+ texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
+ texmf-dist/tex/latex/tikzfill/tikzfill.rhombus.sty
+ texmf-dist/tex/latex/tikzfill/tikzfill.sty
+ texmf-dist/tex/latex/tikzfill/tikzlibraryfill.hexagon.code.tex
+ texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+ texmf-dist/tex/latex/tikzfill/tikzlibraryfill.rhombus.code.tex
+catalogue-contact-bugs https://github.com/T-F-S/tikzfill/issues
+catalogue-contact-home https://github.com/T-F-S/tikzfill
+catalogue-contact-repository https://github.com/T-F-S/tikzfill.git
+catalogue-ctan /graphics/pgf/contrib/tikzfill
+catalogue-license lppl1.3
+catalogue-topics pgf-tikz expl3
+catalogue-version 1.0.0

@@ -1,0 +1,32 @@
+name flashcards
+category Package
+revision 62104
+shortdesc A class for typesetting flashcards
+longdesc The FlashCards class provides for the typesetting of flash
+longdesc cards. By flash card, we mean a two sided card which has a
+longdesc prompt or a question on one side and the response or the answer
+longdesc on the flip (back) side. Flash cards come in many sizes
+longdesc depending on the nature of the information they contain.
+containersize 3488
+containerchecksum 0c336f9609fbb81bc373fad344a44b8159c7d142d2a62de795dc7f1b7a8aadba563ab7a4788164058c19ab6f6c9835af1f1a0dc275377f51aca9520b3a8a2327
+doccontainersize 255288
+doccontainerchecksum 6ef79cf1f91bb8dc7b9b3785da64af582891d1536962ea9ac9232bfb8fcb156e7c33319970793fc6776db2224ac991796a93a287aa3eed2e0cd0ea741c6ef9cc
+docfiles size=68
+ texmf-dist/doc/latex/flashcards/COPYING
+ texmf-dist/doc/latex/flashcards/README details="Package Readme"
+ texmf-dist/doc/latex/flashcards/flashcards.pdf details="Package documentation"
+ texmf-dist/doc/latex/flashcards/samplecards.tex
+srccontainersize 7580
+srccontainerchecksum 9d428930e3993de9d2fd407a78b19d2b851d9e7faa88a5d5c0bb44ec014432518fcd4ebb6cf68e5b3a0693cb4ab7bbee0068f431e0ca169423ecb5959ec233e9
+srcfiles size=8
+ texmf-dist/source/latex/flashcards/flashcards.dtx
+ texmf-dist/source/latex/flashcards/flashcards.ins
+runfiles size=6
+ texmf-dist/tex/latex/flashcards/avery5371.cfg
+ texmf-dist/tex/latex/flashcards/avery5388.cfg
+ texmf-dist/tex/latex/flashcards/flashcards.cls
+catalogue-also flashcard ecards
+catalogue-ctan /macros/latex/contrib/flashcards
+catalogue-license gpl2+
+catalogue-topics card-flash
+catalogue-version 1.0.2

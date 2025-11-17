@@ -1,0 +1,34 @@
+name longdivision
+category Package
+revision 59979
+shortdesc Typesets long division
+longdesc This package executes the long division algorithm and typesets
+longdesc the solutions. The dividend must be a positive decimal number
+longdesc and the divisor must be a positive integer. Repeating decimals
+longdesc is handled correctly, putting a bar over the repeated part of
+longdesc the decimal. Dividends up to 20 digits long are handled
+longdesc gracefully (though the typeset result will take up about a
+longdesc page), and dividends between 20 and 60 digits long slightly
+longdesc less gracefully. The package defines two macros, \longdivision
+longdesc and \intlongdivision. Each takes two arguments, a dividend and
+longdesc a divisor. \longdivision keeps dividing until the remainder is
+longdesc zero, or it encounters a repeated remainder. \intlongdivision
+longdesc stops when the dividend stops (though the dividend doesn't have
+longdesc to be an integer). This package depends on the xparse package
+longdesc from the l3packages bundle.
+containersize 10532
+containerchecksum d489df0f5ad27cd8755d8387ac4b5ec0f0091e9d27611a7f4810e145dbafdd95cc4c14f6cbdd9843e1e4251fb0d31cd3332657c50d1fac4d17eeed1183aa8aa5
+doccontainersize 143596
+doccontainerchecksum dd45e2dd888c7bafe5311cb8a541c0eb7c31661da9d69223f69852b022092501f936d9823395c5b7fc7f914233ad4cea32b2803730f976e687bc7a9bc7c74069
+docfiles size=42
+ texmf-dist/doc/latex/longdivision/README.md details="Readme"
+ texmf-dist/doc/latex/longdivision/longdivision_manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/longdivision/longdivision_manual.tex
+runfiles size=11
+ texmf-dist/tex/latex/longdivision/longdivision.sty
+catalogue-also longdiv
+catalogue-contact-repository https://github.com/hoodmane/longdivision
+catalogue-ctan /macros/latex/contrib/longdivision
+catalogue-license lppl
+catalogue-topics maths arithmetic expl3
+catalogue-version 1.2.1

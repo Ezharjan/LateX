@@ -1,0 +1,29 @@
+name ffcode
+category Package
+revision 64363
+shortdesc Fixed-font code blocks formatted nicely
+longdesc This LaTeX package helps you write source code in your academic
+longdesc papers and make it looks neat. It uses minted and tcolorbox,
+longdesc configuring them the right way, to ensure that code fragments
+longdesc and code blocks look nicer.
+depend microtype
+depend minted
+depend tcolorbox
+depend xkeyval
+containersize 1940
+containerchecksum d01787f38f1136ad9e394a480972e4a09200de3f5ada4064ed26397ebf47bf913b8ca86287734102e1ee5f515ef2303e8ef519cc9ed61671b707d03ed75675fa
+doccontainersize 227316
+doccontainerchecksum e89cdca92fed4e8a448b153032326cbc108dd40f30c71f7bcc8fee829c4e028ec7e85350d4a0838bd4b665ba2d55dc8ad93b103ec6b260c340425c7f17c327f6
+docfiles size=59
+ texmf-dist/doc/latex/ffcode/DEPENDS.txt
+ texmf-dist/doc/latex/ffcode/README.md details="Readme"
+ texmf-dist/doc/latex/ffcode/ffcode.pdf details="Package documentation"
+ texmf-dist/doc/latex/ffcode/ffcode.tex
+runfiles size=1
+ texmf-dist/tex/latex/ffcode/ffcode.sty
+catalogue-contact-bugs https://github.com/yegor256/ffcode/issues
+catalogue-contact-repository https://github.com/yegor256/ffcode
+catalogue-ctan /macros/latex/contrib/ffcode
+catalogue-license mit
+catalogue-topics listing verbatim line-nos
+catalogue-version 0.4.4

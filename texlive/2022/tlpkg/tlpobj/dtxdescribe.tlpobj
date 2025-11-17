@@ -1,0 +1,44 @@
+name dtxdescribe
+category Package
+revision 64362
+shortdesc Describe additional object types in dtx source files
+longdesc The doc package includes tools for describing macros and
+longdesc environments in LaTeX source .dtx format. The dtxdescribe
+longdesc package adds additional tools for describing booleans, lengths,
+longdesc counters, keys, packages, classes, options, files, commands,
+longdesc arguments, and other objects, and also works with the standard
+longdesc document classes as well, for those who do not wish to use the
+longdesc .dtx format. Each item is given a margin tag similar to
+longdesc \DescribeEnv, and is listed in the index by itself and also by
+longdesc category. Each item may be sorted further by an optional class.
+longdesc All index entries except code lines are hyperlinked. The
+longdesc dtxexample environment is provided for typesetting example code
+longdesc and its results. Contents are displayed verbatim along with a
+longdesc caption and cross-referencing. They are then input and
+longdesc executed, and the result is shown. Environments are also
+longdesc provided for displaying verbatim or formatted source code,
+longdesc user-interface displays, and sidebars with titles. Macros are
+longdesc provided for formatting the names of inline LaTeX objects such
+longdesc as packages and booleans, as well as program and file names,
+longdesc file types, internet objects, the names of certain programs, a
+longdesc number of logos, and inline dashes and slashes.
+containersize 5732
+containerchecksum 1270ca6c520c378db4adfaa279cc114ddb1822fcd2791b81b29ecfa9c1f358128ac2f3a45bd4e4ae57f6d41e6a6f8de1ed499b153d880024b11328250e55a4ef
+doccontainersize 382176
+doccontainerchecksum 70c11659c5beeeb9e5065419ba7f9c06def35cbf3ccd4a65fed32c30a064e8de3878a4830ada580690f63cccf012edebfa0cb1dfb54fb9954bf39a841256aaca
+docfiles size=96
+ texmf-dist/doc/latex/dtxdescribe/README.txt details="Readme"
+ texmf-dist/doc/latex/dtxdescribe/dtxdescribe.pdf details="Package documentation"
+srccontainersize 20272
+srccontainerchecksum 62de160bd8be46573a12f908efb1da7e46013509c785c7b16e65c62a0a0a6f78ceea040560a9d1cb75be4b84e6ed936cf3cb8ca78484fe5ee7cc2f034b137179
+srcfiles size=25
+ texmf-dist/source/latex/dtxdescribe/dtxdescribe.dtx
+ texmf-dist/source/latex/dtxdescribe/dtxdescribe.ins
+runfiles size=6
+ texmf-dist/tex/latex/dtxdescribe/dtxdescribe.sty
+catalogue-also doc
+catalogue-contact-home http://bdtechconcepts.com
+catalogue-ctan /macros/latex/contrib/dtxdescribe
+catalogue-license lppl1.3
+catalogue-topics doc-supp
+catalogue-version 1.05

@@ -1,0 +1,42 @@
+name olsak-misc
+category Package
+revision 64042
+shortdesc Collection of plain TeX macros written by Petr Olsak
+longdesc This is a collection of various single-file plain TeX macros
+longdesc written by Petr Olsak. The documentation is included in each
+longdesc file separately. booklet.tex: re-orders PDF pages and collects
+longdesc them for booklet printing cnv.tex: conversion of texts
+longdesc cnv-pu.tex: example of usage of cnv.tex --- pdf outlines in
+longdesc Unicode cnv-word.tex: example of usage of cnv.tex --- word to
+longdesc word conversion eparam.tex: Full expansion during parameter
+longdesc scanning fun-coffee.tex: generates splotches in the document
+longdesc openclose.tex: repairs balanced text between \Open ...\Close
+longdesc pair qrcode.tex: QR code generated at TeX level scanbase.tex:
+longdesc parser of text-style mysql outputs scancsv.tex: parser of CSV
+longdesc format seplist.tex: macros with alternative separators of a
+longdesc parameter xmlparser.tex: parser of XML language
+containersize 25856
+containerchecksum b6c44c277127f34be77363f5cb9d270f13e02d6e4685b6d84dc6105c9ae2e83e38b50f31795b9cef75036a217378e8de38702cc08d0cff86ab788b9b2fc2bb2b
+doccontainersize 43992
+doccontainerchecksum 91977e75eed26f6e615a35bdcdf4d5774a1f001b6ac063587b290fea760aa0a00e1d4bcb6e5be4bc1e33db272e46e79776f5d40f6d2f19b551ba8b3f4d8994c7
+docfiles size=52
+ texmf-dist/doc/generic/olsak-misc/README details="Readme"
+ texmf-dist/doc/generic/olsak-misc/booklet.tex
+ texmf-dist/doc/generic/olsak-misc/cnv-pu.tex
+ texmf-dist/doc/generic/olsak-misc/cnv-word.tex
+ texmf-dist/doc/generic/olsak-misc/cnv.tex
+ texmf-dist/doc/generic/olsak-misc/cropmarks.tex
+ texmf-dist/doc/generic/olsak-misc/eparam.tex
+ texmf-dist/doc/generic/olsak-misc/fun-coffee.tex
+ texmf-dist/doc/generic/olsak-misc/openclose.tex
+ texmf-dist/doc/generic/olsak-misc/seplist.tex
+runfiles size=31
+ texmf-dist/tex/generic/olsak-misc/qrcode.tex
+ texmf-dist/tex/generic/olsak-misc/scanbase.tex
+ texmf-dist/tex/generic/olsak-misc/scancsv.tex
+ texmf-dist/tex/generic/olsak-misc/xmlparser.tex
+catalogue-contact-home http://petr.olsak.net/ftp/olsak/makra/
+catalogue-ctan /macros/generic/olsak-misc
+catalogue-license pd
+catalogue-topics misc-support
+catalogue-version Aug. 2022

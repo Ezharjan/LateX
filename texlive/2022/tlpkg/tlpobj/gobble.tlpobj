@@ -1,0 +1,38 @@
+name gobble
+category Package
+revision 56291
+shortdesc More gobble macros for PlainTeX and LaTeX
+longdesc The LaTeX package gobble includes several gobble macros not
+longdesc included in the LaTeX kernel. These macros remove a number of
+longdesc arguments after them, a feature regulary used inside other
+longdesc macros. This includes gobble macros for optional arguments. The
+longdesc LaTeX package gobble-user provides these macros at the user
+longdesc level, i.e. using names without @ so that these can be used
+longdesc without \makeatletter and \makeatother. The same macros are
+longdesc provided inside .tex files for use with plain-TeX or other TeX
+longdesc formats. However, the gobble macros for optional macros require
+longdesc \@ifnextchar to be defined.
+containersize 1564
+containerchecksum 1206d7ff1b34bed829bd23ae88b0505e699a30088983d8f7cec7ff77f87774406e82442fc51f1f77d3475474785087d4f2f29e62fec34ef1db26d8a52a904970
+doccontainersize 157648
+doccontainerchecksum 9d862847c9b2596c061cf898e23b0a1188fabb7636f8a5dfded5b08fd4422531fbbc6932af788c9a15b6805ecb4c254c82a37700caa03975fc2ff8c6f3f539cc
+docfiles size=41
+ texmf-dist/doc/generic/gobble/README details="Readme"
+ texmf-dist/doc/generic/gobble/gobble-user.tex
+ texmf-dist/doc/generic/gobble/gobble.pdf details="Package documentation"
+srccontainersize 3288
+srccontainerchecksum 6e9178359020f754435ce675f7c2fc8a184f84fe86e990ecd254eeef283ada2576a8f634034fcd083d199d9e92bbc874b91a724739740e707525e83e1227d0a2
+srcfiles size=4
+ texmf-dist/source/generic/gobble/gobble.dtx
+ texmf-dist/source/generic/gobble/gobble.ins
+runfiles size=3
+ texmf-dist/tex/generic/gobble/gobble-user.sty
+ texmf-dist/tex/generic/gobble/gobble.sty
+ texmf-dist/tex/generic/gobble/gobble.tex
+catalogue-contact-bugs https://sourceforge.net/p/latex-gobble/tickets/
+catalogue-contact-home https://sourceforge.net/p/latex-gobble/
+catalogue-contact-repository https://sourceforge.net/p/latex-gobble/code/ci/default/tree/
+catalogue-ctan /macros/generic/gobble
+catalogue-license lppl1.3
+catalogue-topics macro-supp
+catalogue-version 0.2

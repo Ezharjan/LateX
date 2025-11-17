@@ -1,0 +1,29 @@
+name mnras
+category Package
+revision 55729
+shortdesc Monthly Notices of the Royal Astronomical Society
+longdesc Package for preparing papers in the journal "Monthly Notices of
+longdesc the Royal Astronomical Society".
+containersize 25980
+containerchecksum dc964c48272c36f81e1370ac3df6fb3b4e873294f69a565ba240a7c61a5f78fa6b493beae8e78c1ed469c4f34c325af3e53739f1aab5a68e9af356fe6945fdbc
+doccontainersize 328176
+doccontainerchecksum 5a6f55ad7e0cdf270856a5efdb6891e2da00d813b2a4279e323dca188d3b3ee43f89ed3fc44452583d45ad83b7c63cf2470371c7975aa068d2595740d31163cb
+docfiles size=118
+ texmf-dist/doc/latex/mnras/README.txt details="Readme"
+ texmf-dist/doc/latex/mnras/example.bib
+ texmf-dist/doc/latex/mnras/example.eps
+ texmf-dist/doc/latex/mnras/example.png
+ texmf-dist/doc/latex/mnras/example.ps
+ texmf-dist/doc/latex/mnras/legacy/legacy.txt
+ texmf-dist/doc/latex/mnras/legacy/mn2e.bst
+ texmf-dist/doc/latex/mnras/legacy/mn2e.cls
+ texmf-dist/doc/latex/mnras/mnras_guide.pdf details="Package documentation"
+ texmf-dist/doc/latex/mnras/mnras_guide.tex
+ texmf-dist/doc/latex/mnras/mnras_template.tex
+runfiles size=27
+ texmf-dist/bibtex/bst/mnras/mnras.bst
+ texmf-dist/tex/latex/mnras/mnras.cls
+catalogue-ctan /macros/latex/contrib/mnras
+catalogue-license lppl1.3
+catalogue-topics journalpub
+catalogue-version 3.1

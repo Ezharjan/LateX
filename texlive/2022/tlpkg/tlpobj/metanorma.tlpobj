@@ -1,0 +1,32 @@
+name metanorma
+category Package
+revision 55010
+shortdesc Write Metanorma standardization documents using LaTe
+longdesc metanorma This work includes a LaTeX document class, a
+longdesc `latexml` script and a `latexmlpost` stylesheet which allow you
+longdesc to write a LaTeX document and transcode it into Metanorma's
+longdesc `ADOC` format. This work is sponsored by Ribose Inc.
+longdesc (<https://www.ribose.com>). This work is maintained by Ribose
+longdesc Inc. (<open.source@ribose.com>).
+containersize 7536
+containerchecksum e9ca6b583cfc64ee78abdfca2520083dc231afd7bcc0b1b8373273c23da3f3bb961bad04d752cca38113d3a4d8e1ce54b401b96ea29e00e78be97d73bc528b4f
+doccontainersize 84860
+doccontainerchecksum 3750e580e3d7d0d69515e0de7a88a161cd8e7092af41be10fb4092cb519ecfebfef900e691d0c92ceb95df236cf040b2a314d54bfd8a6f7a09cb3c9585f15a32
+docfiles size=124
+ texmf-dist/doc/latex/metanorma/README.md details="Readme"
+ texmf-dist/doc/latex/metanorma/metanorma.adoc
+ texmf-dist/doc/latex/metanorma/metanorma.pdf details="Package documentation"
+runfiles size=11
+ texmf-dist/tex/latex/metanorma/metanorma.cls
+ texmf-dist/tex/latex/metanorma/metanorma.cls.ltxml
+ texmf-dist/tex/latex/metanorma/metanorma.xsl
+catalogue-contact-announce https://github.com/metanorma/tex2mn/releases
+catalogue-contact-bugs https://github.com/metanorma/tex2mn/issues
+catalogue-contact-development https://github.com/metanorma/tex2mn
+catalogue-contact-home https://github.com/metanorma/tex2mn
+catalogue-contact-repository https://github.com/metanorma/tex2mn
+catalogue-contact-support https://github.com/metanorma/tex2mn/issues
+catalogue-ctan /macros/latex/contrib/metanorma
+catalogue-license mit
+catalogue-topics class cvt-other format-cvt scientific-docs std-conform scientific-docs
+catalogue-version 0.5.0

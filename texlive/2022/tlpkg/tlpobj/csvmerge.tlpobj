@@ -1,0 +1,30 @@
+name csvmerge
+category Package
+revision 51857
+shortdesc Merge TeX code with csv data
+longdesc This package provides macros for processing a csv spreadsheet
+longdesc file with a minimum of configuration for the csv file. The
+longdesc first row names the columns and the remaining rows are data.
+longdesc This data can be merged with TeX code residing in an auxiliary
+longdesc file and the process repeated for each data row. There is one
+longdesc macro to set things up, one to extract the data, and one to
+longdesc tell if the field is empty or not. The documentation contains
+longdesc examples.
+containersize 2940
+containerchecksum f3f679127d912a8df32893f0afec13b21a272b6e5ed2d2c147e1bcbea5698e043d88d5dcadc0c772f5640945fdbbf4ff43655d6d4450b48966740cd3cb936829
+doccontainersize 218408
+doccontainerchecksum b090bd51f547f16270534c2305ba68af9f86800f55809b050eea25d5566be3a3ce245ad0f79a76ed21ac64b68b6650800fba5a5ad942cc1f3f8e982f56ba5286
+docfiles size=55
+ texmf-dist/doc/latex/csvmerge/README details="Readme"
+ texmf-dist/doc/latex/csvmerge/csvmerge.pdf details="Package documentation"
+srccontainersize 13912
+srccontainerchecksum b189b456daf9a54cf8fa09706f93de7e8365d75b792336a8328414d589ffa178ff0c39c17064b532316fc778b73b000610b3f966f9eb0d8e526cf1fd5b4bdd58
+srcfiles size=13
+ texmf-dist/source/latex/csvmerge/csvmerge.dtx
+ texmf-dist/source/latex/csvmerge/csvmerge.ins
+runfiles size=3
+ texmf-dist/tex/latex/csvmerge/csvmerge.sty
+catalogue-ctan /macros/latex/contrib/csvmerge
+catalogue-license lppl1.3
+catalogue-topics csv-support
+catalogue-version 1.0

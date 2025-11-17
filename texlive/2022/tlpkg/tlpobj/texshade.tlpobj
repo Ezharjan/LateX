@@ -1,0 +1,47 @@
+name texshade
+category Package
+revision 64242
+shortdesc Package for setting nucleotide and peptide alignments
+longdesc TeXshade is alignment shading software completely written in
+longdesc TeX/LaTeX; it can process multiple sequence alignments in the
+longdesc .MSF and the .ALN file formats. In addition to common shading
+longdesc algorithms, it provides special shading modes showing
+longdesc functional aspects, e.g. charge or hydropathy, and a wide range
+longdesc of commands for handling shading colours, text styles, labels,
+longdesc legends; it even allows the user to define completely new
+longdesc shading modes. TeXshade combines highest flexibility with TeX
+longdesc output quality -- all in a bundle that does not demand
+longdesc excessive development time of the user.
+containersize 61900
+containerchecksum 47ee4ea722ac6063c6927f0b896bd17e25df1aa75d6eabc2877ad628ec224bd9d2c8af1e6964b763d13dfea99ea3bd08007b1a9d9f43ef19da5c53e34e4b7a6e
+doccontainersize 1247384
+doccontainerchecksum a9e2130ae217816a4b8d653c32ae14beaab0ed35fac5e1a43c10d6453b2774a3449008b118f1f97d8c88d48c3708c5d96edfd5698e9a09046311919191fc240f
+docfiles size=441
+ texmf-dist/doc/latex/texshade/AQP1.phd
+ texmf-dist/doc/latex/texshade/AQP1.top
+ texmf-dist/doc/latex/texshade/AQP2spec.ALN
+ texmf-dist/doc/latex/texshade/AQPDNA.MSF
+ texmf-dist/doc/latex/texshade/AQP_HMM.ext
+ texmf-dist/doc/latex/texshade/AQP_HMM.sgl
+ texmf-dist/doc/latex/texshade/AQP_TC.asc
+ texmf-dist/doc/latex/texshade/AQP_sequence_logo_1FX8.cmd
+ texmf-dist/doc/latex/texshade/AQP_subfamily_logo_1FX8.cmd
+ texmf-dist/doc/latex/texshade/AQPpro.MSF
+ texmf-dist/doc/latex/texshade/README details="Readme"
+ texmf-dist/doc/latex/texshade/ciliate.cod
+ texmf-dist/doc/latex/texshade/meme.eps
+ texmf-dist/doc/latex/texshade/standard.cod
+ texmf-dist/doc/latex/texshade/texshade.pdf details="Package documentation" language="en"
+srccontainersize 315880
+srccontainerchecksum 2559fac03618b74230b00b4d2229199e6bc92256547024884cb6aa4fa2ddd8f361281b372c1054e10375c82960d0d53742ab333348e63ef3f92008031e907246
+srcfiles size=362
+ texmf-dist/source/latex/texshade/texshade.dtx
+ texmf-dist/source/latex/texshade/texshade.ins
+runfiles size=165
+ texmf-dist/tex/latex/texshade/texshade.def
+ texmf-dist/tex/latex/texshade/texshade.sty
+catalogue-contact-home https://www.pharmazie.uni-kiel.de/en/pharmceitica/prof-dr-eric-beitz/biotex
+catalogue-ctan /macros/latex/contrib/texshade
+catalogue-license gpl2
+catalogue-topics chemistry molbio
+catalogue-version 1.26a

@@ -1,0 +1,29 @@
+name luamathalign
+category Package
+revision 63226
+shortdesc More flexible alignment in amsmath environments
+longdesc Allow aligning mathematical expressions on points where where
+longdesc direcly using & is not possible, especially in nested macros or
+longdesc environments.
+containersize 4076
+containerchecksum 61a2960d103cad9cd9776de0c08b8d2167f6272484da2a7ee067951f7bcbeaa683e046a053c1f4d35ab83c8d70fb96e9b7b55566852d2262162b90c1a63f0b80
+doccontainersize 393088
+doccontainerchecksum 96a1fd4016b189d31c966faeba0942d4b3bf24208ebc6c03281336af6d86504f552f0bb705a30e6ff108ff692de969900a229b061f7bc91c6cbae68fa42e8143
+docfiles size=99
+ texmf-dist/doc/lualatex/luamathalign/README.md details="Readme"
+ texmf-dist/doc/lualatex/luamathalign/build.lua
+ texmf-dist/doc/lualatex/luamathalign/luamathalign.pdf details="Package documentation"
+srccontainersize 5704
+srccontainerchecksum 7f4c636a013d6fe8f0771ff3d3234cc2b5f098d0369d9ca73f3aea29dd47e609ce56ba20cec0dbeb782988200b8fffbf62c1957055d074d21b98051d8c155ea1
+srcfiles size=6
+ texmf-dist/source/lualatex/luamathalign/luamathalign.dtx
+runfiles size=6
+ texmf-dist/tex/lualatex/luamathalign/luamathalign-luacmd.lua
+ texmf-dist/tex/lualatex/luamathalign/luamathalign.lua
+ texmf-dist/tex/lualatex/luamathalign/luamathalign.sty
+catalogue-contact-bugs https://github.com/zauguin/luamathalign/issues
+catalogue-contact-repository https://github.com/zauguin/luamathalign
+catalogue-ctan /macros/luatex/latex/luamathalign
+catalogue-license lppl1.3c
+catalogue-topics font-maths luatex
+catalogue-version 0.3

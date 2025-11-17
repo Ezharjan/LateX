@@ -1,0 +1,32 @@
+name pdfjam
+category Package
+revision 56991
+shortdesc Shell scripts interfacing to pdfpages
+longdesc The package makes available the pdfjam shell script that
+longdesc provides a simple interface to much of the functionality of the
+longdesc excellent pdfpages package (by Andreas Matthias) for LaTeX. The
+longdesc pdfjam script takes one or more PDF files (and/or JPG/PNG
+longdesc graphics files) as input, and produces one or more PDF files as
+longdesc output. It is useful for joining files together, selecting
+longdesc pages, reducing several source pages onto one output page,
+longdesc etc., etc.
+depend pdfjam.ARCH
+containersize 12120
+containerchecksum 1b1084859a811861e60e27186d67d267d3740152331f50fdbe67ce7226a76b4db24d79b674e6511d2f3de9a711da3369c565d781614f5d0c1a8021bc1ac18827
+doccontainersize 110188
+doccontainerchecksum a29c09a2e843188135265aaec690e09cd08fe29076a0378b308ec0e48aa7936ba0edfa7d6ad3ac808ec334bb5c2793a32d8ef625f4ad9b3fea40d4db567cae56
+docfiles size=43
+ texmf-dist/doc/man/man1/pdfjam.1
+ texmf-dist/doc/man/man1/pdfjam.man1.pdf
+ texmf-dist/doc/support/pdfjam/COPYING
+ texmf-dist/doc/support/pdfjam/README.md details="Readme"
+ texmf-dist/doc/support/pdfjam/VERSION
+ texmf-dist/doc/support/pdfjam/pdfjam.conf
+ texmf-dist/doc/support/pdfjam/tests.zip
+runfiles size=11
+ texmf-dist/scripts/pdfjam/pdfjam
+catalogue-contact-repository https://github.com/rrthomas/pdfjam
+catalogue-ctan /support/pdfjam
+catalogue-license gpl2+
+catalogue-topics pdfprocess
+catalogue-version 3.03

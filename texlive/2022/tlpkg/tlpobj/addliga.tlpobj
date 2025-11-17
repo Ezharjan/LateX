@@ -1,0 +1,21 @@
+name addliga
+category Package
+revision 50912
+shortdesc Access basic ligatures in legacy TrueType fonts
+longdesc This small and simple package allows LuaLaTeX users to access
+longdesc basic ligatures (ff, fi, ffi, fl, ffl) in legacy TrueType fonts
+longdesc (those lacking a liga table) accessed via fontspec.
+containersize 792
+containerchecksum b54db5b075c2ba2f632e40a1ae2d840b0a61cc940512027effa2b2b3cadfd6dfa2407e2580a462b98f48cafed94281d39613397ed34ad76f54d6a7e8b614ecb8
+doccontainersize 18528
+doccontainerchecksum 572d9aa1396ac80be2cd9ab0bd317759805a6541b656e19ae36915a6277f9a4ff2987c84dbf903133e0a5027f382b0ed48fc882ce7a79df7a27cfe3082d2a666
+docfiles size=7
+ texmf-dist/doc/lualatex/addliga/README details="Readme"
+ texmf-dist/doc/lualatex/addliga/addliga.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/addliga/addliga.tex
+runfiles size=1
+ texmf-dist/tex/lualatex/addliga/addliga.sty
+catalogue-ctan /macros/luatex/latex/addliga
+catalogue-license pd
+catalogue-topics luatex font-supp font-use
+catalogue-version 1.0

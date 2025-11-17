@@ -1,0 +1,33 @@
+name postage
+category Package
+revision 55920
+shortdesc Stamp letters with >>Deutsche Post<<'s service >>Internetmarke<<
+longdesc The postage package is used for franking letters with
+longdesc >>Deutsche Post<<'s online postage service >>Internetmarke<<.
+longdesc Note that in order to print valid stamps you must point to a
+longdesc valid PDF of >>Deutsche Post<<'s >>Ausdruck 4-spaltig (DIN
+longdesc A4)<<.
+containersize 2012
+containerchecksum 1b7ebc9b82ae1dc0a642892b6d74ef94ff0810ff3dda1628f741244dd17dc8d5013b42e2369c1dd6c27e65b965a1482814c62eaef582cd3bcb4c945fe0aa76da
+doccontainersize 307920
+doccontainerchecksum 5f0d2dc0a4986509862b17af55f590f110b3dbdc697ed4cc704d31215945e224a0029087e04cc8602b059455447fa9214bede0aa63509958972c9dbe2cc4a0e9
+docfiles size=102
+ texmf-dist/doc/latex/postage/README.txt details="Readme"
+ texmf-dist/doc/latex/postage/postage.pdf details="Package documentation"
+ texmf-dist/doc/latex/postage/sample-stamps.pdf
+srccontainersize 4660
+srccontainerchecksum 68d0ae1488f2288b7b5ae3aba79ca877ce6f97e1134e61859a81c77bbed47c9b79d3eae07a6ce0bb5fb3645078fc67d2c6cd4a5baaad1460e09b4b34d3d597a4
+srcfiles size=6
+ texmf-dist/source/latex/postage/postage.dtx
+ texmf-dist/source/latex/postage/postage.ins
+runfiles size=2
+ texmf-dist/tex/latex/postage/postage.sty
+catalogue-contact-bugs https://github.com/heinrichreimer/latex-postage/issues
+catalogue-contact-development https://github.com/heinrichreimer/latex-postage
+catalogue-contact-home https://github.com/heinrichreimer/latex-postage
+catalogue-contact-repository https://github.com/heinrichreimer/latex-postage
+catalogue-contact-support https://github.com/heinrichreimer/latex-postage/issues
+catalogue-ctan /graphics/postage
+catalogue-license lppl1.3c
+catalogue-topics letter
+catalogue-version 1.0

@@ -1,0 +1,38 @@
+name jmsdelim
+category Package
+revision 62630
+shortdesc A package for compositional delimiter sizing
+longdesc Correctly sizing delimiters is very difficult, particularly in
+longdesc well-architected documents: a correctly engineered mathematical
+longdesc document will include macros for all operations, and these
+longdesc macros necessarily will include delimiters (such as
+longdesc parentheses). However, the correct size for the delimiter
+longdesc cannot be chosen ahead of time, because it will depend on the
+longdesc arguments; two options are available: Provide optional
+longdesc arguments to each notation macro for choosing delimiter sizes.
+longdesc This is nearly intractable to do in practice. Ignore delimiter
+longdesc sizes. With jmsdelim we offer an alternative: the correct
+longdesc delimiter sizes can be set at the leaf nodes of a mathematical
+longdesc expression, and magically bubble upward through the delimiters.
+containersize 2268
+containerchecksum 83a76c353b38c9d5e432606c2f1667dac10adf54f844d9c4c7a9b8b8733a44d63db9e2c9e46b2ca54f427bca1d3bf4ef49d016c26dbad361b83d091c78708918
+doccontainersize 402864
+doccontainerchecksum ef6f90a4b7d3738ff857158822fbc7b3dc23752b5da5845932f560fcaf83d67a22920e045448caae26eded760e34aaab375f29993ffb503d0b5ef3c8185ae737
+docfiles size=104
+ texmf-dist/doc/latex/jmsdelim/README.md details="Readme"
+ texmf-dist/doc/latex/jmsdelim/jmsdelim.pdf details="Package documentation"
+ texmf-dist/doc/latex/jmsdelim/refs.bib
+srccontainersize 5692
+srccontainerchecksum bbb2b6acb1e2a4be8fd02ea84f3f43b14675b7c02fcb036fbf10e59553411d4a19ad5bd6c087e7aebb5c7309d3ad6d19ccfc67d9186799159e0209f45bdbc5bb
+srcfiles size=7
+ texmf-dist/source/latex/jmsdelim/jmsdelim.dtx
+ texmf-dist/source/latex/jmsdelim/jmsdelim.ins
+runfiles size=2
+ texmf-dist/tex/latex/jmsdelim/jmsdelim.sty
+catalogue-contact-bugs https://github.com/jonsterling/latex3-jmsdelim/issues/6
+catalogue-contact-home https://github.com/jonsterling/latex3-jmsdelim
+catalogue-contact-repository https://github.com/jonsterling/latex3-jmsdelim
+catalogue-ctan /macros/latex/contrib/jmsdelim
+catalogue-license lppl1.3c
+catalogue-topics maths
+catalogue-version 0.2.0

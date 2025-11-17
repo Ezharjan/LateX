@@ -1,0 +1,36 @@
+name paper
+category Package
+revision 34521
+shortdesc Versions of article class, tuned for scholarly publications
+longdesc A pair of classes derived from article, tuned for producing
+longdesc papers for journals. The classes introduce new layout options
+longdesc and font commands for sections/parts, and define a new keywords
+longdesc environment, subtitle and institution commands for the title
+longdesc section and new commands for revisions.
+containersize 8144
+containerchecksum 484964a6da8fffb001e29b471f7c9fa52d2f1aecf66da8f9365376b987c79e8e39cdede0f0d61977381aea78f9e6429216c0cc2eaa67a831e4f1ace29e2c9503
+doccontainersize 128876
+doccontainerchecksum 2fd771d5f1035cb48c0a4de89f1174a988b3b8254caf535ca75633efe2ddc0483d095a720a9dae93aa7e832b0d4e63bc49cbdcd801e4190209f56bb0632c5aa6
+docfiles size=43
+ texmf-dist/doc/latex/paper/README details="Readme"
+ texmf-dist/doc/latex/paper/install
+ texmf-dist/doc/latex/paper/journal1.tex
+ texmf-dist/doc/latex/paper/journal2.tex
+ texmf-dist/doc/latex/paper/local.tex
+ texmf-dist/doc/latex/paper/paper.pdf details="Package documentation (German)" language="de"
+ texmf-dist/doc/latex/paper/testj.tex
+ texmf-dist/doc/latex/paper/testp.tex
+srccontainersize 16644
+srccontainerchecksum 74ad404eaa44a523f97d245d6ccada1546d9c991bfc64186ab1ee7f6efdecddf87897d7e64136c0285e4d6541f1bf164173efb020adc113893d8e9309a687967
+srcfiles size=18
+ texmf-dist/source/latex/paper/paper.drv
+ texmf-dist/source/latex/paper/paper.dtx
+runfiles size=12
+ texmf-dist/tex/latex/paper/journal.cls
+ texmf-dist/tex/latex/paper/journal.sty
+ texmf-dist/tex/latex/paper/paper.cls
+ texmf-dist/tex/latex/paper/paper.sty
+catalogue-ctan /macros/latex/contrib/paper
+catalogue-license gpl
+catalogue-topics journalpub
+catalogue-version 1.0l

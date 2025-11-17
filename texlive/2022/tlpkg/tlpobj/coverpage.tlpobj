@@ -1,0 +1,46 @@
+name coverpage
+category Package
+revision 63509
+shortdesc Automatic cover page creation for scientific papers
+longdesc The package CoverPage was created to supplement scientific
+longdesc papers with a cover page containing bibliographical
+longdesc information, a copyright notice, and/or some logos of the
+longdesc author's institution. The cover page is created (almost)
+longdesc automatically; this is done by parsing BibTeX information
+longdesc corresponding to the main document and reading a configuration
+longdesc file in which the author can set information like the
+longdesc affiliation he or she is associated with. The cover page
+longdesc consists of header, body and footer; all three are macros which
+longdesc can be redefined using \renewcommand, thus allowing easy
+longdesc customization of the package. Additionally, it should be
+longdesc stressed that the cover page layout is totally independent of
+longdesc the main document and its page layout. This package requires
+longdesc four other packages (keyval, url, textcomp, and verbatim), but
+longdesc all of them are standard packages and should be part of every
+longdesc LaTeX installation.
+containersize 3712
+containerchecksum a41ebddf89a5fd375ab107e207b9397b3496bc7daf213b4c29779b15d0134a131d6646a4474a5cd9d3bf56da58350fb2ea4b98692bccb8d7b06c8a4f2244ffec
+doccontainersize 280968
+doccontainerchecksum 0931d1f63b60b1b94467114db0fcc67e4905ee1fbfe7c2083eceb0f7715eff201ccca4cd74183b70a4c84808838244b3570529b372ab64a9ef6bcc0f5357aa77
+docfiles size=86
+ texmf-dist/doc/latex/coverpage/CoverPage.pdf details="Package documentation"
+ texmf-dist/doc/latex/coverpage/ECCV06Sample.pdf details="Another sample"
+ texmf-dist/doc/latex/coverpage/README details="README file"
+ texmf-dist/doc/latex/coverpage/SimpleSample.BibTeX.txt
+ texmf-dist/doc/latex/coverpage/SimpleSample.pdf details="Simple sample"
+ texmf-dist/doc/latex/coverpage/SimpleSample.tex
+srccontainersize 10324
+srccontainerchecksum 15d25cd0b009c1f8006b344498f40a293d18cf08b9098c9923b1fc678a65a2a2a55efcab53744e55ce41d34f4aad248d389aa6127827b1836ec6a706ed6c73cb
+srcfiles size=9
+ texmf-dist/source/latex/coverpage/CoverPage.dtx
+ texmf-dist/source/latex/coverpage/CoverPage.ins
+runfiles size=3
+ texmf-dist/tex/latex/coverpage/CoverPage.cfg
+ texmf-dist/tex/latex/coverpage/CoverPage.sty
+catalogue-also authorarchive
+catalogue-contact-bugs https://github.com/koppor/CoverPage/issues
+catalogue-contact-repository https://github.com/koppor/CoverPage
+catalogue-ctan /macros/latex/contrib/coverpage
+catalogue-license lppl1.2
+catalogue-topics archival journalpub
+catalogue-version 1.01

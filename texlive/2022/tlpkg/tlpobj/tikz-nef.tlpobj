@@ -1,0 +1,31 @@
+name tikz-nef
+category Package
+revision 55920
+shortdesc Create diagrams for neural networks constructed with the methods of the Neural Engineering Framework (NEF)
+longdesc The nef TikZ library provides predefined styles and shapes to
+longdesc create diagrams for neural networks constructed with the
+longdesc methods of the Neural Engineering Framework (NEF). The
+longdesc following styles are supported: ea: ensemble array ens:
+longdesc ensemble ext: external input or output inhibt: inhibitory
+longdesc connection net: network pnode: pass-through node rect:
+longdesc rectification ensemble recurrent: recurrent connection
+containersize 1288
+containerchecksum 27ca8ead5ab99566c3bc398b52df4da6bda646519fc5d84d4a8b5476fbf0e86d8b405f2c88a9be56f6f6f4def0e5174ab0b2bc8100300d6b32bbe025dd7bf9c3
+doccontainersize 97016
+doccontainerchecksum 07e9b26ecb4b334c4d7459e636eb116dbf03f7978f88d29f462cd2f9ad81bc24bef57dd659d23c39e8bcd81ba4fa74214c7c399c104fb5af35bf18dfc3e4d1e3
+docfiles size=31
+ texmf-dist/doc/latex/tikz-nef/LICENSE
+ texmf-dist/doc/latex/tikz-nef/README.md details="Readme"
+ texmf-dist/doc/latex/tikz-nef/example-net.tex
+ texmf-dist/doc/latex/tikz-nef/nef.bib
+ texmf-dist/doc/latex/tikz-nef/tikz-nef-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/tikz-nef/tikz-nef-doc.tex
+runfiles size=1
+ texmf-dist/tex/latex/tikz-nef/tikzlibrarynef.code.tex
+catalogue-contact-bugs https://github.com/jgosmann/tikz-nef/issues
+catalogue-contact-home https://github.com/jgosmann/tikz-nef
+catalogue-contact-repository https://github.com/jgosmann/tikz-nef
+catalogue-ctan /graphics/pgf/contrib/tikz-nef
+catalogue-license mit
+catalogue-topics pgf-tikz diagram
+catalogue-version 0.1

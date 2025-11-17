@@ -1,0 +1,27 @@
+name kblocks
+category Package
+revision 57617
+shortdesc Easily typeset Control Block Diagrams and Signal Flow Graphs
+longdesc Kblocks defines a number of commands to make drawing control
+longdesc block diagrams using TikZ/PGF more structured and easier. It
+longdesc reduces the learning curve forTikZ/PGF and serves as a
+longdesc frontend, by focusing on the block resp. flow diagrams only.
+containersize 8140
+containerchecksum 1cf755fb680b13d5298c306698bf41cd0446f7ec8da321b065ed549c1bc83bc352bd4a44d67eaff6fd1c253b2d92768f8ddcdb6a986febc4dd1abe6884a2354d
+doccontainersize 339680
+doccontainerchecksum 7aa79c73b32d4098bdbf6152f28de628083639fcea2b7338e64fe6108aa605662f36002d93268f67fcfac59798369d392c5c4b79adcb18d0600faed8d804d8df
+docfiles size=97
+ texmf-dist/doc/latex/kblocks/README.md details="Readme"
+ texmf-dist/doc/latex/kblocks/intro.png
+ texmf-dist/doc/latex/kblocks/kblocks-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/kblocks/kblocks-doc.tex
+runfiles size=26
+ texmf-dist/tex/latex/kblocks/kblocks.sty
+catalogue-contact-bugs https://github.com/somefunAgba/kblocks/issues
+catalogue-contact-development https://github.com/somefunAgba/kblocks/pulls
+catalogue-contact-home https://github.com/somefunAgba/kblocks
+catalogue-contact-repository https://github.com/somefunAgba/kblocks
+catalogue-ctan /graphics/pgf/contrib/kblocks
+catalogue-license mit
+catalogue-topics diagram-block diagram-flow
+catalogue-version 2.0

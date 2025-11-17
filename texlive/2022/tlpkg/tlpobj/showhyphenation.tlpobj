@@ -1,0 +1,26 @@
+name showhyphenation
+category Package
+revision 63578
+shortdesc Marking of hyphenation points
+longdesc The package shows the hyphenation points in the document by
+longdesc either inserting small triangles below the baseline or by
+longdesc typesetting explicit hyphens. The markers are correctly placed
+longdesc even within ligatures and their size adjusts to the font size.
+longdesc By option the markers can be placed behind or in front of the
+longdesc glyphs. The package requires LuaLaTeX.
+containersize 2912
+containerchecksum b1370cb5b483bb206248f06cb0fba3acc23abc445c655b486e174bbbe572397897d4c803f25b68e9babd6a162f1d2abd98a11909062f846cb194b8c4b4ca001b
+doccontainersize 59840
+doccontainerchecksum 416be8f4e134eb4eb4bd5512fc50469051eb6792e929f1aa21fcd4fc9025e1be2a69c7f188e26e4522683f5b527ac468fbea08eb7963f0e3a8ff4480d44d5be0
+docfiles size=21
+ texmf-dist/doc/lualatex/showhyphenation/DEPENDS.txt
+ texmf-dist/doc/lualatex/showhyphenation/README.md details="Readme"
+ texmf-dist/doc/lualatex/showhyphenation/showhyphenation.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/showhyphenation/showhyphenation.tex
+runfiles size=4
+ texmf-dist/tex/lualatex/showhyphenation/showhyphenation.lua
+ texmf-dist/tex/lualatex/showhyphenation/showhyphenation.sty
+catalogue-ctan /macros/luatex/latex/showhyphenation
+catalogue-license lppl1.3c
+catalogue-topics hyphenation luatex debug-supp
+catalogue-version 0.1a

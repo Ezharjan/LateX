@@ -1,0 +1,24 @@
+name gckanbun
+category Package
+revision 61719
+shortdesc Kanbun typesetting for (u)pLaTeX and LuaLaTeX
+longdesc This package provides a Kanbun (Han Wen , "Chinese writing")
+longdesc typesetting for (u)pLaTeX and LuaLaTeX.
+containersize 2008
+containerchecksum ccea354895392747e5c84d750ece8f3717a0f9c529fd5b8b7ae2554bbe607b4497b9a8d213c479d5ad11e8ebc40187799ffced6f08f4fefb4e6d3cf223566c98
+doccontainersize 76744
+doccontainerchecksum 4a885440883d615ad20dc083c768c3b64c3cdc627e1daca4008dbf07672ad62e8020a9b14f732d181c4a902adddd49908c4a0e41b3afbe2d68d2f90c5989e78b
+docfiles size=24
+ texmf-dist/doc/latex/gckanbun/LICENSE
+ texmf-dist/doc/latex/gckanbun/README.md details="Readme"
+ texmf-dist/doc/latex/gckanbun/gckanbun.pdf details="Package documentation"
+ texmf-dist/doc/latex/gckanbun/gckanbun.tex
+ texmf-dist/doc/latex/gckanbun/test-gckanbun.tex
+runfiles size=2
+ texmf-dist/tex/latex/gckanbun/gckanbun.sty
+catalogue-also kanbun
+catalogue-contact-repository https://github.com/munepi/gckanbun
+catalogue-ctan /language/japanese/gckanbun
+catalogue-license mit
+catalogue-topics japanese chinese
+catalogue-version 1.2

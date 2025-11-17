@@ -1,0 +1,37 @@
+name thalie
+category Package
+revision 63617
+shortdesc Typeset drama plays
+longdesc The package provides tools to typeset drama plays. It defines
+longdesc commands to introduce characters' lines, to render stage
+longdesc directions, to divide a play into acts and scenes and to build
+longdesc the dramatis personae automatically.
+containersize 5156
+containerchecksum 4a4e46ed88a663b5cec1d672e324123e5ad42abe6b67f08f422cddb9bfedf852e64d76c11e1692f3b068403221a6d28ac9aa2092ecaf7c5e8b23dddba28be87d
+doccontainersize 470844
+doccontainerchecksum 9d3ff6e33b98a94ce862f8e98647ba466e881efa058184b013098d9d951fff95badd8cbb587bb33cf9e380e77a5e489bee453ef21258c5751d45089f4bbfd9f9
+docfiles size=124
+ texmf-dist/doc/latex/thalie/CHANGELOG.md
+ texmf-dist/doc/latex/thalie/LICENSE.txt
+ texmf-dist/doc/latex/thalie/README.md details="Readme"
+ texmf-dist/doc/latex/thalie/thalie.pdf details="Package documentation"
+srccontainersize 20032
+srccontainerchecksum 3d79f5ce1cfbb50de169e706356eb0cdc7184ef686da2bd73a5de2a5ce26008bd73626188888ec04d575fc182e376fa3c029e5c6b06e0e41dc77f70be1b2c89e
+srcfiles size=21
+ texmf-dist/source/latex/thalie/thalie.dtx
+ texmf-dist/source/latex/thalie/thalie.ins
+runfiles size=10
+ texmf-dist/tex/latex/thalie/thalie-english.trsl
+ texmf-dist/tex/latex/thalie/thalie-fallback.trsl
+ texmf-dist/tex/latex/thalie/thalie-french.trsl
+ texmf-dist/tex/latex/thalie/thalie-german.trsl
+ texmf-dist/tex/latex/thalie/thalie-italian.trsl
+ texmf-dist/tex/latex/thalie/thalie.sty
+catalogue-also drama dramatist play
+catalogue-contact-bugs https://framagit.org/spalax/thalie/issues
+catalogue-contact-home https://framagit.org/spalax/thalie
+catalogue-contact-repository https://framagit.org/spalax/thalie
+catalogue-ctan /macros/latex/contrib/thalie
+catalogue-license lppl1.3
+catalogue-topics drama-script
+catalogue-version 0.11b

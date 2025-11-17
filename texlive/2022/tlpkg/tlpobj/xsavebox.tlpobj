@@ -1,0 +1,33 @@
+name xsavebox
+category Package
+revision 64049
+shortdesc Saveboxes for repeating content without code replication, based on PDF Form XObjects
+longdesc The package defines commands for saving content that can be
+longdesc repeatedly placed into the document without replicating DVI/PDF
+longdesc code in the output file, allowing for smaller file size of the
+longdesc final PDF and improved content caching for faster display in
+longdesc certain PDF viewers. The method makes use of 'Form XObjects'
+longdesc defined in the PDF specification. The user commands are
+longdesc modelled after the standard LaTeX commands \savebox, \sbox,
+longdesc \usebox and the lrbox environment. All common TeX engines and
+longdesc back-ends are supported: pdfLaTeX, LuaLaTeX LaTeX - dvips -
+longdesc ps2pdf/Distiller (Xe)LaTeX - (x)dvipdfmx
+containersize 4164
+containerchecksum a88227b8f3b8adcfb3de271307e97c13db9da52c9446efa69ebc9b12289a59b2b92b608dd87dadf4837f0501599b74775671cc4e529a99ef37035dbe171cd66c
+doccontainersize 377076
+doccontainerchecksum 4acb0dcab63edd326db7736bf4632f375e4e1dabb1eab0969c0255312f6207871f087cf81e2a01bbfdb99ce956e568d6331cd82346feeae966331569d2f0c3a2
+docfiles size=95
+ texmf-dist/doc/latex/xsavebox/ChangeLog
+ texmf-dist/doc/latex/xsavebox/README
+ texmf-dist/doc/latex/xsavebox/xsavebox.pdf details="Package documentation"
+srccontainersize 4220
+srccontainerchecksum 5843edad34701520c35763cbe3b66523a67f11299affdf4ffcd213ac3abc8d67b9e7cce05610132fcbad3639412f1fe04df15887d1e671c06ef066a0f859f231
+srcfiles size=3
+ texmf-dist/source/latex/xsavebox/xsavebox.tex
+runfiles size=3
+ texmf-dist/tex/latex/xsavebox/xsavebox.sty
+catalogue-contact-repository https://gitlab.com/agrahn/xsavebox
+catalogue-ctan /macros/latex/contrib/xsavebox
+catalogue-license lppl
+catalogue-topics boxing pdf-feat adobe-distiller expl3
+catalogue-version 0.18

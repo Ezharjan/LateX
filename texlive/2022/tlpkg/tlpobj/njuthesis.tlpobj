@@ -1,0 +1,36 @@
+name njuthesis
+category Package
+revision 64081
+shortdesc LaTeX thesis template for Nanjing University
+longdesc The njuthesis class is intended for typesetting Nanjing
+longdesc University dissertations with LaTeX, providing support for
+longdesc bachelor, master, and doctoral theses as well as postdoctoral
+longdesc reports. Compilation of this class requires either XeLaTeX or
+longdesc LuaLaTeX.
+containersize 19264
+containerchecksum 68c6c77d4ec73ab1c6beffcb4e888131b8e11e6ad612da2eb8f1685b4c421d5a34d17f00bb29b39f5a7676cf1a9b351b55dae21870113c9f4a4cda4ae9eed81a
+doccontainersize 1177448
+doccontainerchecksum 41bee57e5659b0999d6d62095ef9f11899654a9b539950be66d191d222370e222dc43726e217b312c5c74543d3f48c1aae111fe116de88689f52caa90e9188c8
+docfiles size=296
+ texmf-dist/doc/latex/njuthesis/LICENSE
+ texmf-dist/doc/latex/njuthesis/README.md details="Readme"
+ texmf-dist/doc/latex/njuthesis/njuthesis.pdf details="Package documentation" language="zh"
+srccontainersize 63452
+srccontainerchecksum e04627bc5a836db3ef6c7859f4c0bad0affdca7b60a9450d2e2641eb8f250dd94e899639d21b87a258e7b97623997e0ca63ba6e78be4dd7cb5d2733dd2f7e7eb
+srcfiles size=73
+ texmf-dist/source/latex/njuthesis/njuthesis.dtx
+ texmf-dist/source/latex/njuthesis/njuthesis.ins
+runfiles size=28
+ texmf-dist/tex/latex/njuthesis/njuthesis-graduate.def
+ texmf-dist/tex/latex/njuthesis/njuthesis-postdoctoral.def
+ texmf-dist/tex/latex/njuthesis/njuthesis-undergraduate.def
+ texmf-dist/tex/latex/njuthesis/njuthesis.cls
+catalogue-contact-announce https://github.com/nju-lug/NJUThesis/releases
+catalogue-contact-bugs https://github.com/nju-lug/NJUThesis/issues
+catalogue-contact-development https://github.com/nju-lug
+catalogue-contact-repository https://github.com/nju-lug/NJUThesis
+catalogue-contact-support https://github.com/nju-lug/NJUThesis/discussions
+catalogue-ctan /macros/unicodetex/latex/njuthesis
+catalogue-license lppl1.3c
+catalogue-topics class dissertation proposal expl3 latex3 chinese
+catalogue-version 1.0.0

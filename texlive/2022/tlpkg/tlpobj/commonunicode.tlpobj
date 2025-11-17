@@ -1,0 +1,26 @@
+name commonunicode
+category Package
+revision 62901
+shortdesc Convert common unicode symbols to LaTeX code
+longdesc The aim of this LaTeX package is to provide a complete as
+longdesc possible list of common Unicode symbols with their translations
+longdesc to LaTeX code. This is useful in the development of templates
+longdesc which are intended to work with modern TeX engines (LuaTeX,
+longdesc XeTeX) as well as traditional ones (TeX, pdfTeX).
+containersize 5628
+containerchecksum a395e5ad2b08ffd1a29b99c66b65ddb7ab3d5207290db71ba85a0058a5404f0366030d229c5c4bc8a4450bad0a0da9fb5f6d374be2c05cbfa7a8217fadca7b11
+doccontainersize 324112
+doccontainerchecksum dcb1071fb36eae56f6aa8b90e5b88ad32566a5dd410cf9f25c157789fac73d38d24965621f8517980cebbabb957a62f3dfc9445e00c83ed0fc43a11306684029
+docfiles size=144
+ texmf-dist/doc/latex/commonunicode/LICENSE
+ texmf-dist/doc/latex/commonunicode/README.md details="Readme"
+ texmf-dist/doc/latex/commonunicode/commonunicode.pdf details="Package documentation"
+ texmf-dist/doc/latex/commonunicode/commonunicode.tex
+runfiles size=14
+ texmf-dist/tex/latex/commonunicode/commonunicode.sty
+catalogue-contact-bugs https://github.com/ppizarror/common-unicode/issues
+catalogue-contact-repository https://github.com/ppizarror/common-unicode
+catalogue-ctan /macros/latex/contrib/commonunicode
+catalogue-license mit
+catalogue-topics unicode
+catalogue-version 1.0.0

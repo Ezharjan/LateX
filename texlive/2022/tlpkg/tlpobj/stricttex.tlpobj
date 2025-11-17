@@ -1,0 +1,26 @@
+name stricttex
+category Package
+revision 56320
+shortdesc Strictly balanced brackets and numbers in command names
+longdesc This is a small, LuaLaTeX-only package providing you with
+longdesc three, sometimes useful features: It allows you to make
+longdesc brackets [...] "strict", meaning that each [ must be balanced
+longdesc by a ]. It allows you to use numbers in command names, so that
+longdesc you can do stuff like \newcommand\pi12{\pi_{12}}. It allows you
+longdesc to use numbers and primes in command names, so that you can do
+longdesc stuff like \newcommand\pi'12{\pi '_{12}}.
+containersize 1880
+containerchecksum 5e823dde4f0b902f59327be2f41dabbe19f569d5d05941deda33b44664b736c9ec687e98a04635c6f2af2a0f894ad162bcc4b866e52b88e5db55228d4a35538a
+doccontainersize 57536
+doccontainerchecksum 9853efc6722d028c1ccbd90bdba2b4045c45b384e7fef1949ab51b7d2e6d29f1ea2c55c3a4a580a42faae9e03d38de258528af3e37c78f61ef8704798be5ccb4
+docfiles size=17
+ texmf-dist/doc/lualatex/stricttex/README.md details="Readme"
+ texmf-dist/doc/lualatex/stricttex/stricttex.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/stricttex/stricttex.tex
+runfiles size=3
+ texmf-dist/tex/lualatex/stricttex/stricttex.lua
+ texmf-dist/tex/lualatex/stricttex/stricttex.sty
+catalogue-ctan /macros/luatex/latex/stricttex
+catalogue-license lppl1.3c
+catalogue-topics luatex typeset-tool
+catalogue-version 0.2beta

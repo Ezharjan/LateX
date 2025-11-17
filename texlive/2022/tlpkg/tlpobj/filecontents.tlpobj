@@ -1,0 +1,37 @@
+name filecontents
+category Package
+revision 52142
+shortdesc Create an external file from within a LaTeX document
+longdesc LaTeX2e's filecontents and filecontents* environments enable a
+longdesc LaTeX source file to generate external files as it runs through
+longdesc LaTeX. However, there are two limitations of these
+longdesc environments: they refuse to overwrite existing files, and they
+longdesc can only be used in the preamble of a document. The
+longdesc filecontents package removes these limitations, letting you
+longdesc overwrite existing files and letting you use
+longdesc filecontents/filecontents* anywhere. As of September 2019 the
+longdesc author tells us: "This package is no longer necessary due to
+longdesc its functionality having moved into recent LaTeX kernels. It's
+longdesc probably better not to move the package to obsolete because
+longdesc users may need it to rebuild old documents. Version 1.5
+longdesc provides full functionality when run with an older kernel but
+longdesc issues a warning message and disables itself when run with a
+longdesc newer kernel."
+containersize 2056
+containerchecksum b40bf2e4eea194783dded4f00dc24f1cea26a854e96b57995b69354a70c1e7ba9ef0e64542c2b524ad59d9b12fb1accf93ee28b4c7e735279c0bbeb915b6c991
+doccontainersize 122336
+doccontainerchecksum 0ebf1990c005dbf92b7ef73ccae0cf1ad47ca896f0805a5a8291a15c6764e2259ae03fe14d9c713484ea258764b706881051b4001589715bc36ee17ce5bdee23
+docfiles size=33
+ texmf-dist/doc/latex/filecontents/README details="Package Readme"
+ texmf-dist/doc/latex/filecontents/filecontents.pdf details="Package documentation"
+srccontainersize 6192
+srccontainerchecksum e0238c49fcdda4a6d5ced2e52a7f5113996fed3bf7d8d2143d499870b06a1d8381a2b0796c2708570e554c1ffbd7f12c6c69b52980b1e2b7b91b2e8d2112e42a
+srcfiles size=5
+ texmf-dist/source/latex/filecontents/filecontents.dtx
+ texmf-dist/source/latex/filecontents/filecontents.ins
+runfiles size=1
+ texmf-dist/tex/latex/filecontents/filecontents.sty
+catalogue-ctan /macros/latex/contrib/filecontents
+catalogue-license lppl1.3c
+catalogue-topics file-mgmt
+catalogue-version 1.5

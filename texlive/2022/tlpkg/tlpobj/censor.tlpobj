@@ -1,0 +1,24 @@
+name censor
+category Package
+revision 63126
+shortdesc Tools for producing redacted documents
+longdesc This package provides simple tools for creating redacted
+longdesc documents with blacked-out text. Its tools are useful both for
+longdesc creating documents in a restricted environment (for redacted
+longdesc release in an unrestricted environment) as well as in an
+longdesc unrestricted environment (for eventual transfer and completion
+longdesc in the restricted environment).
+containersize 3004
+containerchecksum d4f70727850c311cff4f7bbfd2962bb9510590791cb3e00a247f6c708477f9b0b7bd35f771e3145ad760f18284b7e8779bf302b55fbba3f25f11ed57ee896306
+doccontainersize 234832
+doccontainerchecksum 3d1d7f5828ef75c26b8e172c6fbe0d48d15842a11d720574f022684a154c6dc864241a8a320fc4cf42c31ed67eced0bf1c728e321b9d8e4cb08a96811e7f80c1
+docfiles size=70
+ texmf-dist/doc/latex/censor/README details="Readme"
+ texmf-dist/doc/latex/censor/censor.pdf details="Package documentation"
+ texmf-dist/doc/latex/censor/censor.tex
+runfiles size=3
+ texmf-dist/tex/latex/censor/censor.sty
+catalogue-ctan /macros/latex/contrib/censor
+catalogue-license lppl1.3
+catalogue-topics security
+catalogue-version 4.2

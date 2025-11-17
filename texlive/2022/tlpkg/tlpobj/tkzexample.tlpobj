@@ -1,0 +1,21 @@
+name tkzexample
+category Package
+revision 63908
+shortdesc Package for the documentation of all tkz-* packages
+longdesc This package is needed to compile the documentation of all
+longdesc tkz-* packages (like tkz-euclide).
+containersize 3872
+containerchecksum d312aa7220166853d5960301b1aac7917969d6cc3859bff6766d366836255cf46fa24f66ad3401243a0cd63b719428b848969bf66d51e5946f56e672eb10b353
+doccontainersize 96832
+doccontainerchecksum 30ad76a0efecf48067e2027eb713dc9af4ff1b0ac50e6c8dc2213a848a41e83d6f53aaf70f5db8654ac4d60b196dfa2ed465cc434010f5ad457bed8cad15f319
+docfiles size=31
+ texmf-dist/doc/latex/tkzexample/README.md details="Readme"
+ texmf-dist/doc/latex/tkzexample/tkzexample.pdf
+ texmf-dist/doc/latex/tkzexample/tkzexample.tex
+runfiles size=4
+ texmf-dist/tex/latex/tkzexample/tkzexample.sty
+catalogue-also tkz-doc
+catalogue-ctan /macros/latex/contrib/tkz/tkzexample
+catalogue-license lppl1.3
+catalogue-topics doc-supp macro-demo
+catalogue-version 1.45c

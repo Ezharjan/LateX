@@ -1,0 +1,23 @@
+name hypdestopt
+category Package
+revision 56253
+shortdesc Hyperref destination optimizer
+longdesc This package supports hyperref's pdfTeX driver. It removes
+longdesc unnecessary destinations and shortens the destination names or
+longdesc uses numbered destinations to get smaller PDF files.
+containersize 2772
+containerchecksum 784fbff599b60abebd3ae794376a65b460c0ac4aa189319e3f245c1feefa5bb501acf75ed345bb6099e301070d0c1e1eaca62129c4e82fae5611526b6aff370d
+doccontainersize 329064
+doccontainerchecksum cde846c9c4da226d27bd15881577ad3f1c3f0639c3e37fc86486af40939b0efb2d22d522646136b1b2fe2ebbfd5f2338e347b7476be7289d2a3710d43c2fc8ac
+docfiles size=88
+ texmf-dist/doc/latex/hypdestopt/README.md
+ texmf-dist/doc/latex/hypdestopt/hypdestopt.dtx
+ texmf-dist/doc/latex/hypdestopt/hypdestopt.pdf details="Package documentation" language="en"
+runfiles size=3
+ texmf-dist/tex/latex/hypdestopt/hypdestopt.sty
+catalogue-contact-bugs https://github.com/ho-tex/hypdestopt/issues
+catalogue-contact-repository https://github.com/ho-tex/hypdestopt
+catalogue-ctan /macros/latex/contrib/hypdestopt
+catalogue-license lppl1.3
+catalogue-topics hyper
+catalogue-version 2.7

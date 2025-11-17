@@ -1,0 +1,27 @@
+name noindentafter
+category Package
+revision 59195
+shortdesc Prevent paragraph indentation after environments or macros
+longdesc The package, as the name suggests, supplies tools to
+longdesc automatically suppress indentations in following paragraphs,
+longdesc specifically those following a particular macro or environment.
+containersize 1384
+containerchecksum 8445839068a264cc57df9b0e9cce4562b3e70ef208baf32fb2aaabf7ce95804a31f0f8b65c8ce2f2f0fc809a07cb864ff977af31d8162cf10560c39f9d2b78a8
+doccontainersize 399864
+doccontainerchecksum 95f0e11cc91dce0e970caa703149b602150426df174044b0a2fc7d902f040fa4fe6fc3014bcf49d240bc9612c5c61a5a40124d5b49ffab1bdbabab0cfe55889d
+docfiles size=102
+ texmf-dist/doc/latex/noindentafter/LICENSE.md
+ texmf-dist/doc/latex/noindentafter/README.md details="Readme"
+ texmf-dist/doc/latex/noindentafter/noindentafter.pdf details="Package documentation"
+srccontainersize 4696
+srccontainerchecksum e3a12b14ad4571a3fbaf4d4297da28a69cdba7bcf57a365dddb163d88a0b1f7acd20d600ab6353b4ea110d4a0a72c9bef365a3b1fd866448f65318bb5940dd7a
+srcfiles size=3
+ texmf-dist/source/latex/noindentafter/noindentafter.dtx
+runfiles size=1
+ texmf-dist/tex/latex/noindentafter/noindentafter.sty
+catalogue-contact-bugs https://github.com/mrpiggi/noindentafter/issues
+catalogue-contact-repository https://github.com/mrpiggi/noindentafter
+catalogue-ctan /macros/latex/contrib/noindentafter
+catalogue-license lppl1.3c
+catalogue-topics macro-supp
+catalogue-version 1.00

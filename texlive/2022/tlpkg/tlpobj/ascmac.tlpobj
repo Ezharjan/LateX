@@ -1,0 +1,43 @@
+name ascmac
+category Package
+revision 53411
+shortdesc Boxes and picture macros with Japanese vertical writing support
+longdesc The bundle provides boxes and picture macros with Japanese
+longdesc vertical writing support. It uses only native picture macros
+longdesc and fonts for drawing boxes and is thus driver-independent.
+longdesc Formerly part of the Japanese pLaTeX bundle, it now supports
+longdesc all LaTeX engines.
+execute addMap ascmac.map
+containersize 16656
+containerchecksum f03ff628aced70ac2406863aa4b23eac26cf47fa09ee377ba78a8df3af633ac1f3fad8d005022c1555d957ec9d84f98eebf2dc97b296713a2edf5f0060d4180e
+doccontainersize 159960
+doccontainerchecksum e35257d0992717350e78e611f31f864651a1762dcefb76ba60510180de177fab02f634423b0f3c78c03394fe0eeb6191db0d534190d4f168922263526a85b1b9
+docfiles size=42
+ texmf-dist/doc/latex/ascmac/LICENSE
+ texmf-dist/doc/latex/ascmac/README.md details="Readme"
+ texmf-dist/doc/latex/ascmac/ascmac.pdf details="Package documentation (Japanese)" language="ja"
+srccontainersize 9012
+srccontainerchecksum 3613b89f600ca51f1234f711816d041c4a3c58f72217b299505d90d0b7316606b3015c43edf3546fe93625dc628f232179ddcb0dce7a2f26375b93af7e6e7171
+srcfiles size=9
+ texmf-dist/source/latex/ascmac/Makefile
+ texmf-dist/source/latex/ascmac/ascmac.dtx
+ texmf-dist/source/latex/ascmac/ascmac.ins
+runfiles size=19
+ texmf-dist/fonts/map/dvips/ascmac/ascmac.map
+ texmf-dist/fonts/source/public/ascmac/ascgrp.mf
+ texmf-dist/fonts/source/public/ascmac/ascii.mf
+ texmf-dist/fonts/source/public/ascmac/ascii10.mf
+ texmf-dist/fonts/source/public/ascmac/ascii36.mf
+ texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm
+ texmf-dist/fonts/tfm/public/ascmac/ascii10.tfm
+ texmf-dist/fonts/tfm/public/ascmac/ascii36.tfm
+ texmf-dist/fonts/type1/public/ascmac/ascgrp.pfb
+ texmf-dist/fonts/type1/public/ascmac/ascii10.pfb
+ texmf-dist/fonts/type1/public/ascmac/ascii36.pfb
+ texmf-dist/tex/latex/ascmac/ascmac.sty
+ texmf-dist/tex/latex/ascmac/tascmac.sty
+catalogue-contact-repository https://github.com/texjporg/ascmac
+catalogue-ctan /macros/latex/contrib/ascmac
+catalogue-license bsd3
+catalogue-topics boxing japanese
+catalogue-version 2.1

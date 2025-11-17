@@ -1,0 +1,41 @@
+name hu-berlin-bundle
+category Package
+revision 57580
+shortdesc LaTeX classes for the Humboldt-Universitat zu Berlin
+longdesc This package provides files according to the corporate design
+longdesc of the Humboldt-Universitat zu Berlin. This is not an official
+longdesc package by the university itself, and not officially approved
+longdesc by it. More information can be found in the Humboldt
+longdesc University's corporate design guideline and on the website
+longdesc https://www.hu-berlin.de/de/hu-intern/design. At present, the
+longdesc bundle contains a letter class based on scrlttr2 and a package
+longdesc hu-berlin-base.sty which contains all relevant code for
+longdesc documents and documentclasses of the bundle.
+containersize 8244
+containerchecksum 78944145098920198c331c54572acea4238fb4344e2ef7b8a53f587b4d1754a0b6b677d7d6ff15ee4edf19b8ecaa08e1728abe00a4a9f0c0300e8b5b11ceff82
+doccontainersize 213632
+doccontainerchecksum 47cef7dab327828865e2cfdd50873d6b50bd370caeba4b107390895c99a0badfbf7a3778e1f6f2a850ed213e95f1f6a52e0f0ff3fc2f1f1beaebd3c177b82cb9
+docfiles size=87
+ texmf-dist/doc/lualatex/hu-berlin-bundle/README.md details="Readme"
+ texmf-dist/doc/lualatex/hu-berlin-bundle/hu-berlin-bundle-bibliography.bib
+ texmf-dist/doc/lualatex/hu-berlin-bundle/hu-berlin-bundle.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/hu-berlin-bundle/hu-berlin-letter-example-lualatex.tex
+ texmf-dist/doc/lualatex/hu-berlin-bundle/hu-berlin-letter-example-markdown.md
+ texmf-dist/doc/lualatex/hu-berlin-bundle/hu-berlin-letter-example.lco
+ texmf-dist/doc/lualatex/hu-berlin-bundle/hu-berlin-letter-template.latex
+ texmf-dist/doc/lualatex/hu-berlin-bundle/img/texografie-logo.pdf
+ texmf-dist/doc/lualatex/hu-berlin-bundle/makefile
+srccontainersize 17768
+srccontainerchecksum 08f7fabd4df92fe01790f6cb843ed912dae1e554a15c4cc54d13121a3f61797ee292086de8312a7df50171e385c2b531141a1bbe93bda482eeb936e6eacd4dcc
+srcfiles size=17
+ texmf-dist/source/lualatex/hu-berlin-bundle/hu-berlin-bundle.dtx
+runfiles size=7
+ texmf-dist/tex/lualatex/hu-berlin-bundle/hu-berlin-base.sty
+ texmf-dist/tex/lualatex/hu-berlin-bundle/hu-berlin-bundle-style.sty
+ texmf-dist/tex/lualatex/hu-berlin-bundle/hu-berlin-letter.cls
+catalogue-contact-bugs https://github.com/LukasCBossert/hu-berlin-bundle/issues
+catalogue-contact-repository https://github.com/LukasCBossert/hu-berlin-bundle
+catalogue-ctan /macros/luatex/latex/hu-berlin-bundle
+catalogue-license lppl1.3c gpl2 bsd3
+catalogue-topics class letter luatex
+catalogue-version 1.1.1

@@ -1,0 +1,23 @@
+name tagging
+category Package
+revision 52064
+shortdesc Document configuration with tags
+longdesc The package allows the user to generate multiple documents from
+longdesc a single source, by marking pieces of the document with tags
+longdesc and specifying which marked pieces to include or exclude.
+containersize 1292
+containerchecksum 8947ad0dc443891e0b5a395a27d2857acb5879821443ff64cb0b15b99eea7a69401ba165b26565bac1b0036032d49241504ea2e008106a85cdd896aa28abd9e4
+doccontainersize 114580
+doccontainerchecksum 06d470576136a96edb69bf595e55f16416da552a5f4a84980ff5393689cb58246d4fbe62b979c22b85c5abc58b926d9be63cd0ec734b43c653a0d0a5c4b04d8a
+docfiles size=33
+ texmf-dist/doc/latex/tagging/README details="Readme"
+ texmf-dist/doc/latex/tagging/tagging.pdf details="Package documentation"
+ texmf-dist/doc/latex/tagging/tagging.tex
+runfiles size=1
+ texmf-dist/tex/latex/tagging/tagging.sty
+catalogue-contact-bugs https://github.com/Hightor/tagging/issues
+catalogue-contact-repository https://github.com/Hightor/tagging
+catalogue-ctan /macros/latex/contrib/tagging
+catalogue-license lppl1.3
+catalogue-topics cond-comp
+catalogue-version 1.1.0.1

@@ -1,0 +1,33 @@
+name tokcycle
+category Package
+revision 60320
+shortdesc Build tools to process tokens from an input stream
+longdesc The tokcycle package helps one to build tools to process tokens
+longdesc from an input stream. If a macro to process an arbitrary single
+longdesc token can be built, then tokcycle can provide a wrapper for
+longdesc cycling through an input stream (including macros, spaces, and
+longdesc groups) on a token-by-token basis, using the provided macro on
+longdesc each successive character. tokcycle characterizes each
+longdesc successive token in the input stream as a Character, a Group, a
+longdesc Macro, or a Space. Each of these token categories are processed
+longdesc with a unique directive, to bring about the desired effect of
+longdesc the token cycle. If condition flags are provided to identify
+longdesc active, implicit, and catcode-6 tokens as they are digested.
+longdesc The package provides a number of options for handling groups.
+containersize 6384
+containerchecksum fa7beb7d6dd1ee5a6caaa968d425143f946426e98a164d1f1b44288105a6c8f57d94931782616c3926493f0af9709c5836bece10aa7ed6c2f1623f8301ff9bae
+doccontainersize 1168688
+doccontainerchecksum dcae2b95cad3150dc8879061d8c546074116af04a970a7c2ad9a91292597f3c859927ebf56ffd58aecb995a9968fc8221b6250efddbdce80edce96fc9c906b48
+docfiles size=342
+ texmf-dist/doc/generic/tokcycle/README details="Readme"
+ texmf-dist/doc/generic/tokcycle/tokcycle-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/tokcycle/tokcycle-doc.tex
+ texmf-dist/doc/generic/tokcycle/tokcycle-examples.pdf details="Examples of use"
+ texmf-dist/doc/generic/tokcycle/tokcycle-examples.tex
+runfiles size=6
+ texmf-dist/tex/generic/tokcycle/tokcycle.sty
+ texmf-dist/tex/generic/tokcycle/tokcycle.tex
+catalogue-ctan /macros/generic/tokcycle
+catalogue-license lppl1.3c
+catalogue-topics macro-supp parser macro-iterate misc-support macro-gen
+catalogue-version 1.42

@@ -1,0 +1,33 @@
+name stringstrings
+category Package
+revision 57097
+shortdesc String manipulation for cosmetic and programming application
+longdesc The package provides a large and sundry set of macros for the
+longdesc manipulation of strings. The macros are developed not merely
+longdesc for cosmetic application (such as changing the case of letters
+longdesc and string substitution), but also for programming applications
+longdesc such as character look-ahead, argument parsing, conditional
+longdesc tests on various string conditions, etc. The macros were
+longdesc designed all to be expandable (note that things such as
+longdesc \uppercase and \lowercase are not expandable), so that the
+longdesc macros may be strung together sequentially and nested (after a
+longdesc fashion) to achieve rather complex manipulations.
+containersize 9224
+containerchecksum fbc29bbf65e7d4a1fd367b03490f73bf44349427f6c1a7e826135ee9092c9b592a4cf23454919e0bcc74dc59d3a6ad072dea16096e4850780ff295dc3caacc48
+doccontainersize 381756
+doccontainerchecksum 1779de4af914b69ab258bc1f69a807c12f750e5919936c78ace4496f86200bfc4c3146dffbb27ac5977c2e8d41ec8d0139cf2a2560ba7c627dacd70b34cc69ea
+docfiles size=105
+ texmf-dist/doc/latex/stringstrings/README details="Readme"
+ texmf-dist/doc/latex/stringstrings/stringstrings.pdf details="Package documentation"
+srccontainersize 33268
+srccontainerchecksum 94cf26d431d3638f769166c999e3dff156bd37e02a7099129f1259b7259be95896b694a64fea657aefce22f3a1e98ec2bbbf0f6f85171ccf977068ddafbb8078
+srcfiles size=40
+ texmf-dist/source/latex/stringstrings/stringstrings.dtx
+ texmf-dist/source/latex/stringstrings/stringstrings.ins
+runfiles size=15
+ texmf-dist/tex/latex/stringstrings/stringstrings.sty
+catalogue-also getargs
+catalogue-ctan /macros/latex/contrib/stringstrings
+catalogue-license lppl1.3
+catalogue-topics text-manip
+catalogue-version 1.24

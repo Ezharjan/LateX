@@ -1,0 +1,48 @@
+name songs
+category Package
+revision 51494
+shortdesc Produce song books for church or fellowship
+longdesc The package provides a means of producing beautiful song books
+longdesc for church or fellowship. It offers: a very easy chord-entry
+longdesc syntax; multiple modes (words-only; words+chords; slides;
+longdesc handouts); measure bars; guitar tablatures; automatic
+longdesc transposition; scripture quotations; multiple indexes (sorted
+longdesc by title, author, important lyrics, or scripture references);
+longdesc and projector-style output generation, for interactive use. A
+longdesc set of example documents is provided.
+containersize 20712
+containerchecksum dd1309fda1a7bff1236707cb45047dd5adc582d3e3f509f211af7a30c0469cde704773af48fed379a29307201d9781150487821219f76d45d556f1d27e420c08
+doccontainersize 1166396
+doccontainerchecksum 72c374aab68334b050a5d801299179c8484b6fa46db8c8e20b9fceef3cb9a8c0c1dc51de93f34115d4e34767233179c5872054cd03ea3e622abb63a49ad81f24
+docfiles size=408
+ texmf-dist/doc/latex/songs/README details="Readme"
+ texmf-dist/doc/latex/songs/history.txt
+ texmf-dist/doc/latex/songs/license.txt
+ texmf-dist/doc/latex/songs/sample/Makefile
+ texmf-dist/doc/latex/songs/sample/chordbook.tex
+ texmf-dist/doc/latex/songs/sample/lyricbook.tex
+ texmf-dist/doc/latex/songs/sample/slidebook.tex
+ texmf-dist/doc/latex/songs/sample/songs.sbd
+ texmf-dist/doc/latex/songs/sample/transparencies.tex
+ texmf-dist/doc/latex/songs/songidx/bible.can
+ texmf-dist/doc/latex/songs/songidx/catholic.can
+ texmf-dist/doc/latex/songs/songidx/greek.can
+ texmf-dist/doc/latex/songs/songidx/protestant.can
+ texmf-dist/doc/latex/songs/songidx/songidx.lua
+ texmf-dist/doc/latex/songs/songidx/tanakh.can
+ texmf-dist/doc/latex/songs/songs.pdf details="Package documentation"
+srccontainersize 94680
+srccontainerchecksum 016d389033589ab9334180edf70321858ba3b6000d8f560a18631e13ef28130f4b39aed81f7ddf0a178540a463789955d14620b37b7979ac0ea6abeec77d29bd
+srcfiles size=105
+ texmf-dist/source/latex/songs/Makefile
+ texmf-dist/source/latex/songs/songs.dtx
+ texmf-dist/source/latex/songs/songs.ins
+runfiles size=26
+ texmf-dist/tex/latex/songs/songs.sty
+catalogue-also songbook
+catalogue-contact-home http://songs.sourceforge.net
+catalogue-contact-repository https://sourceforge.net/projects/songs
+catalogue-ctan /macros/latex/contrib/songs
+catalogue-license gpl2
+catalogue-topics music chords
+catalogue-version 3.1

@@ -1,0 +1,24 @@
+name pdfpc
+category Package
+revision 63866
+shortdesc Define data for the pdfpc presentation viewer
+longdesc This packages allows to define additional meta data within the
+longdesc PDF file which can be interpreted by the PDF presenter console
+longdesc (pdfpc) program. pdfpc depends on kvoptions, xstring, iftex,
+longdesc and hyperxmp.
+containersize 2272
+containerchecksum 059558ba3c3ce0ec378960b3801fc9830397a15078b7976fdf34fa5ea62969d74f0e05237d88600d01629343e7400e5a67ef6dc49cadc7dc6191dc273d198ed6
+doccontainersize 187648
+doccontainerchecksum c029ce76687144f7351438f3ac34a7ecfe042923c389983aded1a80b8c5e7ae1c1b408c49adc4b543610e2190bd02f32e36c376b7a987dfdd298e98a10cfcb81
+docfiles size=50
+ texmf-dist/doc/latex/pdfpc/README.md details="Readme"
+ texmf-dist/doc/latex/pdfpc/pdfpc-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/pdfpc/pdfpc-doc.tex
+runfiles size=2
+ texmf-dist/tex/latex/pdfpc/pdfpc.sty
+catalogue-contact-bugs https://github.com/pdfpc/pdfpc/
+catalogue-contact-home https://pdfpc.github.io/
+catalogue-ctan /macros/latex/contrib/pdfpc
+catalogue-license gpl3+
+catalogue-topics presentation
+catalogue-version 0.7.0

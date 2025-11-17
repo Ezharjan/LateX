@@ -1,0 +1,37 @@
+name accsupp
+category Package
+revision 53052
+shortdesc Better accessibility support for PDF files
+longdesc Since PDF 1.5 portions of a page can be marked for better
+longdesc accessibility support. For example, replacement texts or
+longdesc expansions of abbreviations can be provided. This package
+longdesc starts with providing a minimal low-level interface for
+longdesc programmers; its status is experimental. Support necessary for
+longdesc the package was added to the "distill" capabilities of
+longdesc Ghostscript with version 9.15 of Ghostscript; the dvips is only
+longdesc available with that version (or later).
+containersize 3304
+containerchecksum 0b6e474617333ca00c2503e99f60a290b930d7e7534de7223be511404aa6c7ba9a8dd69b94f3433b347146bba7b8dbbd4b6d45ed8b2c6b0880c0177842ba8b45
+doccontainersize 327132
+doccontainerchecksum 650909f5212a92659d18ba3ef5209ed12c9b9ddff2b3157ea17cdbc8955536f41e43dafcd715e5ec26c1d0c839ffb7b26081ea36150b2f0f50c952c5231a1a20
+docfiles size=84
+ texmf-dist/doc/latex/accsupp/README.md details="Readme"
+ texmf-dist/doc/latex/accsupp/accsupp-example1.tex
+ texmf-dist/doc/latex/accsupp/accsupp-example2.tex
+ texmf-dist/doc/latex/accsupp/accsupp.pdf details="Package documentation"
+srccontainersize 8184
+srccontainerchecksum e867fabe08188b8fe68c1d9ac6688fb99f69422db26b4cd611028cb8880ce90a8981efb7eb7c49f4fd3d1182d3b99cd90f171959751d7e1ecc1f7880d5a8b5a8
+srcfiles size=8
+ texmf-dist/source/latex/accsupp/accsupp.dtx
+runfiles size=6
+ texmf-dist/tex/latex/accsupp/accsupp-dvipdfm.def
+ texmf-dist/tex/latex/accsupp/accsupp-dvips.def
+ texmf-dist/tex/latex/accsupp/accsupp-luatex.def
+ texmf-dist/tex/latex/accsupp/accsupp-pdftex.def
+ texmf-dist/tex/latex/accsupp/accsupp.sty
+catalogue-contact-bugs https://github.com/ho-tex/accsupp/issues
+catalogue-contact-repository https://github.com/ho-tex/accsupp
+catalogue-ctan /macros/latex/contrib/accsupp
+catalogue-license lppl1.3c
+catalogue-topics accessible pdf-feat
+catalogue-version 0.6

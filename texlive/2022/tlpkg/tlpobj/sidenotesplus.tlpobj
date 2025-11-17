@@ -1,0 +1,47 @@
+name sidenotesplus
+category Package
+revision 63867
+shortdesc Place referenced notes, alerts, figures and tables into the document margin
+longdesc Sidenotesplus is a comprehensive package for placing labeled or
+longdesc referenced notes, temporary alerts, bibliography references,
+longdesc figures and tables into the margin. Marginals can be either
+longdesc floated or at fixed positions relative to the text. Twoside
+longdesc symmetry is preserved. For BibLaTeX users, macros for side
+longdesc references are provided. Three margin styles are provided.
+longdesc Two-page symmetric layouts either as (i) Ragged outer with note
+longdesc reverences in the margin separator or (ii) justified with last
+longdesc line ragged outer. And (iii) a classic look, justified with
+longdesc last line ragged right and note reference to the left of the
+longdesc note, but two-page symmetry is lost. The command \sidenote
+longdesc mimics the \footnote command and provides labelled (numbers,
+longdesc alphabetic, roman) references. However, un-numbered and custom
+longdesc symbols can also be specified. Temporary sidealerts are
+longdesc rendered only if the package option alerton is specified.
+longdesc Alerts are useful as to do reminders during document
+longdesc development. Furthermore, captions for figures and tables can
+longdesc also be placed into margin. Also, full width environments for
+longdesc figures, tables and text are provided. The text environment can
+longdesc be partially widened, suitable if that extra space for an
+longdesc equation is required.
+containersize 5524
+containerchecksum cca775bb5e82d63d2e475c4329f5d4a6ca72caf02f0dc3ba0ff6acc33564ef856a25dbbe4c558d2b761106ba1407967a77063f98aee937b26d50269f86b0b847
+doccontainersize 413056
+doccontainerchecksum 62b0158838ef5f16361c2fb2b5ed8cfaf0eee42c9f3409937ec2034da0436b2a9038670ff857a1c7629687bee7f05a14793084d9a1713e8d6ace2510291be025
+docfiles size=116
+ texmf-dist/doc/latex/sidenotesplus/README.txt details="Readme"
+ texmf-dist/doc/latex/sidenotesplus/sidenotesplus.pdf details="Package documentation"
+ texmf-dist/doc/latex/sidenotesplus/tests-sidenoteplus.pdf
+ texmf-dist/doc/latex/sidenotesplus/tests-sidenoteplus.tex
+srccontainersize 9676
+srccontainerchecksum a8e72d6161e48ccfe0a0db76d9c4d98a9de655f2c5a015597ea0b54701bff280b7488b836320f2285be9469ff3bb12c3726c182fe04bdb5e2cf5dc5d1df689e8
+srcfiles size=11
+ texmf-dist/source/latex/sidenotesplus/sidenotesplus.dtx
+ texmf-dist/source/latex/sidenotesplus/sidenotesplus.ins
+runfiles size=6
+ texmf-dist/tex/latex/sidenotesplus/sidenotesplus.sty
+catalogue-contact-bugs https://github.com/anton-vrba/sidenotesplus
+catalogue-contact-repository https://github.com/anton-vrba/sidenotesplus
+catalogue-ctan /macros/latex/contrib/sidenotesplus
+catalogue-license lppl1.3c
+catalogue-topics marginal
+catalogue-version 1.02

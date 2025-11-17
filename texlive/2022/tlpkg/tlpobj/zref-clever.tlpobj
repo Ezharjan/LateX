@@ -1,0 +1,43 @@
+name zref-clever
+category Package
+revision 63428
+shortdesc Clever LaTeX cross-references based on zref
+longdesc This package provides a user interface for making LaTeX
+longdesc cross-references which automates some of their typical
+longdesc features, thus easing their input in the document and improving
+longdesc the consistency of typeset results. A reference made with
+longdesc \zcref includes a "name" according to its "type", and lists of
+longdesc multiple labels can be automatically sorted and compressed into
+longdesc ranges when due. The reference format is highly and easily
+longdesc customizable, both globally and locally. The package is based
+longdesc on zref's extensible referencing system.
+containersize 23168
+containerchecksum ce32153feecc4cdc5134c9100b5a643353e2c36d32bd1226a90efe14ac51e831de7e3b3d75c43a48cade9ca529657ce3dc6f09815ed554b857c1b870ca651981
+doccontainersize 1524120
+doccontainerchecksum f9ff97db6e1418f125769e4abd74322b6d3b4a41bc4394f3c58d4a554e4533659a716f37ae77867756dfff9297d28e876cf4cdff43075975be0271279c907307
+docfiles size=421
+ texmf-dist/doc/latex/zref-clever/CHANGELOG.md
+ texmf-dist/doc/latex/zref-clever/DEPENDS.txt
+ texmf-dist/doc/latex/zref-clever/README.md details="Readme"
+ texmf-dist/doc/latex/zref-clever/zref-clever-code.pdf details="Code documentation"
+ texmf-dist/doc/latex/zref-clever/zref-clever-code.tex
+ texmf-dist/doc/latex/zref-clever/zref-clever.pdf details="User manual"
+ texmf-dist/doc/latex/zref-clever/zref-clever.tex
+srccontainersize 50684
+srccontainerchecksum e3e3468d5f01578c543325b4c9fc475ab996ebfa32f49525ec8717a8eb15a3f2ea2e3fdda8ce2cb705e0ed63a871688f9b10a02694c0365cd37b73ebaf3a32ea
+srcfiles size=84
+ texmf-dist/source/latex/zref-clever/zref-clever.dtx
+ texmf-dist/source/latex/zref-clever/zref-clever.ins
+runfiles size=66
+ texmf-dist/tex/latex/zref-clever/zref-clever-dutch.lang
+ texmf-dist/tex/latex/zref-clever/zref-clever-english.lang
+ texmf-dist/tex/latex/zref-clever/zref-clever-french.lang
+ texmf-dist/tex/latex/zref-clever/zref-clever-german.lang
+ texmf-dist/tex/latex/zref-clever/zref-clever-portuguese.lang
+ texmf-dist/tex/latex/zref-clever/zref-clever-spanish.lang
+ texmf-dist/tex/latex/zref-clever/zref-clever.sty
+catalogue-contact-repository https://github.com/gusbrs/zref-clever
+catalogue-ctan /macros/latex/contrib/zref-clever
+catalogue-license lppl1.3c
+catalogue-topics label-ref expl3
+catalogue-version 0.3.1

@@ -1,0 +1,65 @@
+name etoc
+category Package
+revision 64249
+shortdesc Completely customisable TOCs
+longdesc The package gives the user complete control of how the entries
+longdesc of the table of contents should be constituted from the name,
+longdesc number, and page number of each sectioning unit. The layout is
+longdesc controlled by the definition of 'line styles' for each
+longdesc sectioning level used in the document. The package provides its
+longdesc own custom line styles (which may be used as examples), and
+longdesc continues to support the standard formatting inherited from the
+longdesc LaTeX document classes, but the package can also allow the user
+longdesc to delegate the details to packages dealing with list making
+longdesc environments (such as enumitem). The package's default global
+longdesc style typesets tables of contents in a multi-column format,
+longdesc with either a standard heading, or a ruled title (optionally
+longdesc with a frame around the table). The \tableofcontents command
+longdesc may be used arbitrarily many times in the same document, while
+longdesc \localtableofcontents provides a 'local' table of contents.
+containersize 10948
+containerchecksum 2c685298dd0b08eaa3ecb0a10baa5bd5c5bbe751b975d9eac953ea77b693ea0c662cb72f24f68ffa3b07c4e982cde66fb663088e801f65e2cbcb3846896aee39
+doccontainersize 784640
+doccontainerchecksum 22eb0681eae3592886089902b7091da7a8b714eb528aa5732e50a897e767e175b3ab6b2295103d08a03ae5886fc6c5c82cf0efc71a468f4b9e6facbd96fe7553
+docfiles size=231
+ texmf-dist/doc/latex/etoc/README.md details="Readme"
+ texmf-dist/doc/latex/etoc/etoc.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/etoc/etoc.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-10.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-20-A.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-20-B.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-21-A.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-21-B.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-22-A.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-23.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-24.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-25.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-26.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-27.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-28.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-29.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-30-A.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-30-B.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-31.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-32.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-40.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-46.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-48.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-5.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-52-A.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-52-B.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-53.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-54.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-6.tex
+ texmf-dist/doc/latex/etoc/etocsnippet-7.tex
+srccontainersize 97048
+srccontainerchecksum 7c8df38deb7081c7d05addcae77b9565d1ff1e471f53f1cdec8b088f427806ece6ef151d1d8251ba7164772895d13ad0c04930b3d9cfc1244947c4ae20abc03a
+srcfiles size=96
+ texmf-dist/source/latex/etoc/etoc.dtx
+runfiles size=15
+ texmf-dist/tex/latex/etoc/etoc.sty
+catalogue-also titletoc tocbasic
+catalogue-ctan /macros/latex/contrib/etoc
+catalogue-license lppl1.3c
+catalogue-topics toc-etc etex
+catalogue-version 1.09f

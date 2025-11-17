@@ -1,0 +1,26 @@
+name bxjatoucs
+category Package
+revision 52509
+shortdesc Convert Japanese character code to Unicode
+longdesc This package is meant for macro/package developers: It provides
+longdesc function-like (fully-expandable) macros that convert a
+longdesc character code value in one of several Japanese encodings to a
+longdesc Unicode value. Supported source encodings are: ISO-2022-JP
+longdesc (jis), EUC-JP (euc), Shift_JIS (sjis), and the Adobe-Japan1
+longdesc glyph set.
+containersize 25604
+containerchecksum ffe18ddb89393c61df4371d6fe1154759992e544af64cdfcc007122ed212e87d16194d906d4c9f797671860a96c4dcde12682ecf98adb3c7b8b4c6ae0b432b81
+doccontainersize 2068
+doccontainerchecksum 9c281fdda182269c7a048e1ef422f0c403ecef7d8fd8dc462ebe39b861fba013ede2ef351baa5ad4537b2e1495f1f0572c7edc6fa6407031ff19053bd6dfdc02
+docfiles size=2
+ texmf-dist/doc/latex/bxjatoucs/LICENSE
+ texmf-dist/doc/latex/bxjatoucs/README.md details="Readme"
+runfiles size=34
+ texmf-dist/fonts/tfm/public/bxjatoucs/bxjatoucs-cid.tfm
+ texmf-dist/fonts/tfm/public/bxjatoucs/bxjatoucs-jis.tfm
+ texmf-dist/tex/latex/bxjatoucs/bxjatoucs.sty
+catalogue-contact-repository https://github.com/zr-tex8r/BXjatoucs
+catalogue-ctan /language/japanese/BX/bxjatoucs
+catalogue-license mit
+catalogue-topics japanese unicode macro-supp
+catalogue-version 0.2

@@ -1,0 +1,25 @@
+name chinesechess
+category Package
+revision 63276
+shortdesc Typeset Chinese chess with l3draw
+longdesc This LaTeX3 package based on l3draw provides macros and an
+longdesc environment for Chinese chess manual writing.
+containersize 13236
+containerchecksum 6ff5ef8c4c29263da38847c6c836470c397e9838c765eacdd9859a055dcc719d3385d4d9cddf5ef7e92196f99fcef8470445686c1d858bf68608429b1cd7987c
+doccontainersize 7776072
+doccontainerchecksum 83d08a949754dd38beea350cc1c5f2b8d193947a909efed156f662b77a8505f993c8449f21655c48c6ea78891ff15395d34796479fe081d29958fe6a2c0ba49a
+docfiles size=1935
+ texmf-dist/doc/latex/chinesechess/README.md details="Readme"
+ texmf-dist/doc/latex/chinesechess/bg01.png
+ texmf-dist/doc/latex/chinesechess/bg02.png
+ texmf-dist/doc/latex/chinesechess/build.sh
+ texmf-dist/doc/latex/chinesechess/chinesechess.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/chinesechess/chinesechess.tex
+runfiles size=22
+ texmf-dist/tex/latex/chinesechess/chinesechess.sty
+catalogue-contact-bugs https://gitee.com/nwafu_nan/xq/issues
+catalogue-contact-repository https://gitee.com/nwafu_nan/xq
+catalogue-ctan /macros/latex/contrib/chinesechess
+catalogue-license lppl1.3c
+catalogue-topics games chinese expl3
+catalogue-version 1.2.0

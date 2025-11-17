@@ -1,0 +1,23 @@
+name subtext
+category Package
+revision 51273
+shortdesc Easy text-style subscripts in math mode
+longdesc This LaTeX package gives easy access to text-style subscripts
+longdesc in math mode by providing an optional argument to _. This is
+longdesc implemented by using the \text{} command from the amstext
+longdesc package.
+containersize 1180
+containerchecksum 0ab32328d346bddddd37094ec086727222bd386bd24c1aa164aaa0cba85d60cf6be2aa26d64bd0bcf63f49b0188e79a7212e8b98d2d7400f828ccf10f60272f3
+doccontainersize 43244
+doccontainerchecksum cd3fdf312f2bd7d30c3aee67309220e8e75d20ea69ffcb17106812f0423791dbeb26a8ddd3621cd48e6b3cab5c910083f49aa18b439d9f8114c08002cdf8826b
+docfiles size=21
+ texmf-dist/doc/latex/subtext/COPYING
+ texmf-dist/doc/latex/subtext/README details="Readme"
+ texmf-dist/doc/latex/subtext/subtext.pdf details="Package documentation"
+ texmf-dist/doc/latex/subtext/subtext.tex
+runfiles size=1
+ texmf-dist/tex/latex/subtext/subtext.sty
+catalogue-ctan /macros/latex/contrib/subtext
+catalogue-license gpl3
+catalogue-topics maths
+catalogue-version 1.1

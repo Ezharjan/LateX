@@ -1,0 +1,28 @@
+name macros2e
+category Package
+revision 56291
+shortdesc A list of internal LaTeX2e macros
+longdesc This document lists the internal macros defined by the LaTeX2e
+longdesc base files which can also be useful to package authors. The
+longdesc macros are hyper-linked to their description in source2e. For
+longdesc this to work both PDFs must be inside the same directory. This
+longdesc document is not yet complete in content and format and may miss
+longdesc some macros.
+containersize 820
+containerchecksum 4e187cb2c5d6a2c165e7f74d8234dd5a609ea1462dad0a268bf17c6e21acf22d9c6f54a53930dd6678b1375cb8878fecea22f4f132a8892aed7387d29fc239c6
+doccontainersize 185624
+doccontainerchecksum ff2e1118b718e17a4716a84bea265acfe47f2178ab6c0a44d39e0320ffd6f0dcce7dffa37eddf14a7ea41dd4b3431ff7c102f6c3c6092e9562fc60de19b6d89e
+docfiles size=55
+ texmf-dist/doc/latex/macros2e/Makefile
+ texmf-dist/doc/latex/macros2e/README details="Readme"
+ texmf-dist/doc/latex/macros2e/macros2e.pdf details="The macro list itself"
+ texmf-dist/doc/latex/macros2e/macros2e.tex
+runfiles size=1
+ texmf-dist/tex/latex/macros2e/extlabels.sty
+catalogue-contact-bugs https://sourceforge.net/p/macros2e/tickets/
+catalogue-contact-home https://sourceforge.net/p/macros2e/
+catalogue-contact-repository https://sourceforge.net/p/macros2e/code/ci/default/tree/
+catalogue-ctan /info/macros2e
+catalogue-license lppl1.3c
+catalogue-topics latex-doc
+catalogue-version 0.4a

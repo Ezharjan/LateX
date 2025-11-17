@@ -1,0 +1,45 @@
+name minim
+category Package
+revision 62419
+shortdesc A modern plain format for the LuaTeX engine
+longdesc This is a modern plain format for the LuaTeX engine, adding
+longdesc improved low-level support for many LuaTeX extensions and newer
+longdesc PDF features. While it can be used as drop-in replacement for
+longdesc plain TeX, it probably is most useful as a basis for your own
+longdesc formats. Most features included in the format are provided by
+longdesc separate packages that can be used on their own; see the
+longdesc packages minim-mp for mplib (MetaPost) support minim-math for
+longdesc unicode mathematics minim-pdf for creating Tagged PDF minim-xmp
+longdesc for XMP (metadata) inclusion This package contains only their
+longdesc shared lowest-level programming interface, along with their
+longdesc combined format.
+containersize 24848
+containerchecksum dc5473b9dd318ff372636efc3172fc1f5a2619d0ff85ee241f565e6b088a9ee8ced74358dfcf2e905322f76cb1e3c3f59b6cc3f7e22b4532d9c17a83cbdc7645
+doccontainersize 296672
+doccontainerchecksum 41ae8f863e8e9e65bf8a9adb7c8438f9514bd593b4a10022ca928f39bf15bccf25e7b27c0bba4bf256c44f18ffa74339226e7bacdfff74550338fb8f6c4a9dbf
+docfiles size=87
+ texmf-dist/doc/luatex/minim/EUPL-1.2-EN.txt
+ texmf-dist/doc/luatex/minim/README details="Readme"
+ texmf-dist/doc/luatex/minim/minim-alloc.doc
+ texmf-dist/doc/luatex/minim/minim.doc
+ texmf-dist/doc/luatex/minim/minim.pdf details="Package documentation"
+runfiles size=30
+ texmf-dist/tex/luatex/minim/minim-alloc.lua
+ texmf-dist/tex/luatex/minim/minim-alloc.tex
+ texmf-dist/tex/luatex/minim/minim-callbacks.lua
+ texmf-dist/tex/luatex/minim/minim-doc.sty
+ texmf-dist/tex/luatex/minim/minim-etex.tex
+ texmf-dist/tex/luatex/minim/minim-hooks.lua
+ texmf-dist/tex/luatex/minim/minim-hooks.tex
+ texmf-dist/tex/luatex/minim/minim-lmodern.tex
+ texmf-dist/tex/luatex/minim/minim-pdfresources.lua
+ texmf-dist/tex/luatex/minim/minim-pdfresources.tex
+ texmf-dist/tex/luatex/minim/minim-plain.tex
+ texmf-dist/tex/luatex/minim/minim.ini
+ texmf-dist/tex/luatex/minim/minim.tex
+catalogue-also optex
+catalogue-contact-repository https://gitlab.com/renkema/minim
+catalogue-ctan /macros/luatex/generic/minim
+catalogue-license other-free
+catalogue-topics luatex format
+catalogue-version 2022/1.1

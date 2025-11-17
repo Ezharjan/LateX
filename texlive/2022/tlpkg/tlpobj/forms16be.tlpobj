@@ -1,0 +1,40 @@
+name forms16be
+category Package
+revision 51305
+shortdesc Initialize form properties using big-endian encoding
+longdesc This package provides support for UTF-16BE Unicode character
+longdesc encoding (called a big-endian character string) for the text
+longdesc string type (PDF Reference, version 1.7, beginning on page
+longdesc 158). Text strings are used in "text annotations, bookmark
+longdesc names, article threads, document information, and so forth" (to
+longdesc partially quote page 158). The particular application is to set
+longdesc property values of form fields, at least those properties that
+longdesc take the text strings as its value. The package contains
+longdesc support for Basic Latin plus the ability to enter any unicode
+longdesc character using the notation \uXXXX, where XXXX are four hex
+longdesc digits. The Package works for dvips/Distiller, pdfLaTeX,
+longdesc LuaLaTeX, and XeLaTeX.
+containersize 2176
+containerchecksum 9d8b0c7aa2314c81afe09cdd9ba3455e3ff7e3000fa9de0e99da935b282c3d32bc60aa7f97a27450ce999ff101b606fadae3dbb4965cbfc1d4a8ca5c29eb719e
+doccontainersize 1448984
+doccontainerchecksum 52bedc12e5ad33ac78c906f9d60284ed079b0f6d66e578f826c946c28de3996c70da0b11284e774ad56196875b3bd166962eeead9282f3d71f6c6a0d4a8cba68
+docfiles size=381
+ texmf-dist/doc/latex/forms16be/README.md details="Readme"
+ texmf-dist/doc/latex/forms16be/doc/forms16be-man.pdf details="Package documentation"
+ texmf-dist/doc/latex/forms16be/doc/forms16be-man.tex
+ texmf-dist/doc/latex/forms16be/examples/forms16be-ap.tex
+ texmf-dist/doc/latex/forms16be/examples/forms16be-ef.pdf
+ texmf-dist/doc/latex/forms16be/examples/forms16be-ef.tex
+ texmf-dist/doc/latex/forms16be/examples/forms16be-hy.tex
+srccontainersize 4984
+srccontainerchecksum 19e3efc0f73c919c7e74eaabc4b7f9b70be4dc2776b22719eec4f373e180f3ff736ac3ddc26209acfc9f9f9de9c594467cb6f67899f21f563386a44ff58c9135
+srcfiles size=5
+ texmf-dist/source/latex/forms16be/forms16be.dtx
+ texmf-dist/source/latex/forms16be/forms16be.ins
+runfiles size=2
+ texmf-dist/tex/latex/forms16be/forms16be.sty
+ texmf-dist/tex/latex/forms16be/uni4basic-latin.def
+catalogue-ctan /macros/latex/contrib/forms16be
+catalogue-license lppl1.2
+catalogue-topics form-fillin pdf-feat adobe-distiller
+catalogue-version 1.3

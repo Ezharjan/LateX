@@ -1,0 +1,35 @@
+name quran-ur
+category Package
+revision 57597
+shortdesc Urdu translations to the quran package
+longdesc The package is prepared for typesetting some Urdu translations
+longdesc of the Holy Quran. It adds eight Urdu translations to the quran
+longdesc package.
+containersize 1874644
+containerchecksum 217d3bdf7ae9391dd300ab0ef390dab34d83675be41c6049897914c24abacbde29d57a68e6321058d91cc63a1b5143bba3b15c7bccc8d55f50cc3efa0e3d4016
+doccontainersize 153360
+doccontainerchecksum 9be2743ee3d4e0cec70731f5ad5bc71c574ad122aff7b30ec50635a5c4d1c87801b324f048e141e2208bc59af5995b9ff166c7eaa06306817629600348f55cbe
+docfiles size=43
+ texmf-dist/doc/latex/quran-ur/README details="Readme"
+ texmf-dist/doc/latex/quran-ur/quran-ur-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/quran-ur/quran-ur-doc.tex
+ texmf-dist/doc/latex/quran-ur/quran-ur-test.pdf details="Example of use"
+ texmf-dist/doc/latex/quran-ur/quran-ur-test.tex
+ texmf-dist/doc/latex/quran-ur/quran.png
+runfiles size=3434
+ texmf-dist/tex/latex/quran-ur/quran-ur.sty
+ texmf-dist/tex/latex/quran-ur/qurantext-uri.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-urii.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-uriii.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-uriv.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-urv.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-urvi.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-urvii.translation.def
+ texmf-dist/tex/latex/quran-ur/qurantext-urviii.translation.def
+catalogue-also quran lipsum ptext
+catalogue-contact-bugs https://github.com/javadr/quran-ur/issues
+catalogue-contact-repository https://github.com/javadr/quran-ur
+catalogue-ctan /macros/unicodetex/latex/quran-ur
+catalogue-license lppl1.3c
+catalogue-topics urdu macro-supp dummy-gen
+catalogue-version 0.21

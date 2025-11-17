@@ -1,0 +1,31 @@
+name pst-eucl
+category Package
+revision 56474
+shortdesc Euclidian geometry with PSTricks
+longdesc The package allows the drawing of Euclidean geometric figures
+longdesc using TeX pstricks macros for specifying mathematical
+longdesc constraints. It is thus possible to build point using common
+longdesc transformations or intersections. The use of coordinates is
+longdesc limited to points which controlled the figure.
+containersize 53280
+containerchecksum a076efb338fbdff19719156e32cfdbf74500de253ee358dbf64207b762333ff2d3d167cea84ef4ba906d247d96adab9705091c5dc7003400097356b1f54f9305
+doccontainersize 1244548
+doccontainerchecksum 24df2d92c6879f20f4515196d5390fd9b0d97476b662a8e7302664be5afd08a3127dece9a530df5cb972feff6552321749b38a682a58d7924393304ea1c75a9f
+docfiles size=503
+ texmf-dist/doc/generic/pst-eucl/Changes
+ texmf-dist/doc/generic/pst-eucl/README details="Readme"
+ texmf-dist/doc/generic/pst-eucl/pst-eucl-doc.bib
+ texmf-dist/doc/generic/pst-eucl/pst-eucl-doc.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/generic/pst-eucl/pst-eucl-doc.tex
+runfiles size=139
+ texmf-dist/dvips/pst-eucl/pst-eucl.pro
+ texmf-dist/tex/generic/pst-eucl/pst-eucl.tex
+ texmf-dist/tex/latex/pst-eucl/pst-eucl.sty
+catalogue-also eukleides tkz-euclide
+catalogue-contact-home http://pstricks.tug.org
+catalogue-contact-repository https://archiv.dante.de/~herbert/TeXnik/
+catalogue-contact-support https://tug.org/mailman/listinfo/pstricks
+catalogue-ctan /graphics/pstricks/contrib/pst-eucl
+catalogue-license lppl
+catalogue-topics maths graphics-use pstricks
+catalogue-version 1.75

@@ -1,0 +1,33 @@
+name envlab
+category Package
+revision 61937
+shortdesc Addresses on envelopes or mailing labels
+longdesc A LaTeX package for producing mailing envelopes and labels,
+longdesc including barcodes and address formatting according to the US
+longdesc Postal Service rules. Redefines the standard \makelabels
+longdesc command of the LaTeX letter documentclass.
+containersize 5492
+containerchecksum d4272cd079bc0b48835d675f1b36d0155d7da4cf920785dc7fdf608c311f43afb88e6861087c79774af6a434aacce05dda59f9e53aa7b2f3f37e06415eafa01e
+doccontainersize 341332
+doccontainerchecksum dfc28fe6df6822fd8f45b3bd31a66e635cf621daadd5465408dfdca47a176e0f23e66501b5b89a8f803265c68a02db6a7ba1e05e0f9ba0f35287bc582d1f48a0
+docfiles size=109
+ texmf-dist/doc/latex/envlab/elguide.pdf details="User guide"
+ texmf-dist/doc/latex/envlab/elguide.tex
+ texmf-dist/doc/latex/envlab/envlab.pdf details="Documentation source"
+ texmf-dist/doc/latex/envlab/readme.v12
+srccontainersize 14628
+srccontainerchecksum 39ba3371b9aeab277968d8847ba5fe519ea3035306fdcb2a6376b6fec881a3d443ae7f4912039216058fcf7918ddeace617ca08e85c6f21c70820e8d379805bf
+srcfiles size=19
+ texmf-dist/source/latex/envlab/elold.ins
+ texmf-dist/source/latex/envlab/envlab.drv
+ texmf-dist/source/latex/envlab/envlab.dtx
+ texmf-dist/source/latex/envlab/envlab.ins
+runfiles size=7
+ texmf-dist/tex/latex/envlab/envlab.cfg
+ texmf-dist/tex/latex/envlab/envlab.sty
+catalogue-also akletter dinbrief formlett
+catalogue-contact-home http://borisv.lk.net
+catalogue-ctan /macros/latex/contrib/envlab
+catalogue-license lppl
+catalogue-topics letter barcode class
+catalogue-version 1.2

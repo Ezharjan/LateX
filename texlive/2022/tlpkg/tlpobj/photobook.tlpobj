@@ -1,0 +1,26 @@
+name photobook
+category Package
+revision 64404
+shortdesc A document class for typesetting photo books
+longdesc This LaTeX document class extends the book class defining a set
+longdesc of parameters, meta-macros, macros and environments with
+longdesc reasonable defaults to help typeset, build and print books
+longdesc mainly based on visual/image content.
+containersize 28804
+containerchecksum 4df29d1bf784057ea430bddafe43e81b53c380bd8582708ec4c59a34c6148683e50650075ba12433777ca00ae55cd764a789a46f89227ddac5e37b5007065a2b
+doccontainersize 138532
+doccontainerchecksum a066d46baf513ec4e7644cd266bba7897db98f934370f02bc99d45ca95f8effea852291a1908de2c744cfc401893b08a23ead8a97c12db2e9ea10519711e3ffb
+docfiles size=43
+ texmf-dist/doc/latex/photobook/LICENSE
+ texmf-dist/doc/latex/photobook/Makefile
+ texmf-dist/doc/latex/photobook/README.md details="Readme"
+ texmf-dist/doc/latex/photobook/photobook.pdf details="Package documentation"
+ texmf-dist/doc/latex/photobook/scripts/cls2tex.sh
+ texmf-dist/doc/latex/photobook/scripts/make-images.sh
+runfiles size=38
+ texmf-dist/tex/latex/photobook/photobook.cls
+catalogue-contact-repository https://github.com/flynx/photobook
+catalogue-ctan /macros/latex/contrib/photobook
+catalogue-license bsd3
+catalogue-topics class
+catalogue-version 0.1

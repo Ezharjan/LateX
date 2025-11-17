@@ -1,0 +1,30 @@
+name bookshelf
+category Package
+revision 55475
+shortdesc Create a nice image from a BibTeX file
+longdesc This package turns a BibTeX bibliography file into a
+longdesc randomly-coloured, randomly-sized shelf of books, with the
+longdesc title and author in a randomly-chosen typeface.
+containersize 4100
+containerchecksum e6ab2186784aa9905053d15311b18def1c669a86db4a98033761c2f41fae97199baec02c41c32cc6ef4ed9ddb6ff5413f69a7ad1c9cf5f0c4c91d45297eb1af5
+doccontainersize 985580
+doccontainerchecksum 38e04eb978152cb97a15f1b6120ba9f062224ed4feada0347042b420d4baa9c66e453be8d4abf4095ba3403d11281153dc7e2494d34864a2ad2e1ac10a1b4b1c
+docfiles size=486
+ texmf-dist/doc/latex/bookshelf/MANIFEST
+ texmf-dist/doc/latex/bookshelf/README.md details="Readme"
+ texmf-dist/doc/latex/bookshelf/VERSION
+ texmf-dist/doc/latex/bookshelf/bookshelf.pdf details="Package documentation"
+ texmf-dist/doc/latex/bookshelf/myshelf.jpg
+ texmf-dist/doc/latex/bookshelf/prepdata.sh
+ texmf-dist/doc/latex/bookshelf/test.tex
+srccontainersize 29204
+srccontainerchecksum 53076f7ea7a15ade58fc6ff23643515631f46368d67f9b55d67212ceface35834f10724fc7fa8dfd75d7f852bef9a6570d3bc5600805c79f7e24006e663e1528
+srcfiles size=27
+ texmf-dist/source/latex/bookshelf/bookshelf.dtx
+ texmf-dist/source/latex/bookshelf/bookshelf.ins
+runfiles size=4
+ texmf-dist/tex/latex/bookshelf/bookshelf.cls
+catalogue-ctan /graphics/bookshelf
+catalogue-license lppl1.3
+catalogue-topics amusements decoration graphics-use
+catalogue-version 0.5

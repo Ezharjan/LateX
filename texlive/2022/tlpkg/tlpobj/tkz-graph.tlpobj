@@ -1,0 +1,35 @@
+name tkz-graph
+category Package
+revision 57484
+shortdesc Draw graph-theory graphs
+longdesc The package is designed to create graph diagrams as simply as
+longdesc possible, using TikZ.
+containersize 6216
+containerchecksum 04cf17f69862b2ec068dfc061fb019b54352cab3fdebb3111de3c28bf15047e06c236d979e9a9a92140c2a59ac9c0813ed7006d0411737b1f04f71c3a5916cda
+doccontainersize 325056
+doccontainerchecksum df2a31047ece6f5809db42be2243d00b0342d54d3b864de6a32a43257b0d8525170e9d642db495f876c12adf4ae5580252c1378356acdc5f18531aa3099e76d5
+docfiles size=116
+ texmf-dist/doc/latex/tkz-graph/README.md details="Readme (French)" language="fr"
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-Dijkstra.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-Welsh.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-annales.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-couverture.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-edge.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-label.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-main.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-presentation.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-prob.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-style.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-vertex.tex
+ texmf-dist/doc/latex/tkz-graph/doc/latex/TKZdoc-gr-vertices.tex
+ texmf-dist/doc/latex/tkz-graph/test-graph.pdf
+ texmf-dist/doc/latex/tkz-graph/test-graph.tex
+ texmf-dist/doc/latex/tkz-graph/tkz-graph-screen.pdf details="Package documentation"
+runfiles size=12
+ texmf-dist/tex/latex/tkz-graph/tkz-graph.sty
+catalogue-also tkz-berge
+catalogue-contact-home http://altermundus.fr
+catalogue-ctan /macros/latex/contrib/tkz/tkz-graph
+catalogue-license lppl1.3
+catalogue-topics maths graphics pgf-tikz
+catalogue-version 2.0

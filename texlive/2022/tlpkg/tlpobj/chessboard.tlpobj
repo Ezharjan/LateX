@@ -1,0 +1,42 @@
+name chessboard
+category Package
+revision 56833
+shortdesc Print chess boards
+longdesc This package offers commands to print chessboards. It can print
+longdesc partial boards, hide pieces and fields, color the boards and
+longdesc put various marks on the board. It has a lot of options to
+longdesc place pieces on the board. Using exotic pieces (e.g., for fairy
+longdesc chess) is possible. The documentation includes an example of an
+longdesc animated chessboard, for those whose PDF viewer can display
+longdesc animations.
+containersize 22600
+containerchecksum 9447eb4dd8712ccbb519f91e99ccd1c64cc0e9ba904bd46dd8c83ce03c31e5caddca8e76c2cfeeefd5946c8881b9e6b198d50c131a1e8d5622b054d1459865cc
+doccontainersize 523316
+doccontainerchecksum 1c2e8ab2776a247ab1cbaf5527e04392dbcd1eae3a9b1c6785223268d1811a778c0812a1a5437a15cf4bbf08ff28785a57da10c472dd7567f1f0217b2d7de556
+docfiles size=641
+ texmf-dist/doc/latex/chessboard/README.md details="Readme"
+ texmf-dist/doc/latex/chessboard/brett.jpg
+ texmf-dist/doc/latex/chessboard/chessboard-skakps.pdf
+ texmf-dist/doc/latex/chessboard/chessboard-skakps.tex
+ texmf-dist/doc/latex/chessboard/chessboard.pdf details="Package documentation"
+ texmf-dist/doc/latex/chessboard/chessboard.tex
+ texmf-dist/doc/latex/chessboard/chessboard_and_beamer.pdf
+ texmf-dist/doc/latex/chessboard/chessboard_and_beamer.tex
+ texmf-dist/doc/latex/chessboard/file.fen
+srccontainersize 20904
+srccontainerchecksum 674ac2dd69312d3959bca053d5170bf98381ec70e3d688c991e276f07260c10ded70055b4f9b819fa0cefc8f1ac7850dd9df61d38a97b58c0fc05c824a42c3e5
+srcfiles size=48
+ texmf-dist/source/latex/chessboard/chessboard.dtx
+ texmf-dist/source/latex/chessboard/chessboard.ins
+runfiles size=50
+ texmf-dist/tex/latex/chessboard/UF-chessboard-documentation.sty
+ texmf-dist/tex/latex/chessboard/chessboard-keys-main.sty
+ texmf-dist/tex/latex/chessboard/chessboard-keys-pgf.sty
+ texmf-dist/tex/latex/chessboard/chessboard-pgf.sty
+ texmf-dist/tex/latex/chessboard/chessboard.sty
+catalogue-contact-repository https://github.com/u-fischer/chessboard
+catalogue-contact-support https://github.com/u-fischer/chessboard/issues
+catalogue-ctan /macros/latex/contrib/chessboard
+catalogue-license lppl
+catalogue-topics games
+catalogue-version 1.9

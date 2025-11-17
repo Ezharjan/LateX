@@ -1,0 +1,43 @@
+name crossword
+category Package
+revision 64375
+shortdesc Typeset crossword puzzles
+longdesc An extended grid-based puzzle package, designed to take all
+longdesc input (both grid and clues) from the same file. The package can
+longdesc typeset grids with holes in them (for advertisements, or other
+longdesc sorts of stuff), and can deal with several sorts of puzzle: The
+longdesc classical puzzle contains numbers for the words and clues for
+longdesc the words to be filled in. The numbered puzzle contains numbers
+longdesc in each cell where identical numbers represent identical
+longdesc letters. The goal is to find out which number corresponds to
+longdesc which letter. The fill-in type of puzzle consists of a grid and
+longdesc a list of words. The goal is to place all words in the grid.
+longdesc Sudoku and Kakuro puzzles involve filling in grids of numbers
+longdesc according to their own rules. Format may be block-separated, or
+longdesc separated by thick lines. Input to the package is somewhat
+longdesc redundant: specification of the grid is separate from
+longdesc specification of the clues (if they're necessary). The author
+longdesc considers this style both 'natural' and robust.
+containersize 4236
+containerchecksum 8be92df53341bca46907f0125122e2498761880606fb42621df7b4e9f5d9cc9e9a8b74454aa254f49b6fd471b371df7f9f873d9209a94c419433b53247bc29a7
+doccontainersize 338704
+doccontainerchecksum 445ff450f4ebb1e615d0e9a7193904f4512dddf4af3b693f6eae9a115d5456202c54c291c263c37fa37d082d3403c4b7a83deff7e1ae37548efd7ad47b97bfad
+docfiles size=87
+ texmf-dist/doc/latex/crossword/LICENSE
+ texmf-dist/doc/latex/crossword/README.md details="Package Readme"
+ texmf-dist/doc/latex/crossword/cwpuzzle.pdf details="Package documentation"
+ texmf-dist/doc/latex/crossword/makefile
+srccontainersize 15656
+srccontainerchecksum 018058d6dae55c27804cc750fd6469f432c1a0edca187f6adcf75255d9d2a27c34a446e54dc7a6b5de3e030a0145f5b950961f53e4dfb8976fbd283f4db30e38
+srcfiles size=20
+ texmf-dist/source/latex/crossword/cwpuzzle.dtx
+ texmf-dist/source/latex/crossword/cwpuzzle.ins
+runfiles size=3
+ texmf-dist/tex/latex/crossword/cwpuzzle.sty
+catalogue-also crosswrd
+catalogue-contact-home http://gerd-neugebauer.de/software/TeX/cwpuzzle
+catalogue-contact-repository https://sourceforge.net/p/gene-tex-lib/svn/HEAD/tree/cwpuzzle
+catalogue-ctan /macros/latex/contrib/gene/crossword
+catalogue-license other-free
+catalogue-topics games cwpuzzle
+catalogue-version 1.11

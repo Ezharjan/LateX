@@ -1,0 +1,33 @@
+name cloze
+category Package
+revision 55763
+shortdesc A LuaLaTeX package for creating cloze texts
+longdesc This is a LuaTeX or LuaLaTeX package for generating cloze
+longdesc texts. The main feature of the package is that the formatting
+longdesc doesn't change when using the hide and show options. There are
+longdesc the commands \cloze, \clozefix, \clozefil, \clozenol,
+longdesc \clozestrike and the environments clozepar and clozebox to
+longdesc generate cloze texts.
+containersize 9208
+containerchecksum f1c986699258bc9e7e27093a2d44f59d001ab13c3d9ba0717dc9bed0c53b00ce8ccf658c9cc3d7d457d18f45357a6d44da4d6710c1661ffcf299a8791822501b
+doccontainersize 577160
+doccontainerchecksum ca3d9e0a4eb7486f40e4a26d0b6a2aa5dbf7e3d28343b9069ee97b089e7906aa137d8e7f8c6d010fd2cf472836191b88b9450248bd99728d80159afc54a8d1e7
+docfiles size=148
+ texmf-dist/doc/luatex/cloze/README.md details="Readme"
+ texmf-dist/doc/luatex/cloze/cloze.pdf details="Package documentation"
+srccontainersize 6008
+srccontainerchecksum 53d30866958183101890a4999a9b8f4b20b5bbca996d28ca4a22aaf81331f186facc695725917a9e80206545a3e0962b8c17b4e08b4d2db961878a273ba7c209
+srcfiles size=8
+ texmf-dist/source/luatex/cloze/cloze.dtx
+ texmf-dist/source/luatex/cloze/cloze.ins
+runfiles size=11
+ texmf-dist/scripts/cloze/cloze.lua
+ texmf-dist/tex/luatex/cloze/cloze.sty
+ texmf-dist/tex/luatex/cloze/cloze.tex
+catalogue-contact-bugs https://github.com/Josef-Friedrich/cloze/issues
+catalogue-contact-development https://josef.friedrich.rocks
+catalogue-contact-repository https://github.com/Josef-Friedrich/cloze
+catalogue-ctan /macros/luatex/generic/cloze
+catalogue-license lppl1.3
+catalogue-topics exam luatex
+catalogue-version 1.6

@@ -1,0 +1,29 @@
+name objectz
+category Package
+revision 61719
+shortdesc Macros for typesetting Object Z
+longdesc The package will typeset both Z and Object-Z specifications; it
+longdesc develops the original zed package
+containersize 9724
+containerchecksum 15aab03ef1773a4ec72a3dea3fe036cca671abd3e55721d69201c43902d9655a9b71b6b109c13824015a9db740cd8e463016f59dd84a22a3648c14cf7e95f2cb
+doccontainersize 261448
+doccontainerchecksum b1918ee04b6b1755b947d12485abd250ec91ce4dfe52403631e00b6c3dac88db2c3c3801912c952d26a00b06d8dbf7a9d88586ab7aa348aa0b2ec7cac1e4fb2d
+docfiles size=87
+ texmf-dist/doc/latex/objectz/catalog
+ texmf-dist/doc/latex/objectz/makefile
+ texmf-dist/doc/latex/objectz/manifest
+ texmf-dist/doc/latex/objectz/ozguide.pdf details="Package documentation"
+ texmf-dist/doc/latex/objectz/ozguide.tex
+ texmf-dist/doc/latex/objectz/oztest.tex
+ texmf-dist/doc/latex/objectz/readme details="Readme"
+srccontainersize 15088
+srccontainerchecksum 77332f847ae68cfcbe61b1568e7079a9d2c5a51012c0de3bbad166df71f3cc2af61317d886e4092192e647ad2ac13c7f768b9397770587910ef63a89acff117e
+srcfiles size=15
+ texmf-dist/source/latex/objectz/oz.dtx
+ texmf-dist/source/latex/objectz/oz.ins
+runfiles size=10
+ texmf-dist/tex/latex/objectz/oz.sty
+catalogue-also zed-csp
+catalogue-ctan /macros/latex/contrib/objectz
+catalogue-license lppl
+catalogue-topics formal-spec

@@ -1,0 +1,34 @@
+name lebhart
+category Package
+revision 64280
+shortdesc Write your articles in a colorful way
+longdesc This package provides a LaTeX class for typesetting articles
+longdesc with a colorful design. Currently, it has native support for
+longdesc Chinese (simplified and traditional), English, French, German,
+longdesc Italian, Japanese, Portuguese (European and Brazilian), Russian
+longdesc and Spanish typesetting. It compiles with either XeLaTeX or
+longdesc LuaLaTeX. This is part of the colorist class series and depends
+longdesc on colorist.sty from the colorist package. The package name
+longdesc "lebhart" is taken from the German word "lebhaft" ("vivid"),
+longdesc combined with the first three letters of "Artikel" ("article").
+depend colorist
+containersize 4632
+containerchecksum 4b1411cfb2cef9639554ef01af946a53d49ae429649af78a9213a79f695d0014cb3c0ef9cb13c3d0f85e0286e27b5ba214ae85ba6f2c94a32655131e4898ddb8
+doccontainersize 397728
+doccontainerchecksum 06c091c1a7c05c9c8f3de49b1bb0499e7f95273fd048de20aa59cf67bdd100d623735e8c214e81fe4b2ecbc3ef1dc83911789bd4a6f008baf62bfb12233642d1
+docfiles size=124
+ texmf-dist/doc/latex/lebhart/LICENSE
+ texmf-dist/doc/latex/lebhart/README.md details="Readme"
+ texmf-dist/doc/latex/lebhart/lebhart-doc-cn.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/lebhart/lebhart-doc-cn.tex
+ texmf-dist/doc/latex/lebhart/lebhart-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/lebhart/lebhart-doc-en.tex
+ texmf-dist/doc/latex/lebhart/lebhart-doc-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/lebhart/lebhart-doc-fr.tex
+runfiles size=8
+ texmf-dist/tex/latex/lebhart/lebhart.cls
+catalogue-also colorist
+catalogue-contact-repository https://github.com/Jinwen-XU/colorist
+catalogue-ctan /macros/unicodetex/latex/lebhart
+catalogue-license lppl1.3c
+catalogue-topics class article-like expl3 chinese multilingual

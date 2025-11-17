@@ -1,0 +1,31 @@
+name scontents
+category Package
+revision 62902
+shortdesc Stores LaTeX contents in memory or files
+longdesc This package stores valid LaTeX code in memory (sequences)
+longdesc using the l3seq module of expl3. The stored content (including
+longdesc verbatim) can be used as many times as desired in the document,
+longdesc additionally can be written to external files if desired.
+containersize 8172
+containerchecksum 692fbbe0cfe9153bb4782eabe8f1713e646d5a93d4b1b2fe0f7662bd995bfae25b8200acb9eccd0057b53bff7c33c0f9ff621cd37596e9aa4cd51f84c2a30dc7
+doccontainersize 367028
+doccontainerchecksum f978650de27e8306d70612331c2c98b5e0c047bbf91908c9968c6d613311c034dd00816afdc30b63d7673a8627651467af64a99fb7fd3978947113f8fb6eb563
+docfiles size=96
+ texmf-dist/doc/latex/scontents/README.md details="Readme"
+ texmf-dist/doc/latex/scontents/scontents.pdf details="Package documentation"
+srccontainersize 29640
+srccontainerchecksum d23c98c16b7f60a1a77c0dba32eb7886f5834c1d05455a172f38f984c7bb61ffc84bae147fa7d143c196179fd719887b160718e04ff3474c5ef176af4d99165a
+srcfiles size=34
+ texmf-dist/source/latex/scontents/scontents.dtx
+ texmf-dist/source/latex/scontents/scontents.ins
+runfiles size=14
+ texmf-dist/tex/context/third/scontents/t-scontents.mkiv
+ texmf-dist/tex/generic/scontents/scontents-code.tex
+ texmf-dist/tex/generic/scontents/scontents.tex
+ texmf-dist/tex/latex/scontents/scontents.sty
+catalogue-contact-bugs https://github.com/pablgonz/scontents/issues
+catalogue-contact-repository https://github.com/pablgonz/scontents
+catalogue-ctan /macros/latex/contrib/scontents
+catalogue-license lppl1.3c
+catalogue-topics file-mgmt expl3
+catalogue-version 2.0

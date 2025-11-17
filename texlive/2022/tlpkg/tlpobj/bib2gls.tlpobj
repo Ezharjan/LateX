@@ -1,0 +1,125 @@
+name bib2gls
+category Package
+revision 61134
+shortdesc Command line application to convert .bib files to glossaries-extra.sty resource files
+longdesc This Java command line application may be used to extract
+longdesc glossary information stored in a .bib file and convert it into
+longdesc glossary entry definition commands. This application should be
+longdesc used with glossaries-extra.sty's 'record' package option. It
+longdesc performs two functions in one: selects entries according to
+longdesc records found in the .aux file (similar to bibtex),
+longdesc hierarchically sorts entries and collates location lists
+longdesc (similar to makeindex or xindy). The glossary entries can then
+longdesc be managed in a system such as JabRef, and only the entries
+longdesc that are actually required will be defined, reducing the
+longdesc resources required by TeX. The supplementary application
+longdesc convertgls2bib can be used to convert existing .tex files
+longdesc containing definitions (\newglossaryentry etc.) to the .bib
+longdesc format required by bib2gls.
+depend bib2gls.ARCH
+containersize 1184680
+containerchecksum 00fc6245cc46f70c379aac828002ce6ec5a84a3d09125d987af086da35f6dbb7e0439e4ebddef48d011e90fa87f67d0f447c70f60985955f5d7de5170d7f4a77
+doccontainersize 5409716
+doccontainerchecksum ce3e00941d2c67ed581bcc3c90da84ec6d864106c16fe77795eb8e7c8a637ab1bf5745c766f2dfaca9aec4c475f751daa3be35f3394f3c5edff0b1efb06fa7a9
+docfiles size=1936
+ texmf-dist/doc/man/man1/bib2gls.1
+ texmf-dist/doc/man/man1/bib2gls.man1.pdf
+ texmf-dist/doc/man/man1/convertgls2bib.1
+ texmf-dist/doc/man/man1/convertgls2bib.man1.pdf
+ texmf-dist/doc/support/bib2gls/CHANGES
+ texmf-dist/doc/support/bib2gls/README.md details="Readme"
+ texmf-dist/doc/support/bib2gls/bib2gls-begin.pdf details="Introductory Guide"
+ texmf-dist/doc/support/bib2gls/bib2gls.pdf details="Package documentation"
+ texmf-dist/doc/support/bib2gls/examples/animals.bib
+ texmf-dist/doc/support/bib2gls/examples/bacteria.bib
+ texmf-dist/doc/support/bib2gls/examples/baseunits.bib
+ texmf-dist/doc/support/bib2gls/examples/bigmathsymbols.bib
+ texmf-dist/doc/support/bib2gls/examples/binaryoperators.bib
+ texmf-dist/doc/support/bib2gls/examples/books.bib
+ texmf-dist/doc/support/bib2gls/examples/chemicalformula.bib
+ texmf-dist/doc/support/bib2gls/examples/citations.bib
+ texmf-dist/doc/support/bib2gls/examples/constants.bib
+ texmf-dist/doc/support/bib2gls/examples/derivedunits.bib
+ texmf-dist/doc/support/bib2gls/examples/films.bib
+ texmf-dist/doc/support/bib2gls/examples/interpret-preamble.bib
+ texmf-dist/doc/support/bib2gls/examples/interpret-preamble2.bib
+ texmf-dist/doc/support/bib2gls/examples/markuplanguages.bib
+ texmf-dist/doc/support/bib2gls/examples/mathgreek.bib
+ texmf-dist/doc/support/bib2gls/examples/mathsobjects.bib
+ texmf-dist/doc/support/bib2gls/examples/mathsrelations.bib
+ texmf-dist/doc/support/bib2gls/examples/minerals.bib
+ texmf-dist/doc/support/bib2gls/examples/miscsymbols.bib
+ texmf-dist/doc/support/bib2gls/examples/no-interpret-preamble.bib
+ texmf-dist/doc/support/bib2gls/examples/people.bib
+ texmf-dist/doc/support/bib2gls/examples/sample-authors.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-authors.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-bacteria.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-bacteria.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-chemical.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-chemical.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-citations.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-citations.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-constants.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-constants.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-hierarchical.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-hierarchical.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-markuplanguages.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-markuplanguages.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-maths.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-maths.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-media.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-media.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-msymbols.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-msymbols.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-multi1.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-multi1.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-multi2.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-multi2.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-nested.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-nested.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-people.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-people.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-textsymbols.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-textsymbols.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-textsymbols2.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-textsymbols2.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-units1.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-units1.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-units2.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-units2.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-units3.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-units3.tex
+ texmf-dist/doc/support/bib2gls/examples/sample-usergroups.pdf
+ texmf-dist/doc/support/bib2gls/examples/sample-usergroups.tex
+ texmf-dist/doc/support/bib2gls/examples/terms.bib
+ texmf-dist/doc/support/bib2gls/examples/topics.bib
+ texmf-dist/doc/support/bib2gls/examples/unaryoperators.bib
+ texmf-dist/doc/support/bib2gls/examples/usergroups.bib
+ texmf-dist/doc/support/bib2gls/examples/vegetables.bib
+srccontainersize 1233540
+srccontainerchecksum aa19fd66c5d3782a4d0d4de2f1dcf2d0d5aab6fbe421f54cc59554f10b37f99ba693716b266e8d216f33223aeef27ec40addf85baeaac1441fb999772c6c2579
+srcfiles size=720
+ texmf-dist/source/support/bib2gls/src/bib2gls-begin.tex
+ texmf-dist/source/support/bib2gls/src/bib2gls-cite.bib
+ texmf-dist/source/support/bib2gls/src/bib2gls-src.zip
+ texmf-dist/source/support/bib2gls/src/bib2gls-terms.bib
+ texmf-dist/source/support/bib2gls/src/bib2gls.bib
+ texmf-dist/source/support/bib2gls/src/bib2gls.pod
+ texmf-dist/source/support/bib2gls/src/bib2gls.tex
+ texmf-dist/source/support/bib2gls/src/convertgls2bib.pod
+ texmf-dist/source/support/bib2gls/src/gls2bib-src.zip
+ texmf-dist/source/support/bib2gls/src/texparser-src.zip
+runfiles size=332
+ texmf-dist/scripts/bib2gls/bib2gls.jar
+ texmf-dist/scripts/bib2gls/bib2gls.sh
+ texmf-dist/scripts/bib2gls/convertgls2bib.jar
+ texmf-dist/scripts/bib2gls/convertgls2bib.sh
+ texmf-dist/scripts/bib2gls/resources/bib2gls-en.xml
+ texmf-dist/scripts/bib2gls/texparserlib.jar
+catalogue-contact-bugs https://github.com/nlct/bib2gls/issues
+catalogue-contact-home https://www.dickimaw-books.com/software/bib2gls/
+catalogue-contact-repository https://github.com/nlct/bib2gls
+catalogue-ctan /support/bib2gls
+catalogue-license gpl3+
+catalogue-topics bibtex-util glossary
+catalogue-version 2.9

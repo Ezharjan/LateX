@@ -1,0 +1,26 @@
+name ellipsis
+category Package
+revision 55418
+shortdesc Fix uneven spacing around ellipses in LaTeX text mode
+longdesc This is a simple package that fixes a problem in the way LaTeX
+longdesc handles ellipses: it always puts a tiny bit more space after
+longdesc \dots in text mode than before it, which results in the
+longdesc ellipsis being off-center when used between two words.
+containersize 1648
+containerchecksum 009bc55dac8eab88e27124317acbf9f3101959cefa4419b507ab74f49453f72f272db2b4826424f3d8c76efb50163c11d6eed63e1219cae2a2632bb629fba96a
+doccontainersize 217792
+doccontainerchecksum 7d0b4c51008203729df1bd50d2c2a2568f2426b7284f0d58eae4720a032e4ab469a5db6cf5656e57ceb0cc9062a7bfe1f3cfe20c51a3d08c85d55c110ce7ddcb
+docfiles size=54
+ texmf-dist/doc/latex/ellipsis/README.md details="Readme"
+ texmf-dist/doc/latex/ellipsis/ellipsis.pdf details="Package documentation"
+srccontainersize 7556
+srccontainerchecksum 65b536bdd6d5b429e2f1832b3d466bfe055be6074b43b60305b79ae9ea09172e3e7e82bf7cf3b4dfbf73507135ec4caa3d713c5cfe060fbc925ba7d2a8c09dea
+srcfiles size=6
+ texmf-dist/source/latex/ellipsis/ellipsis.dtx
+runfiles size=1
+ texmf-dist/tex/latex/ellipsis/ellipsis.sty
+catalogue-also lips
+catalogue-ctan /macros/latex/contrib/ellipsis
+catalogue-license lppl1.3c
+catalogue-topics typesetting
+catalogue-version 1.8

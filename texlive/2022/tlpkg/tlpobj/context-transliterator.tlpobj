@@ -1,0 +1,34 @@
+name context-transliterator
+category ConTeXt
+revision 61127
+shortdesc Transliterate text from 'other' alphabets
+longdesc The package will read text in one alphabet, and provide a
+longdesc transliterated version in another; this is useful for readers
+longdesc who cannot read the original alphabet. The package can make
+longdesc allowance for hyphenation.
+depend context
+containersize 19012
+containerchecksum f919d3f9e6ab25932cfaeadfc07f86ebdbe00d84dc21236e4775930fc3866cee69cf9a25d373e13655f4396a3c395ea6ea103a28ffb4f00a4e95b7ceaec155c9
+doccontainersize 192808
+doccontainerchecksum 8473c1ca7b48009055f5c33031ec60f80d84dc43396789b0c0c7e6d65bcf014a237088dca07211beae4bfb80377f55cf12a9f379995cff50f52143fc4bc81295
+docfiles size=56
+ texmf-dist/doc/context/third/transliterator/VERSION
+ texmf-dist/doc/context/third/transliterator/transliterator.pdf details="Package documentation"
+ texmf-dist/doc/context/third/transliterator/transliterator.tex
+runfiles size=32
+ texmf-dist/scripts/context/lua/third/transliterator/mtx-t-transliterate.lua
+ texmf-dist/tex/context/interface/third/t-transliterator.xml
+ texmf-dist/tex/context/third/transliterator/t-transliterator.mkii
+ texmf-dist/tex/context/third/transliterator/t-transliterator.mkiv
+ texmf-dist/tex/context/third/transliterator/t-transliterator.tex
+ texmf-dist/tex/context/third/transliterator/trans_tables_bg.lua
+ texmf-dist/tex/context/third/transliterator/trans_tables_glag.lua
+ texmf-dist/tex/context/third/transliterator/trans_tables_gr.lua
+ texmf-dist/tex/context/third/transliterator/trans_tables_iso9.lua
+ texmf-dist/tex/context/third/transliterator/trans_tables_scntfc.lua
+ texmf-dist/tex/context/third/transliterator/trans_tables_sr.lua
+ texmf-dist/tex/context/third/transliterator/trans_tables_trsc.lua
+ texmf-dist/tex/context/third/transliterator/transliterator.lua
+catalogue-ctan /macros/context/contrib/context-transliterator
+catalogue-license bsd
+catalogue-topics enc-juggle

@@ -1,0 +1,22 @@
+name recipe
+category Package
+revision 54080
+shortdesc A LaTeX class to typeset recipes
+longdesc The layout design is relatively straightforward (and
+longdesc traditional: see 'sample output' under 'documentation'); the
+longdesc class uses the Bookman and the BrushScript-Italic fonts.
+containersize 1956
+containerchecksum 03e9e48a2e423f36ccfbeb2e61ffc7c3588658a158c1729f697ce44d98079f104cdf1c17d85ffd5700a7532f762e22da0c4388350007eb13226cc0da43b08678
+doccontainersize 23600
+doccontainerchecksum 4dfd27cfbb4f5f5f45a5fce25fcbee4c9881990dba1009337f41e4080686e993246189595a7c28b8d56bdd2e81a70e9c6fefcfef0897736d5400888bb9fca210
+docfiles size=11
+ texmf-dist/doc/latex/recipe/README details="Readme"
+ texmf-dist/doc/latex/recipe/sample.pdf details="Sample of output (Italian)" language="it"
+ texmf-dist/doc/latex/recipe/sample.tex
+runfiles size=1
+ texmf-dist/tex/latex/recipe/recipe.cls
+catalogue-also recipecard recipebook
+catalogue-ctan /macros/latex/contrib/recipe
+catalogue-license pd
+catalogue-topics cooking
+catalogue-version 0.9

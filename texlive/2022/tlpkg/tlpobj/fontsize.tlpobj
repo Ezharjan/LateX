@@ -1,0 +1,24 @@
+name fontsize
+category Package
+revision 60161
+shortdesc A small package to set arbitrary sizes for the main font of the document
+longdesc The package allows you to set arbitrary sizes for the main font
+longdesc of the document, through the fontsize=<size> option.
+containersize 4984
+containerchecksum 8e89cde1cdcc388a5e8ef48ccfeecf6f1f25e938c7513081bb17bb4b65f889c2826a929baf4833b2191554f3ddef2dd9c5bbf50f53ff14fe7463ebd1e494aa4a
+doccontainersize 377600
+doccontainerchecksum 0b4cb325f4ca5b94a1757aea9ab3dc00dc92ee2b095dd35f176e7acbad7e1ec87a7e2b7cdf9ed19bf50095c41f221f8c791c0e7c9d541021768945a84a30e51e
+docfiles size=96
+ texmf-dist/doc/latex/fontsize/README details="Readme"
+ texmf-dist/doc/latex/fontsize/fontsize.bib
+ texmf-dist/doc/latex/fontsize/fontsize.pdf details="Package documentation"
+srccontainersize 15124
+srccontainerchecksum 42b9a587d63a2a0190776851b86eb66c4e7e2811a4367ba659ebc996fcdf365b9447c94a4d04af5129a6b95d119e37735df9b26fcf12702f157d61932f64eef3
+srcfiles size=19
+ texmf-dist/source/latex/fontsize/fontsize.dtx
+runfiles size=10
+ texmf-dist/tex/latex/fontsize/fontsize.sty
+catalogue-ctan /macros/latex/contrib/fontsize
+catalogue-license lppl1.3
+catalogue-topics font-supp-misc
+catalogue-version 0.8.5

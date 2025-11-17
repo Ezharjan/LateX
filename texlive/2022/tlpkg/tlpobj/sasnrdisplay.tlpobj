@@ -1,0 +1,24 @@
+name sasnrdisplay
+category Package
+revision 63255
+shortdesc Typeset SAS or R code or output
+longdesc The SASnRdisplay package serves as a front-end to listings,
+longdesc which permits statisticians and others to import source code
+longdesc and the results of their calculations or simulations into LaTeX
+longdesc projects. The package is also capable of overloading the Sweave
+longdesc User Manual and SASweave packages.
+containersize 7296
+containerchecksum 5f6483d066775682cd08b9f68b7f31f5e8bedaf9248b7345dd23a950d5e61e3d2664dc2cffe2a86b35273044f8d8df2694d4d3598d70b974d38e02ae8343a844
+doccontainersize 211572
+doccontainerchecksum a99bda8628ed2b4cdc0ba24bdb0f514ecac643481d9d866c2992df131354a677ee6fe0244285ee4d9029eb10b219c9fd9dc5f7f93a01414a3db2cff8f58e08e9
+docfiles size=61
+ texmf-dist/doc/latex/sasnrdisplay/README details="Readme"
+ texmf-dist/doc/latex/sasnrdisplay/SASnRdisplay.pdf details="Package documentation"
+ texmf-dist/doc/latex/sasnrdisplay/SASnRdisplay.tex
+runfiles size=7
+ texmf-dist/tex/latex/sasnrdisplay/SASnRdisplay.cfg
+ texmf-dist/tex/latex/sasnrdisplay/SASnRdisplay.sty
+catalogue-ctan /macros/latex/contrib/sasnrdisplay
+catalogue-license lppl1.3
+catalogue-topics listing statistics
+catalogue-version 0.95

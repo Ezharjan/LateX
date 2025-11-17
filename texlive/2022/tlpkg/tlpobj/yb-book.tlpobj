@@ -1,0 +1,55 @@
+name yb-book
+category Package
+revision 64017
+shortdesc Template for YB Branded Books
+longdesc This template helps the author design books published on Amazon
+longdesc under the "Y.B." brand. You are welcome to use it too for your
+longdesc own books.
+depend anyfontsize
+depend biblatex
+depend changepage
+depend chngcntr
+depend csquotes
+depend enumitem
+depend fancyhdr
+depend float
+depend footmisc
+depend geometry
+depend graphics
+depend imakeidx
+depend l3packages
+depend lastpage
+depend libertine
+depend mdframed
+depend microtype
+depend paralist
+depend pgf
+depend qrcode
+depend setspace
+depend soul
+depend titlesec
+depend titlesec
+depend ulem
+depend wrapfig
+depend xcolor
+depend xifthen
+depend xkeyval
+containersize 3948
+containerchecksum ff9602c208637d8c4e3158ba0c99e76298719bbf2e8d668ec6f802e805ab39a316bea0212460684d9bfdd1fed317b227c3db8bb34f3ec8f0e20a7257060afaa3
+doccontainersize 243276
+doccontainerchecksum 04351d6addfa08c5079f1566c07b2f846ccbf28ed33b326defbc5b6a0ea1e03bc2be5f3a3fffff9b27eaf4b236b224f2960e3c8b3a92e80b99f66ba16ced1cad
+docfiles size=65
+ texmf-dist/doc/latex/yb-book/DEPENDS.txt
+ texmf-dist/doc/latex/yb-book/README.md details="Readme"
+ texmf-dist/doc/latex/yb-book/samples/sample.tex
+ texmf-dist/doc/latex/yb-book/yb-book-logo.pdf
+ texmf-dist/doc/latex/yb-book/yb-book.pdf details="Package documentation"
+ texmf-dist/doc/latex/yb-book/yb-book.tex
+runfiles size=3
+ texmf-dist/tex/latex/yb-book/yb-book.cls
+catalogue-contact-bugs https://github.com/yegor256/yb-book/issues
+catalogue-contact-repository https://github.com/yegor256/yb-book
+catalogue-ctan /macros/latex/contrib/yb-book
+catalogue-license mit
+catalogue-topics class doc-templ book-pub
+catalogue-version 0.1.0

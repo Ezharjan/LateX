@@ -1,0 +1,31 @@
+name luakeys
+category Package
+revision 63833
+shortdesc A Lua module for parsing key-value options
+longdesc This package provides a Lua module that can parse key-value
+longdesc options like the TeX packages keyval, kvsetkeys, kvoptions,
+longdesc xkeyval, pgfkeys etc. luakeys, however, accomplishes this task
+longdesc entirely by using the Lua language and does not rely on TeX.
+longdesc Therefore this package can only be used with the TeX engine
+longdesc LuaTeX. Since luakeys uses LPeg, the parsing mechanism should
+longdesc be pretty robust.
+containersize 9744
+containerchecksum 8b5d53676323df59c77fc8a3db22ef5e67594c7e7a09d6f6c25a5900674e2dc136677bba5a4070d386d1608d7d47b3882d4a7e9ae178b3cc782f5a7fac01b40d
+doccontainersize 286208
+doccontainerchecksum 1f8605a31b1d61fbe603aea362e4086c911bf743a919f237f005e79f0e591d38931d10446783a5efcfb3a09e7272260df4fd7934eb3c9dcb16b4c7c13d9241bd
+docfiles size=83
+ texmf-dist/doc/luatex/luakeys/README.md details="Readme"
+ texmf-dist/doc/luatex/luakeys/luakeys-doc.pdf details="Package documentation"
+ texmf-dist/doc/luatex/luakeys/luakeys-doc.tex
+runfiles size=13
+ texmf-dist/tex/luatex/luakeys/luakeys-debug.sty
+ texmf-dist/tex/luatex/luakeys/luakeys-debug.tex
+ texmf-dist/tex/luatex/luakeys/luakeys.lua
+ texmf-dist/tex/luatex/luakeys/luakeys.sty
+ texmf-dist/tex/luatex/luakeys/luakeys.tex
+catalogue-contact-bugs https://github.com/Josef-Friedrich/luakeys/issues
+catalogue-contact-repository https://github.com/Josef-Friedrich/luakeys
+catalogue-ctan /macros/luatex/generic/luakeys
+catalogue-license lppl1.3c
+catalogue-topics keyval luatex
+catalogue-version 0.7.0

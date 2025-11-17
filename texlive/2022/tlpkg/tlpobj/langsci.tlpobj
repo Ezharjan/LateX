@@ -1,0 +1,69 @@
+name langsci
+category Package
+revision 62061
+shortdesc Typeset books for publication with Language Science Press
+longdesc This package allows you to typeset monographs and edited
+longdesc volumes for publication with Language Science Press
+longdesc (http://www.langsci-press.org). It includes all necessary files
+longdesc for title pages, frontmatter, main content, list of references
+longdesc and indexes. Dust jackets for BoD and Createspace
+longdesc (print-on-demand service providers) can also be produced.
+containersize 62092
+containerchecksum 479c4edce9a18fbfc8ce4ff70c88aa2e1703e8eaba793077636d2f0d78879859391d319494034dfc33c4519f44ae49bbc648dd6aae36642a711334af389fee6b
+doccontainersize 273476
+doccontainerchecksum 2d397c882f03e7fe130cc42bc7ac2f0b9ad33175469256ebac36ad6e67ab4d3fc49acf3d68736d17dd0fc2e4d527a5d3826a0df5d7dc06a76105734be25c727c
+docfiles size=85
+ texmf-dist/doc/xelatex/langsci/README.md details="README.md"
+ texmf-dist/doc/xelatex/langsci/documentation/langsci-doc.pdf details="Package documentation"
+ texmf-dist/doc/xelatex/langsci/documentation/langsci-doc.tex
+ texmf-dist/doc/xelatex/langsci/documentation/langsci-gb4.pdf
+ texmf-dist/doc/xelatex/langsci/examples/langsci-test.bib
+ texmf-dist/doc/xelatex/langsci/examples/samplemonograph.pdf
+ texmf-dist/doc/xelatex/langsci/examples/samplemonograph.tex
+ texmf-dist/doc/xelatex/langsci/examples/samplepaper.pdf
+ texmf-dist/doc/xelatex/langsci/examples/samplepaper.tex
+ texmf-dist/doc/xelatex/langsci/examples/samplevolume.pdf
+ texmf-dist/doc/xelatex/langsci/examples/samplevolume.tex
+runfiles size=89
+ texmf-dist/tex/xelatex/langsci/langsci-affiliations.sty
+ texmf-dist/tex/xelatex/langsci/langsci-basic.sty
+ texmf-dist/tex/xelatex/langsci/langsci-bidi.sty
+ texmf-dist/tex/xelatex/langsci/langsci-gb4e.sty
+ texmf-dist/tex/xelatex/langsci/langsci-lgr.sty
+ texmf-dist/tex/xelatex/langsci/langsci-optional.sty
+ texmf-dist/tex/xelatex/langsci/langsci-series.def
+ texmf-dist/tex/xelatex/langsci/langsci-subparts.sty
+ texmf-dist/tex/xelatex/langsci/langsci-tbls.sty
+ texmf-dist/tex/xelatex/langsci/langsci-textipa.sty
+ texmf-dist/tex/xelatex/langsci/langsci-unified.bbx
+ texmf-dist/tex/xelatex/langsci/langsci-unified.cbx
+ texmf-dist/tex/xelatex/langsci/langsci-unified.dbx
+ texmf-dist/tex/xelatex/langsci/langscibook.cls
+ texmf-dist/tex/xelatex/langsci/tbls-alarm.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-book.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-bulb.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-bulbon.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-code.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-explore.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-filter.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-glass.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-glass2.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-law.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-more.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-pencil.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-people.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-plus.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-r.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-receipt.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-refresh.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-report.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-test.pdf
+ texmf-dist/tex/xelatex/langsci/tbls-tree.pdf
+catalogue-contact-bugs https://github.com/langsci/langscibook/issues
+catalogue-contact-development https://github.com/langsci/langscibook/graphs/contributors
+catalogue-contact-home https://www.langsci-press.org
+catalogue-contact-repository https://github.com/langsci/langscibook
+catalogue-contact-support mailto:support@langsci-press.org
+catalogue-ctan /macros/xetex/latex/langsci
+catalogue-license lppl1.3
+catalogue-topics journalpub book-pub class

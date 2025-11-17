@@ -1,0 +1,52 @@
+name texplate
+category Package
+revision 61719
+shortdesc A tool for creating document structures based on templates
+longdesc TeXplate is a tool for creating document structures based on
+longdesc templates. The application name is a word play on TeX and
+longdesc template, so the purpose seems quite obvious: we want to
+longdesc provide an easy and straightforward framework for reducing the
+longdesc typical code boilerplate when writing TeX documents. Also note
+longdesc that one can easily extrapolate the use beyond articles and
+longdesc theses: the application is powerful enough to generate any
+longdesc text-based structure, given that a corresponding template
+longdesc exists.
+depend texplate.ARCH
+containersize 3243156
+containerchecksum 5b19c1f2d5bdaacb1c842e78b1980ecb3f4fc548873e6a36fc9c5a70c3e3649b812819cc0d3bf68622acf31ac6c687cc4ba657ce2a4682bd13faba4070b0a1d7
+doccontainersize 114612
+doccontainerchecksum e28f0f3476e710fcec772206138a2f423ea6f9df903bfd4c4a278453f217752b7f4ffd7e68f10821ee36a9251a14e6226887ed5aa7a5fb53e5deb7a1685a04e8
+docfiles size=36
+ texmf-dist/doc/support/texplate/README.md details="Readme"
+ texmf-dist/doc/support/texplate/texplate-manual.pdf details="Package documentation"
+ texmf-dist/doc/support/texplate/texplate-manual.tex
+srccontainersize 8436
+srccontainerchecksum 658467f513fc37799df279d636f5927477c51cf0adfbff2ea1597bc8bbd4d9edc3f5f22e2f09d9049a6015a6825bde043ae10e8b55ef78ba8dbbfb04604de0b5
+srcfiles size=21
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/Main.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/TemplateProcessing.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/exceptions/InvalidKeySetException.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/exceptions/InvalidTemplateException.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/exceptions/TemplateMergingException.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/model/Configuration.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/model/Template.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/model/handlers/BooleanHandler.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/model/handlers/CSVListHandler.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/model/handlers/FileReaderHandler.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/model/handlers/Handler.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/util/HandlerUtils.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/util/MergingUtils.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/util/MessageUtils.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/util/PathUtils.kt
+ texmf-dist/source/support/texplate/main/kotlin/org/islandoftex/texplate/util/ValidatorUtils.kt
+ texmf-dist/source/support/texplate/main/resources/org/islandoftex/texplate/templates/texplate-article.toml
+ texmf-dist/source/support/texplate/main/resources/org/islandoftex/texplate/templates/texplate-standalone.toml
+runfiles size=878
+ texmf-dist/scripts/texplate/texplate.jar
+ texmf-dist/scripts/texplate/texplate.sh
+catalogue-contact-bugs https://gitlab.com/islandoftex/texplate/issues
+catalogue-contact-repository https://gitlab.com/islandoftex/texplate
+catalogue-ctan /support/texplate
+catalogue-license bsd3
+catalogue-topics doc-gen gentex doc-templ
+catalogue-version 1.0.4

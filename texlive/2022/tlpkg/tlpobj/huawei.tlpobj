@@ -1,0 +1,54 @@
+name huawei
+category Package
+revision 61028
+shortdesc Template for Huawei documents
+longdesc This unofficial package provides a class for creating documents
+longdesc for people working with Huawei Technologies Co., Ltd.
+depend biblatex
+depend cjk
+depend currfile
+depend datetime
+depend enumitem
+depend fancyhdr
+depend footmisc
+depend geometry
+depend graphics
+depend hyperref
+depend l3packages
+depend lastpage
+depend libertine
+depend makecell
+depend microtype
+depend minted
+depend paralist
+depend pgf
+depend setspace
+depend svg
+depend tcolorbox
+depend textpos
+depend titling
+depend tools
+depend ulem
+depend wrapfig
+depend xcolor
+containersize 259968
+containerchecksum c7a23661204b27508b186b622f057eb1844e25b8df22954a22300c17978902ef2b8c44e77c0d893e2c83142a1e2176c35b0fcaa88bc1c7e2d766a4d1aaee0ba4
+doccontainersize 338760
+doccontainerchecksum 5a131c28b9a729cfbce3a5afadf3dd5970b7b009605c2d03a47778fc72a4648fad0398505eebf256fe03bcef596c1e172d7699b52ead0fe69ee6fc52a2b3aacd
+docfiles size=89
+ texmf-dist/doc/latex/huawei/DEPENDS.txt
+ texmf-dist/doc/latex/huawei/README.md details="Readme"
+ texmf-dist/doc/latex/huawei/huawei.pdf details="Package documentation"
+ texmf-dist/doc/latex/huawei/huawei.tex
+ texmf-dist/doc/latex/huawei/samples/huawei-cfp.tex
+ texmf-dist/doc/latex/huawei/samples/huawei-charter.tex
+ texmf-dist/doc/latex/huawei/samples/huawei-main.bib
+runfiles size=67
+ texmf-dist/tex/latex/huawei/huawei-cover-picture.pdf
+ texmf-dist/tex/latex/huawei/huawei.cls
+catalogue-contact-bugs https://github.com/yegor256/huawei.cls/issues
+catalogue-contact-repository https://github.com/yegor256/huawei.cls
+catalogue-ctan /macros/latex/contrib/huawei
+catalogue-license mit
+catalogue-topics class misc-paper
+catalogue-version 0.13.2

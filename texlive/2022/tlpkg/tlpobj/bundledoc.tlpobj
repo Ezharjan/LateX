@@ -1,0 +1,36 @@
+name bundledoc
+category Package
+revision 55064
+shortdesc Bundle together all the files needed to build a LaTeX document
+longdesc The bundledoc package is a post-processor for the snapshot
+longdesc package that bundles together all the classes, packages and
+longdesc files needed to build a given LaTeX document. It reads the .dep
+longdesc file that snapshot produces, finds each of the files mentioned
+longdesc therein, and archives them into a single .tar.gz (or .zip, or
+longdesc whatever) file, suitable for moving across systems,
+longdesc transmitting to a colleague, etc. A script, arlatex, provides
+longdesc an alternative "archiving" mechanism, creating a single LaTeX
+longdesc file that contains all of the ancillary files of a LaTeX
+longdesc document, together with the document itself, using the
+longdesc filecontents* environment.
+depend bundledoc.ARCH
+containersize 12784
+containerchecksum 07aa1f9dd3cf8bb16fad2a39783a5bd05168e0956840853b6f9a16de753726b0393b8863c6cad985b8bcf7431570137d6fac82588524efc5d7c0032e2dd555c8
+doccontainersize 79028
+doccontainerchecksum bbd78c948c90f6b4470c792c9e0b99fb5bd8ae73b7eb78343739909c13ed0e0d763dd0b6a4b8d05a77280054afe15f2979c985121916fb8a34dff231b810106b
+docfiles size=31
+ texmf-dist/doc/man/man1/arlatex.1
+ texmf-dist/doc/man/man1/arlatex.man1.pdf
+ texmf-dist/doc/man/man1/bundledoc.1
+ texmf-dist/doc/man/man1/bundledoc.man1.pdf
+ texmf-dist/doc/support/bundledoc/README details="Readme"
+runfiles size=14
+ texmf-dist/scripts/bundledoc/arlatex
+ texmf-dist/scripts/bundledoc/bundledoc
+ texmf-dist/tex/latex/bundledoc/miktex.cfg
+ texmf-dist/tex/latex/bundledoc/texlive-unix-arlatex.cfg
+ texmf-dist/tex/latex/bundledoc/texlive-unix.cfg
+catalogue-ctan /support/bundledoc
+catalogue-license lppl1.3c
+catalogue-topics bundle archival
+catalogue-version 3.4

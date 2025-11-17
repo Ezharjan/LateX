@@ -1,0 +1,33 @@
+name sankey
+category Package
+revision 61874
+shortdesc Draw Sankey diagrams with TikZ
+longdesc This package provides macros and an environment for creating
+longdesc Sankey diagrams, i.e. flow diagrams in which the width of the
+longdesc arrows is proportional to the flow rate.
+containersize 9856
+containerchecksum 8a77f2ea3b4c2167d823a839fe2fda2c633ffeb775678e6fa9cb84558dad547f4fb03c3fda6c1f85c4984628ce1515ec874482e8a223385bf1c24b2c30dfb362
+doccontainersize 969684
+doccontainerchecksum a3d18d1a43f22470ea5498423c10246c780116769b0493356174c8e9acc6d9aaa32657f7582b795d2cd720fdbb6786319090303548661f899a650da4a0442629
+docfiles size=253
+ texmf-dist/doc/latex/sankey/README details="Readme"
+ texmf-dist/doc/latex/sankey/sankey-example-energy.tex
+ texmf-dist/doc/latex/sankey/sankey-example1.tex
+ texmf-dist/doc/latex/sankey/sankey-example2.tex
+ texmf-dist/doc/latex/sankey/sankey-example3-variation.tex
+ texmf-dist/doc/latex/sankey/sankey-example3.tex
+ texmf-dist/doc/latex/sankey/sankey-example4.tex
+ texmf-dist/doc/latex/sankey/sankey.pdf details="Package documentation"
+srccontainersize 27868
+srccontainerchecksum 92b3d428919f217c8c869d3896829e324670647c29321bd868753e3b408c5e227acdc15097c81dee01b3319c08fcd94da1cb5e11ceb5d5775a90235a54e997bf
+srcfiles size=41
+ texmf-dist/source/latex/sankey/sankey.dtx
+ texmf-dist/source/latex/sankey/sankey.ins
+runfiles size=12
+ texmf-dist/tex/latex/sankey/sankey-doc-preamble.sty
+ texmf-dist/tex/latex/sankey/sankey.sty
+ texmf-dist/tex/latex/sankey/tikzlibrarydubins.code.tex
+catalogue-ctan /graphics/pgf/contrib/sankey
+catalogue-license lppl1.3 gpl
+catalogue-topics graphics diagram diagram-flow pgf-tikz
+catalogue-version 3.0.1

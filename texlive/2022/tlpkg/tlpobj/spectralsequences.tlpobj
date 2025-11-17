@@ -1,0 +1,80 @@
+name spectralsequences
+category Package
+revision 62261
+shortdesc Print spectral sequence diagrams using PGF/TikZ
+longdesc The package is a specialized tool built on top of PGF/TikZ for
+longdesc drawing spectral sequences. It provides a powerful, concise
+longdesc syntax for specifying the data of a spectral sequence, and then
+longdesc allows the user to print various pages of spectral sequences,
+longdesc automatically choosing which subset of the classes,
+longdesc differentials, and structure lines to display on each page. It
+longdesc also handles most of the details of the layout. At the same
+longdesc time, it is extremely flexible. spectralsequences is closely
+longdesc integrated with TikZ to ensure that users can take advantage of
+longdesc as much as possible of its expressive power. It is possible to
+longdesc turn off most of the automated layout features and draw
+longdesc replacements using TikZ commands. The package also provides a
+longdesc carefully designed error reporting system intended to ensure
+longdesc that it is as clear as possible what is going wrong.
+containersize 72148
+containerchecksum 217ab3a1d3823397947f2b3f449591c5d173f1a2a0e39be553cb6c0ae4f6b36bb41ccd6ba237f643123889a85ddc991145d4911ae7e8b6e5660a388ca4bb684b
+doccontainersize 1595632
+doccontainerchecksum 7b4d803b3fa2994a127d0af48dea655fd4a16c589f3619c4e0ec1a978b8aeff7636db4fb12be46e359495ee24076da22c0ae265893db63e6bdf22a33ff84a185
+docfiles size=512
+ texmf-dist/doc/latex/spectralsequences/README.md details="Readme"
+ texmf-dist/doc/latex/spectralsequences/examples/ANSS-S_2.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/ANSS-S_2.tex
+ texmf-dist/doc/latex/spectralsequences/examples/ANSS-S_3.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/ANSS-S_3.tex
+ texmf-dist/doc/latex/spectralsequences/examples/ASS-S_2.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/ASS-S_2.tex
+ texmf-dist/doc/latex/spectralsequences/examples/ASS-S_3.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/ASS-S_3.tex
+ texmf-dist/doc/latex/spectralsequences/examples/ASS-tmf_2.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/ASS-tmf_2.tex
+ texmf-dist/doc/latex/spectralsequences/examples/HFPSS-EO2_3.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/HFPSS-EO2_3.tex
+ texmf-dist/doc/latex/spectralsequences/examples/HFPSS-KO.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/HFPSS-KO.tex
+ texmf-dist/doc/latex/spectralsequences/examples/J_RPinfty.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/J_RPinfty.tex
+ texmf-dist/doc/latex/spectralsequences/examples/MaySS-bo-A1.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/MaySS-bo-A1.tex
+ texmf-dist/doc/latex/spectralsequences/examples/MaySS-tmf-A2.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/MaySS-tmf-A2.tex
+ texmf-dist/doc/latex/spectralsequences/examples/SSS-KF3n.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/SSS-KF3n.tex
+ texmf-dist/doc/latex/spectralsequences/examples/SSS-KZ3.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/SSS-KZ3.tex
+ texmf-dist/doc/latex/spectralsequences/examples/hatcher.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/hatcher.tex
+ texmf-dist/doc/latex/spectralsequences/examples/spectralsequence-example.cls
+ texmf-dist/doc/latex/spectralsequences/examples/unstable_ASS_SO.pdf
+ texmf-dist/doc/latex/spectralsequences/examples/unstable_ASS_SO.tex
+ texmf-dist/doc/latex/spectralsequences/manual/examples/spectralsequencesmanual-KORP8.tex
+ texmf-dist/doc/latex/spectralsequences/manual/examples/spectralsequencesmanual-class-page2a.tex
+ texmf-dist/doc/latex/spectralsequences/manual/examples/spectralsequencesmanual-class-page2b.tex
+ texmf-dist/doc/latex/spectralsequences/manual/examples/spectralsequencesmanual-imJ.tex
+ texmf-dist/doc/latex/spectralsequences/manual/examples/spectralsequencesmanual-insert.tex
+ texmf-dist/doc/latex/spectralsequences/manual/examples/spectralsequencesmanual-tikz.tex
+ texmf-dist/doc/latex/spectralsequences/manual/spectralsequences-howitworks.tex
+ texmf-dist/doc/latex/spectralsequences/manual/spectralsequencesmanual-layoutcharts.tex
+ texmf-dist/doc/latex/spectralsequences/manual/spectralsequencesmanual.pdf details="Package documentation"
+ texmf-dist/doc/latex/spectralsequences/manual/spectralsequencesmanual.tex
+ texmf-dist/doc/latex/spectralsequences/manual/spectralsequencesmanualpreamble.tex
+runfiles size=103
+ texmf-dist/tex/latex/spectralsequences/spectralsequences.sty
+ texmf-dist/tex/latex/spectralsequences/sseqcheckdefinitions.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqdrawing.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqforeach.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqkeys.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqloadstore.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqmacromakers.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqmain.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqmessages.code.tex
+ texmf-dist/tex/latex/spectralsequences/sseqparsers.code.tex
+catalogue-contact-repository https://github.com/SpectralSequences/latex
+catalogue-ctan /graphics/pgf/contrib/spectralsequences
+catalogue-license lppl
+catalogue-topics pgf-tikz
+catalogue-version 1.3.2

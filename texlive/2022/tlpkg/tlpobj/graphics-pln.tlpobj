@@ -1,0 +1,32 @@
+name graphics-pln
+category Package
+revision 63579
+shortdesc LaTeX-style graphics for Plain TeX users
+longdesc The Plain TeX graphics package is mostly a thin shell around
+longdesc the LaTeX graphicx and color packages, with support of the
+longdesc LaTeX-isms in those packages provided by miniltx (which is the
+longdesc largest part of the bundle). The bundle also contains a file
+longdesc "picture.tex", which is a wrapper around the autopict.sty, and
+longdesc provides the LaTeX picture mode to Plain TeX users.
+containersize 8912
+containerchecksum 343e1fa23781c1b3b35f692f4bd427c085e91e2454dca6a2bd037faae125d5cae3a64b7ad9601e1e487bdf46821688d5c2f283809f50c870059599ed32a328c7
+doccontainersize 2236
+doccontainerchecksum 340307e821817fa1df38516d1dbbcb0404bc04fa67652a5c4bcecdba7311ec3ab5728645bc7d4497e34bcfab32b764727ced3e5bcb7fe741d9b6f9d5afe6ab41
+docfiles size=5
+ texmf-dist/doc/plain/graphics-pln/README.md details="Readme"
+ texmf-dist/doc/plain/graphics-pln/exmplcol.tex
+ texmf-dist/doc/plain/graphics-pln/exmplgrf.tex
+ texmf-dist/doc/plain/graphics-pln/exmplpfg.tex
+ texmf-dist/doc/plain/graphics-pln/exmplpic.tex
+runfiles size=12
+ texmf-dist/tex/plain/graphics-pln/autopict.sty
+ texmf-dist/tex/plain/graphics-pln/color.tex
+ texmf-dist/tex/plain/graphics-pln/graphicx.tex
+ texmf-dist/tex/plain/graphics-pln/miniltx.tex
+ texmf-dist/tex/plain/graphics-pln/picture.tex
+ texmf-dist/tex/plain/graphics-pln/psfrag.tex
+catalogue-contact-bugs https://github.com/davidcarlisle/graphics-pln/issues
+catalogue-contact-repository https://github.com/davidcarlisle/graphics-pln
+catalogue-ctan /macros/plain/graphics
+catalogue-license lppl1
+catalogue-topics graphics-incl plain-ext

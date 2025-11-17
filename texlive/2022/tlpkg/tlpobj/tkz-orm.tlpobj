@@ -1,0 +1,26 @@
+name tkz-orm
+category Package
+revision 61719
+shortdesc Create Object-Role Model (ORM) diagrams
+longdesc The package provides styles for drawing Object-Role Model (ORM)
+longdesc diagrams in TeX based on the PGF and TikZ picture environment.
+containersize 7520
+containerchecksum 41263c9ad122a3cfce3eca3cd4ba8798e61ef662ebf7f00be99dd16a25b50f5419fb6c04a84bae6bd0ce2b349d4b3216a1a88c6e3d081d8a064ff561536a7e71
+doccontainersize 431372
+doccontainerchecksum ba9a6a67384478cbcf5b76f7148f60bb0f2f1932033f95945b28794f146d89b21e82c4d59b87735d46bacacd10c1ddca2b19e2e7ae4045a331383f4085a99221
+docfiles size=120
+ texmf-dist/doc/latex/tkz-orm/LICENSE
+ texmf-dist/doc/latex/tkz-orm/Makefile
+ texmf-dist/doc/latex/tkz-orm/README details="Readme"
+ texmf-dist/doc/latex/tkz-orm/pgfmanualstyle.sty
+ texmf-dist/doc/latex/tkz-orm/tkz-orm.bib
+ texmf-dist/doc/latex/tkz-orm/tkz-orm.pdf details="Package documentation"
+ texmf-dist/doc/latex/tkz-orm/tkz-orm.tex
+runfiles size=10
+ texmf-dist/tex/latex/tkz-orm/tkz-orm.sty
+catalogue-contact-bugs https://github.com/nichtich/tkz-orm/issues
+catalogue-contact-repository https://github.com/nichtich/tkz-orm
+catalogue-ctan /graphics/pgf/contrib/tkz-orm
+catalogue-license gpl2 lppl1.3
+catalogue-topics diagram pgf-tikz
+catalogue-version 0.1.4

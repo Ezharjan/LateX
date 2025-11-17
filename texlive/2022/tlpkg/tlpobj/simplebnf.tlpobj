@@ -1,0 +1,27 @@
+name simplebnf
+category Package
+revision 64091
+shortdesc A simple package to format Backus-Naur form (BNF)
+longdesc This package provides a simple way to format Backus-Naur form
+longdesc (BNF). The included bnfgrammar environment parses BNF
+longdesc expressions (possibly annotated), so users can write readable
+longdesc BNF expressions in their documents. The package requires expl3,
+longdesc xparse, and mathtools.
+containersize 2632
+containerchecksum 75349aeb69f860016e5cd3e90f987faf922e8a2c77ea26287547bea6035f055e59783e24441686c2586ea21ab9cd11a44d34f3018a79e36aef987500f6affb70
+doccontainersize 151428
+doccontainerchecksum b52237bcd493e131d698843f55dc2955ec6e3806d2a618102a2cca78e4b8864bc781fa88c6008ea5d5407842b13d7618bf463280fde046fa0493ed6e0fea22ae
+docfiles size=42
+ texmf-dist/doc/latex/simplebnf/LICENSE
+ texmf-dist/doc/latex/simplebnf/README.md details="Readme"
+ texmf-dist/doc/latex/simplebnf/simplebnf-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/simplebnf/simplebnf-doc.tex
+runfiles size=2
+ texmf-dist/tex/latex/simplebnf/simplebnf.sty
+catalogue-also backnaur
+catalogue-contact-repository https://github.com/Zeta611/simplebnf
+catalogue-contact-support https://github.com/Zeta611/simplebnf/issues
+catalogue-ctan /macros/latex/contrib/simplebnf
+catalogue-license mit
+catalogue-topics expl3 formal-spec
+catalogue-version 0.3.1

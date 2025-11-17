@@ -1,0 +1,37 @@
+name lua-uca
+category Package
+revision 61023
+shortdesc Unicode Collation Algorithm library for Lua
+longdesc The Lua-UCA library provides basic support for Unicode
+longdesc Collation Algorithm in Lua. It can be used to sort arrays of
+longdesc strings according to rules of particular languages. It can be
+longdesc used in other Lua projects that need to sort text in a language
+longdesc dependent way, like indexing processors, bibliographic
+longdesc generators, etc.
+containersize 74192
+containerchecksum e6c703b5576c7d66372a3989618609f2fe4a2b41de78c624e15bd0905744559b2adb3f70536b9680f83897a3997a492a558e285818d38b63ee7e99798bf376c0
+doccontainersize 75516
+doccontainerchecksum a842063786a53c558bcd4bead5b6affbe9e448618d421435f49722e0a55087c28b36bc9d6bbcb874c3c794a9f5b303c62429b4386801e03f78e2f60c83cb1d1d
+docfiles size=23
+ texmf-dist/doc/support/lua-uca/CHANGELOG.md
+ texmf-dist/doc/support/lua-uca/HACKING.md
+ texmf-dist/doc/support/lua-uca/LICENSE
+ texmf-dist/doc/support/lua-uca/README.md details="Readme"
+ texmf-dist/doc/support/lua-uca/lua-uca-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/lua-uca/lua-uca-doc.tex
+srccontainersize 1136
+srccontainerchecksum 7bea2f473bf12fccdc21534653f6237ea3b71c57bdaf651b8f543c5447ba25b3ae3bf735c3a0e7840b31907b777aa87215b358d152c1ba29c0e372a2672b0e44
+srcfiles size=1
+ texmf-dist/source/support/lua-uca/Makefile
+runfiles size=464
+ texmf-dist/scripts/lua-uca/lua-uca-collator.lua
+ texmf-dist/scripts/lua-uca/lua-uca-ducet.lua
+ texmf-dist/scripts/lua-uca/lua-uca-languages.lua
+ texmf-dist/scripts/lua-uca/lua-uca-reordering-table.lua
+ texmf-dist/scripts/lua-uca/lua-uca-tailoring.lua
+catalogue-contact-bugs https://github.com/michal-h21/lua-uca/issues
+catalogue-contact-repository https://github.com/michal-h21/lua-uca
+catalogue-ctan /support/lualibs/lua-uca
+catalogue-license mit
+catalogue-topics typesetting luatex
+catalogue-version 0.1b

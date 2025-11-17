@@ -1,0 +1,33 @@
+name plantuml
+category Package
+revision 55214
+shortdesc Support for rendering UML diagrams using the syntax and tool of PlantUML
+longdesc The package provides support for rendering UML diagrams using
+longdesc the syntax and tools of PlantUML. The PlantUML syntax is very
+longdesc short and thus enables quickly specifying UML diagrams. Using
+longdesc dot, PlantUML layouts the diagrams.
+containersize 2204
+containerchecksum 30e49185f2916a0ac1234199e80fc4c776eabb69e7cea9f8132e7c32c074dd2a24cb100b1f6f2f80b314cef9e7099f881605ee3fe19ee180f2c6c856e33c73d9
+doccontainersize 66536
+doccontainerchecksum bd04f4ee1ebde123f718b147b407f65d0549171fcb3cd9c07381871a23034520563b02edc1675aa3a6a975da6d811674d653c5527b6ba99309f479ecad136cbc
+docfiles size=25
+ texmf-dist/doc/lualatex/plantuml/CHANGELOG.md
+ texmf-dist/doc/lualatex/plantuml/README.md details="Readme"
+ texmf-dist/doc/lualatex/plantuml/example-class-relations--latex.tex
+ texmf-dist/doc/lualatex/plantuml/example-class-relations--svg.png
+ texmf-dist/doc/lualatex/plantuml/example-class-relations--svg.tex
+ texmf-dist/doc/lualatex/plantuml/example-component-diagram.tex
+ texmf-dist/doc/lualatex/plantuml/example-minimal.png
+ texmf-dist/doc/lualatex/plantuml/example-minimal.tex
+ texmf-dist/doc/lualatex/plantuml/plantuml.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/plantuml/release.sh
+runfiles size=2
+ texmf-dist/tex/lualatex/plantuml/plantuml.lua
+ texmf-dist/tex/lualatex/plantuml/plantuml.sty
+catalogue-contact-bugs https://github.com/koppor/plantuml/issues
+catalogue-contact-home https://koppor.github.io/plantuml/
+catalogue-contact-repository https://github.com/koppor/plantuml/
+catalogue-ctan /macros/luatex/latex/plantuml
+catalogue-license lppl1.3c
+catalogue-topics uml luatex use-lua
+catalogue-version 0.3.1

@@ -1,0 +1,44 @@
+name dehyph-exptl
+category Package
+revision 62734
+shortdesc Experimental hyphenation patterns for the German language
+longdesc The package provides experimental hyphenation patterns for the
+longdesc German language, covering both traditional and reformed
+longdesc orthography. The patterns can be used with packages Babel and
+longdesc hyphsubst from the Oberdiek bundle. Dieses Paket enthalt
+longdesc experimentelle Trennmuster fur die deutsche Sprache. Die
+longdesc Trennmuster decken das in Deutschland, Osterreich und der
+longdesc Schweiz gebrauchliche Standarddeutsch in der traditionellen und
+longdesc reformierten Rechtschreibung ab und konnen mit den Paketen
+longdesc Babel und hyphsubst aus dem Oberdiek-Bundel verwendet werden.
+depend hyph-utf8
+depend hyphen-base
+execute AddHyphen  name=german-x-2022-03-16 synonyms=german-x-latest  lefthyphenmin=2 righthyphenmin=2  file=dehypht-x-2022-03-16.tex  file_patterns=hyph-de-1901.pat.txt file_exceptions=
+execute AddHyphen  name=ngerman-x-2022-03-16 synonyms=ngerman-x-latest  lefthyphenmin=2 righthyphenmin=2  file=dehyphn-x-2022-03-16.tex  file_patterns=hyph-de-1996.pat.txt file_exceptions=
+containersize 134248
+containerchecksum 13c7fe78927fb7e85155284d47fe597e173647efea8d7077e06f55c358b2b851e3b65820829859d4d770b81af836f308a2b9e0e5c3ddb17f1644d1cf803adc63
+doccontainersize 144676
+doccontainerchecksum 812af78620465987b65654b1b0e270ac911a18019106c54d24622b4f146534f9474b691247e8cde140c1101bf48d843fb1238e5713f9a59a79e969b9314ae895
+docfiles size=56
+ texmf-dist/doc/generic/dehyph-exptl/CHANGES
+ texmf-dist/doc/generic/dehyph-exptl/INSTALL
+ texmf-dist/doc/generic/dehyph-exptl/LICENSE.data
+ texmf-dist/doc/generic/dehyph-exptl/LICENSE.documentation
+ texmf-dist/doc/generic/dehyph-exptl/README details="Readme"
+ texmf-dist/doc/generic/dehyph-exptl/dehyph-exptl.bib
+ texmf-dist/doc/generic/dehyph-exptl/dehyph-exptl.pdf details="Package documentation" language="de"
+ texmf-dist/doc/generic/dehyph-exptl/dehyph-exptl.tex
+runfiles size=206
+ texmf-dist/tex/generic/dehyph-exptl/dehyphn-x-2022-03-16.pat
+ texmf-dist/tex/generic/dehyph-exptl/dehyphn-x-2022-03-16.tex
+ texmf-dist/tex/generic/dehyph-exptl/dehypht-x-2022-03-16.pat
+ texmf-dist/tex/generic/dehyph-exptl/dehypht-x-2022-03-16.tex
+ texmf-dist/tex/generic/dehyph-exptl/dehyphts-x-2022-03-16.pat
+ texmf-dist/tex/generic/dehyph-exptl/dehyphts-x-2022-03-16.tex
+catalogue-contact-home http://projekte.dante.de/Trennmuster/WebHome
+catalogue-contact-repository https://repo.or.cz/w/wortliste.git
+catalogue-contact-support mailto:trennmuster@dante.de
+catalogue-ctan /language/hyphenation/dehyph-exptl
+catalogue-license mit lppl
+catalogue-topics hyphenation german
+catalogue-version 0.8

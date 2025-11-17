@@ -1,0 +1,112 @@
+name wallcalendar
+category Package
+revision 45568
+shortdesc A wall calendar class with custom layouts
+longdesc This package provides a wall calendar class with custom layouts
+longdesc and support for internationalization. It comes with the
+longdesc following layouts: Full page photo, the calendar days overlaid
+longdesc with opacity Full page photo, the photo above the calendar days
+longdesc Small landscape photo, with a calendar grid Year planner
+longdesc Thumbnails and captions Varnish mask There is also support for
+longdesc loading event marks from a CSV file.
+containersize 26448
+containerchecksum 43a682e78a3a80784180dfd84627e5584af9199bef965bb5551b203df7f939512d4307c450ed1ee55caab611154c1511fc339831da2907527c06ab738350e05a
+doccontainersize 2708456
+doccontainerchecksum e4816b91f08a26e99b03892b3d70f4d81110e476461dec505225335d46955f9f3790d883faf19afa4d7a31ff05afac4fea870e37299f45827c5a8155d4bbaf4c
+docfiles size=2414
+ texmf-dist/doc/lualatex/wallcalendar/LICENSE.txt
+ texmf-dist/doc/lualatex/wallcalendar/README.md details="Readme"
+ texmf-dist/doc/lualatex/wallcalendar/doc/Makefile
+ texmf-dist/doc/lualatex/wallcalendar/doc/auto/wallcalendar-code.el
+ texmf-dist/doc/lualatex/wallcalendar/doc/auto/wallcalendar.el
+ texmf-dist/doc/lualatex/wallcalendar/doc/doc-setup.org
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/Makefile
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-plain-01.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-plain-02.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-plain-03.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-showframe-01.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-showframe-02.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-showframe-03.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-showtrims-01.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-showtrims-02.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-showtrims-03.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-varnishmask-01.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-varnishmask-02.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-burst/cal-varnishmask-03.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-marks.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-marks.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-plain.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-plain.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-showframe.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-showframe.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-showtrims.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-showtrims.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-thumbnails.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-thumbnails.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-translations-english.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-translations-english.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-translations-hungarian.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-translations-hungarian.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-translations-japanese.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-translations-japanese.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-varnishmask.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-varnishmask.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-year-planner.pdf
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/cal-year-planner.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/data/astro-2018.json
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/data/holidays.csv
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/data/mark_defaults.csv
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/data/moonphases.csv
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/diff-cal.sh
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/forest.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/frog-english.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/frog-hungarian.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/frog-japanese.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/frog.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/local-english.sty
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/local-hungarian.sty
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/local-japanese.sty
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/photos/frog-crop-thumb.jpg
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/photos/frog-crop.jpg
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/photos/frog.jpg
+ texmf-dist/doc/lualatex/wallcalendar/doc/examples/photos/obscure-crop.jpg
+ texmf-dist/doc/lualatex/wallcalendar/doc/frontpage.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/latexmkrc
+ texmf-dist/doc/lualatex/wallcalendar/doc/local.sty
+ texmf-dist/doc/lualatex/wallcalendar/doc/memoir-article.cls
+ texmf-dist/doc/lualatex/wallcalendar/doc/wallcalendar-code.fdb_latexmk
+ texmf-dist/doc/lualatex/wallcalendar/doc/wallcalendar-code.fls
+ texmf-dist/doc/lualatex/wallcalendar/doc/wallcalendar-code.org
+ texmf-dist/doc/lualatex/wallcalendar/doc/wallcalendar-code.tex
+ texmf-dist/doc/lualatex/wallcalendar/doc/wallcalendar.org
+ texmf-dist/doc/lualatex/wallcalendar/doc/wallcalendar.tex
+ texmf-dist/doc/lualatex/wallcalendar/wallcalendar-code.pdf details="Code documentation"
+ texmf-dist/doc/lualatex/wallcalendar/wallcalendar-layouts.png
+ texmf-dist/doc/lualatex/wallcalendar/wallcalendar.pdf details="User Manual"
+runfiles size=44
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-czech.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-dutch.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-english.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-french.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-german.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-hungarian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-italian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-japanese.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-norwegian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-portuguese.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-romanian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-serbian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-slovakian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-slovenian.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-spanish.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-swedish.tex
+ texmf-dist/tex/lualatex/wallcalendar/i18n/wallcalendar-thai.tex
+ texmf-dist/tex/lualatex/wallcalendar/wallcalendar-csv.lua
+ texmf-dist/tex/lualatex/wallcalendar/wallcalendar-date.lua
+ texmf-dist/tex/lualatex/wallcalendar/wallcalendar-helpers.lua
+ texmf-dist/tex/lualatex/wallcalendar/wallcalendar.cls
+catalogue-contact-repository https://github.com/profound-labs/wallcalendar
+catalogue-ctan /macros/luatex/latex/wallcalendar
+catalogue-license lppl
+catalogue-topics class calendar luatex use-lua
+catalogue-version 1.3.1

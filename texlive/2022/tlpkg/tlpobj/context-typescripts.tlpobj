@@ -1,0 +1,52 @@
+name context-typescripts
+category ConTeXt
+revision 60422
+shortdesc Small modules to load various fonts for use in ConTeXt
+longdesc The package provides files offering interfaces to 33 publicly
+longdesc available fonts (or collections of fonts from the same
+longdesc foundry); each is available in a .mkii and a .mkiv version.
+depend context
+containersize 7216
+containerchecksum a13d06b9a792cbd2352016df508a7860e45b541d04cef1c9d9c8b5a6199120a71dfd69f990700c4a76ac31ec11209caef431a190b9045bdc46cc44f88cbef0a3
+doccontainersize 644
+doccontainerchecksum 3d948f22da14b1d481817477235657cee714e4a2a69834729c20e18157f1175890ddc7fce992e8f5f27e26cd6d08186ff1521e2186681557cfff1a4778267324
+docfiles size=2
+ texmf-dist/doc/context/third/typescripts/README details="Readme"
+ texmf-dist/doc/context/third/typescripts/VERSION
+runfiles size=35
+ texmf-dist/tex/context/third/typescripts/type-imp-adobe.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-aller.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-anivers.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-audimat.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-axel.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-azuro.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-calluna.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-charissil.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-delicious.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-diavlo.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-droid.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-ernestine.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-fertigo.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-fontin.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-goudysans.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-itccharter.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-junicode.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-justus.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-kaffeesatz.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-kontrapunkt.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-luxi.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-miso.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-museo.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-office.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-pigiarniq.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-sabon.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-tallys.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-tuffy.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-ubuntu.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-uqammaq.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-vera.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-verajja.mkiv
+ texmf-dist/tex/context/third/typescripts/type-imp-vollkorn.mkiv
+catalogue-ctan /macros/context/contrib/context-typescripts
+catalogue-license gpl2
+catalogue-topics font-use context

@@ -1,0 +1,52 @@
+name mex
+category Package
+revision 58661
+shortdesc Polish formats for TeX
+longdesc MeX is an adaptation of Plain TeX (MeX) and LaTeX209 (LaMeX)
+longdesc formats to the Polish language and to Polish printing customs.
+longdesc It contains a complete set of Metafont sources of Polish fonts,
+longdesc hyphenation rules for the Polish language and sources of
+longdesc formats.
+depend enctex
+depend hyph-utf8
+depend hyphen-base
+depend hyphen-polish
+depend knuth-lib
+depend mex.ARCH
+depend pdftex
+depend pl
+depend plain
+depend tex
+depend tex-ini-files
+depend utf8mex
+execute AddFormat name=mex engine=pdftex patterns=mexconf.tex           options="-translate-file=cp227.tcx *mex.ini"           fmttriggers=hyph-utf8,hyphen-base,hyphen-polish,knuth-lib,pl,plain,tex-ini-files
+execute AddFormat name=pdfmex engine=pdftex patterns=mexconf.tex           options="-translate-file=cp227.tcx *pdfmex.ini"           fmttriggers=hyph-utf8,hyphen-base,hyphen-polish,knuth-lib,pl,plain,tex-ini-files
+execute AddFormat name=utf8mex engine=pdftex patterns=mexconf.tex            options="-enc *utf8mex.ini"            fmttriggers=hyph-utf8,hyphen-base,hyphen-polish,knuth-lib,pl,plain,tex-ini-files,enctex,utf8mex
+containersize 11468
+containerchecksum a79d6a1ecb15f7962826773d7eab4b1ffd86a5c15f8076f096fecf63df1bd661449eb7d14251a57a1eb2bede030ddf93aac170fc3c59ae0a124da6cef69e55be
+doccontainersize 35540
+doccontainerchecksum 091f2825376718d8c2190555af7ef54d0ae5202425d57b986fba861df2f8604301df5a121ccfcfcdc91032d07dcda8289fb8de5d81c487b93b0e202a2a5a658e
+docfiles size=31
+ texmf-dist/doc/mex/base/00readme
+ texmf-dist/doc/mex/base/mex.html
+ texmf-dist/doc/mex/base/mexinfo.eng
+ texmf-dist/doc/mex/base/mexinfo.pol
+ texmf-dist/doc/mex/base/qq.eps
+ texmf-dist/doc/mex/base/tstmex.tex
+srccontainersize 38840
+srccontainerchecksum 6f20a7e4f80670f7dfe5b2cfe3357a5d16b0f627b5e9e95c2d7d46598e00b989d5ae8c797589c56c594b7d3610f5f79cad42f3bb64a628be968e4e9e5d541e98
+srcfiles size=12
+ texmf-dist/source/mex/base/eminst.zip
+ texmf-dist/source/mex/base/istyles.zip
+runfiles size=13
+ texmf-dist/tex/mex/base/lamex.tex
+ texmf-dist/tex/mex/base/mex.tex
+ texmf-dist/tex/mex/base/mex1.tex
+ texmf-dist/tex/mex/base/mex2.tex
+ texmf-dist/tex/mex/base/mexconf.tex
+ texmf-dist/tex/mex/config/mex.ini
+ texmf-dist/tex/mex/config/pdfmex.ini
+catalogue-ctan /language/polish/mex105a.zip
+catalogue-license knuth
+catalogue-topics format polish
+catalogue-version 1.05a

@@ -1,0 +1,24 @@
+name turabian-formatting
+category Package
+revision 58561
+shortdesc Formatting based on Turabian's Manual
+longdesc The turabian-formatting package provides Chicago-style
+longdesc formatting based on Kate L. Turabian's "A Manual for Writers of
+longdesc Research Papers, Theses, and Dissertations: Chicago Style for
+longdesc Students and Researchers" (9th edition).
+containersize 7900
+containerchecksum ebef1733d41cae66456e6a50c47ae0c66a7d7254a59e57f6af62e21cab73ae7a68092baa4706eb1f1e93ab152e0ab22550f0b4ce8cf9ac36eb3740530afe8499
+doccontainersize 120224
+doccontainerchecksum 6cac53c6fe5dd36702ec07e22a00871932dd4b2e421649d33e33f50e8b8b8cc57e42c752ff6e4e2a53610d28f42ddc68b0b6c1cddb0a7a045f3a547c04e77735
+docfiles size=38
+ texmf-dist/doc/latex/turabian-formatting/README details="Readme"
+ texmf-dist/doc/latex/turabian-formatting/turabian-formatting-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/turabian-formatting/turabian-formatting-doc.tex
+runfiles size=11
+ texmf-dist/tex/latex/turabian-formatting/turabian-formatting.sty
+ texmf-dist/tex/latex/turabian-formatting/turabian-researchpaper.cls
+ texmf-dist/tex/latex/turabian-formatting/turabian-thesis.cls
+catalogue-also turabian biblatex-chicago
+catalogue-ctan /macros/latex/contrib/turabian-formatting
+catalogue-license lppl1.3
+catalogue-topics dissertation class

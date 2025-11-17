@@ -1,0 +1,29 @@
+name multienv
+category Package
+revision 56291
+shortdesc Multiple environments using a "key=value" syntax
+longdesc The package provides a multienv environment which permits easy
+longdesc addition of multiple environments using a key=value syntax.
+longdesc Macros to define environments using this syntax are also
+longdesc provided.
+containersize 1896
+containerchecksum 61ebdecdbe9d1fc963a9625ab1d2811c967094f3aa983a08ff20d5ae1a7e6d87290981c4063ded7edb87ff248fe9f5499880ad5e602949f18ab3419c074e775d
+doccontainersize 208908
+doccontainerchecksum ee1cda148f6f1f7998b86b6f36256c69ac399d32f6bf5443aba242ce93de8c0a64d43eeda32287dca7d7e83498fc26253be724b1231dd399b903908f4acf7430
+docfiles size=52
+ texmf-dist/doc/latex/multienv/README details="Readme"
+ texmf-dist/doc/latex/multienv/multienv.pdf details="Package documentation"
+srccontainersize 4584
+srccontainerchecksum bbd36e000e4533f3fb423d6d758fc7fb4e210868a695bf13e7ef8cc266c2875719c85c57aec0fa27bb4e174291321452a88bfda18004136e5bf4a99154bf26f8
+srcfiles size=6
+ texmf-dist/source/latex/multienv/multienv.dtx
+ texmf-dist/source/latex/multienv/multienv.ins
+runfiles size=2
+ texmf-dist/tex/latex/multienv/multienv.sty
+catalogue-contact-bugs https://sourceforge.net/p/multienv/tickets/
+catalogue-contact-home https://sourceforge.net/p/multienv/
+catalogue-contact-repository https://sourceforge.net/p/multienv/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/multienv
+catalogue-license lppl1.3
+catalogue-topics macro-supp
+catalogue-version 1.0

@@ -1,0 +1,51 @@
+name cquthesis
+category Package
+revision 55643
+shortdesc LaTeX Thesis Template for Chongqing University
+longdesc CQUThesis stands for Chongqing University Thesis Template for
+longdesc LaTeX, bearing the ability to support bachelor, master, doctor
+longdesc dissertations with grace and speed.
+containersize 16184
+containerchecksum 929e1b191e8aefd67e734c49227c24ba6f4a15704d3f40aa49b1c0390796dfef36b56e7735e068fade5415838918ec712bd34cfffc9aa2981929067d73d86ad9
+doccontainersize 1142980
+doccontainerchecksum ab270eb465858de3b92248b3b884fcb648b59cc3f947e3362a445562c29e910b0a7f1e4c137aea49c537e68ba61a90d08f40ab43d3340c109e01a293505cfdf9
+docfiles size=316
+ texmf-dist/doc/latex/cquthesis/CONTRIBUTORS.md
+ texmf-dist/doc/latex/cquthesis/README-Chinese.md details="Readme (Chinese)" language="zh"
+ texmf-dist/doc/latex/cquthesis/README.md details="Readme"
+ texmf-dist/doc/latex/cquthesis/contents/ack.tex
+ texmf-dist/doc/latex/cquthesis/contents/analysis.tex
+ texmf-dist/doc/latex/cquthesis/contents/appendix.tex
+ texmf-dist/doc/latex/cquthesis/contents/conclusion.tex
+ texmf-dist/doc/latex/cquthesis/contents/cover.tex
+ texmf-dist/doc/latex/cquthesis/contents/denotation.tex
+ texmf-dist/doc/latex/cquthesis/contents/experiment.tex
+ texmf-dist/doc/latex/cquthesis/contents/introduction.tex
+ texmf-dist/doc/latex/cquthesis/cquthesis.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/cquthesis/dtx-style.sty
+ texmf-dist/doc/latex/cquthesis/figures/CQUbadge.pdf
+ texmf-dist/doc/latex/cquthesis/figures/README
+ texmf-dist/doc/latex/cquthesis/main.tex
+ texmf-dist/doc/latex/cquthesis/ref/refs.bib
+srccontainersize 31152
+srccontainerchecksum 2184befc80f4ef6f23aba573778e99314dab80b65f053416e5dc8ebb0ff462c8f5d665085955fd28d88dd24cdc9e0599ba4735196b239e3123523cc1316da3a5
+srcfiles size=28
+ texmf-dist/source/latex/cquthesis/Makefile
+ texmf-dist/source/latex/cquthesis/cquthesis.dtx
+ texmf-dist/source/latex/cquthesis/cquthesis.ins
+ texmf-dist/source/latex/cquthesis/makewin-en.bat
+ texmf-dist/source/latex/cquthesis/makewin.bat
+runfiles size=18
+ texmf-dist/bibtex/bst/cquthesis/cqunumerical.bst
+ texmf-dist/tex/latex/cquthesis/cquthesis.cfg
+ texmf-dist/tex/latex/cquthesis/cquthesis.cls
+ texmf-dist/tex/latex/cquthesis/cquthesis.sty
+catalogue-also cqubeamer
+catalogue-contact-announce https://github.com/nanmu42/CQUThesis/releases
+catalogue-contact-bugs https://github.com/nanmu42/CQUThesis/issues
+catalogue-contact-development https://github.com/nanmu42/CQUThesis/blob/master/CONTRIBUTORS.md
+catalogue-contact-repository https://github.com/nanmu42/CQUThesis
+catalogue-ctan /macros/latex/contrib/cquthesis
+catalogue-license lppl1.3
+catalogue-topics dissertation class chinese
+catalogue-version 1.50

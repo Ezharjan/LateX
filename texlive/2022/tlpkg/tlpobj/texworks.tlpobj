@@ -1,0 +1,18 @@
+name texworks
+category TLCore
+revision 54074
+shortdesc friendly cross-platform front end
+longdesc See http://tug.org/texworks for information and downloads. TeX
+longdesc Live includes executables and support files only for Windows.
+depend texworks.ARCH
+postaction fileassoc extension=.cls filetype=TL.TeXworks.edit
+postaction fileassoc extension=.sty filetype=TL.TeXworks.edit
+postaction fileassoc extension=.tex filetype=TL.TeXworks.edit
+postaction filetype name=TL.TeXworks.edit         cmd='"TEXDIR/bin/win32/texworks.exe" "%1"'
+postaction shortcut type=menu name="TeXworks editor"         cmd=TEXDIR/bin/win32/texworks.exe
+containersize 492
+containerchecksum 4867a2f6ca333fc42d774154179f438970d392857b0f631f58211b7174c4b56c7fe9c43cac534cac1828d3edf18069fa781d4760ca472a99b5abfe4c7a6f72c9
+doccontainersize 736
+doccontainerchecksum 554afc96a17b407e415d85138e4074b6f1f82ab8e918db6e4d2e2dfa44e67b0d10ac1b548ceffeadc245de28b564cc4c4c431ec9d9c92241d1f500477fc72a64
+docfiles size=1
+ texmf-dist/doc/texworks/README

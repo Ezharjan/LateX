@@ -1,0 +1,25 @@
+name biblatex-readbbl
+category Package
+revision 61549
+shortdesc Read a .bbl file created by biber
+longdesc This small package modifies the biblatex macro which reads a
+longdesc .bbl file created by Biber. It is thus possible to include a
+longdesc .bbl file into the main document with the filecontents
+longdesc environment and send it to a publisher who does not need to run
+longdesc the Biber program. However, when the bibliography changes one
+longdesc has to create a new .bbl file.
+containersize 1444
+containerchecksum d74bd07be5983c2731a418ae0167d99e2bdf8d1a9569186a8940f89af3b9a6fe82f641717638c693b98b61637a705fe280d033282d1e37c279aeb080c4b66399
+doccontainersize 27192
+doccontainerchecksum 9ca0584c36e7247496cd0375e0f6585695f509c4e88d29f23158c5c5c7897758d678082c9c836d0cc878423ab23d54e9a0c2b40c5b63830fd8996a35b4aa09cc
+docfiles size=11
+ texmf-dist/doc/latex/biblatex-readbbl/Changes
+ texmf-dist/doc/latex/biblatex-readbbl/README details="Readme"
+ texmf-dist/doc/latex/biblatex-readbbl/biblatex-readbbl.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-readbbl/biblatex-readbbl.tex
+runfiles size=1
+ texmf-dist/tex/latex/biblatex-readbbl/biblatex-readbbl.sty
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-readbbl
+catalogue-license lppl
+catalogue-topics biblatex
+catalogue-version 0.01

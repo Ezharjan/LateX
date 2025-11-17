@@ -1,0 +1,29 @@
+name swungdash
+category Package
+revision 64204
+shortdesc Typeset a swung dash in LaTeX
+longdesc The swung dash (U+2053) is a useful character traditionally
+longdesc used in typsetting dictionaries, but not supported by most
+longdesc typefaces. This package provides one simple command to typeset
+longdesc a swung dash in XeLaTeX and LuaLaTeX, by applying
+longdesc transformations to the given font's glyph for a tilde.
+containersize 1240
+containerchecksum fbfef096e662d2987dd9e4989fad28a93387722b29bf7974e47cb3a5c13b535df63113cfab6883d2c3c98cfb4b3272ad1de6c961e2818dab5e59661ca5d14630
+doccontainersize 65076
+doccontainerchecksum 6bb0c45931d2d028d5b337b7295e5645fb709eee6c30c3cf3bc539c7142cd8fa4a9543ce70a54cec9b12e7cb565366df674da7b85d32a24839d8bdd0d1cdee10
+docfiles size=19
+ texmf-dist/doc/latex/swungdash/README details="Readme"
+ texmf-dist/doc/latex/swungdash/swungdash-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/swungdash/swungdash-documentation.tex
+runfiles size=1
+ texmf-dist/tex/latex/swungdash/swungdash.sty
+catalogue-contact-announce https://github.com/ezgranet/swungdash
+catalogue-contact-bugs https://github.com/ezgranet/swungdash
+catalogue-contact-development https://github.com/ezgranet/swungdash
+catalogue-contact-home https://github.com/ezgranet/swungdash
+catalogue-contact-repository https://github.com/ezgranet/swungdash
+catalogue-contact-support https://github.com/ezgranet/swungdash
+catalogue-ctan /macros/unicodetex/latex/swungdash
+catalogue-license lppl1.3c
+catalogue-topics typesetting
+catalogue-version 1.0.0

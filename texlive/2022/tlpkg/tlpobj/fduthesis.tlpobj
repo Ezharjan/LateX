@@ -1,0 +1,42 @@
+name fduthesis
+category Package
+revision 64288
+shortdesc LaTeX thesis template for Fudan University
+longdesc This package is a LaTeX thesis template package for Fudan
+longdesc University. It can make it easy to write theses both in Chinese
+longdesc and English.
+containersize 108688
+containerchecksum 3079cca7db2e84dd25f506c3830889cd99e0da7dafc755be7edbb5988e11f82e3364a29d7f52feec6f11b66f87c512a1964a68c4a8caa4974e5fb9b5a7314707
+doccontainersize 1437208
+doccontainerchecksum 4ebccccd35e097c51be947d6edbda44923d30d359e32e792b9de41362eb05fd6d74181316c272dc3fe0ef4e33b612cb5a10835b425eb76f558237900654ca92d
+docfiles size=394
+ texmf-dist/doc/latex/fduthesis/README.md details="Readme"
+ texmf-dist/doc/latex/fduthesis/fdulogo-example.tex
+ texmf-dist/doc/latex/fduthesis/fduthesis-code.pdf details="Code Implementation (Chinese)" language="zh"
+ texmf-dist/doc/latex/fduthesis/fduthesis-cover.tex
+ texmf-dist/doc/latex/fduthesis/fduthesis-en.pdf details="Package documentation  (English)" language="en"
+ texmf-dist/doc/latex/fduthesis/fduthesis-en.tex
+ texmf-dist/doc/latex/fduthesis/fduthesis.pdf details="Package documentation  (Chinese)" language="zh"
+srccontainersize 117208
+srccontainerchecksum 4729ca9455b08e79448d6ab451cf8ee0a7593ffb8339f12507914204d52f24ba15a48c39253344c67d4b4cb88927c7d7cf439821aa2fd54a035fd5703b80a567
+srcfiles size=138
+ texmf-dist/source/latex/fduthesis/fduthesis-doc.dtx
+ texmf-dist/source/latex/fduthesis/fduthesis-logo.dtx
+ texmf-dist/source/latex/fduthesis/fduthesis.dtx
+ texmf-dist/source/latex/fduthesis/fduthesis.ins
+runfiles size=114
+ texmf-dist/tex/latex/fduthesis/fdudoc.cls
+ texmf-dist/tex/latex/fduthesis/fdulogo.sty
+ texmf-dist/tex/latex/fduthesis/fduthesis-en.cls
+ texmf-dist/tex/latex/fduthesis/fduthesis.cls
+ texmf-dist/tex/latex/fduthesis/fduthesis.def
+ texmf-dist/tex/latex/fduthesis/fudan-emblem-new.pdf
+ texmf-dist/tex/latex/fduthesis/fudan-emblem.pdf
+ texmf-dist/tex/latex/fduthesis/fudan-name.pdf
+catalogue-also thuthesis cquthesis
+catalogue-contact-bugs https://github.com/stone-zeng/fduthesis/issues
+catalogue-contact-repository https://github.com/stone-zeng/fduthesis
+catalogue-ctan /macros/latex/contrib/fduthesis
+catalogue-license lppl1.3c
+catalogue-topics dissertation class chinese latex3
+catalogue-version 0.8

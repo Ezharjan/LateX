@@ -1,0 +1,39 @@
+name runcode
+category Package
+revision 64161
+shortdesc Execute foreign source code and embed the result in the pdf file
+longdesc This LaTeX package executes programming source codes (including
+longdesc all command line tools) from within LaTeX and embeds the output
+longdesc in the resulting .pdf file. Many programming languages can be
+longdesc easily used and any command-line executable can be invoked when
+longdesc preparing the .pdf file from a .tex file. It is however
+longdesc recommended to use this package in server-mode together with
+longdesc the Python talk2stat package. Currently, this server-mode
+longdesc supports Julia, MatLab, Python, and R. More languages will be
+longdesc added. For more details and usage examples, refer to the
+longdesc package's github repository.
+containersize 4132
+containerchecksum 35b6c1d6e12b118378549ddcc34a1ad5d1e57de847ef8263487f1929628c063949f00e31f4eb11a03d4760b700c007ba00196620b53e025ee11e67c72202807e
+doccontainersize 407064
+doccontainerchecksum a1e61e38028ce1453fff4ceb7812282f708f0cf32cf036e021b34b612319648a3defc7ad833b9f4372779d16871f68fb7382473804605984bfe1863237253ae9
+docfiles size=118
+ texmf-dist/doc/latex/runcode/README details="Readme"
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln2.tex
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln4.tex
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln5.tex
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln6.tex
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln7.tex
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln8.tex
+ texmf-dist/doc/latex/runcode/generated/runcode_troubleshoot_inln9.tex
+ texmf-dist/doc/latex/runcode/generated/testWithrunR.tex
+ texmf-dist/doc/latex/runcode/runcode.pdf details="Package documentation"
+ texmf-dist/doc/latex/runcode/runcode.tex
+ texmf-dist/doc/latex/runcode/runcode_troubleshoot.pdf details="Troubleshooting"
+ texmf-dist/doc/latex/runcode/runcode_troubleshoot.tex
+runfiles size=4
+ texmf-dist/tex/latex/runcode/runcode.sty
+catalogue-contact-repository https://github.com/Ossifragus/runcode
+catalogue-ctan /macros/latex/contrib/runcode
+catalogue-license lppl1.3c
+catalogue-topics exec-foreign callback
+catalogue-version 1.7

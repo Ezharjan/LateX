@@ -1,0 +1,30 @@
+name combofont
+category Package
+revision 51348
+shortdesc Add NFSS-declarations of combo fonts to LuaLaTeX documents
+longdesc This highly experimental package can be used to add
+longdesc NFSS-declarations of combo fonts to LuaLaTeX documents. This
+longdesc package may disappear without notice, e.g. if luaotfload
+longdesc changes in a way so that it no longer works, or if LuaTeX
+longdesc changes, or if fontspec itself includes the code. It is also
+longdesc possible that the package's syntax and commands may change in
+longdesc an incompatible way. So if you use it in a production
+longdesc environment: You have been warned.
+containersize 1816
+containerchecksum 838f10474c2e89f317df4592443deaec3d1a3310f7bb2b458c2a1b29a03013c4274912020ddd9b5807bb6018b6564c11df7b14b8a6db556e8db58dd98049c002
+doccontainersize 93188
+doccontainerchecksum ab322618efb3cd8089e9142a28800d34724e499bacbd0cc4a0db14a409bea3cb355f50d412f92862f53c0a5f91fef8af7b652b21be0596cc9687e4919f5122b4
+docfiles size=29
+ texmf-dist/doc/lualatex/combofont/README.md details="Readme"
+ texmf-dist/doc/lualatex/combofont/combofont-test-fira-math.pdf
+ texmf-dist/doc/lualatex/combofont/combofont-test-fira-math.tex
+ texmf-dist/doc/lualatex/combofont/combofont.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/combofont/combofont.tex
+runfiles size=1
+ texmf-dist/tex/lualatex/combofont/combofont.sty
+catalogue-contact-repository https://github.com/u-fischer/combofont
+catalogue-contact-support https://github.com/u-fischer/combofont
+catalogue-ctan /macros/luatex/latex/combofont
+catalogue-license lppl1.3c
+catalogue-topics luatex font-mgmt
+catalogue-version 0.3

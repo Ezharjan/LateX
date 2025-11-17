@@ -1,0 +1,37 @@
+name unfonts-extra
+category Package
+revision 56291
+shortdesc TrueType version of Un-fonts
+longdesc The Un-fonts come from the HLaTeX as type1 fonts in 1998 by
+longdesc Koaunghi Un, he made type1 fonts to use with Korean TeX
+longdesc (HLaTeX) in the late 1990's and released it under the GPL
+longdesc license. They were converted to TrueType with the FontForge
+longdesc (PfaEdit) by Won-kyu Park in 2003. Extra families (10 fonts):
+longdesc UnPen, UnPenheulim: script UnTaza: typewriter style UnBom:
+longdesc decorative UnShinmun UnYetgul: old Korean printing style
+longdesc UnJamoSora, UnJamoNovel, UnJamoDotum, UnJamoBatang
+containersize 6565804
+containerchecksum 9cf9a73ba3c2190da7999c3b770e92d8afb43c640d651173c126e930155e9f87f371392accd4eadae8922ee846a5e02c0eeab845561dea943b34b185164bba3c
+doccontainersize 10160
+doccontainerchecksum 6173d49bb64c9b162763ff08af445e518fa650fcc13e02f5c72454d335285d9c82347cf79f945fae94429f3a9d15f9c9b58ff1d175c8f59ea7b75766cd279303
+docfiles size=9
+ texmf-dist/doc/fonts/unfonts-extra/COPYING
+ texmf-dist/doc/fonts/unfonts-extra/README.md details="Readme"
+ texmf-dist/doc/fonts/unfonts-extra/README_original
+ texmf-dist/doc/fonts/unfonts-extra/changelog.Debian
+runfiles size=4977
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnJamoBatang.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnJamoDotum.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnJamoNovel.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnJamoSora.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnPen.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnPenheulim.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnPilgia.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnShinmun.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnTaza.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnVada.ttf
+ texmf-dist/fonts/truetype/public/unfonts-extra/UnYetgul.ttf
+catalogue-also unfonts-core
+catalogue-ctan /fonts/unfonts-extra
+catalogue-license gpl2
+catalogue-topics font-ttf korean

@@ -1,0 +1,24 @@
+name eulerpx
+category Package
+revision 63967
+shortdesc A modern interface for the Euler math fonts
+longdesc This package provides the "eulerpx" font, which started as a
+longdesc hybrid of multiple other font packages, notably eulervm and
+longdesc newpxmath. This package was put together with the intent to use
+longdesc it with the Palatino and Optima fonts, but it may work with
+longdesc other combinations, too.
+containersize 2720
+containerchecksum 86f23cf10d19427876caa9e21bdce3adcfa7ca06578e7ae05f20529333e36b7135695c1c3990c6700e0ad365fed41634de5d152813ccde20cf642d7e2b282455
+doccontainersize 337868
+doccontainerchecksum 997bfc34f084027c6275d41d4fd8e1eafc55a6aa1aae66895c6bf8a3ddc8a7b411052a126cb87b9900829b933175c6be942e1dff4713633b5fc12f6688799753
+docfiles size=94
+ texmf-dist/doc/fonts/eulerpx/README details="Readme"
+ texmf-dist/doc/fonts/eulerpx/eulerpxdoc.pdf
+ texmf-dist/doc/fonts/eulerpx/eulerpxdoc.tex
+ texmf-dist/doc/fonts/eulerpx/sample.tex
+runfiles size=3
+ texmf-dist/tex/latex/eulerpx/eulerpx.sty
+catalogue-ctan /fonts/eulerpx
+catalogue-license lppl1.3
+catalogue-topics font-supp
+catalogue-version 1.0

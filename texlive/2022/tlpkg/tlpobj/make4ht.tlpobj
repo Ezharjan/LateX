@@ -1,0 +1,88 @@
+name make4ht
+category Package
+revision 62953
+shortdesc A build system for tex4ht
+longdesc make4ht is a simple build system for tex4ht, a TeX to XML
+longdesc converter. It provides a command line tool that drives the
+longdesc conversion process. It also provides a library which can be
+longdesc used to create customized conversion tools.
+depend make4ht.ARCH
+containersize 51816
+containerchecksum 591b69770285fee1f3bd407e176b6e783ccca6d217a0f147780da9c535a4ae7e87e95a8a9bd3a220b342a3397df3845934e229ecf7f2bea0085acf94983461a1
+doccontainersize 177016
+doccontainerchecksum b83f6cb2d6b514e4514512f803c916f943b2b915d4a1de02e0f1c304072e41e673317c02e43f777159ff60a775a9ccdff528277885c5305110383c2ac4022d12
+docfiles size=72
+ texmf-dist/doc/support/make4ht/README details="Readme"
+ texmf-dist/doc/support/make4ht/changelog.tex
+ texmf-dist/doc/support/make4ht/make4ht-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/make4ht/make4ht-doc.tex
+ texmf-dist/doc/support/make4ht/readme.tex
+runfiles size=90
+ texmf-dist/scripts/make4ht/domfilters/make4ht-aeneas.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-booktabs.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-collapsetoc.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-fixinlines.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-idcolons.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-itemparagraphs.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-joincharacters.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-joincolors.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-mathmlfixes.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-odtfonts.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-odtimagesize.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-odtpartable.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-odtsvg.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-sectionid.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-t4htlinks.lua
+ texmf-dist/scripts/make4ht/domfilters/make4ht-tablerows.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-common_domfilters.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-common_filters.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-detect_engine.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-dvisvgm_hashes.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-join_colors.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-latexmk_build.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-mathjaxnode.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-mjcli.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-odttemplate.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-preprocess_input.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-staticsite.lua
+ texmf-dist/scripts/make4ht/extensions/make4ht-ext-tidy.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-cleanspan-nat.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-cleanspan.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-domfilter.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-entities-to-unicode.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-entities.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-filter.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-fix-links.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-fixligatures.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-hruletohr.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-mathjaxnode.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-mjcli.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-odttemplate.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-staticsite.lua
+ texmf-dist/scripts/make4ht/filters/make4ht-svg-height.lua
+ texmf-dist/scripts/make4ht/formats/make4ht-docbook.lua
+ texmf-dist/scripts/make4ht/formats/make4ht-html5.lua
+ texmf-dist/scripts/make4ht/formats/make4ht-jats.lua
+ texmf-dist/scripts/make4ht/formats/make4ht-odt.lua
+ texmf-dist/scripts/make4ht/formats/make4ht-tei.lua
+ texmf-dist/scripts/make4ht/formats/make4ht-xhtml.lua
+ texmf-dist/scripts/make4ht/lapp-mk4.lua
+ texmf-dist/scripts/make4ht/make4ht
+ texmf-dist/scripts/make4ht/make4ht-aeneas-config.lua
+ texmf-dist/scripts/make4ht/make4ht-config.lua
+ texmf-dist/scripts/make4ht/make4ht-dvireader.lua
+ texmf-dist/scripts/make4ht/make4ht-errorlogparser.lua
+ texmf-dist/scripts/make4ht/make4ht-filterlib.lua
+ texmf-dist/scripts/make4ht/make4ht-htlatex.lua
+ texmf-dist/scripts/make4ht/make4ht-indexing.lua
+ texmf-dist/scripts/make4ht/make4ht-lib.lua
+ texmf-dist/scripts/make4ht/make4ht-logging.lua
+ texmf-dist/scripts/make4ht/make4ht-xtpipes.lua
+ texmf-dist/scripts/make4ht/mkparams.lua
+ texmf-dist/scripts/make4ht/mkutils.lua
+catalogue-also tex4ht tex4ebook
+catalogue-contact-repository https://github.com/michal-h21/make4ht
+catalogue-ctan /support/make4ht
+catalogue-license lppl1.3
+catalogue-topics cvt-html
+catalogue-version 0.3l

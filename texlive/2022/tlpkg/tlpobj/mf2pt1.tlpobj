@@ -1,0 +1,31 @@
+name mf2pt1
+category Package
+revision 61217
+shortdesc Convert stylized Metafont to PostScript Type 1
+longdesc mf2pt1 is a Perl script that facilitates producing PostScript
+longdesc Type 1 fonts from a Metafont source file. It is not, as the
+longdesc name may imply, an automatic converter of arbitrary Metafont
+longdesc fonts to Type 1 format. mf2pt1 imposes a number of restrictions
+longdesc on the Metafont input. If these restrictions are met, mf2pt1
+longdesc will produce valid Type 1 output with more accurate control
+longdesc points than can be reverse-engineered by TeXtrace, mftrace, and
+longdesc other programs which convert bitmaps to outline fonts.
+depend mf2pt1.ARCH
+containersize 15184
+containerchecksum ca93a3ae439f9cd8029720bd1d90fbe75a403e7ab4ebcbe1ba1e5a7a28aa9269197f90a4aee849fea59d734d5dc38f04eedc140ff1be64fd805a10ab5510a2f5
+doccontainersize 201308
+doccontainerchecksum 6c10831fdcc48d25645be675fbf5da29da945bd79032c60e73e04a39d61c287a64e7b884381ac0b08e48f5dc9b6dec27efea874f6e13d6e4a5e3f32c22fa3ce2
+docfiles size=67
+ texmf-dist/doc/info/mf2pt1.info
+ texmf-dist/doc/support/mf2pt1/ChangeLog
+ texmf-dist/doc/support/mf2pt1/README details="Readme"
+ texmf-dist/doc/support/mf2pt1/mf2pt1.pdf details="Package documentation"
+ texmf-dist/doc/support/mf2pt1/mf2pt1.texi
+runfiles size=15
+ texmf-dist/metapost/mf2pt1/mf2pt1.mp
+ texmf-dist/scripts/mf2pt1/mf2pt1.pl
+catalogue-also metatype1
+catalogue-ctan /support/mf2pt1
+catalogue-license lppl1.3c
+catalogue-topics font-proc
+catalogue-version 2.7

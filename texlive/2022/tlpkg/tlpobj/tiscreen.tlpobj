@@ -1,0 +1,22 @@
+name tiscreen
+category Package
+revision 62602
+shortdesc Mimic the screen of older Texas Instruments calculators
+longdesc This package mimics the screen of older Texas Instruments dot
+longdesc matrix display calculators, specifically the TI-82 STATS. It
+longdesc relies on the lcd and xcolor packages.
+containersize 3188
+containerchecksum 00682d70199d66b3f6a759a32a1cad6b14ef09eaa541cb0ef547d86fd512ffd525f2b53a8c1a7315462aed33148a0b769eea70c5c42213d0731a1034cd96d6d6
+doccontainersize 228132
+doccontainerchecksum 58add8332b25188cc4d7199cabc2ca49e3d08598f6ee2511bc525500b1ab0dd7cf8212d5310ee7fc803bf06c09e4c248eae6c52c52e0a3b3a6694ec1d36ec57f
+docfiles size=62
+ texmf-dist/doc/latex/tiscreen/README details="Readme"
+ texmf-dist/doc/latex/tiscreen/tiscreen-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/tiscreen/tiscreen-doc.tex
+runfiles size=4
+ texmf-dist/tex/latex/tiscreen/tiscreen.sty
+catalogue-contact-bugs https://github.com/T3SQ8/tiscreen/issues
+catalogue-contact-repository https://github.com/T3SQ8/tiscreen
+catalogue-ctan /macros/latex/contrib/tiscreen
+catalogue-license lppl1.3c
+catalogue-topics graphics graphics-in-tex

@@ -1,0 +1,28 @@
+name magicwatermark
+category Package
+revision 63656
+shortdesc An easy and flexible way to set watermarks
+longdesc This package can flexibly set and clear watermarks. It is based
+longdesc on everypage and TikZ, encapsulated by LaTeX3. All watermark
+longdesc content is placed inside a TikZ node in the center of the page.
+containersize 2380
+containerchecksum 87dc295ac046213ed1a0b3c1b2b415edb3f65cd1e213b101ed3125df663fc4261fd54c07343ece9dcb4e345f134e7d9caff2791e0b8ff507b8d006d5c2dd1430
+doccontainersize 217856
+doccontainerchecksum 76504a77b18c8fd21d27cb26092edbca6e1e9470c006bd486ab4412116f30b833f3a92cac216c73318372da4fe3ccc7342effed2cfcafd09fb8efb1770582d5f
+docfiles size=58
+ texmf-dist/doc/latex/magicwatermark/README.md details="Readme"
+ texmf-dist/doc/latex/magicwatermark/magicwatermark-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/magicwatermark/magicwatermark-en.tex
+ texmf-dist/doc/latex/magicwatermark/magicwatermark.pdf details="Package documentation (Chinese)" language="zh"
+srccontainersize 4688
+srccontainerchecksum 4f42f8459f7ae28a4799473b57f0cbeea59de0f6b1cb065a0e2f27a8ab5698512bf3845b275e488c7157d3504d79680e679c88fbd510bce485a89b72671fc98c
+srcfiles size=5
+ texmf-dist/source/latex/magicwatermark/magicwatermark.dtx
+runfiles size=2
+ texmf-dist/tex/latex/magicwatermark/magicwatermark.sty
+catalogue-contact-bugs https://github.com/ljguo1020/magicwatermark/issues
+catalogue-contact-repository https://github.com/ljguo1020/magicwatermark
+catalogue-ctan /macros/latex/contrib/magicwatermark
+catalogue-license lppl1.3c
+catalogue-topics watermark background pgf-tikz expl3
+catalogue-version 1.0.1

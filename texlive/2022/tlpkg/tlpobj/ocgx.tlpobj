@@ -1,0 +1,34 @@
+name ocgx
+category Package
+revision 54512
+shortdesc Use OCGs within a PDF document without JavaScript
+longdesc The package extends the ocg package, which allows you to create
+longdesc OCGs (Optional Content Groups) in PDF documents. (The ocg
+longdesc package is distributed as part of Asymptote.) Every OCG
+longdesc includes TeX material into a layer of the PDF file. Each of
+longdesc these layers can be displayed or not. Links can enable or
+longdesc disable the display of OCGs. The ocgx package does not use
+longdesc Javascript embedded in the PDF document to enable (to show) or
+longdesc disable (to hide) OCGs.
+containersize 2096
+containerchecksum 33b8ab1b03b7a887127dbe589212747c8cfd794c1b1c9525222cdede3f941812007441ff2835386e59a19b253e5cdef27a83dd958506dbf7dce6988007befa3c
+doccontainersize 991556
+doccontainerchecksum c3c28d54a06a5010d8b1c266b1b9689cbf41050e8427689015ce0016131cebaec87ca0c416b865b5bf9a386a2cc33326da5720d326d797e94c41b8f02e160889
+docfiles size=253
+ texmf-dist/doc/latex/ocgx/README details="Readme"
+ texmf-dist/doc/latex/ocgx/demo-ocgx.pdf details="Package demo"
+ texmf-dist/doc/latex/ocgx/ocgx-manual-en.pdf details="Package documentation"
+srccontainersize 7776
+srccontainerchecksum 633326b032b98f52375e75cdbc55165e35ee4d531d4436df6575ef54c7897187030d99aeeb0de26622ce4f5e56a10df3c381ab72c0731fd8150d677f1fa3c09c
+srcfiles size=9
+ texmf-dist/source/latex/ocgx/demo-ocgx.tex
+ texmf-dist/source/latex/ocgx/ocgx-example-1.tex
+ texmf-dist/source/latex/ocgx/ocgx-manual-en.tex
+runfiles size=2
+ texmf-dist/tex/latex/ocgx/ocgx.sty
+ texmf-dist/tex/latex/ocgx/tikzlibraryocgx.code.tex
+catalogue-also asymptote
+catalogue-ctan /macros/latex/contrib/ocgx
+catalogue-license lppl lppl
+catalogue-topics pdf-feat
+catalogue-version 0.5

@@ -1,0 +1,32 @@
+name witharrows
+category Package
+revision 63087
+shortdesc "Aligned" math environments with arrows for comments
+longdesc This package provides an environment WithArrows which is
+longdesc similar to the environment aligned of amsmath (and mathtools),
+longdesc but gives the possibility to draw arrows on the right side of
+longdesc the alignment. These arrows are usually used to give
+longdesc explanations concerning the mathematical calculus presented.
+longdesc The package requires the following other LaTeX packages: expl3,
+longdesc footnote, l3keys2e, tikz, and xparse.
+containersize 14712
+containerchecksum 20d58b9ae97290b79044cc2a12431a219d26ecbb32d5256942db37f4fc6c4699d9c1fa79ef2080444e2981c865e34eae889cb9113ef5e314e9caedcfcfde1b3f
+doccontainersize 952260
+doccontainerchecksum da7e282f57cfd0ccb8fcc55a4e746dfadbd1629e416207a1fdc59e9c00f2dc8815bc01dce29eed5aba98be465a670f301da99be15388a9cd499646ca19a26353
+docfiles size=278
+ texmf-dist/doc/generic/witharrows/README.md details="Readme"
+ texmf-dist/doc/generic/witharrows/witharrows-french.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/generic/witharrows/witharrows-french.tex
+ texmf-dist/doc/generic/witharrows/witharrows.pdf details="Package documentation (English)"
+ texmf-dist/doc/generic/witharrows/witharrows.tex
+srccontainersize 52884
+srccontainerchecksum 4800609a202f93f25fd763db0b6b95c1d59ab7fa722f375b4994ae85d8a66d8fe9e5cdc76387ecb9e1c7c02b2723f8d29a5b560e24c23d60a053e8a62c268646
+srcfiles size=70
+ texmf-dist/source/generic/witharrows/witharrows.dtx
+ texmf-dist/source/generic/witharrows/witharrows.ins
+runfiles size=24
+ texmf-dist/tex/generic/witharrows/witharrows.sty
+catalogue-ctan /macros/generic/witharrows
+catalogue-license lppl1.3
+catalogue-topics maths maths-syseqn pgf-tikz macro-gen expl3
+catalogue-version 2.7

@@ -1,0 +1,57 @@
+name miama
+category Package
+revision 54512
+shortdesc The Miama Nueva handwriting font with LaTeX support
+longdesc Miama Nueva is a handwriting / script font with over 1300
+longdesc glyphs that supports latin, cyrillic, and greek. It comes
+longdesc complete with LaTeX support.
+execute addMap miama.map
+containersize 518752
+containerchecksum b9a5416b1de4cb487575894f3dacac8b07eda2b37b90fa0c5ca0ebc5d9d412c896fb7cd028c6af5627368c44d442670990949c9ceb9fe3a60179d3f70874135a
+doccontainersize 332156
+doccontainerchecksum a76db9f49bcdc225d9206ebaa3b7ca42bc7148a44d1d66b72d2033b68fe9a1137eec265316d3a24077e3e3712687e80ea948d4f1c9cd819e6a4afb8c9bbf91df
+docfiles size=96
+ texmf-dist/doc/fonts/miama/README details="Readme"
+ texmf-dist/doc/fonts/miama/miama.pdf details="Package documentation"
+srccontainersize 5912
+srccontainerchecksum 2b9e1a649f944ce6b36b1dc09d28112f7d5ea3c0a26a1f292576448171aa2f51449988ce85703ba7c2098f6dce62093ccf5af256bff1993268f31dc884bd3b63
+srcfiles size=7
+ texmf-dist/source/fonts/miama/miama.dtx
+ texmf-dist/source/fonts/miama/miama.ins
+runfiles size=323
+ texmf-dist/fonts/afm/public/miama/miama.afm
+ texmf-dist/fonts/enc/dvips/miama/lgr-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/ot1-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/qx-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/t1-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/t2a-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/t2b-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/t2c-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/t5-miama.enc
+ texmf-dist/fonts/enc/dvips/miama/x2-miama.enc
+ texmf-dist/fonts/map/dvips/miama/miama.map
+ texmf-dist/fonts/opentype/public/miama/miama.otf
+ texmf-dist/fonts/tfm/public/miama/miama-lgr.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-ot1.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-qx.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-t1.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-t2a.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-t2b.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-t2c.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-t5.tfm
+ texmf-dist/fonts/tfm/public/miama/miama-x2.tfm
+ texmf-dist/fonts/type1/public/miama/miama.pfb
+ texmf-dist/tex/latex/miama/lgrfmm.fd
+ texmf-dist/tex/latex/miama/miama.sty
+ texmf-dist/tex/latex/miama/ot1fmm.fd
+ texmf-dist/tex/latex/miama/qxfmm.fd
+ texmf-dist/tex/latex/miama/t1fmm.fd
+ texmf-dist/tex/latex/miama/t2afmm.fd
+ texmf-dist/tex/latex/miama/t2bfmm.fd
+ texmf-dist/tex/latex/miama/t2cfmm.fd
+ texmf-dist/tex/latex/miama/t5fmm.fd
+ texmf-dist/tex/latex/miama/x2fmm.fd
+catalogue-ctan /fonts/miama
+catalogue-license ofl lppl1.3
+catalogue-topics font font-calligraphic font-cyrillic font-greek font-multilingual font-otf font-type1 font-t1enc font-supp
+catalogue-version 1.1

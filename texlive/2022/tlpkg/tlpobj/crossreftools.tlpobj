@@ -1,0 +1,24 @@
+name crossreftools
+category Package
+revision 55879
+shortdesc Expandable extraction of cleveref data
+longdesc This package extracts information from cross-referencing
+longdesc labels, especially those from cleveref, in an expandable
+longdesc manner.
+containersize 3304
+containerchecksum 50b8ce01e9bbfc1f3b4ec9093fe0b091780edbc197a9c637b98a025926600459c5f0b22f5683427bd0a4f0a6ddacadf77833f3171d2dbd45ce43dd6e1d80d813
+doccontainersize 347608
+doccontainerchecksum 0edf43d8b68decea7d83cf5eaf2f92f86635f19041680be4a511a57a7751dd40efe4b4ede05a898c2e00f91076caeb3f4b39c444d1ab8b05a4f0471913e4b475
+docfiles size=97
+ texmf-dist/doc/latex/crossreftools/README details="Readme"
+ texmf-dist/doc/latex/crossreftools/crossreftools_doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/crossreftools/crossreftools_doc.tex
+ texmf-dist/doc/latex/crossreftools/crossreftools_driver.pdf
+ texmf-dist/doc/latex/crossreftools/crossreftools_driver.tex
+runfiles size=4
+ texmf-dist/tex/latex/crossreftools/crossreftools.sty
+catalogue-also cleveref
+catalogue-ctan /macros/latex/contrib/crossreftools
+catalogue-license lppl1.3
+catalogue-topics label-ref
+catalogue-version 1.0

@@ -1,0 +1,124 @@
+name t2
+category Package
+revision 47870
+shortdesc Support for using T2 encoding
+longdesc The T2 bundle provides a variety of separate support functions
+longdesc for using Cyrillic characters in LaTeX: the mathtext package,
+longdesc for using Cyrillic letters 'transparently' in formulae; the
+longdesc citehack package, for using Cyrillic (or indeed any non-ascii)
+longdesc characters in citation keys; support for Cyrillic in BibTeX;
+longdesc support for Cyrillic in Makeindex; and various items of font
+longdesc support.
+containersize 27072
+containerchecksum 9a47581909735a9ba582b71a132c925beab45cbfeb0201c93d138c35670fdf65580e6dc20d9498458e01eba7088c81d67cce329465e4763235e3f3404959c5c6
+doccontainersize 28752
+doccontainerchecksum 8c30658eab02eb576963a6a2f722b143444abf5d286473f165b6cab84c75ef703462a1841121a5d12cf822b150ce8c23a96256754a2d662fbe6c451a058333ef
+docfiles size=67
+ texmf-dist/doc/generic/t2/Makefile
+ texmf-dist/doc/generic/t2/OT2uni.map
+ texmf-dist/doc/generic/t2/README details="Readme"
+ texmf-dist/doc/generic/t2/T2Auni.map
+ texmf-dist/doc/generic/t2/T2Buni.map
+ texmf-dist/doc/generic/t2/T2Cuni.map
+ texmf-dist/doc/generic/t2/X2uni.map
+ texmf-dist/doc/generic/t2/amscyr.txt
+ texmf-dist/doc/generic/t2/broken1.txt
+ texmf-dist/doc/generic/t2/broken2.txt
+ texmf-dist/doc/generic/t2/cyrcset7.txt
+ texmf-dist/doc/generic/t2/cyrcset8.txt
+ texmf-dist/doc/generic/t2/cyrcsets.ind
+ texmf-dist/doc/generic/t2/etc/amsppt.diff
+ texmf-dist/doc/generic/t2/etc/mathtext.dtx
+ texmf-dist/doc/generic/t2/etc/mathtext.ins
+ texmf-dist/doc/generic/t2/etc/rubibtex/README details="Readme"
+ texmf-dist/doc/generic/t2/etc/rubibtex/rubibtex
+ texmf-dist/doc/generic/t2/etc/rubibtex/rubibtex.bat
+ texmf-dist/doc/generic/t2/etc/rubibtex/rubibtex.old
+ texmf-dist/doc/generic/t2/etc/rubibtex/rubibtex.sed
+ texmf-dist/doc/generic/t2/etc/ruinpenc
+ texmf-dist/doc/generic/t2/etc/rumkidx/README details="Readme"
+ texmf-dist/doc/generic/t2/etc/rumkidx/rumakeindex
+ texmf-dist/doc/generic/t2/etc/rumkidx/rumkidx1.sed
+ texmf-dist/doc/generic/t2/etc/rumkidx/rumkidx2.sed
+ texmf-dist/doc/generic/t2/etc/rumkidx/rumkidx3.sed
+ texmf-dist/doc/generic/t2/etc/rumkidx/rumkidxd.bat
+ texmf-dist/doc/generic/t2/etc/rumkidx/rumkidxw.bat
+ texmf-dist/doc/generic/t2/etc/t2filter.c
+ texmf-dist/doc/generic/t2/etc/utf-8/test-utf8.tex
+ texmf-dist/doc/generic/t2/etc/utf-8/utf-8.def
+ texmf-dist/doc/generic/t2/etc/utf-8/utfcyr.def
+ texmf-dist/doc/generic/t2/etc/utf-8/utflat.def
+ texmf-dist/doc/generic/t2/examples/example1.tex
+ texmf-dist/doc/generic/t2/examples/example2.tex
+ texmf-dist/doc/generic/t2/examples/example3.tex
+ texmf-dist/doc/generic/t2/examples/example4.tex
+ texmf-dist/doc/generic/t2/examples/example5.tex
+ texmf-dist/doc/generic/t2/make-enc.pl
+ texmf-dist/doc/generic/t2/mkencs.sh
+ texmf-dist/doc/generic/t2/mtcyr.txt
+ texmf-dist/doc/generic/t2/t2cyr.txt
+ texmf-dist/doc/generic/t2/t2lat.txt
+ texmf-dist/doc/generic/t2/urwcyr.txt
+runfiles size=109
+ texmf-dist/fonts/enc/t2/t2a-mod1.enc
+ texmf-dist/fonts/enc/t2/t2a-mod2.enc
+ texmf-dist/fonts/enc/t2/t2a.enc
+ texmf-dist/fonts/enc/t2/t2b.enc
+ texmf-dist/fonts/enc/t2/t2c.enc
+ texmf-dist/fonts/enc/t2/x2.enc
+ texmf-dist/tex/generic/t2/cyrfinst/6r.etx
+ texmf-dist/tex/generic/t2/cyrfinst/README
+ texmf-dist/tex/generic/t2/cyrfinst/cyrillic.mtx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyc.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyci.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcycij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcycj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyctt.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyi.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyitt.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcyj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/lcytt.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/ot2c.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/ot2cj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/ot2i.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/ot2ij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/ot2j.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2ac.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2acj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2ai.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2aij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2aj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2bc.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2bcj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2bi.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2bij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2bj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2cc.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2ccj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2ci.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2cij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/t2cj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/x2c.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/x2cj.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/x2i.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/x2ij.etx
+ texmf-dist/tex/generic/t2/cyrfinst/derivatives/x2j.etx
+ texmf-dist/tex/generic/t2/cyrfinst/etc/alias-cmc.tex
+ texmf-dist/tex/generic/t2/cyrfinst/etc/alias-wncy.tex
+ texmf-dist/tex/generic/t2/cyrfinst/etc/cyralias.tex
+ texmf-dist/tex/generic/t2/cyrfinst/etc/fnstcorr.tex
+ texmf-dist/tex/generic/t2/cyrfinst/etc/showenc
+ texmf-dist/tex/generic/t2/cyrfinst/lcy-hi.etx
+ texmf-dist/tex/generic/t2/cyrfinst/lcy.etx
+ texmf-dist/tex/generic/t2/cyrfinst/ot2.etx
+ texmf-dist/tex/generic/t2/cyrfinst/t2a.etx
+ texmf-dist/tex/generic/t2/cyrfinst/t2b.etx
+ texmf-dist/tex/generic/t2/cyrfinst/t2c.etx
+ texmf-dist/tex/generic/t2/cyrfinst/x2.etx
+ texmf-dist/tex/latex/t2/citehack.sty
+ texmf-dist/tex/latex/t2/mathtext.sty
+ texmf-dist/tex/latex/t2/misccorr.sty
+catalogue-ctan /macros/latex/contrib/t2
+catalogue-license lppl
+catalogue-topics fontenc cyrillic

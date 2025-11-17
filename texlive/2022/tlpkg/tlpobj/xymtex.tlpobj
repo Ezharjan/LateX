@@ -1,0 +1,141 @@
+name xymtex
+category Package
+revision 32182
+shortdesc Typesetting chemical structures
+longdesc XyMTeX is a set of packages for drawing a wide variety of
+longdesc chemical structural formulas in a way that reflects their
+longdesc structure. The package provides three output modes: 'LaTeX',
+longdesc 'PostScript' and 'PDF'. XyMTeX's commands have a systematic set
+longdesc of arguments for specifying substituents and their positions,
+longdesc endocyclic double bonds, and bond patterns. In some cases there
+longdesc are additional arguments for specifying hetero-atoms on the
+longdesc vertices of heterocycles. It is believed that this systematic
+longdesc design allows XyMTeX to operate as a practical
+longdesc (device-independent) tool for use with LaTeX.
+containersize 88744
+containerchecksum 9f0f14d1a862622ad0ef695a58f7dab554daac8d5151193a70c94ea872d16fe8eb1a763d03b226b08583db484bf576f5a41d2070d5396ac323ed00ccb0daf5e1
+doccontainersize 11504
+doccontainerchecksum 0e2eb5439f2e629da902e4c7d7ddd2d03bc4d654c4ee49e6b005450174acbd70760b52c9deb446ca60efe7c0389403584b86a6f9c9964cf24858b13cfccf7ed3
+docfiles size=71
+ texmf-dist/doc/latex/xymtex/doc/README.TEXLIVE
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme402.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme402.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme403.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme403.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme404.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme404.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme405.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme405.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme406.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme406.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme500.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme500.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme500a.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/readme500a.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx402.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx402.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx403.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx403.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx404.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx404.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx405.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx405.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx406.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx406.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx500.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx500.jpn
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx500a.doc
+ texmf-dist/doc/latex/xymtex/readme/oldreadme/xymtx500a.jpn
+ texmf-dist/doc/latex/xymtex/readme/readme501.doc
+ texmf-dist/doc/latex/xymtex/readme/readme501.jpn details="Readme" language="ja"
+ texmf-dist/doc/latex/xymtex/readme/xymtx501.doc
+ texmf-dist/doc/latex/xymtex/readme/xymtx501.jpn
+srccontainersize 164296
+srccontainerchecksum d805d6fcb72fb801001ad80fe43ee36126c0764f8baa96dff9fffcf7452bba8e5cf42cbca6a50b89f5925607c277b3fb7408f8f7e6ab087edbade0dac294252a
+srcfiles size=592
+ texmf-dist/source/latex/xymtex/base/aliphat.dtx
+ texmf-dist/source/latex/xymtex/base/aliphat.ins
+ texmf-dist/source/latex/xymtex/base/assurelatexmode.dtx
+ texmf-dist/source/latex/xymtex/base/assurelatexmode.ins
+ texmf-dist/source/latex/xymtex/base/bondcolor.dtx
+ texmf-dist/source/latex/xymtex/base/bondcolor.ins
+ texmf-dist/source/latex/xymtex/base/carom.dtx
+ texmf-dist/source/latex/xymtex/base/carom.ins
+ texmf-dist/source/latex/xymtex/base/ccycle.dtx
+ texmf-dist/source/latex/xymtex/base/ccycle.ins
+ texmf-dist/source/latex/xymtex/base/chemstr.dtx
+ texmf-dist/source/latex/xymtex/base/chemstr.ins
+ texmf-dist/source/latex/xymtex/base/doins.bat
+ texmf-dist/source/latex/xymtex/base/fusering.dtx
+ texmf-dist/source/latex/xymtex/base/fusering.ins
+ texmf-dist/source/latex/xymtex/base/hcycle.dtx
+ texmf-dist/source/latex/xymtex/base/hcycle.ins
+ texmf-dist/source/latex/xymtex/base/hetarom.dtx
+ texmf-dist/source/latex/xymtex/base/hetarom.ins
+ texmf-dist/source/latex/xymtex/base/hetaromh.dtx
+ texmf-dist/source/latex/xymtex/base/hetaromh.ins
+ texmf-dist/source/latex/xymtex/base/lewisstruc.dtx
+ texmf-dist/source/latex/xymtex/base/lewisstruc.ins
+ texmf-dist/source/latex/xymtex/base/locant.dtx
+ texmf-dist/source/latex/xymtex/base/locant.ins
+ texmf-dist/source/latex/xymtex/base/lowcycle.dtx
+ texmf-dist/source/latex/xymtex/base/lowcycle.ins
+ texmf-dist/source/latex/xymtex/base/methylen.dtx
+ texmf-dist/source/latex/xymtex/base/methylen.ins
+ texmf-dist/source/latex/xymtex/base/polymers.dtx
+ texmf-dist/source/latex/xymtex/base/polymers.ins
+ texmf-dist/source/latex/xymtex/base/putline.sed
+ texmf-dist/source/latex/xymtex/base/putput.bat
+ texmf-dist/source/latex/xymtex/base/sizeredc.dtx
+ texmf-dist/source/latex/xymtex/base/sizeredc.ins
+ texmf-dist/source/latex/xymtex/base/steroid.dtx
+ texmf-dist/source/latex/xymtex/base/steroid.ins
+ texmf-dist/source/latex/xymtex/base/xymtex.dtx
+ texmf-dist/source/latex/xymtex/base/xymtex.ins
+ texmf-dist/source/latex/xymtex/chemist/assurechemist.dtx
+ texmf-dist/source/latex/xymtex/chemist/assurechemist.ins
+ texmf-dist/source/latex/xymtex/chemist/chemist.dtx
+ texmf-dist/source/latex/xymtex/chemist/chemist.ins
+ texmf-dist/source/latex/xymtex/chemist/chemtimes.dtx
+ texmf-dist/source/latex/xymtex/chemist/chemtimes.ins
+ texmf-dist/source/latex/xymtex/xymtxpdf/chmst-pdf.dtx
+ texmf-dist/source/latex/xymtex/xymtxpdf/chmst-pdf.ins
+ texmf-dist/source/latex/xymtex/xymtxpdf/xymtx-pdf.dtx
+ texmf-dist/source/latex/xymtex/xymtxpdf/xymtx-pdf.ins
+ texmf-dist/source/latex/xymtex/xymtxps/chmst-ps.dtx
+ texmf-dist/source/latex/xymtex/xymtxps/chmst-ps.ins
+ texmf-dist/source/latex/xymtex/xymtxps/xymtx-ps.drv
+ texmf-dist/source/latex/xymtex/xymtxps/xymtx-ps.dtx
+ texmf-dist/source/latex/xymtex/xymtxps/xymtx-ps.ins
+runfiles size=290
+ texmf-dist/tex/latex/xymtex/base/aliphat.sty
+ texmf-dist/tex/latex/xymtex/base/assurelatexmode.sty
+ texmf-dist/tex/latex/xymtex/base/bondcolor.sty
+ texmf-dist/tex/latex/xymtex/base/carom.sty
+ texmf-dist/tex/latex/xymtex/base/ccycle.sty
+ texmf-dist/tex/latex/xymtex/base/chemstr.sty
+ texmf-dist/tex/latex/xymtex/base/fusering.sty
+ texmf-dist/tex/latex/xymtex/base/hcycle.sty
+ texmf-dist/tex/latex/xymtex/base/hetarom.sty
+ texmf-dist/tex/latex/xymtex/base/hetaromh.sty
+ texmf-dist/tex/latex/xymtex/base/lewisstruc.sty
+ texmf-dist/tex/latex/xymtex/base/locant.sty
+ texmf-dist/tex/latex/xymtex/base/lowcycle.sty
+ texmf-dist/tex/latex/xymtex/base/methylen.sty
+ texmf-dist/tex/latex/xymtex/base/polymers.sty
+ texmf-dist/tex/latex/xymtex/base/sizeredc.sty
+ texmf-dist/tex/latex/xymtex/base/steroid.sty
+ texmf-dist/tex/latex/xymtex/base/xymtex.sty
+ texmf-dist/tex/latex/xymtex/base/xymtexpdf.sty
+ texmf-dist/tex/latex/xymtex/base/xymtexps.sty
+ texmf-dist/tex/latex/xymtex/chemist/assurechemist.sty
+ texmf-dist/tex/latex/xymtex/chemist/chemist.sty
+ texmf-dist/tex/latex/xymtex/chemist/chemtimes.sty
+ texmf-dist/tex/latex/xymtex/xymtxpdf/chmst-pdf.sty
+ texmf-dist/tex/latex/xymtex/xymtxpdf/xymtx-pdf.sty
+ texmf-dist/tex/latex/xymtex/xymtxps/chmst-ps.sty
+ texmf-dist/tex/latex/xymtex/xymtxps/xymtx-ps.sty
+catalogue-ctan /macros/latex/contrib/xymtex
+catalogue-license lppl1.3
+catalogue-topics chemistry diagram
+catalogue-version 5.06

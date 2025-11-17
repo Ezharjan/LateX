@@ -1,0 +1,31 @@
+name pdfcolmk
+category Package
+revision 52912
+shortdesc Improved colour support under pdfTeX (legacy stub)
+longdesc The package used to provide macros that emulated the 'colour
+longdesc stack' functionality of dvips. The colour stack deals with
+longdesc colour manipulations when asynchronous events (like
+longdesc page-breaking) occur. At the time the package was written,
+longdesc pdfTeX did not (yet) have such a stack, though dvips had had
+longdesc one for a long time. This package was an experimental solution
+longdesc to the problem, and worked best with pdfeTeX. For current
+longdesc releases of pdfTeX (later than version 1.40.0, released in
+longdesc 2007), this package is not needed, since "real" colour stacks
+longdesc are available. The present pdfcolmk is therefore just an empty
+longdesc stub that does nothing at all, just in case there are still
+longdesc documents that reference it. The documented source of the
+longdesc original package is still available at the github repository.
+containersize 1212
+containerchecksum ddcc125c608eea472c06981c9f5a901a431da978fecaa2a5ecdd08e2f6499ad25632e4de86f7e92445a8e276403ee92bca636b80e5216e78b21ce355910ead67
+doccontainersize 468
+doccontainerchecksum e2bb876ad74381fb441d870422186f4cee76bb4cb5f721334b7119fe83b2ab0565ffd5300575ab52e8d25a263d87739a1e114cffed44ab3e25d8d5cff2006456
+docfiles size=1
+ texmf-dist/doc/latex/pdfcolmk/README.md
+runfiles size=1
+ texmf-dist/tex/latex/pdfcolmk/pdfcolmk.sty
+catalogue-contact-bugs https://github.com/ho-tex/pdfcolmk/issues
+catalogue-contact-repository https://github.com/ho-tex/pdfcolmk
+catalogue-ctan /macros/latex/contrib/pdfcolmk
+catalogue-license lppl1.3c
+catalogue-topics colour obsolete
+catalogue-version 2.0

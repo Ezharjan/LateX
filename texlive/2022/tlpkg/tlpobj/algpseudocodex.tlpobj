@@ -1,0 +1,27 @@
+name algpseudocodex
+category Package
+revision 61230
+shortdesc Package for typesetting pseudocode
+longdesc This package allows typesetting pseudocode in LaTeX. It is
+longdesc based on algpseudocode from the algorithmicx package and uses
+longdesc the same syntax, but adds several new features and
+longdesc improvements. Notable features include customizable indent
+longdesc guide lines and the ability to draw boxes around parts of the
+longdesc code for highlighting differences. This package also has better
+longdesc support for long code lines spanning several lines and improved
+longdesc comments.
+containersize 6972
+containerchecksum c0b39409522f8a1785aa853f57f4a770bdf4c1502212e4cea6054d77db371b83652b6d076c9274a04ff6204a5dea7ec0a9fb0ceeadb8184c8bb6f0c99044a7f4
+doccontainersize 350956
+doccontainerchecksum adbef4ce83faa9383a6030b2feb7e64ed5148ebd2c0dff60c4e8d4fef76fa3ac6c09fe5417ab2d1a46557fb3304f4c673d481d9cf7043e7857021bc42a0c94a1
+docfiles size=93
+ texmf-dist/doc/latex/algpseudocodex/README.md details="Readme"
+ texmf-dist/doc/latex/algpseudocodex/algpseudocodex.pdf details="Package documentation"
+ texmf-dist/doc/latex/algpseudocodex/algpseudocodex.tex
+runfiles size=8
+ texmf-dist/tex/latex/algpseudocodex/algpseudocodex.sty
+catalogue-contact-repository https://github.com/chrmatt/algpseudocodex
+catalogue-ctan /macros/latex/contrib/algpseudocodex
+catalogue-license lppl1.3c
+catalogue-topics pseudocode
+catalogue-version 1.0.1

@@ -1,0 +1,73 @@
+name latex-graphics-dev
+category Package
+revision 63631
+shortdesc Development pre-release of the LaTeX graphics bundle
+longdesc This is a pre-release version of the standard LaTeX graphics
+longdesc bundle. It accompanies the pre-testing kernel code
+longdesc (latex-base-dev), and is intended for testing by knowledgeable
+longdesc users.
+depend graphics-cfg
+containersize 15948
+containerchecksum 8678b22e34738c7675682800a671d7268dc2ec33b913a77b49005d32d0f97904e29778624e456150252ffd705566f92f5a9f9060859f098f6505ebab04fbc5bc
+doccontainersize 2504744
+doccontainerchecksum 1299719e58d1a0ea4cb64900468136dc6739cb47f8056c8667a7ebf2d8e26d5f11760d697f61dcaa26aa11a0e88643e7b4ad60d8c7bc080bf77b26c676ac35de
+docfiles size=780
+ texmf-dist/doc/latex-dev/graphics/README.md details="Readme"
+ texmf-dist/doc/latex-dev/graphics/cat.eps
+ texmf-dist/doc/latex-dev/graphics/changes.txt
+ texmf-dist/doc/latex-dev/graphics/color.pdf
+ texmf-dist/doc/latex-dev/graphics/drivers.pdf
+ texmf-dist/doc/latex-dev/graphics/epsfig.pdf
+ texmf-dist/doc/latex-dev/graphics/graphics.pdf
+ texmf-dist/doc/latex-dev/graphics/graphicx.pdf
+ texmf-dist/doc/latex-dev/graphics/grfguide.pdf details="Bundle documentation"
+ texmf-dist/doc/latex-dev/graphics/grfguide.tex
+ texmf-dist/doc/latex-dev/graphics/keyval.pdf
+ texmf-dist/doc/latex-dev/graphics/lscape.pdf
+ texmf-dist/doc/latex-dev/graphics/mathcolor.pdf
+ texmf-dist/doc/latex-dev/graphics/rotating.pdf
+ texmf-dist/doc/latex-dev/graphics/rotex.pdf
+ texmf-dist/doc/latex-dev/graphics/rotex.tex
+ texmf-dist/doc/latex-dev/graphics/trig.pdf
+srccontainersize 56928
+srccontainerchecksum 1799734067820c4b2f609869dc28f142ab4b5b71c72cfaa9af1828f24f991e265cb1dc65046e93dfe7ff8bff28152480b8e45b51a0618d8a7ff1dbdc0d865549
+srcfiles size=69
+ texmf-dist/source/latex-dev/graphics/color.dtx
+ texmf-dist/source/latex-dev/graphics/drivers.dtx
+ texmf-dist/source/latex-dev/graphics/epsfig.dtx
+ texmf-dist/source/latex-dev/graphics/graphics-drivers.ins
+ texmf-dist/source/latex-dev/graphics/graphics.dtx
+ texmf-dist/source/latex-dev/graphics/graphics.ins
+ texmf-dist/source/latex-dev/graphics/graphicx.dtx
+ texmf-dist/source/latex-dev/graphics/keyval.dtx
+ texmf-dist/source/latex-dev/graphics/lscape.dtx
+ texmf-dist/source/latex-dev/graphics/mathcolor.dtx
+ texmf-dist/source/latex-dev/graphics/rotating.dtx
+ texmf-dist/source/latex-dev/graphics/trig.dtx
+runfiles size=36
+ texmf-dist/tex/latex-dev/graphics/color.sty
+ texmf-dist/tex/latex-dev/graphics/dvipdf.def
+ texmf-dist/tex/latex-dev/graphics/dvipsnam.def
+ texmf-dist/tex/latex-dev/graphics/dvipsone.def
+ texmf-dist/tex/latex-dev/graphics/dviwin.def
+ texmf-dist/tex/latex-dev/graphics/emtex.def
+ texmf-dist/tex/latex-dev/graphics/epsfig.sty
+ texmf-dist/tex/latex-dev/graphics/graphics-2017-06-25.sty
+ texmf-dist/tex/latex-dev/graphics/graphics.sty
+ texmf-dist/tex/latex-dev/graphics/graphicx.sty
+ texmf-dist/tex/latex-dev/graphics/keyval.sty
+ texmf-dist/tex/latex-dev/graphics/lscape.sty
+ texmf-dist/tex/latex-dev/graphics/mathcolor.ltx
+ texmf-dist/tex/latex-dev/graphics/pctex32.def
+ texmf-dist/tex/latex-dev/graphics/pctexhp.def
+ texmf-dist/tex/latex-dev/graphics/pctexps.def
+ texmf-dist/tex/latex-dev/graphics/pctexwin.def
+ texmf-dist/tex/latex-dev/graphics/rotating.sty
+ texmf-dist/tex/latex-dev/graphics/tcidvi.def
+ texmf-dist/tex/latex-dev/graphics/trig.sty
+ texmf-dist/tex/latex-dev/graphics/truetex.def
+catalogue-also latex-graphics
+catalogue-ctan /macros/latex-dev/required/graphics
+catalogue-license lppl1.3c
+catalogue-topics graphics collection latex-devel
+catalogue-version 2022-11-01 pre-release 0

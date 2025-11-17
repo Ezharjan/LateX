@@ -1,0 +1,77 @@
+name mahjong
+category Package
+revision 58896
+shortdesc Typeset Mahjong Tiles using MPSZ Notation
+longdesc The mahjong package provides a LaTeX2e and LaTeX3 interface for
+longdesc typesetting mahjong tiles using an extended version of MPSZ
+longdesc algebraic notation. Features include spaces, rotated, blank,
+longdesc and concealed tiles, as well as red fives. The size of the
+longdesc mahjong tiles can be controlled using a package option and an
+longdesc optional argument of \mahjong. It is primarily aimed at Riichi
+longdesc (aka. Japanese) Mahjong but can be used to typeset any style of
+longdesc mahjong.
+containersize 95428
+containerchecksum 697c0a634304e4e94a6165fd033d906209fa6811cf6297868b76389165bf557f3b6abd419582d200bb252365f790ce53c98e1da75c8b6d3d061cb5d6b635ef38
+doccontainersize 765572
+doccontainerchecksum 622a34f880eb02813e7f4c1f6eb7199194c3ee0e62df534e7832530c34f09e2abfa7f1d491b4840310841e230e3ab5080cbfa5370e9366c0f9b8fd9000b0ef38
+docfiles size=279
+ texmf-dist/doc/latex/mahjong/LICENSE
+ texmf-dist/doc/latex/mahjong/README.md details="Readme"
+ texmf-dist/doc/latex/mahjong/mahjong-code.pdf
+ texmf-dist/doc/latex/mahjong/mahjong-code.tex
+ texmf-dist/doc/latex/mahjong/mahjong.pdf details="Package documentation"
+ texmf-dist/doc/latex/mahjong/mahjong.tex
+srccontainersize 7260
+srccontainerchecksum 6b64551b9cf9d4e79875935d2b37af602be7d3b001a3ef441003136b950741adec8d4b8521ca9a49d744d2173c0b053f025af909fe320edf08f1b3d7c131055e
+srcfiles size=7
+ texmf-dist/source/latex/mahjong/Makefile
+ texmf-dist/source/latex/mahjong/mahjong.dtx
+ texmf-dist/source/latex/mahjong/mahjong.ins
+runfiles size=69
+ texmf-dist/tex/latex/mahjong/mahjong.sty
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-0m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-0p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-0s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-1m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-1p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-1s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-1z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-2m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-2p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-2s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-2z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-3m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-3p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-3s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-3z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-4m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-4p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-4s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-4z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-5m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-5p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-5s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-5z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-6m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-6p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-6s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-6z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-7m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-7p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-7s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-7z.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-8m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-8p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-8s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-9m.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-9p.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-9s.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-Back.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-Blank.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-Front.pdf
+ texmf-dist/tex/latex/mahjong/tiles/mahjong-Space.pdf
+catalogue-contact-home https://github.com/Schmitzi/mahjong-tex
+catalogue-ctan /graphics/mahjong
+catalogue-license mit cc-by-1
+catalogue-topics graphics games expl3
+catalogue-version 1.0.1

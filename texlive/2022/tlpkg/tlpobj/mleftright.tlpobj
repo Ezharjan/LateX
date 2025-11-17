@@ -1,0 +1,27 @@
+name mleftright
+category Package
+revision 53021
+shortdesc Variants of delimiters that act as maths open/close
+longdesc The package defines variants \mleft and \mright of \left and
+longdesc \right, that make the delimiters act as \mathopen and
+longdesc \mathclose. These commands address spacing difficulties in
+longdesc subformulas.
+containersize 2644
+containerchecksum d1423d7e794ff011e6bf436d85bc3d2d933263bee059cac910e1a3375140d0eb0f1682e38c675afe17607d71d253b656a81cc927d22f54a8add2df01571a5e95
+doccontainersize 308648
+doccontainerchecksum 193d3fa473d136c11ad8a1b4f707d286cb0243bd32c020c1c5343c23a5d6347c2ba2ccc5c11e5bf835b4666c8e4a0ca2d234661e155c0f5fdc32e7b85cf2d253
+docfiles size=77
+ texmf-dist/doc/latex/mleftright/README.md
+ texmf-dist/doc/latex/mleftright/mleftright.pdf details="Package documentation"
+srccontainersize 6548
+srccontainerchecksum 365cdce5350ecad7f1ea2fe478ac4c7414c9e8c5053c480229cfed7a478f135cb033e67070f327956cb5aadf862762e270726bbeaf8e511b10fc96e996e06d64
+srcfiles size=6
+ texmf-dist/source/latex/mleftright/mleftright.dtx
+runfiles size=2
+ texmf-dist/tex/generic/mleftright/mleftright.sty
+catalogue-contact-bugs https://github.com/ho-tex/mleftright/issues
+catalogue-contact-repository https://github.com/ho-tex/mleftright
+catalogue-ctan /macros/latex/contrib/mleftright
+catalogue-license lppl1.3
+catalogue-topics maths
+catalogue-version 1.2

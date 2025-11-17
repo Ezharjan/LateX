@@ -1,0 +1,29 @@
+name xistercian
+category Package
+revision 61366
+shortdesc Cistercian numerals in LaTeX
+longdesc xistercian allows you to use Cistercian numerals in LaTeX. The
+longdesc glyphs are created using PGF and to a certain degree
+longdesc configurable. You can use Cistercian numerals as page numbers
+longdesc using \pagenumbering{cistercian}. The two main macros are:
+longdesc \cistercian{<counter>} formats the LaTeX2e counter as a
+longdesc Cistercian numeral \cisterciannum{<integer>} formats the
+longdesc integer (given as a string) as a Cistercian numeral
+containersize 4924
+containerchecksum e0b4db57c0c3b819f1c653f097c6adcad1d2b74409926d5e0652fed4aced3be5b82ec5f663d85769261fb62e89d16bbe36ed87e6ca2352ab9548fd322c6b7b5a
+doccontainersize 339796
+doccontainerchecksum 673d6a01619a36fd8db88ab056a8560200e03de519799b867583d6fe0226a25661245e4942a1e2b13a23d2913a137736f6b10ecb25962e0b4afbec8e2b568cf5
+docfiles size=87
+ texmf-dist/doc/latex/xistercian/README.md details="Readme"
+ texmf-dist/doc/latex/xistercian/xistercian.pdf details="Package documentation"
+srccontainersize 14156
+srccontainerchecksum 8c305d95953774aaa5e181a3ab2f904b6faceb2387a6b4c9dd4f6c11eb3ddad4e31088a11db48d2ca2a0a72911f5cff1d3bf5bf37a933ceb76805a6265d3c816
+srcfiles size=16
+ texmf-dist/source/latex/xistercian/xistercian.dtx
+runfiles size=7
+ texmf-dist/tex/latex/xistercian/xistercian.sty
+catalogue-contact-repository https://github.com/Skillmon/ltx_xistercian
+catalogue-ctan /graphics/pgf/contrib/xistercian
+catalogue-license lppl1.3c
+catalogue-topics numbers pgf-tikz graphics expl3
+catalogue-version 1.2

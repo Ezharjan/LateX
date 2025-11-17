@@ -1,0 +1,39 @@
+name chemobabel
+category Package
+revision 64444
+shortdesc Convert chemical structures from ChemDraw, MDL molfile or SMILES using Open Babel
+longdesc This package provides a way to convert and include chemical
+longdesc structure graphics from various chemical formats, such as
+longdesc ChemDraw files, MDL molfile or SMILES notations using Open
+longdesc Babel. To use this LaTeX package, it is necessary to enable
+longdesc execution of the following external commands via latex
+longdesc -shell-escape. obabel (Open Babel) inkscape or rsvg-convert
+longdesc (for SVG -> PDF/EPS conversion) pdfcrop or ps2eps (optional;
+longdesc for cropping large margins of PDF/EPS)
+containersize 3288
+containerchecksum f159b13c34af594debd04b87300da871521850775ed954fa369cd92aaf515f00d49a78d758cd348df8df5c64035026f991d4181ac3b9971cb8606209802396fa
+doccontainersize 893812
+doccontainerchecksum f36ca888fc3d16657352f9d479e087cca897f8f66a50d49b0b112913a1db9cba299fe11f0bf381b1a4f9f096a54308f7eb401a080ccb08c87ddde695fb473ba0
+docfiles size=392
+ texmf-dist/doc/latex/chemobabel/LICENSE
+ texmf-dist/doc/latex/chemobabel/README.md details="Readme"
+ texmf-dist/doc/latex/chemobabel/chemobabel-en.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/latex/chemobabel/chemobabel-en.tex
+ texmf-dist/doc/latex/chemobabel/chemobabel-ja.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/latex/chemobabel/chemobabel-ja.tex
+ texmf-dist/doc/latex/chemobabel/example-en.pdf
+ texmf-dist/doc/latex/chemobabel/example-en.tex
+ texmf-dist/doc/latex/chemobabel/example-ja.pdf
+ texmf-dist/doc/latex/chemobabel/example-ja.tex
+ texmf-dist/doc/latex/chemobabel/images-for-doc.tar.gz
+srccontainersize 15152
+srccontainerchecksum 52dbb8061770b9168981ac5828f3f3d7f45cbe896802a209f0d69cc1886ce0c616c3cd636cac413f6ba5c0a40da95e57e515ee35d54758eaa7afc876f6b390b5
+srcfiles size=14
+ texmf-dist/source/latex/chemobabel/chemobabel.dtx
+ texmf-dist/source/latex/chemobabel/chemobabel.ins
+runfiles size=3
+ texmf-dist/tex/latex/chemobabel/chemobabel.sty
+catalogue-contact-repository https://github.com/aminophen/chemobabel
+catalogue-ctan /graphics/chemobabel
+catalogue-license bsd2
+catalogue-topics graphics chemistry foreign-import

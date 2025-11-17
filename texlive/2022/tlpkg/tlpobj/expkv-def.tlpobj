@@ -1,0 +1,34 @@
+name expkv-def
+category Package
+revision 61796
+shortdesc A key-defining frontend for expkv
+longdesc This package provides a key=val interface to define keys for
+longdesc expkv. This is done to provide a simple frontend to define
+longdesc different common key types, similar to how keys are defined in
+longdesc other well established key=value packages like pgfkeys or
+longdesc l3keys. expkv-def is generic code and only requires expkv for
+longdesc its parsing. There is a LaTeX package expkv-def.sty included to
+longdesc play nicely on LaTeX's package loading system, but that package
+longdesc is not needed and does not provide more functionality than the
+longdesc generic code in expkv-def.tex.
+containersize 5552
+containerchecksum e783fff82e60385cf5f6bf71df65fe7f78e96cb872a1219d5a525583160d5dd1ca04951f9e57fcff5894fb5e81ecb86771cf485df45a528a6437040f4b22345d
+doccontainersize 413008
+doccontainerchecksum 675f3593096ca214caf706dbd65f8c2a6fc3b334b83ad2e04c3eec562cb940ebe0839108a7c27a4a9d99ab3ce3137d0e195a6ca35f148e1a790d3054f2f4b35b
+docfiles size=105
+ texmf-dist/doc/latex/expkv-def/README.md details="Readme"
+ texmf-dist/doc/latex/expkv-def/expkv-def.pdf details="Package documentation"
+srccontainersize 18824
+srccontainerchecksum 52387ba0731a46eaa32792cf1f552116a82357ac23f13235dc3013944435c157736800278047424a6151a47bce3fdedd104af5ab03ca08a097d421e96c75e1f7
+srcfiles size=22
+ texmf-dist/source/latex/expkv-def/expkv-def.dtx
+runfiles size=10
+ texmf-dist/tex/context/third/expkv-def/t-expkv-def.tex
+ texmf-dist/tex/generic/expkv-def/expkv-def.tex
+ texmf-dist/tex/latex/expkv-def/expkv-def.sty
+catalogue-also expkv
+catalogue-contact-repository https://github.com/Skillmon/tex_expkv-def
+catalogue-ctan /macros/generic/expkv-def
+catalogue-license lppl1.3c
+catalogue-topics keyval
+catalogue-version 0.9

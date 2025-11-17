@@ -1,0 +1,29 @@
+name latex-firstaid-dev
+category Package
+revision 62725
+shortdesc Development pre-release of the LaTeX firstaid package
+longdesc This is a pre-release version of the standard LaTeX firstaid
+longdesc package. It accompanies the pre-testing kernel code
+longdesc (latex-base-dev), and is intended for testing by knowledgeable
+longdesc users.
+containersize 3216
+containerchecksum 2adc32b5ad2e180362eafb8cd631140585a7cdce8f249ffb11904c47d95bf4ef014ad691c2ee55cd47a9a46d38b7572186f6f3c5afd7ed56738321e8fe4e7c1f
+doccontainersize 234740
+doccontainerchecksum b32e044c88397fac4c122cbccfc3ea21a733fef6d8457a5cc6b7426aa54015d4c98c9a1ec5f2fcd39388f659682129466f69e3fce263d63953bf0586a5eb758d
+docfiles size=61
+ texmf-dist/doc/latex-dev/firstaid/README.md details="Readme"
+ texmf-dist/doc/latex-dev/firstaid/changes.txt
+ texmf-dist/doc/latex-dev/firstaid/latex2e-first-aid-for-external-files.pdf details="Package documentation"
+srccontainersize 7728
+srccontainerchecksum 7023fbd835dff5852bccc26093ed4c20394f83caf5cc02212c8beeb0bc53898eeb2fbb69da0e95f6b3e257a30ef3e73f62ea1bd374100f43b2a53b4072dcafc2
+srcfiles size=7
+ texmf-dist/source/latex-dev/firstaid/firstaid.ins
+ texmf-dist/source/latex-dev/firstaid/latex2e-first-aid-for-external-files.dtx
+runfiles size=4
+ texmf-dist/tex/latex-dev/firstaid/everysel-ltx.sty
+ texmf-dist/tex/latex-dev/firstaid/filehook-ltx.sty
+ texmf-dist/tex/latex-dev/firstaid/latex2e-first-aid-for-external-files.ltx
+catalogue-ctan /macros/latex-dev/required/firstaid
+catalogue-license lppl1.3c
+catalogue-topics format bugfix latex-devel
+catalogue-version 1.0r

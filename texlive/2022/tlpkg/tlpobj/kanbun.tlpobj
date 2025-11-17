@@ -1,0 +1,32 @@
+name kanbun
+category Package
+revision 62026
+shortdesc Typeset kanbun-kundoku with support for kanbun annotation
+longdesc This package allows users to manually input macros for elements
+longdesc in a kanbun-kundoku (Han Wen Xun Du ) paragraph. More
+longdesc importantly, it accepts plain text input in the "kanbun
+longdesc annotation" form when used with LuaLaTeX, which allows
+longdesc typesetting kanbun-kundoku paragraphs efficiently.
+containersize 6080
+containerchecksum 2ca12d697ed80a1f3182ac2e28897f670f8d770d99ce6fb3d8cb692e8e40d45afb463959ac8668b60ac7d67c9d8dd8f88ff5ec9e83a96f656ea8cd59ac419187
+doccontainersize 715336
+doccontainerchecksum 853230ef31da0bab5215f62e68162553b5ba54619e1e6b6e84c9c57fbe43b5af5715af2696c384a14807a1cd6507dee600d37bb205e5b82d42cdae15ce30e940
+docfiles size=237
+ texmf-dist/doc/latex/kanbun/README.md details="Readme"
+ texmf-dist/doc/latex/kanbun/kanbun-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/kanbun/kanbun-en.tex
+ texmf-dist/doc/latex/kanbun/kanbun-example.pdf details="Example of use" language="zh,ja"
+ texmf-dist/doc/latex/kanbun/kanbun-example.tex
+ texmf-dist/doc/latex/kanbun/kanbun-ja.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/latex/kanbun/kanbun-ja.tex
+ texmf-dist/doc/latex/kanbun/kanbun.tex
+runfiles size=8
+ texmf-dist/tex/latex/kanbun/kanbun.lua
+ texmf-dist/tex/latex/kanbun/kanbun.sty
+catalogue-also gckanbun
+catalogue-contact-bugs https://github.com/edward-martyr/kanbun/issues
+catalogue-contact-repository https://github.com/edward-martyr/kanbun
+catalogue-ctan /macros/latex/contrib/kanbun
+catalogue-license lppl1.3
+catalogue-topics chinese japanese use-luatex expl3
+catalogue-version 1.2

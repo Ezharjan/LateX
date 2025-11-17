@@ -1,0 +1,28 @@
+name skeldoc
+category Package
+revision 57922
+shortdesc Placeholders for unfinished documents
+longdesc This package lets you produce placeholder elements for
+longdesc documents under development, similar to the skeleton screens
+longdesc used while loading contents in many applications and websites.
+longdesc It also has a mechanism for attaching explanatory endnotes to
+longdesc these placeholders, or to anything else in your document. The
+longdesc same note mechanism can also be used with ordinary content,
+longdesc e.g., as a to-do mechanism.
+containersize 6252
+containerchecksum 2bc1374e969e5b32e9a88b8240a94eac90066514c8dfcb91196a13a3774d200cb8a412fd490b581ba18e9e0047596d30296206b0607316554a361b6103ee33f3
+doccontainersize 223836
+doccontainerchecksum 13cb76835ff1eed119d8514aae495d6adaf8b4c3db17c660af29624247cba9c37d4f6991d6a99c566972e4032f14d62c21fb4f31b856c49de40d0a87def1cf95
+docfiles size=59
+ texmf-dist/doc/latex/skeldoc/LICENSE
+ texmf-dist/doc/latex/skeldoc/README.md details="Readme"
+ texmf-dist/doc/latex/skeldoc/skeldoc.pdf details="Package documentation"
+ texmf-dist/doc/latex/skeldoc/skeldoc.tex
+runfiles size=7
+ texmf-dist/tex/latex/skeldoc/skeldoc.sty
+catalogue-contact-bugs https://github.com/mlhetland/skeldoc.sty/issues
+catalogue-contact-repository https://github.com/mlhetland/skeldoc.sty
+catalogue-ctan /macros/latex/contrib/skeldoc
+catalogue-license mit
+catalogue-topics dummy-gen editorial notes rule expl3
+catalogue-version 0.1.2

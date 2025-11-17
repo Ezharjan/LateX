@@ -1,0 +1,28 @@
+name apalike-ejor
+category Package
+revision 59667
+shortdesc A BibTeX style file for the European Journal of Operational Research
+longdesc This package contains a BibTeX style file, apalike-ejor.bst,
+longdesc made to follow the European Journal of Operational Research
+longdesc reference style guidelines. It is a fork of apalike version
+longdesc 0.99a, by Oren Patashnik, and consists of minor modifications
+longdesc of standard APA style. Among other changes it adds support for
+longdesc hyperlinked URL and DOI fields (which requires hyperref).
+containersize 7016
+containerchecksum b04f10bb77365327f326f2bb6c67347802fe6f9628644711d72b85576f59e06ec9fec168ba382a187f51cb7bc2d619b2d971d55024e4ba82d7f5e3c73f556bc8
+doccontainersize 137380
+doccontainerchecksum a9e091123eaa359ef7ca22d47ce3e069ebdd9e74835e54dc2abbe92073edbb9989d408d5f52f5e83b52f7137b4cbc50fc38e56606f72541ee46aaabbdafb3a40
+docfiles size=44
+ texmf-dist/doc/bibtex/apalike-ejor/LICENSE
+ texmf-dist/doc/bibtex/apalike-ejor/README.md details="Readme"
+ texmf-dist/doc/bibtex/apalike-ejor/example-references.bib
+ texmf-dist/doc/bibtex/apalike-ejor/example.pdf details="Example of use"
+ texmf-dist/doc/bibtex/apalike-ejor/example.tex
+runfiles size=8
+ texmf-dist/bibtex/bst/apalike-ejor/apalike-ejor.bst
+catalogue-contact-bugs https://github.com/adam-rumpf/apalike-ejor/issues
+catalogue-contact-repository https://github.com/adam-rumpf/apalike-ejor
+catalogue-ctan /biblio/bibtex/contrib/apalike-ejor
+catalogue-license lppl1.3c
+catalogue-topics bibtex-sty journalpub std-conform
+catalogue-version 1.2.0

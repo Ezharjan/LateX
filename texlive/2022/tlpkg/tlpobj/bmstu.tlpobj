@@ -1,0 +1,41 @@
+name bmstu
+category Package
+revision 62012
+shortdesc A LaTeX class for Bauman Moscow State Technical University
+longdesc The class defines commands and environments for creating
+longdesc reports and explanatory notes in Bauman Moscow State Technical
+longdesc University (Russia). Klass opredeliaet komandy i okruzheniia
+longdesc dlia sozdaniia otchetov i raschetno-poiasnitel'nykh zapisok v
+longdesc MGTU im. N. E. Baumana. Sgenerirovannye faily sootvetstvuiut
+longdesc trebovaniiam MGTU im. N. E. Baumanai GOST 7.32-2017.
+longdesc Raschetno-poiasnitel'nye zapiski k vypusknym kvalifikatsionnym
+longdesc rabotam uspeshno prokhodiat proverku TestVKR (sborka 203).
+containersize 135560
+containerchecksum 38587c3ef1eaabfb6ad0148ee3442d6f2a5e5402b46b5ae4957efe983bf24afde2a7f45cc422a1504c3548538c46cc08c9e346875d09700ed366747855537e6c
+doccontainersize 1289628
+doccontainerchecksum a07bfade77db170c2bff6292895f18f98253a57fd3ac75f1d867747c2ee91fd47e680759b0ccbfc3e5d56fb831d7def6261156de9044106ea390b5d020ea8e84
+docfiles size=327
+ texmf-dist/doc/latex/bmstu/README.md details="Readme"
+ texmf-dist/doc/latex/bmstu/examples/examples.pdf details="Example of use"
+ texmf-dist/doc/latex/bmstu/examples/examples.tex
+ texmf-dist/doc/latex/bmstu/examples/inc/img/tux.png
+ texmf-dist/doc/latex/bmstu/examples/inc/img/tuz.png
+ texmf-dist/doc/latex/bmstu/examples/inc/lst/main.c
+runfiles size=42
+ texmf-dist/tex/latex/bmstu/bmstu.cls
+ texmf-dist/tex/latex/bmstu/img/bmstu-logo.pdf
+ texmf-dist/tex/latex/bmstu/sty/bmstu-appendix.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-biblio.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-defabbr.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-essay.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-figure.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-listing.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-title.sty
+ texmf-dist/tex/latex/bmstu/sty/bmstu-toc.sty
+catalogue-also bmstu-iu8
+catalogue-contact-bugs https://github.com/Orianti/bmstu-latex-class/issues
+catalogue-contact-repository https://github.com/Orianti/bmstu-latex-class
+catalogue-ctan /macros/latex/contrib/bmstu
+catalogue-license lppl1.3 other-free
+catalogue-topics report-like notes std-conform class russian
+catalogue-version 1.0.0

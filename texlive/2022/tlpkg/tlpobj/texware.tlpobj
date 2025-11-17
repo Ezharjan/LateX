@@ -1,0 +1,26 @@
+name texware
+category TLCore
+revision 62387
+shortdesc Utility programs for use with TeX
+longdesc Basic utitility programs, comprising: dvitype, which converts a
+longdesc TeX output (DVI) file to a plain text file (see also the DVI
+longdesc Text Language suite); pooltype, which converts a TeX-suite
+longdesc program's "pool" (string) file into human-readable form; and
+longdesc tftopl and pltotf, which convert TeX Font Metric (TFM) file to
+longdesc human readable Property List (PL) files and vice versa.
+depend texware.ARCH
+containersize 636
+containerchecksum fd6b433f0774441ad8cda525f45a7ec18076b69f9c666c6b4ab13190f9140b288a2d4b838dbb8065e260d77fd2220f10b37f349805ad266a4b6b5c3041f5f5b7
+doccontainersize 35816
+doccontainerchecksum 1699ff3feb1b0023938ccbe77856311efc40ab90d7288fe611a040e76c04f5ac38ba4cf75ca9e0d3638a017287e6abe4971a1ec450f6b74d90aea0b59909c4a8
+docfiles size=13
+ texmf-dist/doc/man/man1/dvitype.1
+ texmf-dist/doc/man/man1/dvitype.man1.pdf
+ texmf-dist/doc/man/man1/pooltype.1
+ texmf-dist/doc/man/man1/pooltype.man1.pdf
+catalogue-contact-bugs https://lists.tug.org/tex-k
+catalogue-contact-repository https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-ctan /systems/knuth/dist/texware
+catalogue-license pd
+catalogue-topics debug-supp

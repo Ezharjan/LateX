@@ -1,0 +1,28 @@
+name pfdicons
+category Package
+revision 60089
+shortdesc Draw process flow diagrams in chemical engineering
+longdesc This package provides TikZ shapes to represent commonly
+longdesc encountered unit operations for depiction in process flow
+longdesc diagrams (PFDs) and, to a lesser extent, process and
+longdesc instrumentation diagrams (PIDs). The package was designed with
+longdesc undergraduate chemical engineering students and faculty in
+longdesc mind, and the number of units provided should cover--in
+longdesc Turton's estimate--about 90 percent of all fluid processing
+longdesc operations.
+containersize 9108
+containerchecksum cd09de584483a1493648e9f842b743c43d7712b35f9d315ab34871a964b6ea7e8bcb0ff4b8d4399f5ce7d5ebadf41c94e8b88772b15155d4c21e17e4c62ecd2d
+doccontainersize 955616
+doccontainerchecksum cb9f0ae2a1b7a3c8cbb12f859c9cd9d33e447652ceacec2642e45c7db7a96ec6cfb9bf63ac8f711c1661557308ebc3c6c04604412d09cf16d232e23c805e395c
+docfiles size=294
+ texmf-dist/doc/latex/pfdicons/README.txt details="Readme"
+ texmf-dist/doc/latex/pfdicons/pfdicons-changelog.pdf
+ texmf-dist/doc/latex/pfdicons/pfdicons-changelog.tex
+ texmf-dist/doc/latex/pfdicons/pfdicons-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/pfdicons/pfdicons-doc.tex
+runfiles size=16
+ texmf-dist/tex/latex/pfdicons/pfdicons.sty
+catalogue-ctan /graphics/pgf/contrib/pfdicons
+catalogue-license lppl1.3c
+catalogue-topics graphics pgf-tikz chemistry engineering
+catalogue-version 1.0a

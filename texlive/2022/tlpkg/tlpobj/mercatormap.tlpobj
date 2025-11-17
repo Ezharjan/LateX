@@ -1,0 +1,44 @@
+name mercatormap
+category Package
+revision 56060
+shortdesc Spherical Mercator coordinate systems and Web Mercator tile integration
+longdesc This package extends TikZ with tools to create map graphics.
+longdesc The provided coordinate system relies on the Web Mercator
+longdesc projection used on the Web by OpenStreetMap and others. The
+longdesc package supports the seamless integration of graphics from
+longdesc public map tile servers by a Python script. Also, common map
+longdesc elements like markers, geodetic networks, bar scales, routes,
+longdesc orthodrome pieces, and more are part of the package.
+containersize 19180
+containerchecksum 552c0fcb0eb72d55c51a2e9e4d055cefa27859d8e1a4410934fbbe6c139b4ddbad7e2444974acf4035fb29cc4bc8c3f76d33ef6c6e73e91e57e4225c102afd9f
+doccontainersize 24311052
+doccontainerchecksum 446be6f13150ba3490890b528fe04c8a8080213aa6a5b66fe61e3e58ea4fc0bd03581aa96b0ec355c5ec725187b7b681507f961a9b29350cf07bc19bd2c0fdf1
+docfiles size=6125
+ texmf-dist/doc/latex/mercatormap/README details="Readme"
+ texmf-dist/doc/latex/mercatormap/mercatormap-example.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.bib
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.abstract.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.definition.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.drawing.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.examples.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.intro.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.limitations.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.maptiles.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.marker.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.orthodromes.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.routes.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.scales.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.sty
+ texmf-dist/doc/latex/mercatormap/mercatormap.doc.versionhistory.tex
+ texmf-dist/doc/latex/mercatormap/mercatormap.pdf details="Package documentation"
+ texmf-dist/doc/latex/mercatormap/mercatormap.tex
+runfiles size=30
+ texmf-dist/tex/latex/mercatormap/mercatormap.sty
+ texmf-dist/tex/latex/mercatormap/mercatorpy.def
+ texmf-dist/tex/latex/mercatormap/mercatorsupplier.def
+catalogue-contact-bugs https://github.com/T-F-S/mercatormap/issues
+catalogue-contact-home https://github.com/T-F-S/mercatormap
+catalogue-ctan /macros/latex/contrib/mercatormap
+catalogue-license lppl1.3
+catalogue-topics cartography pgf-tikz graphics expl3
+catalogue-version 1.02

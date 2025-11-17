@@ -1,0 +1,26 @@
+name circledsteps
+category Package
+revision 63255
+shortdesc Typeset circled numbers
+longdesc This package generates circled numbers (or other kinds of
+longdesc markers or small text) to mark "steps" in procedures,
+longdesc exercises, and so on.
+containersize 1924
+containerchecksum 9d6d03eefcf50ccb8f88d5782f00d5201efdcf844c947f45ea92a41d196de70b7917013b061b6eaa9d0322cd44e826b3987576c7483176b7aa956cff2a55a611
+doccontainersize 429072
+doccontainerchecksum ca3ff6fd272068aae1935a56f63e32886dd879816114b51835ae4c44db35d97bf048e5808fcf3c6c3206f700736835ceefe7883434a91318d434591d701a4aeb
+docfiles size=115
+ texmf-dist/doc/latex/circledsteps/README.md details="Readme"
+ texmf-dist/doc/latex/circledsteps/circledsteps-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/circledsteps/circledsteps-manual.tex
+ texmf-dist/doc/latex/circledsteps/ctikzexample.tex
+ texmf-dist/doc/latex/circledsteps/lppl-1-3c_license.txt
+runfiles size=2
+ texmf-dist/tex/latex/circledsteps/circledsteps.sty
+catalogue-also circledtext
+catalogue-contact-home https://github.com/Rmano/circledsteps
+catalogue-contact-support https://github.com/Rmano/circledsteps/issues
+catalogue-ctan /macros/latex/contrib/circledsteps
+catalogue-license lppl1.3c
+catalogue-topics numbers
+catalogue-version 1.3.1

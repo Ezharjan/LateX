@@ -1,0 +1,33 @@
+name hep-math
+category Package
+revision 61170
+shortdesc Extended math macros
+longdesc The hep-math package provides some additional features beyond
+longdesc the mathtools and amsmath packages. To use the package place
+longdesc \usepackage{hep-math} in the preamble
+containersize 3164
+containerchecksum a5a4455dec4d7b5e1b1cab322bd3aa5168bd828854eed7715bfe02c491b83059f9f77e09bf72913244d44294c800b6c544a86d789eb11b14f3e20116259dc4fd
+doccontainersize 582332
+doccontainerchecksum af05b99b6adc395ca61db1364aa12a8e2a8ed0ac4a09abf80e5574a25a04b715a006531b6efce23bd0888698b7fde2323e58e9ebf499d7ee270a2701eaab4524
+docfiles size=191
+ texmf-dist/doc/latex/hep-math/README-hep-math.md
+ texmf-dist/doc/latex/hep-math/README.md details="Readme"
+ texmf-dist/doc/latex/hep-math/bibliography.bib
+ texmf-dist/doc/latex/hep-math/hep-math-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-math/hep-math-documentation.tex
+ texmf-dist/doc/latex/hep-math/hep-math-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-math/hep-math-test.tex
+ texmf-dist/doc/latex/hep-math/license.md
+srccontainersize 8452
+srccontainerchecksum 57262758b617224a06a4ebc305a16c7f6c8a6d99c625162be2ed9ff5d5fb0231defc0c47a8dad734ecf229be634d4136d2501bc04701d497bbcc125c043f7e1c
+srcfiles size=9
+ texmf-dist/source/latex/hep-math/hep-math-implementation.dtx
+ texmf-dist/source/latex/hep-math/hep-math.ins
+runfiles size=3
+ texmf-dist/tex/latex/hep-math/hep-math.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/hep-math
+catalogue-license lppl1.3c
+catalogue-topics maths
+catalogue-version 1.0

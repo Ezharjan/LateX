@@ -1,0 +1,28 @@
+name datetime2-usorbian
+category Package
+revision 52375
+shortdesc Upper Sorbian language module for the datetime2 package
+longdesc This module provides the "usorbian" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. This package is
+longdesc currently unmaintained. Please see the README for the procedure
+longdesc to follow if you want to take over the maintenance.
+containersize 2760
+containerchecksum bae799fc523f01f7c70c7818ced0294bbb57a849567e05768c4f1c3f9cbe241755ac2dbda0a9ce0e3bb3f70eec45bae1c0607410302b458370a4c05951d791cf
+doccontainersize 76044
+doccontainerchecksum bacc067e851e4b58b2978472551cf869cc9d3d4412ba930b2ab81f39c4fa9ca352188b6a6bffc5b5dc4a6bcf611146b3d1344d221732a7caaf45f95bb67d5589
+docfiles size=20
+ texmf-dist/doc/latex/datetime2-usorbian/README details="Readme"
+ texmf-dist/doc/latex/datetime2-usorbian/datetime2-usorbian.pdf details="Package documentation"
+srccontainersize 5048
+srccontainerchecksum dcc7b42ec9873ef0d23026d07165301deda63b829462ab7f4074ae7c828945bc5cff2e2dba372782e250175b596b1be536dd27271e4b2f0913f42fb1a17ff320
+srcfiles size=6
+ texmf-dist/source/latex/datetime2-usorbian/datetime2-usorbian.dtx
+ texmf-dist/source/latex/datetime2-usorbian/datetime2-usorbian.ins
+runfiles size=4
+ texmf-dist/tex/latex/datetime2-usorbian/datetime2-usorbian-ascii.ldf
+ texmf-dist/tex/latex/datetime2-usorbian/datetime2-usorbian-utf8.ldf
+ texmf-dist/tex/latex/datetime2-usorbian/datetime2-usorbian.ldf
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-usorbian
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.1

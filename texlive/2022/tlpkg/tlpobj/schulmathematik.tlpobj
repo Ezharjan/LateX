@@ -1,0 +1,30 @@
+name schulmathematik
+category Package
+revision 64108
+shortdesc Commands and document classes for German-speaking teachers of mathematics and physics
+longdesc The schulmathematik bundle provides two LaTeX packages and six
+longdesc document classes for German-speaking teachers of mathematics
+longdesc and physics.
+containersize 11840
+containerchecksum be532723f39a637b3f78163e849f8eb481a2137f1c11536efca63ab3b4aa9d3a723395805b6881965ea2e5e0e7e40fd4731325149a900074409919b8d11d41fa
+doccontainersize 209440
+doccontainerchecksum f5088c8623ed263d017d4dd6432abbf8a271d58b096b8bc205a69b6ce44e03d2714bd53df74cd1f1406bba55d2d1d28f96e702dd15def17678575fc0a44e0bf4
+docfiles size=65
+ texmf-dist/doc/latex/schulmathematik/README details="Readme"
+ texmf-dist/doc/latex/schulmathematik/schulmathematik.pdf details="Package documentation"
+ texmf-dist/doc/latex/schulmathematik/schulmathematik.tex
+runfiles size=19
+ texmf-dist/tex/latex/schulmathematik/schulma-ab.cls
+ texmf-dist/tex/latex/schulmathematik/schulma-gutachten.cls
+ texmf-dist/tex/latex/schulmathematik/schulma-klausur.cls
+ texmf-dist/tex/latex/schulmathematik/schulma-komp.cls
+ texmf-dist/tex/latex/schulmathematik/schulma-mdlprf.cls
+ texmf-dist/tex/latex/schulmathematik/schulma-physik.sty
+ texmf-dist/tex/latex/schulmathematik/schulma-praes.cls
+ texmf-dist/tex/latex/schulmathematik/schulma.sty
+catalogue-contact-bugs https://codeberg.org/wehr/schulmathematik/issues
+catalogue-contact-repository https://codeberg.org/wehr/schulmathematik
+catalogue-ctan /macros/latex/contrib/schulmathematik
+catalogue-license lppl1.3
+catalogue-topics maths physics teaching
+catalogue-version 1.3

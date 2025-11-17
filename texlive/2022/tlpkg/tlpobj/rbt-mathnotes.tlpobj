@@ -1,0 +1,35 @@
+name rbt-mathnotes
+category Package
+revision 61193
+shortdesc Rebecca Turner's personal macros and styles for typesetting mathematics notes
+longdesc Styles for typesetting mathematics notes. Includes document
+longdesc classes for typesetting homework assignments and "formula cheat
+longdesc sheets" for exams. Several examples are included, along with
+longdesc rendered PDFs.
+containersize 12292
+containerchecksum 15e5b0c52a70b406cb6de6ff55740206dafb75c8cc20dd45820059dcdb112c03ea0df0884b6caa12db0f792b97e0507f90d06644a8f78cd7569f9489a896b3cc
+doccontainersize 215032
+doccontainerchecksum effd703a23c4eee3ecb385cf8ca891c50e373fdb91834f45f7ba414d6e69b5fbef8a1833db4cf76e27dc316b734b714926078e4d92de08122dc79948ba928f77
+docfiles size=71
+ texmf-dist/doc/latex/rbt-mathnotes/LICENSE.txt
+ texmf-dist/doc/latex/rbt-mathnotes/README.md details="Readme"
+ texmf-dist/doc/latex/rbt-mathnotes/examples/cheat-sheet.pdf
+ texmf-dist/doc/latex/rbt-mathnotes/examples/cheat-sheet.tex
+ texmf-dist/doc/latex/rbt-mathnotes/examples/multivar.pdf
+ texmf-dist/doc/latex/rbt-mathnotes/examples/multivar.tex
+ texmf-dist/doc/latex/rbt-mathnotes/examples/topology-hw-1.pdf
+ texmf-dist/doc/latex/rbt-mathnotes/examples/topology-hw-1.tex
+ texmf-dist/doc/latex/rbt-mathnotes/rbt-mathnotes.pdf details="Package documentation"
+ texmf-dist/doc/latex/rbt-mathnotes/rbt-mathnotes.tex
+runfiles size=17
+ texmf-dist/tex/latex/rbt-mathnotes/rbt-mathnotes-formula-sheet.cls
+ texmf-dist/tex/latex/rbt-mathnotes/rbt-mathnotes-hw.cls
+ texmf-dist/tex/latex/rbt-mathnotes/rbt-mathnotes-messages.sty
+ texmf-dist/tex/latex/rbt-mathnotes/rbt-mathnotes-util.sty
+ texmf-dist/tex/latex/rbt-mathnotes/rbt-mathnotes.cls
+ texmf-dist/tex/latex/rbt-mathnotes/rbt-mathnotes.sty
+catalogue-contact-repository https://github.com/9999years/latex-mathnotes/
+catalogue-ctan /macros/latex/contrib/rbt-mathnotes
+catalogue-license lppl1.3c
+catalogue-topics class maths expl3 misc-paper
+catalogue-version 1.0.2

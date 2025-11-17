@@ -1,0 +1,27 @@
+name regexpatch
+category Package
+revision 58668
+shortdesc High level patching of commands
+longdesc The package generalises the macro patching commands provided by
+longdesc P. Lehmann's etoolbox. The difference between this package and
+longdesc its sibling xpatch is that this package sports a very powerful
+longdesc \regexpatchcmd based on the l3regex module of the LaTeX3
+longdesc experimental packages.
+containersize 3680
+containerchecksum 80b3be47155c8cd654d1b3ff7a1e261da826d97237b15733e6f63f6e3e9f1e40fb8f1cfbff48b38c4ca3acabdd3209147664aa8aa408b4601751f58d596c0f38
+doccontainersize 532336
+doccontainerchecksum 7cb6eaa1ba3e7ffcb80001b2380171204059907fa5345c3c684eb84861340f70590a8b5f1f3fb30a84516ccb2d49b3245a6a697b328157f7ed09bf9caa80982d
+docfiles size=132
+ texmf-dist/doc/latex/regexpatch/README details="Readme"
+ texmf-dist/doc/latex/regexpatch/regexpatch.pdf details="Package documentation"
+srccontainersize 12568
+srccontainerchecksum bbe6ee9178c3f7d3272fd585f50f0ab66a86d38bbc65ba40a7deb8e22c6d300299c8f4203d3849b5f3c068f2194bc2ef0206ed0c0e5ebb3b235d8a83cd367d08
+srcfiles size=16
+ texmf-dist/source/latex/regexpatch/regexpatch.dtx
+ texmf-dist/source/latex/regexpatch/regexpatch.ins
+runfiles size=7
+ texmf-dist/tex/latex/regexpatch/regexpatch.sty
+catalogue-ctan /macros/latex/contrib/regexpatch
+catalogue-license lppl1.3c
+catalogue-topics macro-supp
+catalogue-version 0.2f

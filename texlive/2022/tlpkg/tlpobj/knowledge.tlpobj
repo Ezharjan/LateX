@@ -1,0 +1,32 @@
+name knowledge
+category Package
+revision 61991
+shortdesc Displaying, hyperlinking, and indexing notions in a document
+longdesc The package offers a systematic way to handle
+longdesc notions/concepts/terms throughout a document. It helps building
+longdesc an index. In combination with hyperref it makes it easy to have
+longdesc every reference of a concept linked to its introduction. It
+longdesc also offers simple notations.
+containersize 22776
+containerchecksum dac315840aaabc1efb96d52d96e1ee789f61c65964c0343fc35d340694a3f13f7cf9e0ab101bbead9f3d25ef9e3ea2723916864abdd192a89c319a0370b566a5
+doccontainersize 812816
+doccontainerchecksum 0f95f35d60513fb181efa2d5d9579efa000838647b167521b364305774be164731c4c09ba4fa739ed3749cd5c43b19b59cd417f8237bbca2f930bc4b22ba0c68
+docfiles size=238
+ texmf-dist/doc/latex/knowledge/README.md details="Readme"
+ texmf-dist/doc/latex/knowledge/knowledge-example.tex
+ texmf-dist/doc/latex/knowledge/knowledge.pdf details="Package documentation"
+ texmf-dist/doc/latex/knowledge/knowledge.tex
+ texmf-dist/doc/latex/knowledge/makefile
+srccontainersize 42572
+srccontainerchecksum 5843dfc2fec15d5cd0a57eeb5aec12bfefa2914bdb8f4ebe2522e6576fcbea73f5663b437ff2654f8ddd7d6f8ef92ecc8aa96c59bf7d76ac58029fee85e1bb8d
+srcfiles size=57
+ texmf-dist/source/latex/knowledge/knowledge-code.dtx
+ texmf-dist/source/latex/knowledge/knowledge-configuration.dtx
+ texmf-dist/source/latex/knowledge/knowledge-utils.dtx
+ texmf-dist/source/latex/knowledge/knowledge.ins
+runfiles size=35
+ texmf-dist/tex/latex/knowledge/knowledge.sty
+catalogue-ctan /macros/latex/contrib/knowledge
+catalogue-license lppl1.2
+catalogue-topics index label-ref expl3
+catalogue-version 1.28

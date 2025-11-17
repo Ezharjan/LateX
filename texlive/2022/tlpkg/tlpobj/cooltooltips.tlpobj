@@ -1,0 +1,28 @@
+name cooltooltips
+category Package
+revision 60201
+shortdesc Associate a pop-up window and tooltip with PDF hyperlinks
+longdesc The cooltooltips package enables a document to contain
+longdesc hyperlinks that pop up a brief tooltip when the mouse moves
+longdesc over them and also open a small window containing additional
+longdesc text. cooltooltips provides the mechanism used by the Visual
+longdesc LaTeX FAQ to indicate the question that each hyperlink answers.
+containersize 2456
+containerchecksum fde90a48c95ee35a7b9c9dfc1359df09646cd9f5cf1a44a7eba7ffd9aaf98c2bee400dd7ee6796583bea5a874c2693d25d3e502cdd4c3a207949f46ba7525505
+doccontainersize 224384
+doccontainerchecksum 0b9d55f41afb738f1503e232e06809cc2354775c6793c1f5f3f3c65d4aa349294b5e9ad4d223f588dbda0b0f53091cbee4855804273a8d8f21a6689760a556e0
+docfiles size=59
+ texmf-dist/doc/latex/cooltooltips/README details="Readme"
+ texmf-dist/doc/latex/cooltooltips/cooltooltips.pdf details="Package documentation"
+ texmf-dist/doc/latex/cooltooltips/example.png
+srccontainersize 9712
+srccontainerchecksum 584d4880126bbca5343a4a8df85ca348d397dfb5cd5fe8a62d61224f9c95c5a0aed20f8c522d65ed68c6435506613fd0decc35acd848bedf2bf89de6842a7f27
+srcfiles size=9
+ texmf-dist/source/latex/cooltooltips/cooltooltips.dtx
+ texmf-dist/source/latex/cooltooltips/cooltooltips.ins
+runfiles size=2
+ texmf-dist/tex/latex/cooltooltips/cooltooltips.sty
+catalogue-ctan /macros/latex/contrib/cooltooltips
+catalogue-license lppl
+catalogue-topics pdf-feat
+catalogue-version 1.1

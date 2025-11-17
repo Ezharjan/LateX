@@ -1,0 +1,29 @@
+name lua-visual-debug
+category Package
+revision 57349
+shortdesc Visual debugging with LuaLaTeX
+longdesc The package uses lua code to provide visible indications of
+longdesc boxes, glues, kerns and penalties in the PDF output. The
+longdesc package is known to work in LaTeX and Plain TeX documents.
+containersize 3476
+containerchecksum f98f686ab3d03e48e377ebec624297f858be03097ed66b6448e82869942ce87f8d1699e4dffa9fc3294a3a8a79a2f547efe0e006eb132ba77eabb714e31d8b40
+doccontainersize 289376
+doccontainerchecksum dc1deb6a514397c745001c5635d5205f03b44cefb43d6618f83a2314453928141ed9591b5ad8539db96998901981f20ffc80f89b4b7d5532abf736cb9ae0bdb3
+docfiles size=102
+ texmf-dist/doc/luatex/lua-visual-debug/README.md details="Readme"
+ texmf-dist/doc/luatex/lua-visual-debug/lvdebug-doc.pdf details="Package documentation"
+ texmf-dist/doc/luatex/lua-visual-debug/lvdebug-doc.tex
+ texmf-dist/doc/luatex/lua-visual-debug/lvdebugdetail1-num.png
+ texmf-dist/doc/luatex/lua-visual-debug/sample-plain.pdf
+ texmf-dist/doc/luatex/lua-visual-debug/sample-plain.tex
+ texmf-dist/doc/luatex/lua-visual-debug/sample.pdf details="Sample output"
+ texmf-dist/doc/luatex/lua-visual-debug/sample.tex
+ texmf-dist/doc/luatex/lua-visual-debug/strut.png
+runfiles size=3
+ texmf-dist/tex/luatex/lua-visual-debug/lua-visual-debug.lua
+ texmf-dist/tex/luatex/lua-visual-debug/lua-visual-debug.sty
+catalogue-contact-repository https://github.com/pgundlach/lvdebug
+catalogue-ctan /macros/luatex/generic/lua-visual-debug
+catalogue-license mit
+catalogue-topics debug-supp luatex macro-gen
+catalogue-version 0.8

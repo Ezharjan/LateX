@@ -1,0 +1,44 @@
+name lexend
+category Package
+revision 57564
+shortdesc The Lexend fonts for XeLaTeX and LuaLaTeX through fontspec
+longdesc The purpose of this package is pretty straightforward: The
+longdesc Lexend font collection has been designed by Dr. Bonnie
+longdesc Shaver-Troup and Thomas Jockin to make reading easier for
+longdesc everyone. Now my goal is to bring this wonderful collection to
+longdesc the world of LaTeX.
+containersize 186932
+containerchecksum 6a9e4ab844e5189e996b73ee95d5ea5bda0d5d9f7b00a707d5bf9b7ceb97eb2f37baef9310252227701d6fc280a14a8a79ff524b5cdee3610c4dc48968f6b3b5
+doccontainersize 143084
+doccontainerchecksum fa21e0311899513ca5f7031471189ce0269fcb35b5bb38d2e3d2e8015dab11ab2a10cc086ba6d41f24c25d99b32f91750371e3297c505ef4a522d61aaa24e5bd
+docfiles size=43
+ texmf-dist/doc/fonts/lexend/LICENSE
+ texmf-dist/doc/fonts/lexend/README.md details="Readme"
+ texmf-dist/doc/fonts/lexend/lexend.pdf details="Package documentation"
+ texmf-dist/doc/fonts/lexend/lexend.tex
+runfiles size=251
+ texmf-dist/fonts/truetype/public/lexend/LexendDeca-Regular.ttf
+ texmf-dist/fonts/truetype/public/lexend/LexendExa-Regular.ttf
+ texmf-dist/fonts/truetype/public/lexend/LexendGiga-Regular.ttf
+ texmf-dist/fonts/truetype/public/lexend/LexendMega-Regular.ttf
+ texmf-dist/fonts/truetype/public/lexend/LexendPeta-Regular.ttf
+ texmf-dist/fonts/truetype/public/lexend/LexendTera-Regular.ttf
+ texmf-dist/fonts/truetype/public/lexend/LexendZetta-Regular.ttf
+ texmf-dist/tex/latex/lexend/LexendDeca.fontspec
+ texmf-dist/tex/latex/lexend/LexendExa.fontspec
+ texmf-dist/tex/latex/lexend/LexendGiga.fontspec
+ texmf-dist/tex/latex/lexend/LexendMega.fontspec
+ texmf-dist/tex/latex/lexend/LexendPeta.fontspec
+ texmf-dist/tex/latex/lexend/LexendTera.fontspec
+ texmf-dist/tex/latex/lexend/LexendZetta.fontspec
+ texmf-dist/tex/latex/lexend/lexend.sty
+catalogue-contact-announce https://github.com/BrainStone/latex-lexend/blob/master/CHANGELOG.md
+catalogue-contact-bugs https://github.com/BrainStone/latex-lexend/issues
+catalogue-contact-development https://github.com/BrainStone/latex-lexend#developing
+catalogue-contact-home https://github.com/BrainStone/latex-lexend
+catalogue-contact-repository https://github.com/BrainStone/latex-lexend
+catalogue-contact-support https://discord.me/bungeechat
+catalogue-ctan /fonts/lexend
+catalogue-license lppl1.3c ofl
+catalogue-topics font font-collection font-body font-sans font-proportional font-ttf font-supp
+catalogue-version 1.1.0.70

@@ -1,0 +1,73 @@
+name bfh-ci
+category Package
+revision 62951
+shortdesc Corporate Design for Bern University of Applied Sciences
+longdesc This bundle provides possibilities to use the Corporate Design
+longdesc of Bern University of Applied Sciences (BFH) with LaTeX. To
+longdesc this end it contains classes as well as some helper packages
+longdesc and config files together with some demo files.
+containersize 25608
+containerchecksum 7a42b62d032acf6854fbdd7d911057345a1d2884c025fb6033f35f96b7df29ef146389f8f4687574c6afd5b033f97c1948b052760c71eceb221f36e9f551d784
+doccontainersize 235248
+doccontainerchecksum 3f3bf9803355f387c7c0cffcfe4b9b2123dc1e6afc86f3ed90900253186541b0dc4f1eb103297fbd546d4b3d40edf8e8987830173bdb673fbfb54b698d8e95b6
+docfiles size=117
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHBeamer-Sidebar.pdf details="Example presentation (2)"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHBeamer-Sidebar.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHBeamer.pdf details="Example presentation (1)"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHBeamer.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHFactsheet.pdf details="Example fact sheet"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHFactsheet.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHFromaddress.lco
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHLetter.pdf details="Example letter"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHLetter.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHProjektProposal.pdf details="Example project proposal"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHProjektProposal.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHPub.pdf details="Package documentation"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHPub.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHSciPoster.pdf details="Example scientific poster"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHSciPoster.tex
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHThesis.pdf details="Example thesis"
+ texmf-dist/doc/latex/bfh-ci/DEMO-BFHThesis.tex
+ texmf-dist/doc/latex/bfh-ci/README.md details="Readme"
+runfiles size=54
+ texmf-dist/tex/latex/bfh-ci/beamercolorthemeBFH.sty
+ texmf-dist/tex/latex/bfh-ci/beamerfontthemeBFH.sty
+ texmf-dist/tex/latex/bfh-ci/beamerinnerthemeBFH.sty
+ texmf-dist/tex/latex/bfh-ci/beamerouterthemeBFH-sidebar.sty
+ texmf-dist/tex/latex/bfh-ci/beamerouterthemeBFH.sty
+ texmf-dist/tex/latex/bfh-ci/beamerthemeBFH.sty
+ texmf-dist/tex/latex/bfh-ci/bfh-a0paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-a1paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-a2paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-a3paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-a4paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-a5paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-a6paper.clo
+ texmf-dist/tex/latex/bfh-ci/bfh-beamerarticle.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-factsheet.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-layout-boxes.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-layout-listings.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-layout-rules.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-layout-tabular.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-layout-terminal.cfg
+ texmf-dist/tex/latex/bfh-ci/bfh-projectproposal.cfg
+ texmf-dist/tex/latex/bfh-ci/bfhbeamer.cls
+ texmf-dist/tex/latex/bfh-ci/bfhcolors.sty
+ texmf-dist/tex/latex/bfh-ci/bfhfonts.sty
+ texmf-dist/tex/latex/bfh-ci/bfhlayout.sty
+ texmf-dist/tex/latex/bfh-ci/bfhletter.sty
+ texmf-dist/tex/latex/bfh-ci/bfhlettersize9.5pt.clo
+ texmf-dist/tex/latex/bfh-ci/bfhmodule.sty
+ texmf-dist/tex/latex/bfh-ci/bfhpub.cls
+ texmf-dist/tex/latex/bfh-ci/bfhsciposter.cls
+ texmf-dist/tex/latex/bfh-ci/bfhthesis.cls
+ texmf-dist/tex/latex/bfh-ci/bfhtranslations-english.trsl
+ texmf-dist/tex/latex/bfh-ci/bfhtranslations-french.trsl
+ texmf-dist/tex/latex/bfh-ci/bfhtranslations-german.trsl
+catalogue-contact-bugs https://gitlab.ti.bfh.ch/bfh-latex/bfh-ci/-/issues
+catalogue-contact-home https://latex.ti.bfh.ch/
+catalogue-contact-repository https://gitlab.ti.bfh.ch/bfh-latex/bfh-ci/
+catalogue-ctan /macros/latex/contrib/bfh-ci
+catalogue-license lppl1.3c
+catalogue-topics class doc-templ letter dissertation presentation poster std-conform
+catalogue-version 2.1.3

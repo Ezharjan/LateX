@@ -1,0 +1,30 @@
+name biblatex-cv
+category Package
+revision 59433
+shortdesc Create a CV from BibTeX files
+longdesc This package creates an academic curriculum vitae (CV) from a
+longdesc BibTeX .bib file. The package makes use of BibLaTeX/biber to
+longdesc automatically format, group, and sort the entries on a CV.
+containersize 10060
+containerchecksum d034400abf6c0342a37e6e5de09d5eed252e80cfb93b4707f6e879edf6e190180046d28830fe382a6240d6000bcfb9277a66bf2e21b92ce9fe9deff0596f1c03
+doccontainersize 167160
+doccontainerchecksum 23093f0e8f472eac5db45026266c17b3337d478af6dc1776515417a2539ad671a67dba4ebee9f83407ee4c126cef5a6245106916188093ced89a52c44afba339
+docfiles size=52
+ texmf-dist/doc/latex/biblatex-cv/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-cv/biblatex-cv.bib
+ texmf-dist/doc/latex/biblatex-cv/biblatex-cv.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-cv/biblatex-cv.tex
+ texmf-dist/doc/latex/biblatex-cv/cv.pdf
+ texmf-dist/doc/latex/biblatex-cv/cv.tex
+runfiles size=17
+ texmf-dist/tex/latex/biblatex-cv/american-cv.lbx
+ texmf-dist/tex/latex/biblatex-cv/biblatex-cv.bbx
+ texmf-dist/tex/latex/biblatex-cv/biblatex-cv.cbx
+ texmf-dist/tex/latex/biblatex-cv/biblatex-cv.dbx
+ texmf-dist/tex/latex/biblatex-cv/biblatex-cv.sty
+catalogue-contact-bugs https://github.com/danielshub/biblatex-cv/issues
+catalogue-contact-home https://github.com/danielshub/biblatex-cv
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-cv
+catalogue-license lppl1.3
+catalogue-topics biblatex cv
+catalogue-version 0.01

@@ -1,0 +1,29 @@
+name isodoc
+category Package
+revision 59709
+shortdesc A LaTeX class for typesetting letters and invoices
+longdesc The isodoc class can be used for the preparation of letters and
+longdesc invoices (and, in the future, similar documents). Documents are
+longdesc set up with options, thus making the class easily adaptable to
+longdesc user's wishes and extensible for other document types. The
+longdesc class is based on the NTG brief class by Victor Eijkhout, which
+longdesc implements the NEN1026 standard.
+containersize 9320
+containerchecksum 5bdd4158aa30923d2f06513dd2f1a729077eef05f8f6e068c1e376f931558b9ad786eea871396ca3d16778692f010bc39f25da3993c74776bd746ed5355fc0e4
+doccontainersize 776800
+doccontainerchecksum ebf8ac1221592472837590973700603e0cef6b459dae92cc28ba751f5c3c0c49a686b4224c83502b09cec26ba306e44fc00f19b0f9e9c83b26f582a9923f76dd
+docfiles size=200
+ texmf-dist/doc/latex/isodoc/README.md details="Readme"
+ texmf-dist/doc/latex/isodoc/isodoc.pdf details="Package documentation"
+srccontainersize 472020
+srccontainerchecksum 9240f497398b77b6633f5be4040d13053abe51d64189e6678beccc1110f9e97b24422105bb3a552ade1f33c1af3ca2f8941b5c86548fbf7885a799fa69345b90
+srcfiles size=176
+ texmf-dist/source/latex/isodoc/Makefile
+ texmf-dist/source/latex/isodoc/isodoc.dtx
+ texmf-dist/source/latex/isodoc/isodoc.ins
+runfiles size=11
+ texmf-dist/tex/latex/isodoc/isodoc.cls
+catalogue-ctan /macros/latex/contrib/isodoc
+catalogue-license lppl1.3c
+catalogue-topics letter invoice class
+catalogue-version 1.14

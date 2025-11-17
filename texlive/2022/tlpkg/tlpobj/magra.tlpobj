@@ -1,0 +1,58 @@
+name magra
+category Package
+revision 57373
+shortdesc The Magra font face with support for LaTeX and pdfLaTeX
+longdesc This package provides the Magra family of fonts designed by
+longdesc FontFuror, with support for LaTeX and pdfLaTeX.
+execute addMap Magra.map
+containersize 179260
+containerchecksum 2b182272dcf5bf3469ccc38daf9ad24081002d118de77d2dd012b136152f2147a63c6c8fad5ffe2f758efbfbf7665ae0c61ef6281cf16112b740da95d2334b63
+doccontainersize 38364
+doccontainerchecksum 8364aaf47ee07d7462dcb13bb370c88c47556e23491233e580dee165528b417bf3dd139f0cdb3db6c565c0ffbac40ea2fb995a0dd2981dd227d1a70561f2f619
+docfiles size=13
+ texmf-dist/doc/fonts/magra/LICENSE.TXT
+ texmf-dist/doc/fonts/magra/Magra-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/magra/Magra-samples.tex
+ texmf-dist/doc/fonts/magra/README details="Readme"
+runfiles size=72
+ texmf-dist/fonts/enc/dvips/magra/a_dip3eq.enc
+ texmf-dist/fonts/enc/dvips/magra/a_jqnft2.enc
+ texmf-dist/fonts/enc/dvips/magra/a_radyzq.enc
+ texmf-dist/fonts/enc/dvips/magra/a_va7yvq.enc
+ texmf-dist/fonts/map/dvips/magra/Magra.map
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-Bold-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/magra/Magra-tlf-ts1.tfm
+ texmf-dist/fonts/type1/public/magra/Magra-Bold.pfb
+ texmf-dist/fonts/type1/public/magra/Magra.pfb
+ texmf-dist/fonts/vf/public/magra/Magra-Bold-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/magra/Magra-Bold-tlf-t1.vf
+ texmf-dist/fonts/vf/public/magra/Magra-Bold-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/magra/Magra-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/magra/Magra-tlf-t1.vf
+ texmf-dist/fonts/vf/public/magra/Magra-tlf-ts1.vf
+ texmf-dist/tex/latex/magra/LY1Magra-TLF.fd
+ texmf-dist/tex/latex/magra/Magra.sty
+ texmf-dist/tex/latex/magra/OT1Magra-TLF.fd
+ texmf-dist/tex/latex/magra/T1Magra-TLF.fd
+ texmf-dist/tex/latex/magra/TS1Magra-TLF.fd
+catalogue-contact-bugs https://github.com/ccebinger/CTAN_Magra
+catalogue-contact-development https://github.com/ccebinger/CTAN_Magra
+catalogue-contact-home https://github.com/ccebinger/CTAN_Magra
+catalogue-contact-repository https://github.com/ccebinger/CTAN_Magra
+catalogue-contact-support https://github.com/ccebinger/CTAN_Magra
+catalogue-ctan /fonts/magra
+catalogue-license ofl lppl
+catalogue-topics font font-body font-sans font-proportional font-type1 font-supp font-t1enc
+catalogue-version 0.0.1

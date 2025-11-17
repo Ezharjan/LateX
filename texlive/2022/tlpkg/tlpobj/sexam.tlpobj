@@ -1,0 +1,40 @@
+name sexam
+category Package
+revision 46628
+shortdesc Package for typesetting arabic exam scripts
+longdesc The package provides a modified version of the exam package
+longdesc made compatible with XeLaTeX/polyglossia to typesetting arabic
+longdesc exams.
+containersize 2480
+containerchecksum 60fc18bf706b787b9bc59d1ff12e62fc3b69f5c6815a629f6743c8ff3fbbb2948c145278805888b235756beac5dde5613c10fe4ce20bb6536b4a3d77a2713569
+doccontainersize 992712
+doccontainerchecksum 0d2d5e2e5214622ea6b398c0b0f7a297a3f247ef3df0ed696c6faed94527b2edb6564c917d182177f8f3b44d7cd0e14ef4ac186c89113ad74e3ea70475ce1179
+docfiles size=359
+ texmf-dist/doc/xelatex/sexam/01.JPG
+ texmf-dist/doc/xelatex/sexam/10.png
+ texmf-dist/doc/xelatex/sexam/11.png
+ texmf-dist/doc/xelatex/sexam/2.JPG
+ texmf-dist/doc/xelatex/sexam/3.JPG
+ texmf-dist/doc/xelatex/sexam/4.JPG
+ texmf-dist/doc/xelatex/sexam/6.JPG
+ texmf-dist/doc/xelatex/sexam/7.JPG
+ texmf-dist/doc/xelatex/sexam/8.JPG
+ texmf-dist/doc/xelatex/sexam/9.JPG
+ texmf-dist/doc/xelatex/sexam/README.txt details="Readme"
+ texmf-dist/doc/xelatex/sexam/bac_template-DZ.pdf
+ texmf-dist/doc/xelatex/sexam/bac_template-DZ.tex
+ texmf-dist/doc/xelatex/sexam/exam_with_sexam_ar-DZ.pdf
+ texmf-dist/doc/xelatex/sexam/exam_with_sexam_ar-DZ.tex
+ texmf-dist/doc/xelatex/sexam/exam_with_wexam_ar-DZ.pdf
+ texmf-dist/doc/xelatex/sexam/exam_with_wexam_ar-DZ.tex
+ texmf-dist/doc/xelatex/sexam/sexam_wexam_doc_ar.pdf details="Package documentation" language="ar-dz"
+ texmf-dist/doc/xelatex/sexam/sexam_wexam_doc_ar.tex
+runfiles size=3
+ texmf-dist/tex/xelatex/sexam/bacex.sty
+ texmf-dist/tex/xelatex/sexam/sexam.sty
+ texmf-dist/tex/xelatex/sexam/wexam.sty
+catalogue-also exam
+catalogue-ctan /macros/xetex/latex/sexam
+catalogue-license lppl1.3
+catalogue-topics exam arabic class
+catalogue-version 1

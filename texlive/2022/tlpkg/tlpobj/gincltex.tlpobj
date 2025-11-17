@@ -1,0 +1,33 @@
+name gincltex
+category Package
+revision 56291
+shortdesc Include TeX files as graphics (.tex support for \includegraphics)
+longdesc The package builds on the standard LaTeX packages graphics
+longdesc and/or graphicx and allows external LaTeX source files to be
+longdesc included, in the same way as graphic files, by
+longdesc \includegraphics. In effect, then package adds support for the
+longdesc .tex extension. Some of the lower level operations like
+longdesc clipping and trimming are implemented using the adjustbox
+longdesc package which includes native pdfLaTeX support and uses the pgf
+longdesc package for other output formats.
+containersize 1908
+containerchecksum 465fa04e22924d68b3e92dbb0c8dc5f8f159ae88881127055d94e21a46ad8b8e65b08ee4cc872919188db8255c8ea095c32c5539997007873fcff16503029c16
+doccontainersize 168440
+doccontainerchecksum e44368814c57ae40fff7976c70cb160e43e608051ab2d5c46363cd82ea08c3c12a33fb6b2ddcf7f74816c5ca60284c6880c9d7340aa8a8afea77ef4d9cee689e
+docfiles size=43
+ texmf-dist/doc/latex/gincltex/README details="Readme"
+ texmf-dist/doc/latex/gincltex/gincltex.pdf details="Package documentation"
+srccontainersize 5132
+srccontainerchecksum 9c9eda687dfd61585ddfa1a8680353cd863a1138c3fe0f1cd86f99fb34fc3c5b2ecb8a3e3278e6799ab0a5447e1d59a925d31bea5fa34913c1abd04af18823c8
+srcfiles size=5
+ texmf-dist/source/latex/gincltex/gincltex.dtx
+ texmf-dist/source/latex/gincltex/gincltex.ins
+runfiles size=1
+ texmf-dist/tex/latex/gincltex/gincltex.sty
+catalogue-contact-bugs https://sourceforge.net/p/gincltex/tickets/
+catalogue-contact-home https://sourceforge.net/p/gincltex/
+catalogue-contact-repository https://sourceforge.net/p/gincltex/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/gincltex
+catalogue-license lppl1.3
+catalogue-topics graphics listing
+catalogue-version 0.3

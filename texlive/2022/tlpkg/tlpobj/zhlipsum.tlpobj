@@ -1,0 +1,34 @@
+name zhlipsum
+category Package
+revision 54994
+shortdesc Chinese dummy text
+longdesc This package provides an interface to dummy text in Chinese
+longdesc language, which will be useful for testing Chinese documents.
+longdesc UTF-8, GBK and Big5 encodings are supported.
+containersize 200740
+containerchecksum d62f2a16f2303db7846073b215b3e8f822b7470510eb84367b1ba177c971e587adcea92757a3a4f5612abf103bd11cc8f2ae3ab953833365fb2255ee87563cb8
+doccontainersize 410120
+doccontainerchecksum dcd0d706d9e402ad1b4eab910294ac4e802a58c2e54a3ee19b6dcef9fc3e052b84b559f452bb32b78d27a99e65a0820d2029e53079ce21068618f5c620f9502f
+docfiles size=105
+ texmf-dist/doc/latex/zhlipsum/README.md details="Readme"
+ texmf-dist/doc/latex/zhlipsum/zhlipsum-en.pdf details="Package documentation" language="en"
+ texmf-dist/doc/latex/zhlipsum/zhlipsum-en.tex
+ texmf-dist/doc/latex/zhlipsum/zhlipsum.pdf details="Package documentation" language="zh"
+srccontainersize 96892
+srccontainerchecksum 92054c4839953e84a15abc6ca280ca2d755d5854b284c30521f17e54528bd4c369e9298e596606c877ecc74533fa81d8a8d544c2819f14d48157ee996a26a922
+srcfiles size=70
+ texmf-dist/source/latex/zhlipsum/zhlipsum-text.dtx
+ texmf-dist/source/latex/zhlipsum/zhlipsum.dtx
+ texmf-dist/source/latex/zhlipsum/zhlipsum.ins
+runfiles size=111
+ texmf-dist/tex/latex/zhlipsum/zhlipsum-big5.def
+ texmf-dist/tex/latex/zhlipsum/zhlipsum-gbk.def
+ texmf-dist/tex/latex/zhlipsum/zhlipsum-utf8.def
+ texmf-dist/tex/latex/zhlipsum/zhlipsum.sty
+catalogue-also lipsum
+catalogue-contact-bugs https://github.com/CTeX-org/zhlipsum/issues
+catalogue-contact-repository https://github.com/CTeX-org/zhlipsum
+catalogue-ctan /macros/latex/contrib/zhlipsum
+catalogue-license lppl1.3c
+catalogue-topics dummy-gen chinese latex3 macro-supp
+catalogue-version 1.2.0

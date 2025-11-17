@@ -1,0 +1,27 @@
+name sanitize-umlaut
+category Package
+revision 63770
+shortdesc Sanitize umlauts for MakeIndex and pdfLaTeX
+longdesc This package sanitizes umlauts to be used directly in index
+longdesc entries for MakeIndex and friends with pdfLaTeX. This means
+longdesc that inside \index an umlaut can be used as "U or as U. In both
+longdesc cases, the letter is written as "U into the raw index file for
+longdesc correct processing with MakeIndex and pdfLaTeX.
+containersize 1684
+containerchecksum 7521037e7dc35836b347e3e2387cefdc8acca4504dd9fd24c1efa9857039dd2314cdef0c2281506bc2d4e03dde4e994bec938851be0e9ebc9231990965199010
+doccontainersize 385128
+doccontainerchecksum a3a559be38b04dba0f9478ebf1cc7c437f457368ed4dedf16bc42038c95053cdac9d1dd0061c1eb30e8c88235d348ea9edf375aef30088e45635323e835c3e55
+docfiles size=119
+ texmf-dist/doc/latex/sanitize-umlaut/CHANGES.md
+ texmf-dist/doc/latex/sanitize-umlaut/README.md details="Readme"
+ texmf-dist/doc/latex/sanitize-umlaut/german.ist
+ texmf-dist/doc/latex/sanitize-umlaut/sanitize-umlaut.doc.sty
+ texmf-dist/doc/latex/sanitize-umlaut/sanitize-umlaut.pdf details="Package documentation"
+ texmf-dist/doc/latex/sanitize-umlaut/sanitize-umlaut.tex
+runfiles size=2
+ texmf-dist/tex/latex/sanitize-umlaut/sanitize-umlaut.sty
+catalogue-contact-repository https://github.com/T-F-S/sanitize-umlaut
+catalogue-ctan /macros/latex/contrib/sanitize-umlaut
+catalogue-license lppl1.3
+catalogue-topics utf8-adapt enc-juggle index-proc
+catalogue-version 1.2.1

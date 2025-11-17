@@ -1,0 +1,36 @@
+name pst-mirror
+category Package
+revision 60506
+shortdesc Images on a spherical mirror
+longdesc The package provides commands and supporting PostScript
+longdesc material for drawing images as if reflected by a spherical
+longdesc mirror.
+containersize 12192
+containerchecksum 316a6cd32fb2b8c59f554a49695ad097627e641982d1a6a8b1e5db12949c2cc84dd150a190834604d57ca10735779cb09983c28e7339e92f3cb82d642dc9b61b
+doccontainersize 6784012
+doccontainerchecksum f577868d1cf76a372a3c248f6dde28ed423beaa5e445a6a343d9b5e4c2ab9f737e4266c12702fcbf6dda91a6639624ff99b4cba29d65ebd4c7a0c3f3ce1323b3
+docfiles size=1778
+ texmf-dist/doc/generic/pst-mirror/Changes
+ texmf-dist/doc/generic/pst-mirror/README details="Readme"
+ texmf-dist/doc/generic/pst-mirror/createEPS/make.sh
+ texmf-dist/doc/generic/pst-mirror/createEPS/make2.sh
+ texmf-dist/doc/generic/pst-mirror/createEPS/script.readme
+ texmf-dist/doc/generic/pst-mirror/createEPS/scripts/filtre.pl
+ texmf-dist/doc/generic/pst-mirror/createEPS/test.pdf
+ texmf-dist/doc/generic/pst-mirror/createEPS/test.sh
+ texmf-dist/doc/generic/pst-mirror/createEPS/test.tex
+ texmf-dist/doc/generic/pst-mirror/createEPS/xa.eps
+ texmf-dist/doc/generic/pst-mirror/createEPS/xa.tex
+ texmf-dist/doc/generic/pst-mirror/createEPS/xb.eps
+ texmf-dist/doc/generic/pst-mirror/createEPS/xc.eps
+ texmf-dist/doc/generic/pst-mirror/pst-mirror-doc.bib
+ texmf-dist/doc/generic/pst-mirror/pst-mirror-doc.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/generic/pst-mirror/pst-mirror-doc.tex
+runfiles size=21
+ texmf-dist/dvips/pst-mirror/pst-mirror.pro
+ texmf-dist/tex/generic/pst-mirror/pst-mirror.tex
+ texmf-dist/tex/latex/pst-mirror/pst-mirror.sty
+catalogue-ctan /graphics/pstricks/contrib/pst-mirror
+catalogue-license lppl
+catalogue-topics graphics-use pstricks
+catalogue-version 1.02

@@ -1,0 +1,58 @@
+name kotex-utf
+category Package
+revision 63690
+shortdesc Typeset Hangul, coded in UTF-8
+longdesc The package typesets Hangul, which is the native alphabet of
+longdesc the Korean language; input Korean text should be encoded in
+longdesc UTF-8. The bundle (of class and associated packages) belongs to
+longdesc the ko.TeX bundle.
+depend cjk-ko
+containersize 21076
+containerchecksum be75556f3857a405d235f920866f8089f105a57f9accff07a541fe110bb8124e049ebe75368ce3282bcd329cc6a02eed0ccffdfad49020986d61221839cae4b5
+doccontainersize 9496848
+doccontainerchecksum 7226874594b10ee48e8aea30a72e6d6f4db9f770d5d5830dc83a41f828bfe36b0b11f679aff02722e457150548860f1ad719758e6ffd239bbf9ac18d907acded
+docfiles size=2814
+ texmf-dist/doc/latex/kotex-utf/ChangeLog
+ texmf-dist/doc/latex/kotex-utf/README details="Readme"
+ texmf-dist/doc/latex/kotex-utf/fig/allowbreak-dhucs.pdf
+ texmf-dist/doc/latex/kotex-utf/fig/fntexp.pdf
+ texmf-dist/doc/latex/kotex-utf/fig/fntnormal.pdf
+ texmf-dist/doc/latex/kotex-utf/fig/histkotex.jpg
+ texmf-dist/doc/latex/kotex-utf/fig/linebreaktest.pdf
+ texmf-dist/doc/latex/kotex-utf/fig/testdhucsallowbreak.pdf
+ texmf-dist/doc/latex/kotex-utf/fig/yettext.pdf
+ texmf-dist/doc/latex/kotex-utf/kotex-doc.pdf
+ texmf-dist/doc/latex/kotex-utf/kotex-doc.tex
+ texmf-dist/doc/latex/kotex-utf/kotex-utf-doc.pdf details="Package documentation (Korean)" language="ko"
+ texmf-dist/doc/latex/kotex-utf/kotex-utf-doc.tex
+ texmf-dist/doc/latex/kotex-utf/sample-finemath-setup.tex
+runfiles size=39
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-cmap.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-enumerate.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-enumitem.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-gremph.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-interword.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-paralist.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-sectsty.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-setspace.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-trivcj.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucs-ucshyper.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/dhucsfn.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/kotex-logo.sty
+ texmf-dist/tex/latex/kotex-utf/contrib/kotex-varioref.sty
+ texmf-dist/tex/latex/kotex-utf/dhucs-nanumfont.sty
+ texmf-dist/tex/latex/kotex-utf/dhucs.sty
+ texmf-dist/tex/latex/kotex-utf/hfontspec.default
+ texmf-dist/tex/latex/kotex-utf/kosections-utf.sty
+ texmf-dist/tex/latex/kotex-utf/kotex-sections.sty
+ texmf-dist/tex/latex/kotex-utf/kotex.cfg
+ texmf-dist/tex/latex/kotex-utf/kotexutf.sty
+ texmf-dist/tex/latex/kotex-utf/lucenc.dfu
+ texmf-dist/tex/latex/kotex-utf/lucuhcmj.fd
+ texmf-dist/tex/latex/kotex-utf/tex4ht/dhucs.4ht
+ texmf-dist/tex/latex/kotex-utf/tex4ht/dhucs.cfg
+ texmf-dist/tex/latex/kotex-utf/tex4ht/kosections-utf.4ht
+catalogue-ctan /language/korean/kotex-utf
+catalogue-license lppl1.3c
+catalogue-topics korean
+catalogue-version 3.0.0

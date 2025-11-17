@@ -1,0 +1,28 @@
+name musical
+category Package
+revision 54758
+shortdesc Typeset (musical) theatre scripts
+longdesc This package is designed to simplify the development and
+longdesc distribution of scripts for theatrical musicals, especially
+longdesc ones under development. The output is formatted to follow
+longdesc generally accepted script style[1] while also maintaining a
+longdesc high level of typographic integrity, and includes commands for
+longdesc dialog, lyrics, stage directions, music and dance cues,
+longdesc rehearsal marks, and more. It gracefully handles dialog that
+longdesc crosses page breaks, and can generate lists of songs and lists
+longdesc of dances in the show. [1] There are lots of references for the
+longdesc One True Way to format a script. Naturally, none of them agree.
+containersize 5632
+containerchecksum 4bb8bd0781cd49950f2a80ed9527de1b0e49ef6eefea5787d1d13efa3893d57b48a9b69ddf0f62bd2695a61d9b785cfa1dfad2217f8cd97929e1dfefac9333c6
+doccontainersize 80296
+doccontainerchecksum c06f45815ff65fa7c492575731bf1aec0e774cf5a81907d1e381ac8ab366c167ada688b8c8fc82293c96980c5361a688eda666b130c1ac3f39976d49bf78f60c
+docfiles size=24
+ texmf-dist/doc/latex/musical/README.md details="Readme"
+ texmf-dist/doc/latex/musical/musical.pdf details="Package documentation"
+ texmf-dist/doc/latex/musical/musical.tex
+runfiles size=4
+ texmf-dist/tex/latex/musical/musical.sty
+catalogue-ctan /macros/latex/contrib/musical
+catalogue-license lppl1.3
+catalogue-topics drama-script music
+catalogue-version 3.1

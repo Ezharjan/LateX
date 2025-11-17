@@ -1,0 +1,92 @@
+name tablor
+category Package
+revision 31855
+shortdesc Create tables of signs and of variations
+longdesc The package allows the user to use the computer algebra system
+longdesc XCAS to generate tables of signs and of variations (the actual
+longdesc plotting of the tables uses the MetaPost macro package
+longdesc tableauVariations). Tables with forbidden regions may be
+longdesc developed using the package. A configuration file permits some
+longdesc configuration of the language to be used in the diagrams. The
+longdesc tablor package requires that shell escape be enabled.
+containersize 12620
+containerchecksum 64169a74a787f8877d41d5e32c42e5659950854a1e20cc05103b3ed58c54fb800a9af0701a40a6c5b75553b86d675fbda51948106cac464785c3d46aac77c979
+doccontainersize 449356
+doccontainerchecksum 77a6d1b47337f015dbfd39074e1dae417c3bea3c9635955c6518d691ff336854cdd7587af54640282b45f5bf3885044d3b6789a0a73f39a726aeaf0afd27c883
+docfiles size=293
+ texmf-dist/doc/latex/tablor/Figures/TSav-105.mp
+ texmf-dist/doc/latex/tablor/Figures/capture.eps
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.0
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.1
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.10
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.105
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.11
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.12
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.13
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.14
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.15
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.16
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.17
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.18
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.19
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.2
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.20
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.21
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.22
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.23
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.24
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.25
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.26
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.27
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.28
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.29
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.3
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.30
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.31
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.32
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.33
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.35
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.36
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.37
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.38
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.39
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.4
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.40
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.41
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.42
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.43
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.44
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.45
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.47
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.48
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.49
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.5
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.50
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.51
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.52
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.53
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.54
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.55
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.56
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.57
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.6
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.7
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.8
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.9
+ texmf-dist/doc/latex/tablor/Figures/tablor_Tab.mp
+ texmf-dist/doc/latex/tablor/README details="Readme (English)" language="en"
+ texmf-dist/doc/latex/tablor/README-fr.txt details="Readme (French)" language="fr"
+ texmf-dist/doc/latex/tablor/auto/tablor-xetex.el
+ texmf-dist/doc/latex/tablor/auto/tablor.el
+ texmf-dist/doc/latex/tablor/tablor.html
+ texmf-dist/doc/latex/tablor/tablor.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/tablor/tablor.tex
+runfiles size=48
+ texmf-dist/tex/latex/tablor/tablor-xetex.sty
+ texmf-dist/tex/latex/tablor/tablor.cfg
+ texmf-dist/tex/latex/tablor/tablor.sty
+catalogue-also tabvar tkz-tab tableaux tableauvariations
+catalogue-ctan /macros/latex/contrib/tablor
+catalogue-license lppl
+catalogue-topics maths-tabvar
+catalogue-version 4.07-g

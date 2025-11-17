@@ -1,0 +1,29 @@
+name uwa-letterhead
+category Package
+revision 64314
+shortdesc The letterhead of the University of Western Australia
+longdesc This package generates the letterhead of the University of
+longdesc Western Australia. It requires the UWA logo in PDF format,
+longdesc which is available in SVG format at
+longdesc https://static-listing.weboffice.uwa.edu.au/visualid/core-rebra
+longdesc nd/img/uwacrest/, and uses the Arial and UWA Slab fonts by
+longdesc default. The package works with XeLaTeX and LuaLaTeX.
+containersize 3348
+containerchecksum ca5dbcd29c89b07c09f1de308b19e5b28263bc5389e27771b8a39a8ff75de0bec36d87d625fb9489e1fb99fe7452d506f334933870a80ff2793e802ae4b812aa
+doccontainersize 57656
+doccontainerchecksum bd82391f17a5182ff4e9894fb8bea7e4713c955af105ef1e6bb35ca0d6a25cc1510111a810e4f34e3623eeab7a8b9b56c35ec3d3b663ce2b749574f34215b435
+docfiles size=17
+ texmf-dist/doc/latex/uwa-letterhead/README details="Readme"
+ texmf-dist/doc/latex/uwa-letterhead/uwa-letterhead-example.tex
+ texmf-dist/doc/latex/uwa-letterhead/uwa-letterhead.pdf details="Package documentation"
+srccontainersize 6568
+srccontainerchecksum ba1314b0d0bbb9e8e0b11a28d860bd9c27a0741c9e378ecf61b4b6fed3af58ec79df7cc80945a4fc39d891de4883eb3f900634874f7f0fd41f69ba7f61f15311
+srcfiles size=8
+ texmf-dist/source/latex/uwa-letterhead/uwa-letterhead.dtx
+ texmf-dist/source/latex/uwa-letterhead/uwa-letterhead.ins
+runfiles size=3
+ texmf-dist/tex/latex/uwa-letterhead/uwa-letterhead.sty
+catalogue-ctan /macros/unicodetex/latex/uwa-letterhead
+catalogue-license lppl1.3
+catalogue-topics letter page-hf std-conform
+catalogue-version 1.0.1

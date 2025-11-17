@@ -1,0 +1,31 @@
+name association-matrix
+category Package
+revision 61719
+shortdesc LaTeX support for creating association matrices
+longdesc This package allows the creation of association matrices in an
+longdesc clear and concise fashion, without having to deal with manually
+longdesc generating and modifying the tables while working. All you have
+longdesc to do is define the rows and the columns by their unique
+longdesc identifier, and then specify which cells should be marked as
+longdesc associated. Then, the \amxgenerate command generates a table
+longdesc that shows in the cells with a blip (*) where the association
+longdesc was added. The package depends on etoolbox, forloop, ifthen,
+longdesc textcomp, and xparse.
+containersize 3604
+containerchecksum da84a9048985e8987d8e528533ac3fa0b307d996e159843ce8a3b3754f697191b30264b21b58e0d3dd9ee6c1fe478d84e92996ed3186c10c6d944a33f21f7db0
+doccontainersize 251112
+doccontainerchecksum 19eec11c03b3ab612a14ed2e90e850b8d2961aac85c2400d988a3c478b847dc45c61d03654b5b567978fd69d9fd6a2bfd153bc9278f38c121476e9cd098e38cc
+docfiles size=71
+ texmf-dist/doc/latex/association-matrix/DEPENDS.txt
+ texmf-dist/doc/latex/association-matrix/LICENCE
+ texmf-dist/doc/latex/association-matrix/README.md details="Readme"
+ texmf-dist/doc/latex/association-matrix/association-matrix.pdf details="Package documentation"
+ texmf-dist/doc/latex/association-matrix/association-matrix.tex
+runfiles size=4
+ texmf-dist/tex/latex/association-matrix/association-matrix.sty
+catalogue-contact-bugs https://github.com/whisperity/association-matrix/issues
+catalogue-contact-repository https://github.com/whisperity/association-matrix
+catalogue-ctan /macros/latex/contrib/association-matrix
+catalogue-license lppl1.3c
+catalogue-topics table matrix expl3
+catalogue-version 1.0

@@ -1,0 +1,29 @@
+name proof-at-the-end
+category Package
+revision 64188
+shortdesc A package to move proofs to appendix
+longdesc This package aims to provide a way to easily move proofs to the
+longdesc appendix. You can (among other things) move proofs to different
+longdesc places/sections, create links from theorems to proofs, restate
+longdesc theorems, add comments in appendix...
+containersize 7328
+containerchecksum 0098bbd42c5dcd8f7e8d30f25682a17bf68845a7859752ba5b397020363914610691248809f27fa78db77d655d7719958f2d438c18913fba859f80e5b7525a2b
+doccontainersize 462080
+doccontainerchecksum 5b1ddf5826a0a1c092ad2a155384ede256ee38f52315c2490b9829104fa2fb51f0e4b5ceb7d9e9040dbebcd6c3b0b8cda9d166377c1627e540ebc91fa96e64a1
+docfiles size=126
+ texmf-dist/doc/latex/proof-at-the-end/README.md details="Readme"
+ texmf-dist/doc/latex/proof-at-the-end/proof-at-the-end.pdf details="Package documentation"
+ texmf-dist/doc/latex/proof-at-the-end/proof-at-the-end_demo.pdf details="Example of use"
+ texmf-dist/doc/latex/proof-at-the-end/proof-at-the-end_demo.tex
+srccontainersize 20852
+srccontainerchecksum c40a7912ea5352227557b9be51a06af4ff19f9239f146c23e96f4a9c134b58fa5274f90d8f726197cab40db523988bdf566181df78a3fff16ab17102e1e9636d
+srcfiles size=23
+ texmf-dist/source/latex/proof-at-the-end/proof-at-the-end.dtx
+ texmf-dist/source/latex/proof-at-the-end/proof-at-the-end.ins
+runfiles size=6
+ texmf-dist/tex/latex/proof-at-the-end/proof-at-the-end.sty
+catalogue-contact-bugs https://github.com/leo-colisson/proof-at-the-end/issues
+catalogue-contact-home https://github.com/leo-colisson/proof-at-the-end
+catalogue-ctan /macros/latex/contrib/proof-at-the-end
+catalogue-license lppl1.3
+catalogue-topics maths proof appendix

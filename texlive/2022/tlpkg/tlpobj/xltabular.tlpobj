@@ -1,0 +1,30 @@
+name xltabular
+category Package
+revision 56855
+shortdesc Longtable support with possible X-column specifier
+longdesc This package loads package ltablex, but keeps the current
+longdesc tabularx environment as is. The new environment xltabular is a
+longdesc combination of longtable and tabularx: Header/footer
+longdesc definitions, X-column specifier, and with possible pagebreaks.
+containersize 1824
+containerchecksum 6e49b4a2adc351394bf5ab5cc04d532c36196919a4de8be1ecdcc22c6f226a2d035987df9aa70144d701d9fdeae1dfa07280458a934e289a5d1b5976b2be3ce1
+doccontainersize 73560
+doccontainerchecksum daa1f1ee3092d545b3949afa781e40a576a8a3ab1c20e40237d83c14455fcece353dee03161ed1725d3f54c8963ba94c683ae0874a8668c8e5c27ad3b58f227b
+docfiles size=27
+ texmf-dist/doc/latex/xltabular/Changes
+ texmf-dist/doc/latex/xltabular/README.md details="Readme"
+ texmf-dist/doc/latex/xltabular/xltabular-doc.bib
+ texmf-dist/doc/latex/xltabular/xltabular-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/xltabular/xltabular-doc.tex
+ texmf-dist/doc/latex/xltabular/xltabular-example-hyp.tex
+ texmf-dist/doc/latex/xltabular/xltabular-example.inp
+ texmf-dist/doc/latex/xltabular/xltabular-example.tex
+runfiles size=1
+ texmf-dist/tex/latex/xltabular/xltabular.sty
+catalogue-also longtable tabularx ltablex
+catalogue-contact-bugs https://github.com/rolfn/xltabular/issues
+catalogue-contact-home https://github.com/rolfn/xltabular
+catalogue-ctan /macros/latex/contrib/xltabular
+catalogue-license lppl1.3
+catalogue-topics table table-long
+catalogue-version 0.2e

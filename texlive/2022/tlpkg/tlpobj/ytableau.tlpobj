@@ -1,0 +1,28 @@
+name ytableau
+category Package
+revision 59580
+shortdesc Many-featured Young tableaux and Young diagrams
+longdesc The package provides several functions for drawing Young
+longdesc tableaux and Young diagrams, extending the young and youngtab
+longdesc packages but providing lots more features. Skew and coloured
+longdesc tableaux are easy, and pgfkeys-enabled options are provided
+longdesc both at package load and configurably.
+containersize 3068
+containerchecksum 23bf33f11e295f5f36149bad2b801ecfee57b386dd952ea93b16e79f85c54e1edff741bb7d6dc7faa769062ff81277cf04ff06cb2fb92e9a7542b4dc93eebb0b
+doccontainersize 378896
+doccontainerchecksum b98b0da2e5e0eb964ede56a27067b7ba862b63dd1b0dc6771e432abb16e924fda5630d067c6bbb05fdf6a37aba07c61396d47612adcfcccd5886ff3fdd47b7a4
+docfiles size=97
+ texmf-dist/doc/latex/ytableau/README details="Readme"
+ texmf-dist/doc/latex/ytableau/ytableau.pdf details="Package documentation"
+srccontainersize 16032
+srccontainerchecksum 264f983cb28ddd4f2089b4d170603172cce27b463999e4806173106e384bd4c3be16ada6f0c2e3c176dc450c53c2e50e43f993c893880ccf5c9454b84a062ea8
+srcfiles size=15
+ texmf-dist/source/latex/ytableau/ytableau.dtx
+ texmf-dist/source/latex/ytableau/ytableau.ins
+runfiles size=3
+ texmf-dist/tex/latex/ytableau/ytableau.sty
+catalogue-also youngtab young
+catalogue-ctan /macros/latex/contrib/ytableau
+catalogue-license lppl1.2
+catalogue-topics maths
+catalogue-version 1.4

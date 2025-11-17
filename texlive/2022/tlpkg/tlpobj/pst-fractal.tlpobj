@@ -1,0 +1,28 @@
+name pst-fractal
+category Package
+revision 54376
+shortdesc Draw fractal sets using PSTricks
+longdesc The package uses PSTricks to draw the Julia and Mandelbrot
+longdesc sets, the Sierpinski triangle, Koch flake, and Apollonius
+longdesc Circle as well as fractal trees (which need not be balanced)
+longdesc with a variety of different parameters (including varying
+longdesc numbers of iterations). The package uses the pst-xkey package,
+longdesc part of the xkeyval distribution.
+containersize 10416
+containerchecksum 7c37dce7409f524dd67ee66a79af3d8caa6be5c184c5e6a3c0711810956f3d1623c0266e902af163e8bedf4d8109aff7266d6c6e351485abcd9e300dcf554799
+doccontainersize 21911456
+doccontainerchecksum e089a681d0fb6d8505fbeafc1c194d0cc4f81f250e4d53843f71dbe6fe62732bf18098b61ebf70d1ed890c57300b9d64d7b7a2b0fd0d3ba9b831579837308f0b
+docfiles size=7816
+ texmf-dist/doc/generic/pst-fractal/Changes
+ texmf-dist/doc/generic/pst-fractal/README details="Readme"
+ texmf-dist/doc/generic/pst-fractal/pst-fractal-doc.bib
+ texmf-dist/doc/generic/pst-fractal/pst-fractal-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/pst-fractal/pst-fractal-doc.tex
+runfiles size=13
+ texmf-dist/dvips/pst-fractal/pst-fractal.pro
+ texmf-dist/tex/generic/pst-fractal/pst-fractal.tex
+ texmf-dist/tex/latex/pst-fractal/pst-fractal.sty
+catalogue-ctan /graphics/pstricks/contrib/pst-fractal
+catalogue-license lppl
+catalogue-topics graphics-use pstricks
+catalogue-version 0.11a

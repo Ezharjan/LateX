@@ -1,0 +1,32 @@
+name fixdif
+category Package
+revision 64390
+shortdesc Macros for typesetting differential operators
+longdesc This package redefines the \d command in LaTeX and provides an
+longdesc interface to define new commands for differential operators. It
+longdesc is compatible with pdfTeX, XeTeX and LuaTeX, and can also be
+longdesc used with the unicode-math package.
+containersize 1796
+containerchecksum 3d90e7c484f0ca872a311a19018c281e9635455f00b1e861475023f035d27e82bf1c90f5ffd36cbf2d4e8f7336224fda374b52214ebd826a4af882c97a2afbbd
+doccontainersize 261188
+doccontainerchecksum 809796f1b27ead1b188ea6459d524e975a08d79537b51977f85f37ab98f2a5ebd07cad0d87abc5a43d25869e8127bcaaba6da5bd3a6fc7a1e2b8f7e42bec9bcd
+docfiles size=70
+ texmf-dist/doc/latex/fixdif/README.md details="Readme"
+ texmf-dist/doc/latex/fixdif/fixdif-zh-cn.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/fixdif/fixdif-zh-cn.tex
+ texmf-dist/doc/latex/fixdif/fixdif.pdf details="Package documentation (English)"
+srccontainersize 6988
+srccontainerchecksum 2670ef3aaf68f4c4fcebce35c08ebaaa5c94fc889ce4d8c3302a0ca7bb48b04de8e212e72313a845d42abaa4870a3c19038b155411ecfbe767203053587153ab
+srcfiles size=7
+ texmf-dist/source/latex/fixdif/fixdif.dtx
+ texmf-dist/source/latex/fixdif/fixdif.ins
+runfiles size=1
+ texmf-dist/tex/latex/fixdif/fixdif.sty
+catalogue-contact-bugs https://github.com/AlphaZTX/fixdif/issues
+catalogue-contact-development https://github.com/AlphaZTX
+catalogue-contact-repository https://github.com/AlphaZTX/fixdif
+catalogue-contact-support https://github.com/CTeX-org/forum
+catalogue-ctan /macros/latex/contrib/fixdif
+catalogue-license lppl1.3c
+catalogue-topics maths
+catalogue-version 1.4a

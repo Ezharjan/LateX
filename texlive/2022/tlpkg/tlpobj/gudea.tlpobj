@@ -1,0 +1,87 @@
+name gudea
+category Package
+revision 57359
+shortdesc The Gudea font face with support for LaTeX and pdfLaTeX
+longdesc This package provides the Gudea family of fonts designed by
+longdesc Agustina Mingote, with support for LaTeX and pdfLaTeX.
+execute addMap Gudea.map
+containersize 182776
+containerchecksum e32cd699f60de092f9bf04e0eae725555735478db9ae7bf0a01a8aa78ff303c5dedee7eefcfa94bc1d8012f4062160dcbcb25cd405debccf7eed20abec056cdd
+doccontainersize 49432
+doccontainerchecksum 633f6cace4db98c88e3a7ea1f68deeaf9b0fe980ace490807688b629b1e3b2b00a12717b66b641dd9949065e4f72f423f78788693ddfe2128752f8ac990fd43c
+docfiles size=16
+ texmf-dist/doc/fonts/gudea/Gudea-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/gudea/Gudea-samples.tex
+ texmf-dist/doc/fonts/gudea/LICENSE.TXT
+ texmf-dist/doc/fonts/gudea/README details="Readme"
+runfiles size=99
+ texmf-dist/fonts/enc/dvips/gudea/a_i65yxe.enc
+ texmf-dist/fonts/enc/dvips/gudea/a_lksl5v.enc
+ texmf-dist/fonts/enc/dvips/gudea/a_qnu4g5.enc
+ texmf-dist/fonts/enc/dvips/gudea/a_ys4752.enc
+ texmf-dist/fonts/map/dvips/gudea/Gudea.map
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Bold-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-Italic-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/gudea/Gudea-tlf-ts1.tfm
+ texmf-dist/fonts/type1/public/gudea/Gudea-Bold.pfb
+ texmf-dist/fonts/type1/public/gudea/Gudea-BoldLCDFJ.pfb
+ texmf-dist/fonts/type1/public/gudea/Gudea-Italic.pfb
+ texmf-dist/fonts/type1/public/gudea/Gudea-ItalicLCDFJ.pfb
+ texmf-dist/fonts/type1/public/gudea/Gudea.pfb
+ texmf-dist/fonts/type1/public/gudea/GudeaLCDFJ.pfb
+ texmf-dist/fonts/vf/public/gudea/Gudea-Bold-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Bold-tlf-ot1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Bold-tlf-t1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Bold-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Italic-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Italic-tlf-ot1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Italic-tlf-t1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-Italic-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-tlf-ot1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-tlf-t1.vf
+ texmf-dist/fonts/vf/public/gudea/Gudea-tlf-ts1.vf
+ texmf-dist/tex/latex/gudea/Gudea.sty
+ texmf-dist/tex/latex/gudea/LY1Gudea-TLF.fd
+ texmf-dist/tex/latex/gudea/OT1Gudea-TLF.fd
+ texmf-dist/tex/latex/gudea/T1Gudea-TLF.fd
+ texmf-dist/tex/latex/gudea/TS1Gudea-TLF.fd
+catalogue-contact-bugs https://github.com/ccebinger/CTAN_Gudea
+catalogue-contact-development https://github.com/ccebinger/CTAN_Gudea
+catalogue-contact-home https://github.com/ccebinger/CTAN_Gudea
+catalogue-contact-repository https://github.com/ccebinger/CTAN_Gudea
+catalogue-contact-support https://github.com/ccebinger/CTAN_Gudea
+catalogue-ctan /fonts/gudea
+catalogue-license ofl lppl
+catalogue-topics font font-body font-sans font-proportional font-type1 font-supp font-t1enc
+catalogue-version 0.0.1

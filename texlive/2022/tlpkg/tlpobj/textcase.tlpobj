@@ -1,0 +1,37 @@
+name textcase
+category Package
+revision 63868
+shortdesc Case conversion ignoring mathematics, etc
+longdesc The textcase package offers commands \MakeTextUppercase and
+longdesc \MakeTextLowercase which are similar to the standard
+longdesc \MakeUppercase and \MakeLowercase, but they do not change the
+longdesc case of any sections of mathematics, or the arguments of \cite,
+longdesc \label and \ref commands within the argument. A further command
+longdesc \NoCaseChange does nothing but suppress case change within its
+longdesc argument, so to force uppercase of a section including an
+longdesc environment, one might say:
+longdesc \MakeTextUppercase{...\NoCaseChange{\begin{foo}}
+longdesc ...\NoCaseChange{\end{foo}}...} In current LaTeX this package
+longdesc is obsolete. You can use the standard \MakeUppercase and
+longdesc \MakeLowercase, but it defines legacy names \MakeTextUppercase
+longdesc and \MakeTextLowercase.
+containersize 1624
+containerchecksum 0086fd3c6601f03d730f195915f1ac9902bb2e8555690395719da58643a6a2f9f5ca28d05f79941d8afccf517564301336e017341da6a9ceb19755db8e17db65
+doccontainersize 215640
+doccontainerchecksum e2a9c7cb58109336c889ee7f87a3926cc885453c0c0472f70ca5a303cb203dc46f5c1330fe90282b0f9f790b02ca139931a944cfd9016c65aa8c8075460b4a1b
+docfiles size=55
+ texmf-dist/doc/latex/textcase/README details="Readme"
+ texmf-dist/doc/latex/textcase/textcase.pdf details="Package documentation"
+srccontainersize 5124
+srccontainerchecksum e2f98025e4dab32916318403ff3e31f308bd2e867b94c011a70bbbb09d5728047018cfc146722c6b837949e3e878136f8d39d89fc515b692ab6560388540ea32
+srcfiles size=5
+ texmf-dist/source/latex/textcase/textcase.dtx
+ texmf-dist/source/latex/textcase/textcase.ins
+runfiles size=1
+ texmf-dist/tex/latex/textcase/textcase.sty
+catalogue-contact-bugs https://github.com/davidcarlisle/dpctex/issues
+catalogue-contact-repository https://github.com/davidcarlisle/dpctex
+catalogue-ctan /macros/latex/contrib/textcase
+catalogue-license lppl
+catalogue-topics macro-supp
+catalogue-version 1.03

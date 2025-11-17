@@ -1,0 +1,26 @@
+name embrac
+category Package
+revision 57814
+shortdesc Upright brackets in emphasised text
+longdesc The package redefines the commands \emph and \textit so that
+longdesc parentheses and square brackets are typeset in an upright font
+longdesc in their arguments. The package requires expl3 from the
+longdesc l3kernel bundle, and xparse and l3keys2e from the l3packages
+longdesc bundle.
+containersize 3880
+containerchecksum 930b42ef834a50dab0889598e1cdc531a610c9a5a8cffa31f7bea5f3c55d947db59453f71e061c8d055da53fb50fe20c17341e47c2fe5bb35a604ceac71922d9
+doccontainersize 464436
+doccontainerchecksum f56db972f586aab767cf7300a3fa34a62564a67ede77ab8f8b6fa03ecf07680692eb0023cd3ed99656235c5afe80b672a4b3e50ec8f0ef95c9744a48ee99c399
+docfiles size=119
+ texmf-dist/doc/latex/embrac/README details="Readme"
+ texmf-dist/doc/latex/embrac/embrac_en.pdf details="Package documentation"
+ texmf-dist/doc/latex/embrac/embrac_en.tex
+ texmf-dist/doc/latex/embrac/embrac_kerning_test.tex
+runfiles size=5
+ texmf-dist/tex/latex/embrac/embrac.sty
+catalogue-contact-bugs https://github.com/cgnieder/embrac/issues
+catalogue-contact-repository https://github.com/cgnieder/embrac/
+catalogue-ctan /macros/latex/contrib/embrac
+catalogue-license lppl1.3
+catalogue-topics typesetting paren-mgmt expl3
+catalogue-version 0.9a

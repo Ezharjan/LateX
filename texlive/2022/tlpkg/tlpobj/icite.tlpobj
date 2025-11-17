@@ -1,0 +1,38 @@
+name icite
+category Package
+revision 54512
+shortdesc Indices locorum citatorum
+longdesc The package is designed to produce from BibTeX or BibLaTeX
+longdesc bibliographical databases the different indices of authors and
+longdesc works cited which are called indices locorum citatorum. It
+longdesc relies on a specific \icite command and can operate with either
+longdesc BibTeX or BibLaTeX.
+containersize 2444
+containerchecksum cee4e7f2fd3a007c79966520058ae3db836fca0d9b03dc264d2889ac399bfc7db58e11f3d65de4eae8fa378a774908d36e789441fc244b54c86886fe568cd2d2
+doccontainersize 272248
+doccontainerchecksum 09c862c89133912f7ed714678b3e1d041e529f4c8123e0241e1d0f531bcdd3036f9307ec8a34cc1f25df8cb38b5a8b5213f4a486204b21e5481f65ca1949db33
+docfiles size=101
+ texmf-dist/doc/latex/icite/README.md details="Readme"
+ texmf-dist/doc/latex/icite/icite.pdf details="Package documentation"
+ texmf-dist/doc/latex/icite/samples/bibsample.bib
+ texmf-dist/doc/latex/icite/samples/icite-biblatex.pdf
+ texmf-dist/doc/latex/icite/samples/icite-biblatex.tex
+ texmf-dist/doc/latex/icite/samples/icite-minimal.pdf
+ texmf-dist/doc/latex/icite/samples/icite-minimal.tex
+ texmf-dist/doc/latex/icite/samples/icite-nobiblatex.pdf
+ texmf-dist/doc/latex/icite/samples/icite-nobiblatex.tex
+srccontainersize 13520
+srccontainerchecksum 068a63ac822952f6a14eb12362cb94f4f8ef3ed877ef7e40f55e0a234a1736c6fa60276ba80c793c15562889a1cf20caec6baf67daa5e20a3c46cee2c10f6474
+srcfiles size=14
+ texmf-dist/source/latex/icite/Makefile
+ texmf-dist/source/latex/icite/icite.dtx
+ texmf-dist/source/latex/icite/icite.ins
+runfiles size=2
+ texmf-dist/tex/latex/icite/icite.sty
+catalogue-contact-bugs https://gitlab.com/ralessi/icite/issues
+catalogue-contact-home http://www.robertalessi.net/icite
+catalogue-contact-repository http://git.robertalessi.net/icite
+catalogue-ctan /macros/latex/contrib/icite
+catalogue-license gpl3+ cc-by-sa-4
+catalogue-topics biblatex index bibtex-supp humanities cite-supp
+catalogue-version 1.3a

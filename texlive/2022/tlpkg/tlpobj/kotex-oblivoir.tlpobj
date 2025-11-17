@@ -1,0 +1,62 @@
+name kotex-oblivoir
+category Package
+revision 63005
+shortdesc A LaTeX document class for typesetting Korean documents
+longdesc The class is based on memoir, and is adapted to typesetting
+longdesc Korean documents. The bundle (of class and associated packages)
+longdesc belongs to the ko.TeX bundle. It depends on memoir and
+longdesc kotex-utf to function.
+depend kotex-utf
+depend memoir
+containersize 43476
+containerchecksum 2ae500f385671d0950274962eb1816f59f41a8c7d5a1fb8494071d1efa9e1af539cbafbce54890b2c9ea4ca6fd183957e551204bdd43ecd43b862dac17295597
+doccontainersize 539232
+doccontainerchecksum 092c248bb2c00006f2ab0ebf9b026c5b9b3621b3844c2bd24e946701f6dc2efbf059ad65d2da080c9b1b6a1062967c5c365085dd57dd775c13217973740fa9f0
+docfiles size=186
+ texmf-dist/doc/latex/kotex-oblivoir/ChangeLog
+ texmf-dist/doc/latex/kotex-oblivoir/README details="Readme"
+ texmf-dist/doc/latex/kotex-oblivoir/chapstyfig.pdf
+ texmf-dist/doc/latex/kotex-oblivoir/ob-mathleading-doc.pdf
+ texmf-dist/doc/latex/kotex-oblivoir/ob-mathleading-doc.tex
+ texmf-dist/doc/latex/kotex-oblivoir/obchaptertoc-doc.pdf
+ texmf-dist/doc/latex/kotex-oblivoir/obchaptertoc-doc.tex
+ texmf-dist/doc/latex/kotex-oblivoir/oblivoir-simpledoc.pdf details="Package documentation" language="ko"
+ texmf-dist/doc/latex/kotex-oblivoir/oblivoir-simpledoc.tex
+ texmf-dist/doc/latex/kotex-oblivoir/oblivoir-test.tex
+runfiles size=71
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/10_5.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/fapapersize.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/memhangul-common.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/memhangul-patch.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/memucs-enumerate.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/memucs-setspace.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/ob-koreanappendix.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/ob-nokoreanappendix.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/ob-toclof.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/obchaptertoc.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-common/oblivoir-misc.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-ucs/hfontsel.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-ucs/hfontspec.nanum
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-ucs/memhangul-ucs.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-ucs/memucs-gremph.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-ucs/memucs-interword.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-ucs/nanumfontsel.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/memhangul-x.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/memucs-interword-x.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/ob-mathleading.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/ob-unfontsdefault.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xetexko-var.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xob-amssymb.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xob-dotemph.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xob-font.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xob-hyper.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xob-lwarp.sty
+ texmf-dist/tex/latex/kotex-oblivoir/memhangul-x/xob-paralist.sty
+ texmf-dist/tex/latex/kotex-oblivoir/oblivoir-utf.cls
+ texmf-dist/tex/latex/kotex-oblivoir/oblivoir-xl.cls
+ texmf-dist/tex/latex/kotex-oblivoir/oblivoir.cls
+ texmf-dist/tex/latex/kotex-oblivoir/xoblivoir.cls
+catalogue-ctan /language/korean/kotex-oblivoir
+catalogue-license lppl1.3c
+catalogue-topics korean class
+catalogue-version 3.1.5

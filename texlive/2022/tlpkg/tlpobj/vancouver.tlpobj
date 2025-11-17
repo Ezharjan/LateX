@@ -1,0 +1,28 @@
+name vancouver
+category Package
+revision 59192
+shortdesc Bibliographic style file for Biomedical Journals
+longdesc This BibTeX style file is generated with the docstrip utility
+longdesc and modified manually to meet the Uniform Requirements for
+longdesc Manuscripts Submitted to Biomedical Journals as published in N
+longdesc Engl J Med 1997;336:309-315 (also known as the Vancouver
+longdesc style). The complete set of requirements may be viewed on the
+longdesc ICMJE web site.
+containersize 8708
+containerchecksum 9fd38e4545902a8f715e2912ce2046a679476f0a91ee76af74213b65689c4e2c01aa68ea8fdb09d93442097695443a2be0d6169dd50fc8ec63a7f9fe424ea739
+doccontainersize 137272
+doccontainerchecksum 4bb074a9ae48d6e565b1b60dfcdec4b6fe35e367639c3737e68e4cdeb9ed9017b17d57ebe895865b6b0f63bb7d66df5af08360d149aa5f2f7c604bf90faa9859
+docfiles size=45
+ texmf-dist/doc/bibtex/vancouver/FAQ
+ texmf-dist/doc/bibtex/vancouver/LICENSE
+ texmf-dist/doc/bibtex/vancouver/README details="Readme"
+ texmf-dist/doc/bibtex/vancouver/vancouver.bib
+ texmf-dist/doc/bibtex/vancouver/vancouver.pdf details="Package documentation"
+ texmf-dist/doc/bibtex/vancouver/vancouver.tex
+runfiles size=10
+ texmf-dist/bibtex/bst/vancouver/vancouver.bst
+catalogue-contact-repository https://gitlab.com/fvdbeek/vancouver.bst
+catalogue-ctan /biblio/bibtex/contrib/vancouver
+catalogue-license lppl1.3
+catalogue-topics biomedical journalpub bibtex-sty
+catalogue-version 1.0

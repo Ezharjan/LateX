@@ -1,0 +1,26 @@
+name linebreaker
+category Package
+revision 62663
+shortdesc Prevent overflow boxes with LuaLaTeX
+longdesc This package tries to prevent overflow lines in paragraphs or
+longdesc boxes. It changes LuaTeX's \linebreak callback and re-typesets
+longdesc the paragraph with increased values of \tolerance and
+longdesc \emergencystretch until the overflow no longer happens. If that
+longdesc doesn't help, it chooses the solution with the lowest badness.
+containersize 5672
+containerchecksum 5c23be73c54a74967ed9b78128f74d0fdd844d97c8df6fee9bdadee99b7003268f66810250cec9ddfcd959432af33f8b28a57ffcde123d6528f896dcb08d0f60
+doccontainersize 53324
+doccontainerchecksum 1378d9be7847d384a1397ae93f285b2f5f44c88393ffbe142725bec7d5dc2dfab96a37e96f6332ffc53be99527f4e208d4f85894a717bd19f414195f6af5c2dc
+docfiles size=16
+ texmf-dist/doc/lualatex/linebreaker/README.md details="Readme"
+ texmf-dist/doc/lualatex/linebreaker/linebreaker-doc.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/linebreaker/linebreaker-doc.tex
+runfiles size=5
+ texmf-dist/tex/lualatex/linebreaker/linebreaker.lua
+ texmf-dist/tex/lualatex/linebreaker/linebreaker.sty
+catalogue-contact-bugs https://github.com/michal-h21/linebreaker/issues
+catalogue-contact-repository https://github.com/michal-h21/linebreaker
+catalogue-ctan /macros/luatex/latex/linebreaker
+catalogue-license lppl1.3
+catalogue-topics luatex micro-layout expl3
+catalogue-version 0.1a

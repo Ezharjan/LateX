@@ -1,0 +1,32 @@
+name authordate
+category Package
+revision 52564
+shortdesc Author/date style citation styles
+longdesc Authordate produces styles loosely based on the recommendations
+longdesc of British Standard 1629(1976), Butcher's Copy-editing and the
+longdesc Chicago Manual of Style. The bundle provides four BibTeX styles
+longdesc (authordate1, ..., authordate4), and a LaTeX package, for
+longdesc citation in author/date style. The BibTeX styles differ in how
+longdesc they format names and titles; one of them is necessary for the
+longdesc LaTeX package to work.
+containersize 8276
+containerchecksum c67f75eb92a937755ef0a1ef0896ae3cc1c256008d864572503d3e9d3be1321d25be59e76d4d3ae443398612233a328b1d6e2da9c103f41b30eb088208701308
+doccontainersize 2508
+doccontainerchecksum 156fec304fa95388fdbb386153482016a4d78d4862943bcd6124466b12df920498d5b42446465fc0f70da6353f58c329a27a822efb5cca8f0c4d7fdcb3239a02
+docfiles size=7
+ texmf-dist/doc/bibtex/authordate/README details="Readme file"
+ texmf-dist/doc/bibtex/authordate/authordate1.ltx
+ texmf-dist/doc/bibtex/authordate/authordate2.ltx
+ texmf-dist/doc/bibtex/authordate/authordate3.ltx
+ texmf-dist/doc/bibtex/authordate/authordate4.ltx
+ texmf-dist/doc/bibtex/authordate/testadb.ltx
+runfiles size=33
+ texmf-dist/bibtex/bst/authordate/authordate1.bst
+ texmf-dist/bibtex/bst/authordate/authordate2.bst
+ texmf-dist/bibtex/bst/authordate/authordate3.bst
+ texmf-dist/bibtex/bst/authordate/authordate4.bst
+ texmf-dist/tex/latex/authordate/authordate1-4.sty
+catalogue-also natbib
+catalogue-ctan /biblio/bibtex/contrib/authordate
+catalogue-license knuth
+catalogue-topics bibtex-sty

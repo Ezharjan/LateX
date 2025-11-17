@@ -1,0 +1,34 @@
+name animate
+category Package
+revision 64401
+shortdesc Create PDF and SVG animations from graphics files and inline graphics
+longdesc The package provides an interface to create portable,
+longdesc JavaScript driven PDF and SVG animations from sets of graphics
+longdesc files or from inline graphics, such as LaTeX picture
+longdesc environment, PSTricks or pgf/TikZ generated pictures, or just
+longdesc from typeset text.
+containersize 23864
+containerchecksum 5e5d9cf1dc86374ef0f64c3b882d9d39c672dd1042ccc841c40889ac15d312d79433ef46cb45a367b9bc3ae5485bddbfaef9167475f973982d1419c6e49edd1f
+doccontainersize 3143336
+doccontainerchecksum f0c9e0b9bc3210347d75d1b3a05ee09ed014ad498f19eb9c71f9cd432b2a8c19aad6e811a4eefb766bf22587a955b86d139ef9aacbc5d27ea51ae001f2640e7c
+docfiles size=922
+ texmf-dist/doc/latex/animate/ChangeLog
+ texmf-dist/doc/latex/animate/README.txt
+ texmf-dist/doc/latex/animate/animate.pdf details="Package documentation"
+srccontainersize 30204
+srccontainerchecksum d401b85d3a90b37dc9950e9749bf10bf30b70b09826d0752893f8215962121713043caf9079572602560843ba4f2ea42af455d977578e2c17ab7fa6546976d72
+srcfiles size=36
+ texmf-dist/source/latex/animate/animate.tex
+ texmf-dist/source/latex/animate/files/bye_0.eps
+ texmf-dist/source/latex/animate/files/bye_1.eps
+ texmf-dist/source/latex/animate/files/bye_2.eps
+ texmf-dist/source/latex/animate/files/bye_3.eps
+ texmf-dist/source/latex/animate/files/click.mp3
+ texmf-dist/source/latex/animate/files/exp.mp
+ texmf-dist/source/latex/animate/files/scarab.mp
+runfiles size=34
+ texmf-dist/tex/latex/animate/animate.sty
+catalogue-contact-repository https://gitlab.com/agrahn/animate
+catalogue-ctan /macros/latex/contrib/animate
+catalogue-license lppl
+catalogue-topics graphics-motion

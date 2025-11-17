@@ -1,0 +1,57 @@
+name fontsetup
+category Package
+revision 62477
+shortdesc A front-end to fontspec, for selected fonts with math support
+longdesc This package facilitates the use of fontspec for users who do
+longdesc not wish to bother with details, with a special focus on
+longdesc quality fonts supporting Mathematics.
+containersize 7080
+containerchecksum b6b3819cc3a669d12c103c6563f534918651b639fb80b3ab8ee54a81f5b536813aa3091e7fe1ed628f776a2e37316feca50dd2055755f91e11004c8807631398
+doccontainersize 580640
+doccontainerchecksum 4dcf30a6d053fe4c57fce0db505de6adea2600bd0d8cb898e39cc8368af1abc85272bffdfd9079ab5bd745e22ba147655770c799914f1ff898feda4a8735572b
+docfiles size=275
+ texmf-dist/doc/latex/fontsetup/README details="Readme"
+ texmf-dist/doc/latex/fontsetup/fontsetup-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/fontsetup/fontsetup-doc.tex
+ texmf-dist/doc/latex/fontsetup/fspsample-cmr.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-concrete.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-ebgaramond.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-fira.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-gfsartemisia.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-gfsdidot.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-gfsdidotclassic.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-gfsneohellenic.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-kerkis.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-libertinus.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-neoeuler.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-newdefault.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-oldstandard.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-oldstandard.tex
+ texmf-dist/doc/latex/fontsetup/fspsample-stixtwo.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-talos.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-times.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample-xcharter.pdf
+ texmf-dist/doc/latex/fontsetup/fspsample.tex
+runfiles size=24
+ texmf-dist/tex/latex/fontsetup/fontsetup.sty
+ texmf-dist/tex/latex/fontsetup/fspconcrete.sty
+ texmf-dist/tex/latex/fontsetup/fspdefault.sty
+ texmf-dist/tex/latex/fontsetup/fspebgaramondot.sty
+ texmf-dist/tex/latex/fontsetup/fspfiraot.sty
+ texmf-dist/tex/latex/fontsetup/fspgfsartemisiaot.sty
+ texmf-dist/tex/latex/fontsetup/fspgfsdidotclassicot.sty
+ texmf-dist/tex/latex/fontsetup/fspgfsdidotot.sty
+ texmf-dist/tex/latex/fontsetup/fspgfsneohellenicot.sty
+ texmf-dist/tex/latex/fontsetup/fspkerkisot.sty
+ texmf-dist/tex/latex/fontsetup/fspneoeulerot.sty
+ texmf-dist/tex/latex/fontsetup/fspolddefault.sty
+ texmf-dist/tex/latex/fontsetup/fspoldstandard.sty
+ texmf-dist/tex/latex/fontsetup/fspstixtwoot.sty
+ texmf-dist/tex/latex/fontsetup/fsptalos.sty
+ texmf-dist/tex/latex/fontsetup/fsptimesot.sty
+ texmf-dist/tex/latex/fontsetup/fspxcharter.sty
+catalogue-also fontsetup-nonfree
+catalogue-ctan /macros/unicodetex/latex/fontsetup
+catalogue-license gpl3
+catalogue-topics font-sel font-supp xetex luatex maths
+catalogue-version 1.3

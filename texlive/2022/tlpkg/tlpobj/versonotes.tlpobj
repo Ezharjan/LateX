@@ -1,0 +1,32 @@
+name versonotes
+category Package
+revision 55777
+shortdesc Display brief notes on verso pages
+longdesc This package allows you to place notes on the verso pages of an
+longdesc otherwise single-sided document. If, in the run of text, you
+longdesc include a call to the macro \versonote{This is a remark}, then
+longdesc that text will be placed on the opposite (ie, 'verso') page,
+longdesc lined up with the macro call.
+containersize 2632
+containerchecksum adda8d14021b5dd1fabad9348b0a9c1e6a1c0c77030afdf304a014883e19600e07ba64b4224319470b418d2822ccc08413dde791801f3f21da34b0d08c21cde2
+doccontainersize 210048
+doccontainerchecksum bb2dcb4163ca05501a73b45f2dad0d8e410525805612ce6fd1033fa4773c6e1213edbcc51e541b66545becef2a160c8b403ed6a54c882421ef11293fe222b639
+docfiles size=58
+ texmf-dist/doc/latex/versonotes/LICENCE.txt
+ texmf-dist/doc/latex/versonotes/README details="Readme"
+ texmf-dist/doc/latex/versonotes/sample.pdf details="Example of usage"
+ texmf-dist/doc/latex/versonotes/sample.tex
+ texmf-dist/doc/latex/versonotes/versonotes.pdf details="Package documentation"
+srccontainersize 8212
+srccontainerchecksum ba566ae4827fc08f2403657f869ac3581c1f00daf70b4859775d0fe1c550212d98a4f78e3ecb0d74a5c298ef054b22c9ebd0bde410ccd241d6b863caa364d6fe
+srcfiles size=8
+ texmf-dist/source/latex/versonotes/versonotes.drv
+ texmf-dist/source/latex/versonotes/versonotes.dtx
+ texmf-dist/source/latex/versonotes/versonotes.ins
+runfiles size=2
+ texmf-dist/tex/latex/versonotes/versonotes.sty
+catalogue-contact-home https://nxg.me.uk/dist/versonotes/
+catalogue-ctan /macros/latex/contrib/versonotes
+catalogue-license lppl1.3
+catalogue-topics notes
+catalogue-version 0.4

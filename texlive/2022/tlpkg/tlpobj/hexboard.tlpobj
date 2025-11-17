@@ -1,0 +1,28 @@
+name hexboard
+category Package
+revision 62102
+shortdesc For drawing Hex boards and games
+longdesc hexboard is a package for LaTeX that should also work with
+longdesc LuaTeX and XeTeX, that provides functionality for drawing Hex
+longdesc boards and games. The aim is a clean, clear design with
+longdesc flexibility for drawing different sorts of Hex diagrams.
+containersize 3140
+containerchecksum e82683253d7790448bddbcefc617d0f0e91b5373de477f1c78a5db9256d632983b1d5f700a0c6fcb4490b746e932de3fe40a22875a6c0d37f6d0ae728867b73e
+doccontainersize 275772
+doccontainerchecksum 97c92b9c8644cf060da8b3306c8a3f26d1c59f36b1731ca4b6af06ec77211ab676963d5ed8fb70c6a63096a7224cfaac22cf77d5dc39f937902815bea778f323
+docfiles size=70
+ texmf-dist/doc/latex/hexboard/README.md details="Readme"
+ texmf-dist/doc/latex/hexboard/hexboard.pdf details="Package documentation"
+srccontainersize 8556
+srccontainerchecksum f2ab006e01d1ff8ed68252f594d3340441a5a6bed7cc0cbee6c28e119a923a20b186e1f08db7444c75de52c86afdb9aa86767278f0b506a9c601064783baef95
+srcfiles size=13
+ texmf-dist/source/latex/hexboard/hexboard.dtx
+ texmf-dist/source/latex/hexboard/hexboard.ins
+runfiles size=4
+ texmf-dist/tex/latex/hexboard/hexboard.sty
+catalogue-contact-bugs https://github.com/prowlett/hexboard/issues
+catalogue-contact-repository https://github.com/prowlett/hexboard
+catalogue-ctan /graphics/pgf/contrib/hexboard
+catalogue-license cc-by-sa-4
+catalogue-topics graphics games
+catalogue-version 1.0

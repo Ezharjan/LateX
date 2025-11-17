@@ -1,0 +1,31 @@
+name phfthm
+category Package
+revision 60735
+shortdesc Goodies for theorems and proofs
+longdesc This package provides enhanced theorem and proof environments
+longdesc based on the amsthm original versions. It allows for hooks to
+longdesc be placed, adds some default goodies and is highly
+longdesc customizable. In particular, it can connect theorems to proofs,
+longdesc automatically producing text such as "See proof on page XYZ"
+longdesc and "Proof of Theorem 4: ...".
+containersize 5744
+containerchecksum 2a608898b9038cc46e4720423a42f403abcd105700e20e90274ca6e01ed3c4428a443466d0e32b0cf0da9735c0b7ea74b82e90a3d0b72583d38fa5a14094f806
+doccontainersize 393356
+doccontainerchecksum bb0c2da2d17b0c3c3550569428fbdb5532d1fe79b325289d71f35659d749fb952bacfa6140210ebbbdc661dc445ae8add1be6cc79b77bf6346fadc70553bf189
+docfiles size=99
+ texmf-dist/doc/latex/phfthm/README.md details="Readme"
+ texmf-dist/doc/latex/phfthm/phfthm.pdf details="Package documentation"
+srccontainersize 27536
+srccontainerchecksum 7c234459aaa013a9d2d0c719791d99ad6db252e152a53f7111e6d9e04fed3c718efb4fedc85fd064825d40ef80fec2643d6310e582bf830486b8e43efa27c966
+srcfiles size=32
+ texmf-dist/source/latex/phfthm/Makefile
+ texmf-dist/source/latex/phfthm/phfthm.dtx
+ texmf-dist/source/latex/phfthm/phfthm.ins
+ texmf-dist/source/latex/phfthm/pkg.mk
+runfiles size=7
+ texmf-dist/tex/latex/phfthm/phfthm.sty
+catalogue-contact-repository https://github.com/phfaist/phfqitltx
+catalogue-ctan /macros/latex/contrib/phfthm
+catalogue-license lppl1.3
+catalogue-topics maths maths-theorem
+catalogue-version 1.2

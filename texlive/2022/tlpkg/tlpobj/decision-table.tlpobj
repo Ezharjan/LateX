@@ -1,0 +1,35 @@
+name decision-table
+category Package
+revision 60673
+shortdesc An easy way to create Decision Model and Notation decision tables
+longdesc The decision-table package allows for an easy way to generate
+longdesc decision tables in the Decision Model and Notation (DMN)
+longdesc format. This package ensures consistency in the tables (i.e.
+longdesc fontsize), and is thus a better alternative to inserting tables
+longdesc via images. The decision-table package adds the \dmntable
+longdesc command, with which tables can be created. This command expands
+longdesc into a tabular, so it can be used within a table or figure
+longdesc environment. Furthermore, this allows labels and captions to be
+longdesc added seamlessly. It is also possible to place multiple DMN
+longdesc tables in one table/figure environment. The package relies on
+longdesc nicematrix and l3keys2e.
+containersize 2080
+containerchecksum 8a0bbe49c3ef76a7a60fff1778bfc06c2e11521e028bfcb190c85e8a38932bb1f2a97c26293a2965ee8d2e4e6d2cdda54dd2954881ac9b1b8e2506529af1ec97
+doccontainersize 107624
+doccontainerchecksum d5b9301a4308a4e2709b4c82a621fbea2af0cbd767252446f698f269b3ef131502d3db3aaec6d192642b154b546124326280ca4c1331dce64b36517db51c3bc4
+docfiles size=29
+ texmf-dist/doc/latex/decision-table/README details="Readme"
+ texmf-dist/doc/latex/decision-table/decision-table.pdf details="Package documentation"
+srccontainersize 5920
+srccontainerchecksum c24db9cf19bf41d714d643d2be4bad5e339ba8f57175186793db0ae03b941ddfcc3584061ec4ef2aa2de550103346381d31c19a054d428210b35ef083866ba28
+srcfiles size=7
+ texmf-dist/source/latex/decision-table/decision-table.dtx
+ texmf-dist/source/latex/decision-table/decision-table.ins
+runfiles size=3
+ texmf-dist/tex/latex/decision-table/decision-table.sty
+catalogue-contact-bugs https://gitlab.com/Vadevesi/dmn-tex/-/issues
+catalogue-contact-repository https://gitlab.com/Vadevesi/dmn-tex/
+catalogue-ctan /macros/latex/contrib/decision-table
+catalogue-license lppl1.3c
+catalogue-topics diagram table planning expl3
+catalogue-version 0.0.4

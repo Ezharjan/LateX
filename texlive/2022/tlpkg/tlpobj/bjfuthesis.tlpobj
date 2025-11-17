@@ -1,0 +1,48 @@
+name bjfuthesis
+category Package
+revision 59809
+shortdesc A thesis class for Beijing Forestry University
+longdesc This is a class file for producing dissertations and theses
+longdesc according to the Beijing Forestry University (BJFU) Guidelines
+longdesc for Undergraduate Theses and Dissertations. The class should
+longdesc meet all current requirements and is updated whenever the
+longdesc university guidelines change.
+containersize 2928
+containerchecksum e017032edb4e87ae31318179de5da789cbe2164ea5679d69e928a138242adb1afa8dfb3f8b9b7796bc6d5bf21c143f51e931656439a451ddf868c77c7a7ac559
+doccontainersize 9920760
+doccontainerchecksum 657e45d4faf201c2d878c5323e3fd7a283bbe4bb4f868b1413e9b8eaa1db00d03771a4d4211e23549121c5dd480cfcfd8ee8e0edd7e56615a3c941c100465c44
+docfiles size=2689
+ texmf-dist/doc/latex/bjfuthesis/LICENSE
+ texmf-dist/doc/latex/bjfuthesis/README.md details="Readme"
+ texmf-dist/doc/latex/bjfuthesis/bjfuthesis.layout
+ texmf-dist/doc/latex/bjfuthesis/documentation/bjfuthesis.lyx
+ texmf-dist/doc/latex/bjfuthesis/documentation/bjfuthesis.pdf details="Package documentation" language="zh,en"
+ texmf-dist/doc/latex/bjfuthesis/documentation/bjfuthesis.tex
+ texmf-dist/doc/latex/bjfuthesis/example/bibliography.bib
+ texmf-dist/doc/latex/bjfuthesis/example/contents/cover.pdf
+ texmf-dist/doc/latex/bjfuthesis/example/contents/mission-statement.pdf
+ texmf-dist/doc/latex/bjfuthesis/example/contents/statement-of-originality.pdf
+ texmf-dist/doc/latex/bjfuthesis/example/figures/admin-knowledge-graph.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/admin-movie.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/admin-navigation.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/anonymous-category.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/anonymous-details.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/anonymous-index.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/anonymous-search.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/enhanced-recommendation.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/general-details.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/illustration-of-ripple-sets.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/jwt.pdf
+ texmf-dist/doc/latex/bjfuthesis/example/figures/recommendation-procedure.pdf
+ texmf-dist/doc/latex/bjfuthesis/example/figures/ripplenet-framework.png
+ texmf-dist/doc/latex/bjfuthesis/example/figures/use-case.pdf
+ texmf-dist/doc/latex/bjfuthesis/example/thesis.lyx
+ texmf-dist/doc/latex/bjfuthesis/example/thesis.pdf details="Example of use" language="zh"
+ texmf-dist/doc/latex/bjfuthesis/example/thesis.tex
+runfiles size=2
+ texmf-dist/tex/latex/bjfuthesis/bjfuthesis.cls
+catalogue-contact-repository https://github.com/bjfu-projects/bjfuthesis
+catalogue-ctan /macros/latex/contrib/bjfuthesis
+catalogue-license gpl3
+catalogue-topics class doc-templ dissertation std-conform chinese
+catalogue-version 1.2.1

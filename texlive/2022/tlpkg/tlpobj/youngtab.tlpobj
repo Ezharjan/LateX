@@ -1,0 +1,30 @@
+name youngtab
+category Package
+revision 56500
+shortdesc Typeset Young-Tableaux
+longdesc A package for typesetting Young-Tableaux, mathematical symbols
+longdesc for the representations of groups, providing two macros,
+longdesc \yng(1) and \young(1) to generate the whole Young-Tableau.
+containersize 2008
+containerchecksum 4ac5c3803a2e815c51178fa30086ad25c1dd2b430753d582376c9f6c720bd1a72db1d285d2b0cd810e3564961ce3641f3b482d685126e880cfb1dc856dc74bc0
+doccontainersize 144308
+doccontainerchecksum b291614a22227693f93422af280200fd927fcefd0399d4294f934ff8882d26e263a3a1dcbac3ad2289d2adf2ff92c76a8223eb450de46e0b1df283af31bac3da
+docfiles size=46
+ texmf-dist/doc/generic/youngtab/README details="Readme"
+ texmf-dist/doc/generic/youngtab/makeydoc
+ texmf-dist/doc/generic/youngtab/youngtab.el
+ texmf-dist/doc/generic/youngtab/youngtab.pdf details="Package documentation"
+ texmf-dist/doc/generic/youngtab/youngtab.tex
+srccontainersize 12072
+srccontainerchecksum 57110b41ada1866d327eee8f1eae1ad61ad7bea1428bf9a3ccd31b9cf27e19537952ef756299f62e5204e5fddf5d032c8170eb36d6a9fe73e66c8d72e1c4f085
+srcfiles size=11
+ texmf-dist/source/generic/youngtab/makeydoc.bat
+ texmf-dist/source/generic/youngtab/youngtab.dtx
+ texmf-dist/source/generic/youngtab/youngtab.ins
+runfiles size=2
+ texmf-dist/tex/generic/youngtab/youngtab.sty
+catalogue-also young ytableau
+catalogue-ctan /macros/generic/youngtab
+catalogue-license lppl1
+catalogue-topics maths macro-gen
+catalogue-version 1.1

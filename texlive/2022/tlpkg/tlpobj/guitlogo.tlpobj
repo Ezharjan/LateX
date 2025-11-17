@@ -1,0 +1,38 @@
+name guitlogo
+category Package
+revision 55741
+shortdesc Macros for typesetting the GuIT logo
+longdesc This package provides some commands useful to correctly write
+longdesc the logo of "Gruppo Utilizzatori Italiani di TeX" (Italian TeX
+longdesc User Group), using the default document color or any other
+longdesc color the user may ever choose, in conformity with the logo's
+longdesc scheme as seen on the group's website https://www.guitex.org.
+longdesc Likewise, commands are provided that simplify the writing of
+longdesc the GuIT acronym's complete expansion, of the addresses of the
+longdesc group's internet site and public forum, and the meeting
+longdesc 'GuITmeeting' and the magazine Ars TeXnica's logo. Optionally,
+longdesc using hyperref, the outputs of the above cited commands can
+longdesc become hyperlinks to the group's website
+longdesc https://www.guitex.org. The Documentation is available in
+longdesc Italian only.
+containersize 3380
+containerchecksum 42fe915cdb69b18182222843452627655ba1d619c2ae9eb469673a35aab31967afc3cc2abadbc2fd13d9215555a2f97a54a6d3b1ec895fc3d3f6388819bbb9f1
+doccontainersize 472316
+doccontainerchecksum 505a1f12e772f2f1cebae02164793b0416322aa60cde58a18ba0e3fea0a7072d07d0d8b1bad9aaeb9248dfa89b4b1730e0e5c2a2581b41a7a3a80636fc161b66
+docfiles size=121
+ texmf-dist/doc/latex/guitlogo/README details="Package README" language="it"
+ texmf-dist/doc/latex/guitlogo/guit.pdf details="Package documentation" language="it"
+ texmf-dist/doc/latex/guitlogo/guittest.pdf
+ texmf-dist/doc/latex/guitlogo/guittest.tex
+srccontainersize 17780
+srccontainerchecksum 600881490f339ffe540248d7c497a970ee606a9e8167036043b833b24630171d44a58a262e79ddf72fa9308b45bd70c28893251b8c185aeb955114a11c70794a
+srcfiles size=17
+ texmf-dist/source/latex/guitlogo/guit.dtx
+ texmf-dist/source/latex/guitlogo/guit.ins
+runfiles size=4
+ texmf-dist/tex/latex/guitlogo/guit.cfg
+ texmf-dist/tex/latex/guitlogo/guit.sty
+catalogue-ctan /macros/latex/contrib/GuIT/GuITlogo
+catalogue-license lppl1.3a
+catalogue-topics logo
+catalogue-version 1.0.0-alpha.4

@@ -1,0 +1,83 @@
+name context-simpleslides
+category ConTeXt
+revision 63903
+shortdesc A module for preparing presentations
+longdesc This ConTeXt module provides an easy-to-use interface for
+longdesc creating presentations for use with a digital projector. The
+longdesc presentations are not interactive (no buttons, hyperlinks or
+longdesc navigational tools such as tables of contents). Graphics may be
+longdesc mixed with the text of slides. The module provides several
+longdesc predefined styles, designed for academic presentation. Most
+longdesc styles are configurable, and it is easy to design new styles.
+depend context
+containersize 29096
+containerchecksum 2db8348769d60d38266ad3798264864a0453b38c769db02ddaee072e795596fd48cc201caa5023d980c1a748c41a30e4c560ece68def59deb3c467bec2e60f64
+doccontainersize 849560
+doccontainerchecksum 532a9a142b30c8fe2ff3431d24988ef96e5da63276cd0084fe8b69b3e9cb572a0beab8d7ee4291d00a4b1d725f3d23ed47632811fde7e2aca41998c5d44a0481
+docfiles size=2065
+ texmf-dist/doc/context/third/simpleslides/VERSION
+ texmf-dist/doc/context/third/simpleslides/example.pdf
+ texmf-dist/doc/context/third/simpleslides/example.tex
+ texmf-dist/doc/context/third/simpleslides/simpleslides.pdf details="Package documentation"
+ texmf-dist/doc/context/third/simpleslides/simpleslides.tex
+ texmf-dist/doc/context/third/simpleslides/solutions/generic-talk-15min-45min.tex
+ texmf-dist/doc/context/third/simpleslides/solutions/speaker_introduction-2min.tex
+ texmf-dist/doc/context/third/simpleslides/solutions/style-template.tex
+ texmf-dist/doc/context/third/simpleslides/styles/BigNumber-blue.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/BigNumber-red.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/BottomSquares.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Boxed.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Ellipse.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Embossed.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Framed-square.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Framed-stripe.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/FramedTitle.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/HorizontalStripes-blue.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/HorizontalStripes-green.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/HorizontalStripes-red.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/NarrowStripes-blue.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/NarrowStripes-green.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/NarrowStripes-red.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/RainbowStripe.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Rounded.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Shaded-blue.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Shaded-bluered.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Shaded-green.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/SideSquares.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/SideToc.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Split.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Sunrise.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/Swoosh.pdf
+ texmf-dist/doc/context/third/simpleslides/styles/ThickStripes.pdf
+runfiles size=65
+ texmf-dist/scripts/context/lua/third/simpleslides/mtx-simpleslides.lua
+ texmf-dist/tex/context/interface/third/t-simpleslides.xml
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-BigNumber.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-BlackBoard.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-BottomSquares.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Boxed.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-BoxedTitle.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Ellipse.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Embossed.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Framed.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-FramedTitle.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-FuzzyFrame.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-FuzzyTopic.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-HorizontalStripes.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-NarrowStripes.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-PlainCounter.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-RainbowStripe.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Rounded.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Shaded.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-SideSquares.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-SideToc.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Split.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Sunrise.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-Swoosh.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-ThickStripes.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-default.tex
+ texmf-dist/tex/context/third/simpleslides/s-simpleslides-fontsdefault.mkiv
+ texmf-dist/tex/context/third/simpleslides/t-simpleslides.mkiv
+catalogue-ctan /macros/context/contrib/context-simpleslides
+catalogue-license gpl
+catalogue-topics context

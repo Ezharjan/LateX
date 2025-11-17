@@ -1,0 +1,34 @@
+name hep-font
+category Package
+revision 61164
+shortdesc Latin modern extended by computer modern
+longdesc The hep-font package loads standard font packages and extends
+longdesc the usual Latin Modern implementations by replacing missing
+longdesc fonts with Computer Modern counterparts. The package is loaded
+longdesc with \usepackage{hep-font}.
+containersize 1804
+containerchecksum eae6a14ad3b6c1becab5bf4e00bbedde2fd4f917299ae761bf4a942df3aa481be53d19bf66e7737b568726f5eeecc22e0b8226e3c5a0bef5091ae889b997a02d
+doccontainersize 476852
+doccontainerchecksum aab041e7c9b6179e4532f3adb1c8a202b9985c928b947e2046d8f3d2a0090bb3c8aab24fba8ce82ca30f6d29ed95469639fa800095535beebfff17139ff8630e
+docfiles size=161
+ texmf-dist/doc/fonts/hep-font/README-hep-font.md
+ texmf-dist/doc/fonts/hep-font/README.md details="Readme"
+ texmf-dist/doc/fonts/hep-font/bibliography.bib
+ texmf-dist/doc/fonts/hep-font/hep-font-documentation.pdf details="Package documentation"
+ texmf-dist/doc/fonts/hep-font/hep-font-documentation.tex
+ texmf-dist/doc/fonts/hep-font/hep-font-implementation.pdf details="Package implementation"
+ texmf-dist/doc/fonts/hep-font/hep-font-test.tex
+ texmf-dist/doc/fonts/hep-font/license.md
+srccontainersize 4984
+srccontainerchecksum dbb4f7f562b312e911b7ac6ee7beed8e5085704263e3a1bc568f80cd1b735f5344949e51149707df6bff67e8c6d3d8e2f248ee07728451eb33798f6050a913bf
+srcfiles size=6
+ texmf-dist/source/fonts/hep-font/hep-font-implementation.dtx
+ texmf-dist/source/fonts/hep-font/hep-font.ins
+runfiles size=2
+ texmf-dist/tex/latex/hep-font/hep-font.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /fonts/utilities/hep-font
+catalogue-license lppl1.3c
+catalogue-topics font font-mgmt font-use
+catalogue-version 1.0

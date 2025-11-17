@@ -1,0 +1,24 @@
+name hepunits
+category Package
+revision 54758
+shortdesc A set of units useful in high energy physics applications
+longdesc Hepunits is a LaTeX package built on the SIunits package which
+longdesc adds a collection of useful HEP units to the existing SIunits
+longdesc set. These include the energy units \MeV, \GeV, \TeV and the
+longdesc derived momentum and mass units \MeVoverc, \MeVovercsq and so
+longdesc on.
+containersize 1804
+containerchecksum eae3b071eb3c81e79f166a925f5a3b16ffa3e992073f318b8a193a8188bff5b5222cef7533e398f1481671e17849123947577c13a182f40136124fe6368547ff
+doccontainersize 100060
+doccontainerchecksum 86f0080a818aae8743f9c2ef20a3c87f2f23e29641037e91a89e3f195f55fb6653c1ebf1e990b1a984f2acad26243bc07afda6cb2b00d58e5f2416a0f8fddc04
+docfiles size=30
+ texmf-dist/doc/latex/hepunits/ChangeLog
+ texmf-dist/doc/latex/hepunits/README details="Readme"
+ texmf-dist/doc/latex/hepunits/hepunits.pdf details="Package documentation"
+ texmf-dist/doc/latex/hepunits/hepunits.tex
+runfiles size=2
+ texmf-dist/tex/latex/hepunits/hepunits.sty
+catalogue-ctan /macros/latex/contrib/hepunits
+catalogue-license lppl
+catalogue-topics physics
+catalogue-version 2.0.0

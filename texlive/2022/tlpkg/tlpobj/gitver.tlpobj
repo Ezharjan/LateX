@@ -1,0 +1,30 @@
+name gitver
+category Package
+revision 63920
+shortdesc Get the current git hash of a project and typeset it in the document
+longdesc This package will get a description of the current git version
+longdesc of the document and store it in a command \gitVer. If memoir or
+longdesc fancyhdr are in use, it will also add this to the document
+longdesc footers unless the option "noheader" is passed. The package
+longdesc also defines a command \versionBox which outputs a box
+longdesc containing the version and date of compilation. The package
+longdesc requires hyperref, catchfile, pdftexcmds, and datetime.
+containersize 2772
+containerchecksum c2a82b062f130225f36c66827deead41ad644512160351e216fd047b6f4bde03ee4798e5a753f319ce83b74cfe0ada5a9346b1ab12ee1058ce073ba114ed890f
+doccontainersize 140860
+doccontainerchecksum 08f5ad70d40a3eab79a260958baa2e4d75872a93a33ac3398ad54049231693d3cb4f659ea91e3a53af8c19fbf6b8ca537c66f907b4592a45b155d895471cba63
+docfiles size=42
+ texmf-dist/doc/latex/gitver/COPYING
+ texmf-dist/doc/latex/gitver/ChangeLog
+ texmf-dist/doc/latex/gitver/README.md details="Readme"
+ texmf-dist/doc/latex/gitver/gitver.pdf details="Package documentation"
+ texmf-dist/doc/latex/gitver/gitver.tex
+ texmf-dist/doc/latex/gitver/latexmkrc
+runfiles size=2
+ texmf-dist/tex/latex/gitver/gitver.sty
+catalogue-contact-bugs https://github.com/charlesbaynham/gitver/issues
+catalogue-contact-repository https://github.com/charlesbaynham/gitver
+catalogue-ctan /macros/latex/contrib/gitver
+catalogue-license lppl1.3c
+catalogue-topics version-control doc-mgmt expl3
+catalogue-version 1.4

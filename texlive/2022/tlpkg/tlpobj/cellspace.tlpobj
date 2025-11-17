@@ -1,0 +1,29 @@
+name cellspace
+category Package
+revision 61501
+shortdesc Ensure minimal spacing of table cells
+longdesc It is well known that high or deep cells tend to touch the
+longdesc \hlines of a tabular. This package provides a modifier S acting
+longdesc on usual column types so that to ensure a minimal distance that
+longdesc can be controlled through two parameters \cellspacetoplimit and
+longdesc \cellspacebottomlimit. The approach employed by this package is
+longdesc noticeably simpler than that of tabls, which considers the
+longdesc dimensions of each entire row; whereas you can ask the
+longdesc cellspace only to look at the cells of potentially difficult
+longdesc columns. The package depends on ifthen, array, calc, and
+longdesc xkeyval.
+containersize 2488
+containerchecksum 75c32e958beab58086d8ba91da3bf1a4a4b9f3ec306dd5369798298c45cc67ee44c591e616062072ae399aa89c90edabe597665901ec60f46fb9fcd9d4c462d5
+doccontainersize 342576
+doccontainerchecksum 3a6044a5b3e38ea425174481bf0f079943b53b9cc7d68668f5666c72c33cc5edfb82aac08bc3347225e4838dc32579ea611e8fcd2619468e080cc63c11a38da3
+docfiles size=88
+ texmf-dist/doc/latex/cellspace/README details="Readme"
+ texmf-dist/doc/latex/cellspace/cellspace.pdf details="Package documentation"
+ texmf-dist/doc/latex/cellspace/cellspace.tex
+runfiles size=2
+ texmf-dist/tex/latex/cellspace/cellspace.sty
+catalogue-contact-repository https://github.com/JosselinNoirel/cellspace
+catalogue-ctan /macros/latex/contrib/cellspace
+catalogue-license lppl
+catalogue-topics table
+catalogue-version 1.9.0

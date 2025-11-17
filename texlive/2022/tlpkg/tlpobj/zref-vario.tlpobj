@@ -1,0 +1,35 @@
+name zref-vario
+category Package
+revision 63874
+shortdesc Extended LaTeX page cross-references with varioref and zref-clever
+longdesc This package offers a compatibility layer for varioref to be
+longdesc used alongside zref-clever. It provides \z... counterparts to
+longdesc varioref's main reference commands, each of which essentially
+longdesc does some (scoped) setup for varioref, then calls the original
+longdesc one.
+depend tools
+depend zref-clever
+containersize 4248
+containerchecksum a6098a6d02e8ceef899a6dae98af5f4faa4878d450d02dbec9c3d855eacf359d30418ed81b8884b898f2b5b39e65abd7b4572e6797b73050d3f708a73d20f9f2
+doccontainersize 748640
+doccontainerchecksum 1fe5da87c16231ed058d42a0bb99d041823e8b81471039773338a09e83f650419d7f11a58322101e178f2682fc655aeac8be5d82d1df55da6929cd119c94b0be
+docfiles size=196
+ texmf-dist/doc/latex/zref-vario/CHANGELOG.md
+ texmf-dist/doc/latex/zref-vario/DEPENDS.txt
+ texmf-dist/doc/latex/zref-vario/README.md details="Readme"
+ texmf-dist/doc/latex/zref-vario/zref-vario-code.pdf details="Code documentation"
+ texmf-dist/doc/latex/zref-vario/zref-vario-code.tex
+ texmf-dist/doc/latex/zref-vario/zref-vario.pdf details="User manual"
+ texmf-dist/doc/latex/zref-vario/zref-vario.tex
+srccontainersize 6796
+srccontainerchecksum 3389daa24248921968989cde9386d438c3bc81dcde8a800bc324437cf8e468f24bf8d0eb24296319cb9da45cf42295e45ae01f47a32ce175ce2dfb2508c4372c
+srcfiles size=9
+ texmf-dist/source/latex/zref-vario/zref-vario.dtx
+ texmf-dist/source/latex/zref-vario/zref-vario.ins
+runfiles size=6
+ texmf-dist/tex/latex/zref-vario/zref-vario.sty
+catalogue-contact-repository https://github.com/gusbrs/zref-vario
+catalogue-ctan /macros/latex/contrib/zref-vario
+catalogue-license lppl1.3c
+catalogue-topics label-ref expl3
+catalogue-version 0.1.5

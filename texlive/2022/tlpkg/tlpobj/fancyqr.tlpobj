@@ -1,0 +1,33 @@
+name fancyqr
+category Package
+revision 64182
+shortdesc Fancy QR-Codes with TikZ
+longdesc A simple package to create fancy QR-codes with the help of the
+longdesc qrcode package.
+containersize 4700
+containerchecksum fe2a8078e8491384ca4cc25fd058433dde3d4d4fdbd5784ad67150169f1ff5eec85c6f2c2ae7efb6aff6e6fc731c18cc4a156d968872b69d58a36bc042825c2c
+doccontainersize 248244
+doccontainerchecksum afd49422e17012b84a9ddf9ead15af3eb4f5b0e8291f76b9a672d4a3097d9f390753e0090cb67df94cbd5cc88c45ec2bd67b55594bae9ed4b945ad293e4f07df
+docfiles size=65
+ texmf-dist/doc/latex/fancyqr/README.md details="Readme"
+ texmf-dist/doc/latex/fancyqr/fancyqr-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/fancyqr/fancyqr-doc.tex
+ texmf-dist/doc/latex/fancyqr/qr-example.tex
+runfiles size=9
+ texmf-dist/tex/latex/fancyqr/fancyqr-style-blobs.code
+ texmf-dist/tex/latex/fancyqr/fancyqr-style-dots.code
+ texmf-dist/tex/latex/fancyqr/fancyqr-style-flat.code
+ texmf-dist/tex/latex/fancyqr/fancyqr-style-frame.code
+ texmf-dist/tex/latex/fancyqr/fancyqr-style-glitch.code
+ texmf-dist/tex/latex/fancyqr/fancyqr-style-swift.code
+ texmf-dist/tex/latex/fancyqr/fancyqr.sty
+catalogue-also qrcode
+catalogue-contact-announce https://github.com/EagleoutIce/fancyqr/releases
+catalogue-contact-bugs https://github.com/EagleoutIce/fancyqr/issues
+catalogue-contact-development https://github.com/EagleoutIce
+catalogue-contact-home https://github.com/EagleoutIce/fancyqr
+catalogue-contact-repository https://github.com/EagleoutIce/fancyqr
+catalogue-ctan /graphics/pgf/contrib/fancyqr
+catalogue-license gpl3
+catalogue-topics qrcode pgf-tikz
+catalogue-version 1.1

@@ -1,0 +1,28 @@
+name wrapstuff
+category Package
+revision 64058
+shortdesc Wrapping text around stuff
+longdesc This package provides another implementation of text wrapping.
+longdesc Its implementation benefits from the paragraph hooks available
+longdesc since LaTeX 2021-06-01.
+containersize 11744
+containerchecksum ec0cfc45b68b5db1b0b8cde55a0b98e2834e8d69727d9a243a4ff814e7f98dc794803c1ee0487263ab06323f8d4cf68a0c7de6639b8f91dca953a8dfdcda3f06
+doccontainersize 437732
+doccontainerchecksum 688ce97d588807fcc36b872198f01a74678f562e8daa2ee4a4bc12a1ee9b3d914ed670d7668af259ee92722e314c28a65555a61b2fde3d22f5b69b4bf05332c1
+docfiles size=112
+ texmf-dist/doc/latex/wrapstuff/README.md details="Readme"
+ texmf-dist/doc/latex/wrapstuff/wrapstuff.pdf details="Package documentation" language="zh"
+srccontainersize 16376
+srccontainerchecksum b7e1b8ea480949adcaffbf9d175b75f9eae3f23c79648080379fe178fbb2976d11446a7384c613e5ebe647936a5aa88c31cd82b2a9425a59b6c41d7ad819d63b
+srcfiles size=24
+ texmf-dist/source/latex/wrapstuff/wrapstuff.dtx
+runfiles size=20
+ texmf-dist/tex/latex/wrapstuff/wrapstuff.sty
+catalogue-contact-announce https://github.com/qinglee/wrapstuff/releases
+catalogue-contact-bugs https://github.com/qinglee/wrapstuff/issues
+catalogue-contact-repository https://github.com/qinglee/wrapstuff
+catalogue-contact-support https://github.com/qinglee/wrapstuff/discussions
+catalogue-ctan /macros/latex/contrib/wrapstuff
+catalogue-license lppl1.3c
+catalogue-topics text-flow expl3
+catalogue-version 0.3

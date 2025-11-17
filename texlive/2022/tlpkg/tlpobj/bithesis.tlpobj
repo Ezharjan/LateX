@@ -1,0 +1,38 @@
+name bithesis
+category Package
+revision 64398
+shortdesc Templates for the Beijing Institute of Technology
+longdesc This package establishes a simple and easy-to-use LaTeX
+longdesc template for Beijing Institute of Technology dissertations,
+longdesc including general undergraduate theses and master theses.
+containersize 19808
+containerchecksum 4e13819fca91ff1d42f1a7f07e2bf119954cb69abefa03d7a311640a72f91f31dd81051f9cb0b9d606d9c561d2c0eeb7d3f69194a1819bcedbc4b2ef8307a953
+doccontainersize 843736
+doccontainerchecksum 504869bcde2ed1b2846c7d45c133bb7525fff16e82c49ef4a05eaa3f052afcfb112147d23a4d9ae210f0b1fce541f1045c4b3d002c80e9d4262daf3df73ecc06
+docfiles size=216
+ texmf-dist/doc/latex/bithesis/README.md details="Readme"
+ texmf-dist/doc/latex/bithesis/bithesis.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/bithesis/contributing-zh.md
+ texmf-dist/doc/latex/bithesis/contributing.md
+ texmf-dist/doc/latex/bithesis/dtx-style.sty
+srccontainersize 33132
+srccontainerchecksum b44a6c2187053bc8b4f964b815383112c77e3c620ffa4eb4ad269b5154730ad0ce35fa518548952a25988eb013a577eba932444c21b224a7040dc57e9de82f38
+srcfiles size=40
+ texmf-dist/source/latex/bithesis/bithesis.dtx
+ texmf-dist/source/latex/bithesis/bithesis.ins
+runfiles size=29
+ texmf-dist/tex/latex/bithesis/bitart.cls
+ texmf-dist/tex/latex/bithesis/bitbeamer.cls
+ texmf-dist/tex/latex/bithesis/bitbook.cls
+ texmf-dist/tex/latex/bithesis/bitgrad.cls
+ texmf-dist/tex/latex/bithesis/bithesis.cls
+ texmf-dist/tex/latex/bithesis/bitreport.cls
+catalogue-contact-announce https://github.com/BITNP/BIThesis/releases
+catalogue-contact-bugs https://github.com/BITNP/BIThesis/issues
+catalogue-contact-home https://bithesis.bitnp.net
+catalogue-contact-repository https://github.com/BITNP/BIThesis
+catalogue-contact-support https://github.com/BITNP/BIThesis/discussions
+catalogue-ctan /macros/unicodetex/latex/bithesis
+catalogue-license lppl1.3c
+catalogue-topics class dissertation doc-templ chinese
+catalogue-version 3.0.1

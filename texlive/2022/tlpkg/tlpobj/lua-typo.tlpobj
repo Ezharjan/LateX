@@ -1,0 +1,34 @@
+name lua-typo
+category Package
+revision 59457
+shortdesc Highlighting typographical flaws with LuaLaTeX
+longdesc This package tracks common typographic flaws in LuaLaTeX
+longdesc documents, especially widows, orphans, hyphenated words split
+longdesc over two pages, consecutive lines ending with hyphens,
+longdesc paragraphs ending on too short lines, etc. Customisable colours
+longdesc are used to highlight these flaws, and the list of pages on
+longdesc which typographical flaws were found is printed.
+containersize 8804
+containerchecksum 85c217ddc1114990127baae0b4023fc42f2ddf5d59beaa22cf8ab05746d2769699850b60f3623774326265359211597eeabeba304831f650adc1114445bc76ef
+doccontainersize 214628
+doccontainerchecksum be62c81f33224b98bdec4e0ba84886d4020a05d4ae18c9a4549ebbd13394867a9d835c36615d275fb5a938158dffc4d8b8f4c4a73508d45040580e3cf2ecf3e4
+docfiles size=59
+ texmf-dist/doc/lualatex/lua-typo/README.md details="Readme"
+ texmf-dist/doc/lualatex/lua-typo/lua-typo-demo.pdf details="Example of use"
+ texmf-dist/doc/lualatex/lua-typo/lua-typo-demo.tex
+ texmf-dist/doc/lualatex/lua-typo/lua-typo-fr.ltx
+ texmf-dist/doc/lualatex/lua-typo/lua-typo-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/lualatex/lua-typo/lua-typo.ltx
+ texmf-dist/doc/lualatex/lua-typo/lua-typo.pdf details="Package documentation (English)"
+srccontainersize 22768
+srccontainerchecksum ec1c817294ed0800225ea03180e7cd5361c1ac5fb7396b09f18b313e5bb511a626bbda8995d2ae5a61b1da2ee054c053751e4a5048b679db44db4254f8c45ee9
+srcfiles size=23
+ texmf-dist/source/lualatex/lua-typo/lua-typo.dtx
+runfiles size=17
+ texmf-dist/tex/lualatex/lua-typo/lua-typo-2021-04-18.sty
+ texmf-dist/tex/lualatex/lua-typo/lua-typo.cfg
+ texmf-dist/tex/lualatex/lua-typo/lua-typo.sty
+catalogue-ctan /macros/luatex/latex/lua-typo
+catalogue-license lppl1.3c
+catalogue-topics luatex text-layout
+catalogue-version 0.50

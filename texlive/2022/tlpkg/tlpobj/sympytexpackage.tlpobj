@@ -1,0 +1,29 @@
+name sympytexpackage
+category Package
+revision 57090
+catalogue sympytex
+shortdesc Include symbolic computation (using sympy) in documents
+longdesc The bundle supports inclusion of symbolic-python (sympy)
+longdesc expressions, as well as graphical output from the sympy
+longdesc plotting module (or from matplotlib).
+containersize 3636
+containerchecksum 9a1fa177703dbed088861ff47e5b53f3c0f433abe15d471d181368c52e0cdae7350090ce5cb3c25d4ca816d1132eb009359977ada3f3c0b5c3b80bc0873f8110
+doccontainersize 1844
+doccontainerchecksum 0013c9c1e21f70e36e6b30f12d777f9f78b727ee1beb2f893133248fffb75f0bc4523c0787c0e292f197ce1c01b5f37b34c33ae97ed713bd900848657d803c59
+docfiles size=2
+ texmf-dist/doc/latex/sympytexpackage/README details="Readme"
+ texmf-dist/doc/latex/sympytexpackage/README.TEXLIVE
+srccontainersize 17084
+srccontainerchecksum 45df3251efd8a8e5669f72b83fc8c07c9df777ec90bdae9b8a92ff3c1875fe623574365f69162cc4c2f89e4fc7ea32dd1ac0ce164ee804799496be25466a12bc
+srcfiles size=15
+ texmf-dist/source/latex/sympytexpackage/sympytexpackage.dtx
+ texmf-dist/source/latex/sympytexpackage/sympytexpackage.ins
+runfiles size=4
+ texmf-dist/scripts/sympytexpackage/sympytex.py
+ texmf-dist/tex/latex/sympytexpackage/sympytex.sty
+catalogue-contact-bugs https://github.com/tmolteno/SympyTeX/issues
+catalogue-contact-repository https://github.com/tmolteno/SympyTeX
+catalogue-ctan /macros/latex/contrib/sympytexpackage
+catalogue-license gpl2
+catalogue-topics callback
+catalogue-version 0.3

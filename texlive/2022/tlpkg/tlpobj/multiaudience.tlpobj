@@ -1,0 +1,33 @@
+name multiaudience
+category Package
+revision 60688
+shortdesc Several versions of output from the same source
+longdesc This package allows to generate several versions of the same
+longdesc document for different audiences.
+containersize 1516
+containerchecksum a7d89874dbe314ab37cf42d8d520e234764bfc3fbbb6c89e47be95ef83bacd170c290bae005830286e206da25a68939ed8ee60cf11ad3f5ff9d994d568638b86
+doccontainersize 556568
+doccontainerchecksum b6023873f5843ec7db13e551417ef4c31a2f622372f32b4ad7af1ab155e3902185b06d6f2fdd432bf582f3da8a5e32e985fde93ae88b7916062db25021a641a1
+docfiles size=309
+ texmf-dist/doc/latex/multiaudience/README details="Readme"
+ texmf-dist/doc/latex/multiaudience/multiaudience.pdf details="Package documentation"
+ texmf-dist/doc/latex/multiaudience/sample-admins,devs.pdf
+ texmf-dist/doc/latex/multiaudience/sample-admins,execs.pdf
+ texmf-dist/doc/latex/multiaudience/sample-admins.pdf
+ texmf-dist/doc/latex/multiaudience/sample-devs.pdf
+ texmf-dist/doc/latex/multiaudience/sample-execs,devs.pdf
+ texmf-dist/doc/latex/multiaudience/sample-execs.pdf
+ texmf-dist/doc/latex/multiaudience/sample.tex
+ texmf-dist/doc/latex/multiaudience/verbatim.tex
+srccontainersize 6040
+srccontainerchecksum 8d528b7e27f8883846386374cc936118a9537f0dfabc71c3b993f105dee381f0cd2b40e16d5c48df01b9709f902479ba87c6b94278f6e8be98beafbf9dd3e4ad
+srcfiles size=7
+ texmf-dist/source/latex/multiaudience/Makefile
+ texmf-dist/source/latex/multiaudience/multiaudience.dtx
+ texmf-dist/source/latex/multiaudience/multiaudience.ins
+runfiles size=1
+ texmf-dist/tex/latex/multiaudience/multiaudience.sty
+catalogue-ctan /macros/latex/contrib/multiaudience
+catalogue-license lppl1.3
+catalogue-topics cond-comp
+catalogue-version 1.04

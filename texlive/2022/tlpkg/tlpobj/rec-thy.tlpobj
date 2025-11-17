@@ -1,0 +1,24 @@
+name rec-thy
+category Package
+revision 63982
+shortdesc Commands to typeset recursion theory papers
+longdesc This package is designed to help mathematicians publishing
+longdesc papers in the area of recursion theory (aka Computability
+longdesc Theory) easily use standard notation. This includes easy
+longdesc commands to denote Turing reductions, Turing functionals, c.e.
+longdesc sets, stagewise computations, forcing and syntactic classes.
+containersize 15364
+containerchecksum 0497b8d382cf239b6b8d2f4bf2aeb3af34c8d1f1ad94640f930c316f9b7bd7e6a150c3d344a555313a88cc848fdafb3e392ff6cec0caf72d3517dd1db4b7c2c5
+doccontainersize 123836
+doccontainerchecksum 0733917542d683cddfe9651bc9187d2dfa7a57e2bfbfddca687a5bda10609451a3f58cbfd7f5308647f9a3014f0a4adc36e9075cfc1a5b7db48c7d1063cc9b5a
+docfiles size=49
+ texmf-dist/doc/latex/rec-thy/README details="Readme"
+ texmf-dist/doc/latex/rec-thy/rec-thy.pdf details="Package documentation"
+ texmf-dist/doc/latex/rec-thy/rec-thy.tex
+runfiles size=20
+ texmf-dist/tex/latex/rec-thy/rec-thy.sty
+catalogue-contact-repository https://github.com/TruePath/Recursion-Theory-Latex-Package
+catalogue-ctan /macros/latex/contrib/rec-thy
+catalogue-license pd
+catalogue-topics maths expl3
+catalogue-version 3.8.2

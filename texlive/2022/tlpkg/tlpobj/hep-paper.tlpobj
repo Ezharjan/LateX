@@ -1,0 +1,44 @@
+name hep-paper
+category Package
+revision 61171
+shortdesc Publications in High Energy Physics
+longdesc This package aims to provide a single style file containing
+longdesc most configurations and macros necessary to write appealing
+longdesc publications in High Energy Physics. Instead of reinventing the
+longdesc wheel by introducing newly created macros, hep-paper preferably
+longdesc loads third party packages as long as they are light-weight
+longdesc enough. For usual publications it suffices to load the
+longdesc hep-paper package, without optional arguments, in addition to
+longdesc the article class.
+containersize 3464
+containerchecksum 93bba19d41b10d47511652ae41f25a6e6ae5dbb8711134efa8496943bf7a26dac685cbfc4223e40e3bc26d14da487aff612fc7b58d43b8ec7cc9ec826f838119
+doccontainersize 673728
+doccontainerchecksum 25e729800a2d0b80cae23c6ff421bf2c90650ab962ccbffcb393758fe5677d29d92408d7cb9bdf11f658ce43797f07a260e68acbbc2eca5ad52e7377be7d6ad5
+docfiles size=236
+ texmf-dist/doc/latex/hep-paper/README-hep-paper.md
+ texmf-dist/doc/latex/hep-paper/README.md details="Readme"
+ texmf-dist/doc/latex/hep-paper/bibliography.bib
+ texmf-dist/doc/latex/hep-paper/hep-paper-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-paper/hep-paper-documentation.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-amsart.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-beamer.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-jcap.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-jhep.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-pos.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-revtex.tex
+ texmf-dist/doc/latex/hep-paper/hep-paper-test-springer.tex
+ texmf-dist/doc/latex/hep-paper/license.md
+srccontainersize 12296
+srccontainerchecksum 0ee624e372607d8e7dffccb255458bc8e858fe0e027d031ba44fd48616c11e32ba1a459895102c3ed5d93342a19bdfadeb97e1eb6a89bd71118b8cf30261abaf
+srcfiles size=12
+ texmf-dist/source/latex/hep-paper/hep-paper-implementation.dtx
+ texmf-dist/source/latex/hep-paper/hep-paper.ins
+runfiles size=3
+ texmf-dist/tex/latex/hep-paper/hep-paper.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/hep-paper
+catalogue-license lppl1.3c
+catalogue-topics physics
+catalogue-version 2.0

@@ -1,0 +1,26 @@
+name clistmap
+category Package
+revision 61811
+shortdesc Map and iterate over LaTeX3 clists
+longdesc This package provides a key-based interface for defining
+longdesc templates whose job is to partition LaTeX3 clists and map
+longdesc differentiatedly across its components.
+containersize 6056
+containerchecksum 71da5b4136bd73945ec0e1d9fe429892960a9167b39febc0d53b7a628357db59240929ed6d8c31096c170cd0b2f5c60452f364d8903be40a6a4bf0b590069520
+doccontainersize 667032
+doccontainerchecksum 8c0ca62ecf95989e1e4f90b6c606e421bd5f536ca9d7e3745384537b33b5745b221c6485e0fc5d5a52ddfa720e34f6260eb8bec0557d7e4171406ad4985b789f
+docfiles size=170
+ texmf-dist/doc/latex/clistmap/README.md details="Readme"
+ texmf-dist/doc/latex/clistmap/clistmap.pdf details="Package documentation"
+srccontainersize 10656
+srccontainerchecksum b93a6e3bda06ce394c006964046d683576474d1ccc6b8cdde069c188cf8d146be43420c5d55a9d22bca554e87ea9309faaa73b5d0b8bb1b56981414b4b99e46a
+srcfiles size=14
+ texmf-dist/source/latex/clistmap/clistmap.dtx
+ texmf-dist/source/latex/clistmap/clistmap.ins
+runfiles size=9
+ texmf-dist/tex/latex/clistmap/clistmap.sty
+catalogue-contact-repository https://github.com/rogard/clistmap
+catalogue-ctan /macros/latex/contrib/clistmap
+catalogue-license lppl1.3c
+catalogue-topics expl3 macro-supp
+catalogue-version 1.2

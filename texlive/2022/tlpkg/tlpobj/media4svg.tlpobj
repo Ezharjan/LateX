@@ -1,0 +1,33 @@
+name media4svg
+category Package
+revision 64377
+shortdesc Multimedia inclusion for the dvisvgm backend
+longdesc This package implements an interface for embedding video and
+longdesc audio files in SVG (Scalable Vector Graphics) output. SVG with
+longdesc embedded media is very portable, as it is supported by all
+longdesc modern Web browsers across a variety of operating systems and
+longdesc platforms, including portable devices. All DVI producing TeX
+longdesc engines can be used. The dvisvgm utility, which is part of all
+longdesc major TeX distributions, converts the intermediate DVI to SVG.
+longdesc By default, media files are embedded into the SVG output to
+longdesc make self-sufficient SVG files.
+containersize 8432
+containerchecksum 0695c92c31145102673f92b2aaad26e55f8dd94e7e12ca2fc393b61f6ee94d9b797ff8444dd99a8c90d2db9fc01b6fc3f3e42c82086b8c920c01aa2c74fc6789
+doccontainersize 128748
+doccontainerchecksum 6f771691700ee81c9d1d5cbdb2ca949fd64e7d596e9507f3677db8e3ef33a11eb973d56afe0b60716609009fa4444d98b2e701f0cd6ce489fb81ec08ef84ac53
+docfiles size=98
+ texmf-dist/doc/latex/media4svg/ChangeLog
+ texmf-dist/doc/latex/media4svg/README.txt
+ texmf-dist/doc/latex/media4svg/example/beamer-example-1.svg details="Example of use"
+ texmf-dist/doc/latex/media4svg/example/beamer-example-2.svg
+ texmf-dist/doc/latex/media4svg/example/beamer-example-3.svg
+ texmf-dist/doc/latex/media4svg/example/beamer-example-4.svg
+ texmf-dist/doc/latex/media4svg/example/beamer-example.tex
+runfiles size=9
+ texmf-dist/tex/latex/media4svg/media4svg.lua
+ texmf-dist/tex/latex/media4svg/media4svg.sty
+catalogue-contact-repository https://gitlab.com/agrahn/media4svg
+catalogue-ctan /macros/latex/contrib/media4svg
+catalogue-license lppl
+catalogue-topics multimedia expl3
+catalogue-version 0.10

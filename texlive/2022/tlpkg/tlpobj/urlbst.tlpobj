@@ -1,0 +1,41 @@
+name urlbst
+category Package
+revision 55777
+shortdesc Web support for BibTeX
+longdesc Supports a new BibTeX 'webpage' entry type and 'url',
+longdesc 'lastchecked', and 'eprint' and 'DOI' fields. The Perl script
+longdesc urlbst can be used to add this support to an arbitrary .bst
+longdesc file which has a reasonably conventional structure. The result
+longdesc is meant to be robust rather than pretty.
+depend urlbst.ARCH
+containersize 13668
+containerchecksum 86b600d8beecbf310596915225ae58502d7b5e92783522beec0c6ed365a44e058cb97bc2d016d66ef9a26196b33277c93f82957ee557348ef170a11d58ba30a9
+doccontainersize 238148
+doccontainerchecksum 07cffb5192991e30fd7d6823435718b241841f709f5bef86ff7e0a69102ec93d513282aaf8f046a6205a56997b7ff3ba9442446254467f4490e537a4874a7a31
+docfiles size=82
+ texmf-dist/doc/bibtex/urlbst/LICENCE-gpl-2.0.txt
+ texmf-dist/doc/bibtex/urlbst/LICENCE-lppl.txt
+ texmf-dist/doc/bibtex/urlbst/README details="Package Readme"
+ texmf-dist/doc/bibtex/urlbst/VERSION
+ texmf-dist/doc/bibtex/urlbst/urlbst.bib
+ texmf-dist/doc/bibtex/urlbst/urlbst.html details="Package documentation (HTML format)"
+ texmf-dist/doc/bibtex/urlbst/urlbst.in
+ texmf-dist/doc/bibtex/urlbst/urlbst.pdf details="Package documentation (PDF format)"
+ texmf-dist/doc/bibtex/urlbst/urlbst.tex
+srccontainersize 22884
+srccontainerchecksum eb93a704fe994add75e3cd5202bd5a5fc9e388d35f125fa60bbeeae09bc20d223fc8e34d9899d6f378938f33ae29b96a67b3a1fc3a46782a1caff030975738a4
+srcfiles size=25
+ texmf-dist/source/bibtex/urlbst/Makefile.in
+ texmf-dist/source/bibtex/urlbst/configure
+ texmf-dist/source/bibtex/urlbst/configure.ac
+runfiles size=41
+ texmf-dist/bibtex/bst/urlbst/abbrvurl.bst
+ texmf-dist/bibtex/bst/urlbst/alphaurl.bst
+ texmf-dist/bibtex/bst/urlbst/plainurl.bst
+ texmf-dist/bibtex/bst/urlbst/unsrturl.bst
+ texmf-dist/scripts/urlbst/urlbst
+catalogue-contact-home http://purl.org/nxg/dist/urlbst
+catalogue-ctan /biblio/bibtex/contrib/urlbst
+catalogue-license gpl2 lppl
+catalogue-topics bibtex-sty
+catalogue-version 0.8

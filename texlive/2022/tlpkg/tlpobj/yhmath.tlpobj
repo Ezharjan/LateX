@@ -1,0 +1,43 @@
+name yhmath
+category Package
+revision 54377
+shortdesc Extended maths fonts for LaTeX
+longdesc The yhmath bundle contains fonts (in Metafont and type 1
+longdesc format) and a LaTeX package for using them.
+execute addMixedMap yhmath.map
+containersize 36996
+containerchecksum 88476f5355d041f1920c4f0f954853828bdfaf27b9d0441982a38e3dfe79b40377a83614794024ee8c8463eaf5d1c350bff033f1c53e031451ab7cd095e14948
+doccontainersize 285444
+doccontainerchecksum 56fb12fcc4099f14c5746727b3c3051d84097cd8a715023545c3a2fafcc5a5abe55980a12e4384f674ef6cad2c7d6dab2beb8374e4cb3af81f711c2e8320d97b
+docfiles size=85
+ texmf-dist/doc/fonts/yhmath/LICENSE
+ texmf-dist/doc/fonts/yhmath/README details="Readme"
+ texmf-dist/doc/fonts/yhmath/yhcmex10.vpl
+ texmf-dist/doc/fonts/yhmath/yhmath.pdf details="Sample and documentation"
+srccontainersize 16512
+srccontainerchecksum 57a97c1310cfefcc453d031dd3c4701bac2a36c04f435f7a823e1b83671afccadc33d213e9578f4bbf806b6c73aaf33d3816dcafa86fb4447d53659e11f83072
+srcfiles size=33
+ texmf-dist/source/fonts/yhmath/Makefile
+ texmf-dist/source/fonts/yhmath/yhmath.drv
+ texmf-dist/source/fonts/yhmath/yhmath.dtx
+ texmf-dist/source/fonts/yhmath/yhmath.ins
+runfiles size=33
+ texmf-dist/fonts/map/dvips/yhmath/yhmath.map
+ texmf-dist/fonts/source/public/yhmath/yhbigacc.mf
+ texmf-dist/fonts/source/public/yhmath/yhbigdel.mf
+ texmf-dist/fonts/source/public/yhmath/yhmathex.mf
+ texmf-dist/fonts/source/public/yhmath/yrcmex10.mf
+ texmf-dist/fonts/tfm/public/yhmath/yhcmex10.tfm
+ texmf-dist/fonts/tfm/public/yhmath/yrcmex10.tfm
+ texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb
+ texmf-dist/fonts/vf/public/yhmath/yhcmex10.vf
+ texmf-dist/tex/latex/yhmath/OMXyhex.fd
+ texmf-dist/tex/latex/yhmath/yhcmex10.cmap
+ texmf-dist/tex/latex/yhmath/yhmath.sty
+catalogue-contact-bugs https://github.com/TeX-Live/yhmath/issues
+catalogue-contact-home https://github.com/TeX-Live/yhmath
+catalogue-contact-repository https://github.com/TeX-Live/yhmath.git
+catalogue-ctan /fonts/yhmath
+catalogue-license lppl1.3c
+catalogue-topics font font-mf font-type1 font-symbol-maths
+catalogue-version 1.6

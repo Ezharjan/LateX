@@ -1,0 +1,25 @@
+name coffeestains
+category Package
+revision 59703
+shortdesc Add coffee stains to documents
+longdesc This package provides an essential feature that LaTeX has been
+longdesc missing for too long: It adds coffee stains to your documents.
+longdesc A lot of time can be saved by printing stains directly on the
+longdesc page rather than adding them manually.
+containersize 86728
+containerchecksum 7a8213810b8bb30c0b863ce996aab92a9031dd9961513d25822904c6e71dd2fa1b79f050f1840e8d88e8f8e8e87c7736369f3fa7a6873cbaa57fb8dca7c71d47
+doccontainersize 358852
+doccontainerchecksum fab8a2aeae8dd1c6f0f501d894f90d5b6f7785bf8b3fcf86837f4bc41da8002427c69094676870ea7dfe9186b3bb92433f5c66f0cedd08f57954487db8bb162b
+docfiles size=98
+ texmf-dist/doc/latex/coffeestains/README.md details="Readme"
+ texmf-dist/doc/latex/coffeestains/coffeestains-en.pdf details="English documentation"
+ texmf-dist/doc/latex/coffeestains/coffeestains-en.tex
+ texmf-dist/doc/latex/coffeestains/coffeestains-fr.pdf details="French documentation" language="fr"
+ texmf-dist/doc/latex/coffeestains/coffeestains-fr.tex
+runfiles size=118
+ texmf-dist/tex/latex/coffeestains/coffeestains.sty
+catalogue-contact-repository https://framagit.org/Pathe/coffeestains
+catalogue-ctan /graphics/pgf/contrib/coffeestains
+catalogue-license pd
+catalogue-topics graphics pgf-tikz amusements
+catalogue-version 0.5.1

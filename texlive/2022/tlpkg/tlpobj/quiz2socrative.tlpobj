@@ -1,0 +1,29 @@
+name quiz2socrative
+category Package
+revision 52276
+shortdesc Prepare questions for socrative quizzes
+longdesc This is a LaTeX package for preparing multiple choice,
+longdesc true/false, and short answer questions. Its main purpose is to
+longdesc offer a tool to easily insert rather complicated mathematical
+longdesc material in socrative quizzes (see https://socrative.com). The
+longdesc package requires the following other LaTeX packages: calc,
+longdesc etoolbox, graphicx, ifthen, listofitems, moresize, TikZ,
+longdesc pgfmath, xcolor, and xparse.
+containersize 2400
+containerchecksum f4fba8eb850a90288a9b3e7f4571f5df560e09e7cba608f7bf2bb3090db5a2c6bc7fc7240ef2e3cef9d37fe1a0105e74c4c63c39a7c1793a1fedc6f86772eac5
+doccontainersize 212988
+doccontainerchecksum a51cc19b7d13c0bd4f1ed07c6292940176104b5fb381dece7709a5bc1332edb4606cdd4a66ee5a4e4886754c4d274aeab40666eb45328dcc6c465a29a1c4ae29
+docfiles size=69
+ texmf-dist/doc/latex/quiz2socrative/README.txt details="Readme"
+ texmf-dist/doc/latex/quiz2socrative/quiz2socrative-IT.pdf details="Package documentation" language="it"
+ texmf-dist/doc/latex/quiz2socrative/quiz2socrative-IT.tex
+ texmf-dist/doc/latex/quiz2socrative/sample-quiz2socrative-pdfQuiz.pdf details="Example (sample quiz)" language="it"
+ texmf-dist/doc/latex/quiz2socrative/sample-quiz2socrative-pdfQuiz.tex
+ texmf-dist/doc/latex/quiz2socrative/sample-quiz2socrative-socrativeQuiz+standalone.pdf
+ texmf-dist/doc/latex/quiz2socrative/sample-quiz2socrative-socrativeQuiz+standalone.tex
+runfiles size=2
+ texmf-dist/tex/latex/quiz2socrative/quiz2socrative.sty
+catalogue-ctan /macros/latex/contrib/quiz2socrative
+catalogue-license lppl1.3c
+catalogue-topics exam
+catalogue-version 1.0

@@ -1,0 +1,29 @@
+name quran-bn
+category Package
+revision 57602
+shortdesc Bengali translations to the quran package
+longdesc The package is prepared for typesetting some Bengali
+longdesc translations of the Holy Quran. It adds two Bengali
+longdesc translations to the quran package.
+containersize 535064
+containerchecksum 1630d336c3be2cd93a338f572f96d35b4ea40862fa6dc3549a8e2b5bcc3b83e663592c9af362fc06a964e1206c0b27d43fda99ee1cd1af5d00f53ed45b52c0e9
+doccontainersize 145988
+doccontainerchecksum 871baeb8f1af5e622d587144095a57fe20cd74a5fc95831581aae2f327163bdeadccc84686a4892e85e038b5a3611139bdbe001fbc870341d83bc30d478b3929
+docfiles size=41
+ texmf-dist/doc/latex/quran-bn/README details="Readme"
+ texmf-dist/doc/latex/quran-bn/quran-bn-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/quran-bn/quran-bn-doc.tex
+ texmf-dist/doc/latex/quran-bn/quran-bn-test.pdf details="Example of use"
+ texmf-dist/doc/latex/quran-bn/quran-bn-test.tex
+ texmf-dist/doc/latex/quran-bn/quran.png
+runfiles size=1231
+ texmf-dist/tex/latex/quran-bn/quran-bn.sty
+ texmf-dist/tex/latex/quran-bn/qurantext-bni.translation.def
+ texmf-dist/tex/latex/quran-bn/qurantext-bnii.translation.def
+catalogue-also quran lipsum ptext
+catalogue-contact-bugs https://github.com/javadr/quran-bn/issues
+catalogue-contact-repository https://github.com/javadr/quran-bn
+catalogue-ctan /macros/unicodetex/latex/quran-bn
+catalogue-license lppl1.3
+catalogue-topics bengali macro-supp dummy-gen
+catalogue-version 0.1

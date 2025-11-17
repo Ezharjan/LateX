@@ -1,0 +1,48 @@
+name srbtiks
+category Package
+revision 63308
+shortdesc Font STIX2 for Serbian and Macedonian
+longdesc The srbtiks package is the extension of the stix2-type1 package
+longdesc that enables usage of the STIX2 font in LaTeX for the Serbian
+longdesc and Macedonian languages (therefore, it is required to have the
+longdesc stix2-type1 package installed).
+execute addMap srbtiks.map
+containersize 19200
+containerchecksum 7caf4046990b6708f753ffe9eda73f564fd1d18a97fbb78d72fc0db72e0b8a2af2974e6348ab2f62973805398581c7bacf6b9937fcfffb33057cc3586e4de6cf
+doccontainersize 905120
+doccontainerchecksum 1b393eddee48395dcd94889c3e5d530c9c4ec736e41f901bf6a66ebb9d4929f363407d026ac9824ae82c852823e9f4d87a618ab4aaa0cc25247c3be03ec00f31
+docfiles size=228
+ texmf-dist/doc/fonts/srbtiks/README.md details="Readme"
+ texmf-dist/doc/fonts/srbtiks/srbtiks.pdf details="Package documentation"
+ texmf-dist/doc/fonts/srbtiks/srbtiks.tex
+runfiles size=37
+ texmf-dist/fonts/enc/dvips/srbtiks/srbtiks-t1-it.enc
+ texmf-dist/fonts/enc/dvips/srbtiks/srbtiks-t1-sc.enc
+ texmf-dist/fonts/enc/dvips/srbtiks/srbtiks-t1.enc
+ texmf-dist/fonts/map/dvips/srbtiks/srbtiks.map
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksb-base.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksb.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksc-base.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksc.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksi-base.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksi.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksr-base.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksr.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksx-base.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksx.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksy-base.tfm
+ texmf-dist/fonts/tfm/public/srbtiks/t1srbtiksy.tfm
+ texmf-dist/fonts/vf/public/srbtiks/t1srbtiksb.vf
+ texmf-dist/fonts/vf/public/srbtiks/t1srbtiksc.vf
+ texmf-dist/fonts/vf/public/srbtiks/t1srbtiksi.vf
+ texmf-dist/fonts/vf/public/srbtiks/t1srbtiksr.vf
+ texmf-dist/fonts/vf/public/srbtiks/t1srbtiksx.vf
+ texmf-dist/fonts/vf/public/srbtiks/t1srbtiksy.vf
+ texmf-dist/tex/latex/srbtiks/srbtiks.sty
+ texmf-dist/tex/latex/srbtiks/t1srbtiks.fd
+ texmf-dist/tex/latex/srbtiks/ts1srbtiks.fd
+catalogue-also stix2-type1
+catalogue-ctan /fonts/srbtiks
+catalogue-license ofl lppl1.3
+catalogue-topics font font-serif font-supp font-body font-type1 font-cyrillic
+catalogue-version 1.0

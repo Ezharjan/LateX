@@ -1,0 +1,31 @@
+name palette
+category Package
+revision 60119
+shortdesc Create palettes for colors and symbols that can be swapped in
+longdesc The package `palette` contains two files: `colorpalette.sty`
+longdesc and `symbolpalette`. One deals with colors and the other deals
+longdesc with symbols; the implementation is quite similar. With this
+longdesc package you can create themes. Each of these themes have a set
+longdesc of colors, and you can create palettes based on this theme with
+longdesc specific color values for each of the theme's color slots. The
+longdesc active palette for each theme can be swapped in to make
+longdesc experimenting with colors easier or give users choices as to
+longdesc which theme they pick.
+containersize 1768
+containerchecksum 0583223e81139040de67fa9a1fd93479dd2024c19d34e775a71b9fc03d7b01799c2dd58736d431307cb067d2d3130fb495aaa002425a8c0c80ddbc3e33679693
+doccontainersize 179788
+doccontainerchecksum 16934d0cdc60fe7c1d6d2cbd0dfb640a13d8282d98e322c98853b71ab7fe38a33241857ae98fd8ffd9f2e5c009327889f4c42a89af4370fc7d4608b457b1cb4c
+docfiles size=46
+ texmf-dist/doc/latex/palette/README.md details="Readme"
+ texmf-dist/doc/latex/palette/palette.pdf details="Package documentation"
+srccontainersize 3848
+srccontainerchecksum ea0e817ec066450c3bceae8ff9859f9b4934dba86f1ef850bfe8d566ac1da8296d780313962ab63babdfb822d1c72e686dca2925f809baa3a62eb2d744e8e6f8
+srcfiles size=4
+ texmf-dist/source/latex/palette/palette.dtx
+runfiles size=2
+ texmf-dist/tex/latex/palette/colorpalette.sty
+ texmf-dist/tex/latex/palette/symbolpalette.sty
+catalogue-ctan /macros/latex/contrib/palette
+catalogue-license lppl1.3
+catalogue-topics colour
+catalogue-version 1.1.0

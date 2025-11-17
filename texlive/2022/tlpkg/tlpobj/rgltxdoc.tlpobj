@@ -1,0 +1,30 @@
+name rgltxdoc
+category Package
+revision 53858
+shortdesc Common code for documentation of the author's packages
+longdesc This package combines several other packages and defines
+longdesc additional macros and environments for documenting LaTeX code.
+longdesc The package mainly serves the purpose of combining the
+longdesc preferences used in the author's own package documentations.
+longdesc However, others can use the package as well. Compatibility
+longdesc between versions cannot be guaranteed, however.
+containersize 3340
+containerchecksum 85b9166bb4408d3b1091b033455650fdf53b24c2fce821c872420191390a1bfbf457326a1a85aab1bf0d6c15765275337764f87adcb393464f2533e2462f10c3
+doccontainersize 161168
+doccontainerchecksum 5e35c6d1e6883c895d031f047fff1ededd4629158a8958b61fb6fcbd885c57797726f595894081b4933c78e5f346289a020424405e0dcae6df40b279b86395cb
+docfiles size=42
+ texmf-dist/doc/latex/rgltxdoc/README.md details="Readme"
+ texmf-dist/doc/latex/rgltxdoc/rgltxdoc.pdf details="Package documentation"
+srccontainersize 9516
+srccontainerchecksum 8f94655ca8d0006aed02fa7e8fd28c5e3b8be6e92ab010a674d85bc88ce8f6e0120392540fcf5f7649a4af1e6bed4e0aec3d1d15cd095738beeb709fa2efe526
+srcfiles size=9
+ texmf-dist/source/latex/rgltxdoc/rgltxdoc.dtx
+ texmf-dist/source/latex/rgltxdoc/rgltxdoc.ins
+runfiles size=2
+ texmf-dist/tex/latex/rgltxdoc/rgltxdoc.sty
+catalogue-contact-bugs https://github.com/Ri-Ga/rgltxdoc/issues
+catalogue-contact-repository https://github.com/Ri-Ga/rgltxdoc
+catalogue-ctan /macros/latex/contrib/rgltxdoc
+catalogue-license lppl1.2
+catalogue-topics doc-supp
+catalogue-version 1.3

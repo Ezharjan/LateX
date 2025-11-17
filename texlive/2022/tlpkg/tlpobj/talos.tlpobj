@@ -1,0 +1,25 @@
+name talos
+category Package
+revision 61820
+shortdesc A Greek cult font from the eighties
+longdesc A cult Greek font from the eighties, used at the University of
+longdesc Crete, Greece. It belonged to the first TeX installation in a
+longdesc Greek University and most probably the first TeX installation
+longdesc that supported the Greek language.
+containersize 97120
+containerchecksum 50a35159c65afa43900ee8633d2b86effa5aec6a430f2e8fa85f77442da35b140012b27959155564e29286aba465d9bab17c9f5ce5ec0a889ec4ed5dff1b4dcb
+doccontainersize 64584
+doccontainerchecksum 9bdbd72f86e0b957580bb008ba349eb428721913010e9fe2cd9ee9b01733d6259914712b60a4a7f0f5804041e6cf876d8bdda2910de1b191715c1d9c8d8fbf77
+docfiles size=18
+ texmf-dist/doc/fonts/talos/README details="Readme"
+ texmf-dist/doc/fonts/talos/talos-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/talos/talos-doc.tex
+runfiles size=43
+ texmf-dist/fonts/opentype/public/talos/Talos-Bold.otf
+ texmf-dist/fonts/opentype/public/talos/Talos-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/talos/Talos-Italic.otf
+ texmf-dist/fonts/opentype/public/talos/Talos-Regular.otf
+catalogue-ctan /fonts/greek/talos
+catalogue-license gfl
+catalogue-topics font font-greek font-otf font-proportional
+catalogue-version 1.0

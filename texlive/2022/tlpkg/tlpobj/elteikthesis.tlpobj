@@ -1,0 +1,44 @@
+name elteikthesis
+category Package
+revision 63186
+shortdesc Thesis template for Eotvos Lorand University (Informatics)
+longdesc This package provides a Bachelor and Master thesis template for
+longdesc the Eotvos Lorand University, Faculty of Informatics (Budapest,
+longdesc Hungary). The template supports producing both Hungarian and
+longdesc English theses.
+containersize 5780
+containerchecksum 0cac3096da5ad422ddd6a9ecd72234036ef5f73279f614ea971fda8141e745e15170c9667153a11cc87e5d79d929786566561d6b2cd4d135e3dca808077ae2e0
+doccontainersize 1107648
+doccontainerchecksum 4f8b437db0b5842ddeaf409fc480fc52580d78b9274fece82e762d40279e39aa8b8424e9c80103a88abfaa72f3136b07044ac121e5a466b27e5e7331bf6bd7c0
+docfiles size=618
+ texmf-dist/doc/latex/elteikthesis/LICENSE
+ texmf-dist/doc/latex/elteikthesis/README.md details="Readme"
+ texmf-dist/doc/latex/elteikthesis/README.pdf
+ texmf-dist/doc/latex/elteikthesis/README_hu.md
+ texmf-dist/doc/latex/elteikthesis/README_hu.pdf
+ texmf-dist/doc/latex/elteikthesis/elteikthesis.bib
+ texmf-dist/doc/latex/elteikthesis/elteikthesis_en.pdf details="Example of use" language="en"
+ texmf-dist/doc/latex/elteikthesis/elteikthesis_en.tex
+ texmf-dist/doc/latex/elteikthesis/elteikthesis_hu.pdf details="Example of use" language="hu"
+ texmf-dist/doc/latex/elteikthesis/elteikthesis_hu.tex
+ texmf-dist/doc/latex/elteikthesis/elteikthesis_minted.pdf
+ texmf-dist/doc/latex/elteikthesis/elteikthesis_minted.tex
+ texmf-dist/doc/latex/elteikthesis/images/elte_cimer_szines.eps
+ texmf-dist/doc/latex/elteikthesis/samples_en/impl.tex
+ texmf-dist/doc/latex/elteikthesis/samples_en/intro.tex
+ texmf-dist/doc/latex/elteikthesis/samples_en/sim.tex
+ texmf-dist/doc/latex/elteikthesis/samples_en/sum.tex
+ texmf-dist/doc/latex/elteikthesis/samples_en/user.tex
+ texmf-dist/doc/latex/elteikthesis/samples_hu/impl.tex
+ texmf-dist/doc/latex/elteikthesis/samples_hu/intro.tex
+ texmf-dist/doc/latex/elteikthesis/samples_hu/sim.tex
+ texmf-dist/doc/latex/elteikthesis/samples_hu/sum.tex
+ texmf-dist/doc/latex/elteikthesis/samples_hu/user.tex
+runfiles size=5
+ texmf-dist/tex/latex/elteikthesis/elteikthesis.cls
+catalogue-contact-bugs https://github.com/mcserep/elteikthesis/issues
+catalogue-contact-repository https://github.com/mcserep/elteikthesis
+catalogue-ctan /macros/latex/contrib/elteikthesis
+catalogue-license mit
+catalogue-topics dissertation hungarian class
+catalogue-version 2.3

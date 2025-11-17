@@ -1,0 +1,18 @@
+name ctie
+category TLCore
+revision 62387
+shortdesc C version of tie (merging Web change files)
+longdesc This is a version of tie converted for use with cweb.
+depend ctie.ARCH
+depend kpathsea
+containersize 380
+containerchecksum c1c69127e1157c15086beb269e1925feaf63eebbc45baec018ce97196a2fc42638bb3107a4c1d065e98a08e490d238d2bffe1827f27f9015ffa5be88be53d6bf
+doccontainersize 17852
+doccontainerchecksum 494a3e6569a77b434f66a56f1fa44d4651dc23e7cdcacb101043ed55cc6e32551f148e67976b67b88507da2fe05a0b006c810fb737f9364d47cb010438c7b39e
+docfiles size=6
+ texmf-dist/doc/man/man1/ctie.1
+ texmf-dist/doc/man/man1/ctie.man1.pdf
+catalogue-ctan /web/c_cpp/ctie
+catalogue-license gpl
+catalogue-topics litprog
+catalogue-version 1.1

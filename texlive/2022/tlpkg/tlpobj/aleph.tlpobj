@@ -1,0 +1,28 @@
+name aleph
+category Package
+revision 62387
+shortdesc Extended TeX
+longdesc An development of omega, using most of the extensions of TeX
+longdesc itself developed for e-TeX.
+depend aleph.ARCH
+depend cm
+depend hyphen-base
+depend knuth-lib
+depend lambda
+depend latex
+depend plain
+execute AddFormat name=aleph engine=aleph options=*aleph.ini           fmttriggers=cm,hyphen-base,knuth-lib,plain
+containersize 544
+containerchecksum 222d0c7045ddfdde5f0ca0ebe20a029c32fd0d4f35326c5ead6bf4ebbcadc86a2a2ff609bca3a6c3a04a09828c50c885f49ef9da0e6e548c18c2633400865c7f
+doccontainersize 32128
+doccontainerchecksum 77d2daaacfa99d7f4ed5b70706751936bed5ae00ac67490e428d900b5fee3d78797d2324039743cbf0cb06a3a03dba17643d67d9057d020a95a536c860d5e78e
+docfiles size=12
+ texmf-dist/doc/aleph/base/News
+ texmf-dist/doc/aleph/base/readme.txt
+ texmf-dist/doc/man/man1/aleph.1
+ texmf-dist/doc/man/man1/aleph.man1.pdf
+catalogue-contact-bugs https://lists.tug.org/tex-k
+catalogue-contact-repository https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/alephdir
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-license gpl
+catalogue-topics engine omega

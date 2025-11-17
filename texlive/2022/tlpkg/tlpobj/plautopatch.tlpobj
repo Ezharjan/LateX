@@ -1,0 +1,37 @@
+name plautopatch
+category Package
+revision 64072
+shortdesc Automated patches for pLaTeX/upLaTeX
+longdesc Japanese pLaTeX/upLaTeX formats and packages often conflict
+longdesc with other LaTeX packages which are unaware of pLaTeX/upLaTeX.
+longdesc In the worst case, such packages throw a fatal error or end up
+longdesc with a wrong output. The goal of this package is that there
+longdesc should be no need to worry about such incompatibilities,
+longdesc because specific patches are loaded automatically whenever
+longdesc necessary. This helps not only to simplify source files, but
+longdesc also to make the appearance of working pLaTeX/upLaTeX sources
+longdesc similar to those of ordinary LaTeX ones.
+containersize 7076
+containerchecksum 1313cf815568dc385d5d1691bba7e57e246c45e71242acb94904ca0fe796940afb59bd3d07f728a9e407a9a0914b3890a7e7dc3c8bde3ddab7b36c3ed9ffcefd
+doccontainersize 137636
+doccontainerchecksum e4bcfbe263cd17dcefdc239f06f1287ff8d936f0a6b5ea89f914d7a4254e08040c076be0317f4e3cf2aa96542878e1c93fd3ad5b9633f4c3c3d85ee9d719f4d2
+docfiles size=41
+ texmf-dist/doc/latex/plautopatch/LICENSE
+ texmf-dist/doc/latex/plautopatch/README.md details="Readme"
+ texmf-dist/doc/latex/plautopatch/plautopatch-ja.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/latex/plautopatch/plautopatch-ja.tex
+ texmf-dist/doc/latex/plautopatch/plautopatch.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/plautopatch/plautopatch.tex
+runfiles size=10
+ texmf-dist/tex/latex/plautopatch/plarydshln.sty
+ texmf-dist/tex/latex/plautopatch/plautopatch.sty
+ texmf-dist/tex/latex/plautopatch/plcollcell.sty
+ texmf-dist/tex/latex/plautopatch/plextarydshln.sty
+ texmf-dist/tex/latex/plautopatch/plsiunitx.sty
+ texmf-dist/tex/latex/plautopatch/pxpgfrcs.sty
+ texmf-dist/tex/latex/plautopatch/pxstfloats.sty
+catalogue-contact-repository https://github.com/aminophen/plautopatch
+catalogue-ctan /macros/jptex/latex/plautopatch
+catalogue-license bsd3
+catalogue-topics japanese debug-supp bugfix
+catalogue-version 0.9q

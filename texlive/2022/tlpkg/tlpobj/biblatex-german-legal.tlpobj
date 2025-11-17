@@ -1,0 +1,28 @@
+name biblatex-german-legal
+category Package
+revision 56939
+shortdesc Comprehensive citation style for German legal texts
+longdesc This package aims to provide citation styles (for footnotes and
+longdesc bibliographies) for German legal texts. It is currently focused
+longdesc on citations in books (style german-legal-book), but may be
+longdesc extended to journal articles in the future. Dieses Paket
+longdesc enthalt BibLaTeX-Zitierstile fur die Rechtswissenschaften in
+longdesc Deutschland. Aktuell enthalt es einen auf Monographien in den
+longdesc deutschen Rechtswissenschaften ausgerichteten Zitierstil namens
+longdesc german-legal-book.
+containersize 5348
+containerchecksum a82cb2c531e5f3671b0ec29ae27f9df9ea375f9dc616286805e8ff2a8940437427c23c51d09e477703e60c7aa70645430ed98890efbcaf9593b1747800a9836b
+doccontainersize 167748
+doccontainerchecksum d4108ee1d625301ccc32ae4202002d9c33c1cd9817b2d26430eb1acf902386817aeaeb6af518b67669b2542a3eab91e0f513bf1ad5ef8ba2572c5f5d7b813382
+docfiles size=45
+ texmf-dist/doc/latex/biblatex-german-legal/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-german-legal/biblatex-german-legal.pdf details="Package documentation" language="de"
+ texmf-dist/doc/latex/biblatex-german-legal/biblatex-german-legal.tex
+runfiles size=6
+ texmf-dist/tex/latex/biblatex-german-legal/german-legal-book.bbx
+ texmf-dist/tex/latex/biblatex-german-legal/german-legal-book.cbx
+catalogue-contact-repository https://git.linta.de/?p=~brodo/biblatex-german-legal.git;a=tree
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-german-legal
+catalogue-license lppl1.3c
+catalogue-topics biblatex legal german
+catalogue-version 002

@@ -1,0 +1,23 @@
+name penlight
+category Package
+revision 63044
+shortdesc Penlight Lua libraries made available to LuaLaTeX users
+longdesc This LuaLaTeX package provides a wrapper to use the penlight
+longdesc Lua libraries with LuaLaTeX, with some extra functionality
+longdesc added.
+containersize 106512
+containerchecksum 842a3a2eefd6ec9fe86e8ee8fcd1556735fadd672409df870f9c121fe7aa5f0b172ad314765863f478527aee974ab987767781baca8928bd2ce6eb1c9665319f
+doccontainersize 35172
+doccontainerchecksum 116ba1ba0239aa2daf2b4dfb3786ebf6fcd080a24b593c3043854eb8739cd2437be2d21e7f3230890cd7468bf1e0d20ccd03b80f09d289f4ebb93f6b2ee0b697
+docfiles size=13
+ texmf-dist/doc/luatex/penlight/README.md details="Readme"
+ texmf-dist/doc/luatex/penlight/penlight.pdf details="Package documentation"
+ texmf-dist/doc/luatex/penlight/penlight.tex
+runfiles size=110
+ texmf-dist/tex/luatex/penlight/penlight.lua
+ texmf-dist/tex/luatex/penlight/penlight.sty
+ texmf-dist/tex/luatex/penlight/penlightextras.lua
+catalogue-contact-repository https://github.com/kalekje/penlight
+catalogue-ctan /macros/luatex/generic/penlight
+catalogue-license mit
+catalogue-topics luatex

@@ -1,0 +1,40 @@
+name spark-otf
+category Package
+revision 62481
+shortdesc Support OpenType Spark fonts
+longdesc The package supports the free fonts from "After the Flood"
+longdesc which are available from AtF Spark. The following fonts are
+longdesc supported: Spark -- Bar -- Medium Spark -- Bar -- Narrow Spark
+longdesc -- Bar -- Thin Spark -- Dot-line -- Medium Spark -- Dot --
+longdesc Medium Spark -- Dot -- Small
+containersize 174132
+containerchecksum 787774aebfb3834f1477a8afc61d2f81c32fca5f69e5828b403b58a60c2047a5afb79d50f33be0376cee57fd30ee1c3af2a6428c08abc9a058e6a3b04b8fee0b
+doccontainersize 93948
+doccontainerchecksum 69fa7131b247a93b26fb98a8a4fc69b11fc8f9f05905948f530d78abebea76852baf4535768ea925839b0e3332fe9ac61e94ef7b10762afd61024bfa934f243d
+docfiles size=31
+ texmf-dist/doc/fonts/spark-otf/Changes
+ texmf-dist/doc/fonts/spark-otf/README.md details="Readme"
+ texmf-dist/doc/fonts/spark-otf/spark-otf-doc.bib
+ texmf-dist/doc/fonts/spark-otf/spark-otf-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/spark-otf/spark-otf-doc.tex
+runfiles size=594
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Bar-Extranarrow.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Bar-Extrawide.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Bar-Medium.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Bar-Narrow.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Bar-Wide.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dot-Extralarge.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dot-Extrasmall.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dot-Large.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dot-Medium.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dot-Small.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dotline-Extrathick.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dotline-Extrathin.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dotline-Medium.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dotline-Thick.otf
+ texmf-dist/fonts/opentype/public/spark-otf/Sparks-Dotline-Thin.otf
+ texmf-dist/tex/latex/spark-otf/spark-otf.sty
+catalogue-ctan /fonts/spark-otf
+catalogue-license ofl lppl1.3
+catalogue-topics font-absent font-symbol font-otf font-use
+catalogue-version 0.05a

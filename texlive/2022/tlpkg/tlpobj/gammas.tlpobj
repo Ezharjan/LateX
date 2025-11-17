@@ -1,0 +1,23 @@
+name gammas
+category Package
+revision 56403
+shortdesc Template for the GAMM Archive for Students
+longdesc This is the official document class for typesetting journal
+longdesc articles for GAMM Archive for Students (GAMMAS), the
+longdesc open-access online yournal run by the GAMM Juniors (GAMM =
+longdesc Gesellschaft fur angewandte Mathematik und Mechanik).
+containersize 9876
+containerchecksum 8ecc1d5209ee6492e032b30e217dbbd0ae4c1ad9ab5a42e7e042eee63809aa257c8cc5d720f54be5553c8999f78334b8057bdac1134d4788144a3cafade7154e
+doccontainersize 3276
+doccontainerchecksum 62ec08047df846d2e32be9396356fdbdb9eb9c1867079a891bececc1d56275666127d997ddd4ed2c2f73423dc4a2e051586a1b06b516fb77372b04c60a4ca342
+docfiles size=5
+ texmf-dist/doc/latex/gammas/README details="Readme"
+ texmf-dist/doc/latex/gammas/example_bibliography.bib
+ texmf-dist/doc/latex/gammas/gammas_template.tex
+runfiles size=13
+ texmf-dist/bibtex/bst/gammas/gammas.bst
+ texmf-dist/tex/latex/gammas/gammas.cls
+catalogue-ctan /macros/latex/contrib/gammas
+catalogue-license lppl1.3c
+catalogue-topics journalpub class
+catalogue-version 1.1

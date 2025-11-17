@@ -1,0 +1,21 @@
+name parnotes
+category Package
+revision 51720
+shortdesc Notes after every paragraph (or elsewhere)
+longdesc The package provides the \parnote command. The notes are set as
+longdesc (normal) running paragraphs; placement is at the end of each
+longdesc paragraph, or manually, using the \parnotes command.
+containersize 3784
+containerchecksum 798ac362fa4b67dacfe9b744163555d3c25c9e4487c5d2e2fa47be12d8d4b41bf89cb24a04f6434c804e9ca1f45e6d1f22ec234ac04596d5e1905589cf1eb558
+doccontainersize 62388
+doccontainerchecksum e9728eb1025e80f41ca07632cc2625ee670a61ebe06d003585645e6aed183087df460a1dea4f3a8b17013af6fb3e974a95b33d848d2502435a37b1aa881ce833
+docfiles size=20
+ texmf-dist/doc/latex/parnotes/README.md details="Readme"
+ texmf-dist/doc/latex/parnotes/parnotes.pdf details="Package documentation"
+ texmf-dist/doc/latex/parnotes/parnotes.tex
+runfiles size=3
+ texmf-dist/tex/latex/parnotes/parnotes.sty
+catalogue-ctan /macros/latex/contrib/parnotes
+catalogue-license lppl1.3
+catalogue-topics notes
+catalogue-version 3b

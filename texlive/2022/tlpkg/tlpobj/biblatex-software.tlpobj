@@ -1,0 +1,42 @@
+name biblatex-software
+category Package
+revision 64030
+shortdesc BibLaTeX stylefiles for software products
+longdesc This package implements software entry types for BibLaTeX in
+longdesc the form of a bibliography style extension. It requires the
+longdesc Biber backend.
+containersize 3560
+containerchecksum a95344eb338410804347bc0273eacda0c69804a5dd6886932d11d72879f4c59798cc9bf902667957cc26b56adc0c2f7f747e8967f85fe5602dc1e786bd3a717e
+doccontainersize 313808
+doccontainerchecksum cfe81f1a29f49a756df7595b18ebd492df77fb7ca208418b8627f49180a0a8bcd28b779dea58a88de16b6aa6553243b2755df3e16bca696ecb8a17fc3773135e
+docfiles size=94
+ texmf-dist/doc/latex/biblatex-software/Changes
+ texmf-dist/doc/latex/biblatex-software/LICENSE
+ texmf-dist/doc/latex/biblatex-software/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-software/biblio.bib
+ texmf-dist/doc/latex/biblatex-software/manual.bib
+ texmf-dist/doc/latex/biblatex-software/mkbiblatexstubs.sh
+ texmf-dist/doc/latex/biblatex-software/sample-content.tex
+ texmf-dist/doc/latex/biblatex-software/sample-use-sty.pdf details="Sample of Use"
+ texmf-dist/doc/latex/biblatex-software/sample-use-sty.tex
+ texmf-dist/doc/latex/biblatex-software/sample.tex
+ texmf-dist/doc/latex/biblatex-software/software-biblatex.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-software/software-biblatex.tex
+ texmf-dist/doc/latex/biblatex-software/stublist
+ texmf-dist/doc/latex/biblatex-software/swentries.tex
+srccontainersize 1500
+srccontainerchecksum 6ee3d3df8bbce5dfd06f64b4e959742e8cb273db8f0606baeef97750dabb0391fcf409dce603772c525a0ad10d543e476d9ec217eced690b0c84e7a547a48f32
+srcfiles size=1
+ texmf-dist/source/latex/biblatex-software/Makefile
+runfiles size=7
+ texmf-dist/tex/latex/biblatex-software/english-software.lbx
+ texmf-dist/tex/latex/biblatex-software/french-software.lbx
+ texmf-dist/tex/latex/biblatex-software/software-biblatex.sty
+ texmf-dist/tex/latex/biblatex-software/software.bbx
+ texmf-dist/tex/latex/biblatex-software/software.dbx
+catalogue-contact-bugs https://gitlab.inria.fr/gt-sw-citation/bibtex-sw-entry/issues
+catalogue-contact-repository https://gitlab.inria.fr/gt-sw-citation/bibtex-sw-entry
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-software
+catalogue-license lppl1.3
+catalogue-topics biblatex
+catalogue-version 1.2-5

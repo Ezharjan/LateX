@@ -1,0 +1,59 @@
+name kpfonts-otf
+category Package
+revision 63819
+shortdesc OTF version of the Kp-fonts
+longdesc This bundle provides OpenType versions of the Type1 Kp-fonts
+longdesc designed by Christophe Caignaert. It is usable with LuaTeX or
+longdesc XeTeX engines only. It consists of sixteen Text fonts (eight
+longdesc Serif, four Sans-Serif, four Monotype) and five Math fonts.
+longdesc Serif and Sans-Serif families have small caps available in two
+longdesc sizes (SmallCaps and PetitesCaps), upper and lowercase digits,
+longdesc real superscripts and subscripts; ancient ligatures (ct and
+longdesc st), ancient long-s and a long-tailed capital Q are available
+longdesc via font features. Math fonts cover all usual symbols including
+longdesc AMS'; a full list of available symbols is provided, see the
+longdesc 'List of glyphs'.
+containersize 1083676
+containerchecksum 5db7c20e35f2aeb4f23f537b54c12b9399ed7944ff9ad873fa7830ed0886f1ff0ce6e8c021bc0dad8565ca1fef997dc0532b2c975d843be1f80c836308a7e8f1
+doccontainersize 2088384
+doccontainerchecksum f0df4089f824f3dd74f8bc0f62a5d3903870a8b6cf0dfe4b51c8d74a23a49c81c4b8db22808ed3d78ab9975b6f606e9fc90be33825444015a64316b72247a943
+docfiles size=565
+ texmf-dist/doc/fonts/kpfonts-otf/Kpfonts-OTF-Doc-English.ltx
+ texmf-dist/doc/fonts/kpfonts-otf/Kpfonts-OTF-Doc-English.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/fonts/kpfonts-otf/Kpfonts-OTF-Doc-French.ltx
+ texmf-dist/doc/fonts/kpfonts-otf/Kpfonts-OTF-Doc-French.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/fonts/kpfonts-otf/README.md details="Readme"
+ texmf-dist/doc/fonts/kpfonts-otf/unimath-kpfonts.ltx
+ texmf-dist/doc/fonts/kpfonts-otf/unimath-kpfonts.pdf details="List of glyphs"
+runfiles size=834
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Bold.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Light.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Regular.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Sans.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMath-Semibold.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMono-Bold.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMono-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMono-Italic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpMono-Regular.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-Bold.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-Italic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-Light.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-LightItalic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-Regular.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-Semibold.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpRoman-SemiboldItalic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpSans-Bold.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpSans-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpSans-Italic.otf
+ texmf-dist/fonts/opentype/public/kpfonts-otf/KpSans-Regular.otf
+ texmf-dist/tex/latex/kpfonts-otf/KpLight.fontspec
+ texmf-dist/tex/latex/kpfonts-otf/KpMono.fontspec
+ texmf-dist/tex/latex/kpfonts-otf/KpRoman.fontspec
+ texmf-dist/tex/latex/kpfonts-otf/KpSans.fontspec
+ texmf-dist/tex/latex/kpfonts-otf/kpfonts-otf.sty
+catalogue-also kpfonts
+catalogue-ctan /fonts/kpfonts-otf
+catalogue-license ofl lppl1.3
+catalogue-topics font font-body font-serif font-sans font-proportional font-mono font-maths font-otf font-supp
+catalogue-version 0.43

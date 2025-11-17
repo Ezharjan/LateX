@@ -1,0 +1,36 @@
+name leadsheets
+category Package
+revision 61504
+shortdesc Typesetting leadsheets and songbooks
+longdesc This LaTeX package offers support for typesetting simple
+longdesc leadsheets of songs, i.e. song lyrics and the corresponding
+longdesc chords.
+containersize 17044
+containerchecksum 026e310ee9617108ac60fca69b0f08b2031d9c9dc583a400095765458bc72681c5c39332602994fd8a7dd4757b5214924d4f5d75bc5861365ef65e8e33b6e143
+doccontainersize 2544404
+doccontainerchecksum dafae48e690e6f0a2272d268204cbe58967eec5dc895987ecbff563061f23a53bf9d0d39f4a269b852524c1cad8de08fb121aa8291d2c723c01615f4c83b3231
+docfiles size=647
+ texmf-dist/doc/latex/leadsheets/README details="Readme"
+ texmf-dist/doc/latex/leadsheets/leadsheets_en.pdf details="Package documentation"
+ texmf-dist/doc/latex/leadsheets/leadsheets_en.tex
+runfiles size=33
+ texmf-dist/tex/latex/leadsheets/leadsheet.cls
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.chordnames.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.chords.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.external.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.musejazz.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.musicsymbols.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.properties.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.shorthands.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.songs.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.templates.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.translations.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.library.transposing.code.tex
+ texmf-dist/tex/latex/leadsheets/leadsheets.sty
+catalogue-also songs songbook
+catalogue-contact-bugs https://github.com/cgnieder/leadsheets/issues
+catalogue-contact-repository https://github.com/cgnieder/leadsheets
+catalogue-ctan /macros/latex/contrib/leadsheets
+catalogue-license lppl1.3
+catalogue-topics music chords
+catalogue-version 0.7

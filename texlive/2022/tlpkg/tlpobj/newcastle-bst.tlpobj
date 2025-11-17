@@ -1,0 +1,24 @@
+name newcastle-bst
+category Package
+revision 62856
+shortdesc A BibTeX style to format reference lists in the Harvard at Newcastle style
+longdesc This package provides a BibTeX style to format reference lists
+longdesc in the Harvard at Newcastle style recommended by Newcastle
+longdesc University. It should be used alongside natbib for citations.
+containersize 6560
+containerchecksum bc3f53c76ec9711d2ad9878dd12a62ed5fceba680dfd89d55ad81df0bf6e63e49e8660e1aa0726ac8ef545fab1e924fcae938701a59117bb42a59a016a349944
+doccontainersize 139940
+doccontainerchecksum c00154d8a4abc12d57d1760383a5da13af16ba5340edcdaaeeb4e61b5ceb42d0776c0967af7814bb3bc6a8669a61998b212fe62b190458a50ae1e6a03c2a3645
+docfiles size=45
+ texmf-dist/doc/bibtex/newcastle-bst/README.md details="Readme"
+ texmf-dist/doc/bibtex/newcastle-bst/bibliography.bib
+ texmf-dist/doc/bibtex/newcastle-bst/newcastle-bst.pdf details="Package documentation"
+ texmf-dist/doc/bibtex/newcastle-bst/newcastle-bst.tex
+runfiles size=8
+ texmf-dist/bibtex/bst/newcastle-bst/newcastle.bst
+catalogue-contact-bugs https://github.com/LukeBriggsDev/Newcastle-BibTeX/issues
+catalogue-contact-home https://github.com/LukeBriggsDev/Newcastle-BibTeX
+catalogue-ctan /biblio/bibtex/contrib/newcastle-bst
+catalogue-license lppl1.3c
+catalogue-topics bibtex-sty
+catalogue-version 1.1

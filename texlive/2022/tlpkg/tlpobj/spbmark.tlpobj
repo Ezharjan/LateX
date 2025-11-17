@@ -1,0 +1,23 @@
+name spbmark
+category Package
+revision 63100
+shortdesc Customize superscripts and subscripts
+longdesc This package provides three commands \super, \sub and \supersub
+longdesc to improve the layout of superscripts and subscripts which can
+longdesc be adjusted with respect to relative position and format, and
+longdesc can be used in text and math mode.
+containersize 3420
+containerchecksum f17b56da73a6467802cc91108ebcdada3187e6c95699d403de5eead74cb2decb1e32bc6ba14557c0a088d927c106761e5a399804dec2b7478dcedd03fc44e128
+doccontainersize 88332
+doccontainerchecksum 26ab1ec032187cc246950a093c30561c1fb8f2c1426bbef1819db15785b6053f9c3b874f92ff853713cf4f963df48ed812d2a7f8a7dfb43e91f6dd70b8216707
+docfiles size=26
+ texmf-dist/doc/latex/spbmark/README.md details="Readme"
+ texmf-dist/doc/latex/spbmark/spbmark.pdf details="Package documentation"
+ texmf-dist/doc/latex/spbmark/spbmark.tex
+runfiles size=4
+ texmf-dist/tex/latex/spbmark/spbmark.sty
+catalogue-contact-repository https://github.com/texl3/spbmark
+catalogue-ctan /macros/latex/contrib/spbmark
+catalogue-license cc-by-4
+catalogue-topics subsup-pos expl3
+catalogue-version 1.41

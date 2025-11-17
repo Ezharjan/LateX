@@ -1,0 +1,37 @@
+name beilstein
+category Package
+revision 56193
+shortdesc Support for submissions to the "Beilstein Journal of Nanotechnology"
+longdesc The package provides a LaTeX class file and a BibTeX style file
+longdesc in accordance with the requirements of submissions to the
+longdesc ``Beilstein Journal of Nanotechnology''. Although the files can
+longdesc be used for any kind of document, they have only been designed
+longdesc and tested to be suitable for submissions to the Beilstein
+longdesc Journal of Nanotechnology.
+containersize 13304
+containerchecksum 4d604245024a94e23c30c7968e177173efebc7d8d227688f0e90adbf071c7d0d44a6c07c37143675a66899062ca2b8c366516ca3863128e33e784919a33e3d49
+doccontainersize 666912
+doccontainerchecksum 9684c13b0d91121e7e7548ed9bc1e377ac7a54f9f1f2aeb57d465bab36b17d216e1cae4eea9b3fb6e5afc42e41f465a31db0209f5b45f40f7db0afbc4646c73d
+docfiles size=178
+ texmf-dist/doc/latex/beilstein/BJNANO_Technical_Handbook.pdf
+ texmf-dist/doc/latex/beilstein/CHANGELOG.md
+ texmf-dist/doc/latex/beilstein/README.md details="Readme"
+ texmf-dist/doc/latex/beilstein/beilstein-template.bib
+ texmf-dist/doc/latex/beilstein/beilstein-template.tex
+ texmf-dist/doc/latex/beilstein/figure1.pdf
+ texmf-dist/doc/latex/beilstein/scheme1.pdf
+ texmf-dist/doc/latex/beilstein/scheme2.pdf
+srccontainersize 76016
+srccontainerchecksum 0bd1079836d7740070d6100730449e6118a14485902a9016109587530e0f83b8dd4a4466cce914c5f06f42163da746e75fd998eb6b279e45574f81535e65ed1f
+srcfiles size=50
+ texmf-dist/source/latex/beilstein/beilstein.dtx
+ texmf-dist/source/latex/beilstein/beilstein.ins
+ texmf-dist/source/latex/beilstein/bjnano_logo.pdf
+runfiles size=16
+ texmf-dist/bibtex/bst/beilstein/bjnano.bst
+ texmf-dist/tex/latex/beilstein/beilstein.cls
+catalogue-contact-home https://www.beilstein-journals.org/bjnano/
+catalogue-ctan /macros/latex/contrib/beilstein
+catalogue-license lppl1.3c
+catalogue-topics journalpub
+catalogue-version 2.1

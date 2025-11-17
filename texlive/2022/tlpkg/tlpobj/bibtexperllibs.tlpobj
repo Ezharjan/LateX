@@ -1,0 +1,91 @@
+name bibtexperllibs
+category Package
+revision 57137
+shortdesc BibTeX Perl Libraries
+longdesc This package provides BibTeX related Perl libraries by Gerhard
+longdesc Gossen, repacked by Boris Veytsman, for TeX Live and other
+longdesc TDS-compliant distributions. The libraries are written in pure
+longdesc Perl, so should work out of the box on any architecture. They
+longdesc have been packaged here mostly for Boris Veytsman's BibTeX
+longdesc suite, but can be used in any other Perl script.
+containersize 12284
+containerchecksum a2989820b603d7001bdafd85d637d500a1f27640c37ed48990acd5cd49b8c9d0035457f9c55bb79dad5c9397fd5d4f46fc8a10834bb388a0626daf8e8269a2ba
+srccontainersize 144152
+srccontainerchecksum b4cb508f2e24de447427bc82abf3366f5f2afa0b5a5a827e1b129e8b2819878ea78c2057c771dcdd86e362eaefa942c90e0f7285a8495256a9087667cde2325b
+srcfiles size=386
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/Changes
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/LICENSE
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/MANIFEST
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/META.yml
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/MYMETA.json
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/MYMETA.yml
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/Makefile
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/Makefile.PL
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/README
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/dist.ini
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/notes
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/00-load.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/01-parse.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/02-parse_string.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/03-parse_entry.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/04-entry.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/05-author.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/06-parse_complex.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/07-parse_englishbib.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/08-parse_large.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/09-complex.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/10-funnyname.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/11-split_braced.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/12-von_token.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/13_output.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/14-extratext.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/15-capitalization.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/01.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/06.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/09-complex.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/10-funnyname.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/14-extratext.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/braces.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/endnote.txt
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/engineering_village.txt
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/english.bib
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bibs/mathscinet.txt
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bug66325.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/bug67419.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/cleaned_field.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/pod-coverage.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/pod.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/release-pod-coverage.t
+ texmf-dist/source/support/bibtexperllibs/BibTeX-Parser/t/release-pod-syntax.t
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/Changes
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/LICENSE
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/MANIFEST
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/META.yml
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/MYMETA.json
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/MYMETA.yml
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/Makefile
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/Makefile.PL
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/README
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/dist.ini
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/script/UnicodeData.txt
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/script/convert.pl
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/t/convert.t
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/t/release-pod-coverage.t
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/t/release-pod-syntax.t
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/t/release-synopsis.t
+ texmf-dist/source/support/bibtexperllibs/LaTeX-ToUnicode/weaver.ini
+ texmf-dist/source/support/bibtexperllibs/Makefile
+ texmf-dist/source/support/bibtexperllibs/README
+runfiles size=15
+ texmf-dist/scripts/bibtexperllibs/BibTeX/Parser.pm
+ texmf-dist/scripts/bibtexperllibs/BibTeX/Parser/Author.pm
+ texmf-dist/scripts/bibtexperllibs/BibTeX/Parser/Entry.pm
+ texmf-dist/scripts/bibtexperllibs/LaTeX/ToUnicode.pm
+ texmf-dist/scripts/bibtexperllibs/LaTeX/ToUnicode/Tables.pm
+catalogue-contact-bugs https://github.com/borisveytsman/BibTeXPerlLibs/issues
+catalogue-contact-development https://github.com/borisveytsman/BibTeXPerlLibs/pulls
+catalogue-contact-repository https://github.com/borisveytsman/BibTeXPerlLibs
+catalogue-ctan /support/bibtexperllibs
+catalogue-license gpl1 artistic pd
+catalogue-topics bibtex-supp
+catalogue-version 1.6

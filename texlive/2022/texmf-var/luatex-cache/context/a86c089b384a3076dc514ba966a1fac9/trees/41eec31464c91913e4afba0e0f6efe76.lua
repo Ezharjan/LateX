@@ -1,0 +1,22 @@
+return {
+ ["content"]={
+  ["files"]={
+   ["ls-r"]="",
+  },
+  ["metadata"]={
+   ["directories"]=27,
+   ["files"]=1,
+   ["path"]="D:/XAMPP/LateX/texlive/texmf-local",
+   ["remappings"]=1,
+  },
+  ["remap"]={
+   ["ls-r"]="ls-R",
+  },
+ },
+ ["date"]="2022-09-22",
+ ["root"]="D:/XAMPP/LateX/texlive/texmf-local",
+ ["time"]="13:38:01",
+ ["type"]="files",
+ ["uuid"]="74943c10-4f65-867a-6ffa-b1ec4df87b90",
+ ["version"]="1.100",
+}

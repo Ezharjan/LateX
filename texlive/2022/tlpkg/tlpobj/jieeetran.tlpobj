@@ -1,0 +1,25 @@
+name jieeetran
+category Package
+revision 62958
+shortdesc UnofficiaL BibTeX style for citing Japanese articles in IEEE format
+longdesc This package provides an unofficial BibTeX style for authors
+longdesc trying to cite Japanese articles in the Institute of Electrical
+longdesc and Electronics Engineers (IEEE) format.
+containersize 17652
+containerchecksum 3c92aeb3c8f4dca2bb7a03a5a8113223fa202a2a9a38d62bb036d57f1e9b4ff0ab0a5ef8c56d15177ee075a5825ab49eb883377e6c1345c807e19f22eb821b46
+doccontainersize 151932
+doccontainerchecksum 002714b1e8ac29c5b997e5b56ad63c5fdc2138cfa9b208243aea9749cfa4e2be6b28e4a7bc05d65c7d89826268525739a1adca0d319e98d94b69c148501adc2c
+docfiles size=47
+ texmf-dist/doc/bibtex/jieeetran/README details="Readme"
+ texmf-dist/doc/bibtex/jieeetran/jieeetran-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/bibtex/jieeetran/jieeetran-en.tex
+ texmf-dist/doc/bibtex/jieeetran/jieeetran.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/bibtex/jieeetran/jieeetran.tex
+ texmf-dist/doc/bibtex/jieeetran/mixej.py
+runfiles size=21
+ texmf-dist/bibtex/bst/jieeetran/jIEEEtran.bst
+catalogue-contact-repository https://github.com/ehki/jIEEEtran
+catalogue-ctan /biblio/bibtex/contrib/jieeetran
+catalogue-license mit
+catalogue-topics bibtex-sty japanese
+catalogue-version 0.18

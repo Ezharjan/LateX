@@ -1,0 +1,32 @@
+name hep-text
+category Package
+revision 61172
+shortdesc List and text extensions
+longdesc The hep-text package extends LaTeX lists using the enumitem
+longdesc package and provides some text macros. The package is loaded
+longdesc with \usepackage{hep-text}.
+containersize 1632
+containerchecksum 365998a83777730a2beb7d2c5a70fc66faeef818eed654af3ad52945b925fba9c5bcb221a301e8d20ed654a209624e6b5bf3b14b5318be644daa1da4aae931b6
+doccontainersize 494980
+doccontainerchecksum 1cbe4fe20cd0edcd0d4a4b62b8376bfe66a8f2b5b033a81052499b0b2209c9a61330faf1b7d4c0ce680b82b88ad50d7b979a04a33da1ed5745b75ec5fc114ddb
+docfiles size=167
+ texmf-dist/doc/latex/hep-text/README-hep-text.md
+ texmf-dist/doc/latex/hep-text/README.md details="Readme"
+ texmf-dist/doc/latex/hep-text/bibliography.bib
+ texmf-dist/doc/latex/hep-text/hep-text-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-text/hep-text-documentation.tex
+ texmf-dist/doc/latex/hep-text/hep-text-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-text/license.md
+srccontainersize 4228
+srccontainerchecksum 1eb4a29178a5bce51ea53a70aba0abbe5545c1776d9c03bb32cfcb9facedad8435b13ba5b2f85e5badfd13d7cffa4f085b596e76abe2cf31febad07259606917
+srcfiles size=4
+ texmf-dist/source/latex/hep-text/hep-text-implementation.dtx
+ texmf-dist/source/latex/hep-text/hep-text.ins
+runfiles size=1
+ texmf-dist/tex/latex/hep-text/hep-text.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/hep-text
+catalogue-license lppl1.3c
+catalogue-topics list
+catalogue-version 1.0

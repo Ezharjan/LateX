@@ -1,0 +1,71 @@
+name letgut
+category Package
+revision 64269
+shortdesc Class for the newsletter "La Lettre GUTenberg" of the French TeX User Group GUTenberg
+longdesc The French TeX User Group GUTenberg has been publishing "The
+longdesc GUTenberg Letter", its irregular newsletter, since February
+longdesc 1993. For this purpose, a dedicated, in-house (La)TeX class was
+longdesc gradually created but, depending on new needs and on the people
+longdesc who were publishing the Newsletter, its development was
+longdesc somewhat erratic; in particular, it would not have been
+longdesc possible to publish its code as it was. In addition, its
+longdesc documentation was non-existent. The Board of Directors of the
+longdesc association, elected in November 2020, wished to provide a
+longdesc better structured, more perennial and documented class, able to
+longdesc be published on the CTAN. This is now done with the present
+longdesc 'letgut' class. # French L'association GUTenberg publie "La
+longdesc Lettre GUTenberg", son bulletin irregulomestriel, depuis
+longdesc fevrier 1993. Pour ce faire, une classe (La)TeX dediee, maison,
+longdesc a peu a peu vu le jour mais, au gre des nouveaux besoins et des
+longdesc personnes qui ont assure la publication de la Lettre, son
+longdesc developpement a ete quelque peu erratique ; il n'aurait
+longdesc notamment pas ete possible de publier son code en l'etat. En
+longdesc outre, sa documentation etait inexistante. Le Conseil
+longdesc d'Administration de l'association, elu en novembre 2020, a
+longdesc souhaite fournir une classe mieux structuree, davantage perenne
+longdesc et documentee, a meme d'etre publiee sur le CTAN. C'est
+longdesc desormais chose faite avec la presente classe letgut.
+containersize 49588
+containerchecksum a080728f3d5a1457ef5d44729e81413eedc1bccedad08d21cb284ad4e93992c26abbd3ba160ef545fefcbc2330b82cccaefd14df29a7214a7233a06ee520240b
+doccontainersize 1211460
+doccontainerchecksum 71593d0c34b51c2b0a0c5650578d3ffd1c57b1cd4c048fe62a5f8e5c984253239d58abe0219bbab171af7ed705529ad0af30f58a93afef2d4e96bc436f0d0433
+docfiles size=394
+ texmf-dist/doc/lualatex/letgut/CHANGELOG.md
+ texmf-dist/doc/lualatex/letgut/README.md details="Readme"
+ texmf-dist/doc/lualatex/letgut/exemple-nouveautes.pdf
+ texmf-dist/doc/lualatex/letgut/exemple-nouveautes.tex
+ texmf-dist/doc/lualatex/letgut/latexmkrc
+ texmf-dist/doc/lualatex/letgut/letgut-banner-code.pdf
+ texmf-dist/doc/lualatex/letgut/letgut-banner-code.tex
+ texmf-dist/doc/lualatex/letgut/letgut-code.pdf
+ texmf-dist/doc/lualatex/letgut/letgut-code.tex
+ texmf-dist/doc/lualatex/letgut/letgut.bib
+ texmf-dist/doc/lualatex/letgut/letgut.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/letgut/letgut.tex
+ texmf-dist/doc/lualatex/letgut/listings-conf.tex
+ texmf-dist/doc/lualatex/letgut/localconf.tex
+ texmf-dist/doc/lualatex/letgut/xindex-letgut.lua
+srccontainersize 61252
+srccontainerchecksum 31c8a0a6e5d169bb79c853537da9b05de3c91b068e84b00f0afa5ae5f9b19c670e934eb19c35b5f34f6d29f485ef5405c723bbb7cea356b03d287bd7eb20b46a
+srcfiles size=76
+ texmf-dist/source/lualatex/letgut/HOWTO.md
+ texmf-dist/source/lualatex/letgut/letgut-banner.org
+ texmf-dist/source/lualatex/letgut/letgut.org
+runfiles size=62
+ texmf-dist/tex/lualatex/letgut/informations-gut.tex
+ texmf-dist/tex/lualatex/letgut/letgut-acronyms.tex
+ texmf-dist/tex/lualatex/letgut/letgut-banner.sty
+ texmf-dist/tex/lualatex/letgut/letgut-francophony-icon.pdf
+ texmf-dist/tex/lualatex/letgut/letgut-lstlang.sty
+ texmf-dist/tex/lualatex/letgut/letgut.cbx
+ texmf-dist/tex/lualatex/letgut/letgut.cls
+ texmf-dist/tex/lualatex/letgut/letgut.dbx
+ texmf-dist/tex/lualatex/letgut/letgut.lbx
+ texmf-dist/tex/lualatex/letgut/logo-gut.pdf
+catalogue-contact-bugs https://framagit.org/gutenberg/classe-lettre-gut/-/issues
+catalogue-contact-development https://framagit.org/gutenberg/letgut/-/merge_requests
+catalogue-contact-repository https://framagit.org/gutenberg/letgut/
+catalogue-ctan /macros/luatex/latex/letgut
+catalogue-license lppl1.3c
+catalogue-topics magazine luatex
+catalogue-version 0.9.3

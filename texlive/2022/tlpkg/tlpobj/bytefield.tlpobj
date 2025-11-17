@@ -1,0 +1,28 @@
+name bytefield
+category Package
+revision 60265
+shortdesc Create illustrations for network protocol specifications
+longdesc The bytefield package helps the user create illustrations for
+longdesc network protocol specifications and anything else that utilizes
+longdesc fields of data. These illustrations show how the bits and bytes
+longdesc are laid out in a packet or in memory.
+containersize 4892
+containerchecksum 6f128c419989627e6ba7329932588121f88a63d89761d5cc912b8d53371ee5c80651dd6a3e0f8e9fb16d77ef3818baa65c317b1629b954a45743c993849732d9
+doccontainersize 754116
+doccontainerchecksum e7a496c61fde7af9d5ffb96b4dc1c2dfff8dc3883b07ece63007b2987f1ecb5d0d751daa001b0d2c045c9ca5be9ce074d37aefde8981fa88a2c9e91f7c3bdbe7
+docfiles size=210
+ texmf-dist/doc/latex/bytefield/README details="Readme"
+ texmf-dist/doc/latex/bytefield/bf-example.pdf details="Example of use"
+ texmf-dist/doc/latex/bytefield/bf-example.tex
+ texmf-dist/doc/latex/bytefield/bytefield.pdf details="Package documentation"
+srccontainersize 29556
+srccontainerchecksum e017a2d0ea3b04682a2c5e8c0f1fc76d3d45f25161c00695f134947da31d98fd89967be43785c307893f34dee0f29ecce99c3aa539370463b31093c03b2e78ab
+srcfiles size=36
+ texmf-dist/source/latex/bytefield/bytefield.dtx
+ texmf-dist/source/latex/bytefield/bytefield.ins
+runfiles size=6
+ texmf-dist/tex/latex/bytefield/bytefield.sty
+catalogue-ctan /macros/latex/contrib/bytefield
+catalogue-license lppl1.3a
+catalogue-topics engineering comp-sci comp-net
+catalogue-version 2.7

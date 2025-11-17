@@ -1,0 +1,65 @@
+name thuthesis
+category Package
+revision 63324
+shortdesc Thesis template for Tsinghua University
+longdesc This package establishes a simple and easy-to-use LaTeX
+longdesc template for Tsinghua dissertations, including general
+longdesc undergraduate research papers, masters theses, doctoral
+longdesc dissertations, and postdoctoral reports.
+containersize 43468
+containerchecksum 92ca6650eaee695a7a91415fc8dc444dcc13a92a9111abdf7171df8aaa2f94c5f84530336d0bc1d2d8c8674352ae495422843623383de95f36296e3e91dc4a40
+doccontainersize 1418592
+doccontainerchecksum f4f02df8ffc900b3e909a5c777c3be0e8e307bb8942f55c5de4a332e4ebbe2962a9d27a1283ae757706e68d7e256a613bb05974f4473bc987ce9de3756b7a576
+docfiles size=391
+ texmf-dist/doc/latex/thuthesis/CHANGELOG.md
+ texmf-dist/doc/latex/thuthesis/LICENSE
+ texmf-dist/doc/latex/thuthesis/Makefile
+ texmf-dist/doc/latex/thuthesis/README.md details="Readme (Chinese & English)"
+ texmf-dist/doc/latex/thuthesis/data/abstract.tex
+ texmf-dist/doc/latex/thuthesis/data/acknowledgements.tex
+ texmf-dist/doc/latex/thuthesis/data/appendix-survey.tex
+ texmf-dist/doc/latex/thuthesis/data/appendix-translation.tex
+ texmf-dist/doc/latex/thuthesis/data/appendix.tex
+ texmf-dist/doc/latex/thuthesis/data/chap01.tex
+ texmf-dist/doc/latex/thuthesis/data/chap02.tex
+ texmf-dist/doc/latex/thuthesis/data/chap03.tex
+ texmf-dist/doc/latex/thuthesis/data/chap04.tex
+ texmf-dist/doc/latex/thuthesis/data/comments.tex
+ texmf-dist/doc/latex/thuthesis/data/committee.tex
+ texmf-dist/doc/latex/thuthesis/data/denotation.tex
+ texmf-dist/doc/latex/thuthesis/data/resolution.tex
+ texmf-dist/doc/latex/thuthesis/data/resume.tex
+ texmf-dist/doc/latex/thuthesis/latexmkrc
+ texmf-dist/doc/latex/thuthesis/ref/appendix.bib
+ texmf-dist/doc/latex/thuthesis/ref/refs.bib
+ texmf-dist/doc/latex/thuthesis/spine.pdf
+ texmf-dist/doc/latex/thuthesis/spine.tex
+ texmf-dist/doc/latex/thuthesis/thusetup.tex
+ texmf-dist/doc/latex/thuthesis/thuthesis-example.pdf details="Example of use  (Chinese)" language="zh"
+ texmf-dist/doc/latex/thuthesis/thuthesis-example.tex
+ texmf-dist/doc/latex/thuthesis/thuthesis.pdf details="Package documentation  (Chinese)" language="zh"
+srccontainersize 47696
+srccontainerchecksum 8bab63a2990e8dd546c14f85a7ba74b83eea4e33da1265b5bbca12097148dc509262841caaf80c969f3ee0dfefac924a7d068331c302406c43c7d78a9b344104
+srcfiles size=53
+ texmf-dist/source/latex/thuthesis/thuthesis.dtx
+ texmf-dist/source/latex/thuthesis/thuthesis.ins
+runfiles size=76
+ texmf-dist/bibtex/bst/thuthesis/thuthesis-author-year.bst
+ texmf-dist/bibtex/bst/thuthesis/thuthesis-bachelor.bst
+ texmf-dist/bibtex/bst/thuthesis/thuthesis-numeric.bst
+ texmf-dist/tex/latex/thuthesis/thuthesis-author-year.bbx
+ texmf-dist/tex/latex/thuthesis/thuthesis-author-year.cbx
+ texmf-dist/tex/latex/thuthesis/thuthesis-bachelor.bbx
+ texmf-dist/tex/latex/thuthesis/thuthesis-bachelor.cbx
+ texmf-dist/tex/latex/thuthesis/thuthesis-inline.cbx
+ texmf-dist/tex/latex/thuthesis/thuthesis-numeric.bbx
+ texmf-dist/tex/latex/thuthesis/thuthesis-numeric.cbx
+ texmf-dist/tex/latex/thuthesis/thuthesis.cls
+ texmf-dist/tex/latex/thuthesis/tsinghua-name-bachelor.pdf
+catalogue-contact-announce https://github.com/tuna/thuthesis/releases
+catalogue-contact-bugs https://github.com/tuna/thuthesis/issues
+catalogue-contact-repository https://github.com/tuna/thuthesis
+catalogue-ctan /macros/latex/contrib/thuthesis
+catalogue-license lppl1.3c
+catalogue-topics dissertation class doc-templ std-conform chinese
+catalogue-version 7.3.0

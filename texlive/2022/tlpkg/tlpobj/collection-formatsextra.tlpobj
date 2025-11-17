@@ -1,0 +1,32 @@
+name collection-formatsextra
+category Collection
+revision 62226
+shortdesc Additional formats
+longdesc Collected TeX `formats', i.e., large-scale macro packages
+longdesc designed to be dumped into .fmt files -- excluding the most
+longdesc common ones, such as latex and context, which have their own
+longdesc package(s). It also includes the Aleph engine and related Omega
+longdesc formats and packages, and the HiTeX engine and related.
+depend aleph
+depend antomega
+depend collection-basic
+depend collection-latex
+depend edmac
+depend eplain
+depend hitex
+depend jadetex
+depend lambda
+depend lollipop
+depend mltex
+depend mxedruli
+depend omega
+depend omegaware
+depend otibet
+depend passivetex
+depend psizzl
+depend startex
+depend texsis
+depend xmltex
+depend xmltexconfig
+containersize 584
+containerchecksum 6c7f0a1829789edea6a42d45f13f482abc0aa1ecc66b0ba4b70197efff349df75c9a89a98f21537cf6f3751b608fc3ee10ac842613deaf2aa21005374a23bab2

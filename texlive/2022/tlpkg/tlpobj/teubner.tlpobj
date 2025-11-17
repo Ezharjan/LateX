@@ -1,0 +1,32 @@
+name teubner
+category Package
+revision 64217
+shortdesc Philological typesetting of classical Greek
+longdesc An extension to babel greek option for typesetting classical
+longdesc Greek with a philological approach. The package works with the
+longdesc author's greek fonts using the 'Lispiakos' font shape derived
+longdesc from that of the fonts used in printers' shops in Lispia. The
+longdesc package name honours the publisher B.G. Teubner
+longdesc Verlaggesellschaft whose Greek text publications are of high
+longdesc quality.
+containersize 9920
+containerchecksum 9c3b5561f387ce680295353603ed515ea05429165537614ec8002bc1fde40333986dc994b68ef0cebca4739593b95490008340e27570125115ede8890125344b
+doccontainersize 1108872
+doccontainerchecksum 1f22b6cbb1b9fbf89d9993465a302c61a725e030fb78a0d82f8a285fb0a3056adf4c98bd37f9d3e3ba4c49d6f5c89b71ebae6d429b11baf651b88dcd5b2b29d9
+docfiles size=297
+ texmf-dist/doc/latex/teubner/README details="Readme"
+ texmf-dist/doc/latex/teubner/teubner-doc.pdf details="User manual"
+ texmf-dist/doc/latex/teubner/teubner-doc.tex
+ texmf-dist/doc/latex/teubner/teubner.pdf details="Package documentation"
+ texmf-dist/doc/latex/teubner/teubner.txt
+srccontainersize 41556
+srccontainerchecksum 524b31d364f808f913e0ac5507ff2abcb71042a1315606124ccc34bf294a9606fcf32617208717a6a8da5a7b88b76ec740fb76558a5b4c0714eaead98770a55e
+srcfiles size=41
+ texmf-dist/source/latex/teubner/teubner.dtx
+runfiles size=14
+ texmf-dist/tex/latex/teubner/teubner.sty
+ texmf-dist/tex/latex/teubner/teubnertx.sty
+catalogue-ctan /macros/latex/contrib/teubner
+catalogue-license lppl1.3c
+catalogue-topics greek multilingual-addon
+catalogue-version 5.7

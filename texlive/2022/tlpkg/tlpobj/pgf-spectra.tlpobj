@@ -1,0 +1,33 @@
+name pgf-spectra
+category Package
+revision 59827
+shortdesc Draw continuous or discrete spectra using PGF/TikZ
+longdesc The purpose of this package is to draw the spectra of elements
+longdesc in a simple way. It is based on the package pst-spectra, but
+longdesc with some extra options. It relies on PGF/TikZ for drawing the
+longdesc desired spectrum, continuous or discrete. There are data
+longdesc available for the spectra of 98 elements and their ions (from
+longdesc the NASA database and from NIST). It also allows the user to
+longdesc draw spectra using their own data.
+containersize 244204
+containerchecksum b706196e5f4e3a17f1a7ed4c6d28774475da146a9fdea9896ffd668cdf102e32715c3d5163524181735a39e941cf9ca3252d2acba6a926f90fe06ef2db2f4b48
+doccontainersize 2355584
+doccontainerchecksum bbf129ca41d040a9c044f533f948c2e9a750f4a3de3366dd30bec525b3f87f5f185da596952bd92a13f116cf94edec61683236145644fb91033a9c32e26eff0e
+docfiles size=1772
+ texmf-dist/doc/latex/pgf-spectra/README details="Readme"
+ texmf-dist/doc/latex/pgf-spectra/figsManual.zip
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraDataLSE.pdf
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraDataLSE.tex
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraDataNIST.pdf
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraDataNIST.tex
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraManual.pdf details="Package documentation"
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraManual.tex
+ texmf-dist/doc/latex/pgf-spectra/pgf-spectraManual_defs.tex
+runfiles size=258
+ texmf-dist/tex/latex/pgf-spectra/pgf-spectra.sty
+ texmf-dist/tex/latex/pgf-spectra/spectra.data.LSE.tex
+ texmf-dist/tex/latex/pgf-spectra/spectra.data.NIST.tex
+catalogue-ctan /graphics/pgf/contrib/pgf-spectra
+catalogue-license lppl1.3
+catalogue-topics physics pgf-tikz
+catalogue-version 2.1.2

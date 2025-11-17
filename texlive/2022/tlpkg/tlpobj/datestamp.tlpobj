@@ -1,0 +1,31 @@
+name datestamp
+category Package
+revision 61719
+shortdesc Fixed date-stamps with LuaLaTeX
+longdesc Add fixed date-stamps with simple and customizable aux files
+longdesc and LuaLaTeX. As long as the aux file is not deleted/modified
+longdesc the date-stamp generated with this package remains intact.
+containersize 1552
+containerchecksum 558e8ec60ec317f8342efd63d0146b92e43ca37a772b8fb200a40234d48a71e5374cb3f3f15bfdef129fd1fee8ed27491bcb8b69ae2b681abee72a3dcb8f18af
+doccontainersize 114964
+doccontainerchecksum d9627cbb294f0bcb96b019d3497b12ecd4b4eb656a1dfd70d1adc6cc4cd217bed9d4f9e209497c683f925cff4063d759b02b44bfc1f38421a9044aa8ef8bc988
+docfiles size=32
+ texmf-dist/doc/lualatex/datestamp/README.txt details="Readme"
+ texmf-dist/doc/lualatex/datestamp/datestamp-example.pdf details="Example of use"
+ texmf-dist/doc/lualatex/datestamp/datestamp-example.tex
+ texmf-dist/doc/lualatex/datestamp/datestamp.pdf details="Package documentation"
+srccontainersize 3452
+srccontainerchecksum 3afaedee82a4e4c6f92f465fa59ccb29976272a75aeb523d8c161b07bbe313b5e79dfd96195d0426926a3ddb3117944ab21838d085e1cd59256bae31419e243d
+srcfiles size=3
+ texmf-dist/source/lualatex/datestamp/datestamp.dtx
+ texmf-dist/source/lualatex/datestamp/datestamp.ins
+runfiles size=1
+ texmf-dist/tex/lualatex/datestamp/datestamp.sty
+catalogue-contact-bugs https://puszcza.gnu.org.ua/bugs/?group=datestamp
+catalogue-contact-home https://puszcza.gnu.org.ua/projects/datestamp/
+catalogue-contact-repository https://git.gnu.org.ua/datestamp.git/
+catalogue-contact-support mailto:datestamp-help@gnu.org.ua
+catalogue-ctan /macros/luatex/latex/datestamp
+catalogue-license gpl3+ fdl
+catalogue-topics luatex date-time
+catalogue-version 0.3

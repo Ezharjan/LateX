@@ -1,0 +1,28 @@
+name ucharclasses
+category Package
+revision 62377
+shortdesc Font actions in XeTeX according to what is being processed
+longdesc The package takes care of switching fonts when you switch from
+longdesc one Unicode block to another in the text of a document. This
+longdesc way, you can write a document with no explicit font selection,
+longdesc but a series of rules of the form "when entering block ...,
+longdesc switch font to use ...".
+containersize 8936
+containerchecksum 07621bff6e962e4a36b0612a8f6209179381a5598aca41587ff2eda34c25f241e44fa5789b8589742b462c60bbe626b50b502b38b879b0b1d71a6eb51265fea9
+doccontainersize 143316
+doccontainerchecksum f2116e1701c444e21391f3bd29a3d9d5163169b23beddca4c9c6f3703bb2be2c4fb5b6a04171bb22c511d44c6d8f2a9239e939efee75563c413cc07163a343f5
+docfiles size=42
+ texmf-dist/doc/xelatex/ucharclasses/README details="Readme"
+ texmf-dist/doc/xelatex/ucharclasses/ucharclasses.pdf details="Package documentation"
+ texmf-dist/doc/xelatex/ucharclasses/ucharclasses.tex
+runfiles size=9
+ texmf-dist/tex/xelatex/ucharclasses/ucharclasses.sty
+catalogue-contact-bugs https://github.com/Pomax/ucharclasses/issues
+catalogue-contact-development https://github.com/Pomax/ucharclasses
+catalogue-contact-home https://github.com/Pomax/ucharclasses
+catalogue-contact-repository https://github.com/Pomax/ucharclasses
+catalogue-contact-support https://github.com/Pomax/ucharclasses/issues
+catalogue-ctan /macros/xetex/latex/ucharclasses
+catalogue-license pd
+catalogue-topics xetex font-supp
+catalogue-version 2.5

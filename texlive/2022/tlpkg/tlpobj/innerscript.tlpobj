@@ -1,0 +1,26 @@
+name innerscript
+category Package
+revision 57672
+shortdesc Modifies automatic mathematics spacing
+longdesc This package modifies two aspects of TeX's automatic interatom
+longdesc mathematics spacing. It uses LuaTeX's \Umath primitives to make
+longdesc superscripts and subscripts more closely resemble \textstyle
+longdesc and \displaystyle math and to treat \mathinner subformulas as
+longdesc \mathord, effectively eliminating this class.
+containersize 3168
+containerchecksum 0ab2851bf450b502e1f04f8c529a2cee149ce5ffb1a091b6870189f01398ec1aaa7c26e5bcfb4ec6e156cbf3e273a4c4677dac7c6c93078d5eadbd478add7d00
+doccontainersize 120788
+doccontainerchecksum 52684da615ec9caa76e144966be1c3f3152cbf757822b5b2a277c7f40a847bba20d03f1349770a6955daade85f97bbb03572710af39ba6874cf3ff0c422405c3
+docfiles size=32
+ texmf-dist/doc/lualatex/innerscript/README.txt details="Readme"
+ texmf-dist/doc/lualatex/innerscript/innerscript.pdf details="Package documentation"
+srccontainersize 7808
+srccontainerchecksum b5396a9f73446721e7e8d2283cb10046242e31c9ed77800b3a9e3d825a57f2e81ef06a27ca67b2bee2e88b281329b5f05e230de70982ed937d698cc4b766dfee
+srcfiles size=10
+ texmf-dist/source/lualatex/innerscript/innerscript.dtx
+runfiles size=6
+ texmf-dist/tex/lualatex/innerscript/innerscript.sty
+catalogue-ctan /macros/luatex/latex/innerscript
+catalogue-license lppl1.3c
+catalogue-topics maths
+catalogue-version 1.1

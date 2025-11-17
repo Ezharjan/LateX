@@ -1,0 +1,72 @@
+name xmltex
+category Package
+revision 62145
+shortdesc Support for parsing XML documents
+longdesc The package provides an implementation of a parser for
+longdesc documents matching the XML 1.0 and XML Namespace
+longdesc Recommendations. In addition to parsing commands are provided
+longdesc to attatch TeX typesetting instructions to the various markup
+longdesc elemenets as they are encounted. Sample files for typesetting a
+longdesc subset of TEI, MathML, are included. Element and Attribute
+longdesc names, as well as character data, may use any characters
+longdesc allowed in XML, using UTF-8 or a suitable 8-bit encoding.
+depend atbegshi
+depend atveryend
+depend babel
+depend cm
+depend dehyph
+depend everyshi
+depend firstaid
+depend hyph-utf8
+depend hyphen-base
+depend l3backend
+depend l3kernel
+depend l3packages
+depend latex
+depend latex-fonts
+depend latexconfig
+depend pdftex
+depend tex
+depend tex-ini-files
+depend unicode-data
+depend xmltex.ARCH
+depend xmltexconfig
+execute AddFormat name=pdfxmltex engine=pdftex patterns=language.dat           options="*pdfxmltex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,dehyph,hyph-utf8,latex,latexconfig,tex-ini-files,xmltexconfig
+execute AddFormat name=xmltex engine=pdftex patterns=language.dat           options="*xmltex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,dehyph,hyph-utf8,latex,latexconfig,tex-ini-files,xmltexconfig
+containersize 18260
+containerchecksum ee01abb25b18e99f18bc78357be04fb1405473e90fbdf74ed875e2910812550c44fcc7aee960b2bdc53fcd7d78e9aa706e46929da65d5cb78d9ca43ba475d675
+doccontainersize 17004
+doccontainerchecksum d87c6d1f4c472b436104b0746d48a463977dc7eb520de3d7a53f48bc1c8e5682a23d604bbe2ebda1b5029d4a6dd33c2d2bf8b917ad4f54d2c7472874fdfe8509
+docfiles size=32
+ texmf-dist/doc/otherformats/xmltex/base/englishutf16.xml
+ texmf-dist/doc/otherformats/xmltex/base/englishutf8.xml
+ texmf-dist/doc/otherformats/xmltex/base/langtest.xml
+ texmf-dist/doc/otherformats/xmltex/base/manual.html details="Package documentation"
+ texmf-dist/doc/otherformats/xmltex/base/manual.tex
+ texmf-dist/doc/otherformats/xmltex/base/manual.xml
+ texmf-dist/doc/otherformats/xmltex/base/manual.xsl
+ texmf-dist/doc/otherformats/xmltex/base/portugeselatin1.xml
+ texmf-dist/doc/otherformats/xmltex/base/readme.txt details="Readme"
+ texmf-dist/doc/otherformats/xmltex/base/russiankoi8.xml
+ texmf-dist/doc/otherformats/xmltex/base/russianutf8.xml
+ texmf-dist/doc/otherformats/xmltex/base/testascii.cfg
+ texmf-dist/doc/otherformats/xmltex/base/testascii.tex
+ texmf-dist/doc/otherformats/xmltex/base/testascii.xml
+ texmf-dist/doc/otherformats/xmltex/base/testsec.tex
+ texmf-dist/doc/otherformats/xmltex/base/testsec.xml
+runfiles size=24
+ texmf-dist/tex/xmltex/base/iso-8859-1.xmt
+ texmf-dist/tex/xmltex/base/iso-8859-2.xmt
+ texmf-dist/tex/xmltex/base/koi8-r.xmt
+ texmf-dist/tex/xmltex/base/langtest.xmt
+ texmf-dist/tex/xmltex/base/mathml2.xmt
+ texmf-dist/tex/xmltex/base/sec.xmt
+ texmf-dist/tex/xmltex/base/utf-16.xmt
+ texmf-dist/tex/xmltex/base/windows-1250.xmt
+ texmf-dist/tex/xmltex/base/xmltex.cfg
+ texmf-dist/tex/xmltex/base/xmltex.tex
+catalogue-contact-repository https://github.com/davidcarlisle/dpctex
+catalogue-ctan /macros/xmltex/base
+catalogue-license lppl
+catalogue-topics foreign-import
+catalogue-version 0.8

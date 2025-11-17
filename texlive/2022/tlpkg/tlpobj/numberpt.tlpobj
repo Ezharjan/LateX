@@ -1,0 +1,32 @@
+name numberpt
+category Package
+revision 51640
+shortdesc Counters spelled out in Portuguese
+longdesc This packages defines commands to display counters spelled out
+longdesc in Portuguese. The styles are \numberpt for "all lowercase"
+longdesc \Numberpt for "First word capitalized" \NumberPt for "All
+longdesc Capitalized" \NUMBERPT for "ALL UPPERCASE" For example,
+longdesc \renewcommand{\thechapter}{\NumberPt{chapter}} makes chapter
+longdesc titles to be rendered as "Capitulo Um", "Capitulo Dois" etc.
+longdesc Options are offered to select variations in the spelling of
+longdesc "14", or Brazilian vs. European Portuguese forms in the
+longdesc spelling of "16", "17", and "19". The package requires expl3
+longdesc and xparse.
+containersize 2452
+containerchecksum c23fc54514b98cbc31e095f6b1ff37d37eef75146a3eb14e230ee75b71f6d506f148de643ec5e890a565b544b6d05436d47033f0c00ecdccdab697336b61dbf9
+doccontainersize 326496
+doccontainerchecksum 8b3723dbcbfa0163d7113c96ebcdc5a2262c169a94b733dc4af3bc263b119addf58042817dc8437ea5583ed93be1f3d5485ed76c2d704b20d303b5efa8bf41cf
+docfiles size=81
+ texmf-dist/doc/latex/numberpt/README.md details="Readme"
+ texmf-dist/doc/latex/numberpt/numberpt.pdf details="Package documentation"
+srccontainersize 4400
+srccontainerchecksum 967569a1ca42c00cac46f77cf2dbe61d1aebbb89d3754d69ff3beb848d174fbf544374723d33a8c4ec8b98b2c4d93f32dfd1570112a149afad934eb07bff4ef1
+srcfiles size=5
+ texmf-dist/source/latex/numberpt/numberpt.dtx
+ texmf-dist/source/latex/numberpt/numberpt.ins
+runfiles size=2
+ texmf-dist/tex/latex/numberpt/numberpt.sty
+catalogue-ctan /macros/latex/contrib/numberpt
+catalogue-license lppl1.3c
+catalogue-topics portuguese numbers expl3
+catalogue-version 1.0

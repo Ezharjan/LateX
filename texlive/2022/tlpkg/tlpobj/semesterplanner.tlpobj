@@ -1,0 +1,30 @@
+name semesterplanner
+category Package
+revision 56841
+shortdesc Create beautiful semester timetables and more
+longdesc This package defines several useful environments for a
+longdesc beautiful printable semester plan. It includes a timetable
+longdesc (which is using the schedule-Package) as well as appointments,
+longdesc deadlines, and exams. The package requires color, TikZ,
+longdesc schedule, and fontawesome. Furthermore, documents need to be
+longdesc compiled with LuaLaTeX.
+containersize 1900
+containerchecksum 26c7b18796dee2f703f22ace3aae21b38f98d9250b1896a3cfe5214b42551ae3fe4accd9e8bf905109c05169370317608e23363f4bb512e794cfaa528b645119
+doccontainersize 76732
+doccontainerchecksum 32c29aad8acf63e60f07262930f267a295daf9498621c48f0b9697fe31e4dffc63c8992b5c5f60b1d61188de893421906aa3abf160a79c6dd5429eca87c03fb1
+docfiles size=29
+ texmf-dist/doc/lualatex/semesterplanner/README.md details="Readme"
+ texmf-dist/doc/lualatex/semesterplanner/semesterplanner.pdf details="Package documentation"
+srccontainersize 2944
+srccontainerchecksum 709556569a5defa5240781ac1bcac0af6e9cacc0016d6ff057a4414a67c69cf8d11a17c716748dfdc81fc31c2bdee230c9c4adb7c4978ccba20b7330db47ea81
+srcfiles size=3
+ texmf-dist/source/lualatex/semesterplanner/semesterplanner.dtx
+ texmf-dist/source/lualatex/semesterplanner/semesterplanner.ins
+runfiles size=1
+ texmf-dist/tex/lualatex/semesterplanner/semesterplanner.sty
+catalogue-contact-bugs https://github.com/nlschn/semesterplanner/issues
+catalogue-contact-repository https://github.com/nlschn/semesterplanner
+catalogue-ctan /macros/luatex/latex/semesterplanner
+catalogue-license lppl1.3
+catalogue-topics planning calendar luatex
+catalogue-version 1.0

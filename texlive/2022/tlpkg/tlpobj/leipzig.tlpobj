@@ -1,0 +1,32 @@
+name leipzig
+category Package
+revision 52450
+shortdesc Typeset and index linguistic gloss abbreviations
+longdesc The leipzig package provides a set of macros for standard
+longdesc glossing abbreviations, with options to create new ones. They
+longdesc are mnemonic (e.g. \Acc{} for accusative, abbreviated acc).
+longdesc These abbre can be used alone or on top of the glossaries
+longdesc package for easy indexing and glossary printing.
+containersize 5708
+containerchecksum 6811c2259558856d930901d2d82a47774c4c37ceb5d1309fa6b78ebb031685405e334e8de7cd63b1998bf673d5210aacfd096b1c6570ed26840fe4ec22359c5c
+doccontainersize 595424
+doccontainerchecksum a701d8c9ffc741099aa09f75dcef117db6c64a832dd51f57dfe07cee694a177a3a8be824560308b9cdd483013d4e69b77ee8755972b9ed504e033db6396532a0
+docfiles size=149
+ texmf-dist/doc/latex/leipzig/README.md details="Readme"
+ texmf-dist/doc/latex/leipzig/leipzig.acn
+ texmf-dist/doc/latex/leipzig/leipzig.bno
+ texmf-dist/doc/latex/leipzig/leipzig.pdf details="Package documentation"
+srccontainersize 25756
+srccontainerchecksum 957fda848d5d4b5a07aa0150019670058343764434b5a7151131ac1d401e4de60a6f57af72eb485f02d0e3b63a60edc291ce1692d408363b23f811d1c97fb389
+srcfiles size=27
+ texmf-dist/source/latex/leipzig/leipzig.dtx
+ texmf-dist/source/latex/leipzig/leipzig.ins
+runfiles size=7
+ texmf-dist/makeindex/leipzig/leipzig.ist
+ texmf-dist/tex/latex/leipzig/leipzig.sty
+ texmf-dist/tex/latex/leipzig/leipzig.tex
+catalogue-contact-repository https://github.com/natalieweber/leipzig
+catalogue-ctan /macros/latex/contrib/leipzig
+catalogue-license lppl1.3
+catalogue-topics linguistic
+catalogue-version 2.3

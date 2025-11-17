@@ -1,0 +1,25 @@
+name secnum
+category Package
+revision 61813
+shortdesc A macro to format section numbering intuitively
+longdesc This package provides a macro \setsecnum to format section
+longdesc numbering intuitively. \setsecnum{1.1.1} will set the section
+longdesc numbering format to arabic.arabic.arabic and the depth to 3.
+longdesc The package uses LaTeX3.
+containersize 2268
+containerchecksum 543d290e5ae38ac65cd22217aec417f4c1098d629ce9acfe03340b529a7bb89ca012e2edf5321fd90331d79bd87cb5e6f15eef3e599857c2aaaad22bdfd1be78
+doccontainersize 445424
+doccontainerchecksum da4ec2a79e7a04bbf4296f1fd0929971bd577cf4f55d0852923a0bbb73e78e28eba392d203f1abaad1fcbcdffa9e2206fb7d78003b10a2ed428c87562b01de02
+docfiles size=113
+ texmf-dist/doc/latex/secnum/README.md details="Readme"
+ texmf-dist/doc/latex/secnum/secnum.pdf details="Package documentation"
+srccontainersize 5876
+srccontainerchecksum ca61cea878ed892f46b4defcd0a05176578d01b01b5f3924dfe6278278fb77ed89df3d41bd788a06bd7af389904421439ca06afac2440ba557948aa4e80a5817
+srcfiles size=7
+ texmf-dist/source/latex/secnum/secnum.dtx
+runfiles size=3
+ texmf-dist/tex/latex/secnum/secnum.sty
+catalogue-contact-repository https://github.com/GauSyu/secnum
+catalogue-ctan /macros/latex/contrib/secnum
+catalogue-license lppl1.3c
+catalogue-topics headings expl3

@@ -1,0 +1,26 @@
+name fnpct
+category Package
+revision 62248
+shortdesc Manage footnote marks' interaction with punctuation
+longdesc The package moves footnote marks after following punctuation
+longdesc (comma or full stop), and adjusts kerning as appropriate. As a
+longdesc side effect, a change to the handling of multiple footnotes is
+longdesc provided.
+containersize 14748
+containerchecksum 35b1fc24b9cc8ae46104ed20023bc3e1a5a83cfb857cdedc3e6631b8ac4315a79dec012793174fe239898460ef0247f2726b3a7c0f07561a58178ff754b513e7
+doccontainersize 501716
+doccontainerchecksum 2f986edf21052a8e008a64493787139ff9fa5f65038eede1c87e59add2c496f23fb20e7b33d632dc598318dfafbbcbdb7a938a7f04bee6c72884565c104df7a0
+docfiles size=132
+ texmf-dist/doc/latex/fnpct/README details="Readme"
+ texmf-dist/doc/latex/fnpct/fnpct-manual.cls
+ texmf-dist/doc/latex/fnpct/fnpct-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/fnpct/fnpct-manual.tex
+runfiles size=22
+ texmf-dist/tex/latex/fnpct/fnpct-2019-10-05.sty
+ texmf-dist/tex/latex/fnpct/fnpct.sty
+catalogue-contact-bugs https://github.com/cgnieder/fnpct/issues
+catalogue-contact-repository https://github.com/cgnieder/fnpct/
+catalogue-ctan /macros/latex/contrib/fnpct
+catalogue-license lppl1.3c
+catalogue-topics footnote expl3
+catalogue-version 1.1a

@@ -1,0 +1,24 @@
+name biblatex-jura2
+category Package
+revision 56133
+shortdesc Citation style for the German legal profession
+longdesc The package offers BibLaTeX support for citations in German
+longdesc legal texts. This is a style that, unlike other styles in 2019,
+longdesc actually works with modern TeX distributions.
+containersize 4448
+containerchecksum f3714f1348624129cd2342dafc622c8170085c2210012f7e4580d3dfbfd79a4c695f5888868a79412712818c709d5fa76deb6838303d6e5321f7f4932ce29f4c
+doccontainersize 370720
+doccontainerchecksum 40adafe11ded9b2f339c4417ebba767a1571b58b052fe7712082a9ce1147d0d2af9f84736c11d36c1eedc3b7c07b004fbd9ed2a8e08f02520bf0ad2024146ead
+docfiles size=103
+ texmf-dist/doc/latex/biblatex-jura2/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-jura2/biblatex-jura2.tex
+ texmf-dist/doc/latex/biblatex-jura2/biblatex_jura2.pdf details="Package documentation" language="de"
+ texmf-dist/doc/latex/biblatex-jura2/mylit.bib
+runfiles size=5
+ texmf-dist/tex/latex/biblatex-jura2/jura2.bbx
+ texmf-dist/tex/latex/biblatex-jura2/jura2.cbx
+catalogue-also biblatex-jura biblatex-juradiss
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-jura2
+catalogue-license lppl1.3c
+catalogue-topics legal biblatex
+catalogue-version 0.4

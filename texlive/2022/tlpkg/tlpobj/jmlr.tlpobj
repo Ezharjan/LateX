@@ -1,0 +1,38 @@
+name jmlr
+category Package
+revision 61957
+shortdesc Class files for the Journal of Machine Learning Research
+longdesc The jmlr bundle provides a class for authors (jmlr) and a class
+longdesc for production editors (jmlrbook). The jmlrbook class can be
+longdesc used to combine articles written using the jmlr class into a
+longdesc book. The class uses the combine class and the hyperref package
+longdesc to produce either a colour hyperlinked book for on-line viewing
+longdesc or a greyscale nonhyperlinked book for printing. Production
+longdesc editors can use makejmlrbookgui to help build the proceedings
+longdesc from the articles.
+containersize 17520
+containerchecksum 95a5e59c8f4617b8d3d459a2cfe0730465d46a98781e4352debb9eb0c4357e74c8f519e77873a236f127dbecc235f611e30fbd7348818d9024a27fb8f0ff1eac
+doccontainersize 965184
+doccontainerchecksum a481634eac642925340aa02323deee2aeee1577696abd435814a2f27d6e4bf6e61be2b2618778c762f3ec60a1e5067d634da74125dfacccfd940488b6a812175
+docfiles size=252
+ texmf-dist/doc/latex/jmlr/CHANGES
+ texmf-dist/doc/latex/jmlr/README details="Readme"
+ texmf-dist/doc/latex/jmlr/example-teximage.tex
+ texmf-dist/doc/latex/jmlr/jmlr.pdf details="Package documentation"
+ texmf-dist/doc/latex/jmlr/pmlr-sample.bib
+ texmf-dist/doc/latex/jmlr/pmlr-sample.pdf
+ texmf-dist/doc/latex/jmlr/pmlr-sample.tex
+srccontainersize 42432
+srccontainerchecksum 1dee8b499ad2c5427082a69b5a3a65c173a96ea298a05f94b96d448d8d7554d96819798dc724e1e8f55afdd1b25d9e6ed6e7f3474bd83af83b2f89add907f2c8
+srcfiles size=55
+ texmf-dist/source/latex/jmlr/jmlr.dtx
+ texmf-dist/source/latex/jmlr/jmlr.ins
+runfiles size=23
+ texmf-dist/tex/latex/jmlr/jmlr.cls
+ texmf-dist/tex/latex/jmlr/jmlrbook.cls
+ texmf-dist/tex/latex/jmlr/jmlrutils.sty
+catalogue-contact-bugs https://www.dickimaw-books.com/bugtracker.php?category=jmlr
+catalogue-ctan /macros/latex/contrib/jmlr
+catalogue-license lppl1.3
+catalogue-topics journalpub class
+catalogue-version 1.30

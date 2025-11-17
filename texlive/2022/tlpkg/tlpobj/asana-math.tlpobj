@@ -1,0 +1,26 @@
+name asana-math
+category Package
+revision 59629
+shortdesc A font to typeset maths in Xe(La)TeX and Lua(La)TeX
+longdesc The Asana-Math font is an OpenType font that includes almost
+longdesc all mathematical Unicode symbols and it can be used to typeset
+longdesc mathematical text with any software that can understand the
+longdesc MATH OpenType table (e.g., XeTeX 0.997 and Microsoft Word
+longdesc 2007). The font is beta software. Typesetting support for use
+longdesc with LaTeX is provided by the fontspec and unicode-math
+longdesc packages.
+containersize 673612
+containerchecksum 2bbf3e139418db06578af5fc8d3925d96bbe1bd9d472a82d428a059b1a206db131734f1b0e762ca49c896f403faf279b2e47465061dc5bcf0eaa8058474017a3
+doccontainersize 3752
+doccontainerchecksum 86b064ede8b8d77b9722d967de612e4a0e8758a29a6a3909b625fe2fa8ebe9551359a442376e8ee8a9dadf5d295d197328914411144c6f94e0b0fe16692eb128
+docfiles size=3
+ texmf-dist/doc/fonts/asana-math/FontLog.txt
+ texmf-dist/doc/fonts/asana-math/README details="Readme"
+runfiles size=330
+ texmf-dist/fonts/opentype/public/asana-math/Asana-Math.otf
+ texmf-dist/fonts/truetype/public/asana-math/ASANA.TTC
+catalogue-also stix xits
+catalogue-ctan /fonts/Asana-Math
+catalogue-license ofl
+catalogue-topics font font-maths font-otf font-ttf
+catalogue-version 000.958

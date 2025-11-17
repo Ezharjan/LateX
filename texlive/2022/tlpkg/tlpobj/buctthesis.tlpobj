@@ -1,0 +1,31 @@
+name buctthesis
+category Package
+revision 64004
+shortdesc Beijing University of Chemical Technology Thesis Template
+longdesc This package provides a LaTeX class and template for Beijing
+longdesc University of Chemical Technology, supporting bachelor, master,
+longdesc and doctor theses.
+containersize 9632
+containerchecksum c8988be5f140ee2739c2fc2365d1306ce2f47480d47c85c6f2f7cc525cf5ba5b8683a99bc4d5167f78839852ca800ed07caa98a3498893dad92051ca3ba3f7b8
+doccontainersize 461336
+doccontainerchecksum a0f41589d447a81f9fbec183b30e832883a7cffff16ca538c74ccecafd59e41a67e1b3d2ae355eaf8d04c3c6417326606db5ad6752e45f1f031cd7b26ebdb0b0
+docfiles size=117
+ texmf-dist/doc/xelatex/buctthesis/README.md details="Readme"
+ texmf-dist/doc/xelatex/buctthesis/buctthesis.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/xelatex/buctthesis/manual.sty
+srccontainersize 27580
+srccontainerchecksum b7be46e4266544c18bdd76838a3f2635c6cadcd6aa93879cf977ec37264c9438cb3a1e9b79b5e567d460bde2193038b4f88f6f5446519666b33c170b8c698d12
+srcfiles size=26
+ texmf-dist/source/xelatex/buctthesis/buctthesis.dtx
+ texmf-dist/source/xelatex/buctthesis/buctthesis.ins
+runfiles size=10
+ texmf-dist/tex/xelatex/buctthesis/buctcover.cls
+ texmf-dist/tex/xelatex/buctthesis/buctthesis.cls
+catalogue-contact-announce https://github.com/Miracle0565/BUCTthesis/releases
+catalogue-contact-bugs https://github.com/Miracle0565/BUCTthesis/issues
+catalogue-contact-home https://github.com/Miracle0565/BUCTthesis
+catalogue-contact-repository https://github.com/Miracle0565/BUCTthesis/tree/master
+catalogue-ctan /macros/xetex/latex/buctthesis
+catalogue-license lppl1.3c
+catalogue-topics class doc-templ dissertation chinese xetex
+catalogue-version 1.4.1

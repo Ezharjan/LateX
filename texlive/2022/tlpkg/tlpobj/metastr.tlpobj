@@ -1,0 +1,29 @@
+name metastr
+category Package
+revision 56246
+shortdesc Store and compose strings
+longdesc This is a package to store and compose strings in a structured
+longdesc way. This can serve various purposes, for example: manage and
+longdesc write document metadata; use templates for formatting document
+longdesc data; assist in assembling and displaying document license
+longdesc information; facilitate basic internationalisation and
+longdesc localisation.
+containersize 7516
+containerchecksum fb3a0484636e17b763c1229eee4736a13820a852d977b11d9e8672e08a8ab2f9438bba0ed53286dfc5b1422adef1cfc1c393d1eeda5d3172848c051d6aacd211
+doccontainersize 328460
+doccontainerchecksum 367ccc05eb31c50519e7324093759d6452081075d7e9435cb9e37e9787fd35666c1c18c822bfbff2b6dba0b312cee727ce8b7fa94ed627eb439c3c00e5b3d4e6
+docfiles size=87
+ texmf-dist/doc/latex/metastr/README.txt details="Readme"
+ texmf-dist/doc/latex/metastr/metasamp.tex
+ texmf-dist/doc/latex/metastr/metastr.pdf details="Package documentation"
+srccontainersize 23336
+srccontainerchecksum 904c3cdfcade4637a16366bf511094f4a33cd2614ee3f47bcf4cae7c2ffc0d0758633a8ff556ef9494eddf76969b235ae599e1df28bf9cc7537ddddfe33db157
+srcfiles size=29
+ texmf-dist/source/latex/metastr/metastr.dtx
+ texmf-dist/source/latex/metastr/metastr.ins
+runfiles size=9
+ texmf-dist/tex/latex/metastr/metastr.sty
+catalogue-ctan /macros/latex/contrib/metastr
+catalogue-license lppl1.3
+catalogue-topics metadata string licence-mgmt
+catalogue-version 1.1.2

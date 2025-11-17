@@ -1,0 +1,39 @@
+name pst-diffraction
+category Package
+revision 62977
+shortdesc Print diffraction patterns from various apertures
+longdesc The package enables the user to draw (using PSTricks) the
+longdesc diffraction patterns for different geometric forms of apertures
+longdesc for monochromatic light (using PSTricks). The aperture stops
+longdesc can have rectangular, circular or triangular openings. The view
+longdesc of the diffraction may be planar, or three-dimensional. Options
+longdesc available are the dimensions of the aperture under
+longdesc consideration and of the particular optical setting, e.g. the
+longdesc radius in case of an circular opening. Moreover one can choose
+longdesc the wavelength of the light (the associated color will be
+longdesc calculated by the package).
+containersize 5128
+containerchecksum 15db0252472e17f5d4d702d98961babecacaf7753c15ff8e615199f868605e133188c996756cd6cb5b379616a494454dadeef36678709eae8128b0c69623f417
+doccontainersize 1067976
+doccontainerchecksum a90ff70c942ccf4526ad82b83c0666db05b3aecec3e3b00fc572a7aeeceaf6487407b178e00b929c6d3402752d0b96d345735c5731ce2046fabb156df2703c07
+docfiles size=613
+ texmf-dist/doc/generic/pst-diffraction/Changes
+ texmf-dist/doc/generic/pst-diffraction/README details="Readme"
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-doc.bib
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-docDE.pdf details="Package documentation (German)" language="de"
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-docDE.tex
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-docE.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-docE.tex
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-docFR.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/generic/pst-diffraction/pst-diffraction-docFR.tex
+srccontainersize 868
+srccontainerchecksum b5df7c25649efb0fb2143428e7a67f3abffe9ace683c738a45e38a2c1714cbab6fbf009decefd829fd5f17c1c3cfc4859ee9abc3d428f110937f94f4bfa44070
+srcfiles size=1
+ texmf-dist/source/generic/pst-diffraction/Makefile
+runfiles size=6
+ texmf-dist/tex/generic/pst-diffraction/pst-diffraction.tex
+ texmf-dist/tex/latex/pst-diffraction/pst-diffraction.sty
+catalogue-ctan /graphics/pstricks/contrib/pst-diffraction
+catalogue-license lppl
+catalogue-topics graphics-use pstricks physics
+catalogue-version 2.03

@@ -1,0 +1,33 @@
+name grid
+category Package
+revision 61719
+shortdesc Grid typesetting in LaTeX
+longdesc The package helps to enables grid typesetting in double column
+longdesc documents. Grid typesetting (vertical aligning of lines of text
+longdesc in adjacent columns) is a difficult task in LaTeX, and the
+longdesc present package is no more than an attempt to help users to
+longdesc achieve it in a limited way. An example document, grid.tex, is
+longdesc provided with simple instructions to typeset it using the
+longdesc package. The package needs a lot more work: this is only a
+longdesc beginning...
+containersize 3132
+containerchecksum 312b142c43ef4bb9624fd6589d086d733593dc0d387894bf58749b3f6251f33df415656b974935352a0d4fff090953f136d0353b98329ed3051ad179708af12e
+doccontainersize 134640
+doccontainerchecksum c3559726bf89f766b0d95e3b493046ee6b4c0edee43e4c581adb150e6ad5358ad0a1a3a67b75ea1095f2da87393734972a59693332de10b7b459579a7f73e534
+docfiles size=45
+ texmf-dist/doc/latex/grid/README details="Readme"
+ texmf-dist/doc/latex/grid/grid.pdf details="Package documentation"
+ texmf-dist/doc/latex/grid/grid.tex
+ texmf-dist/doc/latex/grid/manifest.txt
+ texmf-dist/doc/latex/grid/rvdtx.sty
+srccontainersize 680
+srccontainerchecksum dd59a48ee18940509d89ea55219706f7c0ae6d7f699b77137495fd4a850cd9d373f01cd9f2485a2ec47204c380c0a17c4986940e0a0ef21740c383e0eec81f0e
+srcfiles size=1
+ texmf-dist/source/latex/grid/Makefile
+runfiles size=3
+ texmf-dist/tex/latex/grid/grid.sty
+catalogue-contact-home http://river-valley.com//
+catalogue-ctan /macros/latex/contrib/grid
+catalogue-license lppl
+catalogue-topics typeset-grid
+catalogue-version 1.0

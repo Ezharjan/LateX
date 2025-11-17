@@ -1,0 +1,32 @@
+name mcexam
+category Package
+revision 60481
+shortdesc Create randomized Multiple Choice questions
+longdesc This LaTeX package automatically randomly permutes the order of
+longdesc questions as well as the answer options in different versions
+longdesc of a multiple choice exam/test. Next to the exam versions
+longdesc themselves, the package also allows printing a concept version
+longdesc of the exam, a key table with the correct answers or points,
+longdesc and a document with solutions and explanations per exam
+longdesc version. The package also allows writing an R code which
+longdesc processes the results of the exam and calculates the grades.
+longdesc The following other LaTeX packages are required: enumitem,
+longdesc environ, etoolbox, longtable, newfile, pgffor (from the
+longdesc PGF/TikZ bundle), xkeyval, and xstring.
+containersize 11396
+containerchecksum 3c75869bd0e65798fa451d971ff441f3a42daa0647c31458631c388cd14cbb36fe4f4dc9178e59fdb307de590d201e8716b1a86dc9b995aa184090cbdc95c9d2
+doccontainersize 232948
+doccontainerchecksum 30a7f5cf9b01e8619c95d63ebc2e3dce27beece3a4da6ed4d68843c171257f37d7883969edc94766e065c5bbdd78a2731d38666d2073fd5d77873d5a88b3f820
+docfiles size=68
+ texmf-dist/doc/latex/mcexam/README.md details="Readme"
+ texmf-dist/doc/latex/mcexam/mcexam.pdf details="Package documentation"
+ texmf-dist/doc/latex/mcexam/mcexam.tex
+ texmf-dist/doc/latex/mcexam/mcexam_example.tex
+ texmf-dist/doc/latex/mcexam/mcexam_example_dataset.r
+runfiles size=18
+ texmf-dist/tex/latex/mcexam/mcexam.sty
+catalogue-also esami
+catalogue-ctan /macros/latex/contrib/mcexam
+catalogue-license lppl1.3c
+catalogue-topics exam random
+catalogue-version 0.5

@@ -1,0 +1,68 @@
+name onedown
+category Package
+revision 59010
+shortdesc Typeset Bridge Diagrams
+longdesc This is a comprehensive package to draw all sorts of bridge
+longdesc diagrams, including hands (stand alone or arround a compass),
+longdesc bidding tables (stand alone or in connection with
+longdesc hands/compass), trick tables, and expert quizzes. Features:
+longdesc Works for all fontsizes from \ssmall to \HUGE. Different fonts
+longdesc for hands, bidding diagrams, compass, etc. are possible.
+longdesc Annotations to card and bidding diagrams. Automated check on
+longdesc consistency of suit and hands. Multilingual output of bridge
+longdesc terms. Extensive documentation: User manual, Reference manual,
+longdesc and Examples.
+containersize 17956
+containerchecksum 67110331d1df4b6f454ab23e6af1fa9904689e9a90f3a62652fd81db9fc990aeb527fdf7d4c5bb04064ddc93181f45334a06214c8acf9930497994e2ad0e8002
+doccontainersize 2700112
+doccontainerchecksum 06f00f302cb363411756ba0dd17d9a431aa4736bca2c61b2237b466e12a4fe8bd8cf9494ad5626766ca2112ce629aa8fb8409fc19c2ff3f83e4aee088390031c
+docfiles size=715
+ texmf-dist/doc/latex/onedown/README details="Readme"
+ texmf-dist/doc/latex/onedown/examples/Bidding.tex
+ texmf-dist/doc/latex/onedown/examples/CardSymbols.tex
+ texmf-dist/doc/latex/onedown/examples/Compass.pdf
+ texmf-dist/doc/latex/onedown/examples/Compass.tex
+ texmf-dist/doc/latex/onedown/examples/ExpertQuiz.tex
+ texmf-dist/doc/latex/onedown/examples/Fontsizes.pdf
+ texmf-dist/doc/latex/onedown/examples/Fontsizes.tex
+ texmf-dist/doc/latex/onedown/examples/Hands.tex
+ texmf-dist/doc/latex/onedown/examples/Languages.tex
+ texmf-dist/doc/latex/onedown/examples/Legends.tex
+ texmf-dist/doc/latex/onedown/examples/Play.tex
+ texmf-dist/doc/latex/onedown/examples/Select-Hands.tex
+ texmf-dist/doc/latex/onedown/examples/Suits.tex
+ texmf-dist/doc/latex/onedown/examples/Wrapping.tex
+ texmf-dist/doc/latex/onedown/examples/bidAll.tex
+ texmf-dist/doc/latex/onedown/examples/bidEW.tex
+ texmf-dist/doc/latex/onedown/examples/bidNE.tex
+ texmf-dist/doc/latex/onedown/examples/bidNS.tex
+ texmf-dist/doc/latex/onedown/examples/bidNW.tex
+ texmf-dist/doc/latex/onedown/examples/onedown-examples.pdf details="Examples of use"
+ texmf-dist/doc/latex/onedown/examples/onedown-examples.tex
+ texmf-dist/doc/latex/onedown/examples/onedown-ref.pdf details="Reference Guide"
+ texmf-dist/doc/latex/onedown/examples/onedown-ref.tex
+ texmf-dist/doc/latex/onedown/examples/showAll.tex
+ texmf-dist/doc/latex/onedown/examples/showNS-align.tex
+ texmf-dist/doc/latex/onedown/examples/showNS-warn-I.tex
+ texmf-dist/doc/latex/onedown/examples/showNS-warn-II.tex
+ texmf-dist/doc/latex/onedown/onedown.pdf details="Package documentation"
+srccontainersize 49552
+srccontainerchecksum d7b3eb5dd5192af22735acf5af450ad0d714dddd434d66bff3a40151953ae1098cf8c27dc620f167bed2c3fbba13f86f62724312161bc321b71fb4f14d605fc1
+srcfiles size=55
+ texmf-dist/source/latex/onedown/onedown.dtx
+ texmf-dist/source/latex/onedown/onedown.ins
+runfiles size=35
+ texmf-dist/tex/latex/onedown/ODw-Danish.dict
+ texmf-dist/tex/latex/onedown/ODw-Dutch.dict
+ texmf-dist/tex/latex/onedown/ODw-English.dict
+ texmf-dist/tex/latex/onedown/ODw-French.dict
+ texmf-dist/tex/latex/onedown/ODw-German.dict
+ texmf-dist/tex/latex/onedown/ODw-Norsk.dict
+ texmf-dist/tex/latex/onedown/ODw-Spanish.dict
+ texmf-dist/tex/latex/onedown/ODw-Swedish.dict
+ texmf-dist/tex/latex/onedown/ODw-Turkish.dict
+ texmf-dist/tex/latex/onedown/onedown.sty
+catalogue-ctan /macros/latex/contrib/onedown
+catalogue-license lppl1.3
+catalogue-topics games
+catalogue-version 1.6

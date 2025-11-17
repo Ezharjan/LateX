@@ -1,0 +1,35 @@
+name derivative
+category Package
+revision 63850
+shortdesc Nice and easy derivatives
+longdesc Typesetting derivatives and differentials in a consistent way
+longdesc are clumsy and require care to ensure the preferred formatting.
+longdesc Several packages have been developed for this purpose, each
+longdesc with its own features and drawbacks, with the most ambitious
+longdesc one being diffcoeff. While this package is comparable to
+longdesc diffcoeff in terms of features, it takes a different approach.
+longdesc One difference is this package provides more options to tweak
+longdesc the format of the derivatives and differentials. However, the
+longdesc automatic calculation of the total order isn't as developed as
+longdesc the one in diffcoeff. This package makes it easy to write
+longdesc derivatives and differentials consistently with its predefined
+longdesc commands. It also provides a set of commands that can define
+longdesc custom derivatives and differential operators. The options
+longdesc follow a consistent naming scheme making them easy to use and
+longdesc understand.
+containersize 8456
+containerchecksum 67e5c2a148105051ca882b70d2f3f9c63a06e2f34bb72b84b13bf225a7583bcf919c525890071e3ffe3bbaa0bbc616b8fc62ba050d1c910fceb161131a6fb3a9
+doccontainersize 199584
+doccontainerchecksum 8e2986eda21c8688feaa0f659bd79a8f8f2931381f0dad7fbd055dbf98d8e8fb7c1724df8d2d081ae0ec45781c7eab10edf01535076d28830fef9aff5d4452f4
+docfiles size=72
+ texmf-dist/doc/latex/derivative/README.md details="Readme"
+ texmf-dist/doc/latex/derivative/derivative.pdf details="Package documentation"
+ texmf-dist/doc/latex/derivative/derivative.tex
+runfiles size=12
+ texmf-dist/tex/latex/derivative/derivative.sty
+catalogue-also diffcoeff
+catalogue-contact-repository https://github.com/sjelatex/derivative
+catalogue-ctan /macros/latex/contrib/derivative
+catalogue-license lppl1.3
+catalogue-topics maths expl3
+catalogue-version 1.2

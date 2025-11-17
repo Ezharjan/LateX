@@ -1,0 +1,27 @@
+name ctanbib
+category Package
+revision 59782
+shortdesc Export CTAN entries to bib format
+longdesc This package provides a Lua script which can be used for
+longdesc retrieving bibliographic information in BibLaTeX format for
+longdesc packages hosted on CTAN. The ctanbib script depends only on
+longdesc LuaXML.
+depend ctanbib.ARCH
+containersize 2820
+containerchecksum e885d005007314c5dff56e8e3c96eaf2d4eaaf9ab87722a882ec4fe8752e3c7f909f58d3b92b58ff3f5b0c439f12e82f5eb76f90424d5696dddaf6e5a70d9efd
+doccontainersize 55604
+doccontainerchecksum 237371b1483922498bcc41d0730f7e707f97154044d20c3514f11aecd6b82e1d796602d67a2774a019bc5d13f7790016f759d50a9f1a17e45843e5770c198a48
+docfiles size=19
+ texmf-dist/doc/man/man1/ctanbib.1
+ texmf-dist/doc/man/man1/ctanbib.man1.pdf
+ texmf-dist/doc/support/ctanbib/README.md details="Readme"
+ texmf-dist/doc/support/ctanbib/ctanbib-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/ctanbib/ctanbib-doc.tex
+runfiles size=2
+ texmf-dist/scripts/ctanbib/ctanbib
+catalogue-contact-bugs https://github.com/michal-h21/ctanbib/issues
+catalogue-contact-repository https://github.com/michal-h21/ctanbib
+catalogue-ctan /support/ctanbib
+catalogue-license lppl1.3
+catalogue-topics bibtex-gen ctan luatex use-lua
+catalogue-version 0.2a

@@ -1,0 +1,21 @@
+name detex
+category TLCore
+revision 62387
+shortdesc Strip TeX from a source file
+longdesc Detex is a program to remove TeX constructs from a text file.
+longdesc It recognizes the \input command. The program assumes it is
+longdesc dealing with LaTeX input if it sees the string \begin{document}
+longdesc in the text. In this case, it also recognizes the \include and
+longdesc \includeonly commands. The author now considers this program to
+longdesc be "retired" and Piotr Kubowicz's OpenDetex as its successor.
+depend detex.ARCH
+containersize 592
+containerchecksum 27c94ef578afaf7fa3ca232f4a4a0e5167c69cf24a2c005c1d5a06830332b6a4aca8d0eb4450026d498e371d5c142bb71cd41de199b77f5963d88d612208e0ad
+doccontainersize 22428
+doccontainerchecksum f3339f5d93f073bdc2b6052f38c314a1f4284c60a5adc7813ee2cf7d5f609ce8c68b60cb2a0fc9571e26796ba2fc2660da137120751fb465ed723a800aac2cc8
+docfiles size=8
+ texmf-dist/doc/man/man1/detex.1
+ texmf-dist/doc/man/man1/detex.man1.pdf
+catalogue-contact-home http://www.cs.purdue.edu/homes/trinkle/detex/
+catalogue-license other-free
+catalogue-topics plain-text obsolete

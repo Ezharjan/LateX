@@ -1,0 +1,24 @@
+name ebong
+category Package
+revision 55475
+shortdesc Utility for writing Bengali in Rapid Roman Format
+longdesc A tool (preprocessor) for writing your pRaa-ne-r ka-thaa in the
+longdesc bengali langauage. It allows one to write the text in Rapid
+longdesc Roman Bangla and convert it to the bangtex format by a python
+longdesc program. All LaTeX markups are preserved in the target file.
+depend ebong.ARCH
+containersize 2596
+containerchecksum 2553e46f91021de4fc9eda99ff45f8efe9b20b0663912b4339b22247d1bf7125f9be398661fe24fa2e3fae6a220025d47b05f4680601f7b4842d1111a6128d8c
+doccontainersize 50100
+doccontainerchecksum 22d20c89883c6cbb95f3fbc3da3f4c5526c9c22b15ec35828bb03a1edf068573de0b35187a893c8356b50fd59c93ce4231f02ac4f15de4071e6ced73b9e44a57
+docfiles size=27
+ texmf-dist/doc/latex/ebong/ANNOUNCE.txt
+ texmf-dist/doc/latex/ebong/README details="Readme"
+ texmf-dist/doc/latex/ebong/eb.b
+ texmf-dist/doc/latex/ebong/eb.pdf details="Package documentation" language="bn"
+ texmf-dist/doc/latex/ebong/eb_tex.tex
+runfiles size=2
+ texmf-dist/scripts/ebong/ebong.py
+catalogue-ctan /language/ebong
+catalogue-license pd
+catalogue-topics indic bengali

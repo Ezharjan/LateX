@@ -1,0 +1,34 @@
+name pst-ode
+category Package
+revision 63295
+shortdesc Solving initial value problems for sets of Ordinary Differential Equations
+longdesc The package defines \pstODEsolve for solving initial value
+longdesc problems for sets of Ordinary Differential Equations (ODE)
+longdesc using the Runge-Kutta-Fehlberg (RKF45) method with automatic
+longdesc step size adjustment. The result is stored as a PostScript
+longdesc object and may be plotted later using macros from other
+longdesc PSTricks packages, such as \listplot (pst-plot) and
+longdesc \listplotThreeD (pst-3dplot), or may be further processed by
+longdesc user-defined PostScript procedures. Optionally, the computed
+longdesc state vectors can be written as a table to a text file.
+containersize 5332
+containerchecksum a0bab16b51367b8bd87f173feefa3223e435ba5c9fb7597286409550e870fd0b621ab189e95ad45df3cb5ad46967d8b79b7d00fe0221844b14d3f5dfb84841ab
+doccontainersize 116588
+doccontainerchecksum b85ef52df0ddc5b4de2bcbefc481504211fdb576a05f9ddbbe902a0fbf87b5f3f9d6bf7302765d52ab5ed86f0438fdbddff686f86700a01d09f886ab594b64b8
+docfiles size=44
+ texmf-dist/doc/generic/pst-ode/ChangeLog
+ texmf-dist/doc/generic/pst-ode/README.txt
+ texmf-dist/doc/generic/pst-ode/examples/lorenz.tex
+ texmf-dist/doc/generic/pst-ode/examples/ode.tex
+ texmf-dist/doc/generic/pst-ode/examples/particle.tex
+ texmf-dist/doc/generic/pst-ode/pst-ode-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/pst-ode/pst-ode-doc.tex
+runfiles size=6
+ texmf-dist/dvips/pst-ode/pst-ode.pro
+ texmf-dist/tex/generic/pst-ode/pst-ode.tex
+ texmf-dist/tex/latex/pst-ode/pst-ode.sty
+catalogue-contact-repository https://gitlab.com/agrahn/pst-ode
+catalogue-ctan /graphics/pstricks/contrib/pst-ode
+catalogue-license lppl
+catalogue-topics maths pstricks graphics-plot
+catalogue-version 0.17

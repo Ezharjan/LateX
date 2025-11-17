@@ -1,0 +1,28 @@
+name datetime2-slovak
+category Package
+revision 52281
+shortdesc Slovak language module for the datetime2 package
+longdesc This module provides the "slovak" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. This package is
+longdesc currently unmaintained. Please see the README for the procedure
+longdesc to follow if you want to take over the maintenance.
+containersize 2548
+containerchecksum c69d8eacf36fb7232a85d92e5db277b281b631c0c8f63df7fbba51876d1be782b7196efaaea0ac25140716f983ada40aedaa550102fbe0d445e5cddd41317a09
+doccontainersize 72652
+doccontainerchecksum c40e20b000f3fd5ac368c310d1f11519566410963cadaf4aabfb0c9cae05e0d3e8a3810c7da451a5e206e8b5b174ac0b837c1beff207597e050ec529e82acf51
+docfiles size=19
+ texmf-dist/doc/latex/datetime2-slovak/README details="Readme"
+ texmf-dist/doc/latex/datetime2-slovak/datetime2-slovak.pdf details="Package documentation"
+srccontainersize 4716
+srccontainerchecksum 19547ebf7016d1e416227830b81e95dd6d91c7ab7823d3fc2d6890d628a51074e4ba7b8b5f31020bf86c2fe447b60f22754bbecb3f7e65dc908ffcfa9087e12f
+srcfiles size=5
+ texmf-dist/source/latex/datetime2-slovak/datetime2-slovak.dtx
+ texmf-dist/source/latex/datetime2-slovak/datetime2-slovak.ins
+runfiles size=4
+ texmf-dist/tex/latex/datetime2-slovak/datetime2-slovak-ascii.ldf
+ texmf-dist/tex/latex/datetime2-slovak/datetime2-slovak-utf8.ldf
+ texmf-dist/tex/latex/datetime2-slovak/datetime2-slovak.ldf
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-slovak
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.1

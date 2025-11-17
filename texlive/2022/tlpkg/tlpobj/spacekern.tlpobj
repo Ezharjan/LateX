@@ -1,0 +1,24 @@
+name spacekern
+category Package
+revision 63552
+shortdesc Kerning between words and against space
+longdesc This package provides two shorthands for typesetting breaking
+longdesc and non-breaking small spaces, where both hyphenation and
+longdesc kerning against space are correctly applied. Additionally,
+longdesc interword kerning can be applied.
+containersize 2504
+containerchecksum 99e74e5cdc59eeb4a5d3718af573db1b53f1e22b3c554cb70ccbce25599133c10b4d8979e6ab7fedb7a1af5700046b027618e5bcf1e56e37b1e63006b9b37ca3
+doccontainersize 60068
+doccontainerchecksum 7aa1a221d863d31e520c2bc2379c2befc4ca99b091793ce183e2478077d447d1ca47d4d7b29c819780faf2197049fb37e7711b21ec5aad3fee2733538e9233d5
+docfiles size=21
+ texmf-dist/doc/lualatex/spacekern/DEPENDS.txt
+ texmf-dist/doc/lualatex/spacekern/README.md details="Readme"
+ texmf-dist/doc/lualatex/spacekern/spacekern.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/spacekern/spacekern.tex
+runfiles size=3
+ texmf-dist/tex/lualatex/spacekern/spacekern.lua
+ texmf-dist/tex/lualatex/spacekern/spacekern.sty
+catalogue-ctan /macros/luatex/latex/spacekern
+catalogue-license lppl1.3c
+catalogue-topics letterspace
+catalogue-version 0.1a

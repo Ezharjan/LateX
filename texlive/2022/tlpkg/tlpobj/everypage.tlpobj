@@ -1,0 +1,32 @@
+name everypage
+category Package
+revision 56694
+shortdesc Provide hooks to be run on every page of a document
+longdesc The package provides hooks to perform actions on every page, or
+longdesc on the current page. Specifically, actions are performed after
+longdesc the page is composed, but before it is shipped, so they can be
+longdesc used to prepare the output page in tasks like putting
+longdesc watermarks in the background, or in setting the next page
+longdesc layout, etc.
+containersize 1772
+containerchecksum 032713896e2704667582aa03e8d542062a5eb26188d41b08968955fbd8535aacc8288559112aa264c542e3523f452dd9b2acdd1dc3f66450cdc5c5c902e38b80
+doccontainersize 161516
+doccontainerchecksum 4c19f905b5a16674980da2569b2994382a2eb108fd20bfdd29a6ef4220e00aa390c197dd86ecd093a9acb83b9a2d64521f732083e3c2828478a8c8c45463d180
+docfiles size=41
+ texmf-dist/doc/latex/everypage/README.md details="Readme"
+ texmf-dist/doc/latex/everypage/everypage.pdf
+srccontainersize 7912
+srccontainerchecksum f01679f5ac00d3c75a0595496b489a008c664d7197af6d267226498b821ca83d34ae842c212756ccef81aae40f4447ddae2146b5651084dc55081f75c1ec04f8
+srcfiles size=7
+ texmf-dist/source/latex/everypage/everypage.dtx
+ texmf-dist/source/latex/everypage/everypage.ins
+runfiles size=2
+ texmf-dist/tex/latex/everypage/everypage-1x.sty
+ texmf-dist/tex/latex/everypage/everypage.sty
+catalogue-also everyshi bophook
+catalogue-contact-bugs https://github.com/callegar/LaTeX-everypage/issues
+catalogue-contact-repository https://github.com/callegar/LaTeX-everypage
+catalogue-ctan /macros/latex/contrib/everypage
+catalogue-license lppl1.3c
+catalogue-topics defer-stuff
+catalogue-version 2.0b

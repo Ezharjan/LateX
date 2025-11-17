@@ -1,0 +1,38 @@
+name mfirstuc
+category Package
+revision 60770
+shortdesc Uppercase the first letter of a word
+longdesc The package provides commands \makefirstuc that uppercases the
+longdesc first letter in its argument (with a check for a semantic
+longdesc markup command at the start of the argument), and \xmakefirstuc
+longdesc which expands the argument before uppercasing. It also provides
+longdesc \capitalisewords{phrase} which applies \makefirstuc to each
+longdesc word in the phrase, where the words are separated by regular
+longdesc spaces. (Exceptions can be made for words that shouldn't be
+longdesc converted.)
+containersize 4472
+containerchecksum 9bf4d7db5094b20b65302face634a10ad2bcaf521e948130f5fda6770e8433074bd8d35b89bf905ad22609340e27e85dba5c50715a776d2c1ac98a5ec3faf5d5
+doccontainersize 676092
+doccontainerchecksum 227110ec17f336a9c443bfdf6294259a45457fbbfd33c14bbc2d7c58d28bfd6cb83182ef6c6a09e3ca89dff6fb98a807304bb41695e1d823bd80c17a1f5a862d
+docfiles size=201
+ texmf-dist/doc/latex/mfirstuc/CHANGES
+ texmf-dist/doc/latex/mfirstuc/README details="Readme"
+ texmf-dist/doc/latex/mfirstuc/mfirstuc-code.pdf details="Package code and documentation (PDF)"
+ texmf-dist/doc/latex/mfirstuc/mfirstuc-manual.html details="Package documentation (HTML)"
+ texmf-dist/doc/latex/mfirstuc/mfirstuc-manual.pdf details="User manual (PDF)"
+ texmf-dist/doc/latex/mfirstuc/mfirstuc-manual.tex
+ texmf-dist/doc/latex/mfirstuc/sample-mfirstuc.pdf
+ texmf-dist/doc/latex/mfirstuc/sample-mfirstuc.tex
+srccontainersize 8744
+srccontainerchecksum 00c4f80df9ad7a6647f5dfa3ac3330ebcbe1041817ad013eccba3faa1631db0a16fe887240eeb6fd0e21b61308b1cf5c9387101bfd9ee01738ea46bf5c87f6d1
+srcfiles size=11
+ texmf-dist/source/latex/mfirstuc/mfirstuc.dtx
+ texmf-dist/source/latex/mfirstuc/mfirstuc.ins
+runfiles size=6
+ texmf-dist/scripts/mfirstuc/mfirstuc.perl
+ texmf-dist/tex/latex/mfirstuc/mfirstuc-english.sty
+ texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
+catalogue-ctan /macros/latex/contrib/mfirstuc
+catalogue-license lppl1.3
+catalogue-topics text-manip macro-supp
+catalogue-version 2.07

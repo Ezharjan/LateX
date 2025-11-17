@@ -1,0 +1,21 @@
+name cprotectinside
+category Package
+revision 63833
+shortdesc Use cprotect arbitrarily nested
+longdesc This package extends the cprotect package to allow users to use
+longdesc verbatim-like commands inside arbitrary parameters.
+containersize 1648
+containerchecksum 5f4a3dad026c07720a11935e5ae4fd4b6f5f060292c249224d3a45ee818063ada48778a8399b324f1f13ec4744215a5eaa4f41cbfb82e1f9503d720e3020de55
+doccontainersize 299480
+doccontainerchecksum a8b050ddc6f3dedfd2ca6c4d7b4def6ab63d55cdb6e8e1622ce95f61aabcf2d9d8bf56c05065c9f4c49c507414273efbecb101652d372e78fef2251a87bc6bfd
+docfiles size=76
+ texmf-dist/doc/latex/cprotectinside/README details="Readme"
+ texmf-dist/doc/latex/cprotectinside/cprotectinside.pdf details="Package documentation"
+ texmf-dist/doc/latex/cprotectinside/cprotectinside.tex
+runfiles size=1
+ texmf-dist/tex/latex/cprotectinside/cprotectinside.sty
+catalogue-contact-repository https://github.com/user202729/TeXlib
+catalogue-ctan /macros/latex/contrib/cprotectinside
+catalogue-license lppl1.3c
+catalogue-topics verbatim expl3
+catalogue-version 0.0.0

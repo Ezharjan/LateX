@@ -1,0 +1,34 @@
+name etl
+category Package
+revision 60998
+shortdesc Expandable token list operations
+longdesc This package provides expandable token list operations for
+longdesc which expl3's l3tl only has unexpandable variants. These
+longdesc expandable versions are typically slower than the unexpandable
+longdesc code. Unlike the l3tl versions, the functions in this module
+longdesc may contain braces and macro parameter tokens in their
+longdesc arguments, but as a drawback they cannot distinguish some
+longdesc tokens and do not consider the character code of group-begin
+longdesc and group-end tokens. Additionally a general map to token lists
+longdesc is provided, modelled after the expl3 internal __tl_act:NNNn
+longdesc but with additional features. The package has no immediate use
+longdesc for document authors; it only contains expl3 functions intended
+longdesc for programmers.
+containersize 4424
+containerchecksum 14c5db74da0c3878609323b450c99dbc186c97997079d09acf55bc8fe78a2cf9f7fccf7c89c1fe02ef8fe9d532fc3d33e85d77e374d4f0c601c6251a04472dca
+doccontainersize 358088
+doccontainerchecksum 2a1dca3962826cf749d67799c6d871b7822b16f81c7ff3473628926db217812ed5d85ee2da351245f6ff7a973bb1b90b61951101978693fb92f07bc86425bb2b
+docfiles size=91
+ texmf-dist/doc/latex/etl/README.md details="Readme"
+ texmf-dist/doc/latex/etl/etl.pdf details="Package documentation"
+srccontainersize 15532
+srccontainerchecksum 1be3c92c55576ea6906f08461f08269fc4840815124c3f1f09ed145a680de3763e3bcd88aae61c46d872e05ea34c302625e439ffdbcbc15d7565eeb250b177e3
+srcfiles size=19
+ texmf-dist/source/latex/etl/etl.dtx
+runfiles size=7
+ texmf-dist/tex/latex/etl/etl.sty
+catalogue-contact-repository https://github.com/Skillmon/ltx_etl
+catalogue-ctan /macros/latex/contrib/etl
+catalogue-license lppl1.3c
+catalogue-topics expl3 latex3 macro-supp
+catalogue-version 0.3

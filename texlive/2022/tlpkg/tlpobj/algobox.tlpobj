@@ -1,0 +1,35 @@
+name algobox
+category Package
+revision 52204
+shortdesc Typeset Algobox programs
+longdesc This LaTeX package can typeset Algobox programs almost exactly
+longdesc as displayed when editing with Algobox itself, using an input
+longdesc syntax very similar to the actual Algobox program text. It
+longdesc gives better results than Algobox's own LaTeX export which does
+longdesc not look like the editor rendition, produces standalone
+longdesc documents cumbersome to customize, and has arbitrary and
+longdesc inconsistent differences between the input syntax and the
+longdesc program text. This package depends upon the following other
+longdesc LaTeX packages: expl3, TikZ, environ, xparse, and xcolor.
+containersize 3636
+containerchecksum 0c7b068f117a5eb591646e32faf3a9dfb6a03a218411d092afc33c7adcee30f95836a9d841444fe87a700288e293510763807d393043518ba70e64a3df82099f
+doccontainersize 123652
+doccontainerchecksum ccc96b84ea2d1c6c9dab8bd286e24f3dcb4fb9dd31904b1eef4b07a1de34a067f3cccd3d8e33785edced6dee8673e60d50ffc201643912d732660b1f14404d74
+docfiles size=39
+ texmf-dist/doc/latex/algobox/LICENSE
+ texmf-dist/doc/latex/algobox/README.md details="Readme"
+ texmf-dist/doc/latex/algobox/algobox.pdf details="Package documentation"
+srccontainersize 5508
+srccontainerchecksum 49e1b417bb0df72356f5d4046826268dad628d6872732a61cc7df789bd214799ed49a4a0778eceb31369fbf8cbf21c6b142a85348e10a7ab634828108b7cf03a
+srcfiles size=6
+ texmf-dist/source/latex/algobox/algobox.dtx
+ texmf-dist/source/latex/algobox/algobox.ins
+runfiles size=4
+ texmf-dist/tex/latex/algobox/algobox.sty
+catalogue-contact-bugs https://gitlab.com/frnchfrgg-latex/algobox/issues
+catalogue-contact-home https://gitlab.com/frnchfrgg-latex/algobox/wikis/home
+catalogue-contact-repository https://gitlab.com/frnchfrgg-latex/algobox
+catalogue-ctan /macros/latex/contrib/algobox
+catalogue-license gpl3+
+catalogue-topics listing program-doc
+catalogue-version 1.3

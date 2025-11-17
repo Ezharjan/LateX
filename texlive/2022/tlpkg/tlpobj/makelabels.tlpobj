@@ -1,0 +1,39 @@
+name makelabels
+category Package
+revision 60255
+shortdesc Add a '\makelabels' feature to KOMA-Script letter classes and package
+longdesc The standard letter class letter has a label feature. You can
+longdesc activate it using \makelabels. While in Germany window
+longdesc envelopes are common, printing labels is not common, and
+longdesc scrlttr2 has never supported label printing. Using
+longdesc makelabels.lco does implement a \makelabels feature similar to
+longdesc the standard letter classes. Currently there are (almost) no
+longdesc configuration features for makelabels.lco. But you may use the
+longdesc envlab package after loading makelabels.lco to get various
+longdesc configuration features.
+containersize 3120
+containerchecksum 4f58301507896c2e719f2607e1e456aeb25cc78913ed02d9eaa12489aeb643e73bccaafd1f219c1c8b485d77aa64e99d64166b63e8a2c7a7c3c8cfb77ac23bc6
+doccontainersize 712740
+doccontainerchecksum da01e167d1be1d4831c1bd0aca43472aae12a8204ab844f9964e60f57cf22312532c52cae85964f10780aaa0e4f84015f6ceee8ebfa042b184fb1ecc7c174585
+docfiles size=194
+ texmf-dist/doc/latex/makelabels/LICENSE.md
+ texmf-dist/doc/latex/makelabels/README.md details="Readme"
+ texmf-dist/doc/latex/makelabels/makelabels-envlab-example.pdf details="Example of use (2)"
+ texmf-dist/doc/latex/makelabels/makelabels-envlab-example.tex
+ texmf-dist/doc/latex/makelabels/makelabels-example.pdf details="Example of use (1)"
+ texmf-dist/doc/latex/makelabels/makelabels-example.tex
+ texmf-dist/doc/latex/makelabels/makelabels.pdf details="Package documentation"
+srccontainersize 7476
+srccontainerchecksum 588029533fc25c2501cb8a72cd4226c878a0c419e42d6e4269b68224d9992d298a01019c59c794eb1c9cca14b3efaf758f5c97b6ef90451a6e6d1fb56233a5ad
+srcfiles size=7
+ texmf-dist/source/latex/makelabels/makelabels.dtx
+runfiles size=3
+ texmf-dist/tex/latex/makelabels/makelabels.lco
+catalogue-contact-announce https://github.com/komascript/makelabels/releases
+catalogue-contact-bugs https://github.com/komascript/makelabels/issues
+catalogue-contact-home https://github.com/komascript/makelabels
+catalogue-contact-repository https://github.com/komascript/makelabels.git
+catalogue-ctan /macros/latex/contrib/makelabels
+catalogue-license lppl1.3c
+catalogue-topics letter labels
+catalogue-version 1.0

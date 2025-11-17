@@ -1,0 +1,24 @@
+name lutabulartools
+category Package
+revision 63043
+shortdesc lutabulartools provides some useful commands for tabular matter
+longdesc lutabulartools provides some useful commands for tabular
+longdesc matter. It uses LuaLaTeX and offers the ability to combine the
+longdesc facilities of multirow, multicolumn, and makcell with an easy
+longdesc to use syntax, and adds some enhanced rules for the booktabs
+longdesc package.
+containersize 6036
+containerchecksum 504b5ddb77e2d781be13d577c6d65d38bf683e475bf2c481cd026b6afc46fcab7d85ca2b0767d46dddc945689857fa9f8bb6449745f340960992769a83e7921b
+doccontainersize 77724
+doccontainerchecksum 2c040ae0b197e3ca68b701b64c374705950f203de2d253868ddf445f31471d4726cf68e0c4ddff4f1be6bc889aedec3c1503bc2ca1724e0752133a00e0cc9d79
+docfiles size=26
+ texmf-dist/doc/luatex/lutabulartools/README.md details="Readme"
+ texmf-dist/doc/luatex/lutabulartools/lutabulartools.pdf details="Package documentation"
+ texmf-dist/doc/luatex/lutabulartools/lutabulartools.tex
+runfiles size=5
+ texmf-dist/tex/luatex/lutabulartools/lutabulartools.lua
+ texmf-dist/tex/luatex/lutabulartools/lutabulartools.sty
+catalogue-contact-repository https://github.com/kalekje/lutabulartools
+catalogue-ctan /macros/luatex/generic/lutabulartools
+catalogue-license mit
+catalogue-topics luatex table

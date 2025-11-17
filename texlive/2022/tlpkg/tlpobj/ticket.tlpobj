@@ -1,0 +1,54 @@
+name ticket
+category Package
+revision 42280
+shortdesc Make labels, visiting-cards, pins with LaTeX
+longdesc Provides an easy to handle interface to produce visiting cards,
+longdesc labels for your files, stickers, pins and other stuff for your
+longdesc office, conferences etc. All you need is a definition of your
+longdesc 'ticket' included in a ticket definition file and the two
+longdesc commands \ticketdefault and \ticket.
+containersize 3996
+containerchecksum cefb3e06df2953063e9d12f19f03e973212e784cebfd2d6628d2e9ddb443159b285b34f12238f6b77813cc48e86aae7018cb5bccc4fd158f4d891f05fc51dab5
+doccontainersize 488008
+doccontainerchecksum fde4b06ad09837d1d6b6efb275800e32f617619f9c18d2dda5924b094f860492053c4ee361a2fded1c9f4509ba5e615601b183191c0cf064af24cc59cfb23748
+docfiles size=148
+ texmf-dist/doc/latex/ticket/README.txt details="Package Readme"
+ texmf-dist/doc/latex/ticket/comment
+ texmf-dist/doc/latex/ticket/ex_file.pdf
+ texmf-dist/doc/latex/ticket/ex_file.tex
+ texmf-dist/doc/latex/ticket/ex_flashcard.pdf
+ texmf-dist/doc/latex/ticket/ex_flashcard.tex
+ texmf-dist/doc/latex/ticket/ex_flashcard_dup.pdf
+ texmf-dist/doc/latex/ticket/ex_flashcard_rm.pdf
+ texmf-dist/doc/latex/ticket/ex_flashcard_rm.tex
+ texmf-dist/doc/latex/ticket/ex_marks.pdf
+ texmf-dist/doc/latex/ticket/ex_marks.tex
+ texmf-dist/doc/latex/ticket/ex_pin.pdf
+ texmf-dist/doc/latex/ticket/ex_pin.tex
+ texmf-dist/doc/latex/ticket/ex_vcard.pdf
+ texmf-dist/doc/latex/ticket/ex_vcard.tex
+ texmf-dist/doc/latex/ticket/logo.png
+ texmf-dist/doc/latex/ticket/manual.pdf details="Package manual"
+ texmf-dist/doc/latex/ticket/manual.tex
+ texmf-dist/doc/latex/ticket/words.tex
+runfiles size=18
+ texmf-dist/tex/latex/ticket/aj8414.tdf
+ texmf-dist/tex/latex/ticket/dura5222.tdf
+ texmf-dist/tex/latex/ticket/flashCard.tdf
+ texmf-dist/tex/latex/ticket/freepin.tdf
+ texmf-dist/tex/latex/ticket/freepin2.tdf
+ texmf-dist/tex/latex/ticket/freepin3.tdf
+ texmf-dist/tex/latex/ticket/he4432.tdf
+ texmf-dist/tex/latex/ticket/invite.tdf
+ texmf-dist/tex/latex/ticket/lz1680.tdf
+ texmf-dist/tex/latex/ticket/lz1681.tdf
+ texmf-dist/tex/latex/ticket/lz1685.tdf
+ texmf-dist/tex/latex/ticket/rex23184237.tdf
+ texmf-dist/tex/latex/ticket/ticket.sty
+ texmf-dist/tex/latex/ticket/zw32010.tdf
+ texmf-dist/tex/latex/ticket/zw3424.tdf
+ texmf-dist/tex/latex/ticket/zw4752.tdf
+catalogue-ctan /macros/latex/contrib/ticket
+catalogue-license lppl1.3
+catalogue-topics labels
+catalogue-version 0.4d

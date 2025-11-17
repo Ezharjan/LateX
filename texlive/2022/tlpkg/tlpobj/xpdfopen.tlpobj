@@ -1,0 +1,24 @@
+name xpdfopen
+category TLCore
+revision 53998
+shortdesc Commands to control PDF readers, under X11
+longdesc The command-line programs pdfopen and pdfclose allow you to
+longdesc control the X Window System version of Adobe's Acrobat Reader
+longdesc from the command line or from within a (shell) script. The
+longdesc programs work with Acrobat Reader 5, 7, 8 and 9 for Linux, xpdf
+longdesc and evince. This version derives from one written by Fabrice
+longdesc Popineau for Microsoft operating systems.
+depend xpdfopen.ARCH
+containersize 560
+containerchecksum fe873bb22b94a26720e37671e283e0085619c2129a4568399544ac0df1e5c443a9476590ca7ef76a21409589eb2416a14165b8a48a6182f3773a3009cb7c1a47
+doccontainersize 28180
+doccontainerchecksum bb4be8fe1b4590e74a7573baa1d699895fb62f6b30b05c9c81655001c75ffb43a6d7f92deca337072690ce3297d4ab06f1aca389524c5d5d500a9fce4abd8404
+docfiles size=19
+ texmf-dist/doc/man/man1/pdfclose.1
+ texmf-dist/doc/man/man1/pdfclose.man1.pdf
+ texmf-dist/doc/man/man1/pdfopen.1
+ texmf-dist/doc/man/man1/pdfopen.man1.pdf
+catalogue-ctan /support/xpdfopen
+catalogue-license pd
+catalogue-topics previewer
+catalogue-version 0.86

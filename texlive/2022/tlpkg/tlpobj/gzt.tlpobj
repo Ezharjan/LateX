@@ -1,0 +1,52 @@
+name gzt
+category Package
+revision 63591
+shortdesc Bundle of classes for "La Gazette des Mathematiciens"
+longdesc This bundle provides two classes and BibLaTeX styles for the
+longdesc French journal "La Gazette des Mathematiciens": gzt for the
+longdesc complete issues of the journal, aimed at the Gazette's team,
+longdesc gztarticle, intended for authors who wish to publish an article
+longdesc in the Gazette. This class's goals are to faithfully reproduce
+longdesc the layout of the Gazette, thus enabling the authors to be able
+longdesc to work their document in actual conditions, and provide a
+longdesc number of tools (commands and environments) to facilitate the
+longdesc drafting of documents, in particular those containing
+longdesc mathematical formulas.
+containersize 34480
+containerchecksum 5a2e547bb87b29649169a5114fb4d4175a7630473f30ea28ae00d6dc29bc6a4b3ee33a07c2e94fb6ee4b4179a0bd28f49a72a3d3ed822d852524878f34d77af3
+doccontainersize 1180784
+doccontainerchecksum 5ca5b4dd6e86cf2457b384bb663192313110e4c2666a827c10f36e348d9b8bfc37f9f69debf275728f822a8c01656a2ede34c2873dce1341c3d1e2b054e9934e
+docfiles size=321
+ texmf-dist/doc/latex/gzt/CHANGELOG.md
+ texmf-dist/doc/latex/gzt/README.md details="Readme"
+ texmf-dist/doc/latex/gzt/english/README-TRANSLATION.md
+ texmf-dist/doc/latex/gzt/english/gzt-code.pdf details="Code documentation"
+ texmf-dist/doc/latex/gzt/french/denis.png
+ texmf-dist/doc/latex/gzt/french/gzt-fr.bib
+ texmf-dist/doc/latex/gzt/french/gzt-fr.pdf details="User manual" language="fr"
+ texmf-dist/doc/latex/gzt/french/gzt-fr.tex
+ texmf-dist/doc/latex/gzt/french/latexmkrc
+ texmf-dist/doc/latex/gzt/french/sections/fixed-footnotes.tex
+ texmf-dist/doc/latex/gzt/french/sections/gztarticle.tex
+ texmf-dist/doc/latex/gzt/french/sections/notations.tex
+ texmf-dist/doc/latex/gzt/french/sections/packages-charges.tex
+ texmf-dist/doc/latex/gzt/french/sections/todo.tex
+srccontainersize 43448
+srccontainerchecksum e5785d489263e42fa22e1aeec7d20211dbfc234feace273b4371b44227ca3342c68aa547a19e37608eab354ec1794f313c55a761c555922e0c3de408d5299d0d
+srcfiles size=57
+ texmf-dist/source/latex/gzt/gzt.dtx
+runfiles size=68
+ texmf-dist/tex/latex/gzt/gzt.cfg
+ texmf-dist/tex/latex/gzt/gzt.cls
+ texmf-dist/tex/latex/gzt/gzt.dbx
+ texmf-dist/tex/latex/gzt/gzt.lbx
+ texmf-dist/tex/latex/gzt/gztarticle.cls
+ texmf-dist/tex/latex/gzt/images/README-PICTOGRAMS.md
+ texmf-dist/tex/latex/gzt/images/gzt-logo.pdf
+catalogue-contact-bugs https://github.com/dbitouze/gzt/issues
+catalogue-contact-development https://github.com/dbitouze/gzt/
+catalogue-contact-repository https://github.com/dbitouze/gzt/
+catalogue-ctan /macros/latex/contrib/gzt
+catalogue-license lppl1.3c
+catalogue-topics journalpub class french
+catalogue-version 1.1.3

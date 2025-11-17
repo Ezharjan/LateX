@@ -1,0 +1,22 @@
+name schemabloc
+category Package
+revision 58212
+shortdesc Draw block diagrams, using TikZ
+longdesc The package provides a set of macros for constructing block
+longdesc diagrams, using TikZ. (The blox package is an "English
+longdesc translation" of this package.)
+containersize 2304
+containerchecksum 8a6f093a5c6874c77d22a9e96e36593f00e382ac0679ddf33cfc62df912e82cea4bbf697286b7fd77d25dfd5b19cb37baf95fc1f8092bcd348a4da88a4501cb4
+doccontainersize 152312
+doccontainerchecksum fb70879aee58fc01d5b30903f2e65b49789d011d18987471a8cbd5e46d9b57cd01b813e5a90b686819e1c1e912cb37b2c9487518705d4f1bfb58b1e950502dea
+docfiles size=56
+ texmf-dist/doc/latex/schemabloc/README details="Readme"
+ texmf-dist/doc/latex/schemabloc/schemabloc.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/schemabloc/schemabloc.tex
+runfiles size=3
+ texmf-dist/tex/latex/schemabloc/schemabloc.sty
+catalogue-also blox
+catalogue-ctan /graphics/pgf/contrib/schemabloc
+catalogue-license lppl
+catalogue-topics graphics diagram-block pgf-tikz
+catalogue-version 1.5

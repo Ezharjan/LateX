@@ -1,0 +1,42 @@
+name pseudo
+category Package
+revision 64182
+shortdesc Straightforward pseudocode
+longdesc The package permits writing pseudocode without much fuss and
+longdesc with quite a bit of configurability. Its main environment
+longdesc combines aspects of enumeration, tabbing and tabular for
+longdesc nonintrusive line numbering, indentation and highlighting, and
+longdesc there is functionality for typesetting common syntactic
+longdesc elements such as keywords, identifiers, and comments. The
+longdesc package relies on aliascnt, array, colortbl, expl3, l3keys2e,
+longdesc xcolor, and xparse.
+containersize 6800
+containerchecksum f3c6e0596180fb9a44540a0da8565af8495f94c9d2d7880ace0420adeafa0f273838134e81c6ef9983991a6efb21eebbe590be8d24e842c2abd5df51f78fe25b
+doccontainersize 985412
+doccontainerchecksum 67f87f3f4df0232c41961dea8115a48f13b0ceb722b4011e4fc2417580d7aafab80557494fe91cc53443caa8baae958fc128608c251aef86f4f2158fb5b8e249
+docfiles size=307
+ texmf-dist/doc/latex/pseudo/LICENSE
+ texmf-dist/doc/latex/pseudo/Makefile
+ texmf-dist/doc/latex/pseudo/README.md details="Readme"
+ texmf-dist/doc/latex/pseudo/VERSION
+ texmf-dist/doc/latex/pseudo/doc/fig/hilitefig.tex
+ texmf-dist/doc/latex/pseudo/doc/fig/kwfig.tex
+ texmf-dist/doc/latex/pseudo/doc/fig/pausefig.tex
+ texmf-dist/doc/latex/pseudo/doc/fig/readmecode.tex
+ texmf-dist/doc/latex/pseudo/doc/fig/readmefig.svg
+ texmf-dist/doc/latex/pseudo/doc/fig/readmefig.tex
+ texmf-dist/doc/latex/pseudo/doc/pseudo.bib
+ texmf-dist/doc/latex/pseudo/doc/pseudo.pdf details="Package documentation"
+ texmf-dist/doc/latex/pseudo/doc/pseudo.tex
+ texmf-dist/doc/latex/pseudo/test/overlaytest.tex
+ texmf-dist/doc/latex/pseudo/test/pseudotest.tex
+runfiles size=8
+ texmf-dist/tex/latex/pseudo/pseudo.sty
+catalogue-also pseudocode
+catalogue-contact-bugs https://github.com/mlhetland/pseudo.sty/issues
+catalogue-contact-home https://github.com/mlhetland/pseudo.sty
+catalogue-contact-repository https://github.com/mlhetland/pseudo.sty.git
+catalogue-ctan /macros/latex/contrib/pseudo
+catalogue-license mit
+catalogue-topics pseudocode expl3
+catalogue-version 1.2.1

@@ -1,0 +1,23 @@
+name classics
+category Package
+revision 53671
+shortdesc Cite classic works
+longdesc The package provides a basic framework to cite classic works
+longdesc (specially from authors such as Homer, Plato, Aristotle,
+longdesc Descartes, Hume, and Kant) in accordance with traditional
+longdesc pagination systems. It may be used in conjunction with other
+longdesc citation packages.
+containersize 1844
+containerchecksum 86eaa987025658749c642f5132933745a418002feda5a3dec0f1dd9967a178af7e9c3188cde0b0b1fc8fb9ddf5cd59b68cf95942bd811d978d72a68f44a2999f
+doccontainersize 209880
+doccontainerchecksum df7d88ae0dc936b8b7f60e98f806b1368d249a838a7407ebd12de05fe10a6e0c9da1ba8cddd3d396033271dd3692451441ad267a187c30cbdf28dd996f707b78
+docfiles size=55
+ texmf-dist/doc/latex/classics/README details="Readme"
+ texmf-dist/doc/latex/classics/classics.pdf details="Package documentation"
+ texmf-dist/doc/latex/classics/classics.tex
+runfiles size=1
+ texmf-dist/tex/latex/classics/classics.sty
+catalogue-ctan /macros/latex/contrib/classics
+catalogue-license lppl1.3
+catalogue-topics humanities cite-supp expl3
+catalogue-version 0.1a

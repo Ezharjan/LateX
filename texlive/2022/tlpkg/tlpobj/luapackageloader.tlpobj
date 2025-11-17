@@ -1,0 +1,26 @@
+name luapackageloader
+category Package
+revision 54779
+shortdesc Allow LuaTeX to load external Lua packages
+longdesc This package allows LuaTeX to load packages from the default
+longdesc package.path and package.cpath locations. This could be useful
+longdesc to load external Lua modules, including modules installed via
+longdesc LuaRocks. This package requires ifluatex.
+depend iftex
+containersize 1700
+containerchecksum 7f2558dc265746f143520c2c6f3bf2ed05ac8c54988e573519321a7fb5a2a991220d0eb8906893f77964dc01f0e3f16b783dcd20f809042a11d29cd137f557fd
+doccontainersize 35324
+doccontainerchecksum 64719d715fc98bc09ab17db5f2053ea3e34d703adda6677f50ffe178a974230e8a03a9019b995238d073580e1faa745e655a7207468965ccb9f67bfccb5b5a49
+docfiles size=11
+ texmf-dist/doc/luatex/luapackageloader/README.md details="Readme"
+ texmf-dist/doc/luatex/luapackageloader/luapackageloader.pdf details="Package documentation"
+ texmf-dist/doc/luatex/luapackageloader/luapackageloader.tex
+runfiles size=2
+ texmf-dist/tex/luatex/luapackageloader/luapackageloader.lua
+ texmf-dist/tex/luatex/luapackageloader/luapackageloader.sty
+catalogue-contact-bugs https://github.com/deepakjois/luapackageloader/issues
+catalogue-contact-repository https://github.com/deepakjois/luapackageloader
+catalogue-ctan /macros/luatex/generic/luapackageloader
+catalogue-license lppl1.3c
+catalogue-topics luatex lua-supp use-lua
+catalogue-version 0.2

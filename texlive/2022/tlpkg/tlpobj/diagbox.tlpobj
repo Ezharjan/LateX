@@ -1,0 +1,31 @@
+name diagbox
+category Package
+revision 54080
+shortdesc Table heads with diagonal lines
+longdesc The package's principal command, \diagbox, takes two arguments
+longdesc (texts for the slash-separated parts of the box), and an
+longdesc optional argument with which the direction the slash will go,
+longdesc the box dimensions, etc., may be controlled. The package also
+longdesc provides \slashbox and \backslashbox commands for compatibility
+longdesc with the slashbox package, which it supersedes. diagbox depends
+longdesc on e-TeX as well as the packages array, calc, fp, keyval, and
+longdesc pict2e.
+containersize 3660
+containerchecksum 34d2530343877efebe9ee53027253ddce0e59df3cd70900bf0f040905f34a8ad9d41328aa3c6ecbb622f7731f3bc9c4fce289caa58e2c1db46a6ec1bafefe6ca
+doccontainersize 238496
+doccontainerchecksum 96310db4878e417f09e6202e5ca86f29524af5c1292ad8fed2563f1872e094be1249c4753eac5129c68492a5fe9ea87857783e2ca9af1ab77dfd1ca9b3309b2f
+docfiles size=61
+ texmf-dist/doc/latex/diagbox/README details="Readme"
+ texmf-dist/doc/latex/diagbox/diagbox.pdf details="Package documentation (English and Chinese)"
+srccontainersize 12320
+srccontainerchecksum 65ac012205c309099ca2f1a23f6446abb434a1a9c66a36d75d15021eead74feeb70c21024386fc11b223386100404b35a0ec3571d24aeec13b5513e60b11b3c4
+srcfiles size=13
+ texmf-dist/source/latex/diagbox/diagbox.dtx
+ texmf-dist/source/latex/diagbox/diagbox.ins
+runfiles size=4
+ texmf-dist/tex/latex/diagbox/diagbox.sty
+catalogue-contact-repository https://github.com/leo-liu/tex-pkg
+catalogue-ctan /macros/latex/contrib/diagbox
+catalogue-license lppl1.3
+catalogue-topics table
+catalogue-version 2.4

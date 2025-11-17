@@ -1,0 +1,23 @@
+name saveenv
+category Package
+revision 63843
+shortdesc Save environment content verbatim
+longdesc This package provides tools to create your own verbatim
+longdesc environments, and works for all values of \endlinechar.
+depend precattl
+containersize 2024
+containerchecksum 1f06d6d545fea4567ea43f4dccd6495076abb75f09be697962d667a9512ced5d83bf0b6c988cbbde3bdbfcf450fb6d96c894412b0968cc10ae2d4a281625fbce
+doccontainersize 387612
+doccontainerchecksum e538cbf2badabdb1f5f76c1fbca319c0e1abcdbd657cf67d7dc3a8f0ac849057cfe26fcfcb7068c552308d996e81fa08ce0c15790cb5fbd94d5039c9fbb54adc
+docfiles size=98
+ texmf-dist/doc/latex/saveenv/DEPENDS.txt
+ texmf-dist/doc/latex/saveenv/README details="Readme"
+ texmf-dist/doc/latex/saveenv/saveenv.pdf details="Package documentation"
+ texmf-dist/doc/latex/saveenv/saveenv.tex
+runfiles size=1
+ texmf-dist/tex/latex/saveenv/saveenv.sty
+catalogue-contact-repository https://github.com/user202729/TeXlib
+catalogue-ctan /macros/latex/contrib/saveenv
+catalogue-license lppl1.3c
+catalogue-topics expl3 verbatim
+catalogue-version 0.0.0

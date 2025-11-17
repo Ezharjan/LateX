@@ -1,0 +1,46 @@
+name missaali
+category Package
+revision 61719
+shortdesc A late medieval OpenType textura font
+longdesc This package contains the free OpenType Textura font Missaali
+longdesc and a style file for using it with XeLaTeX. Textura is a
+longdesc typeface based on the textus quadratus form of the textualis
+longdesc formata that late medieval scribes used for the most valuable
+longdesc manuscripts. The font Missaali is based on Textura that German
+longdesc printer Bartholomew Ghotan used for printing missals and
+longdesc psalters in the 1480s. This font has two intended use cases: as
+longdesc a Gothic display font; and for emulating late-medieval
+longdesc manuscripts. In addition to the basic textura letters, the font
+longdesc contains a large number of abbreviation sigla as well as a set
+longdesc of Lombardic initials. As modern typesetting algorithms are not
+longdesc intended for creating 15th century style layout, the package
+longdesc contains a XeLaTeX style file that makes it easier to achieve
+longdesc the classic incunabula look.
+containersize 85820
+containerchecksum 552f53302060b3f4c764a669feea4fe1dbadfa3abf53c226f9fde2d0e876bc8992ff2dbd4be6cd3e261ab0e01ed4d1ad2b5a38c2cfb780c4fc099a79ae52b46f
+doccontainersize 14130568
+doccontainerchecksum c80c201b7d3fa5808bc337415e86fe7e009ceccaf8020e587fae72f7024452f7c02b65ce48b2e8543c9796e8b3ea6431e0b8a5f1dc25b5adbd6f2ae7146e75a4
+docfiles size=3752
+ texmf-dist/doc/fonts/missaali/MANIFEST-Missaali.txt
+ texmf-dist/doc/fonts/missaali/Missaali.glyphs
+ texmf-dist/doc/fonts/missaali/OFL.txt
+ texmf-dist/doc/fonts/missaali/README details="Readme"
+ texmf-dist/doc/fonts/missaali/lppl.txt
+ texmf-dist/doc/fonts/missaali/missaali.bib
+ texmf-dist/doc/fonts/missaali/missaali.pdf details="Package documentation"
+ texmf-dist/doc/fonts/missaali/missaali.tex
+ texmf-dist/doc/fonts/missaali/missale-largefont.png
+ texmf-dist/doc/fonts/missaali/missale-normal.png
+ texmf-dist/doc/fonts/missaali/missale-preface.png
+ texmf-dist/doc/fonts/missaali/missale-tinyfont.png
+ texmf-dist/doc/fonts/missaali/pic-1.png
+ texmf-dist/doc/fonts/missaali/pic-2.png
+ texmf-dist/doc/fonts/missaali/symbols.tex
+ texmf-dist/doc/fonts/missaali/word_features.png
+runfiles size=39
+ texmf-dist/fonts/opentype/public/missaali/Missaali-Regular.otf
+ texmf-dist/tex/latex/missaali/missaali.sty
+catalogue-ctan /fonts/missaali
+catalogue-license ofl lppl1.3
+catalogue-topics font-otf font-gothic font-medieval
+catalogue-version 2.0

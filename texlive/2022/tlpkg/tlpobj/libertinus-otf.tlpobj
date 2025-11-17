@@ -1,0 +1,25 @@
+name libertinus-otf
+category Package
+revision 60023
+shortdesc Support for Libertinus OpenType
+longdesc This package offers LuaLaTeX/XeLaTeX support for the Libertinus
+longdesc OpenType fonts maintained by Khaled Hosny. Missing fonts are
+longdesc defined via several font feature settings. The Libertinus fonts
+longdesc are similiar to Libertine and Biolinum, but come with math
+longdesc symbols.
+containersize 3728
+containerchecksum 1aee669aaa55ff11c2de760f65597542736b64a4ae52b8d73aa967c92a178ae7013ce06e701d9a3bf3de0e5987abec4d29401480dd4bb845a64c0047ddf66c84
+doccontainersize 594072
+doccontainerchecksum 6c21d100b5ef1bbb8e892c0a0da0cabfe11404b7e1e4606ec04b25bd0a0d22547b1e80f1398573f62a34b4e951cda01466d0d8828cd10e78e8ed008aafecb416
+docfiles size=170
+ texmf-dist/doc/fonts/libertinus-otf/Changes
+ texmf-dist/doc/fonts/libertinus-otf/README.md details="Readme"
+ texmf-dist/doc/fonts/libertinus-otf/libertinus-otf-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/libertinus-otf/libertinus-otf-doc.tex
+runfiles size=7
+ texmf-dist/tex/latex/libertinus-otf/libertinus-otf.sty
+catalogue-also libertinus-fonts libertinus-type1
+catalogue-ctan /fonts/libertinus-otf
+catalogue-license lppl1.3
+catalogue-topics font-body font-otf font-supp font-serif font-sans font-proportional font-mono font-maths luatex xetex
+catalogue-version 0.29

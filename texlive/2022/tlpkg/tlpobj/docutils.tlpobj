@@ -1,0 +1,28 @@
+name docutils
+category Package
+revision 56594
+shortdesc Helper commands and element definitions for Docutils LaTeX output
+longdesc The package is intended for use with LaTeX documents generated
+longdesc from reStructuredText sources with Docutils. When generating
+longdesc LaTeX documents, specify this package with the stylesheet
+longdesc configuration option, e.g. rst2latex --stylesheet=docutils
+longdesc exampledocument.txt
+containersize 2556
+containerchecksum 13a31f6925efd5cb0e0ccc632d7b8ff80e15a2e95399779ba33ee6e0f1d3c1a3f4a397dcb7fe33455471ec65e6fbb18d681349a43b24a083882c23aed5a0b036
+doccontainersize 8064
+doccontainerchecksum 1748ee0bfe61704d8174202dfaf6a674fd52ba154456f6aa18cf90b2248be90f12bdb36993cfc4a701a8aa3037614c2f86be93ac8528f3da3bce96a611cb5748
+docfiles size=9
+ texmf-dist/doc/latex/docutils/README.md details="Readme"
+ texmf-dist/doc/latex/docutils/docutils.sty.html
+ texmf-dist/doc/latex/docutils/docutils.sty.txt
+runfiles size=2
+ texmf-dist/tex/latex/docutils/docutils.sty
+catalogue-contact-announce https://pypi.org/rss/project/docutils/releases.xml
+catalogue-contact-bugs https://sourceforge.net/p/docutils/bugs/
+catalogue-contact-development https://sourceforge.net/p/docutils/mailman/
+catalogue-contact-home https://docutils.sourceforge.io/
+catalogue-contact-repository https://sourceforge.net/p/docutils/code/HEAD/tree/trunk/docutils/docutils/writers/latex2e/
+catalogue-contact-support https://sourceforge.net/p/docutils/mailman/
+catalogue-ctan /macros/latex/contrib/docutils
+catalogue-license bsd
+catalogue-topics markup

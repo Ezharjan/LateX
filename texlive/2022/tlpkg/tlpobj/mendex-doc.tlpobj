@@ -1,0 +1,26 @@
+name mendex-doc
+category Package
+revision 62914
+shortdesc Documentation for Mendex index processor
+longdesc This package provides documentation for Mendex (Japanese index
+longdesc processor). The source code of the program is not included, it
+longdesc can be obtained from TeX Live subversion repository.
+containersize 1368
+containerchecksum 76f59e31e7d2a4240ab7b258745a7c94b8d78f8e308ad2bcf0ab85fc2d4b0ad77f7e1268014960cd29913bc3a81fdf2d6bbf6a8ab0b0845f2587c3134efb20c0
+doccontainersize 239468
+doccontainerchecksum 1a56d1ceab9536869e6d7da57146bc126f45893bfa998ab42eaddca7c48a9ee9d5b69abb31cf02cb6590d7acab68029f5eacb8547de6e877ed893c5f51acd923
+docfiles size=69
+ texmf-dist/doc/support/mendex-doc/LICENSE
+ texmf-dist/doc/support/mendex-doc/README.md details="Readme"
+ texmf-dist/doc/support/mendex-doc/mendex.pdf details="Package documentation" language="ja"
+ texmf-dist/doc/support/mendex-doc/mendex.tex
+srccontainersize 800
+srccontainerchecksum e22c3a7573e8f57d8324d7ca74b3c6b4c716dfa0ea6f43ba3e6eaa63aecf0fe0591ccf9cc4b18984ed2730fc5b9e0b84287bca677717f81c583e0c3c3e0c564c
+srcfiles size=1
+ texmf-dist/source/latex/mendex-doc/Makefile
+runfiles size=1
+ texmf-dist/makeindex/mendex-doc/jpbase.ist
+catalogue-contact-repository https://github.com/texjporg/mendex-doc
+catalogue-ctan /info/mendex-doc
+catalogue-license bsd3
+catalogue-topics index documentation

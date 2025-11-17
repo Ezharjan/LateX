@@ -1,0 +1,35 @@
+name colorist
+category Package
+revision 64280
+shortdesc Write your articles or books in a colorful way
+longdesc This package offers you a LaTeX style file and two classes to
+longdesc typeset articles or books in a colorful way. These classes
+longdesc currently have native support for English, French, German,
+longdesc Italian, Portuguese (European and Brazilian), and Spanish
+longdesc typesetting. They compile with any major TeX engine. You may
+longdesc also wish to consider the packages lebhart and beaulivre, which
+longdesc are enhanced versions of the classes provided here. They have
+longdesc unicode support, thus can only be used with either XeLaTeX or
+longdesc LuaLaTeX. Currently they have native support for Chinese (both
+longdesc simplified and traditional), English, French, German, Italian,
+longdesc Japanese, Portuguese (European and Brazilian), Russian and
+longdesc Spanish typesetting, and also use more beautiful fonts.
+containersize 10608
+containerchecksum 89062170389eb40c86d084e499d5219899a658cf4a9f8798745c33e009737ab156ea3f3c1350ac75f29b2fa3f2751298378e683a7efea5ec0b2616377a9bac3d
+doccontainersize 111264
+doccontainerchecksum dca8db1417b6451878cf79c6524c2ae791c58a11c2023deeff1dbaa86f66a3147bbf2dad5ec691ced4ba747e968dd7003e77cfba4910fe83690d547d5676b5dd
+docfiles size=38
+ texmf-dist/doc/latex/colorist/LICENSE
+ texmf-dist/doc/latex/colorist/README.md details="Readme"
+ texmf-dist/doc/latex/colorist/colorist-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/colorist/colorist-doc.tex
+runfiles size=16
+ texmf-dist/tex/latex/colorist/colorart.cls
+ texmf-dist/tex/latex/colorist/colorbook.cls
+ texmf-dist/tex/latex/colorist/colorist-fancy.sty
+ texmf-dist/tex/latex/colorist/colorist.sty
+catalogue-also lebhart beaulivre
+catalogue-contact-repository https://github.com/Jinwen-XU/colorist
+catalogue-ctan /macros/latex/contrib/colorist
+catalogue-license lppl1.3c
+catalogue-topics class expl3 article-like book-pub class multilingual

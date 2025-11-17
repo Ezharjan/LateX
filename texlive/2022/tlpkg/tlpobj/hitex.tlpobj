@@ -1,0 +1,55 @@
+name hitex
+category TLCore
+revision 63708
+shortdesc A TeX extension writing HINT output for on-screen reading
+longdesc An extension of TeX which generates HINT output. The HINT file
+longdesc format is an alternative to the DVI and PDF formats which was
+longdesc designed specifically for on-screen reading of documents.
+longdesc Especially on mobile devices, reading DVI or PDF documents can
+longdesc be cumbersome. Mobile devices are available in a large variety
+longdesc of sizes but typically are not large enough to display
+longdesc documents formated for a4/letter-size paper. To compensate for
+longdesc the limitations of a small screen, users are used to
+longdesc alternating between landscape (few long lines) and portrait
+longdesc (more short lines) mode. The HINT format supports variable and
+longdesc varying screen sizes, leveraging the ability of TeX to format a
+longdesc document for nearly-arbitrary values of \hsize and \vsize.
+depend cm
+depend etex
+depend hitex.ARCH
+depend hyphen-base
+depend knuth-lib
+depend plain
+execute AddFormat name=hitex engine=hitex patterns=language.def   options="-etex -ltx hitex.ini"   fmttriggers=cm,hyphen-base,etex,knuth-lib,plain
+containersize 2872
+containerchecksum 75f1cbd95ec75bf0f3803c18eb945618597d492992a89809e78f0753cc37a7981b1b8ec9f8212c0154d45018887862cd3a876f0252444a52432266355f8d8cc9
+doccontainersize 2623172
+doccontainerchecksum 10fecabce865dcdd8392d6bb0cf58bc1ab828250b60408bb218681d66236de31032a07de1aabe8ef5e7a94c63d205a75a9964d25242e54ea2fcbaa1afd68e0bf
+docfiles size=824
+ texmf-dist/doc/hitex/base/hiformat.hnt
+ texmf-dist/doc/hitex/base/hiformat.pdf
+ texmf-dist/doc/hitex/base/hintmac.tex
+ texmf-dist/doc/hitex/base/hitexman.hnt
+ texmf-dist/doc/hitex/base/hitexman.pdf
+ texmf-dist/doc/hitex/base/hitexman.tex
+ texmf-dist/doc/man/man1/hishrink.1
+ texmf-dist/doc/man/man1/hishrink.man1.pdf
+ texmf-dist/doc/man/man1/histretch.1
+ texmf-dist/doc/man/man1/histretch.man1.pdf
+ texmf-dist/doc/man/man1/hitex.1
+ texmf-dist/doc/man/man1/hitex.man1.pdf
+runfiles size=6
+ texmf-dist/makeindex/hitex/hint.ist
+ texmf-dist/tex/hitex/base/hilatex.ini
+ texmf-dist/tex/hitex/base/hiltxpage.tex
+ texmf-dist/tex/hitex/base/hiplainpage.tex
+ texmf-dist/tex/hitex/base/hitex.ini
+ texmf-dist/tex/hitex/base/ifhint.tex
+catalogue-alias hint
+catalogue-also knuth-hint
+catalogue-contact-bugs https://lists.tug.org/tex-k
+catalogue-contact-home https://hint.userweb.mwn.de/
+catalogue-contact-repository https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/hitexdir
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-license x11
+catalogue-topics engine

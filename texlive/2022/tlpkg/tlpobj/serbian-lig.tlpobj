@@ -1,0 +1,22 @@
+name serbian-lig
+category Package
+revision 53127
+shortdesc Control ligatures in Serbian
+longdesc The package suppresses fi and fl (and other ligatures) in
+longdesc Serbian text written using Roman script.
+containersize 8708
+containerchecksum d9b5d42c565d5704ab516302534238961ad42e971d3c3b4b4672d4cc19927ac22a871735d88c362b753640d457597911fa269ec30edb5c1c0af96820299c6720
+doccontainersize 416972
+doccontainerchecksum 6ed0551c176ddd34e1a4eb4449fd78ca38c166efd41b31c78dc1e192a714fdc81b195cf83587f256462b610681136b69960867d5f1a571a5b1b47256fca88f05
+docfiles size=122
+ texmf-dist/doc/latex/serbian-lig/Changes.txt
+ texmf-dist/doc/latex/serbian-lig/README.txt details="Readme"
+ texmf-dist/doc/latex/serbian-lig/lig-list.pdf
+ texmf-dist/doc/latex/serbian-lig/lig-list.tex
+ texmf-dist/doc/latex/serbian-lig/serbian-lig.pdf details="Package documentation"
+ texmf-dist/doc/latex/serbian-lig/serbian-lig.tex
+runfiles size=20
+ texmf-dist/tex/latex/serbian-lig/serbian-lig.sty
+catalogue-ctan /language/serbian/filipovic/serbian-lig
+catalogue-license lppl1.3
+catalogue-topics serbian

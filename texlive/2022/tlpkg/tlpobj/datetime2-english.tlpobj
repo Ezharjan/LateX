@@ -1,0 +1,47 @@
+name datetime2-english
+category Package
+revision 52479
+shortdesc English language module for the datetime2 package
+longdesc This module provides the following styles that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. The region not only
+longdesc determines the date/time format but also the time zone
+longdesc abbreviations if the zone mapping setting is on. english
+longdesc (English - no region) en-GB (English - United Kingdom of Great
+longdesc Britain and Northern Ireland) en-US (English - United States of
+longdesc America) en-CA (English - Canada) en-AU (English - Commonwealth
+longdesc of Australia) en-NZ (English - New Zealand) en-GG (English -
+longdesc Bailiwick of Guernsey) en-JE (English - Bailiwick of Jersey)
+longdesc en-IM (English - Isle of Man) en-MT (English - Republic of
+longdesc Malta) en-IE (English - Republic of Ireland)
+containersize 5892
+containerchecksum 2faf2dbcc9e49a9c30e5af599a26bb6925c6cb6831c1eb38bb58e08f50314cde1f3ebed343fc43ff50c6338a089caf90b8aaa53093f1284c583ba217c25cafa0
+doccontainersize 638380
+doccontainerchecksum ff904eb3279062f6573aa0190bd2f7426a18f4b67564b9b10673a88c4583c580cb88b33ccbfc0c8a979b10f6d2379bd22ad8483f19b1c4baf3f66e06d2ec52f4
+docfiles size=161
+ texmf-dist/doc/latex/datetime2-english/CHANGES
+ texmf-dist/doc/latex/datetime2-english/README details="Readme"
+ texmf-dist/doc/latex/datetime2-english/datetime2-english-sample.pdf details="Sample article"
+ texmf-dist/doc/latex/datetime2-english/datetime2-english-sample.tex
+ texmf-dist/doc/latex/datetime2-english/datetime2-english.pdf details="Package documentation"
+srccontainersize 13440
+srccontainerchecksum f5177d83f75709135356331615baa47cdea2a01fc706bb507391c40866b1d072260bbba4ec33fe88ce44e9995bec77941d636e5ec6132b6c4f07d2f1f25fffae
+srcfiles size=36
+ texmf-dist/source/latex/datetime2-english/datetime2-english.dtx
+ texmf-dist/source/latex/datetime2-english/datetime2-english.ins
+runfiles size=26
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-AU.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-CA.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-GB.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-GG.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-IE.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-IM.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-JE.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-MT.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-NZ.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-en-US.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-english-base.ldf
+ texmf-dist/tex/latex/datetime2-english/datetime2-english.ldf
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-english
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.05

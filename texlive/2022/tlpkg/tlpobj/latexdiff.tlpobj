@@ -1,0 +1,49 @@
+name latexdiff
+category Package
+revision 61434
+shortdesc Determine and mark up significant differences between LaTeX files
+longdesc Latexdiff is a Perl script for visual mark up and revision of
+longdesc significant differences between two LaTeX files. Various
+longdesc options are available for visual markup using standard LaTeX
+longdesc packages such as color. Changes not directly affecting visible
+longdesc text, for example in formatting commands, are still marked in
+longdesc the LaTeX source. A rudimentary revision facilility is provided
+longdesc by another Perl script, latexrevise, which accepts or rejects
+longdesc all changes. Manual editing of the difference file can be used
+longdesc to override this default behaviour and accept or reject
+longdesc selected changes only.
+depend latexdiff.ARCH
+containersize 72244
+containerchecksum 9fbe7f644012638bbc5f10c114adc5d0027475c7a872dbe36016522c5cdbe2fd7c31af20cb389aee79e83b03a9e470cf01cef734f2caa623c7048f2b020e80be
+doccontainersize 472568
+doccontainerchecksum b3c09b5ea391ad7b2d5821e41e3e4e05d4749b2aaa8b8aad1219c7f81aeccd65a98e3fe77ccbf4770d658dcb4797d9bf37a42604b380f666a6bd281d8b677ed4
+docfiles size=262
+ texmf-dist/doc/man/man1/latexdiff-vc.1
+ texmf-dist/doc/man/man1/latexdiff-vc.man1.pdf
+ texmf-dist/doc/man/man1/latexdiff.1
+ texmf-dist/doc/man/man1/latexdiff.man1.pdf
+ texmf-dist/doc/man/man1/latexrevise.1
+ texmf-dist/doc/man/man1/latexrevise.man1.pdf
+ texmf-dist/doc/support/latexdiff/COPYING
+ texmf-dist/doc/support/latexdiff/Makefile
+ texmf-dist/doc/support/latexdiff/README details="Package Readme"
+ texmf-dist/doc/support/latexdiff/contrib/README.latexchanges
+ texmf-dist/doc/support/latexdiff/contrib/latexchanges.py
+ texmf-dist/doc/support/latexdiff/contrib/latexdiff-wrap
+ texmf-dist/doc/support/latexdiff/contrib/latexdiff.spec
+ texmf-dist/doc/support/latexdiff/doc/example-diff.tex
+ texmf-dist/doc/support/latexdiff/doc/latexdiff-man.pdf details="Package manual"
+ texmf-dist/doc/support/latexdiff/doc/latexdiff-man.tex
+ texmf-dist/doc/support/latexdiff/example/example-draft.tex
+ texmf-dist/doc/support/latexdiff/example/example-rev.tex
+ texmf-dist/doc/support/latexdiff/latexdiff
+ texmf-dist/doc/support/latexdiff/latexdiff-fast
+runfiles size=74
+ texmf-dist/scripts/latexdiff/latexdiff-vc.pl
+ texmf-dist/scripts/latexdiff/latexdiff.pl
+ texmf-dist/scripts/latexdiff/latexrevise.pl
+catalogue-contact-repository https://github.com/ftilmann/latexdiff/
+catalogue-ctan /support/latexdiff
+catalogue-license gpl3
+catalogue-topics doc-mgmt
+catalogue-version 1.3.2

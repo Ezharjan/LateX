@@ -1,0 +1,24 @@
+name tonevalue
+category Package
+revision 60058
+shortdesc Tool for linguists and phoneticians to visualize tone value patterns
+longdesc This package provides a TikZ-based solution to typeset
+longdesc visualisations of tone values. Currently, unt's model is
+longdesc implemented. Support for more models is planned.
+containersize 2440
+containerchecksum 052216e492b58a5e8ad4cb3f346815924291f3d24c995d42f22f189e6601a7b4236d434684d5777ea10d50a3d77f033b02ab76ad1550c0ba1ec275a6d22bf4e4
+doccontainersize 154900
+doccontainerchecksum b9bafeaf2a089f3537767a51923ecb6d7008009f4fe2fa74cff71f7d7358ab52afe4f39951efc04d29e2bca5cfab4ae70cf35a9f1e895377be4cef2ef0c523d0
+docfiles size=45
+ texmf-dist/doc/latex/tonevalue/LICENSE
+ texmf-dist/doc/latex/tonevalue/README details="Readme"
+ texmf-dist/doc/latex/tonevalue/tonevalue.pdf details="Package documentation"
+ texmf-dist/doc/latex/tonevalue/tonevalue.tex
+runfiles size=2
+ texmf-dist/tex/latex/tonevalue/tonevalue.sty
+catalogue-contact-bugs https://github.com/edward-martyr/tonevalue/issues
+catalogue-contact-home https://github.com/edward-martyr/tonevalue
+catalogue-ctan /graphics/pgf/contrib/tonevalue
+catalogue-license apache2
+catalogue-topics pgf-tikz phonetic linguistic
+catalogue-version 1.0

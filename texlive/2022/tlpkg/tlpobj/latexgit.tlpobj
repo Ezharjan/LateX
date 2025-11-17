@@ -1,0 +1,26 @@
+name latexgit
+category Package
+revision 54811
+shortdesc A LaTeX git wrapper
+longdesc This package provides several macros to fetch git information
+longdesc and typeset it. The macros defined by LaTeXgit can be helpful
+longdesc to documentation authors and others to whom clear document
+longdesc versioning is important.
+containersize 1840
+containerchecksum 4e3787d5e9bf950e796e7eb475c825f20628ec5ed5b99cb145036fba99c4941ed81b347acba1548dea624d87a03e0cdbbc28fc579cc8edb0aa36460e9df0b6d8
+doccontainersize 446104
+doccontainerchecksum bfc6ce99ca1b66c0b1d5d98453716cf9e3a7e65ac55d7d17e5b06417f57d13f532602b537c804581e2e81b5265d554dd99e4d4307ef6d634d25916aae1892cab
+docfiles size=117
+ texmf-dist/doc/latex/latexgit/LICENSE
+ texmf-dist/doc/latex/latexgit/README.md details="Readme"
+ texmf-dist/doc/latex/latexgit/latexgit.pdf details="Package documentation"
+srccontainersize 5280
+srccontainerchecksum 8a09f128428644335c9d909d23acc91ede2020304ebf009be00928cdef670aba23d245b979e5fd8d927c9d0e652bc195c717a744015a31fbb2aed1c566abfaf4
+srcfiles size=6
+ texmf-dist/source/latex/latexgit/latexgit.dtx
+ texmf-dist/source/latex/latexgit/latexgit.ins
+runfiles size=2
+ texmf-dist/tex/latex/latexgit/latexgit.sty
+catalogue-ctan /macros/latex/contrib/latexgit
+catalogue-license gpl3
+catalogue-topics version-control doc-mgmt

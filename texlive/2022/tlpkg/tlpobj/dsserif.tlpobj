@@ -1,0 +1,48 @@
+name dsserif
+category Package
+revision 60898
+shortdesc A double-struck serifed font for mathematical use
+longdesc DSSerif is a mathematical font package with double struck
+longdesc serifed digits, upper and lower case letters, in regular and
+longdesc bold weights. The design was inspired by the STIX double struck
+longdesc fonts, which are sans serif, but starting from a Courier-like
+longdesc base.
+execute addMap DSSerif.map
+containersize 90204
+containerchecksum 7fa159e85b370a1327a8cace1a20ed54b37f2413e553dbcd42c6e75cd224da35b47402d89d39971873e888cc9f89117fe5403887299ad8c43e6bf2f706df357d
+doccontainersize 281156
+doccontainerchecksum e831d9ba6233cd260cd6f212f4f8b3adb360f6d701d121d26f0de95360dd56ccf7e3a5fb6fde990d875e60ca20f7632a4badaa9df8e3b98f16bfa5b176308761
+docfiles size=83
+ texmf-dist/doc/fonts/dsserif/DSSerif-drv.tex
+ texmf-dist/doc/fonts/dsserif/OFL-FAQ.txt
+ texmf-dist/doc/fonts/dsserif/OFL.txt
+ texmf-dist/doc/fonts/dsserif/README details="Readme"
+ texmf-dist/doc/fonts/dsserif/dsserif-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/dsserif/dsserif-doc.tex
+ texmf-dist/doc/fonts/dsserif/notes.txt
+srccontainersize 1000
+srccontainerchecksum dcdf454c0d970338951b5b458df039ecc0287020fbf13c3ef46d2effc4aace39cdb424937d506783f572ccfd7cc136e9059e9894d4339b53f4b1be4b52d93579
+srcfiles size=3
+ texmf-dist/source/fonts/dsserif/adjustments.mtx
+ texmf-dist/source/fonts/dsserif/mathalfij.etx
+ texmf-dist/source/fonts/dsserif/mathalfijB.etx
+runfiles size=38
+ texmf-dist/fonts/afm/public/dsserif/DSSerif-Bold.afm
+ texmf-dist/fonts/afm/public/dsserif/DSSerif.afm
+ texmf-dist/fonts/afm/public/dsserif/DSSerifUni-Bold.afm
+ texmf-dist/fonts/afm/public/dsserif/DSSerifUni.afm
+ texmf-dist/fonts/map/dvips/dsserif/DSSerif.map
+ texmf-dist/fonts/tfm/public/dsserif/DSSerif-Bold.tfm
+ texmf-dist/fonts/tfm/public/dsserif/DSSerif.tfm
+ texmf-dist/fonts/tfm/public/dsserif/DSSerifUni-Bold.tfm
+ texmf-dist/fonts/tfm/public/dsserif/DSSerifUni.tfm
+ texmf-dist/fonts/type1/public/dsserif/DSSerif-Bold.pfb
+ texmf-dist/fonts/type1/public/dsserif/DSSerif.pfb
+ texmf-dist/fonts/type1/public/dsserif/DSSerifUni-Bold.pfb
+ texmf-dist/fonts/type1/public/dsserif/DSSerifUni.pfb
+ texmf-dist/tex/latex/dsserif/dsserif.sty
+ texmf-dist/tex/latex/dsserif/udsserif.fd
+catalogue-ctan /fonts/dsserif
+catalogue-license ofl lppl1.3
+catalogue-topics font font-serif font-maths font-bbd font-type1
+catalogue-version 1.031

@@ -1,0 +1,30 @@
+name macrolist
+category Package
+revision 60139
+shortdesc List operations for LaTeX2e
+longdesc This package provides a list data structure and common list
+longdesc functions such as \macrolistadd, \macrolistremove,
+longdesc \macrolistforeach, as well as \macrolistremovelast (similar to
+longdesc C++'s pop_back) and \macrolistjoin (similar to Javascript's
+longdesc arr.join). Unlike most programming languages, the lists in this
+longdesc package are 1-indexed, meaning the first element is numbered 1,
+longdesc the second element numbered 2, and so on.
+containersize 2340
+containerchecksum d722a58921aa7f6c5a887c022027df5d04c905f9c1cd7a95df31e1e3d9ad8c583028436eeb35217cb186aee6ea21efff09d3f52fa5284963789ccaeedc3342e7
+doccontainersize 190676
+doccontainerchecksum 21893f581ee47e136a47c56deaee6f9c4e6c5e4380027e22bfb62cf6258502ecb1a647f11dd5468b8687c033e0cc708397efc2499307db320963598228dd3b4b
+docfiles size=49
+ texmf-dist/doc/latex/macrolist/README.md details="Readme"
+ texmf-dist/doc/latex/macrolist/macrolist.pdf details="Package documentation"
+srccontainersize 4528
+srccontainerchecksum ee930f3a9d8a909c9c139f47b9022badf50ead0fb95a87a38dc2850e1bf7ea38d346ac362e1aeeb8c2dfb661ce5dca0c3cb78fadaadc0524b080d73d3241d0fd
+srcfiles size=5
+ texmf-dist/source/latex/macrolist/macrolist.dtx
+ texmf-dist/source/latex/macrolist/macrolist.ins
+runfiles size=3
+ texmf-dist/tex/latex/macrolist/macrolist.sty
+catalogue-contact-repository https://github.com/chennisden/macrolist
+catalogue-ctan /macros/latex/contrib/macrolist
+catalogue-license lppl1.3
+catalogue-topics list macro-supp
+catalogue-version 2.1.0

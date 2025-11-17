@@ -1,0 +1,46 @@
+name pst-plot
+category Package
+revision 60620
+shortdesc Plot data using PSTricks
+longdesc The package provides plotting of data (typically from external
+longdesc files), using PSTricks. Plots may be configured using a wide
+longdesc variety of parameters.
+containersize 22632
+containerchecksum b389155d1bb56cee20cc035dcec1551974d9de57a7acde79b40d1342e621454e879e760d150f5e3d71e28d7f379442c32a828ce2f9b2a9813fafcef9476e4af3
+doccontainersize 1375272
+doccontainerchecksum b8033d9879f06a995bac06a1849e3349dd1e9c675279520c7e1c563cced38e58612b2a826de285d8abc2ecf1312faf17c2424d38a9cbce22431219da79245828
+docfiles size=565
+ texmf-dist/doc/generic/pst-plot/Changes
+ texmf-dist/doc/generic/pst-plot/README details="Readme"
+ texmf-dist/doc/generic/pst-plot/data/Data.dat
+ texmf-dist/doc/generic/pst-plot/data/LSM.data
+ texmf-dist/doc/generic/pst-plot/data/LSM2.data
+ texmf-dist/doc/generic/pst-plot/data/boxplot.data
+ texmf-dist/doc/generic/pst-plot/data/data.data
+ texmf-dist/doc/generic/pst-plot/data/data1.dat
+ texmf-dist/doc/generic/pst-plot/data/data3.data
+ texmf-dist/doc/generic/pst-plot/data/dataMul.data
+ texmf-dist/doc/generic/pst-plot/data/demo.txt
+ texmf-dist/doc/generic/pst-plot/data/demo0.data
+ texmf-dist/doc/generic/pst-plot/data/demo1.data
+ texmf-dist/doc/generic/pst-plot/data/demo2.data
+ texmf-dist/doc/generic/pst-plot/data/demo3.data
+ texmf-dist/doc/generic/pst-plot/data/dotmatrix.data
+ texmf-dist/doc/generic/pst-plot/data/pst-plot-doc.eps
+ texmf-dist/doc/generic/pst-plot/data/pstricks-add-data9.data
+ texmf-dist/doc/generic/pst-plot/data/test.data
+ texmf-dist/doc/generic/pst-plot/pst-plot-doc.bib
+ texmf-dist/doc/generic/pst-plot/pst-plot-doc.pdf details="Package documentation" language="en"
+ texmf-dist/doc/generic/pst-plot/pst-plot-doc.tex
+runfiles size=32
+ texmf-dist/tex/generic/pst-plot/pst-plot.tex
+ texmf-dist/tex/generic/pst-plot/pst-plot97.tex
+ texmf-dist/tex/latex/pst-plot/pst-plot.sty
+catalogue-also pgfplots
+catalogue-contact-home https://www.tug.org/PSTricks/
+catalogue-contact-repository https://archiv.dante.de/~herbert/texnik/
+catalogue-contact-support https://tug.org/mailman/listinfo/pstricks
+catalogue-ctan /graphics/pstricks/contrib/pst-plot
+catalogue-license lppl
+catalogue-topics data-import data-disp pstricks
+catalogue-version 1.93

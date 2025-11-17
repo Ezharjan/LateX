@@ -1,0 +1,26 @@
+name puyotikz
+category Package
+revision 57254
+shortdesc Quickly typeset board states of Puyo Puyo games
+longdesc This LaTeX package permits to quickly typeset board states of
+longdesc Puyo Puyo games. It supports large and small boards with
+longdesc arbitrary shape, hidden rows, current and next puyos, labels
+longdesc and move planning markers. The package requires Python3 in
+longdesc support of scripts driven by PythonTeX.
+containersize 3968
+containerchecksum 635d17a49a905c99e895df3e777eed02f4c5e91a38d083e57890cd13c927bc68098d5f0864d6e32b2585d288091d15e5cc1303e04e26b2267d7e78a07f77ea0d
+doccontainersize 201144
+doccontainerchecksum 64750274694fa8c7fc792d6f5ba19ab756366eb87668469aa6da9df74f4f7bc571772cc6a406f7c3453f306f36516aca9c2444ce126ff4968d1cc49d2c4585db
+docfiles size=55
+ texmf-dist/doc/latex/puyotikz/LICENSE
+ texmf-dist/doc/latex/puyotikz/README.md details="Readme"
+ texmf-dist/doc/latex/puyotikz/puyotikz.pdf details="Package documentation"
+ texmf-dist/doc/latex/puyotikz/puyotikz.tex
+runfiles size=4
+ texmf-dist/scripts/puyotikz/puyotikz.py
+ texmf-dist/tex/latex/puyotikz/puyotikz.sty
+catalogue-contact-repository https://github.com/amosborne/puyotikz
+catalogue-ctan /graphics/pgf/contrib/puyotikz
+catalogue-license mit
+catalogue-topics graphics pgf-tikz games
+catalogue-version 1.0.1

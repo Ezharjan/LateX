@@ -1,0 +1,23 @@
+name vcell
+category Package
+revision 59039
+shortdesc Vertical alignment of content inside table cells
+longdesc This package offers low-level macros to build rows with
+longdesc vertically-aligned cells (top, middle or bottom) and calculate
+longdesc the height of a row. These cells can have variable or fixed
+longdesc height and can be paragraph-cells or inline-cells. Different
+longdesc vertical alignments can be used in the same row.
+containersize 1392
+containerchecksum 39d8f934a07095d21219d58fb41fd3e939391d5c68c51d8b9ec82a97522e55fc09a23195c8b5ae48cc3e9d9bb9a62a0b22123f467627784c767321140356d6b1
+doccontainersize 137652
+doccontainerchecksum f13e941e7327f4369112f59387cae9c49f10197a2c7c4016cbcc5880759d89fe88535266f5f753b48b547deda24a3ad959b42f864b9ca2764cd593bacbf908b4
+docfiles size=37
+ texmf-dist/doc/latex/vcell/README.md details="Readme"
+ texmf-dist/doc/latex/vcell/vcell.pdf details="Package documentation"
+ texmf-dist/doc/latex/vcell/vcell.tex
+runfiles size=1
+ texmf-dist/tex/latex/vcell/vcell.sty
+catalogue-ctan /macros/latex/contrib/vcell
+catalogue-license lppl1.3c
+catalogue-topics table
+catalogue-version 1.0.2

@@ -1,0 +1,29 @@
+name luacensor
+category Package
+revision 62167
+shortdesc Securely redact sensitive information using Lua
+longdesc This package provides simple tools for creating redacted Its
+longdesc tools are useful for lawyers, workers in sensitive industries,
+longdesc and others who need to easily produce both unrestricted
+longdesc versions of documents (for limited, secure release) and
+longdesc restricted versions of documents (for general release)
+longdesc Redaction is done both by hiding all characters and by slightly
+longdesc varying the length of strings to prevent jigsaw identification.
+longdesc It also is friendly to screen readers by adding alt-text
+longdesc indicating redacted content.
+containersize 4348
+containerchecksum 6dbcc3a2870106eb49955b6e67fd621019fcd759b9d68d37e86af9d4121231e50ecaab7abe7fdc7720021575b8f6a28f28c4a11edc72f6ea71f7cba2b76909c6
+doccontainersize 164092
+doccontainerchecksum 95cf6068dd5812806f3a7fb40349f8adab9099c453459789937c68d49e8238016575148254b436724b7764a0eee7caac2459b96ab214746d3c12ba1d268cef45
+docfiles size=47
+ texmf-dist/doc/lualatex/luacensor/README details="Readme"
+ texmf-dist/doc/lualatex/luacensor/luacensor.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luacensor/luacensor.tex
+runfiles size=4
+ texmf-dist/tex/lualatex/luacensor/luacensor.sty
+catalogue-contact-bugs https://github.com/ezgranet/luacensor/issues
+catalogue-contact-repository https://github.com/ezgranet/luacensor
+catalogue-ctan /macros/luatex/latex/luacensor
+catalogue-license lppl1.3
+catalogue-topics security editorial cond-comp luatex
+catalogue-version 1.1.0

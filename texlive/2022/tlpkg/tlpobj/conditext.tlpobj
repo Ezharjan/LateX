@@ -1,0 +1,49 @@
+name conditext
+category Package
+revision 55387
+shortdesc Define and manage conditional content
+longdesc This package provides some commands to define and manage
+longdesc conditional content in a LaTeX source document. A conditional
+longdesc content, in the sense within this is understood in this
+longdesc package, is a text (including mathematical or other formulas)
+longdesc and/or a graphical element (diagram, figure, image...) as
+longdesc substitutable forms, which, according to a condition test, may
+longdesc or may not appear in the generated document. One of the most
+longdesc common forms of conditional content management is multilingual
+longdesc ; but it can also include versioning, confidentiality levels,
+longdesc and so on. The philosophy of this package is based on the
+longdesc respective notions of condition field, condition property and
+longdesc condition space. With this package, any substitutable form in a
+longdesc source document is identified by a condition field and a
+longdesc condition property. The condition field is a functional theme
+longdesc that allows you to group together substitutable forms for the
+longdesc same conditional management. The condition property is a
+longdesc functional characterization specific to each substitutable form
+longdesc of a single condition domain. The condition space is used to
+longdesc designate the substitutable form(s) that must appear in the
+longdesc generated document. A condition space is defined by specifying
+longdesc a condition domain and a condition property to match with one
+longdesc or more substitutable forms.
+containersize 6304
+containerchecksum 60619cdd5031d0fbd2f9e4e8614dacf8f439282787f6230bd2662bad21607720757a19ab27ef783a36a6a19299d5960fb786d8cc787e471a46e89f8cc2e7c866
+doccontainersize 528648
+doccontainerchecksum 3949b2f03c86a922d306cab525a5ca321509d64cfd73b99a39e3404800f63f15e262921e2c1e8eedf98ba2f6cbdda00dfb14e54198af5b7438afdea4572a86ee
+docfiles size=164
+ texmf-dist/doc/latex/conditext/README.txt details="Readme"
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example01a.tex
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example01b.tex
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example02-image01.png
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example02-image02.png
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example02-image03.png
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example02-image04.png
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example02.tex
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example03a.tex
+ texmf-dist/doc/latex/conditext/conditext-examples/conditext-example03b.tex
+ texmf-dist/doc/latex/conditext/conditext.pdf details="Package documentation"
+ texmf-dist/doc/latex/conditext/conditext.tex
+runfiles size=15
+ texmf-dist/tex/latex/conditext/CondiTeXt.sty
+catalogue-ctan /macros/latex/contrib/conditext
+catalogue-license lppl1.3c
+catalogue-topics cond-comp
+catalogue-version 1.5

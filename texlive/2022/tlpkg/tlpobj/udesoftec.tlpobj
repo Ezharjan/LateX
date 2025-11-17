@@ -1,0 +1,39 @@
+name udesoftec
+category Package
+revision 57866
+shortdesc Thesis class for the University of Duisburg-Essen
+longdesc The class is designed for typesetting theses in the Research
+longdesc Group for Business Informatics and Software Engineering. (The
+longdesc class may also serve as a template for such theses.) The class
+longdesc is designed for use with pdfLaTeX; input in UTF-8 encoding is
+longdesc assumed.
+containersize 108164
+containerchecksum 56171faa46267dbd99185807f619a673cc1ace837eea3c0e8659c4d7fb50aab7f8842e259f433070b8eb54390d3426542c3443a62d37a1aa9ae7029f4d7f022a
+doccontainersize 477784
+doccontainerchecksum 463b9ca1c153da84ed0045a2adbe8129031bab79d0a586710b6cbb9fca9b84428b7036848efee27a075b40f0cb015081c89e6e7f5588f1e2bd011d81f40be721
+docfiles size=118
+ texmf-dist/doc/latex/udesoftec/udesoftec-doc.pdf details="Package documentation (German)" language="de"
+srccontainersize 44528
+srccontainerchecksum 99273b3d809dec7f508bc3f1744143804edfbcc2b3ffbdd6fca4e51be2f98f3ac0ab6852ccd333c5a69a627dfb108952d511a5398eedef0af4306ab573ea54e0
+srcfiles size=23
+ texmf-dist/source/latex/udesoftec/CHANGELOG
+ texmf-dist/source/latex/udesoftec/README
+ texmf-dist/source/latex/udesoftec/UPDATE-INSTRUCTIONS
+ texmf-dist/source/latex/udesoftec/udesoftec-doc-examplebib.bib
+ texmf-dist/source/latex/udesoftec/udesoftec-doc-exampleimage.pdf
+ texmf-dist/source/latex/udesoftec/udesoftec-doc.tex
+runfiles size=74
+ texmf-dist/bibtex/bst/udesoftec/udesoftec.bst
+ texmf-dist/tex/latex/udesoftec/udesoftec-bibcommon.sty
+ texmf-dist/tex/latex/udesoftec/udesoftec-biblatex.sty
+ texmf-dist/tex/latex/udesoftec/udesoftec-bst.sty
+ texmf-dist/tex/latex/udesoftec/udesoftec-cover-uba.pdf
+ texmf-dist/tex/latex/udesoftec/udesoftec-cover-ude-de.pdf
+ texmf-dist/tex/latex/udesoftec/udesoftec-cover-ude-en.pdf
+ texmf-dist/tex/latex/udesoftec/udesoftec-extra.sty
+ texmf-dist/tex/latex/udesoftec/udesoftec.cls
+catalogue-contact-bugs https://github.com/jpmschuler/SOFTEC-Templates/issues
+catalogue-ctan /macros/latex/contrib/udesoftec
+catalogue-license lppl1.3
+catalogue-topics dissertation bus-study class
+catalogue-version 1.7.1

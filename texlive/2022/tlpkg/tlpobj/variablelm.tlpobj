@@ -1,0 +1,37 @@
+name variablelm
+category Package
+revision 60014
+shortdesc Font definitions for the variable Latin Modern fonts
+longdesc This package provides a mechanism for scaling a typeface. It is
+longdesc directed at the Latin Modern fonts and provides the font
+longdesc definitions and the corresponding style file. This mechanism is
+longdesc useful in mixed text compositions, for example Japanese-Latin.
+containersize 3608
+containerchecksum 1c34d4afa65db4993f3098cb32b604c68a75bc2c0b56b026a6d50c2de61392d4bace210dab2fb5ca0c15253e7486406aa3aa5084e2296bd5e8f1e9c953419627
+doccontainersize 134724
+doccontainerchecksum 56bbeff2f9cb4a99c05416d7fae7cea8cef81e712092ae8b5d1ca644769debdd95c443fb6af7edc034fe9d778147e1b37da50d951278a7f64c407dead5f6e7cb
+docfiles size=35
+ texmf-dist/doc/fonts/variablelm/README.md details="Readme"
+ texmf-dist/doc/fonts/variablelm/control_scaling_lm_fonts.pdf details="Package documentation"
+ texmf-dist/doc/fonts/variablelm/control_scaling_lm_fonts.tex
+runfiles size=14
+ texmf-dist/tex/latex/variablelm/omlvlmm.fd
+ texmf-dist/tex/latex/variablelm/omlvlmr.fd
+ texmf-dist/tex/latex/variablelm/omsvlmr.fd
+ texmf-dist/tex/latex/variablelm/omsvlmsy.fd
+ texmf-dist/tex/latex/variablelm/omxvlmex.fd
+ texmf-dist/tex/latex/variablelm/ot1vlmr.fd
+ texmf-dist/tex/latex/variablelm/ot1vlmtt.fd
+ texmf-dist/tex/latex/variablelm/t1vlmr.fd
+ texmf-dist/tex/latex/variablelm/t1vlmss.fd
+ texmf-dist/tex/latex/variablelm/t1vlmssq.fd
+ texmf-dist/tex/latex/variablelm/t1vlmtt.fd
+ texmf-dist/tex/latex/variablelm/t1vlmvtt.fd
+ texmf-dist/tex/latex/variablelm/ts1vlmr.fd
+ texmf-dist/tex/latex/variablelm/variablelm.sty
+catalogue-also lm
+catalogue-contact-repository https://github.com/yuw/texmf-variablelm
+catalogue-ctan /fonts/variablelm
+catalogue-license gfl
+catalogue-topics font-cm font-virtual font-t1enc
+catalogue-version 1.2

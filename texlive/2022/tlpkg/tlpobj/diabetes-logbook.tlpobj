@@ -1,0 +1,36 @@
+name diabetes-logbook
+category Package
+revision 54810
+shortdesc A logbook for people with type one diabetes
+longdesc Initally a logbook for me, a person with type one diabetes
+longdesc mellitus, this evolved over time into a TeX project, making it
+longdesc prettier and/or easier to use. I've made it simple to use,
+longdesc while not forgoing the document's beauty or the speed of input.
+longdesc The logbook, with slight commenting out and editing, could be
+longdesc used as a journal by anybody, although the template and
+longdesc graphing functionality are set up for people using insulin
+longdesc injections and blood glucose teststrips, as well as
+longdesc counting/estimating carbs, protein, and fat. Note: The names of
+longdesc the package's files are not constructed using the long
+longdesc "diabetes-logbook", but the acronym "dmlb" (for "diabetes
+longdesc mellitus log book").
+containersize 7032
+containerchecksum 427912b3eeac373ba82f99b30a6ccf360b285a119248e9dd2aa175cfb7f2538327331d9e8eab7ff62cfd987466352c08016313f51b8651c4b42484fb6f089bda
+doccontainersize 280396
+doccontainerchecksum 3a8c1c45b24d23ff236ca2d8bba6ff6d9ad055a688b5621a660cefbdff4e1407d71d96420cfa39dbb896f8035e6d5a2bf3f33fc2e80074527c9a41fcab72f976
+docfiles size=118
+ texmf-dist/doc/latex/diabetes-logbook/LICENSE
+ texmf-dist/doc/latex/diabetes-logbook/QQ/20-04.tex
+ texmf-dist/doc/latex/diabetes-logbook/QQ/TEST/99-12.tex
+ texmf-dist/doc/latex/diabetes-logbook/README.md details="Readme"
+ texmf-dist/doc/latex/diabetes-logbook/dmlb-graphme.tex
+ texmf-dist/doc/latex/diabetes-logbook/dmlb-template.pdf details="Example of use (1)"
+ texmf-dist/doc/latex/diabetes-logbook/dmlb-template.tex
+ texmf-dist/doc/latex/diabetes-logbook/dmlb-templateGRAY.pdf details="Example of use (2)"
+ texmf-dist/doc/latex/diabetes-logbook/dmlbrow.sublime-snippet
+runfiles size=6
+ texmf-dist/tex/latex/diabetes-logbook/dmlb.sty
+catalogue-contact-repository https://github.com/communistkiro/dmlb
+catalogue-ctan /macros/latex/contrib/diabetes-logbook
+catalogue-license other-free
+catalogue-topics doc-templ data-disp

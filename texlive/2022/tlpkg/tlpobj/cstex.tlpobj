@@ -1,0 +1,54 @@
+name cstex
+category Package
+revision 64149
+shortdesc Support for Czech/Slovak languages
+longdesc This package mirrors the macros part of the home site's
+longdesc distribution of CSTeX. The licence (modified GPL) applies to
+longdesc some of the additions that make it a Czech/Slovak language
+longdesc distribution, rather than the distribution of a basic
+longdesc Plain/LaTeX distribution.
+containersize 476
+containerchecksum cc0f0d0e2af2c210cb7888e90d668016dba4cfce3ae90faf0597a7f8c2058dfe56b92b71d185705c7d3b19d53b989724a9106ab56664fd2e6f4e95da5c0a48b8
+doccontainersize 3963708
+doccontainerchecksum e84c12eed94f459a7769527197f8b4b2f638297eec5d41bc7e4e3cc86c593cf957158946eb495947ff557ff323a085212b61cb3233972238d3afa2fff54e367b
+docfiles size=1156
+ texmf-dist/doc/cstex/00-README-cslatex
+ texmf-dist/doc/cstex/INSTALL.cslatex
+ texmf-dist/doc/cstex/README-csplain
+ texmf-dist/doc/cstex/README-cspsfont
+ texmf-dist/doc/cstex/README-doc
+ texmf-dist/doc/cstex/README-opmac
+ texmf-dist/doc/cstex/README.cslatex
+ texmf-dist/doc/cstex/cspsfonts-gen/README details="Readme" language="cs"
+ texmf-dist/doc/cstex/cspsfonts-gen/fontgen
+ texmf-dist/doc/cstex/cspsfonts-gen/kernoff.c
+ texmf-dist/doc/cstex/cspsfonts-gen/mkf
+ texmf-dist/doc/cstex/cspsfonts-gen/mkfc
+ texmf-dist/doc/cstex/cspsfonts-gen/xl2.enc
+ texmf-dist/doc/cstex/cspsfonts-gen/xt2.enc
+ texmf-dist/doc/cstex/cstexman.pdf details="User manual" language="cs"
+ texmf-dist/doc/cstex/cstexman.tex
+ texmf-dist/doc/cstex/jemny.errata
+ texmf-dist/doc/cstex/jemny.pdf
+ texmf-dist/doc/cstex/jemny.tar.gz
+ texmf-dist/doc/cstex/kpfonts-plain.tex
+ texmf-dist/doc/cstex/lic-gpl.eng
+ texmf-dist/doc/cstex/opmac-d.tex
+ texmf-dist/doc/cstex/opmac-u-en.pdf
+ texmf-dist/doc/cstex/opmac-u-en.tex
+ texmf-dist/doc/cstex/opmac-u.pdf
+ texmf-dist/doc/cstex/opmac-u.tex
+ texmf-dist/doc/cstex/pdfuni-article.pdf
+ texmf-dist/doc/cstex/pdfuni-article.tex
+ texmf-dist/doc/cstex/prvni.pdf
+ texmf-dist/doc/cstex/prvni.tex
+ texmf-dist/doc/cstex/test8z.pdf
+ texmf-dist/doc/cstex/test8z.tex
+ texmf-dist/doc/cstex/testgyre8z.pdf
+ texmf-dist/doc/cstex/testgyre8z.tex
+ texmf-dist/doc/cstex/testlat.tex
+ texmf-dist/doc/cstex/zmeny.txt
+catalogue-also cslatex
+catalogue-ctan /macros/cstex
+catalogue-license other-free
+catalogue-topics distribution

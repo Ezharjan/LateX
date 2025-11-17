@@ -1,0 +1,46 @@
+name thermodynamics
+category Package
+revision 63188
+shortdesc Macros for multicomponent thermodynamics documents
+longdesc This package makes typesetting quantities found in
+longdesc thermodynamics texts relatively simple. The commands are
+longdesc flexible and intended to be relatively intuitive. It handles
+longdesc several sets of notation for total, specific, and molar
+longdesc quantities; allows changes between symbols (e.g., A vs. F for
+longdesc Helmholtz free energy); and greatly simplifies the typesetting
+longdesc of symbols and partial derivatives commonly encountered in
+longdesc mixture thermodynamics. Changes of one's notes from one
+longdesc textbook to another can be achieved relatively easily by
+longdesc changing package options. The package offers a collection of
+longdesc macros and environments which are intended to make typesetting
+longdesc thermodynamics documents faster, more convenient, and more
+longdesc reliable. Macros include symbols for extensive, molar,
+longdesc specific, and partial molar properties; exces and residual
+longdesc (departure) properties; partial derivatives; heat capacities,
+longdesc compressibilities, and expansivities; saturation, mixture, and
+longdesc pure-component properties; Henry's Law parameters and activity
+longdesc coefficients; and changes on mixing, fusion, reaction,
+longdesc sublimation, and vaporization; and sets of all moles/mole
+longdesc fractions/masses/etc. being held constant in derivatives.
+longdesc Conversion of notes between textbooks is trivial for textbooks
+longdesc supported by the package, and more general changes in notation
+longdesc are also possible through package options.
+containersize 6556
+containerchecksum eaff530ff327020bc067435669a84f0614fc09a9a7027451b5407a80466c488105ffa4eaf40caf8e0ff7d6beb715ee1064190e371479e319a5da6f827e21713c
+doccontainersize 202180
+doccontainerchecksum 48100b4af357710e037426983f3ee7c7961980d284cf53fc50194de7d7e81d6ab9d2ceedd47b2521571fa1ef63c263fd828a6229246116c54f8955967641c360
+docfiles size=53
+ texmf-dist/doc/latex/thermodynamics/README.md details="Readme"
+ texmf-dist/doc/latex/thermodynamics/thermodynamics-examples.tex
+ texmf-dist/doc/latex/thermodynamics/thermodynamics.pdf details="Package documentation"
+srccontainersize 28040
+srccontainerchecksum c940d93724b127128f1824047daf5b22f17e0316f1ee0f1e0e73ffd79796cdd3588a52eb8a470fcaa8611015e7728d5da37862e888cb58904eedcc7700d8e1a1
+srcfiles size=35
+ texmf-dist/source/latex/thermodynamics/thermodynamics.dtx
+ texmf-dist/source/latex/thermodynamics/thermodynamics.ins
+runfiles size=9
+ texmf-dist/tex/latex/thermodynamics/thermodynamics.sty
+catalogue-ctan /macros/latex/contrib/thermodynamics
+catalogue-license lppl1.3
+catalogue-topics chemistry physics
+catalogue-version 1.00

@@ -1,0 +1,32 @@
+name albatross
+category Package
+revision 61175
+shortdesc Find fonts that contain a given glyph
+longdesc This is a command line tool for finding fonts that contain a
+longdesc given (Unicode) glyph. It relies on Fontconfig.
+depend albatross.ARCH
+containersize 2176876
+containerchecksum 8c3556c5c59c049a295790042f72b929484962b622a00c3a3dd39817978fe1cb2f56ddee9863f65429b507350c197740306fd0e28be322d26d6f30ff8d77c10f
+doccontainersize 101296
+doccontainerchecksum beef301cbcccedda3b3a625a87a572fda75d8c28a6d76d45bab4333b17a1a581e1fc42abb169b6fbc8b461334f9b83063f6fd26e445ef42f56904c051b65d311
+docfiles size=42
+ texmf-dist/doc/man/man1/albatross.1
+ texmf-dist/doc/man/man1/albatross.man1.pdf
+ texmf-dist/doc/support/albatross/README.md details="Readme"
+ texmf-dist/doc/support/albatross/albatross-manual.pdf details="Package documentation"
+ texmf-dist/doc/support/albatross/albatross-manual.tex
+ texmf-dist/doc/support/albatross/version.tex
+srccontainersize 4992
+srccontainerchecksum 69b966e2cc59ad0f5f46500c4b2a21e3ea4e627f03b2b7b99e5e313dbdb35c5758762821cf3d776a39a9cdd930a80b964ff70bb956b8fc528113c354a88b9934
+srcfiles size=2
+ texmf-dist/source/support/albatross/albatross-0.4.0-src.zip
+runfiles size=586
+ texmf-dist/scripts/albatross/albatross.jar
+ texmf-dist/scripts/albatross/albatross.sh
+catalogue-contact-bugs https://gitlab.com/islandoftex/albatross/-/issues
+catalogue-contact-repository https://gitlab.com/islandoftex/albatross/
+catalogue-contact-support https://gitter.im/Island-of-TeX/community
+catalogue-ctan /support/albatross
+catalogue-license bsd3
+catalogue-topics unicode font-sel
+catalogue-version 0.4.0

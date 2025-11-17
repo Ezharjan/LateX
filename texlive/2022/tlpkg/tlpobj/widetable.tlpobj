@@ -1,0 +1,28 @@
+name widetable
+category Package
+revision 53409
+shortdesc An environment for typesetting tables of specified width
+longdesc The package defines a new environment that, unlike tabularX,
+longdesc typesets a table of specified width by working on the
+longdesc inter-column glue; the tabular cells will all be stretched (or
+longdesc shrunk) according to need. The package will use the e-TeX
+longdesc arithmetic extensions if they are available (they are, in most
+longdesc modern distributions).
+containersize 1468
+containerchecksum bd6c85eb76b1fdd4b7e81ad24ad7d282b79e4234ec029e48ed63611260b00e8b1c584ac800c45643e466ff6aefbf953246b24c1bc6453098a76b71ba01624821
+doccontainersize 465604
+doccontainerchecksum 5f254468e606aa188030c95c79672a6fb0211c0b5c4df6c3fde98c43ce1fd89993d495eb750b58395175e2b6bbe3e9771895627a04bdb8839fd4d0a143c1ab69
+docfiles size=116
+ texmf-dist/doc/latex/widetable/README.txt details="Readme"
+ texmf-dist/doc/latex/widetable/manifest.txt
+ texmf-dist/doc/latex/widetable/widetable.pdf details="Package documentation"
+srccontainersize 9224
+srccontainerchecksum 31ae40849337a8c6a7872621e55ae2a53b1a7d4d1a7907e18f5aec07f94196636b99c26d46dd8c10e1494a35b86d435a014a229160edbbfccd064306fdf06598
+srcfiles size=7
+ texmf-dist/source/latex/widetable/widetable.dtx
+runfiles size=1
+ texmf-dist/tex/latex/widetable/widetable.sty
+catalogue-ctan /macros/latex/contrib/widetable
+catalogue-license lppl1.3
+catalogue-topics table-long
+catalogue-version 2.1

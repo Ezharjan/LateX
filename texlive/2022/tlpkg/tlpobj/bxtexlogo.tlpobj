@@ -1,0 +1,31 @@
+name bxtexlogo
+category Package
+revision 63231
+shortdesc Additional TeX-family logos
+longdesc The hologo package provides many useful logos of popular (and
+longdesc not so popular) TeX-family software. However, its interface is
+longdesc a bit cumbersome because you must type \hologo{BibTeX} instead
+longdesc of \BibTeX. This package makes it possible to import some of
+longdesc the logos provided by hologo as single commands, such as
+longdesc \BibTeX. Additionally, the package provides logos of some
+longdesc TeX-family software that is popular mainly in Japan. These
+longdesc logos can be imported in the same way as those provided by the
+longdesc \hologo command. bxtexlogo depends on hologo and cjhebrew (if
+longdesc \logoAleph and \logoLamed are used).
+containersize 6528
+containerchecksum e0399d089bbbbac0e34a216b5164956dc9843e2d77b9cc1b395609963aba759e527dcd3fc112f4aa57b621e4419ee33d16e7bffb7f88123a0afb7c983c82636b
+doccontainersize 529644
+doccontainerchecksum ddc5da87331449bded7b5936bacac04872467cea5ceff8b1a0b2c5938119351e17f1622020e53a94d704be03a626b5110685e69cb393773595d5b9cf7326f184
+docfiles size=136
+ texmf-dist/doc/latex/bxtexlogo/LICENSE
+ texmf-dist/doc/latex/bxtexlogo/README.md details="Readme"
+ texmf-dist/doc/latex/bxtexlogo/bxtexlogo-sample.pdf details="Samples"
+ texmf-dist/doc/latex/bxtexlogo/bxtexlogo-sample.tex
+runfiles size=6
+ texmf-dist/tex/latex/bxtexlogo/bxtexlogo.sty
+catalogue-also hologo
+catalogue-contact-home https://github.com/zr-tex8r/BXtexlogo
+catalogue-ctan /macros/latex/contrib/bxtexlogo
+catalogue-license mit
+catalogue-topics logo
+catalogue-version 0.6

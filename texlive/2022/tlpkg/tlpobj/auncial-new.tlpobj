@@ -1,0 +1,47 @@
+name auncial-new
+category Package
+revision 62977
+shortdesc Artificial Uncial font and LaTeX support macros
+longdesc The auncial-new bundle provides packages and fonts for a script
+longdesc based on the Artificial Uncial manuscript book-hand used
+longdesc between the 6th & 10th century AD. The script consists of
+longdesc minuscules and digits, with some appropriate period punctuation
+longdesc marks. Both normal and bold versions are provided, and the font
+longdesc is distributed in Adobe Type 1 format. This is an experimental
+longdesc new version of the auncial bundle, which is one of a series of
+longdesc bookhand fonts. The font follows the B1 encoding developed for
+longdesc bookhands. Access to the encoding is essential. The encoding
+longdesc mainly follows the standard T1 encoding.
+execute addMap auncial.map
+containersize 201344
+containerchecksum 625ddb6342c2ed4e5491e63ae13619b18892bc5d2cc005aac489cf1b6d193a28acdff9404f51b4cc76e8950ac182a4f8d5845bad85fd4c4afbdf33e7b8c225b3
+doccontainersize 318124
+doccontainerchecksum 4d3880a12e8dab72fa5278e4507bdc03786cfe94bfa43e81068629327d1e70a251ca58c7cbf6c58560c03b9e1e4d79257a674370e89c780f5c81589d54084270
+docfiles size=90
+ texmf-dist/doc/fonts/auncial-new/README details="Readme"
+ texmf-dist/doc/fonts/auncial-new/auncial.pdf details="Package documentation"
+ texmf-dist/doc/fonts/auncial-new/tryauncial.pdf details="Font sample, etc."
+ texmf-dist/doc/fonts/auncial-new/tryauncial.tex
+srccontainersize 33688
+srccontainerchecksum bb35718db33f7c4cb6889570def1b4f8a47e05896a14c8867ff7dba362028017d4e64d66b31e2f2cef45b749784704ea6cf9c1731543c3277496fc6c128b08fb
+srcfiles size=64
+ texmf-dist/source/fonts/auncial-new/auncial.dtx
+ texmf-dist/source/fonts/auncial-new/auncial.ins
+ texmf-dist/source/fonts/auncial-new/aunclmfb.dtx
+ texmf-dist/source/fonts/auncial-new/aunclmfc.dtx
+ texmf-dist/source/fonts/auncial-new/aunclmft.dtx
+runfiles size=65
+ texmf-dist/fonts/afm/public/auncial-new/auncl10.afm
+ texmf-dist/fonts/afm/public/auncial-new/aunclb10.afm
+ texmf-dist/fonts/map/dvips/auncial-new/auncial.map
+ texmf-dist/fonts/tfm/public/auncial-new/auncl10.tfm
+ texmf-dist/fonts/tfm/public/auncial-new/aunclb10.tfm
+ texmf-dist/fonts/type1/public/auncial-new/auncl10.pfb
+ texmf-dist/fonts/type1/public/auncial-new/aunclb10.pfb
+ texmf-dist/tex/latex/auncial-new/allauncl.sty
+ texmf-dist/tex/latex/auncial-new/auncial.sty
+ texmf-dist/tex/latex/auncial-new/b1auncl.fd
+catalogue-ctan /fonts/auncial-new
+catalogue-license lppl
+catalogue-topics font font-type1 font-bookhand font-medieval
+catalogue-version 2.0

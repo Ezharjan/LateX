@@ -1,0 +1,43 @@
+name polexpr
+category Package
+revision 63337
+shortdesc A parser for polynomial expressions
+longdesc The package provides a parser \poldef of algebraic polynomial
+longdesc expressions. As it is based on xintexpr, the coefficients are
+longdesc allowed to be arbitrary rational numbers. Once defined, a
+longdesc polynomial is usable by its name either as a numerical function
+longdesc in \xintexpr/\xinteval, or for additional polynomial
+longdesc definitions, or as argument to the package macros. The
+longdesc localization of real roots to arbitrary precision as well as
+longdesc the determination of all rational roots is implemented via such
+longdesc macros. Since release 0.8, polexpr extends the xintexpr syntax
+longdesc to recognize polynomials as a new variable type (and not only
+longdesc as functions). Functionality which previously was implemented
+longdesc via macros such as the computation of a greatest common divisor
+longdesc is now available directly in \xintexpr, \xinteval or \poldef
+longdesc via infix or functional syntax.
+containersize 39920
+containerchecksum 4d04a0a61b5f50c61eef41360aaec305b727e6d8686e8ef1742098a7980a6508e3455a8282a9cb0b4549d7dcd49cf065c49bbb7e710ca5120cb32567fd58fb8b
+doccontainersize 123176
+doccontainerchecksum d2477a275477b6e47461e769fbf43abfc746769582cc916eab153fb7ee19e85285561601169dea0335d0c525b79c5435ee2d44ba931739eb9d903a3f2e3b670f
+docfiles size=136
+ texmf-dist/doc/generic/polexpr/README.md details="Readme"
+ texmf-dist/doc/generic/polexpr/polexpr-changes.html
+ texmf-dist/doc/generic/polexpr/polexpr-changes.rst.txt
+ texmf-dist/doc/generic/polexpr/polexpr-examples.pdf details="Examples of use"
+ texmf-dist/doc/generic/polexpr/polexpr-ref.html
+ texmf-dist/doc/generic/polexpr/polexpr-ref.rst.txt
+ texmf-dist/doc/generic/polexpr/polexpr.css
+ texmf-dist/doc/generic/polexpr/polexpr.html details="Package documentation (HTML)"
+ texmf-dist/doc/generic/polexpr/polexpr.rst.txt
+runfiles size=48
+ texmf-dist/tex/generic/polexpr/polexpr-examples.tex
+ texmf-dist/tex/generic/polexpr/polexpr.sty
+ texmf-dist/tex/generic/polexpr/polexprcore.tex
+ texmf-dist/tex/generic/polexpr/polexprexpr.tex
+ texmf-dist/tex/generic/polexpr/polexprsturm.tex
+catalogue-also polynom
+catalogue-ctan /macros/generic/polexpr
+catalogue-license lppl1.3c
+catalogue-topics maths arithmetic calculation etex macro-gen
+catalogue-version 0.8.7a

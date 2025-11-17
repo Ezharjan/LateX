@@ -1,0 +1,44 @@
+name extract
+category Package
+revision 52117
+shortdesc Extract parts of a document and write to another document
+longdesc The package provides the means to extract specific content from
+longdesc a source document and write that to a target document. One
+longdesc could, for instance, use this to extract all exercises from
+longdesc lecture notes and generate an exercises book on the fly. The
+longdesc package also provides an environment which writes its body
+longdesc entirely to the target file. Another environment will write to
+longdesc the target file, but will also execute the body. This allows to
+longdesc share code (for instance, a preamble) between the source
+longdesc document and the target file. Finally, the package provides an
+longdesc interface to conditionally extract content. With a single
+longdesc package option, one can specify exactly which commands (counted
+longdesc from the start of the document) should be extracted and which
+longdesc not. This might be useful for extracting specific slides from a
+longdesc presentation and use them in a new file.
+containersize 4356
+containerchecksum 32889da48868c2335866bb5c229728f9a37dcfe552830ca03ad3b704d1f7a471ee120de2ffed07bcf50797f7e34dd6fce53c77f1b63d15071888171d44cc938e
+doccontainersize 165740
+doccontainerchecksum 64fd270a61f5e5f39442a56bb7a20606854b45a995b9a455604139df8006a1b198ae332669de09c1baa5dee5ccdf59e5989d21c17376a764a096f535ceff3f48
+docfiles size=69
+ texmf-dist/doc/latex/extract/README details="Package README"
+ texmf-dist/doc/latex/extract/extract.bib
+ texmf-dist/doc/latex/extract/extract.pdf details="Package documentation"
+ texmf-dist/doc/latex/extract/xtrex1.tex
+ texmf-dist/doc/latex/extract/xtrex2.tex
+ texmf-dist/doc/latex/extract/xtrex3.tex
+ texmf-dist/doc/latex/extract/xtrex4.tex
+ texmf-dist/doc/latex/extract/xtrex5.tex
+ texmf-dist/doc/latex/extract/xtrex6.tex
+ texmf-dist/doc/latex/extract/xtrex7.tex
+ texmf-dist/doc/latex/extract/xtrpream.ble
+srccontainersize 17656
+srccontainerchecksum c94663034b4069bb47f611b761f08df36e2e69705d491ad0405d826d81d07f0862dd2a7963cc1bfb0f071ca4ac56aedc96debdfbbb35b097a6a49f863ac3de2a
+srcfiles size=19
+ texmf-dist/source/latex/extract/extract.dtx
+runfiles size=5
+ texmf-dist/tex/latex/extract/extract.sty
+catalogue-ctan /macros/latex/contrib/extract
+catalogue-license lppl1.3
+catalogue-topics editorial
+catalogue-version 1.9a

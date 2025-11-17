@@ -1,0 +1,57 @@
+name markdown
+category Package
+revision 64240
+shortdesc A package for converting and rendering markdown documents inside TeX
+longdesc The package provides facilities for the conversion of markdown
+longdesc markup to plain TeX. These are provided both in form of a Lua
+longdesc module and in form of plain TeX, LaTeX, and ConTeXt macro
+longdesc packages that enable the direct inclusion of markdown documents
+longdesc inside TeX documents. Architecturally, the package consists of
+longdesc the Lunamark Lua module by John MacFarlane, which was slimmed
+longdesc down and rewritten for the needs of the package. Lunamark
+longdesc provides speedy markdown parsing for the rest of the package.
+longdesc On top of Lunamark sits code for the plain TeX, LaTeX, and
+longdesc ConTeXt formats by Vit Novotny.
+containersize 45880
+containerchecksum d27e83accd27ebd61f8e68c183cfb43ab8de0ba58508f2ad27503211e18b903482a1636178f5c9237a07b59dce7397873ed4e63d5554c32a08ea873be66ac686
+doccontainersize 1028324
+doccontainerchecksum f84e76523b2df42940ca8c6a1bb84fadcebc118fecc577ba43e0f569fc962b3f08d5bff3283dcb86981b67fc073e901ae12d5103c38709fe9eeb37dc8400f3cc
+docfiles size=448
+ texmf-dist/doc/context/third/markdown/examples/context-mkii.tex
+ texmf-dist/doc/context/third/markdown/examples/context-mkiv.tex
+ texmf-dist/doc/context/third/markdown/examples/example.md
+ texmf-dist/doc/context/third/markdown/examples/scientists.csv
+ texmf-dist/doc/generic/markdown/CHANGES.md
+ texmf-dist/doc/generic/markdown/README.md details="Readme"
+ texmf-dist/doc/generic/markdown/VERSION
+ texmf-dist/doc/generic/markdown/markdown.css
+ texmf-dist/doc/generic/markdown/markdown.html details="User Manual (HTML)"
+ texmf-dist/doc/generic/markdown/markdown.pdf details="Technical documentation"
+ texmf-dist/doc/generic/markdown/markdown.png
+ texmf-dist/doc/latex/markdown/examples/example.md
+ texmf-dist/doc/latex/markdown/examples/latex.tex
+ texmf-dist/doc/latex/markdown/examples/scientists.csv
+srccontainersize 95468
+srccontainerchecksum 0ab4330a98eee52ad6c311c99abf634f2e7f543340fac763ccd7937c65039463fff30c5dfc26e99900fa7037bb8c24d1c8340dc81fe55a201f9683805c0a28f4
+srcfiles size=168
+ texmf-dist/source/generic/markdown/docstrip.cfg
+ texmf-dist/source/generic/markdown/markdown.dtx
+ texmf-dist/source/generic/markdown/markdown.ins
+runfiles size=74
+ texmf-dist/scripts/markdown/markdown-cli.lua
+ texmf-dist/tex/context/third/markdown/t-markdown.tex
+ texmf-dist/tex/generic/markdown/markdown.tex
+ texmf-dist/tex/latex/markdown/markdown.sty
+ texmf-dist/tex/latex/markdown/markdownthemewitiko_dot.sty
+ texmf-dist/tex/latex/markdown/markdownthemewitiko_graphicx_http.sty
+ texmf-dist/tex/latex/markdown/markdownthemewitiko_tilde.sty
+ texmf-dist/tex/luatex/markdown/markdown-tinyyaml.lua
+ texmf-dist/tex/luatex/markdown/markdown.lua
+catalogue-contact-announce https://github.com/Witiko/markdown/releases
+catalogue-contact-bugs https://github.com/Witiko/markdown/issues
+catalogue-contact-development https://github.com/Witiko/markdown/pulls
+catalogue-contact-repository https://github.com/Witiko/markdown
+catalogue-ctan /macros/generic/markdown
+catalogue-license lppl1.3c
+catalogue-topics markup
+catalogue-version 2.16.1-0-gf8a4bea

@@ -1,0 +1,45 @@
+name minted
+category Package
+revision 64026
+shortdesc Highlighted source code for LaTeX
+longdesc The package that facilitates expressive syntax highlighting in
+longdesc LaTeX using the powerful Pygments library. The package also
+longdesc provides options to customize the highlighted source code
+longdesc output using fancyvrb.
+depend catchfile
+depend etoolbox
+depend fancyvrb
+depend float
+depend framed
+depend fvextra
+depend graphics
+depend ifplatform
+depend kvoptions
+depend lineno
+depend pdftexcmds
+depend tools
+depend upquote
+depend xcolor
+depend xstring
+containersize 9668
+containerchecksum 45ff657881ea79464499930951761ca9eb58c4f1e7fdd060066d805b403e7e482492f567c24b18e3a5b083129012c2a228256a94f43f85cb2462c8ac614aab9f
+doccontainersize 824148
+doccontainerchecksum b256d275098b32fdaf072084bda8f78f340cd969f7778aa439798d0a3e04239a5a8c90e09c18a4ebc7eabca5ada6b4227f4bb19e6bf7c2ebb330cfe2ed1715f0
+docfiles size=208
+ texmf-dist/doc/latex/minted/README details="Readme"
+ texmf-dist/doc/latex/minted/minted.pdf details="Package documentation"
+srccontainersize 45492
+srccontainerchecksum 6ece43418b8f3c1be936e1f4db974096cee5490909064347f4d41fe20a6bb0f979f029d2ef262b110ef489ce384d4912fb7119d81934b805931bf16634e83706
+srcfiles size=51
+ texmf-dist/source/latex/minted/Makefile
+ texmf-dist/source/latex/minted/minted.dtx
+ texmf-dist/source/latex/minted/minted.ins
+runfiles size=15
+ texmf-dist/tex/latex/minted/minted.sty
+ texmf-dist/tex/latex/minted/minted1.sty
+catalogue-also texments verbments
+catalogue-contact-repository https://github.com/gpoore/minted
+catalogue-ctan /macros/latex/contrib/minted
+catalogue-license lppl1.3
+catalogue-topics listing synt-hlt
+catalogue-version 2.6

@@ -1,0 +1,39 @@
+name helmholtz-ellis-ji-notation
+category Package
+revision 55213
+shortdesc Beautiful in-line microtonal just intonation accidentals
+longdesc The Helmholtz-Ellis JI Pitch Notation (HEJI), devised in the
+longdesc early 2000s by Marc Sabat and Wolfgang von Schweinitz,
+longdesc explicitly notates the raising and lowering of the untempered
+longdesc diatonic Pythagorean notes by specific microtonal ratios
+longdesc defined for each prime. It provides visually distinctive
+longdesc "logos" distinguishing families of justly tuned intervals that
+longdesc relate to the harmonic series. These take the form of strings
+longdesc of additional accidental symbols based on historical
+longdesc precedents, extending the traditional sharps and flats. Since
+longdesc its 2020 update, HEJI ver. 2 ("HEJI2") provides unique
+longdesc microtonal symbols through the 47-limit. This package is a
+longdesc simple LaTeX implementation of HEJI2 that allows for in-line
+longdesc typesetting of microtonal accidentals for use within
+longdesc theoretical texts, program notes, symbol legends, etc.
+longdesc Documents must be compiled using XeLaTeX.
+containersize 16848
+containerchecksum 2c91c08df5e97f9f7ee17f40408d8810cfc3099b5e125b5445a89d2f0d35849f32be0d4150bf7b9f812d5c9c0994c714430fd8d015b9d4ab3bf9879deff5bb43
+doccontainersize 78536
+doccontainerchecksum 20c9b9fce33ec63cd635751acec1d25fb8c5cb4171ea06f3313c839ea400943926550098cc520c4d5fced46c61756977c6294e435821330715ab82cb894222cf
+docfiles size=21
+ texmf-dist/doc/fonts/helmholtz-ellis-ji-notation/README.md details="Readme"
+ texmf-dist/doc/fonts/helmholtz-ellis-ji-notation/helmholtz-ellis-ji-notation.pdf details="Package documentation"
+srccontainersize 4244
+srccontainerchecksum bddeab10a607bf0cd194f9725ffe66e103605c5910abd6fce216c579ba2722afbec724f8717b52b2ad6fdc8f472553519e000d7df41c5a26a157e8eedb41fee4
+srcfiles size=5
+ texmf-dist/source/fonts/helmholtz-ellis-ji-notation/helmholtz-ellis-ji-notation.dtx
+ texmf-dist/source/fonts/helmholtz-ellis-ji-notation/helmholtz-ellis-ji-notation.ins
+runfiles size=15
+ texmf-dist/fonts/opentype/public/helmholtz-ellis-ji-notation/HEJI2Text.otf
+ texmf-dist/tex/latex/helmholtz-ellis-ji-notation/helmholtz-ellis-ji-notation.sty
+catalogue-contact-home http://plainsound.org/
+catalogue-ctan /fonts/helmholtz-ellis-ji-notation
+catalogue-license cc-by-4
+catalogue-topics font font-music font-otf font-supp music
+catalogue-version 1.1

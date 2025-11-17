@@ -1,0 +1,11 @@
+name latex-bin-dev.win32
+category TLCore
+revision 62199
+shortdesc win32 files of latex-bin-dev
+containersize 972
+containerchecksum f09e8e240b9e3a8ff9a8cfb47d888c569d16fc3a5b5b460288b34a7705b2355dfd563216fb885cf5ce51e665d3aa98e229cce18272c9f4a56cba3ab3c61007f3
+binfiles arch=win32 size=4
+ bin/win32/dvilualatex-dev.exe
+ bin/win32/latex-dev.exe
+ bin/win32/lualatex-dev.exe
+ bin/win32/pdflatex-dev.exe

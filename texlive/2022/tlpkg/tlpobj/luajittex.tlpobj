@@ -1,0 +1,25 @@
+name luajittex
+category TLCore
+revision 62774
+shortdesc LuaTeX with just-in-time (jit) compiler, with and without HarfBuzz
+depend cm
+depend etex
+depend hyph-utf8
+depend hyphen-base
+depend knuth-lib
+depend luajittex.ARCH
+depend luatex
+depend plain
+depend tex-ini-files
+depend unicode-data
+execute AddFormat name=luajithbtex engine=luajithbtex options="luatex.ini"   patterns=language.def,language.dat.lua   fmttriggers=cm,etex,hyphen-base,knuth-lib,plain,tex-ini-files,unicode-data,hyph-utf8,luatex
+execute AddFormat name=luajittex engine=luajittex options="luatex.ini"   patterns=language.def,language.dat.lua   fmttriggers=cm,etex,hyphen-base,knuth-lib,plain,tex-ini-files,unicode-data,hyph-utf8,luatex
+containersize 484
+containerchecksum f7503044bf237ca6d6e33a3a067bba0d73dfecfee7e77b5ebd4f3d6417dd24f7aa263cb08e7ffb86708574ecda31d5c7d89b42d2ad2179119393b99129f8077d
+doccontainersize 31968
+doccontainerchecksum 3924029e274913999cf54e2f3a4d3ef85dbfbb4ee93a629b8eeb77c796557c3086eb447fa74d2d7a6f33a17f433f38ceb033f7e1633e240bbb135b4239b588f7
+docfiles size=20
+ texmf-dist/doc/man/man1/luajithbtex.1
+ texmf-dist/doc/man/man1/luajithbtex.man1.pdf
+ texmf-dist/doc/man/man1/luajittex.1
+ texmf-dist/doc/man/man1/luajittex.man1.pdf

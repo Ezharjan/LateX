@@ -1,0 +1,59 @@
+name pkuthss
+category Package
+revision 63225
+shortdesc LaTeX template for dissertations in Peking University
+longdesc The package provides a simple, clear and flexible LaTeX
+longdesc template for dissertations in Peking University.
+containersize 16976
+containerchecksum 9784b515d9cec0afda54f98035d0ada48f340d6269366e57e393b8de7fdb40978224e3730cee303c908bce14bd91a93908faf7db9701d5c185db4ff0b0479a3c
+doccontainersize 556716
+doccontainerchecksum fcc4717d1f43097bb89862b3613ec119dfd1e68904d6ab6b324ce826b0d45e100f3e2b999589829128f8e7645b00be66d89aa38bd66fd04ce1c8af4214cdfeb7
+docfiles size=179
+ texmf-dist/doc/latex/pkuthss/README.txt details="Readme"
+ texmf-dist/doc/latex/pkuthss/example.pdf
+ texmf-dist/doc/latex/pkuthss/example/Make.bat
+ texmf-dist/doc/latex/pkuthss/example/chap/abs.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/ack.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/chap1.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/chap2.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/chap3.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/copy.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/encl1.tex
+ texmf-dist/doc/latex/pkuthss/example/chap/origin.tex
+ texmf-dist/doc/latex/pkuthss/example/ctex-fontset-pkuthss.def
+ texmf-dist/doc/latex/pkuthss/example/ctexopts.cfg
+ texmf-dist/doc/latex/pkuthss/example/latexmkrc
+ texmf-dist/doc/latex/pkuthss/example/spine.tex
+ texmf-dist/doc/latex/pkuthss/example/thesis.bib
+ texmf-dist/doc/latex/pkuthss/example/thesis.tex
+ texmf-dist/doc/latex/pkuthss/pkuthss.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/pkuthss/readme/ChangeLog-upto-1.3.txt
+ texmf-dist/doc/latex/pkuthss/readme/ChangeLog.txt
+ texmf-dist/doc/latex/pkuthss/readme/chap/origin.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-abs.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-ack.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-chap1.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-chap2.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-chap3.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-concl.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-copy.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-encl1.tex
+ texmf-dist/doc/latex/pkuthss/readme/chap/pkuthss-intro.tex
+ texmf-dist/doc/latex/pkuthss/readme/latexmkrc
+ texmf-dist/doc/latex/pkuthss/readme/pkuthss-english.patch
+ texmf-dist/doc/latex/pkuthss/readme/pkuthss.bib
+ texmf-dist/doc/latex/pkuthss/readme/pkuthss.tex
+runfiles size=14
+ texmf-dist/tex/latex/pkuthss/pkulogo.eps
+ texmf-dist/tex/latex/pkuthss/pkulogo.pdf
+ texmf-dist/tex/latex/pkuthss/pkuthss-gbk.def
+ texmf-dist/tex/latex/pkuthss/pkuthss-utf8.def
+ texmf-dist/tex/latex/pkuthss/pkuthss.cls
+ texmf-dist/tex/latex/pkuthss/pkuthss.def
+ texmf-dist/tex/latex/pkuthss/pkuword.eps
+ texmf-dist/tex/latex/pkuthss/pkuword.pdf
+catalogue-contact-repository https://gitea.com/CasperVector/pkuthss
+catalogue-ctan /macros/latex/contrib/pkuthss
+catalogue-license lppl1.3 bsd pd
+catalogue-topics dissertation class chinese
+catalogue-version 1.9.2

@@ -1,0 +1,53 @@
+name datetime2
+category Package
+revision 63102
+shortdesc Formats for dates, times and time zones
+longdesc This package provides commands for formatting dates, times and
+longdesc time zones and redefines \today to use the same formatting
+longdesc style. In addition to \today, you can also use \DTMcurrenttime
+longdesc (current time) or \DTMnow (current date and time). Dates and
+longdesc times can be saved for later use. The accompanying
+longdesc datetime2-calc package can be used to convert date-times to
+longdesc UTC+00:00. Language and regional support is provided by
+longdesc independently maintained and installed modules. The
+longdesc datetime2-calc package uses the pgfcalendar package (part of
+longdesc the PGF/TikZ bundle). This package replaces datetime.sty which
+longdesc is now obsolete.
+depend etoolbox
+depend tracklang
+depend xkeyval
+containersize 8852
+containerchecksum 7f2ad65f95e3881e5016647bff85b10138faaa7d26d097bdce0ec7b30cc0d913a43c2a45b0caa69a6669e54725122cf1a86117d0d4f543caba67058423af7f62
+doccontainersize 1017512
+doccontainerchecksum d43970aea6c7971ed6a3564a6681caea0e0f5606607496d9ec51d6c2fa741dd6c28754c9e9f06cde0ad1a79280b53629eb427faf820d00549468a650cbd0eac8
+docfiles size=265
+ texmf-dist/doc/latex/datetime2/CHANGES
+ texmf-dist/doc/latex/datetime2/README details="Readme"
+ texmf-dist/doc/latex/datetime2/datetime2.pdf details="Package documentation"
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-babel.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-babel.tex
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-calc.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-calc.tex
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-filedate.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-filedate.tex
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-hyperref.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-hyperref.tex
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-journal.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-journal.tex
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-styles.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-styles.tex
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-xe.pdf
+ texmf-dist/doc/latex/datetime2/samples/datetime2-sample-xe.tex
+srccontainersize 51632
+srccontainerchecksum 511c10e67c7d77ee10d8d75704628313a1598636ce82a5ce114942854b3a9d2da237ed12fdab986f13b04ce3c2123933db91b850360b309aa52305575a7cf2d4
+srcfiles size=79
+ texmf-dist/source/latex/datetime2/datetime2.dtx
+ texmf-dist/source/latex/datetime2/datetime2.ins
+runfiles size=17
+ texmf-dist/tex/latex/datetime2/datetime2-calc.sty
+ texmf-dist/tex/latex/datetime2/datetime2.sty
+catalogue-contact-home http://www.dickimaw-books.com/faqs/datetime2faq.html
+catalogue-ctan /macros/latex/contrib/datetime2
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.5.7

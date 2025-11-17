@@ -1,0 +1,39 @@
+name dtk
+category Package
+revision 63179
+shortdesc Document class for the journal of DANTE
+longdesc The bundle provides a class and style file for typesetting "Die
+longdesc TeXnische Komodie" -- the communications of the German TeX
+longdesc Users Group DANTE e.V. The arrangement means that the class may
+longdesc be used by article writers to typeset a single article, as well
+longdesc as to produce the complete journal.
+containersize 14696
+containerchecksum d1671810b306545157b017fc42b6ca5d1da5393c7ae969efbbda51efabdfa14faa192381aee15d68eccf2a601d0b08cb35101bc702f7b3c9e10ce451704e1d37
+doccontainersize 79032
+doccontainerchecksum 41e37e37efbf9f555e19426bf61f3103d717794aa0254261331e8ca0c2c43b5bda0528df63ffe0182d68af04c8027902cfac8842868519a73ca7b410f7d3646a
+docfiles size=28
+ texmf-dist/doc/latex/dtk/README.md details="Readme"
+ texmf-dist/doc/latex/dtk/doc/beispiel.bib
+ texmf-dist/doc/latex/dtk/doc/beispiel.pdf details="Example of use" language="de"
+ texmf-dist/doc/latex/dtk/doc/beispiel.tex
+ texmf-dist/doc/latex/dtk/doc/dtk-extern-test.tex
+ texmf-dist/doc/latex/dtk/dtk-ruecken.tex
+ texmf-dist/doc/latex/dtk/dtk.nolig
+ texmf-dist/doc/latex/dtk/dtk.xdy
+ texmf-dist/doc/latex/dtk/dtk0.tex
+runfiles size=19
+ texmf-dist/tex/latex/dtk/dtk-author.clo
+ texmf-dist/tex/latex/dtk/dtk-full.clo
+ texmf-dist/tex/latex/dtk/dtk-new-engines.clo
+ texmf-dist/tex/latex/dtk/dtk-old-engines.clo
+ texmf-dist/tex/latex/dtk/dtk-url.sty
+ texmf-dist/tex/latex/dtk/dtk.bbx
+ texmf-dist/tex/latex/dtk/dtk.cbx
+ texmf-dist/tex/latex/dtk/dtk.cls
+ texmf-dist/tex/latex/dtk/dtk.dbx
+catalogue-contact-bugs https://github.com/rolfn/dtk/issues
+catalogue-contact-repository https://github.com/rolfn/dtk
+catalogue-ctan /usergrps/dante/dtk
+catalogue-license lppl1.3c
+catalogue-topics journalpub class
+catalogue-version 2.08m

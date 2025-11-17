@@ -1,0 +1,60 @@
+name easyfloats
+category Package
+revision 57204
+shortdesc An easier interface to insert figures, tables and other objects in LaTeX
+longdesc In standard LaTeX inserting objects like figures or tables
+longdesc requires too much knowledge for beginners and too much typing
+longdesc effort and hardcoding for people like me. This package aims to
+longdesc make insertion of figures and tables easier for both beginners
+longdesc and experts. Despite the term floats in it's name it also
+longdesc allows to disable floating of such objects.
+depend caption
+depend environ
+depend etoolbox
+depend float
+depend pgf
+containersize 8860
+containerchecksum 2d02a55fc3d50e5fb79ebe8188300db47aaecb42089843033c569ee0508a38f81e9409d872535e1f7fe3b13a067bdabbf8249073b803c8d232d08aa1d5520d48
+doccontainersize 587724
+doccontainerchecksum d6e96d7af908e83b67b77f0432e6ffcdcc55b64bc63ac360e42291f16adec4ab6655a423f5fc8f31180071afc5645f47b7ecb2c1c80af719b6cb0cc6e77948da
+docfiles size=196
+ texmf-dist/doc/latex/easyfloats/DEPENDS.txt
+ texmf-dist/doc/latex/easyfloats/README.md
+ texmf-dist/doc/latex/easyfloats/content/bug-reports-and-contributions.tex
+ texmf-dist/doc/latex/easyfloats/content/documentation.tex
+ texmf-dist/doc/latex/easyfloats/content/examples.tex
+ texmf-dist/doc/latex/easyfloats/content/installation.tex
+ texmf-dist/doc/latex/easyfloats/content/license.tex
+ texmf-dist/doc/latex/easyfloats/content/motivation.tex
+ texmf-dist/doc/latex/easyfloats/content/names.tex
+ texmf-dist/doc/latex/easyfloats/content/other-packages.tex
+ texmf-dist/doc/latex/easyfloats/content/titlepage.tex
+ texmf-dist/doc/latex/easyfloats/content/used-packages.tex
+ texmf-dist/doc/latex/easyfloats/easyfloats-file-list.txt
+ texmf-dist/doc/latex/easyfloats/easyfloats.bib
+ texmf-dist/doc/latex/easyfloats/easyfloats.pdf details="Package documentation"
+ texmf-dist/doc/latex/easyfloats/easyfloats.tex
+ texmf-dist/doc/latex/easyfloats/lexer/latex_atletter.py
+ texmf-dist/doc/latex/easyfloats/links.tex
+ texmf-dist/doc/latex/easyfloats/preamble/bibliography.tex
+ texmf-dist/doc/latex/easyfloats/preamble/description-links.tex
+ texmf-dist/doc/latex/easyfloats/preamble/examplecode.tex
+ texmf-dist/doc/latex/easyfloats/preamble/keydoc.tex
+ texmf-dist/doc/latex/easyfloats/preamble/link.tex
+ texmf-dist/doc/latex/easyfloats/preamble/macros.tex
+ texmf-dist/doc/latex/easyfloats/preamble/markdown.tex
+ texmf-dist/doc/latex/easyfloats/preamble/pdfstring.tex
+ texmf-dist/doc/latex/easyfloats/undescribed-keywords.tex
+srccontainersize 13924
+srccontainerchecksum b21681d30b8963127d603bf81b140851b5e8ea17b63d5979bc05bcfa68efd67460b9f0d0419a69c44606a4d569f5840b3c8d6f0ce7b0cf18d86c1fa104776b5a
+srcfiles size=16
+ texmf-dist/source/latex/easyfloats/easyfloats.dtx
+ texmf-dist/source/latex/easyfloats/easyfloats.ins
+runfiles size=11
+ texmf-dist/tex/latex/easyfloats/easyfloats.sty
+catalogue-contact-bugs https://gitlab.com/erzo/latex-easyfloats/-/issues
+catalogue-contact-repository https://gitlab.com/erzo/latex-easyfloats
+catalogue-ctan /macros/latex/contrib/easyfloats
+catalogue-license lppl1.3
+catalogue-topics float table
+catalogue-version 1.0.0

@@ -1,0 +1,25 @@
+name uninormalize
+category Package
+revision 57257
+shortdesc Unicode normalization support
+longdesc This package provides Unicode normalization (useful for
+longdesc composed characters) for LuaLaTeX.
+containersize 5720
+containerchecksum b9b0e91a61d99005be4f37d2e5aababf70729c60d959cc57295a7197b5e360ed183bb9cd80bbb287508bf584db48f061bcbb25c6a5bfd0936923b106d9962f60
+doccontainersize 63868
+doccontainerchecksum 804c2e70ff09a677c30f531db5605512453506ab83dce8f9dab4bfbb5602f8605376becc8f65cf375b28c9d6d35ad9f3a92d6f185697e2e9f9d367638d58fb56
+docfiles size=18
+ texmf-dist/doc/lualatex/uninormalize/README.md details="Readme"
+ texmf-dist/doc/lualatex/uninormalize/uninormalize-doc.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/uninormalize/uninormalize-doc.tex
+runfiles size=7
+ texmf-dist/tex/lualatex/uninormalize/unicode-normalization.lua
+ texmf-dist/tex/lualatex/uninormalize/unicode-normalize-names.lua
+ texmf-dist/tex/lualatex/uninormalize/unicode-normalize.lua
+ texmf-dist/tex/lualatex/uninormalize/uninormalize.sty
+catalogue-contact-bugs https://github.com/michal-h21/uninormalize/issues
+catalogue-contact-home https://github.com/michal-h21/uninormalize
+catalogue-ctan /macros/luatex/latex/uninormalize
+catalogue-license lppl1.3
+catalogue-topics unicode
+catalogue-version 0.1

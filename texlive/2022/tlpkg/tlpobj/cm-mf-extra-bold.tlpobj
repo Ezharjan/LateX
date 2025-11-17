@@ -1,0 +1,26 @@
+name cm-mf-extra-bold
+category Package
+revision 54512
+shortdesc Extra Metafont files for CM
+longdesc The bundle provides bold versions of cmcsc, cmex, cmtex and
+longdesc cmtt fonts (all parts of the standard computer modern font
+longdesc distribution), as Metafont base files.
+containersize 4896
+containerchecksum 1845d58827ff828d6b60b82e4eda94760cd3c86076982b861e53b4f996a0dfcc9a5926ce58de27891ca3ea115a752cc4abc56b06b112d43194aa8a27c61b86fd
+runfiles size=15
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmbcsc10.mf
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmbtex10.mf
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmbtt10.mf
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmbtt8.mf
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmbtt9.mf
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmexb10.mf
+ texmf-dist/fonts/source/public/cm-mf-extra-bold/cmttb10.mf
+ texmf-dist/fonts/tfm/public/cm-mf-extra-bold/cmbcsc10.tfm
+ texmf-dist/fonts/tfm/public/cm-mf-extra-bold/cmbtex10.tfm
+ texmf-dist/fonts/tfm/public/cm-mf-extra-bold/cmbtt10.tfm
+ texmf-dist/fonts/tfm/public/cm-mf-extra-bold/cmbtt8.tfm
+ texmf-dist/fonts/tfm/public/cm-mf-extra-bold/cmbtt9.tfm
+ texmf-dist/fonts/tfm/public/cm-mf-extra-bold/cmttb10.tfm
+catalogue-ctan /fonts/cm/mf-extra/bold
+catalogue-license gpl pd
+catalogue-topics font font-mf

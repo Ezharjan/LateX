@@ -1,0 +1,27 @@
+name dtk-bibliography
+category Package
+revision 64297
+shortdesc Bibliography of "Die TeXnische Komodie"
+longdesc This package contains the bibliography for "Die TeXnische
+longdesc Komodie", the journal of the German-speaking TeX User Group. It
+longdesc is updated on a quarterly basis.
+containersize 52552
+containerchecksum 6326449e9672a57261c76308abcc69581ec60cd7ab99ca905c7c5b1b8dcd9d21c88377752c79ad0d2e552ddb0286355392fa6875f6953bf39da0bcfd4582bbb6
+doccontainersize 379160
+doccontainerchecksum 55446468000f9e406e2146bccf6ec2afd0ae497188aaf5b8010b343a6718512909a8cb87b7a205548cdb80ad14514c62cf107a127e83bdb2bae501fed6d31890
+docfiles size=97
+ texmf-dist/doc/bibtex/dtk-bibliography/README.md details="Readme"
+ texmf-dist/doc/bibtex/dtk-bibliography/dtk-bibliography.pdf details="The document itself"
+ texmf-dist/doc/bibtex/dtk-bibliography/dtk-bibliography.tex
+runfiles size=136
+ texmf-dist/bibtex/bib/dtk-bibliography/dtk-bibliography.bib
+ texmf-dist/tex/latex/dtk-bibliography/dtk-authoryear.bbx
+ texmf-dist/tex/latex/dtk-bibliography/dtk-authoryear.dbx
+ texmf-dist/tex/latex/dtk-bibliography/dtk-logos.sty
+catalogue-contact-bugs https://github.com/dante-ev/dtk-bibliography/issues
+catalogue-contact-repository https://github.com/dante-ev/dtk-bibliography
+catalogue-contact-support https://github.com/dante-ev/dtk-bibliography/issues
+catalogue-ctan /info/dtk-bibliography
+catalogue-license lppl1.3c
+catalogue-topics journ-digest review-document german-doc
+catalogue-version 2022-03

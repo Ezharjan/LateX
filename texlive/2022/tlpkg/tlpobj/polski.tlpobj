@@ -1,0 +1,64 @@
+name polski
+category Package
+revision 60322
+shortdesc Typeset Polish documents with LaTeX and Polish fonts
+longdesc Tools to typeset monolingual Polish documents in LaTeX2e
+longdesc without babel or polyglossia. The package loads Polish
+longdesc hyphenation patterns, ensures that a font encoding suitable for
+longdesc Polish is used; in particular it enables Polish adaptation of
+longdesc Computer Modern fonts (the so-called PL fonts), provides
+longdesc translations of \today and names like "Bibliography" or
+longdesc "Chapter", redefines math symbols according to Polish
+longdesc typographical tradition, provides macros for dashes according
+longdesc to Polish orthography, provides a historical input method for
+longdesc "Polish characters", works with traditional TeX as well as with
+longdesc Unicode aware variants. (This package was previously known as
+longdesc platex, but has been renamed to resolve a name clash.)
+depend hyphen-polish
+depend pl
+containersize 9296
+containerchecksum 24bdb98990f66e89085056e6ad3e0930dd16d0f4bbd07a2c9a49931796e143505276d2025fee21b2b52d927c3b2992d31f4edae4668cdb549f6f00ef43dc1c69
+doccontainersize 284808
+doccontainerchecksum 755e7625d5ee1e4457e7ee518469d585c9c1e566c57bf147c62195555ae91dadb68f469127cb18a7c30cda1468129db09cb09b1974f5273d41c9491a6e1d5ffc
+docfiles size=79
+ texmf-dist/doc/latex/polski/README details="Readme (English)"
+ texmf-dist/doc/latex/polski/conowego.txt
+ texmf-dist/doc/latex/polski/czytaj.txt details="Readme (Polish)" language="pl"
+ texmf-dist/doc/latex/polski/polski.pdf details="Package documentation (largely in Polish)" language="pl"
+ texmf-dist/doc/latex/polski/sample-polski.pdf details="Example of use" language="pl"
+ texmf-dist/doc/latex/polski/sample-polski.tex
+ texmf-dist/doc/latex/polski/sample-rysunek.mp
+ texmf-dist/doc/latex/polski/sample-rysunek1.mps
+srccontainersize 30572
+srccontainerchecksum 8e216956a95df02134cf411d170a75309c3f167a5bf7d78f77c4e47950c8a5da52e523e367f5ce60492fc0ab7cb205e9b57835b883225752731ca094d7c507b8
+srcfiles size=35
+ texmf-dist/source/latex/polski/ot1patch.dtx
+ texmf-dist/source/latex/polski/ot1patch.ins
+ texmf-dist/source/latex/polski/plfonts.fdd
+ texmf-dist/source/latex/polski/plprefix.dtx
+ texmf-dist/source/latex/polski/plprefix.ins
+ texmf-dist/source/latex/polski/polski.dtx
+ texmf-dist/source/latex/polski/polski.ins
+ texmf-dist/source/latex/polski/strony.dtx
+runfiles size=24
+ texmf-dist/tex/latex/polski/amigapl.def
+ texmf-dist/tex/latex/polski/mazovia.def
+ texmf-dist/tex/latex/polski/omlplcm.fd
+ texmf-dist/tex/latex/polski/omlplm.fd
+ texmf-dist/tex/latex/polski/omsplsy.fd
+ texmf-dist/tex/latex/polski/omxplex.fd
+ texmf-dist/tex/latex/polski/ot1patch.sty
+ texmf-dist/tex/latex/polski/ot4ccr.fd
+ texmf-dist/tex/latex/polski/ot4cmdh.fd
+ texmf-dist/tex/latex/polski/ot4cmfib.fd
+ texmf-dist/tex/latex/polski/ot4cmfr.fd
+ texmf-dist/tex/latex/polski/ot4cmr.fd
+ texmf-dist/tex/latex/polski/ot4cmss.fd
+ texmf-dist/tex/latex/polski/ot4cmtt.fd
+ texmf-dist/tex/latex/polski/plprefix.sty
+ texmf-dist/tex/latex/polski/polski.sty
+ texmf-dist/tex/latex/polski/qxenc.def
+catalogue-ctan /macros/latex/contrib/polski
+catalogue-license lppl1.2
+catalogue-topics polish
+catalogue-version 1.3.6

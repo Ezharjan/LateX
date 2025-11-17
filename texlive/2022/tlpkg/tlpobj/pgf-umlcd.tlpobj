@@ -1,0 +1,50 @@
+name pgf-umlcd
+category Package
+revision 63386
+shortdesc Some LaTeX macros for UML Class Diagrams
+longdesc Some LaTeX macros for UML Class Diagrams.
+depend latex
+depend pgf
+containersize 3408
+containerchecksum a55281a157a2a347f1c9d82679cd663f4493e03123d14dbef0d71582613772252b693a25b3d3e5b72b948c4fd12d0d7b0354d2e38083583b550d7cfb5e634d93
+doccontainersize 295968
+doccontainerchecksum 6d798d93590d859d69bda9f0bd391049db91e2d4fb6f0b019a6f76eeaae9e73c9f249ec356cf5a5d4505af6948d4c70c2ad4685c1c41a7ba40ec62d3d8a9dd00
+docfiles size=127
+ texmf-dist/doc/latex/pgf-umlcd/COPYING
+ texmf-dist/doc/latex/pgf-umlcd/LICENSE-GPL2.txt
+ texmf-dist/doc/latex/pgf-umlcd/LICENSE-LPPL1.3c.txt
+ texmf-dist/doc/latex/pgf-umlcd/README.md details="Readme"
+ texmf-dist/doc/latex/pgf-umlcd/RELEASE_NOTES.md
+ texmf-dist/doc/latex/pgf-umlcd/demo/abstract-class.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/abstract-factory.svg
+ texmf-dist/doc/latex/pgf-umlcd/demo/abstract-factory.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/aggregation.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/association.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/class.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/color.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/composition.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/implement-interface.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/inheritance.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/interface.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/multiple-inheritance.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/note.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/object-include-methods.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/object.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/package.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/unidirectional-association.tex
+ texmf-dist/doc/latex/pgf-umlcd/demo/visibility.tex
+ texmf-dist/doc/latex/pgf-umlcd/description.html
+ texmf-dist/doc/latex/pgf-umlcd/logo.png
+ texmf-dist/doc/latex/pgf-umlcd/pgf-umlcd-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/pgf-umlcd/pgf-umlcd-manual.tex
+runfiles size=5
+ texmf-dist/tex/latex/pgf-umlcd/pgf-umlcd.sty
+ texmf-dist/tex/latex/pgf-umlcd/tikzlibraryumlcd.code.tex
+catalogue-also pst-uml uml
+catalogue-contact-bugs https://github.com/pgf-tikz/pgf-umlcd/issues
+catalogue-contact-repository https://github.com/pgf-tikz/pgf-umlcd
+catalogue-contact-support https://tug.org/mailman/listinfo/pgf-tikz
+catalogue-ctan /graphics/pgf/contrib/pgf-umlcd
+catalogue-license gpl2 lppl1.3c
+catalogue-topics uml pgf-tikz
+catalogue-version 0.3

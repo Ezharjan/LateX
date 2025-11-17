@@ -1,0 +1,25 @@
+name guitarchordschemes
+category Package
+revision 54512
+shortdesc Guitar Chord and Scale Tablatures
+longdesc This package provides two commands (\chordscheme and \scales).
+longdesc With those commands it is possible to draw schematic diagrams
+longdesc of guitar chord tablatures and scale tablatures. Both commands
+longdesc know a range of options that allow wide customization of the
+longdesc output. The package's drawing is done with the help of TikZ.
+containersize 5016
+containerchecksum 777af4d4ad1a35bef3f0075e2df707c3a3c98969ee688b71c3d13449b04ecfcb2d82ed9332a8aae81a3bd825462c2cbbf840b16a72fc6e3f65e7565ef6b1b164
+doccontainersize 424492
+doccontainerchecksum f7508a78fd341e4d4d0fa8a0f89a14420ca50d590bc4a1f5208d4130a3aa84048faa8720545c24e8f0243b1f062a6f40cb5cccdd9ed7db583a11fff1a40c7eeb
+docfiles size=108
+ texmf-dist/doc/latex/guitarchordschemes/README details="Readme"
+ texmf-dist/doc/latex/guitarchordschemes/guitarchordschemes_en.pdf details="Package documentation" language="en"
+ texmf-dist/doc/latex/guitarchordschemes/guitarchordschemes_en.tex
+runfiles size=6
+ texmf-dist/tex/latex/guitarchordschemes/guitarchordschemes.sty
+catalogue-also guitar
+catalogue-contact-repository https://github.com/cgnieder/guitarchordschemes
+catalogue-ctan /macros/latex/contrib/guitarchordschemes
+catalogue-license lppl1.3
+catalogue-topics music chords
+catalogue-version 0.7

@@ -1,0 +1,29 @@
+name hmtrump
+category Package
+revision 54512
+shortdesc Describe card games
+longdesc This package provides a font with LuaLaTeX support for
+longdesc describing card games.
+containersize 19256
+containerchecksum 34b2e61744e3f8cf180a61ca13788834466dad7bdf831e576829e0f6613c5e8a6330075e89516915728a5936a68c14288c79e0f050e5956964d69bab3784d9c6
+doccontainersize 967852
+doccontainerchecksum 36c1a35cb4efb4dc340a439a921252cbaf48d3f0b7fab0010a7fa22d8b03e7b5b644244410efa9fdc63b5fbf69eb9396cc048908d00210e650941a0647d3f4d3
+docfiles size=265
+ texmf-dist/doc/lualatex/hmtrump/README.md details="Readme"
+ texmf-dist/doc/lualatex/hmtrump/by-sa.png
+ texmf-dist/doc/lualatex/hmtrump/hmtrump-sample.pdf details="Example of use" language="ja"
+ texmf-dist/doc/lualatex/hmtrump/hmtrump-sample.tex
+ texmf-dist/doc/lualatex/hmtrump/hmtrump.pdf details="Package documentation" language="ja"
+ texmf-dist/doc/lualatex/hmtrump/hmtrump.tex
+ texmf-dist/doc/lualatex/hmtrump/nkd04_playing_cards_index/LICENSE
+ texmf-dist/doc/lualatex/hmtrump/nkd04_playing_cards_index/readme.txt
+runfiles size=15
+ texmf-dist/fonts/truetype/public/hmtrump/nkd04_playing_cards_index.ttf
+ texmf-dist/tex/lualatex/hmtrump/hmtrump.sty
+catalogue-contact-development http://www.circle9.work/
+catalogue-contact-home http://www.circle9.work/cards/intro/hmtrump/index.html
+catalogue-contact-repository https://github.com/Hitomi-San/hmtrump
+catalogue-ctan /macros/luatex/latex/hmtrump
+catalogue-license cc-by-sa-4 other-free
+catalogue-topics games luatex font font-ttf font-symbol font-supp-symbol font-supp
+catalogue-version 1.2a

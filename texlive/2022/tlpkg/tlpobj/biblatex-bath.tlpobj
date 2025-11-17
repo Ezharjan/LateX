@@ -1,0 +1,33 @@
+name biblatex-bath
+category Package
+revision 63401
+shortdesc Harvard referencing style as recommended by the University of Bath Library
+longdesc This package provides a BibLaTeX style to format reference
+longdesc lists in the Harvard style recommended by the University of
+longdesc Bath Library.
+containersize 10012
+containerchecksum 38075fd9040bad99fc95860f503173aa9be430317194c28fccc9ed385d7d596e9f738a436753c6d963b53fbaa714301fd2d92aa33d2ef6ce4cb6b902fa0923b0
+doccontainersize 454200
+doccontainerchecksum e9005a72487eb7d1b4e5e7e8c024c65e2846435c8489d8766218ca6a2e77e902917a038491b9d6f1117db402397226b7c0f91805b25a9cb62ca90782ef15e8df
+docfiles size=120
+ texmf-dist/doc/latex/biblatex-bath/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-bath/biblatex-bath.bib
+ texmf-dist/doc/latex/biblatex-bath/biblatex-bath.pdf details="Package documentation"
+srccontainersize 34796
+srccontainerchecksum 1b6d136c520ec2f6db1fa99f278b0ca1a8d5b552a634012e772ed562296c1eeed1b84171ec64a4a79fe116a939108001ddc0b498f0768b0687fa45f7ca3f987b
+srcfiles size=43
+ texmf-dist/source/latex/biblatex-bath/Makefile
+ texmf-dist/source/latex/biblatex-bath/biblatex-bath.dtx
+runfiles size=22
+ texmf-dist/tex/latex/biblatex-bath/bath.bbx
+ texmf-dist/tex/latex/biblatex-bath/bath.cbx
+ texmf-dist/tex/latex/biblatex-bath/bath.dbx
+ texmf-dist/tex/latex/biblatex-bath/british-bath.lbx
+ texmf-dist/tex/latex/biblatex-bath/english-bath.lbx
+catalogue-also bath-bst
+catalogue-contact-bugs https://github.com/alex-ball/bathbib/issues
+catalogue-contact-home https://github.com/alex-ball/bathbib
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-bath
+catalogue-license lppl1.3c
+catalogue-topics biblatex
+catalogue-version 6.0

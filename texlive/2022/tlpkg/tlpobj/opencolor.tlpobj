@@ -1,0 +1,25 @@
+name opencolor
+category Package
+revision 64403
+shortdesc Simple use of the Open Color colors
+longdesc This package that provides hexadecimal color definitions of the
+longdesc 130 colors included in the Open Color library.
+containersize 1548
+containerchecksum 25b6195c30c6104b845910418e935b5891c09732bc0cb1c70421a5d2c6e0bf276937f6d2231bf8e58133102b489e0fdf8d19041393bb38fbd67e540438a6bc3a
+doccontainersize 198712
+doccontainerchecksum 2c42910210c95a3c9cd8dfc667fb09e7ab152b4e02fa34b20243cb8cef4c7a1fd8bef9c76e9038dca960a7d26368bc3429700ac8375e8bf10728e27723ced25e
+docfiles size=54
+ texmf-dist/doc/latex/opencolor/LICENSE
+ texmf-dist/doc/latex/opencolor/README.md details="Readme"
+ texmf-dist/doc/latex/opencolor/demo-opencolor.pdf details="Example of use"
+ texmf-dist/doc/latex/opencolor/demo-opencolor.png
+ texmf-dist/doc/latex/opencolor/demo-opencolor.tex
+runfiles size=2
+ texmf-dist/tex/latex/opencolor/opencolor.sty
+catalogue-also colorweb
+catalogue-contact-bugs https://github.com/piazzai/opencolor-latex/issues
+catalogue-contact-repository https://github.com/piazzai/opencolor-latex
+catalogue-ctan /macros/latex/contrib/opencolor
+catalogue-license mit
+catalogue-topics colour
+catalogue-version 1.0.0

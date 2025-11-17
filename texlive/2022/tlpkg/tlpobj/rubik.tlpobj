@@ -1,0 +1,67 @@
+name rubik
+category Package
+revision 46791
+shortdesc Document Rubik cube configurations and rotation sequences
+longdesc The bundle provides four packages: rubikcube provides commands
+longdesc for typesetting Rubik cubes and their transformations,
+longdesc rubiktwocube provides commands for typesetting Rubik twocubes
+longdesc and their transformations, rubikrotation which can process a
+longdesc sequence of Rubik rotation moves, with the help of a Perl
+longdesc package executed via \write18 (shell escape) commands, and
+longdesc rubikpatterns, a collection of well known patterns and their
+longdesc associated rotation sequences.
+depend rubik.ARCH
+containersize 39000
+containerchecksum 67931287ea126947b5b2d567ba355d44ce094b2b527288ce32329de4a73434be9a43cd520e6c24ef570a46a16c0edcf12212f46228ee1bcd2b8a8be7f9db3a7c
+doccontainersize 3201592
+doccontainerchecksum 33d5c8210600cb4ce7b1313d1046f6644f0a6648f7ee9676d4d628d042f6501b5e92f2b56a31fbad6f637dc93a460a568be9e1335bd52bcea825f5772b2a9d51
+docfiles size=887
+ texmf-dist/doc/latex/rubik/README.txt details="Readme"
+ texmf-dist/doc/latex/rubik/rubik-doc-figA.pdf
+ texmf-dist/doc/latex/rubik/rubik-doc-figB.pdf
+ texmf-dist/doc/latex/rubik/rubik-doc-figC.pdf
+ texmf-dist/doc/latex/rubik/rubik-doc-figD.pdf
+ texmf-dist/doc/latex/rubik/rubik-doc-figE.pdf
+ texmf-dist/doc/latex/rubik/rubik-doc-figF.pdf
+ texmf-dist/doc/latex/rubik/rubikcube.pdf details="Rubikcube package documentation"
+ texmf-dist/doc/latex/rubik/rubikexamples.pdf details="Rubik examples"
+ texmf-dist/doc/latex/rubik/rubikexamples.sh
+ texmf-dist/doc/latex/rubik/rubikexamples.tex
+ texmf-dist/doc/latex/rubik/rubikpatterns-doc-figA.pdf
+ texmf-dist/doc/latex/rubik/rubikpatterns.pdf details="Rubikpatterns package documentation"
+ texmf-dist/doc/latex/rubik/rubikpatternsLIST.pdf details="List of Rubik patterns"
+ texmf-dist/doc/latex/rubik/rubikpatternsLIST.sh
+ texmf-dist/doc/latex/rubik/rubikpatternsLIST.tex
+ texmf-dist/doc/latex/rubik/rubikrot-doc-figA.pdf
+ texmf-dist/doc/latex/rubik/rubikrot-doc-figB.pdf
+ texmf-dist/doc/latex/rubik/rubikrot-doc-figC.pdf
+ texmf-dist/doc/latex/rubik/rubikrot-doc-figD.pdf
+ texmf-dist/doc/latex/rubik/rubikrotation.pdf details="Rubikrotation package documentation"
+ texmf-dist/doc/latex/rubik/rubikrotationPL.pdf
+ texmf-dist/doc/latex/rubik/rubiktwo-doc-figA.pdf
+ texmf-dist/doc/latex/rubik/rubiktwocube.pdf details="Rubiktwocube package documentation"
+ texmf-dist/doc/man/man1/rubikrotation.1
+ texmf-dist/doc/man/man1/rubikrotation.man1.pdf
+srccontainersize 86520
+srccontainerchecksum 3159acbc71a007877c046f6c075bf271e031feb00cda04c1818e4490396c3fb0651f160c7a98d8d3391efccae6a5b1dfde2155c6bde1c463e1c7416107b4ab90
+srcfiles size=137
+ texmf-dist/source/latex/rubik/rubikcube.dtx
+ texmf-dist/source/latex/rubik/rubikcube.ins
+ texmf-dist/source/latex/rubik/rubikexamples.bat
+ texmf-dist/source/latex/rubik/rubikpatterns.dtx
+ texmf-dist/source/latex/rubik/rubikpatterns.ins
+ texmf-dist/source/latex/rubik/rubikpatternsLIST.bat
+ texmf-dist/source/latex/rubik/rubikrotation.dtx
+ texmf-dist/source/latex/rubik/rubikrotation.ins
+ texmf-dist/source/latex/rubik/rubiktwocube.dtx
+ texmf-dist/source/latex/rubik/rubiktwocube.ins
+runfiles size=65
+ texmf-dist/scripts/rubik/rubikrotation.pl
+ texmf-dist/tex/latex/rubik/rubikcube.sty
+ texmf-dist/tex/latex/rubik/rubikpatterns.sty
+ texmf-dist/tex/latex/rubik/rubikrotation.sty
+ texmf-dist/tex/latex/rubik/rubiktwocube.sty
+catalogue-ctan /macros/latex/contrib/rubik
+catalogue-license lppl1.3
+catalogue-topics puzzle
+catalogue-version 5.0

@@ -1,0 +1,71 @@
+name uni-titlepage
+category Package
+revision 64306
+shortdesc Universal titlepages with configuration options and predefined styles
+longdesc Creation of title pages is something most authors should not
+longdesc have to do. But reality is not perfect, so a lot of authors
+longdesc have to do it. This package not only provides several pages for
+longdesc the title instead of only one -- at least five are typical for
+longdesc a thesis! --, it also provides a bunch of predefined titlepage
+longdesc styles with several standard elements, and optionally
+longdesc additional elements.
+containersize 10592
+containerchecksum b1d374a39e3a46bad0ae1e9f0c47ac0853edb388d9026175340172484f6abc15babbe852e1656986160dff7262c8275b48ff042c3a4c014821117d2787ab6cda
+doccontainersize 1840796
+doccontainerchecksum 6aace438f49fc5e2414e6ed4f452302116d439d18ad6b6de11a1919f98e25e7892315db832031f44418f62a89537913ed73b10f8333b7d7c872d8bbc18dfe9aa
+docfiles size=549
+ texmf-dist/doc/latex/uni-titlepage/LICENSE.md
+ texmf-dist/doc/latex/uni-titlepage/README.md details="Readme"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-DHBW.pdf details="Example of use (style DHBW)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-DHBW.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-JT-Aufsaetze.pdf details="Example of use (style JT-Aufsaetze)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-JT-Aufsaetze.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-JT-Geschichte.pdf details="Example of use (style JT-Geschichte)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-JT-Geschichte.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-JT-Typography.pdf details="Example of use (style JT-Typography)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-JT-Typography.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-KIT.pdf details="Example of use (style KIT)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-KIT.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-KOMAScript.pdf details="Example of use (style KOMAScript)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-KOMAScript.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-Markus-1.pdf details="Example of use (style Markus-1)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-Markus-1.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-Markus-2.pdf details="Example of use (style Markus-2)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-Markus-2.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-Spacer.pdf details="Example of use (style Spacer)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-Spacer.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-TU-DD.pdf details="Example of use (style TU-DD)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-TU-DD.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-TU-HH.pdf details="Example of use (style TU-HH)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-TU-HH.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-UKoLa.pdf
+ texmf-dist/doc/latex/uni-titlepage/titlepage-UKoLa.tex
+ texmf-dist/doc/latex/uni-titlepage/titlepage-WWUM.pdf details="Example of use (style WWUM)"
+ texmf-dist/doc/latex/uni-titlepage/titlepage-WWUM.tex
+ texmf-dist/doc/latex/uni-titlepage/uni-titlepage.pdf details="Package documentation"
+srccontainersize 24396
+srccontainerchecksum d5b84ea0f7013f419d3d3ba696b55b083eb06faf3adba6ece76a38649b9456ff7c9fda0a7ee5c3e3885f16732199c9dedd88dbfa89b3f443edd20a0f6cb92dfb
+srcfiles size=34
+ texmf-dist/source/latex/uni-titlepage/uni-titlepage.drv
+ texmf-dist/source/latex/uni-titlepage/uni-titlepage.dtx
+runfiles size=30
+ texmf-dist/tex/latex/uni-titlepage/title-DHBW.def
+ texmf-dist/tex/latex/uni-titlepage/title-JT-Aufsaetze.def
+ texmf-dist/tex/latex/uni-titlepage/title-JT-Geschichte.def
+ texmf-dist/tex/latex/uni-titlepage/title-JT-Typography.def
+ texmf-dist/tex/latex/uni-titlepage/title-KIT.def
+ texmf-dist/tex/latex/uni-titlepage/title-KOMAScript.def
+ texmf-dist/tex/latex/uni-titlepage/title-Markus-1.def
+ texmf-dist/tex/latex/uni-titlepage/title-Markus-2.def
+ texmf-dist/tex/latex/uni-titlepage/title-Spacer.def
+ texmf-dist/tex/latex/uni-titlepage/title-TU-DD.def
+ texmf-dist/tex/latex/uni-titlepage/title-TU-HH.def
+ texmf-dist/tex/latex/uni-titlepage/title-UKoLa.def
+ texmf-dist/tex/latex/uni-titlepage/title-WWUM.def
+ texmf-dist/tex/latex/uni-titlepage/uni-titlepage.sty
+catalogue-contact-home https://github.com/komascript/uni-titlepage
+catalogue-contact-repository https://github.com/komascript/uni-titlepage.git
+catalogue-ctan /macros/latex/contrib/uni-titlepage
+catalogue-license lppl1.3c
+catalogue-topics titlepage
+catalogue-version 1.1a

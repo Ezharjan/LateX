@@ -1,0 +1,37 @@
+name codepage
+category Package
+revision 51502
+shortdesc Support for variant code pages
+longdesc The package provides a mechanism for inputting non-ASCII text.
+longdesc Nowadays, the job is mostly done by the inputenc package in the
+longdesc LaTeX distribution.
+containersize 10952
+containerchecksum 2531186744ce4915b8d903e0ea49e1d3e0a6be5ab2db7bc2a5cbc70e675c2dd00104a677c08b7b7d12eca56dfc4b283c49ee599fff6d3460c6238f414ba3cb76
+doccontainersize 257084
+doccontainerchecksum b49ffff68cc599835acf436de3117c7f9511b362d821bdd8c18f0af930c5b717dc0bcd00477e6f0f367229b9d1f6dd150a8166dd74bbfbc2cfcb77ccf28cd8d5
+docfiles size=82
+ texmf-dist/doc/latex/codepage/LISEZMOI details="Readme" language="fr"
+ texmf-dist/doc/latex/codepage/README details="Readme" language="en"
+ texmf-dist/doc/latex/codepage/codepage.pdf details="Package documentation" language="en"
+ texmf-dist/doc/latex/codepage/frintro.pdf details="Introduction to package" language="fr"
+ texmf-dist/doc/latex/codepage/voyel850.tex
+ texmf-dist/doc/latex/codepage/voyeliso.tex
+srccontainersize 24136
+srccontainerchecksum 2c12bf42c1aa818d5718f2bbbb07460364ad40f7bc4cf0676cb064a03751e1bd88be16fffaae097f5ed9c0793f60ffb93374b43f7b90acf8ad3cbc8f5d7b8b70
+srcfiles size=37
+ texmf-dist/source/latex/codepage/codepage.drv
+ texmf-dist/source/latex/codepage/codepage.dtx
+ texmf-dist/source/latex/codepage/codepage.ins
+ texmf-dist/source/latex/codepage/frintro.drv
+runfiles size=26
+ texmf-dist/tex/latex/codepage/code437.tex
+ texmf-dist/tex/latex/codepage/code850.tex
+ texmf-dist/tex/latex/codepage/codeiso1.tex
+ texmf-dist/tex/latex/codepage/codemac.tex
+ texmf-dist/tex/latex/codepage/codepage.sty
+ texmf-dist/tex/latex/codepage/initcar.tex
+ texmf-dist/tex/latex/codepage/shapecm.tex
+ texmf-dist/tex/latex/codepage/shapedc.tex
+catalogue-ctan /macros/latex/contrib/codepage
+catalogue-license other-free
+catalogue-topics inputenc

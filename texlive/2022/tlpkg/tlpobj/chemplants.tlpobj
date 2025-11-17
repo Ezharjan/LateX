@@ -1,0 +1,27 @@
+name chemplants
+category Package
+revision 60606
+shortdesc Symbology to draw chemical plants with TikZ
+longdesc This package offers tools to draw simple or barely complex
+longdesc schemes of chemical processes. The package defines several
+longdesc standard symbols and styles to draw process units and streams.
+longdesc The guiding light of the package is the UNICHIM regulation. All
+longdesc of the symbols and styles are defined using tools of the TikZ
+longdesc package, thus a basic knowledge of the logic of this powerful
+longdesc tool is required to profitably use chemplants.
+containersize 7704
+containerchecksum 6d5794cdacdf71db6cef86b9bc99af2edb1a13f2b209d7693a7f37cb5161596de37b656b3e4ae690102cc64cb7245b21004c72943fb8f5e08fc1ed1479d98947
+doccontainersize 970944
+doccontainerchecksum 50cdbc24501b61b81c2cde97c851df785599f5c2f5c3e4eab75bdebd2a81501edb9e3223dacb2042682a066f5640e8b1377c43ca61ec643b342f6de2972ec4cf
+docfiles size=306
+ texmf-dist/doc/latex/chemplants/README.md details="Readme"
+ texmf-dist/doc/latex/chemplants/chemplants-changes.pdf
+ texmf-dist/doc/latex/chemplants/chemplants-changes.tex
+ texmf-dist/doc/latex/chemplants/chemplants-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/chemplants/chemplants-doc.tex
+runfiles size=15
+ texmf-dist/tex/latex/chemplants/chemplants.sty
+catalogue-ctan /graphics/pgf/contrib/chemplants
+catalogue-license lppl1.3c
+catalogue-topics chemistry graphics pgf-tikz diagram-flow
+catalogue-version 0.9.9

@@ -1,0 +1,53 @@
+name factura
+category Package
+revision 61697
+shortdesc Typeset and calculate invoices according to Venezuelan law
+longdesc 'factura' is the Spanish word for 'invoice', so this is a LaTeX
+longdesc class for typesetting and calculating invoices, taking into
+longdesc account requirements of SENIAT legislation (tax collector
+longdesc entity on the Bolivarian Republic of Venezuela). However, its
+longdesc use is not restricted to Venezuela because all variables and
+longdesc the displayed text can be redefined by invoking commands or
+longdesc editing.
+containersize 27540
+containerchecksum 6a90efed09588600991644ba847b16641aef40dd0b989b1944f7b48581d6bae642645fc97023e6cb0f1dde76593086c3007580df25e5997b92593020140dc212
+doccontainersize 999656
+doccontainerchecksum f449e749dc4b61a8a15062fc9e5556414868cf904bb279c5e997402fbd6d7f21f3e8f19c19af5ab4049a1512070d8e74064d4823d56ee7a20ed03f2a2eaa1b91
+docfiles size=372
+ texmf-dist/doc/latex/factura/README details="Readme"
+ texmf-dist/doc/latex/factura/factura-beispiel-rechnung.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-aux.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-cotizacion.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura01.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura02.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura03.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura04.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura05.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura06.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura07.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura08.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura09.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-factura10.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-firma.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-fondo.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-membrete.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-notadecredito.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-notadedebito.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-prefactura.pdf details="Compiled sample"
+ texmf-dist/doc/latex/factura/factura-ejemplo-prefactura.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-reporte1.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-reporte2.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-reporte3.tex
+ texmf-dist/doc/latex/factura/factura-ejemplo-reporte4.tex
+ texmf-dist/doc/latex/factura/factura.pdf details="Package documentation" language="es-ve"
+srccontainersize 76100
+srccontainerchecksum d26418ce7f0c6d95a1019f16406f39e791ba79733632cf5072b041a3ea3b70530d08356590aa5305b9d52fda0d882669d52b1bada9a3d0c458c2888cebe35b9f
+srcfiles size=88
+ texmf-dist/source/latex/factura/factura.dtx
+runfiles size=34
+ texmf-dist/tex/latex/factura/factura.cls
+ texmf-dist/tex/latex/factura/factura.def
+catalogue-ctan /macros/latex/contrib/factura
+catalogue-license lppl1.3c
+catalogue-topics invoice spanish class
+catalogue-version 4.32

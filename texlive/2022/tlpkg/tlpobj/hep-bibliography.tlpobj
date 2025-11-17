@@ -1,0 +1,36 @@
+name hep-bibliography
+category Package
+revision 61166
+shortdesc An acronym extension for glossaries
+longdesc The hep-bibliography package extends the BibLaTeX package with
+longdesc some functionality mostly useful for high energy physics. In
+longdesc particular it makes full use of all BibTeX fields provided by
+longdesc Discover High-Energy Physics. The package is loaded with
+longdesc \usepackage{hep-bibliography}.
+containersize 3256
+containerchecksum 89a137f3593457d5515634df5dbe2b8d915a99f5ff20e10c9947266d3c7e0ebb6417f3329e284f9173736d5ad822967914d4cd1b29f04e84d096465973b5ad01
+doccontainersize 479408
+doccontainerchecksum 95730188e069a0f968dd9ff32bdd8fc91da82fe7fbe31c06270ba92265d01c3aa71b56d0bf45f53b7fd9fe5189565c47cf3aff52515db898841cf81ae09e9c43
+docfiles size=158
+ texmf-dist/doc/latex/hep-bibliography/README-hep-bibliography.md
+ texmf-dist/doc/latex/hep-bibliography/README.md details="Readme"
+ texmf-dist/doc/latex/hep-bibliography/bibliography.bib
+ texmf-dist/doc/latex/hep-bibliography/hep-bibliography-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-bibliography/hep-bibliography-documentation.tex
+ texmf-dist/doc/latex/hep-bibliography/hep-bibliography-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-bibliography/hep-bibliography-test.tex
+ texmf-dist/doc/latex/hep-bibliography/license.md
+srccontainersize 8712
+srccontainerchecksum ef2079ce4367d3878084bc399748f729edd9b526e08fe63a3e943ce9b413fbc14e3908a435e5d1035c696276b04ee25755f647398f719efabb60fa8cf5c19128
+srcfiles size=9
+ texmf-dist/source/latex/hep-bibliography/hep-bibliography-implementation.dtx
+ texmf-dist/source/latex/hep-bibliography/hep-bibliography.ins
+runfiles size=3
+ texmf-dist/tex/latex/hep-bibliography/hep-bibliography.dbx
+ texmf-dist/tex/latex/hep-bibliography/hep-bibliography.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/hep-bibliography
+catalogue-license lppl1.3c
+catalogue-topics biblatex physics
+catalogue-version 1.0

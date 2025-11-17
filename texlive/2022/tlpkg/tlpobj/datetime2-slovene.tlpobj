@@ -1,0 +1,28 @@
+name datetime2-slovene
+category Package
+revision 52282
+shortdesc Slovene language module for the datetime2 package
+longdesc This module provides the "slovene" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. This package is
+longdesc currently unmaintained. Please see the README for the procedure
+longdesc to follow if you want to take over the maintenance.
+containersize 2480
+containerchecksum 1d0a73d3781fcc9ea0df63e391f6b7a0a254bfa920c63ad1a0c76b56d4770822bc4e049ce18c554974bbb20478150cd7a4f545ef8983bacd31a112fc3acd5419
+doccontainersize 72192
+doccontainerchecksum dfb2a9808488ab0e0b225d0a397490f7e1cd2343caf0a685d8e3f48feff2ce549092771f0b4017a3c45640067ad1ede8a852e714b313d9abfc7c9642f983cb46
+docfiles size=19
+ texmf-dist/doc/latex/datetime2-slovene/README details="Readme"
+ texmf-dist/doc/latex/datetime2-slovene/datetime2-slovene.pdf details="Package documentation"
+srccontainersize 4720
+srccontainerchecksum f1a60b0173e8c1f6f245459ba35014e4cca9308e2c5aea203d6123cb88f6de945a6f80ae350ecbfce6554f6d2b671f32487825c5f01093c3bd3fc7a1902231b6
+srcfiles size=5
+ texmf-dist/source/latex/datetime2-slovene/datetime2-slovene.dtx
+ texmf-dist/source/latex/datetime2-slovene/datetime2-slovene.ins
+runfiles size=4
+ texmf-dist/tex/latex/datetime2-slovene/datetime2-slovene-ascii.ldf
+ texmf-dist/tex/latex/datetime2-slovene/datetime2-slovene-utf8.ldf
+ texmf-dist/tex/latex/datetime2-slovene/datetime2-slovene.ldf
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-slovene
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.1

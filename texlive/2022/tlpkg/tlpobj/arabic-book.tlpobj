@@ -1,0 +1,30 @@
+name arabic-book
+category Package
+revision 59594
+shortdesc An Arabic book class
+longdesc This document class provides both Arabic and English support
+longdesc for TeX/LaTeX. Input may be in ASCII transliteration or other
+longdesc encodings (including UTF-8), and output may be Arabic, Hebrew,
+longdesc or any of several languages that use the Arabic script, as can
+longdesc be specified by the polyglossia package. The Arabic font is
+longdesc presently available in any Arabic fonts style. In order to use
+longdesc Amiri font style, the user needs to install the amiri package.
+longdesc This document class runs with the XeTeX engine. PDF files
+longdesc generated using this class can be searched, and text can be
+longdesc copied from them and pasted elsewhere.
+containersize 2868
+containerchecksum ac60431be9ebb42e2329c954805ecaef988bb6724eba7638ace659a973de3de9dbffc9ee85b2847531c3fca44e97e7099b1d9412ec754d9d27bde1432480f133
+doccontainersize 542416
+doccontainerchecksum 5ed647dc625397baf5db5cd05c87b2ce5dd44b4acf67ff6337b96989aaf210775f3870b5f1f376219cbbce96e486eed5dd24dc893684aeb7d3490ae62df15f14
+docfiles size=136
+ texmf-dist/doc/xelatex/arabic-book/README.txt details="Readme"
+ texmf-dist/doc/xelatex/arabic-book/arabic-book.pdf details="Package documentation"
+ texmf-dist/doc/xelatex/arabic-book/arabic-book.tex
+ texmf-dist/doc/xelatex/arabic-book/arabic-ref.bib
+ texmf-dist/doc/xelatex/arabic-book/fig1.png
+runfiles size=2
+ texmf-dist/tex/xelatex/arabic-book/arabic-book.cls
+catalogue-ctan /macros/xetex/latex/arabic-book
+catalogue-license lppl1.3
+catalogue-topics arabic class book-pub xetex
+catalogue-version 1.0

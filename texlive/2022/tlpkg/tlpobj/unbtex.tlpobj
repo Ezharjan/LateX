@@ -1,0 +1,45 @@
+name unbtex
+category Package
+revision 64290
+shortdesc A class for theses at University of Brasilia (UnB)
+longdesc This package provides a class based on abnTeX and compatible
+longdesc with pdflatex and biber to prepare bachelor, master, and
+longdesc doctoral theses for the University of Brasilia (UnB), Brazil.
+longdesc The class also comes with a template for the various types of
+longdesc theses for undergraduate and graduate programs at UnB. The
+longdesc documentation for the class and the comments in the templates
+longdesc are all written in Portuguese, the language of the target
+longdesc audience.
+containersize 5868
+containerchecksum 9b0f6ba3287db9dc59ff5823025fb4493858150ba9eeb15facae848780996d039d411a988ee89f654a34b96798df8a5e2d7b6207b913267ed41df33213a42b6d
+doccontainersize 1441748
+doccontainerchecksum a6a9115cb0c3e8af16cc1e8595bd826e15f25647a09db7dff5a775ff857a275528236f3db6e329d258b01d69bacdb279a5c37fd0edbea4533263bbd3c204bd69
+docfiles size=424
+ texmf-dist/doc/latex/unbtex/README.md details="Readme"
+ texmf-dist/doc/latex/unbtex/unbtex-example.pdf details="Example of use" language="pt-br"
+ texmf-dist/doc/latex/unbtex/unbtex-example.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/anexo-a.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/anexo-b.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/apendice-a.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/apendice-b.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/capitulo1.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/capitulo2.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/capitulo3.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/capitulo4.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/capitulo5.tex
+ texmf-dist/doc/latex/unbtex/unbtex-example/codigos/ModalReduction.jl
+ texmf-dist/doc/latex/unbtex/unbtex-example/codigos/controle.m
+ texmf-dist/doc/latex/unbtex/unbtex-example/codigos/controleSmithPredictor.py
+ texmf-dist/doc/latex/unbtex/unbtex-example/figuras/1280px-LaTeX-logo.png
+ texmf-dist/doc/latex/unbtex/unbtex-example/figuras/capa_fundo.pdf
+ texmf-dist/doc/latex/unbtex/unbtex-example/figuras/fig1.eps
+ texmf-dist/doc/latex/unbtex/unbtex-example/figuras/img-grafico.pdf
+ texmf-dist/doc/latex/unbtex/unbtex-example/figuras/img-marca.pdf
+ texmf-dist/doc/latex/unbtex/unbtex-example/references.bib
+ texmf-dist/doc/latex/unbtex/unbtex-example/referencias.bib
+runfiles size=5
+ texmf-dist/tex/latex/unbtex/unbtex.cls
+catalogue-ctan /macros/latex/contrib/unbtex
+catalogue-license lppl1.3
+catalogue-topics class doc-templ dissertation portuguese-br
+catalogue-version 1.1.3

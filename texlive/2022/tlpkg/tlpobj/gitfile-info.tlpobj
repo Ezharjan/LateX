@@ -1,0 +1,37 @@
+name gitfile-info
+category Package
+revision 51928
+shortdesc Get git metadata for a specific file
+longdesc If you are using git to control versions of LaTeX-files, you
+longdesc may want to show yourself or other users or devs the current
+longdesc version of the file, information about the author and last
+longdesc edited date. All packages for git known make that kind of
+longdesc information available for the whole repository. But sometimes
+longdesc you have a lot of files within the same repository in different
+longdesc versions, from different authors etc. Perhaps you also split up
+longdesc a big project in small files and want to show within the
+longdesc document who had edited what. This package gives you the
+longdesc opportunity to do so.
+containersize 2684
+containerchecksum 7d3577b55f0154dd9c0a1aff3d46741631fc561b4c730a4f55a84dff361e6c27f327979638946d89ceb35370bb4051b1471481e6bd761fbed66757bc613abb2c
+doccontainersize 569544
+doccontainerchecksum ac2083dea1ae4373ee2482f41f9c66ab93a2b66699fa01449c712c219ec0c53635230b062ba58b4107eaf7fb54fb7eed76c5b9346ffc60f6f35b18a72ed0a08e
+docfiles size=145
+ texmf-dist/doc/support/gitfile-info/README details="Readme"
+ texmf-dist/doc/support/gitfile-info/gfi-run.py
+ texmf-dist/doc/support/gitfile-info/gitfile-info.gfi
+ texmf-dist/doc/support/gitfile-info/gitfile-info.pdf details="Package documentation"
+ texmf-dist/doc/support/gitfile-info/post-commit.py
+ texmf-dist/doc/support/gitfile-info/post-merge.py
+srccontainersize 11336
+srccontainerchecksum 7b15a31e0ad37c75fc1e64079edb4ffe93d9e9a71fba7db13bb9ca7b68fa8dda0244fc0da473ecff8456459bb3f6f52e3edec2ac8513433d03ab107715ba5258
+srcfiles size=11
+ texmf-dist/source/support/gitfile-info/gitfile-info.dtx
+ texmf-dist/source/support/gitfile-info/gitfile-info.ins
+runfiles size=2
+ texmf-dist/tex/latex/gitfile-info/gitfile-info.sty
+catalogue-also gitinfo2
+catalogue-ctan /support/gitfile-info
+catalogue-license lppl1.3
+catalogue-topics version-control
+catalogue-version 0.5

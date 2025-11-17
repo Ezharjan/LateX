@@ -1,0 +1,19 @@
+name lacheck
+category TLCore
+revision 54070
+shortdesc LaTeX checker
+longdesc Lacheck is a tool for finding common mistakes in LaTeX
+longdesc documents. The distribution includes sources, and executables
+longdesc for OS/2 and Win32 environments.
+depend lacheck.ARCH
+containersize 436
+containerchecksum 30241d13ac35054017c6240ad066ae84b11c26757fa895ffdc1444b0825e50a2a89864ca85d710882be4105127c4df203ad4a403504a6c309b796c9b9ee5b589
+doccontainersize 20964
+doccontainerchecksum a1ef923bfe1c3496651052b4a8b6978665b75f43b7dbeb254fb61657050427aedc8415218f988a7e727849dd0001b67ed023ecd252bac2445b0965a58800187c
+docfiles size=8
+ texmf-dist/doc/man/man1/lacheck.1
+ texmf-dist/doc/man/man1/lacheck.man1.pdf
+catalogue-also l2tabu nag
+catalogue-ctan /support/lacheck
+catalogue-license gpl
+catalogue-topics latex-qual

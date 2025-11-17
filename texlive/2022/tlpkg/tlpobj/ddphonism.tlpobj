@@ -1,0 +1,24 @@
+name ddphonism
+category Package
+revision 52009
+shortdesc Dodecaphonic diagrams: twelve-tone matrices, clock diagrams, etc.
+longdesc This is a music-related package which is focused on notation
+longdesc from the Twelve-Tone System, also called Dodecaphonism. It
+longdesc provides LaTeX algorithms that produce typical dodecaphonic
+longdesc notation based off a musical series, or row sequence, of
+longdesc variable length. The package requires etoolbox, pgfkeys, TikZ,
+longdesc xparse, and xstring.
+containersize 3000
+containerchecksum 9ccd7a8715af4a808a72d4dbc96a1216663c7eddb7a0fea48b77bbcb546a12d0e9de00928189b424e9db8e612778ed53231456d087a1eb83bca827852c9691c8
+doccontainersize 284556
+doccontainerchecksum d75ead2518ae448eba251b3f43431751f415c9650e9ac023e1647fbfa828f700ef2fa3a19f53fdd6e28c9e8461e071fabb7c016aeaa62678ada20ed0b96017bb
+docfiles size=73
+ texmf-dist/doc/latex/ddphonism/README.md details="Readme"
+ texmf-dist/doc/latex/ddphonism/ddphonism.pdf details="Package documentation"
+ texmf-dist/doc/latex/ddphonism/ddphonism.tex
+runfiles size=3
+ texmf-dist/tex/latex/ddphonism/ddphonism.sty
+catalogue-ctan /macros/latex/contrib/ddphonism
+catalogue-license lppl1.3c
+catalogue-topics music diagram pgf-tikz
+catalogue-version 0.2

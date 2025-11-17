@@ -1,0 +1,43 @@
+name marathi
+category Package
+revision 61719
+shortdesc Typeset Marathi language using XeLaTeX or LuaLaTeX
+longdesc luaa-laattek v jhii-laattek hyaaNcyaash mraatthiicaa sulbh
+longdesc vaapr krnnyaasaatthii. laattek-vriil mraatthiicyaa
+longdesc sthaanikiikrnnaace kaam hyaa aajnyaasNcaamaarpht kele jaaiil.
+longdesc expex v blindtext hyaa aajnyaasNcaaNce sthaanikiikrnn tuurtaas
+longdesc hyaa aajnyaasNcaamaarpht purvle jaat aahe. For conveniently
+longdesc typesetting Marathi language with LuaLaTeX and XeLaTeX. This
+longdesc package will provide localizations needed for the Marathi
+longdesc language. Currently the package localizes package blindtext and
+longdesc package expex.
+containersize 5456
+containerchecksum 5ff1e45d4434c68f09fd011fb0d0bf7652002a9ef6c36035e953a5bb9871baec4dc1998b0c0ec1749ef93cbca8bd40512457d962bf0e9f3bb4c0d36fbeb6f301
+doccontainersize 154916
+doccontainerchecksum 8ef83a4eef0d877473a24ad3d5efb9e4d374dd1c2e00b210251ce145d889d8cf8eec7ff368d94db888b134104770901877fb4e943bf758f921b341bb7bfb5f3c
+docfiles size=53
+ texmf-dist/doc/latex/marathi/COPYING
+ texmf-dist/doc/latex/marathi/LICENSE.md
+ texmf-dist/doc/latex/marathi/README.txt details="Readme"
+ texmf-dist/doc/latex/marathi/marathi.pdf details="Package documentation" language="mr"
+srccontainersize 17940
+srccontainerchecksum 6cd0135286dbc64b59628e7af8e84e3c4277705bca226155ca899f9ad438751cf5f5da73dfcaa500fdc1d4779f707f8290922098409c69216a5c66e2bdbb73e5
+srcfiles size=20
+ texmf-dist/source/latex/marathi/marathi.dtx
+ texmf-dist/source/latex/marathi/marathi.ins
+runfiles size=15
+ texmf-dist/tex/latex/marathi/marathi.sty
+ texmf-dist/tex/latex/marathi/namuna-article.tex
+ texmf-dist/tex/latex/marathi/namuna-beamer.tex
+ texmf-dist/tex/latex/marathi/namuna-book.tex
+ texmf-dist/tex/latex/marathi/namuna-letter.tex
+ texmf-dist/tex/latex/marathi/namuna-para.tex
+ texmf-dist/tex/latex/marathi/namuna-report.tex
+catalogue-contact-bugs https://puszcza.gnu.org.ua/bugs/?group=marathi
+catalogue-contact-home https://puszcza.gnu.org.ua/projects/marathi
+catalogue-contact-repository https://git.gnu.org.ua/marathi.git
+catalogue-contact-support mailto:marathi-latex@gnu.org.ua
+catalogue-ctan /language/marathi
+catalogue-license gpl3+ other-free fdl
+catalogue-topics indic marathi
+catalogue-version 1.7

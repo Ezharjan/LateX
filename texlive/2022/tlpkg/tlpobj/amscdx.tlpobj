@@ -1,0 +1,38 @@
+name amscdx
+category Package
+revision 51532
+shortdesc Enhanced commutative diagrams
+longdesc The original amscd package provides a CD environment that
+longdesc emulates the commutative diagram capabilities of AMS-TeX
+longdesc version 2.x. This means that only simple rectangular diagrams
+longdesc are supported, with no diagonal arrows or more exotic features.
+longdesc This enhancement package implements double ("fat"), dashed, and
+longdesc bidirectional arrows (left-right and up-down), and color
+longdesc attributes for arrows and their annotations. The restriction to
+longdesc rectangular geometry remains. This nevertheless allows the
+longdesc drawing of a much broader class of "commutative-diagram-like"
+longdesc diagrams. This update, 2.2x of 2019-07-02, fixes the
+longdesc dashed-arrows parts placement bug, and adds the package option
+longdesc 'lyx', for use with lyx to prevent conflict with the already
+longdesc loaded amscd. The packages xcolor and graphicx are made
+longdesc required.
+containersize 3208
+containerchecksum 6bdebfbe4985eea23ce24db5e0e14162310d81efab18a7a820fe819bd51f839b9deca35b94740f038ae80084f355e5e800fd6e681d859cb7bc9bb8886993c33e
+doccontainersize 217524
+doccontainerchecksum 65d6ea09c1bec56e5082d3521e1eabdd513013b0606f6cfbd0f7c7566795b8963dab6e9f3a46cbb6d008311e7ee3701efa345ef5dc780a3b18f6f4842d97594e
+docfiles size=55
+ texmf-dist/doc/latex/amscdx/README details="Readme"
+ texmf-dist/doc/latex/amscdx/amscdx.pdf details="Package documentation"
+srccontainersize 6136
+srccontainerchecksum 94751d2c3f617710b50807de584cf4c4d7c8f1ff82a1ab14a5bbd8b41fb5828b0a208e20c131a0aa023a1c8afcdc3d4b5e36b2df99f76b260ec2d9509a941f76
+srcfiles size=6
+ texmf-dist/source/latex/amscdx/amscdx.dtx
+ texmf-dist/source/latex/amscdx/amscdx.ins
+runfiles size=3
+ texmf-dist/tex/latex/amscdx/amscdx.sty
+catalogue-also amscd
+catalogue-contact-support https://users.aalto.fi/~mvermeer/
+catalogue-ctan /macros/latex/contrib/amscdx
+catalogue-license lppl1.3c
+catalogue-topics graphics diagram-comm maths
+catalogue-version 2.2x

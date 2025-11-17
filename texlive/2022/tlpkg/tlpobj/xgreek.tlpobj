@@ -1,0 +1,36 @@
+name xgreek
+category Package
+revision 64300
+shortdesc Greek Language Support for XeLaTeX and LuaLaTeX
+longdesc This package has been designed so to allow people to typeset
+longdesc Greek language documents using XeLaTeX or LuaLaTeX. It is
+longdesc released in the hope that people will use it and spot errors,
+longdesc bugs, features so to improve it. Practically, it provides all
+longdesc the capabilities of the greek option of the babel package. The
+longdesc package can be invoked with any of the following options:
+longdesc monotonic (for typesetting modern monotonic Greek), polytonic
+longdesc (for typesetting modern polytonic Greek), and ancient (for
+longdesc typesetting ancient texts). The default option is monotonic.
+longdesc The command \setlanguage{<lang>} activates the hyphenation
+longdesc patterns of the language <lang>. This, however, can only be
+longdesc done if the format file has not been built with the babel
+longdesc mechanism.
+containersize 5224
+containerchecksum 96b0afffce870b5c3cdda072a23d20810db89607fba64172cb329fb10a598693d870132f26ad1c04e0b394bc1181f9dca0c966c70d07e8c17b3e3ada5e2eeec6
+doccontainersize 75372
+doccontainerchecksum f4543d8a1603dca2b8f4dd9db97a8d887ba0b8f772284ac81e772b30e641f0900abff116441ead7c571ba7f60ed6999f694596d0e8e4763a3d1ed62f07a056d9
+docfiles size=20
+ texmf-dist/doc/latex/xgreek/README details="README file"
+ texmf-dist/doc/latex/xgreek/xgreek.pdf details="Package documentation"
+srccontainersize 10668
+srccontainerchecksum cb9546b39edb451166ef0e931a0b4ebd571fff9a4e337e0f11d7a2e58ea92e4c82aaeb8b981a88576f9e83c7114c8233763552f3e1bc1c4a7231087b1feffbc1
+srcfiles size=13
+ texmf-dist/source/latex/xgreek/xgreek.dtx
+ texmf-dist/source/latex/xgreek/xgreek.ins
+runfiles size=8
+ texmf-dist/tex/latex/xgreek/xelistings.sty
+ texmf-dist/tex/latex/xgreek/xgreek.sty
+catalogue-ctan /macros/unicodetex/latex/xgreek
+catalogue-license lppl1.3c
+catalogue-topics greek xetex
+catalogue-version 3.2.0

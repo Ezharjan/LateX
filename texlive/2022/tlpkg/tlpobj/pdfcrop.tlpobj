@@ -1,0 +1,22 @@
+name pdfcrop
+category Package
+revision 55435
+shortdesc Crop PDF graphics
+longdesc A Perl script that can either trim pages of any whitespace
+longdesc border, or trim them of a fixed border.
+depend pdfcrop.ARCH
+containersize 10888
+containerchecksum ba611ee2a516fb031a7f3c93f563b2aaa2e50d4ef95433a5d83ee46191c2a6001fdd4ef25f33166c0e3f9791e85c200e452684974d54d34e8d651a7254f6652c
+doccontainersize 10228
+doccontainerchecksum 786fe00793f62e09f225ca0decdd53ad3b2ce03a133a2ae4ba20db9d40352863dc6a8728e005aecfcaec06072e8a0ef454d1f7fbe90bfc5997cfc65c6ab97170
+docfiles size=8
+ texmf-dist/doc/support/pdfcrop/LICENCE
+ texmf-dist/doc/support/pdfcrop/README.md details="Readme (including manual)"
+runfiles size=10
+ texmf-dist/scripts/pdfcrop/pdfcrop.pl
+catalogue-contact-bugs https://github.com/ho-tex/pdfcrop/issues
+catalogue-contact-repository https://github.com/ho-tex/pdfcrop
+catalogue-ctan /support/pdfcrop
+catalogue-license lppl1.3c
+catalogue-topics pdfprocess
+catalogue-version 1.40

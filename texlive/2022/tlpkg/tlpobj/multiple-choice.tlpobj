@@ -1,0 +1,26 @@
+name multiple-choice
+category Package
+revision 63722
+shortdesc LaTeX package for multiple-choice questions
+longdesc This package adjusts the choices of the multiple-choice
+longdesc question automatically. It has been wholly inspired by the work
+longdesc of Enrico Gregorio and improved by Vafa Khalighi and I've just
+longdesc packed and redistributed it under the name of the
+longdesc multiple-choice package.
+containersize 1544
+containerchecksum 975e7ba809ff551faacfeb8c40f0965da34068b4d4d2d0d14d9334996a245682e74ee05a4ef99fab064263c14c0ee4e7fc50372184c2db7ea90572eb9f4beaeb
+doccontainersize 131468
+doccontainerchecksum 334d989ca885f640b339028d85acefc8d1762b587e652805ef49a97c0cc1cff9f87fdae884c613719b5c377eda17f85c22137db6a368b663a389661bf34f6e4a
+docfiles size=35
+ texmf-dist/doc/latex/multiple-choice/README details="Readme"
+ texmf-dist/doc/latex/multiple-choice/multiple-choice-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/multiple-choice/multiple-choice-doc.tex
+runfiles size=1
+ texmf-dist/tex/latex/multiple-choice/multiple-choice.sty
+catalogue-also qcm
+catalogue-contact-bugs https://github.com/javadr/multiple-choice.sty/issues
+catalogue-contact-repository https://github.com/javadr/multiple-choice.sty
+catalogue-ctan /macros/latex/contrib/multiple-choice
+catalogue-license lppl1.3c
+catalogue-topics exam
+catalogue-version 0.2

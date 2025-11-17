@@ -1,0 +1,50 @@
+name biblatex-abnt
+category Package
+revision 49179
+shortdesc BibLaTeX style for Brazil's ABNT rules
+longdesc This package offers a BibLaTeX style for Brazil's ABNT
+longdesc (Brazilian Association of Technical Norms) rules.
+containersize 18036
+containerchecksum f2c239aed726d57eb98cef8892c4b4295205d5a8d55a14b16db8bd6b42bf3f51aadb0dc767f97dfbcd8e57a1f867c5e344c604d726453113a007169edee0ff58
+doccontainersize 861432
+doccontainerchecksum 04158e1b92a2976d2a5cc107e00b5e4ab90a85799f9e55b25936fdd0e141fc2196f0f64577bf2eb8997b7ba5b7e8c575bb725febfc397940d271ecd5f56138a8
+docfiles size=256
+ texmf-dist/doc/latex/biblatex-abnt/CHANGELOG.md
+ texmf-dist/doc/latex/biblatex-abnt/NBR10520-2002.bib
+ texmf-dist/doc/latex/biblatex-abnt/NBR10520-2002.tex
+ texmf-dist/doc/latex/biblatex-abnt/NBR10520-2002_reference.pdf details="Examples of use"
+ texmf-dist/doc/latex/biblatex-abnt/NBR10520-2002_test.tex
+ texmf-dist/doc/latex/biblatex-abnt/NBR6023-2002.bib
+ texmf-dist/doc/latex/biblatex-abnt/NBR6023-2002.tex
+ texmf-dist/doc/latex/biblatex-abnt/NBR6023-2002_reference.pdf
+ texmf-dist/doc/latex/biblatex-abnt/NBR6023-2002_test.tex
+ texmf-dist/doc/latex/biblatex-abnt/README.md details="Readme" language="pt-br"
+ texmf-dist/doc/latex/biblatex-abnt/biblatex-abnt.bib
+ texmf-dist/doc/latex/biblatex-abnt/biblatex-abnt.pdf details="Package documentation" language="pt-br"
+ texmf-dist/doc/latex/biblatex-abnt/biblatex-abnt.tex
+ texmf-dist/doc/latex/biblatex-abnt/test.sh
+ texmf-dist/doc/latex/biblatex-abnt/tests/README.md details="Readme" language="pt-br"
+ texmf-dist/doc/latex/biblatex-abnt/texlive.sh
+runfiles size=50
+ texmf-dist/tex/latex/biblatex-abnt/abnt-ibid.bbx
+ texmf-dist/tex/latex/biblatex-abnt/abnt-ibid.cbx
+ texmf-dist/tex/latex/biblatex-abnt/abnt-numeric.bbx
+ texmf-dist/tex/latex/biblatex-abnt/abnt-numeric.cbx
+ texmf-dist/tex/latex/biblatex-abnt/abnt.bbx
+ texmf-dist/tex/latex/biblatex-abnt/abnt.cbx
+ texmf-dist/tex/latex/biblatex-abnt/american-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/australian-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/brazil-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/brazilian-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/british-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/canadian-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/english-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/portuges-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/portuguese-abnt.lbx
+ texmf-dist/tex/latex/biblatex-abnt/spanish-abnt.lbx
+catalogue-contact-bugs https://github.com/abntex/biblatex-abnt/issues
+catalogue-contact-repository https://github.com/abntex/biblatex-abnt
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-abnt
+catalogue-license lppl1.3c
+catalogue-topics biblatex journalpub portuguese-br
+catalogue-version 3.4

@@ -1,0 +1,32 @@
+name marginfix
+category Package
+revision 55064
+shortdesc Patch \marginpar to avoid overfull margins
+longdesc Authors using LaTeX to typeset books with significant margin
+longdesc material often run into the problem of long notes running off
+longdesc the bottom of the page. A typical workaround is to insert
+longdesc \vshift commands by hand, but this is a tedious process that is
+longdesc invalidated when pagination changes. Another workaround is
+longdesc memoir's \sidebar function, but this can be unsatisfying for
+longdesc short textual notes, and standard marginpars cannot be mixed
+longdesc with sidebars. This package implements a solution to make
+longdesc marginpars "just work" by keeping a list of floating inserts
+longdesc and arranging them intelligently in the output routine.
+containersize 3752
+containerchecksum 70dc40b9823cd82a52a7e55e5af47e5b2373fd7cf16567f6eca2bb886d3612473141435444b538f81ab9467d1b3e5ba04424b1ca47d95cc0869dea02faf82b03
+doccontainersize 243144
+doccontainerchecksum 16ab654dd8957bcf37351b7c766b787f27baddd4e73a6a4c3a07f5b1486f5ea73c9028675b5830b8dc1224eae29f50d61bb579aeecd9af4aaafaf78259bca900
+docfiles size=61
+ texmf-dist/doc/latex/marginfix/README details="Readme"
+ texmf-dist/doc/latex/marginfix/marginfix.pdf details="Package documentation"
+srccontainersize 18268
+srccontainerchecksum 5e94ffc102902ff040162f5d9fa39f1d812801d0413befa5db7cc2c23d91ce24d47317f411e64f2fb2e22fb782c9cf1f87780c2cf2eccc50214b502402032eb3
+srcfiles size=17
+ texmf-dist/source/latex/marginfix/marginfix.dtx
+ texmf-dist/source/latex/marginfix/marginfix.ins
+runfiles size=4
+ texmf-dist/tex/latex/marginfix/marginfix.sty
+catalogue-ctan /macros/latex/contrib/marginfix
+catalogue-license lppl
+catalogue-topics marginal
+catalogue-version 1.2

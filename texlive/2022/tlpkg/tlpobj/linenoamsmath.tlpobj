@@ -1,0 +1,24 @@
+name linenoamsmath
+category Package
+revision 60655
+shortdesc Use the lineno package together with amsmath
+longdesc This package patches the amsmath package to work with the
+longdesc lineno package.
+containersize 1188
+containerchecksum 477155ffaeaee4a1cfdbd65446857e30263c6e3eea772fcc900742a485f00a8f8cad9741e6e9c310731e4ba5d1d0f7edfdfd5449b87c114464f6dbe51d848ec2
+doccontainersize 224452
+doccontainerchecksum 66059629489a6930c5827b495d920f4842cc174cc38b9a645785e04983f96471f8031d5ad131e19a3f28d52cf3d4e9d8987da5505bfe0ad2939becf9c742a589
+docfiles size=56
+ texmf-dist/doc/latex/linenoamsmath/README details="Readme"
+ texmf-dist/doc/latex/linenoamsmath/linenoamsmath.pdf details="Package documentation"
+srccontainersize 3520
+srccontainerchecksum 722c65947e93387ac7883e9a0bd974b85e2f40260793cae2b7404d234be219e3326b4a5ae4220525bb1820096d55400189340fa95f097c047e0182d6c3816e28
+srcfiles size=6
+ texmf-dist/source/latex/linenoamsmath/linenoamsmath.dtx
+ texmf-dist/source/latex/linenoamsmath/linenoamsmath.ins
+runfiles size=1
+ texmf-dist/tex/latex/linenoamsmath/linenoamsmath.sty
+catalogue-ctan /macros/latex/contrib/linenoamsmath
+catalogue-license lppl1.3
+catalogue-topics line-nos maths
+catalogue-version 1.0

@@ -1,0 +1,63 @@
+name cweb
+category Package
+revision 63787
+catalogue cwebbin
+shortdesc CWEB for ANSI-C/C++ compilers
+longdesc A highly portable and extended version of Levy/Knuth CWEB 3.64c
+longdesc for UNIX, Windows, Mac (and possibly other operating systems).
+longdesc TeX macros, CWEB macros, and NLS catalogs are included for
+longdesc German, French (partially), and Italian program documentation
+longdesc on any machine. Major features: Thoroughly updated code base;
+longdesc several bug fixes; clean compilation (with both C and TeX) on
+longdesc at least four different architectures. Added CTWILL program
+longdesc with tools and utilities for brave users; including
+longdesc introductory manpage. Internationalization of CTANGLE, CWEAVE,
+longdesc and CTWILL with "GNU gettext utilities". New code base for CWEB
+longdesc in TeX Live 2019, incorporating all features of the TL 2018
+longdesc version and adding new features from CWEBbin. As of November
+longdesc 2019 CTAN no longer holds a copy of this material. Please go to
+longdesc the package's github repository for more information.
+depend cweb.ARCH
+containersize 24340
+containerchecksum 9eecdaebb23179fdf7a5d840e07c39ad4b14126fb5376ea533d946f2be9d0a71fc7c147354266557fe1e7eb38395ff37489287c5fcdbe62fa505ef9646bfe55a
+doccontainersize 76428
+doccontainerchecksum 5f93f097784efb55c9746fbdcf1b047df329a49dbe5805543787e00b2d011a4ac546f612f5dc51c154101f7474b67f23b4a105239d52bf129b6fcf37540a75fd
+docfiles size=67
+ texmf-dist/doc/man/man1/ctangle.1
+ texmf-dist/doc/man/man1/ctangle.man1.pdf
+ texmf-dist/doc/man/man1/ctwill-refsort.1
+ texmf-dist/doc/man/man1/ctwill-refsort.man1.pdf
+ texmf-dist/doc/man/man1/ctwill-twinx.1
+ texmf-dist/doc/man/man1/ctwill-twinx.man1.pdf
+ texmf-dist/doc/man/man1/ctwill.1
+ texmf-dist/doc/man/man1/ctwill.man1.pdf
+ texmf-dist/doc/man/man1/cweave.1
+ texmf-dist/doc/man/man1/cweave.man1.pdf
+ texmf-dist/doc/man/man1/cweb.1
+ texmf-dist/doc/man/man1/cweb.man1.pdf
+ texmf-dist/doc/man/man1/twill.1
+ texmf-dist/doc/man/man1/twill.man1.pdf
+runfiles size=54
+ texmf-dist/tex/plain/cweb/ctproofmac.tex
+ texmf-dist/tex/plain/cweb/cttwinxmac.tex
+ texmf-dist/tex/plain/cweb/ctwimac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/Xcwebmac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/cweb_ecma94.sty
+ texmf-dist/tex/plain/cweb/cwebbin/cweb_hp8.sty
+ texmf-dist/tex/plain/cweb/cwebbin/cweb_mac8.sty
+ texmf-dist/tex/plain/cweb/cwebbin/cweb_pc850.sty
+ texmf-dist/tex/plain/cweb/cwebbin/dctproofmac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/dctwimac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/dcwebmac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/dcwebstrings.tex
+ texmf-dist/tex/plain/cweb/cwebbin/fcwebmac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/icwebmac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/pdfctwimac.tex
+ texmf-dist/tex/plain/cweb/cwebbin/pdfwebtocfront.tex
+ texmf-dist/tex/plain/cweb/cwebmac.tex
+ texmf-dist/tex/plain/cweb/twinx-startup.tex
+catalogue-contact-bugs https://lists.tug.org/tex-k
+catalogue-contact-repository https://github.com/ascherer/cwebbin
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-license knuth
+catalogue-topics litprog

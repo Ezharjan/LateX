@@ -1,0 +1,26 @@
+name clrscode
+category Package
+revision 51136
+shortdesc Typesets pseudocode as in Introduction to Algorithms
+longdesc This package allows you to typeset pseudocode in the style of
+longdesc Introduction to Algorithms, Second edition, by Cormen,
+longdesc Leiserson, Rivest, and Stein. The package was written by the
+longdesc authors. You use the commands the same way the package's author
+longdesc did when writing the book, and your output will look just like
+longdesc the pseudocode in the text.
+containersize 4520
+containerchecksum c26ac99b2f097b3b9df8bcb3ae040da959c0bd238be75a50b3711cdf0b7b0024ef40749169c0fe0437aa8c845b3ee9c9ec4ab46fe31fe6b1e28019fcd4779076
+doccontainersize 40052
+doccontainerchecksum b74c858703577f79c89b4e95a0fef2012a756defda525c25f2945952b6637fba7ae4c30791a5d566267a16627bf7ce991c4edf726f7106b27b2df3c2b81eb765
+docfiles size=19
+ texmf-dist/doc/latex/clrscode/README
+ texmf-dist/doc/latex/clrscode/clrscode.pdf details="Package documentation"
+ texmf-dist/doc/latex/clrscode/clrscode.tex
+ texmf-dist/doc/latex/clrscode/page.tex
+runfiles size=3
+ texmf-dist/tex/latex/clrscode/clrscode.sty
+catalogue-also newalg clrscode3e
+catalogue-ctan /macros/latex/contrib/clrscode
+catalogue-license lppl
+catalogue-topics pseudocode
+catalogue-version 1.7

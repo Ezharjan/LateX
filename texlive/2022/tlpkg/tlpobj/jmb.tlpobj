@@ -1,0 +1,21 @@
+name jmb
+category Package
+revision 52718
+shortdesc BibTeX style for the Journal of Theoretical Biology
+longdesc This BibTeX bibliography style is for the Journal of Molecular
+longdesc Biology and Journal of Theoretical Biology; the accompanying
+longdesc LaTeX (2.09) package is a close relative of apalike.sty in the
+longdesc BibTeX distribution; it features author-date references. The
+longdesc bibliography style has control over whether to print reference
+longdesc titles; if your database contains an article with the cite key
+longdesc "TitlesOn", and you invoke it by \nocite{TitlesOn}, titles will
+longdesc be printed; otherwise titles will not be printed.
+containersize 10072
+containerchecksum 6317f3437416ead3fa1224432bd2cae247614e614f888ea074cfc442b8c7c3832d0243988269a1d772172008fa377b142288f9644bb1e2954c3758c1b75f78a7
+runfiles size=11
+ texmf-dist/bibtex/bst/jmb/jmb.bst
+ texmf-dist/tex/latex/jmb/jmb.sty
+catalogue-ctan /biblio/bibtex/contrib/jmb
+catalogue-license other-free
+catalogue-topics molbio bibtex-sty
+catalogue-version 1.21

@@ -1,0 +1,28 @@
+name numerica
+category Package
+revision 61283
+shortdesc Numerically evaluate mathematical expressions in LaTeX form
+longdesc This package defines a command to wrap around a mathematical
+longdesc expression in its LaTeX form and, once values are assigned to
+longdesc variables, numerically evaluate it. The intent is to avoid the
+longdesc need to modify the LaTeX form of the expression being
+longdesc evaluated. For programs with a preview facility like LyX, or
+longdesc compile-as-you-go systems, interactive back-of-envelope
+longdesc calculations and numerical exploration are possible within the
+longdesc document being worked on. The package requires the bundles
+longdesc l3kernel and l3packages, and the amsmath and mathtools
+longdesc packages.
+containersize 17804
+containerchecksum 9fec18e27d78b81ced365ebbe20ea49aca99c4aadd7b21cc630cede843ef3c191824556ebdb9988c125603760a68e56b8f9b4d0f37d662178af29e9f8182c0a5
+doccontainersize 990880
+doccontainerchecksum 76b65febc8b91f2e4c18dc1b93e3eeb33d70caccbab60f3d34b3eb36e253b4d2a1d97213220d40d662c1e53bee2f2845784793214724c65b4dc19af288b9f49c
+docfiles size=358
+ texmf-dist/doc/latex/numerica/README.txt details="Readme"
+ texmf-dist/doc/latex/numerica/numerica.pdf details="Package documentation"
+ texmf-dist/doc/latex/numerica/numerica.tex
+runfiles size=27
+ texmf-dist/tex/latex/numerica/numerica.sty
+catalogue-ctan /macros/latex/contrib/numerica
+catalogue-license lppl1.3c
+catalogue-topics maths calculation expl3
+catalogue-version 2.0.0

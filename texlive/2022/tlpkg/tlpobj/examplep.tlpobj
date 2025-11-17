@@ -1,0 +1,44 @@
+name examplep
+category Package
+revision 55265
+shortdesc Verbatim phrases and listings in LaTeX
+longdesc Examplep provides sophisticated features for typesetting
+longdesc verbatim source code listings, including the display of the
+longdesc source code and its compiled LaTeX or MetaPost output
+longdesc side-by-side, with automatic width detection and enabled page
+longdesc breaks (in the source), without the need for specifying the
+longdesc source twice. Special care is taken that section, page and
+longdesc footnote numbers do not interfere with the main document. For
+longdesc typesetting short verbatim phrases, a replacement for the \verb
+longdesc command is also provided in the package, which can be used
+longdesc inside tables and moving arguments such as footnotes and
+longdesc section titles. The listings package is used for syntax
+longdesc highlighting. The accompanying codep package and the wrfiles.pl
+longdesc Perl script provide a convenient interface to the examplep
+longdesc package for authors of manuals. With codep it is possible to
+longdesc generate the source code, the LaTeX or MetaPost output and the
+longdesc compilable example file from a single source embedded into the
+longdesc appropriate place of the .tex document file.
+containersize 33788
+containerchecksum 689c71afd2f5733b669b12c27014edc260ffca597b197ec0a91b5cc476bc6458699510bc5053863f9fa8ca47b9e2cda18939e734d3c23c7507f0646e0cbd9afa
+doccontainersize 379128
+doccontainerchecksum 09fab96fddb1f42c6c5484e1716d1f2dda3f51c6c6f666343a79070aae079ad2bb67f210e51875621c4b4f8a30f9908d4bd53caa74c57ea8ec4ba330dbd721ea
+docfiles size=142
+ texmf-dist/doc/latex/examplep/README details="Readme"
+ texmf-dist/doc/latex/examplep/eurotex_2005_examplep.pdf details="Article from EuroTeX 2005 talk"
+ texmf-dist/doc/latex/examplep/eurotex_2005_examplep.tex
+ texmf-dist/doc/latex/examplep/houses.eps
+ texmf-dist/doc/latex/examplep/houses.pdf
+ texmf-dist/doc/latex/examplep/pexaminipage.eps
+ texmf-dist/doc/latex/examplep/pexaminipage.pdf
+ texmf-dist/doc/latex/examplep/shorthyp_t1xtts.eps
+ texmf-dist/doc/latex/examplep/shorthyp_t1xtts.pdf
+ texmf-dist/doc/latex/examplep/wrfiles.pl
+runfiles size=34
+ texmf-dist/tex/latex/examplep/codep.sty
+ texmf-dist/tex/latex/examplep/examplep.sty
+ texmf-dist/tex/latex/examplep/verbfwr.sty
+catalogue-ctan /macros/latex/contrib/examplep
+catalogue-license gpl
+catalogue-topics listing macro-demo
+catalogue-version 0.04

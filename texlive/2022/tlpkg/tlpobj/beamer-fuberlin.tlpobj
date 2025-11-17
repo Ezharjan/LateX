@@ -1,0 +1,33 @@
+name beamer-fuberlin
+category Package
+revision 63161
+shortdesc Beamer, using the style of FU Berlin
+longdesc The bundle provides a beamer-derived class and a theme style
+longdesc file for the corporate design of the Free University in Berlin.
+longdesc Users may use the class itself (FUbeamer) or use the theme in
+longdesc the usual way with \usetheme{BerlinFU}. Examples of using both
+longdesc the class and the theme are provided; the PDF is visually
+longdesc identical, so the catalogue only lists one; the sources of the
+longdesc examples do of course differ.
+containersize 3168
+containerchecksum 6638fee0c05b9901935204bbcbd79baa1cd0213c0aba6c8eecf1a9f4b2b44aa9403f42078e84e437e7e14d36a991afd0446ae9ffd2ee3260814944fe7b52e92d
+doccontainersize 367212
+doccontainerchecksum 2241bfbdd7dd8b034a01e83f4076fdcf628ea40a29d27cf1e6ceba234b68580cb05f5b29d71c196187e3b5ac1e5a0ec566c5e4a0b784e56f43bdf86ab2747781
+docfiles size=161
+ texmf-dist/doc/latex/beamer-fuberlin/Changes
+ texmf-dist/doc/latex/beamer-fuberlin/README details="Readme"
+ texmf-dist/doc/latex/beamer-fuberlin/README.doc
+ texmf-dist/doc/latex/beamer-fuberlin/exampleClass.pdf details="Example of use of the class"
+ texmf-dist/doc/latex/beamer-fuberlin/exampleClass.tex
+ texmf-dist/doc/latex/beamer-fuberlin/exampleTheme.pdf
+ texmf-dist/doc/latex/beamer-fuberlin/exampleTheme.tex
+runfiles size=6
+ texmf-dist/tex/latex/beamer-fuberlin/FUbeamer.cls
+ texmf-dist/tex/latex/beamer-fuberlin/beamercolorthemeBerlinFU.sty
+ texmf-dist/tex/latex/beamer-fuberlin/beamerfontthemeBerlinFU.sty
+ texmf-dist/tex/latex/beamer-fuberlin/beamerouterthemeBerlinFU.sty
+ texmf-dist/tex/latex/beamer-fuberlin/beamerthemeBerlinFU.sty
+catalogue-ctan /macros/latex/contrib/beamer-FUBerlin
+catalogue-license lppl
+catalogue-topics presentation
+catalogue-version 0.02b

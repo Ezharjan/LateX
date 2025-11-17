@@ -1,0 +1,30 @@
+name expkv-opt
+category Package
+revision 58772
+shortdesc Parse class and package options with expkv
+longdesc This package provides option parsing for classes and packages
+longdesc in LaTeX2e based on expkv. Global and local options are parsed
+longdesc individually by different commands. The package supports
+longdesc key=value options and keys without a value. expkv is the only
+longdesc required package.
+containersize 2908
+containerchecksum 8b6203aaeb7a2c86c355a67ad02857d5ddacf5e85f04143b0f0225c2fb4a00c1f6e88b6b1c5a872c1c092680ffbfb19148c8a97e8537babe97b969355b63fce0
+doccontainersize 264172
+doccontainerchecksum 12312e21d7d15e9ba60800243cebe4b7ab2ea52a31c37f25446b6fe0ef413e9d33d4066d139b3fca1375dc9cfe357a65ec58e7ef1d3b28472da368dedac3213c
+docfiles size=67
+ texmf-dist/doc/generic/expkv-opt/README.md details="Readme"
+ texmf-dist/doc/generic/expkv-opt/expkv-opt.pdf details="Package documentation"
+srccontainersize 9288
+srccontainerchecksum 4fe886ef42bd181f521015225b92ae15a16d9b2d34001119f49bc417cddead7fccd437b0f4263c1f24525060a7f94f423db38fc8f677212fb330f690eaf9a676
+srcfiles size=17
+ texmf-dist/source/generic/expkv-opt/expkv-opt-2020-10-10.dtx
+ texmf-dist/source/generic/expkv-opt/expkv-opt.dtx
+runfiles size=6
+ texmf-dist/tex/generic/expkv-opt/expkv-opt-2020-10-10.sty
+ texmf-dist/tex/generic/expkv-opt/expkv-opt.sty
+catalogue-also expkv
+catalogue-contact-repository https://github.com/Skillmon/tex_expkv-opt
+catalogue-ctan /macros/generic/expkv-opt
+catalogue-license lppl1.3c
+catalogue-topics keyval
+catalogue-version 0.2

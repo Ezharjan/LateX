@@ -1,0 +1,107 @@
+name tracklang
+category Package
+revision 55707
+shortdesc Language and dialect tracker
+longdesc The tracklang package is provided for package developers who
+longdesc want a simple interface to find out which languages the user
+longdesc has requested through packages such as babel or polyglossia.
+longdesc This package does not provide any translations! Its purpose is
+longdesc simply to track which languages have been requested by the
+longdesc user. Generic TeX code is in tracklang.tex for non-LaTeX users.
+containersize 19144
+containerchecksum 6f33892886257274d3011b1d8e84d325477b75d6f151b1cd5223d456fdb1e5983146a20106fa19f3750b5898e24400a33e22de0571c9c301c3c0f6c0a1163e5f
+doccontainersize 992880
+doccontainerchecksum ff9bea1f499fe4ded275556e201be9259a6ee6512abe0a7665face275906fe77519114d77ca401299ed40d7c5b1175844c6464743c4b207ffb9e60cc416869c2
+docfiles size=335
+ texmf-dist/doc/generic/tracklang/CHANGES
+ texmf-dist/doc/generic/tracklang/README details="Readme"
+ texmf-dist/doc/generic/tracklang/samples/animals/animals-en-GB.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals-en-US.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals-english.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals-german.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals.sty
+ texmf-dist/doc/generic/tracklang/samples/animals/animals2-en-GB.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals2-en-US.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals2-english.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals2-german.ldf
+ texmf-dist/doc/generic/tracklang/samples/animals/animals2.sty
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-babel.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-babel.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-de-poly.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-de-poly.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-de.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-de.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-poly.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-poly.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals-sr-poly.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de2.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de2.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de3.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de3.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de4.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-de4.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-poly.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2-poly.tex
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2.pdf
+ texmf-dist/doc/generic/tracklang/samples/animals/sample-animals2.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-BE.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-CA.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-GB.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-IM.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-US.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-dutch.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-english.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-french.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-german.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-italian.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions-manx.ldf
+ texmf-dist/doc/generic/tracklang/samples/regions/regions.sty
+ texmf-dist/doc/generic/tracklang/samples/regions/regions2.sty
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-manx.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-manx.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-map.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-map.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-map2.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-map2.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-map3.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-map3.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-nomap.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2-nomap.tex
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2.pdf
+ texmf-dist/doc/generic/tracklang/samples/regions/sample-regions2.tex
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang.pdf
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang.tex
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang2.pdf
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang2.tex
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang3.pdf
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang3.tex
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang4.pdf
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang4.tex
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang5.pdf
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang5.tex
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang6.pdf
+ texmf-dist/doc/generic/tracklang/samples/sample-tracklang6.tex
+ texmf-dist/doc/generic/tracklang/tracklang.pdf details="Package documentation"
+srccontainersize 57672
+srccontainerchecksum 3221cb4b57e1a8d501648612e310107b55a002703855b338c92bfd758bf923b22e461d18bfd33d9e81717d7bfba3965fdd3eaef6f113353efc31337d3409d6d7
+srcfiles size=108
+ texmf-dist/source/latex/tracklang/tracklang.dtx
+ texmf-dist/source/latex/tracklang/tracklang.ins
+runfiles size=47
+ texmf-dist/tex/generic/tracklang/tracklang-region-codes.tex
+ texmf-dist/tex/generic/tracklang/tracklang-scripts.tex
+ texmf-dist/tex/generic/tracklang/tracklang.tex
+ texmf-dist/tex/latex/tracklang/tracklang-scripts.sty
+ texmf-dist/tex/latex/tracklang/tracklang.sty
+catalogue-contact-bugs https://www.dickimaw-books.com/bugtracker.php?search_category=tracklang
+catalogue-contact-support https://www.dickimaw-books.com/faq.php?action=view&category=tracklang
+catalogue-ctan /macros/generic/tracklang
+catalogue-license lppl1.3
+catalogue-topics package-devel class-supp multilingual
+catalogue-version 1.4

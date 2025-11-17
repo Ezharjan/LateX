@@ -1,0 +1,30 @@
+name schedule
+category Package
+revision 51805
+shortdesc Weekly schedules
+longdesc Automatically format weekly schedules using LaTeX's picture
+longdesc environment. It requires the packages calc and color. Its main
+longdesc feature is the accuracy with which appointments are
+longdesc represented: boxes drawn to represent a particular appointment
+longdesc are accurate to the minute -- i.e., a 31-minute appointment
+longdesc will have a box 1/30th longer than a 30-minute appointment. A
+longdesc number of features are included to allow the user to customize
+longdesc the output.
+containersize 4656
+containerchecksum c7d58c5e4ecdef504e1d32934ccf2c71cd36b073af4031ee83b0d0a3b3393a40acc26dd4e057f426561903d0d08297bb2a9849cad2cc5a11b02e15a3983f0e1b
+doccontainersize 243892
+doccontainerchecksum ca5f9e2b27f0b01531e82e64e99f816aaa52f5f340bc2fdefac367918d50c564cd178709428554a908951c117dbcf3d24753f84d864fcdc546129c3de25d7e77
+docfiles size=61
+ texmf-dist/doc/latex/schedule/README.md details="Readme"
+ texmf-dist/doc/latex/schedule/schedule.pdf details="Package documentation"
+srccontainersize 8040
+srccontainerchecksum e910feb417f9d1606b323a995026f3d3275523b4fcc53dd94d44c10b375ba13d322f32191dfec36b9606174240ec77de1b024c1f8ac14b94224d34e2aa0cdabc
+srcfiles size=9
+ texmf-dist/source/latex/schedule/schedule.dtx
+ texmf-dist/source/latex/schedule/schedule.ins
+runfiles size=6
+ texmf-dist/tex/latex/schedule/schedule.sty
+catalogue-ctan /macros/latex/contrib/schedule
+catalogue-license lppl1.3c
+catalogue-topics planning timetable
+catalogue-version 1.20

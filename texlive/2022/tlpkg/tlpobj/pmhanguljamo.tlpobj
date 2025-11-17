@@ -1,0 +1,28 @@
+name pmhanguljamo
+category Package
+revision 64361
+shortdesc Poor man's Hangul Jamo input method
+longdesc This package provides a Hangul transliteration input method
+longdesc that allows to typeset Korean letters (Hangul) using the proper
+longdesc fonts. The name is derived from "Poor man's Hangul Jamo Input
+longdesc Method". The use of XeLaTeX is recommended. pdfTeX is not
+longdesc supported.
+containersize 6084
+containerchecksum 1c70bdc0703abfb72865c6f6578d0f4f783a8bf5e22b9adf090c8ceecd209905cb49f9cd0dc240ed76cbef35e06da4d0077257b200c035f7e7953917049929d0
+doccontainersize 772928
+doccontainerchecksum 1c44249db48547e8fa69264a3e240c6bf353081bdfaa4aa29bb96de73161b1886ada47d0057e1e10c19f1f664a5671b7e746be66d86026fb3847dc911f134bba
+docfiles size=247
+ texmf-dist/doc/latex/pmhanguljamo/README.md details="Readme"
+ texmf-dist/doc/latex/pmhanguljamo/munjangganghwa.jpg
+ texmf-dist/doc/latex/pmhanguljamo/pmhanguljamo-doc.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/pmhanguljamo/pmhanguljamo-doc.tex
+ texmf-dist/doc/latex/pmhanguljamo/pmhanguljamo-kdoc.pdf details="Package documentation (Korean)" language="ko"
+ texmf-dist/doc/latex/pmhanguljamo/pmhanguljamo-kdoc.tex
+runfiles size=9
+ texmf-dist/tex/latex/pmhanguljamo/pmhanguljamo-rrk.sty
+ texmf-dist/tex/latex/pmhanguljamo/pmhanguljamo.sty
+catalogue-also kotex-utf
+catalogue-ctan /language/korean/pmhanguljamo
+catalogue-license lppl1.3
+catalogue-topics korean xetex expl3
+catalogue-version 0.5.2

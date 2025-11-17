@@ -1,0 +1,82 @@
+name tagpdf
+category Package
+revision 64190
+shortdesc Tools for experimenting with tagging using pdfLaTeX and LuaLaTeX
+longdesc The package offers tools to experiment with tagging and
+longdesc accessibility using pdfLaTeX and LuaTeX. It isn't meant for
+longdesc production but allows the user to try out how difficult it is
+longdesc to tag some structures; to try out how much tagging is really
+longdesc needed; to test what else is needed so that a pdf works e.g.
+longdesc with a screen reader. Its goal is to get a feeling for what has
+longdesc to be done, which kernel changes are needed, how packages
+longdesc should be adapted.
+containersize 28012
+containerchecksum 34a276cfc3c7e459fdeb449189872714a69ad3ae74ac1ad2bf3d6739ac81030b4426f759a5801bb449e31f2c26a0336cbff43ed887ac198f636614400fbd084a
+doccontainersize 1936016
+doccontainerchecksum bb8943afff15257cf9053775b26ff6b3948bed83e5fc1b9bbbece48d600ea53008f23a6409d659ed984adc0c6820a699be0113b0f6a736aa8e38f6cec58aa6e0
+docfiles size=550
+ texmf-dist/doc/latex/tagpdf/README.md details="Readme"
+ texmf-dist/doc/latex/tagpdf/ex-AF-file.pdf
+ texmf-dist/doc/latex/tagpdf/ex-AF-file.tex
+ texmf-dist/doc/latex/tagpdf/ex-alt-actualtext-luatex.pdf
+ texmf-dist/doc/latex/tagpdf/ex-alt-actualtext.tex
+ texmf-dist/doc/latex/tagpdf/ex-attribute-luatex.pdf
+ texmf-dist/doc/latex/tagpdf/ex-attribute.tex
+ texmf-dist/doc/latex/tagpdf/ex-formula-problem-luatex.pdf
+ texmf-dist/doc/latex/tagpdf/ex-formula-problem.tex
+ texmf-dist/doc/latex/tagpdf/ex-mc-manual-para-split-obsolete.pdf
+ texmf-dist/doc/latex/tagpdf/ex-mc-manual-para-split-obsolete.tex
+ texmf-dist/doc/latex/tagpdf/ex-patch-list-luatex.pdf
+ texmf-dist/doc/latex/tagpdf/ex-patch-list-obsolete.tex
+ texmf-dist/doc/latex/tagpdf/ex-patch-list.tex
+ texmf-dist/doc/latex/tagpdf/ex-patch-sectioning-koma-luatex.pdf
+ texmf-dist/doc/latex/tagpdf/ex-patch-sectioning-koma.tex
+ texmf-dist/doc/latex/tagpdf/ex-patch-sectioning-memoir.pdf
+ texmf-dist/doc/latex/tagpdf/ex-patch-sectioning-memoir.tex
+ texmf-dist/doc/latex/tagpdf/ex-softhyphen.pdf
+ texmf-dist/doc/latex/tagpdf/ex-softhyphen.tex
+ texmf-dist/doc/latex/tagpdf/ex-spaceglyph-listings.pdf
+ texmf-dist/doc/latex/tagpdf/ex-spaceglyph-listings.tex
+ texmf-dist/doc/latex/tagpdf/ex-structure-obsolete.tex
+ texmf-dist/doc/latex/tagpdf/ex-tagpdf-template.pdf
+ texmf-dist/doc/latex/tagpdf/ex-tagpdf-template.tex
+ texmf-dist/doc/latex/tagpdf/global-ex.png
+ texmf-dist/doc/latex/tagpdf/link-figure-input.tex
+ texmf-dist/doc/latex/tagpdf/pac3.PNG
+ texmf-dist/doc/latex/tagpdf/tagpdf-code.pdf
+ texmf-dist/doc/latex/tagpdf/tagpdf-code.tex
+ texmf-dist/doc/latex/tagpdf/tagpdf.bib
+ texmf-dist/doc/latex/tagpdf/tagpdf.pdf details="Package documentation"
+ texmf-dist/doc/latex/tagpdf/tagpdf.tex
+srccontainersize 51448
+srccontainerchecksum 037ef2019f3d2596e8eb22cc4c5ba9b84513b00602aae64397739abd1d102f4fff0b5af3d9b2dab3b8f414f1230bea83508db3d08209b8b453075a2068850e67
+srcfiles size=70
+ texmf-dist/source/latex/tagpdf/tagpdf-backend.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-checks.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-mc-generic.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-mc-luacode.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-mc-shared.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-roles.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-space.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-struct.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-tree.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf-user.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf.dtx
+ texmf-dist/source/latex/tagpdf/tagpdf.ins
+runfiles size=42
+ texmf-dist/tex/latex/tagpdf/tagpdf-base.sty
+ texmf-dist/tex/latex/tagpdf/tagpdf-debug-generic.sty
+ texmf-dist/tex/latex/tagpdf/tagpdf-debug-lua.sty
+ texmf-dist/tex/latex/tagpdf/tagpdf-debug.sty
+ texmf-dist/tex/latex/tagpdf/tagpdf-luatex.def
+ texmf-dist/tex/latex/tagpdf/tagpdf-mc-code-generic.sty
+ texmf-dist/tex/latex/tagpdf/tagpdf-mc-code-lua.sty
+ texmf-dist/tex/latex/tagpdf/tagpdf.lua
+ texmf-dist/tex/latex/tagpdf/tagpdf.sty
+ texmf-dist/tex/latex/tagpdf/tagpdfdocu-patches.sty
+catalogue-contact-repository https://github.com/u-fischer/tagpdf
+catalogue-contact-support https://github.com/u-fischer/tagpdf/issues
+catalogue-ctan /macros/latex/contrib/tagpdf
+catalogue-license lppl1.3c
+catalogue-topics tagged-pdf accessible expl3
+catalogue-version 0.97

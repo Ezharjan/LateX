@@ -1,0 +1,30 @@
+name ebgaramond-maths
+category Package
+revision 52168
+shortdesc LaTeX support for EBGaramond fonts in mathematics
+longdesc This package provides some LaTeX support for the use of
+longdesc EBGaramond12 in mathematics. It is based on, and requires,
+longdesc ebgaramond. The package was created in response to a question
+longdesc at TeX-stackexchange. and tested in the form of an answer in
+longdesc the same forum.
+execute addMap EBGaramond-Maths.map
+containersize 3456
+containerchecksum 5d65f676daee62f96875def0faf6d1fa217143046768985956372473b4cd3c6c00ca650cdedcdf677d6ae6a03c65743d30df6d32c36cc8366d8a1a9961bc11d3
+doccontainersize 372980
+doccontainerchecksum d2207e0f6535be6ed1a53fc15717a60fab0d473da4f307cfc70c7271fbd93e7f6cbd92d1c0f0738da6d1b607832cbed95e5c87edd53cc5423f35f287289b4573
+docfiles size=95
+ texmf-dist/doc/fonts/ebgaramond-maths/README details="Readme"
+ texmf-dist/doc/fonts/ebgaramond-maths/ebgaramond-maths.pdf details="Package documentation"
+ texmf-dist/doc/fonts/ebgaramond-maths/ebgaramond-maths.tex
+ texmf-dist/doc/fonts/ebgaramond-maths/manifest.txt
+runfiles size=5
+ texmf-dist/fonts/enc/dvips/ebgaramond-maths/a_w5zv5t.enc
+ texmf-dist/fonts/map/dvips/ebgaramond-maths/EBGaramond-Maths.map
+ texmf-dist/fonts/tfm/public/ebgaramond-maths/EBGaramond-Italic--oml-ebgaramond.tfm
+ texmf-dist/tex/latex/ebgaramond-maths/OMLEBGaramond-Maths.fd
+ texmf-dist/tex/latex/ebgaramond-maths/ebgaramond-maths.sty
+catalogue-also ebgaramond
+catalogue-ctan /fonts/ebgaramond-maths
+catalogue-license lppl1.3
+catalogue-topics font font-maths font-virtual
+catalogue-version 1.2

@@ -1,0 +1,23 @@
+name dijkstra
+category Package
+revision 55661
+shortdesc Dijkstra algorithm for LaTeX
+longdesc This small package uses the Dijkstra algorithm for weighted
+longdesc graphs,directed or not: the search table of the shortest path
+longdesc can be displayed, the minimum distance between two vertices and
+longdesc the corresponding path are stored in macros. This packages
+longdesc depends on simplekv.
+containersize 4928
+containerchecksum c44121120afd9bc53e747ee3a5e11f6d72ab140f266ebecab5c57bff4fe8e10ac07e140df4b9a21482d61d3d40ed5cda3e7511e83d08214c832ce73bca00f199
+doccontainersize 374620
+doccontainerchecksum b258ff0230ac4b21a944602ae3382bda2ab79f162bd832a2b18e724101de4475218aaca09afbc23a7309c15a2897e02380743369ee681186ef577fb60745f493
+docfiles size=96
+ texmf-dist/doc/latex/dijkstra/README details="Readme"
+ texmf-dist/doc/latex/dijkstra/dijkstra-fr.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/dijkstra/dijkstra-fr.tex
+runfiles size=5
+ texmf-dist/tex/latex/dijkstra/dijkstra.sty
+catalogue-ctan /macros/latex/contrib/dijkstra
+catalogue-license lppl1.3c
+catalogue-topics maths automata
+catalogue-version 0.12

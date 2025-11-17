@@ -1,0 +1,31 @@
+name biber-ms
+category Package
+revision 64213
+shortdesc A BibTeX replacement for users of BibLaTeX (multiscript version)
+longdesc This is the multiscript version of biber (biber-ms) and must be
+longdesc used with the multiscript version of biblatex-ms
+depend biber-ms.ARCH
+containersize 500
+containerchecksum d9786beaacd2b6f2a726d9f5c81879badac030810ed483b614e3694a96e47f5d90d99c70fafb5048705c283e7f318ae5567790a1fc652ec286ad6b33bd3b6f46
+doccontainersize 258716
+doccontainerchecksum 4eab219d327bdde07b90b9d2a14137a8d461cff2b3bd81a2dba61beeeefc13d67e9b3a0c1491fb1ccc36fbab24e54a6c7da4936ec887d9238feb334213f575e1
+docfiles size=65
+ texmf-dist/doc/bibtex/biber-ms/biber-ms.pdf details="Manual"
+srccontainersize 945480
+srccontainerchecksum bfe12e12b49e6859a3d183964a55b1f350bc0267db77b8ceea56e23af581d68124bf84c50d2113d7763128cda71ab917755e4afbb66cc51192aa2bb4943e9893
+srcfiles size=300
+ texmf-dist/source/bibtex/biber-ms/Changes
+ texmf-dist/source/bibtex/biber-ms/README.biber-ms-linux
+ texmf-dist/source/bibtex/biber-ms/README.biber-ms-macos
+ texmf-dist/source/bibtex/biber-ms/README.biber-ms-windows
+ texmf-dist/source/bibtex/biber-ms/README.md
+ texmf-dist/source/bibtex/biber-ms/biblatex-biber-ms.tar.gz
+ texmf-dist/source/bibtex/biber-ms/utf8-macro-map.html
+catalogue-also bibtex crosstex biblatex
+catalogue-contact-bugs https://github.com/plk/biber/issues
+catalogue-contact-home http://biblatex-biber.sourceforge.net/
+catalogue-contact-repository https://github.com/plk/biber
+catalogue-ctan /biblio/biber-ms/base
+catalogue-license artistic2
+catalogue-topics biblio
+catalogue-version 4.0

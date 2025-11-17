@@ -1,0 +1,21 @@
+name prftree
+category Package
+revision 54080
+shortdesc Macros for building proof trees
+longdesc A package to typeset proof trees for natural deduction calculi,
+longdesc sequent-like calculi, and similar.
+containersize 11776
+containerchecksum d73717b68ce3d12108a76a3850f3a09b9e1100969e79c745b7b08340175ea9599f10f928809fcdbf8ffbece3a60baa41d84dae182ace8b85ff511082f1db70d4
+doccontainersize 363452
+doccontainerchecksum 3b4d81db24039d15e76e0b237ecae6454d54b452b542e26ba8e0c45faf4f512124f0c1d1f5fef3ca6e6dcb3c7cc09eead3003a53a59a689e5e917583585c045e
+docfiles size=109
+ texmf-dist/doc/latex/prftree/README details="Readme"
+ texmf-dist/doc/latex/prftree/prftreedoc.pdf details="Package documentation"
+ texmf-dist/doc/latex/prftree/prftreedoc.tex
+runfiles size=15
+ texmf-dist/tex/latex/prftree/prftree.sty
+catalogue-also proofs
+catalogue-ctan /macros/latex/contrib/prftree
+catalogue-license gpl
+catalogue-topics tree maths proof
+catalogue-version 1.6

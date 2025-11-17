@@ -1,0 +1,38 @@
+name projlib
+category Package
+revision 64056
+shortdesc A series of tools to simplify your workflow
+longdesc ProjLib is a collection of tools to help you write LaTeX
+longdesc documents. With the main package ProjLib loaded, you no longer
+longdesc need to set up the theorem-like environments, nor to manually
+longdesc configure the appropriate multilingual settings. In addition, a
+longdesc series of auxiliary functionalities are introduced.
+containersize 25400
+containerchecksum f7e36cc0bc7ceae720362811360f510195385b86ec117b8b316660f3f84206194047686ef1e156a4d2d0cc5f5434f0185c0a296ef351abce1355d66c220dbc83
+doccontainersize 8536
+doccontainerchecksum f6e4f4e52eec34acb76178e05912dd4706df793383a0e1436631f544107f0c1a18d3a95034699c6112147cbcc42ab1ba9e2c532af83110e295d3dc3a1e60bfe4
+docfiles size=7
+ texmf-dist/doc/latex/projlib/LICENSE
+ texmf-dist/doc/latex/projlib/README.md details="Readme"
+srccontainersize 25584
+srccontainerchecksum 34965f1ed7bfe4ab868766d5bb7ee416d5d692ddece05e1f93995d5bef50a964f22b058a658d68bf19122dff15918f726c92b724309583214d40e8af15c3148b
+srcfiles size=52
+ texmf-dist/source/latex/projlib/ProjLib.dtx
+ texmf-dist/source/latex/projlib/ProjLib.ins
+runfiles size=56
+ texmf-dist/tex/latex/projlib/ProjLib.sty
+ texmf-dist/tex/latex/projlib/projlib-author.sty
+ texmf-dist/tex/latex/projlib/projlib-datetime.sty
+ texmf-dist/tex/latex/projlib/projlib-draft.sty
+ texmf-dist/tex/latex/projlib/projlib-font.sty
+ texmf-dist/tex/latex/projlib/projlib-language.sty
+ texmf-dist/tex/latex/projlib/projlib-logo.sty
+ texmf-dist/tex/latex/projlib/projlib-math.sty
+ texmf-dist/tex/latex/projlib/projlib-paper.sty
+ texmf-dist/tex/latex/projlib/projlib-text.sty
+ texmf-dist/tex/latex/projlib/projlib-theorem.sty
+ texmf-dist/tex/latex/projlib/projlib-titlepage.sty
+catalogue-contact-repository https://github.com/Jinwen-XU/ProjLib
+catalogue-ctan /macros/latex/contrib/projlib
+catalogue-license lppl1.3c
+catalogue-topics misc-support expl3

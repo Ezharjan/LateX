@@ -1,0 +1,40 @@
+name bibtex8
+category TLCore
+revision 52851
+catalogue bibtex8bit
+shortdesc BibTeX variant supporting 8-bit encodings
+longdesc An enhanced, portable C version of BibTeX. Enhanced by
+longdesc conversion to "big" (32-bit) capacity, addition of run-time
+longdesc selectable capacity and 8-bit support extensions. National
+longdesc character set and sorting order are controlled by an external
+longdesc configuration file. Various examples are included.
+depend bibtex8.ARCH
+containersize 9216
+containerchecksum 69f6b09fbed8a089e18ab7d39e352ad5a1e7512096a1806158ecb4df74822664b6620f3cffc12cb8a938b15a4000df2b46eadc0ff38c8de1d325539f01e8aff8
+doccontainersize 33164
+doccontainerchecksum d0863c43a5cbb87632a3513ffe75ab8a686647003366fbca1c9c168a4bb234f26078b260e1a3180f941e3eacf4717439a400df1bd180763aa43eec664009f25b
+docfiles size=22
+ texmf-dist/doc/bibtex8/00readme.txt
+ texmf-dist/doc/bibtex8/HISTORY
+ texmf-dist/doc/bibtex8/csfile.txt
+ texmf-dist/doc/bibtex8/file_id.diz
+ texmf-dist/doc/man/man1/bibtex8.1
+ texmf-dist/doc/man/man1/bibtex8.man1.pdf
+runfiles size=36
+ texmf-dist/bibtex/csf/base/88591lat.csf
+ texmf-dist/bibtex/csf/base/88591sca.csf
+ texmf-dist/bibtex/csf/base/README.TEXLIVE
+ texmf-dist/bibtex/csf/base/ascii.csf
+ texmf-dist/bibtex/csf/base/cp437lat.csf
+ texmf-dist/bibtex/csf/base/cp850lat.csf
+ texmf-dist/bibtex/csf/base/cp850sca.csf
+ texmf-dist/bibtex/csf/base/cp866rus.csf
+ texmf-dist/bibtex/csf/base/csfile.txt
+ texmf-dist/bibtex/csf/polish-csf/88592pl.csf
+ texmf-dist/bibtex/csf/polish-csf/cp1250pl.csf
+ texmf-dist/bibtex/csf/polish-csf/cp852pl.csf
+ texmf-dist/bibtex/csf/polish-csf/iso8859-7.csf
+catalogue-ctan /biblio/bibtex/8-bit
+catalogue-license gpl
+catalogue-topics biblio
+catalogue-version 3.71

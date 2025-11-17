@@ -1,0 +1,106 @@
+name lobster2
+category Package
+revision 64442
+shortdesc Lobster Two fonts, with support for all LaTeX engines
+longdesc This package provides LaTeX, pdfLaTeX, XeLaTeX and LuaLaTeX
+longdesc support for the Lobster Two family of fonts, designed by Pablo
+longdesc Impallari. This is a family of script fonts with many ligatures
+longdesc and terminal forms; for the best results, use XeLaTeX or
+longdesc LuaLaTeX. There are two weights and italic variants for both.
+execute addMap LobsterTwo.map
+containersize 514076
+containerchecksum ff9a64e40eb1e8d19ed353e4c6e46472f48eaa057a1283e8203eafd895cc622c031a849cf2cd941a664b07c4acc0e9fa18ca65acf6420cb3d40ce09c6ab6f391
+doccontainersize 104572
+doccontainerchecksum a02034161dcd7d09ab14d907fde0b4cbc570ee7e13fc1945e18c71eaffe90e5dc039266f0ac83dd7887fa1e298add0d2be9e4259cb58f6dbfe13b7bce228ab8c
+docfiles size=29
+ texmf-dist/doc/fonts/lobster2/OFL.txt
+ texmf-dist/doc/fonts/lobster2/README details="Readme"
+ texmf-dist/doc/fonts/lobster2/lobster2-samples.pdf details="Package documentation"
+ texmf-dist/doc/fonts/lobster2/lobster2-samples.tex
+runfiles size=299
+ texmf-dist/fonts/enc/dvips/lobster2/lbstr_2rydtx.enc
+ texmf-dist/fonts/enc/dvips/lobster2/lbstr_bucufw.enc
+ texmf-dist/fonts/enc/dvips/lobster2/lbstr_pvoz5h.enc
+ texmf-dist/fonts/enc/dvips/lobster2/lbstr_t7yaon.enc
+ texmf-dist/fonts/map/dvips/lobster2/LobsterTwo.map
+ texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-Bold.otf
+ texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-BoldItalic.otf
+ texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-Italic.otf
+ texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-Regular.otf
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ot1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Bold-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ot1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-BoldItalic-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ot1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Italic-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ot1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/lobster2/Lbstr-Regular-lf-ts1.tfm
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-Bold.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-BoldItalic.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-BoldItalicLCDFJ.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-BoldLCDFJ.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-Italic.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-ItalicLCDFJ.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-Regular.pfb
+ texmf-dist/fonts/type1/impallari/lobster2/Lbstr-RegularLCDFJ.pfb
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Bold-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Bold-lf-ot1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Bold-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Bold-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-BoldItalic-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-BoldItalic-lf-ot1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-BoldItalic-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-BoldItalic-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Italic-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Italic-lf-ot1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Italic-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Italic-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Regular-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Regular-lf-ot1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Regular-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/lobster2/Lbstr-Regular-lf-ts1.vf
+ texmf-dist/tex/latex/lobster2/LY1Lbstr-LF.fd
+ texmf-dist/tex/latex/lobster2/LobsterTwo.sty
+ texmf-dist/tex/latex/lobster2/OT1Lbstr-LF.fd
+ texmf-dist/tex/latex/lobster2/T1Lbstr-LF.fd
+ texmf-dist/tex/latex/lobster2/TS1Lbstr-LF.fd
+catalogue-contact-repository https://github.com/impallari/The-Lobster-Font
+catalogue-ctan /fonts/lobster2
+catalogue-license ofl lppl
+catalogue-topics font font-calligraphic font-proportional font-otf font-type1 font-supp font-t1enc

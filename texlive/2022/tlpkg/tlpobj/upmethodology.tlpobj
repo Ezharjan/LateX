@@ -1,0 +1,59 @@
+name upmethodology
+category Package
+revision 61972
+shortdesc Writing specifications such as for UP-based methodologies
+longdesc The bundle allows the user to create Unified Process
+longdesc methodology (UP or RUP) based documents. The style provides
+longdesc document versioning, document history, document authors,
+longdesc document validators, specification description, task
+longdesc management, and several helping macros.
+containersize 28816
+containerchecksum b4ff76f08060eb2fc289ec74c652bc24f28f8d4d47306143951189403b7dc9a4ee8af3a34f078fcfacf97ddc4e427e4563b862e2cc114c7fd3b9567b4c993dc8
+doccontainersize 506564
+doccontainerchecksum ab8a3700d57d0ab511a2eb438737adeea3d0e4bb0bcf4d8e97af26aa436720b9ffc0ba23d4791d2cae0c0f73c6a585948650a700ff31425facb893b6f23d70fc
+docfiles size=186
+ texmf-dist/doc/latex/upmethodology/AUTHORS
+ texmf-dist/doc/latex/upmethodology/CONTRIBUTING.textile
+ texmf-dist/doc/latex/upmethodology/COPYING
+ texmf-dist/doc/latex/upmethodology/Changelog
+ texmf-dist/doc/latex/upmethodology/README details="Readme"
+ texmf-dist/doc/latex/upmethodology/README.textile
+ texmf-dist/doc/latex/upmethodology/VERSION
+ texmf-dist/doc/latex/upmethodology/arakhne_org_logo.jpg
+ texmf-dist/doc/latex/upmethodology/figure_and_tex.pdf
+ texmf-dist/doc/latex/upmethodology/figure_and_tex.pdftex_t
+ texmf-dist/doc/latex/upmethodology/frontclassic.jpg
+ texmf-dist/doc/latex/upmethodology/frontmodern.jpg
+ texmf-dist/doc/latex/upmethodology/illustration.jpg
+ texmf-dist/doc/latex/upmethodology/upm_caution.pdf
+ texmf-dist/doc/latex/upmethodology/upm_caution.png
+ texmf-dist/doc/latex/upmethodology/upm_caution.svg
+ texmf-dist/doc/latex/upmethodology/upm_info.pdf
+ texmf-dist/doc/latex/upmethodology/upm_info.png
+ texmf-dist/doc/latex/upmethodology/upm_info.svg
+ texmf-dist/doc/latex/upmethodology/upm_question.pdf
+ texmf-dist/doc/latex/upmethodology/upm_question.png
+ texmf-dist/doc/latex/upmethodology/upm_question.svg
+ texmf-dist/doc/latex/upmethodology/upmethodology-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/upmethodology/upmethodology-doc.tex
+runfiles size=49
+ texmf-dist/bibtex/bst/upmethodology/upmplainnat.bst
+ texmf-dist/tex/latex/upmethodology/UPMVERSION.def
+ texmf-dist/tex/latex/upmethodology/upmethodology-backpage.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-code.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-document.cls
+ texmf-dist/tex/latex/upmethodology/upmethodology-document.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-extension.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-fmt.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-frontpage.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-p-common.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-spec.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-task.sty
+ texmf-dist/tex/latex/upmethodology/upmethodology-version.sty
+catalogue-contact-bugs https://github.com/gallandarakhneorg/tex-upmethodology/issues
+catalogue-contact-home http://www.arakhne.org/tex-upmethodology
+catalogue-contact-repository https://github.com/gallandarakhneorg/tex-upmethodology
+catalogue-ctan /macros/latex/contrib/upmethodology
+catalogue-license lgpl3
+catalogue-topics doc-mgmt
+catalogue-version 20220210

@@ -1,0 +1,36 @@
+name xduts
+category Package
+revision 64124
+shortdesc Xidian University TeX Suite
+longdesc XDUTS is designed to help Xidian University students use LaTeX
+longdesc typesetting efficiently. XDUTS contains a font configuration
+longdesc package that meets the school's requirements and can be applied
+longdesc to any document class. In addition, there are thesis and thesis
+longdesc proposal templates for both undergraduate and postgraduate that
+longdesc meet the school's requirements.
+containersize 521088
+containerchecksum bff618bc93ae3dbf0716bcbe66e3a9d922db6eddc0a4f045617e00b0b4df29aa4a5a51b0a498f4f330dbc50d1ec21eee36f656c723d25e3cf14da943ab9265f9
+doccontainersize 689500
+doccontainerchecksum adcb824e12c63b4e8de45030401eab5ec21b0664ec8fc93d9b0ef0df8fc856166641d1e6fbf0339892c617e7a97e42bc964f38c790ad069d82db404b1ff2cfab
+docfiles size=174
+ texmf-dist/doc/xelatex/xduts/README.md details="Readme"
+ texmf-dist/doc/xelatex/xduts/xduts.pdf details="Package documentation" language="zh"
+srccontainersize 38168
+srccontainerchecksum b7e362d5446577984bc590858f5f64fb278410b7afea322ce8c937df6b9e33405caf66039b9962845e44919cf6722eb5c3167a54a17d1da8a54e234516f91473
+srcfiles size=60
+ texmf-dist/source/xelatex/xduts/xduts.dtx
+ texmf-dist/source/xelatex/xduts/xduts.ins
+runfiles size=253
+ texmf-dist/tex/xelatex/xduts/xdufont.sty
+ texmf-dist/tex/xelatex/xduts/xdulogo.pdf
+ texmf-dist/tex/xelatex/xduts/xdupgthesis.cls
+ texmf-dist/tex/xelatex/xduts/xduugthesis.cls
+catalogue-also xduthesis
+catalogue-contact-bugs https://github.com/note286/xduts/issues
+catalogue-contact-development https://github.com/note286
+catalogue-contact-repository https://github.com/note286/xduts
+catalogue-contact-support https://github.com/note286/xduts/discussions
+catalogue-ctan /macros/xetex/latex/xduts
+catalogue-license lppl1.3c
+catalogue-topics dissertation proposal expl3
+catalogue-version 2.12.2.0

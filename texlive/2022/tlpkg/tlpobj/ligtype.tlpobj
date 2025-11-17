@@ -1,0 +1,29 @@
+name ligtype
+category Package
+revision 63577
+shortdesc Comprehensive ligature suppression functionalities
+longdesc This package suppresses inappropriate ligatures following
+longdesc specified rules. Both font and user kerning are applied
+longdesc correctly, and f-glyphs are automatically replaced with their
+longdesc short-arm variant (if available). Also there is an emphasis on
+longdesc speed. By default the package applies German language ligature
+longdesc suppression rules. With the help of options and macros it can
+longdesc be used for other languages as well. The package requires
+longdesc LuaLaTeX.
+containersize 9724
+containerchecksum d28a77d7cdf47f3def3218507d384168766a2a497326560cda325303dad8dce90a5d823486fe0cbad8d254890332a30470349a113a955acf97d1cd780ecffff4
+doccontainersize 90712
+doccontainerchecksum 96c466142a9cb4c983650404ff8c803c4e8218862607ab2da95f3dd2bee2fb42dcb6a5dcf4c0f69924296ad468f3b2d0ac2ea7d7b3779721e3fc95ac4fb0317f
+docfiles size=32
+ texmf-dist/doc/lualatex/ligtype/DEPENDS.txt
+ texmf-dist/doc/lualatex/ligtype/README.md details="Readme"
+ texmf-dist/doc/lualatex/ligtype/ligtype.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/ligtype/ligtype.tex
+runfiles size=24
+ texmf-dist/tex/lualatex/ligtype/ligtype.lua
+ texmf-dist/tex/lualatex/ligtype/ligtype.sty
+catalogue-also rmligs
+catalogue-ctan /macros/luatex/latex/ligtype
+catalogue-license lppl1.3c
+catalogue-topics letterspace luatex typesetting
+catalogue-version 0.1b

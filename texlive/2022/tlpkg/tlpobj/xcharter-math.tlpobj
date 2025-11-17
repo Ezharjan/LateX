@@ -1,0 +1,25 @@
+name xcharter-math
+category Package
+revision 63223
+shortdesc XCharter-based OpenType Math font for LuaTeX and XeTeX
+longdesc This package provides an Unicode Math font XCharter-Math.otf
+longdesc meant to be used together with XCharter Opentype Text fonts
+longdesc (extension of Bitstream Charter) in LuaLaTeX or XeLaTeX
+longdesc documents.
+containersize 201948
+containerchecksum 9798d034db8ce472b287dcb60e498e4cc8171a072e1bd58293be15d99f3689a14ea61b6291e694b1771fafefa8565dd892e561dda95c0a8205502b0cf1ece46b
+doccontainersize 1945384
+doccontainerchecksum f4967bcccca01e105161bea2808c68eb02734da9c7935b7403e1835bc0a1943e91e4867714e0720738fd74e7239cf3d38f67651eb8f930deeb35da50d208d2a8
+docfiles size=502
+ texmf-dist/doc/fonts/xcharter-math/README.md details="Readme"
+ texmf-dist/doc/fonts/xcharter-math/XCharter-Math.ltx
+ texmf-dist/doc/fonts/xcharter-math/XCharter-Math.pdf details="Package documentation"
+ texmf-dist/doc/fonts/xcharter-math/unimath-xcharter.ltx
+ texmf-dist/doc/fonts/xcharter-math/unimath-xcharter.pdf details="List of glyphs"
+runfiles size=82
+ texmf-dist/fonts/opentype/public/xcharter-math/XCharter-Math.otf
+ texmf-dist/tex/latex/xcharter-math/xcharter-otf.sty
+catalogue-ctan /fonts/xcharter-math
+catalogue-license ofl lppl1.3
+catalogue-topics font font-otf font-maths font-supp-maths
+catalogue-version 0.32

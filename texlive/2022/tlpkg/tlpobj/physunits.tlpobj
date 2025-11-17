@@ -1,0 +1,29 @@
+name physunits
+category Package
+revision 58728
+shortdesc Macros for commonly used physical units
+longdesc This package provides a collection of macros to simplify using
+longdesc physical units (e.g. m for meters, J for joules, etc.),
+longdesc especially in math mode. All major SI units are included, as
+longdesc well as some cgs units used in astronomy.
+containersize 1744
+containerchecksum 96f700e6dd103f768383a78645cb32e363b83c459a0c764a77d127bbf2aa7c143105752ef9910a2d9d6e659547931b01a2bb0683b41d8870c0fd850d7e01de3f
+doccontainersize 104792
+doccontainerchecksum e0a3fe337242d4da26153258f16dd8f71c2a704ed89fea8dc0f58b1fca7ecbf9fb168bc05adee988aca61883bf94272ec2f1ed841d99e47f0992b04f6c5bc371
+docfiles size=29
+ texmf-dist/doc/latex/physunits/CHANGELOG.md
+ texmf-dist/doc/latex/physunits/README.md details="Readme"
+ texmf-dist/doc/latex/physunits/makefile
+ texmf-dist/doc/latex/physunits/physunits.pdf details="Package documentation"
+srccontainersize 6552
+srccontainerchecksum 59ebd20b6658b4f4082e56dbb2017b4f63fbf9d7a61dc6c5b91a1da1be4794b1e555f2c6e68cb19ee6bd4c0e860eab77905eadd7fd4f72ea83f4b251bc8fae14
+srcfiles size=13
+ texmf-dist/source/latex/physunits/physunits.dtx
+ texmf-dist/source/latex/physunits/physunits.ins
+runfiles size=2
+ texmf-dist/tex/latex/physunits/physunits.sty
+catalogue-contact-repository https://github.com/astrobit/physunits
+catalogue-ctan /macros/latex/contrib/physunits
+catalogue-license lppl1.3c
+catalogue-topics physics units scientific-docs
+catalogue-version 1.2.0

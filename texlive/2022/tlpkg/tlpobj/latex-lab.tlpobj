@@ -1,0 +1,45 @@
+name latex-lab
+category Package
+revision 63527
+shortdesc LaTeX laboratory
+longdesc The LaTeX laboratory provides a route for additions to the
+longdesc LaTeX kernel to be stablised, whilst still allowing some
+longdesc stablity for adventorous users.
+containersize 8884
+containerchecksum 093edbf241afdc1374eeb0bfb0c836d9585ce0d94754d8106b204452515c01fed4463d39aedacc28bf98e6639080c9422cc88065d9c10d337a544dcb05cb6193
+doccontainersize 1869528
+doccontainerchecksum c1d5c5b961e9e15306a16de25aafbacbe9f8371bedcb36322f1ec500203c3da22faf5050e7e5d4bc60c580994ca4068e324f2ff97470c03bc888a6b481e959f2
+docfiles size=584
+ texmf-dist/doc/latex/latex-lab/README.md details="Readme"
+ texmf-dist/doc/latex/latex-lab/changes.txt
+ texmf-dist/doc/latex/latex-lab/documentmetadata-support-code.pdf
+ texmf-dist/doc/latex/latex-lab/documentmetadata-support-code.tex
+ texmf-dist/doc/latex/latex-lab/documentmetadata-support-doc.pdf
+ texmf-dist/doc/latex/latex-lab/documentmetadata-support-doc.tex
+ texmf-dist/doc/latex/latex-lab/latex-lab-footnotes.pdf
+ texmf-dist/doc/latex/latex-lab/latex-lab-new-or.pdf
+ texmf-dist/doc/latex/latex-lab/latex-lab-testphase.pdf
+ texmf-dist/doc/latex/latex-lab/usage-of-footnotemark.txt
+ texmf-dist/doc/latex/latex-lab/usage-of-footnotetext.txt
+ texmf-dist/doc/latex/latex-lab/usage-of-kern-kern.txt
+srccontainersize 21840
+srccontainerchecksum 471bad49dc3d28a3320e2e63a6081add6b25e3e24e877706af301e0e2d401fdcb2cb960c9548bf11a4155eb371a393136d4e3cef876fb95b11923d634753884c
+srcfiles size=23
+ texmf-dist/source/latex/latex-lab/documentmetadata-support.dtx
+ texmf-dist/source/latex/latex-lab/latex-lab-footnotes.dtx
+ texmf-dist/source/latex/latex-lab/latex-lab-new-or.dtx
+ texmf-dist/source/latex/latex-lab/latex-lab-testphase.dtx
+ texmf-dist/source/latex/latex-lab/latex-lab.ins
+runfiles size=16
+ texmf-dist/tex/latex/latex-lab/documentmetadata-support.ltx
+ texmf-dist/tex/latex/latex-lab/latex-lab-footmisc.ltx
+ texmf-dist/tex/latex/latex-lab/latex-lab-footnotes.ltx
+ texmf-dist/tex/latex/latex-lab/latex-lab-testphase-new-or.sty
+ texmf-dist/tex/latex/latex-lab/new-or-latex-lab-testphase.ltx
+ texmf-dist/tex/latex/latex-lab/phase-I-latex-lab-testphase.ltx
+ texmf-dist/tex/latex/latex-lab/phase-II-latex-lab-testphase.ltx
+ texmf-dist/tex/latex/latex-lab/tagpdf-latex-lab-testphase.ltx
+catalogue-contact-home https://www.latex-project.org
+catalogue-ctan /macros/latex/required/latex-lab
+catalogue-license lppl1.3c
+catalogue-topics format latex-devel

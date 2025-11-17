@@ -1,0 +1,45 @@
+name pst-func
+category Package
+revision 60933
+shortdesc PSTricks package for plotting mathematical functions
+longdesc The package is built for use with PSTricks. It provides macros
+longdesc for plotting and manipulating various mathematical functions:
+longdesc polynomials and their derivatives
+longdesc f(x)=an*x^n+an-1*x^(n-1)+...+a0 defined by the coefficients a0
+longdesc a1 a2 ... and the derivative order; the Fourier sum f(x) =
+longdesc a0/2+a1cos(omega x)+...+b1sin(omega x)+... defined by the
+longdesc coefficients a0 a1 a2 ... b1 b2 b3 ...; the Bessel function
+longdesc defined by its order; the Gauss function defined by sigma and
+longdesc mu; Bezier curves from order 1 (two control points) to order 9
+longdesc (10 control points); the superellipse function (the Lame
+longdesc curve); Chebyshev polynomials of the first and second kind; the
+longdesc Thomae (or popcorn) function; the Weierstrass function; various
+longdesc integration-derived functions; normal, binomial, poisson,
+longdesc gamma, chi-squared, student's t, F, beta, Cauchy and Weibull
+longdesc distribution functions and the Lorenz curve; the zeroes of a
+longdesc function, or the intermediate point of two functions; the
+longdesc Vasicek function for describing the evolution of interest
+longdesc rates; and implicit functions. The plots may be generated as
+longdesc volumes of rotation about the X-axis, as well.
+containersize 19920
+containerchecksum f33d9c983c7b79fb6d8f1a8e473afda6f2a4b23e133ab004f2fe4633e4f8fc3fe885034b409f90842c4a4cb81c86527edef445e1408a57d78aef1a006225e85c
+doccontainersize 3514644
+doccontainerchecksum 7d0ce738ecdb79eb4c630a5bd51ebc47d92f6ace9b35ee60928520c51c96254ff1f554ff08d8d8addfdac2b28b3d7dc3f90afb73838abacb3f1d8af0fcdf37ec
+docfiles size=1030
+ texmf-dist/doc/generic/pst-func/Changes
+ texmf-dist/doc/generic/pst-func/README.md details="Package README"
+ texmf-dist/doc/generic/pst-func/pst-func-doc.bib
+ texmf-dist/doc/generic/pst-func/pst-func-doc.data
+ texmf-dist/doc/generic/pst-func/pst-func-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/pst-func/pst-func-doc.tex
+runfiles size=24
+ texmf-dist/dvips/pst-func/pst-func.pro
+ texmf-dist/tex/generic/pst-func/pst-func.tex
+ texmf-dist/tex/latex/pst-func/pst-func.sty
+catalogue-contact-home http://pstricks.tug.org
+catalogue-contact-repository https://archiv.dante.de/~herbert/TeXnik/
+catalogue-contact-support https://tug.org/mailman/listinfo/pstricks
+catalogue-ctan /graphics/pstricks/contrib/pst-func
+catalogue-license lppl
+catalogue-topics maths graphics-plotfn graphics-use pstricks
+catalogue-version 0.99

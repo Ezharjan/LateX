@@ -1,0 +1,54 @@
+name forest
+category Package
+revision 57398
+shortdesc Drawing (linguistic) trees
+longdesc The package provides a PGF/TikZ-based mechanism for drawing
+longdesc linguistic (and other kinds of) trees. Its main features are: a
+longdesc packing algorithm which can produce very compact trees; a
+longdesc user-friendly interface consisting of the familiar bracket
+longdesc encoding of trees plus the key-value interface to
+longdesc option-setting; many tree-formatting options, with control over
+longdesc option values of individual nodes and mechanisms for their
+longdesc manipulation; the possibility to decorate the tree using the
+longdesc full power of PGF/TikZ; and an externalization mechanism
+longdesc sensitive to code-changes.
+depend elocalloc
+depend environ
+depend etoolbox
+depend inlinedef
+depend l3packages
+depend pgf
+depend pgfopts
+containersize 56176
+containerchecksum edc3341b84e7e89fba3bb76004562c0bc889f944ed33474ba9cf5ed5e63a690202e851a30f44158caa8351b874b8e91659bd91c50d59ec43de9460869e4213f1
+doccontainersize 1798192
+doccontainerchecksum fdaec77023176fc2f7510a9e3b4dcc587898e1f96886340222f932c0d93b1002ad35fba8a38a036f713e41814f3dc6b3f75a5657ae485b15ffea43089895bcae
+docfiles size=532
+ texmf-dist/doc/latex/forest/LICENCE
+ texmf-dist/doc/latex/forest/README details="Readme"
+ texmf-dist/doc/latex/forest/forest-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/forest/forest-doc.tex
+ texmf-dist/doc/latex/forest/forest.pdf
+ texmf-dist/doc/latex/forest/tex.bib
+srccontainersize 76248
+srccontainerchecksum 45f912d17d29568e6ee267814d63bc14c20bb0d91c62b39c21301dd611c50db3b5f7de5f16b519da0f2b4d15609727144c34b16a620abb85114a42344cdaf24f
+srcfiles size=118
+ texmf-dist/source/latex/forest/forest-doc.ins
+ texmf-dist/source/latex/forest/forest-index.dtx
+ texmf-dist/source/latex/forest/forest-libs.dtx
+ texmf-dist/source/latex/forest/forest.dtx
+ texmf-dist/source/latex/forest/forest.ins
+runfiles size=100
+ texmf-dist/makeindex/forest/forest-doc.ist
+ texmf-dist/tex/latex/forest/forest-compat.sty
+ texmf-dist/tex/latex/forest/forest-doc.sty
+ texmf-dist/tex/latex/forest/forest-index.sty
+ texmf-dist/tex/latex/forest/forest-lib-edges.sty
+ texmf-dist/tex/latex/forest/forest-lib-linguistics.sty
+ texmf-dist/tex/latex/forest/forest.sty
+catalogue-also forest-quickstart
+catalogue-contact-repository https://github.com/sasozivanovic/forest
+catalogue-ctan /graphics/pgf/contrib/forest
+catalogue-license lppl1.3
+catalogue-topics tree pgf-tikz linguistic
+catalogue-version 2.1.5

@@ -1,0 +1,42 @@
+name pxrubrica
+category Package
+revision 64072
+shortdesc Ruby annotations according to JIS X 4051
+longdesc This package provides a function to add ruby annotations
+longdesc (furigana) that follow the style conventional in Japanese
+longdesc typography as described in the W3C technical note "Requirements
+longdesc for Japanese Text Layout" ([JLREQ]) and the JIS specification
+longdesc JIS X 4051. Starting with version 1.3, this package also
+longdesc provides a function to add kenten (emphasis marks) to Japanese
+longdesc text.
+containersize 13656
+containerchecksum 2a3009d485a3132232194cb380ab1f2a3a2885d8f11e520c3f07d2e019bffa69ca1c954da6af6b3e5c458676d78abca18f617bb3af7c9ba5bd9cdd937fa713bf
+doccontainersize 723764
+doccontainerchecksum 1cd47c2676ced19827cdef570f2970ac677d2daab027690b58f5c9dfc668f9d248ba0effe9c6ba94ef9728f46a14dbc4a4944b57c4d7346673b0b3325ce2a56a
+docfiles size=204
+ texmf-dist/doc/platex/pxrubrica/LICENSE
+ texmf-dist/doc/platex/pxrubrica/README-ja.md details="Readme" language="ja"
+ texmf-dist/doc/platex/pxrubrica/README.md details="Readme"
+ texmf-dist/doc/platex/pxrubrica/pxrubrica-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/platex/pxrubrica/pxrubrica-en.tex
+ texmf-dist/doc/platex/pxrubrica/pxrubrica.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/platex/pxrubrica/sample/test-jlreq.pdf
+ texmf-dist/doc/platex/pxrubrica/sample/test-jlreq.tex
+ texmf-dist/doc/platex/pxrubrica/sample/test-sample.pdf
+ texmf-dist/doc/platex/pxrubrica/sample/test-sample.tex
+ texmf-dist/doc/platex/pxrubrica/sample/test-sf.pdf
+ texmf-dist/doc/platex/pxrubrica/sample/test-sf.tex
+ texmf-dist/doc/platex/pxrubrica/sample/test-toc.pdf
+ texmf-dist/doc/platex/pxrubrica/sample/test-toc.tex
+srccontainersize 38388
+srccontainerchecksum ac4783ce035f520cf9e91a0a530cf850128b4be99e47976eda252189238a14eaff29777f971e5cc497c634f403fb77a567513c60309811979c8f707a44ae77d8
+srcfiles size=53
+ texmf-dist/source/platex/pxrubrica/pxrubrica.dtx
+ texmf-dist/source/platex/pxrubrica/pxrubrica.ins
+runfiles size=20
+ texmf-dist/tex/platex/pxrubrica/pxrubrica.sty
+catalogue-contact-home https://github.com/zr-tex8r/PXrubrica
+catalogue-ctan /macros/jptex/latex/pxrubrica
+catalogue-license mit
+catalogue-topics japanese std-conform
+catalogue-version 1.3d

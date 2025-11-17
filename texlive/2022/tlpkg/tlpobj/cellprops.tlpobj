@@ -1,0 +1,29 @@
+name cellprops
+category Package
+revision 57599
+shortdesc Accept CSS-like selectors in tabular, array, ...
+longdesc This package reworks the internals of tabular, array, and
+longdesc similar constructs, and adds a \cellprops command accepting
+longdesc CSS-like selectors and properties. It depends on mdwtab,
+longdesc xcolor, expl3, and xparse.
+containersize 6992
+containerchecksum 44aa6378b682ec67b547458ffbdd26416c517cbd8df6b021325448696e291e0a8006ec036edcd476f105dc8cf41e556867f8f87fad30da184668050bb2d8d34e
+doccontainersize 567908
+doccontainerchecksum 187c5708944d275b5d17f616a2b4bbfc76fcaa0dc9d11da2d67769e46b232656f1bab0602ea94b3fcb1665c92500abb7ffe60645ff267da077ea98f35620efb3
+docfiles size=151
+ texmf-dist/doc/latex/cellprops/LICENSE
+ texmf-dist/doc/latex/cellprops/README.md details="Readme"
+ texmf-dist/doc/latex/cellprops/cellprops.pdf details="Package documentation"
+srccontainersize 13580
+srccontainerchecksum 771b6bc32e1e82a62dc1a93c955b01455b14ca5f9fe43d79f29e131487ec695ac50d6106cfe68c5e1e8fdf6d88980b7d7220613a8132472cc8fcd0d9d3b63045
+srcfiles size=16
+ texmf-dist/source/latex/cellprops/cellprops.dtx
+ texmf-dist/source/latex/cellprops/cellprops.ins
+runfiles size=10
+ texmf-dist/tex/latex/cellprops/cellprops.sty
+catalogue-contact-bugs https://gitlab.com/frnchfrgg-latex/cellprops/issues
+catalogue-contact-repository https://gitlab.com/frnchfrgg-latex/cellprops
+catalogue-ctan /macros/latex/contrib/cellprops
+catalogue-license gpl3+
+catalogue-topics table expl3
+catalogue-version 2.0

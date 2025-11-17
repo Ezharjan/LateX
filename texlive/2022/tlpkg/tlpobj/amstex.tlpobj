@@ -1,0 +1,60 @@
+name amstex
+category Package
+revision 63708
+shortdesc American Mathematical Society plain TeX macros
+longdesc AMS-TeX is a TeX macro package, originally written by Michael
+longdesc Spivak for the American Mathematical Society (AMS) during
+longdesc 1983-1985 and is described in the book 'The Joy of TeX'. It is
+longdesc based on Plain TeX, and provides many features for producing
+longdesc more professional-looking maths formulas with less burden on
+longdesc authors. This is the final archival distribution of AMS-TeX.
+longdesc AMS-TeX is no longer supported by the AMS, nor is it used by
+longdesc the AMS publishing program. The AMS does not recommend creating
+longdesc any new documents using AMS-TeX; this distribution will be left
+longdesc on CTAN to facilitate processing of legacy documents and as a
+longdesc historical record of a pioneering TeX macro collection that
+longdesc played a key role in popularizing TeX and revolutionizing
+longdesc mathematics publishing. In addition to the "User's Guide to
+longdesc AMS-TeX", the AMS has also made the full text of the most
+longdesc recent reprint of the second edition of "The Joy of TeX" by
+longdesc Michael Spivak available as a pdf file. AMS-TeX is the
+longdesc historical basis of amslatex, which should now be used to
+longdesc prepare submissions for the AMS.
+depend amsfonts
+depend amstex.ARCH
+depend cm
+depend hyphen-base
+depend knuth-lib
+depend plain
+depend tex
+execute AddFormat name=amstex engine=pdftex           options="-translate-file=cp227.tcx *amstex.ini"           fmttriggers=amsfonts,cm,hyphen-base,knuth-lib,plain
+containersize 38380
+containerchecksum d92156cc5a01152776378c8809993b2ccbc9e917125d2ecfd2a06482401008385928e279a8832f328f7a8f4f3eeb746f9725e4986e4eb2f478c20a432ea8698e
+doccontainersize 411592
+doccontainerchecksum ba87f3c3858ad7d86de6bcc03e50c5407e83f9de4bd3b3c63e3ce612fc5f933fba0d10bbad88525bae0a1f489adbd02643687f650874409962ee5b29447e14e8
+docfiles size=204
+ texmf-dist/doc/amstex/base/README details="Readme"
+ texmf-dist/doc/amstex/base/amsguide.pdf details="User's guide and installation details"
+ texmf-dist/doc/amstex/base/amsguide.tex
+ texmf-dist/doc/amstex/base/amsppt.doc
+ texmf-dist/doc/amstex/base/amsppt.faq
+ texmf-dist/doc/amstex/base/amsppt.txt
+ texmf-dist/doc/amstex/base/amstex.txt
+ texmf-dist/doc/amstex/base/amstinst.pdf
+ texmf-dist/doc/amstex/base/amstinst.tex
+ texmf-dist/doc/amstex/base/joyerr2.tex
+ texmf-dist/doc/man/man1/amstex.1
+ texmf-dist/doc/man/man1/amstex.man1.pdf
+runfiles size=44
+ texmf-dist/tex/amstex/base/amsppt.sti
+ texmf-dist/tex/amstex/base/amsppt.sty
+ texmf-dist/tex/amstex/base/amsppt1.tex
+ texmf-dist/tex/amstex/base/amstex.bug
+ texmf-dist/tex/amstex/base/amstex.tex
+ texmf-dist/tex/amstex/config/amstex.ini
+catalogue-also joy-of-tex
+catalogue-contact-home https://www.ams.org/arc/resources/amslatex-about.html
+catalogue-ctan /macros/amstex
+catalogue-license lppl
+catalogue-topics maths
+catalogue-version 2.01

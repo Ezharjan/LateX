@@ -1,0 +1,25 @@
+name lengthconvert
+category Package
+revision 55064
+shortdesc Express lengths in arbitrary units
+longdesc The package provides a command to convert a length to any of a
+longdesc large selection of units. The package relies on the LaTeX3
+longdesc programming environment.
+containersize 2020
+containerchecksum 7796d45d91e157f2e901a1a48a7841bf222f86540ac00d59250e3f47568ab86832bc115340c0b65b27c12eb1a39cc2729cffb5da71afc413dbae737341d8eb63
+doccontainersize 443500
+doccontainerchecksum 4191c3ce9b546f885c61243a343761a9dbc1ac031b3878a87c292d99a70effc89d927a1fd35eeafdd6523aea7c4bde0c90255057177767f534b471d4e098d3d4
+docfiles size=109
+ texmf-dist/doc/latex/lengthconvert/lengthconvert.pdf details="Package documentation"
+srccontainersize 4160
+srccontainerchecksum ae8d4f8563c86a5fbcd56d40dc39df2bf52bf4dd5098b4976ddc6ec00b8512e2d6cf4a4b3f6fe83e27188ea24ad954c8043daf49aaaa15e503bc2f84f740ae75
+srcfiles size=5
+ texmf-dist/source/latex/lengthconvert/lengthconvert.dtx
+ texmf-dist/source/latex/lengthconvert/lengthconvert.ins
+runfiles size=2
+ texmf-dist/tex/latex/lengthconvert/lengthconvert.sty
+catalogue-also printlen unitconv
+catalogue-ctan /macros/latex/contrib/lengthconvert
+catalogue-license lppl1.3
+catalogue-topics units misc-conv expl3
+catalogue-version 1.0a

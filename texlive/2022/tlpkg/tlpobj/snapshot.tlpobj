@@ -1,0 +1,37 @@
+name snapshot
+category Package
+revision 56735
+shortdesc List the external dependencies of a LaTeX document
+longdesc The snapshot package helps the owner of a LaTeX document obtain
+longdesc a list of the external dependencies of the document, in a form
+longdesc that can be embedded at the top of the document. It provides a
+longdesc snapshot of the current processing context of the document,
+longdesc insofar as it can be determined from inside LaTeX. If a
+longdesc document contains such a dependency list, then it becomes
+longdesc possible to arrange that the document be processed always with
+longdesc the same versions of everything, in order to ensure the same
+longdesc output. This could be useful for someone wanting to keep a
+longdesc LaTeX document on hand and consistently reproduce an identical
+longdesc DVI file from it, on the fly; or for someone wanting to shield
+longdesc a document during the final stages of its production cycle from
+longdesc unexpected side effects of routine upgrades to the TeX system.
+containersize 5496
+containerchecksum 2b9bba924070f81319758c4b8a8e85533ff5099e901598248d5a645aba249e7158587e7d90072d3e8fa4d544d09f800b94aa415117683a8bb8c6d7ff642c313d
+doccontainersize 237516
+doccontainerchecksum b1dda7b3fa9195e5d0e425a4b7facc75f8737446b65b29cd5f3c954dad348055c8544968b3c68f9b2256e8d827ae73b54b765d23b958abc383bef072d9eacfe7
+docfiles size=60
+ texmf-dist/doc/latex/snapshot/README
+ texmf-dist/doc/latex/snapshot/snapshot.pdf details="Package documentation"
+srccontainersize 14884
+srccontainerchecksum ae57330c3c69e82c638e07ca7d2d011838a85ae79f3f16fcb8909076f375da51f2b1d3487aadf55cf93306c035099397fa826a7bd9654e6756cde66d2138b15b
+srcfiles size=15
+ texmf-dist/source/latex/snapshot/snapshot.dtx
+ texmf-dist/source/latex/snapshot/snapshot.ins
+runfiles size=5
+ texmf-dist/tex/latex/snapshot/snapshot.sty
+catalogue-also bundledoc
+catalogue-contact-home https://www.ams.org/arc/resources/snapshot-about.html
+catalogue-ctan /macros/latex/contrib/snapshot
+catalogue-license lppl1.3c
+catalogue-topics file-mgmt archival
+catalogue-version 2.14

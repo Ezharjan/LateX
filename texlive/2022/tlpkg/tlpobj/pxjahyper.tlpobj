@@ -1,0 +1,27 @@
+name pxjahyper
+category Package
+revision 64072
+shortdesc Hyperref support for pLaTeX
+longdesc This package adjusts the behavior of hyperref on (u)pLaTeX so
+longdesc that authors can properly create PDF documents that contain
+longdesc document information in Japanese.
+containersize 19304
+containerchecksum 1680468c2f94c7cc12de6f4c727604796afb99827bb67b4e995c7fb6560eae209b512272aa9b88a8e58c39808ec297189da10994082f352bcdec507e9d597ee6
+doccontainersize 163868
+doccontainerchecksum 130b307e3c6a744c70366f7049e0996a0885399bab661079c5600889717a9b95a9a881c469174787bb6e4eb567eac012ac64a20732856b79d6f7d83bc0258754
+docfiles size=48
+ texmf-dist/doc/platex/pxjahyper/LICENSE
+ texmf-dist/doc/platex/pxjahyper/README-ja.md details="Readme (Japanese)" language="ja"
+ texmf-dist/doc/platex/pxjahyper/README.md details="Readme"
+ texmf-dist/doc/platex/pxjahyper/pxjahyper.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/platex/pxjahyper/pxjahyper.tex
+runfiles size=23
+ texmf-dist/tex/platex/pxjahyper/pxjahyper-ajm.def
+ texmf-dist/tex/platex/pxjahyper/pxjahyper-enc.sty
+ texmf-dist/tex/platex/pxjahyper/pxjahyper-uni.def
+ texmf-dist/tex/platex/pxjahyper/pxjahyper.sty
+catalogue-contact-repository https://github.com/zr-tex8r/PXjahyper
+catalogue-ctan /macros/jptex/latex/pxjahyper
+catalogue-license mit
+catalogue-topics japanese hyper
+catalogue-version 1.2

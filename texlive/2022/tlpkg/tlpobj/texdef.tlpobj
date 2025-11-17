@@ -1,0 +1,43 @@
+name texdef
+category Package
+revision 56466
+shortdesc Display the definitions of TeX commands
+longdesc This (Perl) script displays the definitions of (La)TeX command
+longdesc sequences/macros. Various options allow the selection of the
+longdesc used class as well as package files and other factors that may
+longdesc influence the definition (before/after the preamble, inside an
+longdesc environment, ...). The script creates a temporary TeX file
+longdesc which is then compiled using (La)TeX to find the '\meaning' of
+longdesc the command sequence. The result is formatted and presented to
+longdesc the user. Length or number command sequences (dimensions,
+longdesc \char..., count registers, ...) are recognized and the
+longdesc contained value is also shown (using \the). Special definitions
+longdesc like protected macros are also recognized and the underlying
+longdesc macros are shown as well. The script will show plain TeX
+longdesc definitions by default. LaTeX and ConTeXt are supported,
+longdesc including flavours (pdf(La)TeX, Lua(La)TeX, Xe(La)TeX, ...).
+longdesc The flavour can be selected using a command line option, or via
+longdesc the script name: latexdef will use LaTeX as default, etc.
+depend texdef.ARCH
+containersize 9468
+containerchecksum cc85ae5298a72c337c1c4571f2af698b62b182521cc65d0ffa459b89121e9eeae7d6f033456278ec6f61f91cbc2a6feed18005786e5b9943a8b0893111e61017
+doccontainersize 156088
+doccontainerchecksum dbb3516132d0779f657a051b0140491d8baf1bd6ddbeef92d94414a791894696d9ce39d49b3cd689dfcea2d387a221e1b27cb486764b011c7068d7a1d352f679
+docfiles size=42
+ texmf-dist/doc/support/texdef/CHANGELOG
+ texmf-dist/doc/support/texdef/INSTALL
+ texmf-dist/doc/support/texdef/README details="Readme"
+ texmf-dist/doc/support/texdef/texdef.pdf details="Package documentation"
+srccontainersize 4884
+srccontainerchecksum ebf0284c4c8fdc35c8b6895f054d5055568a5e4b8edb061c91da4627b017dc7cb033943c11390f3d05923761a617354ea56ef95d3bf1a02cde66e55ecd734e1d
+srcfiles size=4
+ texmf-dist/source/support/texdef/texdef.tex
+runfiles size=9
+ texmf-dist/scripts/texdef/texdef.pl
+catalogue-contact-bugs https://sourceforge.net/p/texdef/tickets/
+catalogue-contact-home https://sourceforge.net/projects/texdef/
+catalogue-contact-repository https://sourceforge.net/p/texdef/code/
+catalogue-ctan /support/texdef
+catalogue-license gpl3
+catalogue-topics debug-supp
+catalogue-version 1.9

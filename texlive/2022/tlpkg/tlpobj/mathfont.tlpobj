@@ -1,0 +1,42 @@
+name mathfont
+category Package
+revision 61719
+shortdesc Use TrueType and OpenType fonts in math mode
+longdesc The mathfont package adapts unicode text fonts for math mode.
+longdesc The package allows the user to specify a default unicode font
+longdesc for different classes of math symbols, and it provides tools to
+longdesc change the font locally for math alphabet characters. When
+longdesc typesetting with LuaTeX, mathfont adds resizable delimiters,
+longdesc big operators, and a MathConstants table to text fonts.
+containersize 21164
+containerchecksum d865f7aeacad69848e20419e9ef88db46f70c04d0e9f9f0a8388cc35fe4d98ef1af26aa6060892efb181addd8b14d592f2a1033be26451979adde7762b23bcba
+doccontainersize 855308
+doccontainerchecksum 05cc45350103bfaa9954b458e77a001d37edf0686de855f6fd2a60069454f7aa8e1e7b266a13eddb74d1a32d151ee529c9b4c0bc15e0e563b1ebc4c4036f949d
+docfiles size=245
+ texmf-dist/doc/latex/mathfont/README.txt details="Readme"
+ texmf-dist/doc/latex/mathfont/mathfont_code.pdf details="Code implementation"
+ texmf-dist/doc/latex/mathfont/mathfont_doc_patch.tex
+ texmf-dist/doc/latex/mathfont/mathfont_equations.tex
+ texmf-dist/doc/latex/mathfont/mathfont_example_cormorant.pdf details="Cormorant example"
+ texmf-dist/doc/latex/mathfont/mathfont_example_cormorant.tex
+ texmf-dist/doc/latex/mathfont/mathfont_example_kelvinch.pdf details="Kelvinch example"
+ texmf-dist/doc/latex/mathfont/mathfont_example_kelvinch.tex
+ texmf-dist/doc/latex/mathfont/mathfont_example_roboto.pdf details="Roboto example"
+ texmf-dist/doc/latex/mathfont/mathfont_example_roboto.tex
+ texmf-dist/doc/latex/mathfont/mathfont_example_typey.pdf details="Typey example"
+ texmf-dist/doc/latex/mathfont/mathfont_example_typey.tex
+ texmf-dist/doc/latex/mathfont/mathfont_heading.tex
+ texmf-dist/doc/latex/mathfont/mathfont_symbol_list.pdf details="Symbol list"
+ texmf-dist/doc/latex/mathfont/mathfont_symbol_list.tex
+ texmf-dist/doc/latex/mathfont/mathfont_user_guide.pdf details="User guide"
+ texmf-dist/doc/latex/mathfont/mathfont_user_guide.tex
+srccontainersize 62736
+srccontainerchecksum 7b4a411b4783a7d1a3e1ceaca8c26e6831ead98f8f73eee63b2fa452399e95505edda1bf983759a8261e66a1436496b02c5811074745b64fb64b4d93fc361e22
+srcfiles size=80
+ texmf-dist/source/latex/mathfont/mathfont_code.dtx
+runfiles size=37
+ texmf-dist/tex/latex/mathfont/mathfont.sty
+catalogue-ctan /macros/latex/contrib/mathfont
+catalogue-license lppl1.3c
+catalogue-topics font-mgmt font-use maths
+catalogue-version 2.0

@@ -1,0 +1,27 @@
+name chemnum
+category Package
+revision 57490
+shortdesc A method for numbering chemical compounds
+longdesc The package defines a \label- and \ref-like commands for
+longdesc compound numbers. The package requires LaTeX3 packages expl3
+longdesc (from the l3kernel bundle) as well as xparse and l3keys2e (from
+longdesc the l3packages bundle).
+containersize 11532
+containerchecksum ea8bcdbb4e69422052758aa7c49f8870c468834ca15833ba4aa89df98c88dd025b4677a9a15b85dd9f953eed6e05b62bd8ef2d4849bdbb113f16de9fbede1205
+doccontainersize 794728
+doccontainerchecksum 31d1e6c6165f7d8ab15ed322b1cacea608fc796c74e3cbadde89a56f1e7bf45c01bcc6985d24a69b459976f75565f35f61174fc34562265b7f159b5b42d1ac30
+docfiles size=274
+ texmf-dist/doc/latex/chemnum/README details="Readme"
+ texmf-dist/doc/latex/chemnum/chemnum_en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/chemnum/chemnum_en.tex
+ texmf-dist/doc/latex/chemnum/scheme-bla.ps
+ texmf-dist/doc/latex/chemnum/scheme-tmp.ps
+runfiles size=19
+ texmf-dist/tex/latex/chemnum/chemnum.sty
+catalogue-also chemcompounds chemcono
+catalogue-contact-bugs https://github.com/cgnieder/chemnum/issues
+catalogue-contact-repository https://github.com/cgnieder/chemnum/
+catalogue-ctan /macros/latex/contrib/chemnum
+catalogue-license lppl1.3c
+catalogue-topics chemistry expl3
+catalogue-version 1.3a

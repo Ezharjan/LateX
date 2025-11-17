@@ -1,0 +1,25 @@
+name esindex
+category Package
+revision 52342
+shortdesc Typset index entries in Spanish documents
+longdesc This package helps you to create indexes in Spanish. With
+longdesc esindex you can write, say, \esindex{canon} and the entry will
+longdesc be correctly alphabetized in the index. This release of esindex
+longdesc works with accented characters in any encoding, and without
+longdesc babel.
+containersize 3820
+containerchecksum 4e3fe4402e025dbbf300b509954600e3a1eca221a448d32ff2399aaf552ff930e6921bed6f0e1aadb20d6453848e235e42e8b809c4f4280d39c29937615e90f5
+doccontainersize 68744
+doccontainerchecksum 6db4b39371280b0f3a3e0be9e18337a75611410ad25e7953742247e750ca439c92c614edeffa03c4a7f39d8aea447037a6e25cb8f6f0d22a190f359c9cc35f8c
+docfiles size=21
+ texmf-dist/doc/latex/esindex/README.md details="Readme"
+ texmf-dist/doc/latex/esindex/esindex.pdf details="Package documentation"
+ texmf-dist/doc/latex/esindex/esindex.tex
+runfiles size=3
+ texmf-dist/tex/latex/esindex/esindex.sty
+catalogue-contact-home http://www.texnia.com/
+catalogue-contact-repository https://github.com/jbezos
+catalogue-ctan /macros/latex/contrib/esindex
+catalogue-license mit
+catalogue-topics index spanish
+catalogue-version 1.7

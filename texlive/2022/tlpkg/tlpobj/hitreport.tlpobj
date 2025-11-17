@@ -1,0 +1,49 @@
+name hitreport
+category Package
+revision 58357
+shortdesc Harbin Institute of Technology Report LaTeX Template
+longdesc This package provides an assignment and experiment report
+longdesc template free of configuration designed for undergraduates on
+longdesc the three campuses of Harbin Institute of Technology.
+containersize 10816
+containerchecksum e91894f8589f029d9cfe58d743d495131c24f0f6d6705d52d34ef34e1cbde5ba6dfd8e256cdd09ad7fa3080c613c3feaeaa15d3ca6ddb51fb82ba0a4bc333b99
+doccontainersize 1328244
+doccontainerchecksum e7f0b2566042a8442d5fd5cf36e4eeaffdf093a682b8c640ae8b059016997148d17d9449fdfc6026ba169731e0a7e2bb60c525a4ace29e296fbf1a910e887e9f
+docfiles size=418
+ texmf-dist/doc/latex/hitreport/LICENSE
+ texmf-dist/doc/latex/hitreport/README.md details="Readme"
+ texmf-dist/doc/latex/hitreport/data/abstract.tex
+ texmf-dist/doc/latex/hitreport/data/appendix.tex
+ texmf-dist/doc/latex/hitreport/data/chap01.tex
+ texmf-dist/doc/latex/hitreport/data/chap02.tex
+ texmf-dist/doc/latex/hitreport/data/chap03.tex
+ texmf-dist/doc/latex/hitreport/dtx-style.sty
+ texmf-dist/doc/latex/hitreport/figures/example-image-a.pdf
+ texmf-dist/doc/latex/hitreport/figures/example-image-b.pdf
+ texmf-dist/doc/latex/hitreport/figures/scan-copyright.pdf
+ texmf-dist/doc/latex/hitreport/figures/scan-record.pdf
+ texmf-dist/doc/latex/hitreport/figures/scan-statement.pdf
+ texmf-dist/doc/latex/hitreport/hitreport-example.pdf details="Example of use" language="zh"
+ texmf-dist/doc/latex/hitreport/hitreport-example.tex
+ texmf-dist/doc/latex/hitreport/hitreport.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/hitreport/hitsetup.tex
+ texmf-dist/doc/latex/hitreport/latexmkrc
+ texmf-dist/doc/latex/hitreport/photo/hithrb.pdf
+ texmf-dist/doc/latex/hitreport/photo/hitsz.pdf
+ texmf-dist/doc/latex/hitreport/photo/hitwh.pdf
+ texmf-dist/doc/latex/hitreport/ref/appendix.bib
+ texmf-dist/doc/latex/hitreport/ref/refs.bib
+srccontainersize 25736
+srccontainerchecksum 7abb2458fa0a46e21c4d7e88699a3768555e954b37d2406a11d26925f520cad6a02e22282367d6787c560d0cecd34a1ecb6e96335b3f22930a083db5aa50e649
+srcfiles size=25
+ texmf-dist/source/latex/hitreport/Makefile
+ texmf-dist/source/latex/hitreport/hitreport.dtx
+ texmf-dist/source/latex/hitreport/hitreport.ins
+runfiles size=11
+ texmf-dist/tex/latex/hitreport/hitreport.cls
+catalogue-contact-bugs https://github.com/DemerzelSun12/hitreport/issues
+catalogue-contact-repository https://github.com/DemerzelSun12/hitreport
+catalogue-ctan /macros/latex/contrib/hitreport
+catalogue-license lppl1.3c
+catalogue-topics chinese class report-like doc-templ
+catalogue-version 1.0.0

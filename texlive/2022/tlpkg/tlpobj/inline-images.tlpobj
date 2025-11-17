@@ -1,0 +1,23 @@
+name inline-images
+category Package
+revision 61719
+shortdesc Inline images in base64 encoding
+longdesc The package provides a command \inlineimg to dynamically create
+longdesc a file containing the inline image in base64 format, which is
+longdesc decoded and included in the source file. Requirements LaTeX
+longdesc must be run with option --shell-escape. Program base64.
+containersize 760
+containerchecksum 8cb6a0ba51ddbc06a795dc21c40ca4f18921fa978cf17254aed279e85e769b29e7dd6a0266738e5f52e22bfed87599e6b2099bb04aa656397f04d6d51722c56d
+doccontainersize 123072
+doccontainerchecksum ce56e90e90da8ed441213eaedaee7bc388714248547524701ad49021899ef439ae78884ad1de6e60cd06b5916649403d75ea7fda051fd3b87e89bfead9ccdf10
+docfiles size=37
+ texmf-dist/doc/latex/inline-images/README.md details="Readme"
+ texmf-dist/doc/latex/inline-images/examples/example.pdf
+ texmf-dist/doc/latex/inline-images/examples/example.tex
+ texmf-dist/doc/latex/inline-images/screenshots/example.jpg
+runfiles size=1
+ texmf-dist/tex/latex/inline-images/inline-images.sty
+catalogue-ctan /macros/latex/contrib/inline-images
+catalogue-license lgpl3
+catalogue-topics image-supp
+catalogue-version 1.0

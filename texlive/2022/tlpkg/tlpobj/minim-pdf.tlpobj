@@ -1,0 +1,27 @@
+name minim-pdf
+category Package
+revision 62419
+shortdesc Low-level PDF integration for LuaTeX
+longdesc This package adds low-level support to plain LuaTeX for marking
+longdesc up the structure of a PDF document. The implementation is
+longdesc rather basic, but should allow you to make your PDFs fully
+longdesc PDF/A-compliant.
+containersize 14136
+containerchecksum 0ccf4ee742b9b0607f9ad9e92e01952701d88417ca7f594d8647c8a7f078216cd073b77df4df8f46e2bc66ff9871ef7e0b215ed65e09ebdf3c839025563bb2d9
+doccontainersize 106088
+doccontainerchecksum bb0af6f5dbde616c17fce40140dad0245035386e7b1d8e70eaac0039e1808f42c81aac435765a966c34aaa4bd8d1c45380d398eb55909fa920aabebece9bba30
+docfiles size=38
+ texmf-dist/doc/luatex/minim-pdf/EUPL-1.2-EN.txt
+ texmf-dist/doc/luatex/minim-pdf/README details="Readme"
+ texmf-dist/doc/luatex/minim-pdf/minim-pdf.doc
+ texmf-dist/doc/luatex/minim-pdf/minim-pdf.pdf details="Package documentation"
+runfiles size=16
+ texmf-dist/tex/luatex/minim-pdf/minim-languagecodes.lua
+ texmf-dist/tex/luatex/minim-pdf/minim-pdf.lua
+ texmf-dist/tex/luatex/minim-pdf/minim-pdf.tex
+catalogue-also minim
+catalogue-contact-repository https://gitlab.com/renkema/minim
+catalogue-ctan /macros/luatex/generic/minim-pdf
+catalogue-license other-free
+catalogue-topics luatex tagged-pdf pdf-feat
+catalogue-version 2022/1.1

@@ -1,0 +1,26 @@
+name latexdemo
+category Package
+revision 55265
+shortdesc Demonstrate LaTeX code with its resulting output
+longdesc The package provides configurable tools to print out LaTeX code
+longdesc and the resulting output in the same document. It also supports
+longdesc printing the result inside a conditional sequence; thus one may
+longdesc suppress printing if the code would not compile.
+containersize 2456
+containerchecksum c93e3d39dd042ddbb32661b3972d153ea3905726fd0961a4162223fee274cea0c95f0978233c4619e00a043189e9d2f2c285767e33890e30ed118f099ef9a5ae
+doccontainersize 459344
+doccontainerchecksum 442a42c51eab80a28152a53f62b792108002e912dbb0e9ff6afd41237cdf2e954c57c46b0ddc382c0ff0877ddf9747e22cb7c7ac5fabb79080cdd657a1c1422a
+docfiles size=114
+ texmf-dist/doc/latex/latexdemo/README
+ texmf-dist/doc/latex/latexdemo/latexdemo.pdf details="Package documentation"
+srccontainersize 6176
+srccontainerchecksum 2bfdb3740b0118a362e890257a4f38271d6ac24a4b8712edb5a646eeb8ee14787d913d7d8a171ab9a849667899cad3b2089a9eec2fc7c21bfa21e91d900c9527
+srcfiles size=6
+ texmf-dist/source/latex/latexdemo/latexdemo.dtx
+ texmf-dist/source/latex/latexdemo/latexdemo.ins
+runfiles size=2
+ texmf-dist/tex/latex/latexdemo/latexdemo.sty
+catalogue-ctan /macros/latex/contrib/latexdemo
+catalogue-license lppl1.3
+catalogue-topics listing macro-demo
+catalogue-version 0.1

@@ -1,0 +1,16 @@
+name psutils.win32
+category TLCore
+revision 62199
+shortdesc win32 files of psutils
+containersize 24880
+containerchecksum 09c0b8fb8bf22004afc992ce3807fb1c8aa0d025dbc61e3d12b362b2068321a609ec73c926d2277f97681bb37b8d501cd0b7f1b0e9ec3730ecb77485add0c5ad
+binfiles arch=win32 size=32
+ bin/win32/epsffit.exe
+ bin/win32/extractres.exe
+ bin/win32/includeres.exe
+ bin/win32/psbook.exe
+ bin/win32/psjoin.exe
+ bin/win32/psnup.exe
+ bin/win32/psresize.exe
+ bin/win32/psselect.exe
+ bin/win32/pstops.exe

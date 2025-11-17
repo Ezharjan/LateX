@@ -1,0 +1,81 @@
+name cluttex
+category Package
+revision 60964
+shortdesc An automation tool for running LaTeX
+longdesc This is another tool for the automation of LaTeX document
+longdesc processing, like latexmk or arara. The main feature of this
+longdesc tool is that it does not clutter your working directory with
+longdesc .aux or .log or other auxiliary files. It has of course the
+longdesc usual features of automation tools: It automatically re-runs
+longdesc (La)TeX for cross-references. MakeIndex, BibTeX, Biber, or
+longdesc makeglossaries will be executed if a corresponding option is
+longdesc set. Furthermore, cluttex can watch input files for changes
+longdesc (using an external program).
+depend cluttex.ARCH
+containersize 21612
+containerchecksum 35c8ec3711963131bb50fe67ef95705a1d40a6dfd831a33d863bde16f16e66086e204725154d0deaed13e94fdc28dd59497561673542151c1574f7fe87f516f9
+doccontainersize 385200
+doccontainerchecksum c8e395e087f9ca511db96b96dee3de4a51fdfc9374ddaf40703db0980724000f1987298dc8253d0c5a8d7c97e46cc2a8165b7cad6560fa560213cd5ce85205de
+docfiles size=203
+ texmf-dist/doc/support/cluttex/CHANGELOG.md
+ texmf-dist/doc/support/cluttex/COPYING
+ texmf-dist/doc/support/cluttex/Makefile
+ texmf-dist/doc/support/cluttex/README.md details="Readme"
+ texmf-dist/doc/support/cluttex/bin/cluttex.bat
+ texmf-dist/doc/support/cluttex/build.lua
+ texmf-dist/doc/support/cluttex/checkglobal.lua
+ texmf-dist/doc/support/cluttex/doc/Makefile
+ texmf-dist/doc/support/cluttex/doc/cluttex-ja.pdf details="Package documentation" language="ja"
+ texmf-dist/doc/support/cluttex/doc/cluttex-ja.tex
+ texmf-dist/doc/support/cluttex/doc/cluttex.pdf details="Package documentation" language="en"
+ texmf-dist/doc/support/cluttex/doc/cluttex.tex
+ texmf-dist/doc/support/cluttex/example/README.md details="Readme"
+ texmf-dist/doc/support/cluttex/example/biblatex/foo.bib
+ texmf-dist/doc/support/cluttex/example/biblatex/main.tex
+ texmf-dist/doc/support/cluttex/example/biblatex/sub.tex
+ texmf-dist/doc/support/cluttex/example/bibtex/baz.bib
+ texmf-dist/doc/support/cluttex/example/bibtex/foo.bib
+ texmf-dist/doc/support/cluttex/example/bibtex/main.tex
+ texmf-dist/doc/support/cluttex/example/bibtex/sub.tex
+ texmf-dist/doc/support/cluttex/example/empty/main.tex
+ texmf-dist/doc/support/cluttex/example/epstopdf/drawing.eps
+ texmf-dist/doc/support/cluttex/example/epstopdf/fig/drawing2.eps
+ texmf-dist/doc/support/cluttex/example/epstopdf/main.tex
+ texmf-dist/doc/support/cluttex/example/include/main.tex
+ texmf-dist/doc/support/cluttex/example/include/path/to/file.tex
+ texmf-dist/doc/support/cluttex/example/include/sub.tex
+ texmf-dist/doc/support/cluttex/example/include/sub2.tex
+ texmf-dist/doc/support/cluttex/example/makeindex/main.tex
+ texmf-dist/doc/support/cluttex/example/minted/file.lua
+ texmf-dist/doc/support/cluttex/example/minted/main.tex
+ texmf-dist/doc/support/cluttex/example/simple-ja/main-luatexja.tex
+ texmf-dist/doc/support/cluttex/example/simple-ja/main-platex.tex
+ texmf-dist/doc/support/cluttex/example/simple/main.tex
+ texmf-dist/doc/support/cluttex/src/cluttex.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/auxfile.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/checkdriver.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/fsutil.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/fswatcher_windows.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/handleoption.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/isatty.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/luatexinit.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/message.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/option.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/pathutil.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/pathutil_unix.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/pathutil_windows.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/recovery.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/reruncheck.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/safename.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/shellutil.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/shellutil_unix.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/shellutil_windows.lua
+ texmf-dist/doc/support/cluttex/src/texrunner/tex_engine.lua
+runfiles size=29
+ texmf-dist/scripts/cluttex/cluttex.lua
+catalogue-contact-bugs https://github.com/minoki/cluttex/issues
+catalogue-contact-repository https://github.com/minoki/cluttex
+catalogue-ctan /support/cluttex
+catalogue-license gpl3+
+catalogue-topics compilation use-lua
+catalogue-version 0.5.1

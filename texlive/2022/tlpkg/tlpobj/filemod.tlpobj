@@ -1,0 +1,33 @@
+name filemod
+category Package
+revision 56291
+shortdesc Provide file modification times, and compare them
+longdesc The package provides macros to read and compare the
+longdesc modification dates of files. The files may be .tex files,
+longdesc images or other files (as long as they can be found by LaTeX).
+longdesc It uses the \pdffilemoddate primitive of pdfLaTeX to find the
+longdesc file modification date as PDF date string, parses the string
+longdesc and returns the value to the user. The package will also work
+longdesc for DVI output with recent versions of the LaTeX compiler which
+longdesc uses pdfLaTeX in DVI mode. The functionality is provided by
+longdesc purely expandable macros or by faster but non-expandable ones.
+containersize 3572
+containerchecksum c927f700796e4cdb9d7d274fcb390b4e1c0c04ac95df8a8586eea3c8c6aee3daddeb9f6a53b3df103887a7635288f7ae316d09dc34603fe3a37f74bf45f85ef8
+doccontainersize 277228
+doccontainerchecksum 96587219fdb00fcaea6d838b58b5a04169b17cdec1c937378255f7dfb48e687a205f08a20dc6654ab5565a68649ef67b796653479f95a4c022596626ddc5b16d
+docfiles size=70
+ texmf-dist/doc/latex/filemod/README details="Readme"
+ texmf-dist/doc/latex/filemod/filemod.pdf details="Package documentation"
+runfiles size=8
+ texmf-dist/tex/generic/filemod/filemod-expmin.tex
+ texmf-dist/tex/generic/filemod/filemod.tex
+ texmf-dist/tex/latex/filemod/filemod-expmin.sty
+ texmf-dist/tex/latex/filemod/filemod.sty
+catalogue-also stampinclude
+catalogue-contact-bugs https://sourceforge.net/p/filemod/tickets/
+catalogue-contact-home https://sourceforge.net/p/filemod/
+catalogue-contact-repository https://sourceforge.net/p/filemod/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/filemod
+catalogue-license lppl1.3
+catalogue-topics doc-tool
+catalogue-version 1.2

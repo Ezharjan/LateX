@@ -1,0 +1,22 @@
+name tikzpackets
+category Package
+revision 55827
+shortdesc Display network packets
+longdesc This package allows you to easily display network packets
+longdesc graphically.
+containersize 2260
+containerchecksum 65f07d48b37db0391081c8edeb97d59dbb7a261ad1320b3b018f14a2b4544bfad46964b82980b3135416ed75fd7f21d08df97179d1a3ae2fb55308d36e89d2cb
+doccontainersize 65772
+doccontainerchecksum f669d0a09de871167915f4a6647791346703abf03b557c8afa03f5d3ed81754c4d175d211850b7d6f87c2b0a1077c8559093d9743130f10ef334c10df74ddc69
+docfiles size=19
+ texmf-dist/doc/latex/tikzpackets/README details="Readme"
+ texmf-dist/doc/latex/tikzpackets/tikzPackets.pdf details="Package documentation"
+ texmf-dist/doc/latex/tikzpackets/tikzPackets.tex
+runfiles size=2
+ texmf-dist/tex/latex/tikzpackets/tikzPackets.sty
+catalogue-contact-bugs https://bitbucket.org/OpCode-eu-org/latex-libs/issues
+catalogue-contact-repository https://bitbucket.org/OpCode-eu-org/LaTeX-libs/
+catalogue-ctan /graphics/pgf/contrib/tikzpackets
+catalogue-license mit
+catalogue-topics pgf-tikz comp-net
+catalogue-version 1.0

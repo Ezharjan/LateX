@@ -1,0 +1,28 @@
+name latex-git-log
+category Package
+revision 54010
+shortdesc Typeset git log information
+longdesc The program is run within a git repository, and outputs the
+longdesc entire version history, as a LaTeX table. That output will
+longdesc typically be redirected to a file; the author recommends
+longdesc typesetting in landscape orientation.
+depend latex-git-log.ARCH
+containersize 4880
+containerchecksum 15994c6eb9ba1b194df270c68a3d74ab3db11974875ce192559182b2dbfa9b308d598056a3145f2cc2f6718865a5b140ccb95dea22a9e23edee527e5b86362ff
+doccontainersize 110280
+doccontainerchecksum 52bc94324c64caac9a5b25b49c9ea01b8560433d640646ee70830d27637482cf50da95bbb86db93006f2be4ab9f5f79fa144e4b631d62c05f0a11ab45e639cbf
+docfiles size=36
+ texmf-dist/doc/man/man1/latex-git-log.1
+ texmf-dist/doc/man/man1/latex-git-log.man1.pdf
+ texmf-dist/doc/support/latex-git-log/README.md details="Readme"
+ texmf-dist/doc/support/latex-git-log/example-output.tex
+ texmf-dist/doc/support/latex-git-log/example.pdf
+ texmf-dist/doc/support/latex-git-log/example.tex
+ texmf-dist/doc/support/latex-git-log/po/de.po
+runfiles size=3
+ texmf-dist/scripts/latex-git-log/latex-git-log
+catalogue-contact-repository https://github.com/ypid/typesetting/tree/master/scripts/latex-git-log
+catalogue-ctan /support/latex-git-log
+catalogue-license gpl3+
+catalogue-topics project-mgmt
+catalogue-version 1.0.0

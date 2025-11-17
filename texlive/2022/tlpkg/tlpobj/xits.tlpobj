@@ -1,0 +1,32 @@
+name xits
+category Package
+revision 55730
+shortdesc A Scientific Times-like font with support for mathematical typesetting
+longdesc XITS is a Times-like font for scientific typesetting with
+longdesc proper mathematical support for modern, Unicode and OpenType
+longdesc capable TeX engines, namely LuaTeX and XeTeX. For use with
+longdesc LuaLaTeX or XeLaTeX, support is available from the fontspec and
+longdesc unicode-math packages.
+containersize 541240
+containerchecksum 8c47de766f965fcb50399e59d20f030e90a28e2aaac018ab1289a1a26b16cd6c9c7d3fd18f1d2b84fe86a99734bbf2ac9b58bfd723a7854bfe29141ab6acb874
+doccontainersize 6060
+doccontainerchecksum 3c4594f4023f6ae4dd6ac57841720a47f00ae65fcd6930d4e8ec94281a71bf97e7acea26c60d6866304b5018e866ae87554cc470e671d47ede6572da1ac2970d
+docfiles size=6
+ texmf-dist/doc/fonts/xits/FONTLOG.txt
+ texmf-dist/doc/fonts/xits/OFL.txt
+ texmf-dist/doc/fonts/xits/README.txt details="Readme"
+runfiles size=358
+ texmf-dist/fonts/opentype/public/xits/XITS-Bold.otf
+ texmf-dist/fonts/opentype/public/xits/XITS-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/xits/XITS-Italic.otf
+ texmf-dist/fonts/opentype/public/xits/XITS-Regular.otf
+ texmf-dist/fonts/opentype/public/xits/XITSMath-Bold.otf
+ texmf-dist/fonts/opentype/public/xits/XITSMath-Regular.otf
+catalogue-also stix asana-math
+catalogue-contact-announce https://github.com/alif-type/xits/releases
+catalogue-contact-repository https://github.com/alif-type/xits
+catalogue-contact-support https://github.com/alif-type/xits/issues
+catalogue-ctan /fonts/xits
+catalogue-license ofl
+catalogue-topics font font-serif font-maths font-symbol-maths font-otf
+catalogue-version 1.302

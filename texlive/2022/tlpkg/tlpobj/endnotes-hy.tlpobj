@@ -1,0 +1,31 @@
+name endnotes-hy
+category Package
+revision 54758
+shortdesc Patches the endnotes package to create hypertext links to the correct anchors
+longdesc The package supports the creation of hypertext links in support
+longdesc of the endnotes package. The package modifies the syntax of the
+longdesc \endnote command: \endnote*[<num>]{<text>}\label{<name>}. When
+longdesc the *-option is used, no endnote mark is created, but the
+longdesc endnote itself is written. The \label command appears at the
+longdesc end of the \endnote and its arguments, rather than within the
+longdesc argument of the <text> argument.
+containersize 1484
+containerchecksum abd177ac968efce6749d8bb80c327bd8c3617e14045d124e036f2e503eed7bc33c72112d46acebe84d8a0a2f25cf3d99fd02a514d3673f38ada9e7fef879e3f5
+doccontainersize 303396
+doccontainerchecksum 46b7ea667c12de23f0491af714e5b86fb7fdbef0e3c03d7c31e242dc715745824be08028861c0e72244695aee8bcb0ce2191746c8d1f906523dcbe6b39958281
+docfiles size=86
+ texmf-dist/doc/latex/endnotes-hy/README.md details="Readme"
+ texmf-dist/doc/latex/endnotes-hy/docs/endnotes-hy.pdf details="Package documentation"
+ texmf-dist/doc/latex/endnotes-hy/examples/exmpl-endnotes.pdf
+ texmf-dist/doc/latex/endnotes-hy/examples/exmpl-endnotes.tex
+srccontainersize 4740
+srccontainerchecksum 6771356602da1fef77f350eb8390abcda0f1267c0761bf255f4aedeca79fadf1c0255bb267b456469c1d8dffb1ff052e567d0bb6b07035c1f5d676d5ae2d4cdc
+srcfiles size=4
+ texmf-dist/source/latex/endnotes-hy/endnotes-hy.dtx
+ texmf-dist/source/latex/endnotes-hy/endnotes-hy.ins
+runfiles size=1
+ texmf-dist/tex/latex/endnotes-hy/endnotes-hy.sty
+catalogue-also endnotes
+catalogue-ctan /macros/latex/contrib/endnotes-hy
+catalogue-license lppl1.2
+catalogue-topics endnote

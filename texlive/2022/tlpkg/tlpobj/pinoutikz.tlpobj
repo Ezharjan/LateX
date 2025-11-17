@@ -1,0 +1,23 @@
+name pinoutikz
+category Package
+revision 55966
+shortdesc Draw chip pinouts with TikZ
+longdesc The package provides a set of macros for typesetting electronic
+longdesc chip pinouts. It is designed as a tool that is easy to use,
+longdesc with a lean syntax, native to LaTeX, and directly supporting
+longdesc PDF output format. It has therefore been based on the very
+longdesc impressive TikZ package.
+containersize 2536
+containerchecksum 88ecb08a15725e4afbd296cc7eba16583cbe260989784e625eecf008441ac54ea53cba81801d77ab8439bc076c32d6c09d62305ef589d739ec1ed59e1f907755
+doccontainersize 75816
+doccontainerchecksum 9fb1acfa981b7d38b312d089be9b9d5dad22334960133377b06910cb0df39c8e556ca86d5f9b959b27ef4c7fc2211b97507b138f026df58d439fe3ae9fd3f420
+docfiles size=24
+ texmf-dist/doc/latex/pinoutikz/README.md details="Readme"
+ texmf-dist/doc/latex/pinoutikz/pinoutikz_doc_en.pdf details="Package documentation"
+ texmf-dist/doc/latex/pinoutikz/pinoutikz_doc_en.tex
+runfiles size=3
+ texmf-dist/tex/latex/pinoutikz/pinoutikz.sty
+catalogue-ctan /graphics/pgf/contrib/pinoutikz
+catalogue-license lppl1.3c
+catalogue-topics graphics pgf-tikz electronic
+catalogue-version 1.1.2

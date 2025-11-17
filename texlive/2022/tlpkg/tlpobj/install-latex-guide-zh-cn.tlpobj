@@ -1,0 +1,36 @@
+name install-latex-guide-zh-cn
+category Package
+revision 64257
+shortdesc A short introduction to LaTeX installation written in Chinese
+longdesc This package will introduce the operations related to
+longdesc installing TeX Live (introducing MacTeX in macOS), upgrading
+longdesc macro packages, and compiling simple documents on Windows 10,
+longdesc Ubuntu 20.04, and macOS systems, and mainly introducing command
+longdesc line operations.
+containersize 568
+containerchecksum f98403f607546596bb5f2495a530cb11d5296e7b7893a298a31d84524772c9797d1cbb289c6981cf19fa620c5397d412d2b97970ac14df77b253a6c602654291
+doccontainersize 805156
+doccontainerchecksum 6b87dab994d7fe45ec5ceba4f462dc7b9202105a8dbd56b627517976d0d861150cd579ffdddb5ec8a1f2b4587bb573a0cc01543c4f60a319476999a28f4c00c9
+docfiles size=230
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/LICENSE
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/README.md details="Readme"
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/appendix/mirror.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/appendix/offline.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/appendix/updateinfo.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/appendix/wsladdition.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/editor.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/macos.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/overleaf.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/preface.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/ubuntu.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/windows.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/chapter/wsl.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf details="The document itself" language="zh"
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/install-latex-guide-zh-cn.tex
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/make.bat
+ texmf-dist/doc/latex/install-latex-guide-zh-cn/makefile
+catalogue-contact-repository https://github.com/OsbertWang/install-latex-guide-zh-cn
+catalogue-ctan /info/install-latex-guide-zh-cn
+catalogue-license lppl1.3c
+catalogue-topics chinese-doc tutorial
+catalogue-version 2022.9.1

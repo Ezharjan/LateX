@@ -1,0 +1,40 @@
+name autosp
+category Package
+revision 58211
+shortdesc A Preprocessor that generates note-spacing commands for MusiXTeX scores
+longdesc This program simplifies the creation of MusiXTeX scores by
+longdesc converting (non-standard) commands of the form \anotes ... \en
+longdesc into one or more conventional note-spacing commands, as
+longdesc determined by the note values themselves, with \sk spacing
+longdesc commands inserted as necessary. The coding for an entire
+longdesc measure can be entered one part at a time, without concern for
+longdesc note-spacing changes within the part or spacing requirements of
+longdesc other parts. For example, \anotes\qa J\qa K&\ca l\qa m\ca n\en
+longdesc generates \Notes\qa J\sk\qa K\sk&\ca l\qa m\sk\ca n\en .
+depend autosp.ARCH
+containersize 696
+containerchecksum 67587e8b456257be9b924a5bb8c8f4def22fa9aa9678663975ef74e346dc186ae7848a9dc043733cf1244f254750ef4f34204575f62195d4b966ed8336781bce
+doccontainersize 282136
+doccontainerchecksum 2905669b9e2b61749cb7b1eaa02be889c4e8d8adbd78b126e7ee6d894f24f623c888a24abac1d163f3332c5cfa9cd1f64d0de95200350b88a7f47faeacb841a6
+docfiles size=106
+ texmf-dist/doc/generic/autosp/README details="Readme"
+ texmf-dist/doc/generic/autosp/barsant2.aspc
+ texmf-dist/doc/generic/autosp/barsant2.pdf
+ texmf-dist/doc/generic/autosp/geminiani.aspc
+ texmf-dist/doc/generic/autosp/geminiani.pdf
+ texmf-dist/doc/generic/autosp/kinder2.aspc
+ texmf-dist/doc/generic/autosp/kinder2.pdf
+ texmf-dist/doc/generic/autosp/quod2.aspc
+ texmf-dist/doc/generic/autosp/quod2.pdf
+ texmf-dist/doc/generic/autosp/quod2A.aspc
+ texmf-dist/doc/generic/autosp/quod2A.pdf
+ texmf-dist/doc/generic/autosp/rebar.1
+ texmf-dist/doc/generic/autosp/rebar.pdf
+ texmf-dist/doc/man/man1/autosp.1
+ texmf-dist/doc/man/man1/autosp.man1.pdf
+ texmf-dist/doc/man/man1/tex2aspc.1
+ texmf-dist/doc/man/man1/tex2aspc.man1.pdf
+catalogue-contact-support https://tug.org/mailman/listinfo/tex-music
+catalogue-ctan /support/autosp
+catalogue-license gpl2+
+catalogue-topics music

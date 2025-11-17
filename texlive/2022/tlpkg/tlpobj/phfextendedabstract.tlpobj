@@ -1,0 +1,39 @@
+name phfextendedabstract
+category Package
+revision 60732
+shortdesc Typeset extended abstracts for conferences, such as often encountered in quantum information theory
+longdesc Several conferences in various fields (such as quantum
+longdesc information theory) require the submission of extended
+longdesc abstracts. An extended abstract is a summary of a scientific
+longdesc result, presented at a high level, and consisting of at most a
+longdesc small handful of pages. The phfextendedabstract LaTeX class
+longdesc provides a simple style for such abstracts. There are only two
+longdesc sectioning levels, sections and paragraphs, and the style is
+longdesc optimized to save space as well as to guide the reader's eye
+longdesc through the overall structure of the document. An option will
+longdesc try to compress all vertical space to save some space, in case
+longdesc you need to satisfy page constraints. The style builds upon the
+longdesc powerful RevTeX class, so you can use all of RevTeX's features
+longdesc such as author affiliations, etc.
+containersize 3888
+containerchecksum 0e1f0f232c7216d654a41ab750477a5a6efd1a2dcb15b2114eefe1ffcb582bd0512bc8592111904c550badef12a3927c5ee2af58548dab5015901165b35a8bd1
+doccontainersize 280996
+doccontainerchecksum aad67fc68996c032bca758b44eb65288f2245f780e9e4200888fb027b4638963e2f3b9c771a5ec78f8c65fd0c86c8b55b16d8cdad44fdcf9cc6622a766175e00
+docfiles size=71
+ texmf-dist/doc/latex/phfextendedabstract/README.md details="Readme"
+ texmf-dist/doc/latex/phfextendedabstract/phfextendedabstract.pdf details="Package documentation"
+srccontainersize 14928
+srccontainerchecksum a5d3ae9a1bc6b8859e998bb3561a63e99d9a4f30da3e3c2dd918ba7f23a09362bd8f123e2bfbe2af4ff7f2204c969ad487ddf389fa04287eacf0abe9f251391e
+srcfiles size=15
+ texmf-dist/source/latex/phfextendedabstract/Makefile
+ texmf-dist/source/latex/phfextendedabstract/phfextendedabstract.dtx
+ texmf-dist/source/latex/phfextendedabstract/phfextendedabstract.ins
+ texmf-dist/source/latex/phfextendedabstract/pkg.mk
+runfiles size=3
+ texmf-dist/tex/latex/phfextendedabstract/phfextendedabstract.cls
+catalogue-contact-home https://github.com/phfaist/phfqitltx
+catalogue-contact-repository https://github.com/phfaist/phfqitltx
+catalogue-ctan /macros/latex/contrib/phfextendedabstract
+catalogue-license lppl1.3
+catalogue-topics physics
+catalogue-version 1.0

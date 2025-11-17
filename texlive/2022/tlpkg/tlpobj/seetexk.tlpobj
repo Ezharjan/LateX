@@ -1,0 +1,31 @@
+name seetexk
+category TLCore
+revision 57972
+catalogue dvibook
+shortdesc Utilities for manipulating DVI files
+longdesc The collection comprises: dvibook, which will rearrange the
+longdesc pages of a DVI file into 'signatures' as used when printing a
+longdesc book; dviconcat, for concatenating pages of DVI file(s);
+longdesc dviselect, which will select pages from one DVI file to create
+longdesc a new DVI file; dvitodvi, which will rearrange the pages of a
+longdesc DVI file to create a new file; and libtex, a library for
+longdesc manipulating the files, from the old SeeTeX project. The
+longdesc utilities are provided as C source with Imakefiles, and an
+longdesc MS-DOS version of dvibook is also provided.
+depend seetexk.ARCH
+containersize 616
+containerchecksum 1f217550f7455a82dd1771556045e10a39138eebddc90f4d38a274d56d9072501d94476c6045012f3c5cda43aea71924268fd222895079b225d893df3b78fa97
+doccontainersize 70108
+doccontainerchecksum 1b36ac131e25541123a7d18e9a5e3cb1fccab04ffca1b0d1e5a036a26de99fb05e6745d43cac6dc76a295eac5503f90eafdb2b40f96c88836123b5b599a47e2e
+docfiles size=27
+ texmf-dist/doc/man/man1/dvibook.1
+ texmf-dist/doc/man/man1/dvibook.man1.pdf
+ texmf-dist/doc/man/man1/dviconcat.1
+ texmf-dist/doc/man/man1/dviconcat.man1.pdf
+ texmf-dist/doc/man/man1/dviselect.1
+ texmf-dist/doc/man/man1/dviselect.man1.pdf
+ texmf-dist/doc/man/man1/dvitodvi.1
+ texmf-dist/doc/man/man1/dvitodvi.man1.pdf
+catalogue-ctan /dviware/dvibook
+catalogue-license other-free
+catalogue-topics dvi-proc

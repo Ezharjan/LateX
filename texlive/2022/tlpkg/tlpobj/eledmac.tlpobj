@@ -1,0 +1,94 @@
+name eledmac
+category Package
+revision 45418
+shortdesc Typeset scholarly editions
+longdesc A package for typesetting scholarly critical editions,
+longdesc replacing the established ledmac package. Ledmac itself was a
+longdesc LaTeX port of the plain TeX EDMAC macros. The package supports
+longdesc indexing by page and by line numbers, and simple tabular- and
+longdesc array-style environments. The package is distributed with the
+longdesc related eledpar package. The package is now superseded by
+longdesc reledmac.
+containersize 39444
+containerchecksum 644df002adf2f39acd9a6704a5c2e18e02f30d17c8e04173fb0f68e9daf5469bb6290c7e98ca181ebd45b40d54dbdf4a14fbbbe7dbe8f945b226ee086efc3972
+doccontainersize 1845796
+doccontainerchecksum 14c8b024b6cc817a025b6a4870d3edcf956ac9e358107c80d29fcab41f343efba5b5832dc22cd11fe2e92bc74b58fc5d67982ab26a60230a5b92af4223543e04
+docfiles size=532
+ texmf-dist/doc/latex/eledmac/Makefile
+ texmf-dist/doc/latex/eledmac/README details="Readme"
+ texmf-dist/doc/latex/eledmac/eledmac.pdf details="Package documentation"
+ texmf-dist/doc/latex/eledmac/eledpar.pdf
+ texmf-dist/doc/latex/eledmac/examples/1-criticalnotes.pdf
+ texmf-dist/doc/latex/eledmac/examples/1-criticalnotes.tex
+ texmf-dist/doc/latex/eledmac/examples/1-sidenotes.pdf
+ texmf-dist/doc/latex/eledmac/examples/1-sidenotes.tex
+ texmf-dist/doc/latex/eledmac/examples/1-tabular.pdf
+ texmf-dist/doc/latex/eledmac/examples/1-tabular.tex
+ texmf-dist/doc/latex/eledmac/examples/1-verses.pdf
+ texmf-dist/doc/latex/eledmac/examples/1-verses.tex
+ texmf-dist/doc/latex/eledmac/examples/2-cross_referencing.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-cross_referencing.tex
+ texmf-dist/doc/latex/eledmac/examples/2-footnote_spacing.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-footnote_spacing.tex
+ texmf-dist/doc/latex/eledmac/examples/2-indexing.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-indexing.tex
+ texmf-dist/doc/latex/eledmac/examples/2-lemma_disambigution.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-lemma_disambigution.tex
+ texmf-dist/doc/latex/eledmac/examples/2-line_numbers_in_header.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-line_numbers_in_header.tex
+ texmf-dist/doc/latex/eledmac/examples/2-one_series_per_pstart.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-one_series_per_pstart.tex
+ texmf-dist/doc/latex/eledmac/examples/2-performances.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-performances.tex
+ texmf-dist/doc/latex/eledmac/examples/2-titles_in_line_numbering_with_notes.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-titles_in_line_numbering_with_notes.tex
+ texmf-dist/doc/latex/eledmac/examples/2-titles_not_in_line_numbering.pdf
+ texmf-dist/doc/latex/eledmac/examples/2-titles_not_in_line_numbering.tex
+ texmf-dist/doc/latex/eledmac/examples/3-eledpar_columns_different_languages.pdf
+ texmf-dist/doc/latex/eledmac/examples/3-eledpar_columns_different_languages.tex
+ texmf-dist/doc/latex/eledmac/examples/3-eledpar_mwe.pdf
+ texmf-dist/doc/latex/eledmac/examples/3-eledpar_mwe.tex
+ texmf-dist/doc/latex/eledmac/examples/3-eledpar_pages_different_languages_lualatex.pdf
+ texmf-dist/doc/latex/eledmac/examples/3-eledpar_pages_different_languages_lualatex.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_column_mix_with_not_column.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_column_mix_with_not_column.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_columns_alignment.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_columns_alignment.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_columns_titles_in_line_numbering_with_notes.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_columns_titles_in_line_numbering_with_notes.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_one_series_per_pstart.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_one_series_per_pstart.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_page_titles_in_line_numbering_with_notes.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_page_titles_in_line_numbering_with_notes.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_pages_long_notes.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_pages_long_notes.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_pages_notes_leftpage.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_pages_notes_leftpage.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_pages_paragraph_separator_between.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_pages_paragraph_separator_between.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_titles_not_in_line_numbering.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_titles_not_in_line_numbering.tex
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_verse_text_between.pdf
+ texmf-dist/doc/latex/eledmac/examples/4-eledpar_verse_text_between.tex
+ texmf-dist/doc/latex/eledmac/examples/eledmac.xdy
+ texmf-dist/doc/latex/eledmac/examples/makefile
+ texmf-dist/doc/latex/eledmac/latexmkrc
+srccontainersize 164628
+srccontainerchecksum 8d3436d3e3cf377148a52ea77ac93491abc66bfb1271538aa85f6cebc559ca225221b4b7dfaaf33426505b792ca57697d6edf5903b5d0e306434a4c32e06e8bb
+srcfiles size=216
+ texmf-dist/source/latex/eledmac/eledmac.dtx
+ texmf-dist/source/latex/eledmac/eledmac.ins
+ texmf-dist/source/latex/eledmac/eledpar.dtx
+ texmf-dist/source/latex/eledmac/eledpar.ins
+runfiles size=66
+ texmf-dist/tex/latex/eledmac/eledmac.sty
+ texmf-dist/tex/latex/eledmac/eledpar.sty
+catalogue-also ednotes poemscol ledmac
+catalogue-contact-announce http://geekographie.maieul.net/146
+catalogue-contact-bugs https://github.com/maieul/ledmac/issues/
+catalogue-contact-repository https://github.com/maieul/ledmac/
+catalogue-contact-support http://geekographie.maieul.net/146
+catalogue-ctan /macros/latex/contrib/eledmac
+catalogue-license lppl1.3
+catalogue-topics crit-ed
+catalogue-version 1.24.12

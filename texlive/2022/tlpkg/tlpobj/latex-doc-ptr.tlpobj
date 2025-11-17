@@ -1,0 +1,29 @@
+name latex-doc-ptr
+category Package
+revision 57311
+shortdesc A direction-finder for LaTeX resources available online
+longdesc A brief set of recommendations for users who need online
+longdesc documentation of LaTeX. The document supports the need for
+longdesc documentation of LaTeX itself, in distributions. For example,
+longdesc it could be used in the command texdoc latex, in the TeX Live
+longdesc distribution.
+containersize 520
+containerchecksum 22017cc47746d2e14436915a0d649b31050debff1827cca44a3ab7bf9b240f40450d445a8eaab811b8737f589839ab7f2078aced47b65b320237ddbcc443b99a
+doccontainersize 186924
+doccontainerchecksum c7d7217a9136785cfd6ddb000e51d455e7482bfe395a9131329767bfffc71f918c2349b1426b615a6740263c958530c68c044ee3ae78300a004a8acf20bd8bdc
+docfiles size=68
+ texmf-dist/doc/latex/latex-doc-ptr/LICENSE
+ texmf-dist/doc/latex/latex-doc-ptr/Makefile
+ texmf-dist/doc/latex/latex-doc-ptr/README details="Readme"
+ texmf-dist/doc/latex/latex-doc-ptr/dash.sty
+ texmf-dist/doc/latex/latex-doc-ptr/latex-doc-ptr.css
+ texmf-dist/doc/latex/latex-doc-ptr/latex-doc-ptr.css.replacement
+ texmf-dist/doc/latex/latex-doc-ptr/latex-doc-ptr.html
+ texmf-dist/doc/latex/latex-doc-ptr/latex-doc-ptr.pdf details="The document itself"
+ texmf-dist/doc/latex/latex-doc-ptr/latex-doc-ptr.sty
+ texmf-dist/doc/latex/latex-doc-ptr/latex-doc-ptr.tex
+ texmf-dist/doc/latex/latex-doc-ptr/massage_html.awk
+catalogue-contact-repository https://gitlab.com/jim.hefferon/latex-doc-ptr
+catalogue-ctan /info/latex-doc-ptr
+catalogue-license pd
+catalogue-topics latex-doc

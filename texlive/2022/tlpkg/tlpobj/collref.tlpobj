@@ -1,0 +1,27 @@
+name collref
+category Package
+revision 46358
+shortdesc Collect blocks of references into a single reference
+longdesc The package automatically collects multiple \bibitem
+longdesc references, which always appear in the same sequence in \cite,
+longdesc into a single \bibitem block.
+containersize 1696
+containerchecksum 56c2fda36523ae348bea381d90493238c7cbf5ab59f074437c7b694b441f913e6b58795ca81d2c549fbba01505a8895e9e139a9d143050761bceced2717fdb97
+doccontainersize 272712
+doccontainerchecksum 2d75180ab389632ec320795d6e6b989d902b82d1cfc97ea3c5113647e605c1eead0d0f5a6733cb692b624f4caa7120959c0b15018e35be4d4894183ad3e4c37d
+docfiles size=71
+ texmf-dist/doc/latex/collref/README.txt details="Readme"
+ texmf-dist/doc/latex/collref/collref.pdf details="Package documentation"
+ texmf-dist/doc/latex/collref/collsamp.tex
+srccontainersize 7172
+srccontainerchecksum 5a89f6703ab1818375ff33840b1295aee99e6a36338790014b7ac4b54bd49850adcf73ca793c57fb8159be87417741dcdd6ad3934af8bfde74595367f5e3a9fd
+srcfiles size=7
+ texmf-dist/source/latex/collref/collref.dtx
+ texmf-dist/source/latex/collref/collref.ins
+runfiles size=1
+ texmf-dist/tex/latex/collref/collref.sty
+catalogue-also mcite
+catalogue-ctan /macros/latex/contrib/collref
+catalogue-license lppl1.3
+catalogue-topics cite-supp
+catalogue-version 2.0c

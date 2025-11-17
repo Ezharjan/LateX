@@ -1,0 +1,35 @@
+name context-vim
+category ConTeXt
+revision 62071
+shortdesc Generate ConTeXt syntax highlighting code from vim
+longdesc ConTeXt has excellent pretty printing capabilities for many
+longdesc languages. The code for pretty printing is written in TeX, and
+longdesc due to catcode juggling, such verbatim typesetting is perhaps
+longdesc the trickiest part of TeX. This makes it difficult for a
+longdesc "normal" user to define syntax highlighting rules for a new
+longdesc language. This module takes the onus of defining syntax
+longdesc highlighting rules away from the user and uses ViM editor to
+longdesc generate the syntax highlighting. There is a helper
+longdesc 2context.vim script to do the syntax parsing in ViM.
+depend context
+depend context-filter
+containersize 10232
+containerchecksum 12100c7aa3eb555cf9dbe72454a96e63feda52329a8a192ff86ba30477acab4ebaaf84c15a79f16d4e3f95cef02baf8146e5810b8c9e8e94c25ba1317bf4fc2c
+doccontainersize 10908
+doccontainerchecksum 0f49e22b9e1d465f46727a9e952e095eceab55e77a2559fe497cf14690377f77ca42aa23ce7eaca659e9b0983e5a950b36733eef49b0473fd33a8f783edb43b1
+docfiles size=10
+ texmf-dist/doc/context/third/vim/VERSION
+ texmf-dist/doc/context/third/vim/vim.txt details="Package usage notes"
+runfiles size=21
+ texmf-dist/tex/context/third/vim/2context.vim
+ texmf-dist/tex/context/third/vim/t-syntax-groups.mkii
+ texmf-dist/tex/context/third/vim/t-syntax-groups.mkiv
+ texmf-dist/tex/context/third/vim/t-syntax-highlight.mkii
+ texmf-dist/tex/context/third/vim/t-syntax-highlight.mkiv
+ texmf-dist/tex/context/third/vim/t-syntax-highlight.mkxl
+ texmf-dist/tex/context/third/vim/t-vim.tex
+ texmf-dist/tex/context/third/vim/vimtyping-default.css
+catalogue-also context-filter
+catalogue-ctan /macros/context/contrib/context-vim
+catalogue-license bsd
+catalogue-topics synt-hlt ext-code context

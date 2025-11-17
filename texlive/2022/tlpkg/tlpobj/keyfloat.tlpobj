@@ -1,0 +1,41 @@
+name keyfloat
+category Package
+revision 61561
+shortdesc Provides a key/value interface for generating floats
+longdesc The keyfloat package provides a key/value user interface for
+longdesc quickly creating figures with a single image each, figures with
+longdesc arbitrary contents, tables, subfloats, rows of floats, floats
+longdesc located [H]ere, floats in the [M]argin, and floats with text
+longdesc [W]rapped around them. Key/value combinations may specify a
+longdesc caption and label, a width proportional to \linewidth, a fixed
+longdesc width and/or height, rotation, scaling, a tight or loose frame,
+longdesc an \arraystretch, a continued float, additional supplemental
+longdesc text, and an artist/author's name with automatic index entry.
+longdesc When used with the tocdata package, the name also appears in
+longdesc the List of Figures. Floats may be placed into a row
+longdesc environment, and are typeset to fit within the given number of
+longdesc columns, continuing to the next row if necessary. Nested
+longdesc sub-rows may be used to generate layouts such as two small
+longdesc figures placed vertically next to one larger figure. Subfloats
+longdesc are supported by two environments.
+containersize 7104
+containerchecksum 76b4cf33604e8bab362a033057a23bc499e76a6845247ba69bc9f37b9601c9fb78838d5c57268928b7d7c9458bd5c906f10ca803bfdce0c5ae5f25073c38b2a9
+doccontainersize 1033492
+doccontainerchecksum 73725614f79e736102836f4b0c4c59daaa7d4b27e978fad6ff0e8c10fbd0531c8722d970b525dc4fd45e8d951e1e4a97279d16a55f051a66a39b0d749a804198
+docfiles size=259
+ texmf-dist/doc/latex/keyfloat/README.txt details="Readme"
+ texmf-dist/doc/latex/keyfloat/images/image.pdf
+ texmf-dist/doc/latex/keyfloat/images/image2.pdf
+ texmf-dist/doc/latex/keyfloat/keyfloat.pdf details="Package documentation"
+srccontainersize 31600
+srccontainerchecksum 4ba7353da7caaeef4d419936602d22ff1a818e31abaeb2619951e3ba6601fe70014544a800c3c2ee942d015289096defb7c490dd6d78713718bd9cc7209e424e
+srcfiles size=42
+ texmf-dist/source/latex/keyfloat/keyfloat.dtx
+ texmf-dist/source/latex/keyfloat/keyfloat.ins
+runfiles size=10
+ texmf-dist/tex/latex/keyfloat/keyfloat.sty
+catalogue-contact-home http://bdtechconcepts.com
+catalogue-ctan /macros/latex/contrib/keyfloat
+catalogue-license lppl1.3
+catalogue-topics float
+catalogue-version 2.07

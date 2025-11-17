@@ -1,0 +1,38 @@
+name apxproof
+category Package
+revision 60412
+shortdesc Proofs in appendix
+longdesc The package makes it easier to write articles where proofs and
+longdesc other material are deferred to the appendix. The appendix
+longdesc material is written in the LaTeX code along with the main text
+longdesc which it naturally complements, and it is automatically
+longdesc deferred. The package can automatically send proofs to the
+longdesc appendix, can repeat in the appendix the theorem environments
+longdesc stated in the main text, can section the appendix automatically
+longdesc based on the sectioning of the main text, and supports a
+longdesc separate bibliography for the appendix material. It depends on
+longdesc the following other packages: amsthm, bibunits (if the
+longdesc bibliography option is set to separate), environ, etoolbox,
+longdesc fancyvrb, ifthen, and kvoptions.
+containersize 4424
+containerchecksum 7ff4cc55770d1b713e63bc6323e6c55b8ddd13841e2410a28b4135b26d8d5d1aac1c5e443820d85fa5502bae4aa60082714a912a3aa975235e5336ae300ad2ba
+doccontainersize 573140
+doccontainerchecksum 3d27042dfeb73eca1dff70ca554bb6346d881a027d59ee6f241d57f32e611baf7238f815abd9eb660d8ad62c488954f730b19374bf6d90a4a48aafa32398d7c6
+docfiles size=146
+ texmf-dist/doc/latex/apxproof/LICENSE
+ texmf-dist/doc/latex/apxproof/README.md details="Readme"
+ texmf-dist/doc/latex/apxproof/apxproof.bib
+ texmf-dist/doc/latex/apxproof/apxproof.pdf details="Package documentation"
+srccontainersize 16208
+srccontainerchecksum 2730ef4187d1f8fb5bda8cab3b807e523faad855267204f0059302cbfa585d22857681c8c482620b9861839b1240cc4290d99a97053aeaf33e13cc0f7863c4fb
+srcfiles size=17
+ texmf-dist/source/latex/apxproof/apxproof.dtx
+ texmf-dist/source/latex/apxproof/apxproof.ins
+runfiles size=5
+ texmf-dist/tex/latex/apxproof/apxproof.sty
+catalogue-contact-bugs https://github.com/PierreSenellart/apxproof/issues
+catalogue-contact-repository https://github.com/PierreSenellart/apxproof
+catalogue-ctan /macros/latex/contrib/apxproof
+catalogue-license lppl1.3
+catalogue-topics proof appendix
+catalogue-version 1.2.3

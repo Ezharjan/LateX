@@ -1,0 +1,40 @@
+name expose-expl3-dunkerque-2019
+category Package
+revision 54451
+shortdesc Using expl3 to implement some numerical algorithms
+longdesc An article, in French, based on a presentation made in
+longdesc Dunkerque for the "stage LaTeX" on 12 June 2019. The articles
+longdesc gives three examples of code in expl3 with (lots of) comments:
+longdesc Knuth's algorithm to create a list of primes, the sieve of
+longdesc Eratosthenes, Kaprekar sequences. The package contains the code
+longdesc itself, the documentation as a PDF file, and all the files
+longdesc needed to produce it.
+containersize 612
+containerchecksum 9a642f593f0440159d802bfd78a472645dc1c320a43e8bfe91fd7eba3c0b67bc3ad9477c17b36f6ac08b39ddbaff11687e78694bc81134c33e1af085a9384a24
+doccontainersize 331036
+doccontainerchecksum d3b09af828ace720aa3f7b0fe979893f9fca3d358a69abd818bca7a81d45928cd02e0557bd607bcd91f223ad9f4808b0aeb61ba7269728d467eab46999ea5f92
+docfiles size=107
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/LISEZMOI.md
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/Makefile
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/README.md details="Readme"
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/bibliographie/dun19expl3.bib
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/codes/erato-def.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/codes/henel-def.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/codes/kaprekar-def.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/codes/knuth-def.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/dk19ecrireprem.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/dk19eratosthene.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/dk19intro.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/dk19kaprekar.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/dun19expl3.pdf details="The document itself" language="fr"
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/dun19expl3.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/extensions/dun19codepres.sty
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/glosaires/erato-supp-glo.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/glosaires/kaprekar-sup-glo.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/glosaires/les-macros.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/glosaires/termes-techniques.tex
+ texmf-dist/doc/latex/expose-expl3-dunkerque-2019/latexmkrc
+catalogue-ctan /info/expose-expl3-dunkerque-2019
+catalogue-license lppl1.3
+catalogue-topics french-doc expl3
+catalogue-version 1.2

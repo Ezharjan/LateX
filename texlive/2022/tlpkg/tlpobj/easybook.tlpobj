@@ -1,0 +1,35 @@
+name easybook
+category Package
+revision 64105
+shortdesc Easily typesetting Chinese theses or books
+longdesc easybook is a pure academic template created based on the
+longdesc ctexbook book document class. It also has the functions of book
+longdesc and article document class. Combined with the general framework
+longdesc design of the dissertation of many universities in China,
+longdesc providing multiple commands and interfaces allows users to
+longdesc easily customize the thesis template. Its basic macro package
+longdesc easybase can also be used with CTeX and standard document
+longdesc classes.
+containersize 16588
+containerchecksum b12c164bd9acf0d7b009838b896542661cc4248502e008b1fbbe0b8d2e0f1222a651ef368b13f10ca65229f13be232cfc843a28e4ae1505eb74fae74267b3bbc
+doccontainersize 613560
+doccontainerchecksum e45ad80b28993961da496c9cd0f6fb490a85e3c3059f8a8791671a620c9f7d78587c806d3745f8396df49681eb4ce4c39b01bae5ea858d090790db7d0b38b54a
+docfiles size=167
+ texmf-dist/doc/latex/easybook/README.md details="Readme"
+ texmf-dist/doc/latex/easybook/easybook.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/easybook/easybook.tex
+srccontainersize 16484
+srccontainerchecksum 063b230254552c1ab1b7059b21ff6a6f6531be373fc7cf540b0b70b5f522fb1e1afd1227bd0d142f3a312de7223703751f7d61ace729f1c2b91e25f426767540
+srcfiles size=20
+ texmf-dist/source/latex/easybook/easybook.dtx
+ texmf-dist/source/latex/easybook/easybook.ins
+runfiles size=20
+ texmf-dist/tex/latex/easybook/easybase.sty
+ texmf-dist/tex/latex/easybook/easybook.cls
+ texmf-dist/tex/latex/easybook/eb-tcolorbox.cfg
+catalogue-also ctex
+catalogue-contact-repository https://gitee.com/texl3/easybook
+catalogue-ctan /macros/latex/contrib/easybook
+catalogue-license lppl1.3c
+catalogue-topics book-pub dissertation class doc-templ chinese expl3
+catalogue-version 1.70

@@ -1,0 +1,32 @@
+name fontware
+category TLCore
+revision 62387
+catalogue vfware
+shortdesc Tools for virtual font metrics
+longdesc Virtual font metrics are usually created in a textual form, the
+longdesc Virtual Property List, but programs that use them need to use
+longdesc binary files (the Virtual Font and the TeX Font Metric). The
+longdesc present two programs translate between the two forms: - vptovf
+longdesc takes a VPL file and generates a VF file and a TFM file; -
+longdesc vftovp takes a VF file and a TFM file and generates a VPL file.
+longdesc The programs are to be found in every distribution of TeX.
+depend fontware.ARCH
+containersize 656
+containerchecksum 6103b16df1b465b08ebec98236b04a858ab1db6f7721c324d6776d5367c4a7ea5642869fff828147860b3858569abd4658174d03c3f23317c5ed28b53cf8cd75
+doccontainersize 72540
+doccontainerchecksum c4caeb1ed2e50915e4ae76fe7b5fb53a4a7c55b9184e5a6c83a6912fa3d37f47627863bf76ca92578441d87055c82204bc09a3a8a96568edeef25e80c4cdac25
+docfiles size=27
+ texmf-dist/doc/man/man1/pltotf.1
+ texmf-dist/doc/man/man1/pltotf.man1.pdf
+ texmf-dist/doc/man/man1/tftopl.1
+ texmf-dist/doc/man/man1/tftopl.man1.pdf
+ texmf-dist/doc/man/man1/vftovp.1
+ texmf-dist/doc/man/man1/vftovp.man1.pdf
+ texmf-dist/doc/man/man1/vptovf.1
+ texmf-dist/doc/man/man1/vptovf.man1.pdf
+catalogue-contact-bugs https://lists.tug.org/tex-k
+catalogue-contact-repository https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-ctan /systems/knuth/dist/etc
+catalogue-license knuth
+catalogue-topics font-supp

@@ -1,0 +1,35 @@
+name lyluatex
+category Package
+revision 51252
+shortdesc Commands to include lilypond scores within a (Lua)LaTeX document
+longdesc This package provides macros for the inclusion of LilyPond
+longdesc scores within LuaLaTeX. It calls LilyPond to compile scores,
+longdesc then includes the produced files. Dependencies: currfile,
+longdesc environ, graphicx, luaotfload, luatexbase, metalogo, minibox,
+longdesc pdfpages, xkeyval.
+containersize 17864
+containerchecksum 8ef105cf148927c99a20e792fb2259320d0e28f4140621561c9314afeb51f71a15013841e1497d0246df8305688e7211974bfe6a618b188d813481c9526f44ff
+doccontainersize 865844
+doccontainerchecksum d8768ee9ae861477a13dd837629d870d34b0d1fc0b1f0709a90255f1ce230ceb3ebb782c9a6272f72e32c3371b2a1d16577033c53e2d6d1b1cd09adb19b62e41
+docfiles size=439
+ texmf-dist/doc/support/lyluatex/Contributors.md
+ texmf-dist/doc/support/lyluatex/LICENSE
+ texmf-dist/doc/support/lyluatex/README.md details="Readme"
+ texmf-dist/doc/support/lyluatex/latexmkrc
+ texmf-dist/doc/support/lyluatex/ly/eight-systems.ly
+ texmf-dist/doc/support/lyluatex/ly/fonts.ly
+ texmf-dist/doc/support/lyluatex/lyluatex.pdf details="Package documentation"
+ texmf-dist/doc/support/lyluatex/lyluatex.tex
+ texmf-dist/doc/support/lyluatex/lyluatexbase.cls
+ texmf-dist/doc/support/lyluatex/lyluatexmanual.cls
+runfiles size=19
+ texmf-dist/scripts/lyluatex/lyluatex-lib.lua
+ texmf-dist/scripts/lyluatex/lyluatex-options.lua
+ texmf-dist/scripts/lyluatex/lyluatex.lua
+ texmf-dist/tex/luatex/lyluatex/lyluatex.sty
+catalogue-contact-bugs https://github.com/jperon/lyluatex/issues
+catalogue-contact-repository https://github.com/jperon/lyluatex
+catalogue-ctan /support/lyluatex
+catalogue-license mit
+catalogue-topics luatex music music-extinp
+catalogue-version 1.0f

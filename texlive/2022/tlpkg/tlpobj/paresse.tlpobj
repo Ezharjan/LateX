@@ -1,0 +1,34 @@
+name paresse
+category Package
+revision 59228
+shortdesc Define simple macros for greek letters
+longdesc The package defines macros using SS to type greek letters so
+longdesc that the user may (for example) type SSa to get the effect of
+longdesc $\alpha$. However, it takes care only of letters which have a
+longdesc macro name like \alpha or \Omega.
+containersize 3640
+containerchecksum 1604c9320918893633af8318d049194158daaf458bbafb5ce34b2ecf39896eae4591989117bd1ecdc3a86d4728a4c477f32b82b38315aa0693fb5978a81d2b21
+doccontainersize 1335464
+doccontainerchecksum f25aae5058f765f5f141c1d2ba537db5395384f64b1e0aa803e486eccc1a9c958dcbf6b1dfb0aca331a5d20a798c2107092f79b9e8ec44e342ba52964ed43b06
+docfiles size=412
+ texmf-dist/doc/latex/paresse/LISEZMOI.md details="Lisezmoi (French)" language="fr"
+ texmf-dist/doc/latex/paresse/MANIFEST.md
+ texmf-dist/doc/latex/paresse/README.md details="Readme"
+ texmf-dist/doc/latex/paresse/paresse-eng.pdf details="User guide (English)"
+ texmf-dist/doc/latex/paresse/paresse-eng.tex
+ texmf-dist/doc/latex/paresse/paresse-fra.pdf details="Guide de l'utilisateur (French)" language="fr"
+ texmf-dist/doc/latex/paresse/paresse-fra.tex
+ texmf-dist/doc/latex/paresse/paresse.pdf details="Code documentation"
+srccontainersize 14060
+srccontainerchecksum 5acbb82be5b06506d603eb19b01770806e515b1d496a2b51ecbab0a6c5fb4b6a0842764fb76446c09eb9a49a9a9cefb571e5133a0f72917de989814cfb3bd00a
+srcfiles size=13
+ texmf-dist/source/latex/paresse/paresse.dtx
+ texmf-dist/source/latex/paresse/paresse.ins
+runfiles size=7
+ texmf-dist/tex/latex/paresse/paresse-old.sty
+ texmf-dist/tex/latex/paresse/paresse-utf8.sty
+ texmf-dist/tex/latex/paresse/paresse.sty
+catalogue-ctan /macros/latex/contrib/paresse
+catalogue-license lppl1.3c
+catalogue-topics shortcut expl3
+catalogue-version 5.0.2

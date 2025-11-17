@@ -1,0 +1,30 @@
+name metrix
+category Package
+revision 52323
+shortdesc Typeset metric marks for Latin text
+longdesc The package may be used to type the prosodics/metrics of
+longdesc (latin) verse; it provides macros to typeset the symbols
+longdesc standing alone, and in combination with symbols, giving
+longdesc automatic alignment. The package requires TikZ (including the
+longdesc calc library), xpatch, and xparse (thus also requiring the
+longdesc experimental LaTeX3 environment).
+containersize 5528
+containerchecksum 00cbb4d0cd9417c57ae2cf701f0a485d296e17b95eb56a7a3b0acf328c4eadf3d8ddb7d4c3442ea26ef019dd4a6b5c95af9f718cd4e31b5e5d29301ce8e82edc
+doccontainersize 619964
+doccontainerchecksum e5f8654272e8a85366c226113d3815ffb1e539237bdace71da55e30864f8c746162ce1b3f3023e3e62616b286145157816aedc871c6c42dcd3d4b76092d8ea46
+docfiles size=154
+ texmf-dist/doc/latex/metrix/README details="Readme"
+ texmf-dist/doc/latex/metrix/metrix.pdf details="Package documentation"
+srccontainersize 17688
+srccontainerchecksum 51a355ceccac5ff53cc98baf6d8fb3c36949f620a51191899d272ecca9671819c740703af1c47856b4c171757de68df839959388c2d87b2f43f54aaaf219b7a2
+srcfiles size=24
+ texmf-dist/source/latex/metrix/metrix.dtx
+ texmf-dist/source/latex/metrix/metrix.ins
+runfiles size=8
+ texmf-dist/tex/latex/metrix/metrix.sty
+catalogue-contact-bugs https://github.com/tweh/metrix/issues
+catalogue-contact-repository https://github.com/tweh/metrix
+catalogue-ctan /macros/latex/contrib/metrix
+catalogue-license lppl1.3c
+catalogue-topics latin verse expl3
+catalogue-version 1.5

@@ -1,0 +1,32 @@
+name spix
+category Package
+revision 55933
+shortdesc Yet another TeX compilation tool: simple, human readable, no option, no magic
+longdesc SpiX offers a way to store information about the compilation
+longdesc process for a tex file inside the tex file itself. Just write
+longdesc the commands as comments in the tex files, and SpiX will
+longdesc extract and run those commands. Everything is stored in the tex
+longdesc file (so that you are not missing some piece of information
+longdesc that is located somewhere else), in a human-readable format (no
+longdesc need to know SpiX to understand it).
+depend spix.ARCH
+containersize 2276
+containerchecksum c8128bbee3f0dfbc009e74e46427c394a2c354eea63fc1abe6efd426aee8d0c091fefceb14de8ad97556686be702552a3ef5a10d540a57c1e8bcdaae9be8f22b
+doccontainersize 1551716
+doccontainerchecksum 3a1fc0f7186c0662271a5add51f08f0173c9d0f80cac632a484a30c8774fb3c4385edea2ecf184b2898d20431b7944c0a2e863bc4242ee4270b67eb4d8f3573d
+docfiles size=391
+ texmf-dist/doc/man/man1/spix.1
+ texmf-dist/doc/man/man1/spix.man1.pdf
+ texmf-dist/doc/support/spix/CHANGELOG.md
+ texmf-dist/doc/support/spix/LICENSE.txt
+ texmf-dist/doc/support/spix/README.md details="Readme"
+ texmf-dist/doc/support/spix/spix.pdf details="Package documentation"
+runfiles size=2
+ texmf-dist/scripts/spix/spix.py
+catalogue-contact-bugs https://framagit.org/spalax/spix/issues
+catalogue-contact-repository https://framagit.org/spalax/spix
+catalogue-contact-support https://framagit.org/spalax/spix/issues
+catalogue-ctan /support/spix
+catalogue-license gpl3+
+catalogue-topics compilation
+catalogue-version 1.1.0

@@ -1,0 +1,45 @@
+name light-latex-make
+category Package
+revision 60558
+shortdesc llmk: A build tool for LaTeX documents
+longdesc Light LaTeX Make (llmk) is yet another build tool specific for
+longdesc LaTeX documents. Its aim is to provide a simple way to specify
+longdesc a workflow of processing LaTeX documents and encourage people
+longdesc to always explicitly show the right workflow for each document.
+longdesc The main features of llmk are all about the above purpose.
+longdesc First, you can describe the workflows either in an external
+longdesc file llmk.toml or in a LaTeX document source in the form of
+longdesc magic comments. Further, multiple magic comment formats can be
+longdesc used. Second, it is fully cross-platform. The only requirement
+longdesc of the program is the texlua command; llmk provides a uniform
+longdesc way to describe the workflows available for nearly all TeX
+longdesc environments. Third, it behaves exactly the same in any
+longdesc environment. At this point, llmk intentionally does not provide
+longdesc any method for user configuration. Therefore one can guarantee
+longdesc that for a LaTeX document with an llmk setup, the process of
+longdesc typesetting the document will be reproduced in any TeX
+longdesc environment with the program.
+depend light-latex-make.ARCH
+containersize 10568
+containerchecksum 10ebf02409748bfcd1f7d2a202f22eafc309ae8bf0633da7b0fbad84eef7e94cad6f716085e953205b7f6aeefc78ea9a52fd5459582f4fcdaab9020af81d965f
+doccontainersize 185760
+doccontainerchecksum 9d7c6c8c11f93fe9019e593d6b63983e7b5235c6270d8940e5de6352c31586bf4afb81cd38b9b0c769d26058b150864c6a19f133fbb1a6249416266f03d07dc1
+docfiles size=67
+ texmf-dist/doc/man/man1/llmk.1
+ texmf-dist/doc/man/man1/llmk.man1.pdf
+ texmf-dist/doc/support/light-latex-make/LICENSE
+ texmf-dist/doc/support/light-latex-make/README.md details="Readme"
+ texmf-dist/doc/support/light-latex-make/llmk-doc.cls
+ texmf-dist/doc/support/light-latex-make/llmk-logo-code.tex
+ texmf-dist/doc/support/light-latex-make/llmk-logo.png
+ texmf-dist/doc/support/light-latex-make/llmk.pdf details="Package documentation"
+ texmf-dist/doc/support/light-latex-make/llmk.tex
+runfiles size=10
+ texmf-dist/scripts/light-latex-make/llmk.lua
+catalogue-alias llmk
+catalogue-contact-bugs https://github.com/wtsnjp/llmk/issues
+catalogue-contact-repository https://github.com/wtsnjp/llmk
+catalogue-ctan /support/light-latex-make
+catalogue-license mit
+catalogue-topics comp-supp compilation use-lua
+catalogue-version 1.1.0

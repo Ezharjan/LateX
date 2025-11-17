@@ -1,0 +1,39 @@
+name datetime2-german
+category Package
+revision 53125
+shortdesc German language module for the datetime2 package
+longdesc This module provides the "german" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty.
+containersize 3708
+containerchecksum a27345e07164419862e2aa50a46252ffa05ccc1f3aa36cf530544642faee34a7670cb2d9279245b657bd5cfb5f9282eb537a94acfe56017bd855948a0b0d1ae7
+doccontainersize 133096
+doccontainerchecksum 70c3d14708a87ea3e7f81ce3fa26420daa123f214a1bbdee17a8d1a33c437be51602a5857081ddc82998526e5424e4899dc795d1fc7462519ff35cfe8b63df9a
+docfiles size=35
+ texmf-dist/doc/latex/datetime2-german/README.md details="Readme"
+ texmf-dist/doc/latex/datetime2-german/datetime2-german-doc.pdf details="Package documentation"
+srccontainersize 8252
+srccontainerchecksum 04f88422f1134325f6c9dae292c8c6e10ea61da4c5159afb04774a776277f35130a5d7dd90d58e368df3db20a29d472e4c8c1ef2527d17cfe77ef1f46bb7dcdf
+srcfiles size=19
+ texmf-dist/source/latex/datetime2-german/datetime2-de-AT.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-de-CH.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-de-DE.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-german-base-ascii.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-german-base-utf8.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-german-base.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-german-doc.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-german.dtx
+ texmf-dist/source/latex/datetime2-german/datetime2-german.ins
+runfiles size=11
+ texmf-dist/tex/latex/datetime2-german/datetime2-de-AT.ldf
+ texmf-dist/tex/latex/datetime2-german/datetime2-de-CH.ldf
+ texmf-dist/tex/latex/datetime2-german/datetime2-de-DE.ldf
+ texmf-dist/tex/latex/datetime2-german/datetime2-german-base-ascii.ldf
+ texmf-dist/tex/latex/datetime2-german/datetime2-german-base-utf8.ldf
+ texmf-dist/tex/latex/datetime2-german/datetime2-german-base.ldf
+ texmf-dist/tex/latex/datetime2-german/datetime2-german.ldf
+catalogue-contact-bugs https://gitlab.com/SFr682k/datetime2-german/issues
+catalogue-contact-repository https://gitlab.com/SFr682k/datetime2-german
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-german
+catalogue-license lppl1.3c
+catalogue-topics date-time multilingual
+catalogue-version 3.0

@@ -1,0 +1,28 @@
+name withargs
+category Package
+revision 52641
+shortdesc In-place argument substitution
+longdesc The \withargs command provides a clean way to populate a
+longdesc template (containing #1, #2, etc.) using LaTeX argument
+longdesc substitution. It also allows you to carefully control argument
+longdesc expansion using a LaTeX3-style argument specification. Uses
+longdesc range from creating readable string templates (akin to C's
+longdesc printf function) to performing otherwise complex token-list
+longdesc manipulation.
+containersize 6100
+containerchecksum 73cc4db53528595f54f31f0d2824f08af54310aaed51b6eb51a5386de3f06dbe6ffeea8c4ab6f1e4ee1d169b5b0082f113ed435eae90b99a9b59df3296a3f4b9
+doccontainersize 475336
+doccontainerchecksum 050ecd695b269896d1252649978af7cfbafa80e289038ef1054d82296cd83934b0f7ceee274340d54d836021f0da39f05a648dba8bff141eae8f378527bcf865
+docfiles size=120
+ texmf-dist/doc/latex/withargs/README details="Readme"
+ texmf-dist/doc/latex/withargs/withargs.pdf details="Package documentation"
+ texmf-dist/doc/latex/withargs/withargs.tex
+runfiles size=7
+ texmf-dist/tex/latex/withargs/withargs-dry.sty
+ texmf-dist/tex/latex/withargs/withargs-packagedoc.cls
+ texmf-dist/tex/latex/withargs/withargs.sty
+catalogue-contact-repository https://github.com/mhelvens/latex-withargs
+catalogue-ctan /macros/latex/contrib/withargs
+catalogue-license lppl1.3
+catalogue-topics macro-supp expl3
+catalogue-version 0.3.1

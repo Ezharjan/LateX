@@ -1,0 +1,22 @@
+name pdfarticle
+category Package
+revision 51127
+shortdesc Class for pdf publications
+longdesc pdfArticle is simple document class dedicated for creating pdf
+longdesc documents with LuaLaTeX.
+containersize 3868
+containerchecksum 50cabf25f9da7b9adee489fd0a01fd9e5da2115d1dd09111507143a99a605cbc7e2de5a40a0e963b68942a601b7f0b753fdaf9cc1eadcdfb1261730fff5b4875
+doccontainersize 42628
+doccontainerchecksum d77754cf21565337f6db1b984dd3812798833f61fa263e39f9a929b25391a3b31a55df97a7f0db4fd379e4bf3855c51b61a719c30187865f67d7d37444e17de3
+docfiles size=14
+ texmf-dist/doc/lualatex/pdfarticle/README details="Readme"
+ texmf-dist/doc/lualatex/pdfarticle/pdfArticle.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/pdfarticle/pdfArticle.tex
+runfiles size=3
+ texmf-dist/tex/lualatex/pdfarticle/pdfArticle.cls
+catalogue-contact-bugs https://bitbucket.org/OpCode-eu-org/latex-libs/issues
+catalogue-contact-repository https://bitbucket.org/OpCode-eu-org/latex-libs
+catalogue-ctan /macros/luatex/latex/pdfarticle
+catalogue-license mit
+catalogue-topics class pdfprocess
+catalogue-version 1.0

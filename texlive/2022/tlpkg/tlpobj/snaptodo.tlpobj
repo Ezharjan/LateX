@@ -1,0 +1,29 @@
+name snaptodo
+category Package
+revision 61155
+shortdesc A todo that snaps to the closer side
+longdesc This package is an alternative to todonotes, from which it
+longdesc differs in the following ways: Depending on where you call
+longdesc \snaptodo, the note is put in the left or the right margin,
+longdesc whichever is closer. The notes bump each other so they never
+longdesc overlap; the lines never overlap either. Aesthetic and
+longdesc customizable style.
+containersize 1932
+containerchecksum 10d9e3d154a3713c1f494ae626c61a1275b902892ad7cb34f41c65a36335a7ea21bc9d7d77d00845c2e5f270edc91d1be5bfdfa34189a2ac6bd88ab83e78212b
+doccontainersize 213112
+doccontainerchecksum ed3df0276b44e2539b9b8cd0b5f6b46f86b18723d0913ed29fba45e30a132b53f8e0206add2d31bc152c78f319b8f7671ea000a1f344dc7f7d80ad9de32cd66b
+docfiles size=64
+ texmf-dist/doc/latex/snaptodo/README details="Readme"
+ texmf-dist/doc/latex/snaptodo/snaptodo.pdf details="Package documentation"
+ texmf-dist/doc/latex/snaptodo/snaptodo.tex
+ texmf-dist/doc/latex/snaptodo/test/before_after.tex
+ texmf-dist/doc/latex/snaptodo/test/circle_testing.tex
+ texmf-dist/doc/latex/snaptodo/test/minimal_testing.tex
+ texmf-dist/doc/latex/snaptodo/test/stress_testing.tex
+runfiles size=2
+ texmf-dist/tex/latex/snaptodo/snaptodo.sty
+catalogue-contact-bugs https://github.com/Symbol1/snaptodo/issues
+catalogue-contact-repository https://github.com/Symbol1/snaptodo
+catalogue-ctan /macros/latex/contrib/snaptodo
+catalogue-license lppl1.3c
+catalogue-topics notes editorial

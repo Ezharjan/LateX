@@ -1,0 +1,118 @@
+name librebaskerville
+category Package
+revision 64421
+shortdesc The Libre Baskerville family of fonts with LaTeX support
+longdesc This package provides the Libre Baskerville family of fonts,
+longdesc designed by Pablo Impallari, for use with LaTeX, pdfLaTeX,
+longdesc XeLaTeX or LuaLaTeX. It is primarily intended to be a web font
+longdesc but is also attractive as a text font. A BoldItalic variant has
+longdesc been artificially generated.
+execute addMap LibreBaskerville.map
+containersize 575508
+containerchecksum 671894db7ebd325e35efba47a8b84dc9afbeb213358503f65e246e97af090be03f6591fe124d4f5b4c53ae99bdc7a56bf84d385597ed7564fa63f7fad5265e4e
+doccontainersize 33184
+doccontainerchecksum 9cfecbbfea90ff99af78bac088674061c7123ea046aa42da806fc09d6fe5e88c94fbaa3053bf87b563e55f514eda5cda108d5bf6b096253e79fa0d09567221ee
+docfiles size=13
+ texmf-dist/doc/fonts/librebaskerville/FONTLOG.txt
+ texmf-dist/doc/fonts/librebaskerville/OFL.txt
+ texmf-dist/doc/fonts/librebaskerville/README details="Readme"
+ texmf-dist/doc/fonts/librebaskerville/librebaskerville-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/librebaskerville/librebaskerville-samples.tex
+runfiles size=456
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_4uz6a2.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_4yc6wb.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_6hj2ra.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_p6yehx.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_uf5aa7.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_ufnake.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_vepvv3.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_wpcz7d.enc
+ texmf-dist/fonts/enc/dvips/librebaskerville/lbskvl_yeotsr.enc
+ texmf-dist/fonts/map/dvips/librebaskerville/LibreBaskerville.map
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-sup-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-sup-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-sup-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-sup-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Bold-sup-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-sup-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-sup-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-sup-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-sup-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Italic-sup-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-t1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-lf-ts1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-sup-ly1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-sup-ly1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-sup-ot1.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-sup-t1--base.tfm
+ texmf-dist/fonts/tfm/impallari/librebaskerville/LibreBskvl-Regular-sup-t1.tfm
+ texmf-dist/fonts/truetype/impallari/librebaskerville/LibreBaskerville-Bold.ttf
+ texmf-dist/fonts/truetype/impallari/librebaskerville/LibreBaskerville-Italic.ttf
+ texmf-dist/fonts/truetype/impallari/librebaskerville/LibreBaskerville-Regular.ttf
+ texmf-dist/fonts/truetype/impallari/librebaskerville/LibreBskvl-BoldItalic.ttf
+ texmf-dist/fonts/type1/impallari/librebaskerville/LibreBskvl-Bold.pfb
+ texmf-dist/fonts/type1/impallari/librebaskerville/LibreBskvl-BoldItalic.pfb
+ texmf-dist/fonts/type1/impallari/librebaskerville/LibreBskvl-Italic.pfb
+ texmf-dist/fonts/type1/impallari/librebaskerville/LibreBskvl-Regular.pfb
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Bold-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Bold-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Bold-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Bold-sup-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Bold-sup-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-BoldItalic-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-BoldItalic-sup-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Italic-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Italic-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Italic-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Italic-sup-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Italic-sup-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Regular-lf-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Regular-lf-t1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Regular-lf-ts1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Regular-sup-ly1.vf
+ texmf-dist/fonts/vf/impallari/librebaskerville/LibreBskvl-Regular-sup-t1.vf
+ texmf-dist/tex/latex/librebaskerville/LY1LibreBskvl-LF.fd
+ texmf-dist/tex/latex/librebaskerville/LY1LibreBskvl-Sup.fd
+ texmf-dist/tex/latex/librebaskerville/OT1LibreBskvl-LF.fd
+ texmf-dist/tex/latex/librebaskerville/OT1LibreBskvl-Sup.fd
+ texmf-dist/tex/latex/librebaskerville/T1LibreBskvl-LF.fd
+ texmf-dist/tex/latex/librebaskerville/T1LibreBskvl-Sup.fd
+ texmf-dist/tex/latex/librebaskerville/TS1LibreBskvl-LF.fd
+ texmf-dist/tex/latex/librebaskerville/librebaskerville.sty
+catalogue-ctan /fonts/librebaskerville
+catalogue-license ofl lppl
+catalogue-topics font font-body font-serif font-proportional font-ttf font-type1 font-supp font-t1enc

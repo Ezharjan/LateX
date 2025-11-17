@@ -1,0 +1,35 @@
+name expkv
+category Package
+revision 60573
+shortdesc An expandable key=val implementation
+longdesc expkv is a minimalistic but fast and expandable <key>=<val>
+longdesc implementation. It provides two parsing macros:
+longdesc \ekvset{<set>}{<key=val list>} which is comparable to keyval's
+longdesc \setkeys. \ekvparse<cs1><cs2>{<key=val list>} which can be used
+longdesc inside \expanded and expands to <cs1>{key} and <cs2>{key}{val}
+longdesc for the entries in the <key=val list>. expkv has predictable
+longdesc brace-stripping behaviour and handles commas and equal signs
+longdesc with category codes 12 and 13 correctly. A key-defining
+longdesc interface that is not as rudimentary as the macros provided in
+longdesc this package is contained in expkv-def.
+containersize 5124
+containerchecksum 18aa7282095f5c5f3664b9ff138f129acbebbeb16f5f550aad594a62eded5f08dcfee2efa9b34327c1fb5c6976e782361d2c372088c73b48d934bce1febbe068
+doccontainersize 479908
+doccontainerchecksum 2111b0638d5954b396b4e30d5a36fd078ee99477c378fb61537c8fb6365b39c1990965af8f1a3435ad088344374de329659b4822756299951585c6e19749d891
+docfiles size=121
+ texmf-dist/doc/latex/expkv/README.md details="Readme"
+ texmf-dist/doc/latex/expkv/expkv.pdf details="Package documentation"
+srccontainersize 28296
+srccontainerchecksum 9bddbc840021b8036b180bc8bf28cc2368dd705114e90bc5c511a8e666fc2e182ec3ea6d777ba6f5b712e4aa0cc30c03418a0aa6749ca77bc990a93fef39da22
+srcfiles size=29
+ texmf-dist/source/latex/expkv/expkv.dtx
+runfiles size=8
+ texmf-dist/tex/context/third/expkv/t-expkv.tex
+ texmf-dist/tex/generic/expkv/expkv.tex
+ texmf-dist/tex/latex/expkv/expkv.sty
+catalogue-also expkv-def
+catalogue-contact-repository https://github.com/Skillmon/tex_expkv
+catalogue-ctan /macros/generic/expkv
+catalogue-license lppl1.3c
+catalogue-topics keyval
+catalogue-version 1.9a

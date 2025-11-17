@@ -1,0 +1,28 @@
+name picture
+category Package
+revision 54867
+shortdesc Dimens for picture macros
+longdesc There are macro and environment arguments that expect numbers
+longdesc that will internally be multiplied by \unitlength. This package
+longdesc extends the syntax of these arguments, so that dimensions with
+longdesc calculation support may be used for these arguments.
+containersize 2300
+containerchecksum 9dbb4e17b455a6a18bae6309864412b975d07a1a11e908e1023ab8e990ded0956ccf3826e72d9878f3597eaa4d185c8b147d2c7d2149618bdb0b09fce8e20e90
+doccontainersize 303384
+doccontainerchecksum ce60fbc915b3c07db6ebf4bccbd0e2e8ed6f38fe0c07075af2c433b2bd7f82cd191c314ef3ae1fe9b4a02c2c27d75e97a5831c45b833a33373d545a977a162d8
+docfiles size=77
+ texmf-dist/doc/latex/picture/README.md
+ texmf-dist/doc/latex/picture/picture-example.tex
+ texmf-dist/doc/latex/picture/picture.pdf details="Package documentation"
+srccontainersize 5988
+srccontainerchecksum 599ad9e192d2ee50b7037d93c3a8541014ada30c13a9a8b637ee33ee9dec476a46779b06a44f56288e6fc08b29408af30310fbf0ec951aef3a8b0d8dd776aa2b
+srcfiles size=6
+ texmf-dist/source/latex/picture/picture.dtx
+runfiles size=2
+ texmf-dist/tex/latex/picture/picture.sty
+catalogue-contact-bugs https://github.com/ho-tex/picture/issues
+catalogue-contact-repository https://github.com/ho-tex/picture
+catalogue-ctan /macros/latex/contrib/picture
+catalogue-license lppl1.3
+catalogue-topics macro-supp
+catalogue-version 1.6

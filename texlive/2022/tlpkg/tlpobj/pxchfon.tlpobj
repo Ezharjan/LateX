@@ -1,0 +1,124 @@
+name pxchfon
+category Package
+revision 64072
+shortdesc Japanese font setup for pLaTeX and upLaTeX
+longdesc This package enables users to declare in their document which
+longdesc physical fonts should be used for the standard Japanese
+longdesc (logical) fonts of pLaTeX and upLaTeX. Font setup is realized
+longdesc by changing the font mapping of dvipdfmx, and thus users can
+longdesc use any (monospaced) physical fonts they like, once they
+longdesc properly install this package, without creating helper files
+longdesc for each new font. This package also supports setup for the
+longdesc fonts used in the japanese-otf package. System requirements:
+longdesc TeX format: LaTeX. TeX engine: pTeX or upTeX. DVIware:
+longdesc dvipdfmx. Prerequisite packages: atbegshi.
+containersize 19940
+containerchecksum e173d15747567b79ff4d2161ddb17196db74211b98abe520dca132012ee648b05b64b18c96c62b3e9ece10cf2d3b2adaa143fbdd4cff492ce3e6102c9586c0e6
+doccontainersize 322528
+doccontainerchecksum 08e9557572783c16041aa03a674ac163e56d7017505c0e61436325a451da8e34fb1e22b4fbe06c7805e43e9d706a69f1247693f2fcc6a360ecbaf3c3f9cc33fe
+docfiles size=105
+ texmf-dist/doc/platex/pxchfon/LICENSE
+ texmf-dist/doc/platex/pxchfon/README-ja.md details="Readme" language="ja"
+ texmf-dist/doc/platex/pxchfon/README.md details="Readme"
+ texmf-dist/doc/platex/pxchfon/pxchfon.pdf details="Package documentation" language="ja"
+ texmf-dist/doc/platex/pxchfon/pxchfon.tex
+ texmf-dist/doc/platex/pxchfon/sample-2000jis.pdf
+ texmf-dist/doc/platex/pxchfon/sample-2000jis.tex
+ texmf-dist/doc/platex/pxchfon/sample-2004jis.pdf
+ texmf-dist/doc/platex/pxchfon/sample-2004jis.tex
+ texmf-dist/doc/platex/pxchfon/sample-pxchfon.pdf
+ texmf-dist/doc/platex/pxchfon/sample-pxchfon.tex
+runfiles size=108
+ texmf-dist/fonts/sfd/pxchfon/PXcjk0.sfd
+ texmf-dist/fonts/tfm/public/pxchfon/cfjam-r-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjam-r-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjam-r-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjam-r-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-b-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-b-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-b-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-b-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-l-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-l-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-l-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-l-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-r-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-r-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-r-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjar-r-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-b-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-b-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-b-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-b-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-r-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-r-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-r-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-r-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-x-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-x-l5j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-x-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/cfjas-x-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjam-r-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjam-r-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjam-r-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjam-rz-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-b-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-b-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-b-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-bz-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-l-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-l-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-l-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-lz-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-r-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-r-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-r-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjar-rz-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-b-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-b-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-b-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-bz-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-r-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-r-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-r-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-rz-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-x-l0j.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-x-t1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-x-ts1.tfm
+ texmf-dist/fonts/tfm/public/pxchfon/r-cfjas-xz-l0j.tfm
+ texmf-dist/fonts/vf/public/pxchfon/cfjam-r-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjam-r-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjam-r-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjam-r-ts1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-b-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-b-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-b-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-b-ts1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-l-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-l-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-l-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-l-ts1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-r-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-r-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-r-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjar-r-ts1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-b-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-b-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-b-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-b-ts1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-r-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-r-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-r-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-r-ts1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-x-l0j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-x-l5j.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-x-t1.vf
+ texmf-dist/fonts/vf/public/pxchfon/cfjas-x-ts1.vf
+ texmf-dist/tex/platex/pxchfon/pxchfon.sty
+ texmf-dist/tex/platex/pxchfon/pxchfon0.def
+ texmf-dist/tex/platex/pxchfon/pxjafont.sty
+catalogue-contact-repository https://github.com/zr-tex8r/PXchfon
+catalogue-ctan /macros/jptex/latex/pxchfon
+catalogue-license mit
+catalogue-topics japanese font-supp
+catalogue-version 1.9

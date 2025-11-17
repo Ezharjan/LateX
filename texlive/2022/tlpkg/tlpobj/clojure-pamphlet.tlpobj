@@ -1,0 +1,41 @@
+name clojure-pamphlet
+category Package
+revision 60981
+shortdesc A simple literate programming tool based on clojure's pamphlet system
+longdesc The Clojure pamphlet system is a system based on the Clojure
+longdesc literate system. In the Clojure's pamphlet system you have your
+longdesc main LaTeX file, which can be compiled regularly. This file
+longdesc contains documentation and source code (just like in other
+longdesc forms of literate programming). These code snippets are wrapped
+longdesc in the chunk environment, hence they can be recognized by the
+longdesc tangler in order to extract them. Chunks can be included inside
+longdesc each other by the getchunk command (which will be typesetted
+longdesc acordingly). Finally, the LaTeX file will be run through the
+longdesc tangler to get the desired chunk of code.
+depend clojure-pamphlet.ARCH
+containersize 3644
+containerchecksum 67047118c74e1d19426d99bd3a716d6076d977156f1e686bbd991d6b1cba464897f662e950c86218910b485300d40a5cb80d8d43868fb7920cc99a6d7f1c5735
+doccontainersize 213692
+doccontainerchecksum 02ab33398a87a47c76fd34df9eccde47b60b028b3a659294968b35beaead85908d958ccd94b8f706f6f2173c9af3d7f7382c510134dabde4bfab9be20f85998d
+docfiles size=57
+ texmf-dist/doc/man/man1/pamphletangler.1
+ texmf-dist/doc/man/man1/pamphletangler.man1.pdf
+ texmf-dist/doc/support/clojure-pamphlet/README details="Readme"
+ texmf-dist/doc/support/clojure-pamphlet/clojure-pamphlet_guide.pdf details="Package documentation"
+srccontainersize 4980
+srccontainerchecksum 5848f7ace83c5bbf5017f7a760fdc464e848511717f5fcca5e17f95421429a5608c590fcbc1e7a0d49bb5996def552f16515edfbfa5a2673fef962529141e5a2
+srcfiles size=4
+ texmf-dist/source/support/clojure-pamphlet/clojure-pamphlet.dtx
+ texmf-dist/source/support/clojure-pamphlet/clojure-pamphlet.ins
+runfiles size=3
+ texmf-dist/scripts/clojure-pamphlet/pamphletangler
+ texmf-dist/tex/latex/clojure-pamphlet/clojure-pamphlet.sty
+catalogue-contact-bugs https://gitlab.com/elancha/clojure-pamphlet/issues
+catalogue-contact-development https://gitlab.com/elancha/clojure-pamphlet/merge_requests
+catalogue-contact-home https://gitlab.com/elancha/clojure-pamphlet
+catalogue-contact-repository https://gitlab.com/elancha/clojure-pamphlet
+catalogue-contact-support https://gitlab.com/elancha/clojure-pamphlet/merge_requests
+catalogue-ctan /web/clojure-pamphlet
+catalogue-license gpl3+
+catalogue-topics litprog litprog-tools
+catalogue-version 1.3

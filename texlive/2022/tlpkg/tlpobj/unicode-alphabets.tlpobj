@@ -1,0 +1,39 @@
+name unicode-alphabets
+category Package
+revision 54236
+shortdesc Macros for using characters from Unicode's Private Use Area
+longdesc While Unicode supports the vast majority of use cases, there
+longdesc are certain specialized niches which require characters and
+longdesc glyphs not (yet) represented in the standard. Thus the Private
+longdesc Use Area (PUA) at code points E000-F8FF, which enables third
+longdesc parties to define arbitrary character sets. This package allows
+longdesc configuring a number of macros for using various PUA character
+longdesc sets in LaTeX (AGL, CYFI, MUFI, SIL, TITUS, UCSUR, UNZ), to
+longdesc enable transcription and display of medieval and other
+longdesc documents.
+containersize 43852
+containerchecksum e75df935a1a0895f5bda9854042a38c92627240f1318bdeb1e39428f50133dbe0b606e66b1bea6f73681fb40ed73220c5e26a60eb4ad10b6106c3e16d778e4be
+doccontainersize 701236
+doccontainerchecksum 317ddd08268f38c197136d2755fa00738270a1e179eb8ea92ada50edc69da61fff17359f38fe33afa1e30fafff23117bf98895b9218bffb7b2242099d5f5aefd
+docfiles size=185
+ texmf-dist/doc/latex/unicode-alphabets/README.md details="Readme"
+ texmf-dist/doc/latex/unicode-alphabets/license.txt
+ texmf-dist/doc/latex/unicode-alphabets/specimen.pdf details="Example of use"
+ texmf-dist/doc/latex/unicode-alphabets/specimen.tex
+ texmf-dist/doc/latex/unicode-alphabets/unicode-alphabets.bib
+ texmf-dist/doc/latex/unicode-alphabets/unicode-alphabets.pdf details="Package documentation"
+ texmf-dist/doc/latex/unicode-alphabets/unicode-alphabets.tex
+runfiles size=150
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.agl.csv
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.cyfi.csv
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.mufi.csv
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.sil.csv
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.sty
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.titus.csv
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.ucsur.csv
+ texmf-dist/tex/latex/unicode-alphabets/unicode-alphabets.unz.csv
+catalogue-contact-bugs https://github.com/mikkelee/latex-pua/issues
+catalogue-contact-repository https://github.com/mikkelee/latex-pua
+catalogue-ctan /macros/latex/contrib/unicode-alphabets
+catalogue-license cc-by-sa-4
+catalogue-topics unicode

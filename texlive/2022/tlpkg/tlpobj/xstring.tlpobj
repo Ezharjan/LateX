@@ -1,0 +1,34 @@
+name xstring
+category Package
+revision 60007
+shortdesc String manipulation for (La)TeX
+longdesc The package provides macros for manipulating strings -- testing
+longdesc a string's contents, extracting substrings, substitution of
+longdesc substrings and providing numbers such as string length,
+longdesc position of, or number of recurrences of, a substring. The
+longdesc package works equally in Plain TeX and LaTeX (though e-TeX is
+longdesc always required). The strings to be processed may contain
+longdesc (expandable) macros.
+containersize 11252
+containerchecksum d02190c624808e5c5814f2c2a8c8ce9f28197a165bc988c02d6eac6fa8a22e3e1bb5c3b41b9b3a3db38917377097a0f97e65ae41ddd9422a97501c6c7a2d2668
+doccontainersize 674940
+doccontainerchecksum dbd3711d0e6ced0346feb8af281779cb3669bb849d8a04ea9d184961f473aefd3910bfbc77cebd9d150a409489fa1db65581f162cc37bdc2b36482474b439e6c
+docfiles size=236
+ texmf-dist/doc/generic/xstring/README details="Readme"
+ texmf-dist/doc/generic/xstring/test_etex.pdf
+ texmf-dist/doc/generic/xstring/test_etex.tex
+ texmf-dist/doc/generic/xstring/test_latex.pdf
+ texmf-dist/doc/generic/xstring/test_latex.tex
+ texmf-dist/doc/generic/xstring/xstring-en.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/generic/xstring/xstring-en.tex
+ texmf-dist/doc/generic/xstring/xstring-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/generic/xstring/xstring-fr.tex
+runfiles size=13
+ texmf-dist/tex/generic/xstring/xstring.sty
+ texmf-dist/tex/generic/xstring/xstring.tex
+catalogue-contact-bugs https://framagit.org/unbonpetit/xstring/issues
+catalogue-contact-repository https://framagit.org/unbonpetit/xstring/tree/master
+catalogue-ctan /macros/generic/xstring
+catalogue-license lppl1.3c
+catalogue-topics string
+catalogue-version 1.84

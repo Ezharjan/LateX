@@ -1,0 +1,24 @@
+name clrstrip
+category Package
+revision 60363
+shortdesc Place contents into a full width colour strip
+longdesc This lightweight package provides the colorstrip environment,
+longdesc that places its contents into a full page width colour strip.
+containersize 1624
+containerchecksum 5a26232ede7efdd9ebb4ca89adaa2f0c507cb4eb883fc59662abca448a9bd09894cf52e850a0f57af101fd22ebf239ef82d4fb4a761b11448b846a82858fee96
+doccontainersize 196756
+doccontainerchecksum 9d52efc5bec01766d81240bc4087d76b08b1a07c1b89c3a197291e7f7b9e1d4e10214ba7640b591cc82c67406c487c39b571ddcc89adbdf377a3e3fb4063b21a
+docfiles size=50
+ texmf-dist/doc/latex/clrstrip/README.md details="Readme"
+ texmf-dist/doc/latex/clrstrip/clrstrip.pdf details="Package documentation"
+srccontainersize 4552
+srccontainerchecksum db0be0ba5c5686846abc9eabfffcbe24c1b3f0e62554328c254126f7b0450ad0f066f7b3da20aabd83c80545e3400d0d52b639cc23b55a64e6b5735be79ea21f
+srcfiles size=4
+ texmf-dist/source/latex/clrstrip/clrstrip.dtx
+runfiles size=1
+ texmf-dist/tex/latex/clrstrip/clrstrip.sty
+catalogue-also tcolorbox
+catalogue-contact-repository https://github.com/Skillmon/ltx_clrstrip
+catalogue-ctan /macros/latex/contrib/clrstrip
+catalogue-license lppl1.3c
+catalogue-topics colour

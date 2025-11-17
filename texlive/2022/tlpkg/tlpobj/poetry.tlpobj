@@ -1,0 +1,31 @@
+name poetry
+category Package
+revision 53129
+shortdesc Facilities for typesetting poetry and poetical structure
+longdesc This package provides some macros and general doodads for
+longdesc typesetting poetry. There is, of course, already the excellent
+longdesc verse package, and the poetrytex package provides some extra
+longdesc functionality on top of it. But poetry provides much of the
+longdesc same functionality in a bit of a different way, and with a few
+longdesc additional abilities, such as facilities for a list of poems,
+longdesc an index of first lines, and some structural commands.
+containersize 3288
+containerchecksum 1f618b339fecd44d21029ff9ecfb95a97e47fd5d20089a2115d70c8336738c794e1c639c78a16b5756d591fbe3ad52576e3923f6f86245fcc9f7501008382eb6
+doccontainersize 267148
+doccontainerchecksum 540a209251cebb31bdc87143fc8b60627a9296f488f58a81faaefb3c3cb66517e8a670e81b4363840cfa1220697d26517fc1bebedf43f62a4f1c18e3e14a8d65
+docfiles size=71
+ texmf-dist/doc/latex/poetry/CHANGES
+ texmf-dist/doc/latex/poetry/README details="Readme"
+ texmf-dist/doc/latex/poetry/lppl.txt
+ texmf-dist/doc/latex/poetry/poetry.pdf details="Package documentation"
+srccontainersize 17256
+srccontainerchecksum 59132d5d5deb62236ebdb4ec0335f3557cb4a99d4a5871ec40669801338f5f1b72fe3023a09160feabe2e0e1d2e1a78c8b803dc4d21c63cd3efafd4040224f9d
+srcfiles size=17
+ texmf-dist/source/latex/poetry/poetry.dtx
+ texmf-dist/source/latex/poetry/poetry.ins
+runfiles size=3
+ texmf-dist/tex/latex/poetry/poetry.sty
+catalogue-ctan /macros/latex/contrib/poetry
+catalogue-license lppl1.3c
+catalogue-topics verse
+catalogue-version 2.2

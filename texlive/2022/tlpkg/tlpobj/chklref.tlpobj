@@ -1,0 +1,32 @@
+name chklref
+category Package
+revision 52649
+shortdesc Check for problems with labels in LaTeX
+longdesc It is quite common that after modifying a TeX file, many unused
+longdesc labels remain in it. The purpose of chklref is to automatically
+longdesc find these useless labels. It also looks for "non starred"
+longdesc mathematical environments with no labels and advises the user
+longdesc to use a starred version instead.
+depend chklref.ARCH
+containersize 5084
+containerchecksum 12f5e950ae439d0efd3f625572e8b81d993485a1efd71dc04c078cb1dc9b76650de3c424d7a6c60ebc5ccb5d29f37ed04c477ea1306acf4c5f4fccbd95e18985
+doccontainersize 320916
+doccontainerchecksum 5aeb13824c1781feefe94215f3efce15c212e0d38f9e0d5fb393e96c2159ba43f165c600cd64ee9d8c42c0a4f0db6c2e462ee85a93993965bad0420b6b662ef6
+docfiles size=86
+ texmf-dist/doc/man/man1/chklref.1
+ texmf-dist/doc/man/man1/chklref.man1.pdf
+ texmf-dist/doc/support/chklref/Makefile.doc
+ texmf-dist/doc/support/chklref/README.md details="Readme"
+ texmf-dist/doc/support/chklref/VERSION
+ texmf-dist/doc/support/chklref/chklref.pdf details="Package documentation"
+ texmf-dist/doc/support/chklref/chklref.tex
+ texmf-dist/doc/support/chklref/release.sh
+runfiles size=5
+ texmf-dist/scripts/chklref/chklref.pl
+ texmf-dist/tex/latex/chklref/chklref.sty
+catalogue-contact-bugs https://github.com/jlelong/chklref/issues
+catalogue-contact-repository https://github.com/jlelong/chklref
+catalogue-ctan /support/chklref
+catalogue-license gpl3
+catalogue-topics debug-supp
+catalogue-version 3.1.2

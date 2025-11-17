@@ -1,0 +1,25 @@
+name ot-tableau
+category Package
+revision 59318
+shortdesc Optimality Theory tableaux in LaTeX
+longdesc The package makes it easy to create beautiful
+longdesc optimality-theoretic tableaux. The LaTeX source is visually
+longdesc very similar to a formatted tableau, which makes working with
+longdesc the source code painless (well, less painful). A variety of
+longdesc stylistic variants are available to suit personal taste. The
+longdesc package requires xstring, amssymb, bbding, suffix, colortbl,
+longdesc rotating, hhline (optionally), arydshln, and tipa (optionally).
+containersize 2392
+containerchecksum 0a9c219d69f6eec4d9fbf8937e0cdde60b34cf38ce154332147ccc172b0ce90932ee08c7a85a68d4e5163461352745a5c0abdc6b8bdc187be5fce5b121f45c75
+doccontainersize 66132
+doccontainerchecksum 8345d881600cf9f4d73cd2a23d12ff32f11a4d3a66b61262b0eae7dd3bc9039e20b187a6a9e45e9b15729015fb76b0e4e3e76c011e47688df09f4a848e508c4c
+docfiles size=21
+ texmf-dist/doc/latex/ot-tableau/README details="Readme"
+ texmf-dist/doc/latex/ot-tableau/ot-tableau.pdf details="Package documentation"
+ texmf-dist/doc/latex/ot-tableau/ot-tableau.tex
+runfiles size=2
+ texmf-dist/tex/latex/ot-tableau/ot-tableau.sty
+catalogue-contact-home https://github.com/adamb924/ot-tableau
+catalogue-ctan /macros/latex/contrib/ot-tableau
+catalogue-license lppl1.3
+catalogue-topics linguistic table

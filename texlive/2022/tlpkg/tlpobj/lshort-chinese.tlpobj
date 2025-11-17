@@ -1,0 +1,45 @@
+name lshort-chinese
+category Package
+revision 61100
+catalogue lshort-zh-cn
+shortdesc Introduction to LaTeX, in Chinese
+longdesc A Chinese edition of the not so short introduction to LaTeX2e,
+longdesc with additional information of typesetting Chinese language.
+containersize 472
+containerchecksum 5e87a1c613e57157c77a9401cda424ba0544b1cfd1611e0f763b837ebd172947365a04f8734b2e7d41f84df9ca28500034b3b8f96dbc4d2f8bee59c1f0813938
+doccontainersize 1561100
+doccontainerchecksum ea00f428f8e93067a876de16cc7f8fe09f46398a209f4ec7664f83f605e674558703f05cb4ebb655a29affb3af26615731a284894d37778a5f7fad531fe2bad1
+docfiles size=460
+ texmf-dist/doc/latex/lshort-chinese/README-zh.md details="Readme (Chinese)" language="zh"
+ texmf-dist/doc/latex/lshort-chinese/README.md details="Readme"
+ texmf-dist/doc/latex/lshort-chinese/lshort-zh-cn.pdf details="The document itself" language="zh"
+ texmf-dist/doc/latex/lshort-chinese/src/INSTRUCTIONS.md
+ texmf-dist/doc/latex/lshort-chinese/src/Makefile
+ texmf-dist/doc/latex/lshort-chinese/src/chap/app.A.install.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/app.B.error.help.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/biblio.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.01.basics.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.02.text.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.03.elements.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.04.math.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.05.style.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.06.spec.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.07.graphic.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/chap.08.custom.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/fdl.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/preface.contrib.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/preface.overview.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/sec.symbol.table.tex
+ texmf-dist/doc/latex/lshort-chinese/src/chap/titlepage.tex
+ texmf-dist/doc/latex/lshort-chinese/src/latexmkrc
+ texmf-dist/doc/latex/lshort-chinese/src/lshort-zh-cn-layout.tex
+ texmf-dist/doc/latex/lshort-chinese/src/lshort-zh-cn-style.sty
+ texmf-dist/doc/latex/lshort-chinese/src/lshort-zh-cn.ist
+ texmf-dist/doc/latex/lshort-chinese/src/lshort-zh-cn.tex
+ texmf-dist/doc/latex/lshort-chinese/src/make.bat
+catalogue-contact-bugs https://github.com/CTeX-org/lshort-zh-cn/issues
+catalogue-contact-repository https://github.com/CTeX-org/lshort-zh-cn
+catalogue-ctan /info/lshort/chinese
+catalogue-license fdl
+catalogue-topics tut-latex chinese-doc
+catalogue-version 6.03

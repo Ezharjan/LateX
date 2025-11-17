@@ -1,0 +1,34 @@
+name geradwp
+category Package
+revision 63134
+shortdesc Document class for the Cahiers du GERAD series
+longdesc This package provides the geradwp class, a class based on
+longdesc article and compatible with LaTeX. With this class, researchers
+longdesc at GERAD will be able to write their working paper while
+longdesc complying to all the presentation standards required by the
+longdesc Cahiers du GERAD series.
+containersize 5916
+containerchecksum b5b4cecbe95f3091348b917d9cafa31a5249bcf0b11b5a0be405d980c3a22d7af6f241af12ff999b5bbdf0aa3aebfff537e8c01fea9bdc904709eb66b3fc78bb
+doccontainersize 847744
+doccontainerchecksum e12924c6e3437f0d2665bbfd97aa7d88c491a159866a3ec7ffdf9f84298e4bc0ff336487a194b68f0ebfea67dbf415749118328ac1606f02f32193963f6339c9
+docfiles size=271
+ texmf-dist/doc/latex/geradwp/LICENSE.txt
+ texmf-dist/doc/latex/geradwp/README.md details="Readme"
+ texmf-dist/doc/latex/geradwp/geradwp-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/geradwp/geradwp.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/geradwp/geradwp.tex
+srccontainersize 23620
+srccontainerchecksum faf85f46bfe88f5ea1220e69b514f6c026096ca331f53bb19d2ef2f1cc728cf8b9c46d394579bf78ef60d1b75c3164c2c8c204e959d4a298dbbef2f9f2dbe5e5
+srcfiles size=23
+ texmf-dist/source/latex/geradwp/geradwp.dtx
+ texmf-dist/source/latex/geradwp/geradwp.ins
+runfiles size=6
+ texmf-dist/tex/latex/geradwp/geradwp.cls
+catalogue-contact-bugs https://github.com/metalogueur/geradwp/issues
+catalogue-contact-home https://www.gerad.ca/fr/papers
+catalogue-contact-repository https://github.com/metalogueur/geradwp
+catalogue-contact-support https://www.gerad.ca/fr/publications/papers/cahiers-procedure
+catalogue-ctan /macros/latex/contrib/geradwp
+catalogue-license lppl1.3c
+catalogue-topics class doc-templ misc-paper
+catalogue-version 1.1

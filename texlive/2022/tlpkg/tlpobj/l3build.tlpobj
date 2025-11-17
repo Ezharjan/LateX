@@ -1,0 +1,56 @@
+name l3build
+category Package
+revision 64402
+shortdesc A testing and building system for (La)TeX
+longdesc The build system supports testing and building LaTeX3 code, on
+longdesc Linux, Mac OS X and Windows systems. The package offers: A unit
+longdesc testing system for (La)TeX code (whether kernel code or
+longdesc contributed packages); A system for typesetting package
+longdesc documentation; and An automated process for creating CTAN
+longdesc releases. The package is essentially independent of other
+longdesc material released by the LaTeX3 team, and may be updated on a
+longdesc different schedule.
+depend l3build.ARCH
+depend luatex
+containersize 35852
+containerchecksum e0634bc80e72d8edab57598e4973aebb851bee54f00b36874ea27cf3aa36d564c6263baf124da6ab9b6a7243a919e59ba8199fb72c67e92ebb25e1ee98a0329f
+doccontainersize 744456
+doccontainerchecksum c7e4eb1162238219d447b28807ec20aade6cacba0626c4ab5aed0be6bbd1b42fe64f030088e8b166a3596a9c43301f6f2b4e4ca1760436f50ec6d3d52175504d
+docfiles size=194
+ texmf-dist/doc/latex/l3build/CHANGELOG.md
+ texmf-dist/doc/latex/l3build/CONTRIBUTING.md
+ texmf-dist/doc/latex/l3build/README.md details="Readme"
+ texmf-dist/doc/latex/l3build/l3build.pdf details="Package documentation"
+ texmf-dist/doc/man/man1/l3build.1
+ texmf-dist/doc/man/man1/l3build.man1.pdf
+srccontainersize 30924
+srccontainerchecksum 52c2d5b5ad716d50d3252dc5fc4d88f6015f86cd1327cd6e11396636ad6e977e3d545c99ee99f0eb24a5df91400326f5e44e270ac2d42c066cf9dc2bda2024c4
+srcfiles size=29
+ texmf-dist/source/latex/l3build/l3build.dtx
+ texmf-dist/source/latex/l3build/l3build.ins
+runfiles size=46
+ texmf-dist/scripts/l3build/l3build-arguments.lua
+ texmf-dist/scripts/l3build/l3build-aux.lua
+ texmf-dist/scripts/l3build/l3build-check.lua
+ texmf-dist/scripts/l3build/l3build-clean.lua
+ texmf-dist/scripts/l3build/l3build-ctan.lua
+ texmf-dist/scripts/l3build/l3build-file-functions.lua
+ texmf-dist/scripts/l3build/l3build-help.lua
+ texmf-dist/scripts/l3build/l3build-install.lua
+ texmf-dist/scripts/l3build/l3build-manifest-setup.lua
+ texmf-dist/scripts/l3build/l3build-manifest.lua
+ texmf-dist/scripts/l3build/l3build-stdmain.lua
+ texmf-dist/scripts/l3build/l3build-tagging.lua
+ texmf-dist/scripts/l3build/l3build-typesetting.lua
+ texmf-dist/scripts/l3build/l3build-unpack.lua
+ texmf-dist/scripts/l3build/l3build-upload.lua
+ texmf-dist/scripts/l3build/l3build-variables.lua
+ texmf-dist/scripts/l3build/l3build-zip.lua
+ texmf-dist/scripts/l3build/l3build.lua
+ texmf-dist/tex/latex/l3build/regression-test.tex
+catalogue-contact-bugs https://github.com/latex3/l3build/issues
+catalogue-contact-home https://www.latex-project.org
+catalogue-contact-repository https://github.com/latex3/l3build
+catalogue-ctan /macros/latex/contrib/l3build
+catalogue-license lppl1.3c
+catalogue-topics package-devel macro-supp ctan

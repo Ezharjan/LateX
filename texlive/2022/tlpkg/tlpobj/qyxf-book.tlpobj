@@ -1,0 +1,41 @@
+name qyxf-book
+category Package
+revision 56319
+shortdesc Book Template for Qian Yuan Xue Fu
+longdesc qyxf-book is a LaTeX document class (template) developed by
+longdesc Qian Yuan Xue Fu (QYXF), a student club of Xi'an Jiaotong
+longdesc University (XJTU). Up to now, this template has been applied to
+longdesc academic counselling material ("course helpers") written by
+longdesc members of QYXF, including Solutions to University Physics:
+longdesc https://qyxf.site/latest/Da Wu Ti Jie (Shang ).pdf Notes on
+longdesc Computing Methods: https://qyxf.site/latest/Ji Suan Fang Fa Xie
+longdesc Ying -v1.1.pdf Guide to Computer Programming:
+longdesc https://qyxf.site/latest/Ji Suan Ji She Ji Cheng Xu Zhi Nan
+longdesc .pdf Features of the template: Minimalistic document style, as
+longdesc preferred for "course helpers". Several color schemes are
+longdesc offered, and it is easy to customize your own scheme. Simple
+longdesc interfaces for users to customize the style of preface, main
+longdesc part and so on. Currently the template is only designed for
+longdesc Chinese typesetting.
+containersize 5180
+containerchecksum be1be15996d6db58200ced70e6b17d29ad015bd1f1ae1dccb7cb50e225e9150db76511fbec37d17711e10104322782f92bf9fedecf990fb4358fefc2df7a78e8
+doccontainersize 599896
+doccontainerchecksum 5bd3f6f9576ae2cacf3351db9cfe59ba519953a6e25e32b2ab4215a928d7a0f2903a9c75f9432c8fff3d9b7221d6ea09c439421eb5c5ec6830665d89836b9d63
+docfiles size=200
+ texmf-dist/doc/latex/qyxf-book/LICENSE
+ texmf-dist/doc/latex/qyxf-book/README.md details="Readme (English)"
+ texmf-dist/doc/latex/qyxf-book/README.zh.md details="Readme (Chinese)" language="zh"
+ texmf-dist/doc/latex/qyxf-book/figure/color-scheme.jpg
+ texmf-dist/doc/latex/qyxf-book/figure/qyxf-cover.pdf
+ texmf-dist/doc/latex/qyxf-book/figure/qyxf-logo.pdf
+ texmf-dist/doc/latex/qyxf-book/figure/thumbnail.png
+ texmf-dist/doc/latex/qyxf-book/qyxf-book-doc.pdf details="User manual / example of use" language="zh"
+ texmf-dist/doc/latex/qyxf-book/qyxf-book-doc.tex
+runfiles size=4
+ texmf-dist/tex/latex/qyxf-book/qyxf-book.cls
+catalogue-contact-bugs https://gitee.com/qyxf/qyxf-book/issues
+catalogue-contact-repository https://gitee.com/qyxf/qyxf-book
+catalogue-ctan /macros/latex/contrib/qyxf-book
+catalogue-license mit
+catalogue-topics class book-pub chinese
+catalogue-version 3.1.0

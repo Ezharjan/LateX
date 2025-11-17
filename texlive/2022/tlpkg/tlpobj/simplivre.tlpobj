@@ -1,0 +1,34 @@
+name simplivre
+category Package
+revision 64280
+shortdesc Write your books in a simple and clear way
+longdesc This package provides a LaTeX class for typesetting books with
+longdesc a simple and clear design. Currently, it has native support for
+longdesc Chinese (simplified and traditional), English, French, German,
+longdesc Italian, Japanese, Portuguese (European and Brazilian), Russian
+longdesc and Spanish typesetting. It compiles with either XeLaTeX or
+longdesc LuaLaTeX. This is part of the minimalist class series and
+longdesc depends on minimalist.sty from the minimalist package. The
+longdesc package name "simplivre" is taken from the French words
+longdesc "simple" and "livre" (= "book").
+depend minimalist
+containersize 4720
+containerchecksum 9ab406b3c577d9f683d5e4ed8303f4791f9b2a75200ab9cd2eded6699a580eba2cacf6da16b0848f407d7bd04c1fc6afe3881552ee0f4d57b1fb5c32154174fb
+doccontainersize 459692
+doccontainerchecksum 4167bcb50e182f7eeb163b5d3ed4e53e65599aa3acfc7ce4bbb20db5d185bace58e28e24f9091e172fa6c516dcfaf948c1fae93efc68398f0708f42b67e5990a
+docfiles size=156
+ texmf-dist/doc/latex/simplivre/LICENSE
+ texmf-dist/doc/latex/simplivre/README.md details="Readme"
+ texmf-dist/doc/latex/simplivre/simplivre-doc-cn.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/simplivre/simplivre-doc-cn.tex
+ texmf-dist/doc/latex/simplivre/simplivre-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/simplivre/simplivre-doc-en.tex
+ texmf-dist/doc/latex/simplivre/simplivre-doc-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/simplivre/simplivre-doc-fr.tex
+runfiles size=8
+ texmf-dist/tex/latex/simplivre/simplivre.cls
+catalogue-also minimalist
+catalogue-contact-repository https://github.com/Jinwen-XU/minimalist
+catalogue-ctan /macros/unicodetex/latex/simplivre
+catalogue-license lppl1.3c
+catalogue-topics class book-pub multilingual expl3

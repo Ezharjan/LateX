@@ -1,0 +1,35 @@
+name edmac
+category Package
+revision 61719
+shortdesc Typeset critical editions
+longdesc This is the type example package for typesetting scholarly
+longdesc critical editions.
+containersize 13172
+containerchecksum 12395b2429372cbf88794c197e28ceab4b69ca7d14cf78524e9538491b2ca8d14714e1ef00f2643a0e3e62db559f12a9a53a56d4bc7f54420d3f125727fca557
+doccontainersize 89884
+doccontainerchecksum d78db33bf2b2fdd17f23eae23ab9605efb29a217e52d89df5feb64db1907c1b5a497441eeb1fe2373342b7c9b09296c06efa24d6776edce84406e22a1967bb64
+docfiles size=89
+ texmf-dist/doc/latex/edmac/COPYRIGHT
+ texmf-dist/doc/latex/edmac/braonain.tex
+ texmf-dist/doc/latex/edmac/copying
+ texmf-dist/doc/latex/edmac/ed-nfss.txt
+ texmf-dist/doc/latex/edmac/edmac.doc
+ texmf-dist/doc/latex/edmac/edstanza.doc
+ texmf-dist/doc/latex/edmac/edszadoc.tex
+ texmf-dist/doc/latex/edmac/features.tex
+ texmf-dist/doc/latex/edmac/readme
+srccontainersize 952
+srccontainerchecksum 995092e2ea0776377938076b67f25042329ab76ef31f83f6f40aba449a735a90bc697be52f16fa6a2ac02cbe4ff2ef99762fdc03bd14eebff7a363f6c7f46c13
+srcfiles size=1
+ texmf-dist/source/latex/edmac/edmac.drv
+runfiles size=17
+ texmf-dist/tex/generic/edmac/edmac.tex
+ texmf-dist/tex/generic/edmac/edmacfss.sty
+ texmf-dist/tex/generic/edmac/edstanza.tex
+ texmf-dist/tex/generic/edmac/tabmac.tex
+catalogue-also ledmac ednotes manyfoot lineno poemscol
+catalogue-contact-home https://tug.org/edmac
+catalogue-ctan /macros/plain/contrib/edmac
+catalogue-license gpl2
+catalogue-topics crit-ed
+catalogue-version 3.17

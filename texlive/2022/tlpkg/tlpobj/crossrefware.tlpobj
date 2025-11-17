@@ -1,0 +1,50 @@
+name crossrefware
+category Package
+revision 60689
+shortdesc Scripts for working with crossref.org
+longdesc This bundle contains the following scripts: bibdoiadd.pl: add
+longdesc DOI numbers to papers in a given bib file, bibzbladd.pl: add
+longdesc Zbl numbers to papers in a given bib file, bibmradd.pl: add MR
+longdesc numbers to papers in a given bib file, bbl2bib.pl: convert
+longdesc thebibliography environment to a bib file, biburl2doi.pl:
+longdesc convert urls pointing to doi.org to dois ltx2crossrefxml.pl: a
+longdesc tool for the creation of XML files for submitting to
+longdesc crossref.org. The scripts use bibtexperllibs.
+depend crossrefware.ARCH
+containersize 15748
+containerchecksum 3f0afe8125298c89ec874acb29577525ddc2ab27072961b3303d51db27ffe78b7a39f18b6a41e86da0bfcde01fc288f160b8b524ccc1b91901ed0f91f32affc4
+doccontainersize 349160
+doccontainerchecksum 3c244948a38296789c812a38b669da9709501a21981b84f569e749b77f5de69e20fce332a0c794408f0efa00adaeb120e6887b8459c3bfc0962af8cfcc85c8d3
+docfiles size=120
+ texmf-dist/doc/man/man1/bbl2bib.1
+ texmf-dist/doc/man/man1/bbl2bib.man1.pdf
+ texmf-dist/doc/man/man1/bibdoiadd.1
+ texmf-dist/doc/man/man1/bibdoiadd.man1.pdf
+ texmf-dist/doc/man/man1/bibmradd.1
+ texmf-dist/doc/man/man1/bibmradd.man1.pdf
+ texmf-dist/doc/man/man1/biburl2doi.1
+ texmf-dist/doc/man/man1/biburl2doi.man1.pdf
+ texmf-dist/doc/man/man1/bibzbladd.1
+ texmf-dist/doc/man/man1/bibzbladd.man1.pdf
+ texmf-dist/doc/man/man1/ltx2crossrefxml.1
+ texmf-dist/doc/man/man1/ltx2crossrefxml.man1.pdf
+ texmf-dist/doc/support/crossrefware/Makefile
+ texmf-dist/doc/support/crossrefware/README details="Readme"
+ texmf-dist/doc/support/crossrefware/citations.bib
+ texmf-dist/doc/support/crossrefware/crossrefware.pdf details="Package documentation"
+ texmf-dist/doc/support/crossrefware/head.ltx
+runfiles size=19
+ texmf-dist/scripts/crossrefware/bbl2bib.pl
+ texmf-dist/scripts/crossrefware/bibdoiadd.pl
+ texmf-dist/scripts/crossrefware/bibmradd.pl
+ texmf-dist/scripts/crossrefware/biburl2doi.pl
+ texmf-dist/scripts/crossrefware/bibzbladd.pl
+ texmf-dist/scripts/crossrefware/ltx2crossrefxml.pl
+ texmf-dist/tex/latex/crossrefware/bibdoiadd.cfg
+ texmf-dist/tex/latex/crossrefware/ltx2crossrefxml.cfg
+catalogue-contact-bugs https://github.com/borisveytsman/crossrefware/issues
+catalogue-contact-development https://github.com/borisveytsman/crossrefware/pulls
+catalogue-contact-repository https://github.com/borisveytsman/crossrefware
+catalogue-ctan /support/crossrefware
+catalogue-license gpl
+catalogue-topics bibtex-util

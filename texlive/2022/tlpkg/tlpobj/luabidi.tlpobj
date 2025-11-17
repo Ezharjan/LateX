@@ -1,0 +1,28 @@
+name luabidi
+category Package
+revision 54512
+shortdesc Bidi functions for LuaTeX
+longdesc The package attempts to emulate the XeTeX bidi package, in the
+longdesc context of LuaTeX.
+containersize 2508
+containerchecksum 917d0d96748f2b70d368a2719bf6fdfaada3d24e2e60c97b6d412ba2cdd991a920d86a94d19136e075605095c19331e1dd37c3a059a9e8f772479ff5ab53550d
+doccontainersize 93868
+doccontainerchecksum 92345c9f8e50eefccba39f294841a7eaff7d0328ef445106dd436ff10a994a8a9ec027c9400f8b4b1f873ba1fbd92565e21b1cf2c73d40d3468ce27ca7ae128d
+docfiles size=28
+ texmf-dist/doc/lualatex/luabidi/LICENCE.md
+ texmf-dist/doc/lualatex/luabidi/README.md details="Readme"
+ texmf-dist/doc/lualatex/luabidi/luabidi.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luabidi/luabidi.tex
+runfiles size=5
+ texmf-dist/tex/lualatex/luabidi/luabidi-arabmaths.def
+ texmf-dist/tex/lualatex/luabidi/luabidi-autofootnoterule.def
+ texmf-dist/tex/lualatex/luabidi/luabidi-footnotes.def
+ texmf-dist/tex/lualatex/luabidi/luabidi-test-arabmaths.tex
+ texmf-dist/tex/lualatex/luabidi/luabidi.sty
+catalogue-contact-bugs https://github.com/bidi-tex/luabidi/issues
+catalogue-contact-home https://github.com/bidi-tex/luabidi/
+catalogue-contact-repository https://github.com/bidi-tex/luabidi
+catalogue-ctan /macros/luatex/latex/luabidi
+catalogue-license lppl1.3c mit
+catalogue-topics typesetting luatex
+catalogue-version 0.5

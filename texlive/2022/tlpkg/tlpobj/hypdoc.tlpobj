@@ -1,0 +1,26 @@
+name hypdoc
+category Package
+revision 63808
+shortdesc Hyper extensions for doc.sty
+longdesc This package adds hypertext features to the package doc that is
+longdesc used in the documentation system of LaTeX2e. Bookmarks are
+longdesc added and references are linked as far as possible.
+containersize 3552
+containerchecksum 4548bd373db79c702c18f37c22932c8f06168caf0a3a2504becf9a614670dfe2151bb06ded5697b5f9af950124227bec1b52be899b096698f1855d64b05b1ffd
+doccontainersize 324844
+doccontainerchecksum 871e666881ae541eed39e7464a151f23b6d4cc89dca269440aa3d813408cc273fab0a93de8e4ddbdd1d232290995388a0a7838a8990874d7640e9140996acf2a
+docfiles size=83
+ texmf-dist/doc/latex/hypdoc/README.md details="Readme"
+ texmf-dist/doc/latex/hypdoc/hypdoc.pdf details="Package documentation"
+srccontainersize 8528
+srccontainerchecksum b1896e5ebdb8fa5048d1645c2d1a067c33314cd9edbf21a5f572c0ec1828db6050943fc7c9f19dc8522fd9ee810e5527304f3503ad8f4b71f378eb46cdcfe4b1
+srcfiles size=9
+ texmf-dist/source/latex/hypdoc/hypdoc.dtx
+runfiles size=3
+ texmf-dist/tex/latex/hypdoc/hypdoc.sty
+catalogue-contact-bugs https://github.com/ho-tex/hypdoc/issues
+catalogue-contact-repository https://github.com/ho-tex/hypdoc
+catalogue-ctan /macros/latex/contrib/hypdoc
+catalogue-license lppl1.3c
+catalogue-topics doc-supp hyper
+catalogue-version 1.17

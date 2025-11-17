@@ -1,0 +1,35 @@
+name pygmentex
+category Package
+revision 64131
+shortdesc Use Pygments to format code listings in documents
+longdesc PygmenTeX is a Python-based LaTeX package that can be used for
+longdesc typesetting code listings in a LaTeX document using Pygments.
+longdesc Pygments is a generic syntax highlighter for general use in all
+longdesc kinds of software such as forum systems, wikis or other
+longdesc applications that need to prettify source code.
+depend pygmentex.ARCH
+containersize 7560
+containerchecksum 097a1eec7e6a969b0c2aef3915d8231d7e6b6c234abe79caa7f7325df22f4976d1bcf2b111c87c9b457250a2c89b5b0a29afd7deb81ee309753901768fb3fd08
+doccontainersize 715568
+doccontainerchecksum 050bf2576a7305eda104ac928cb332e6fd1437e1852726442694fb7ec88ebe7fb9e7e54987a13b76aa103afcc446019a57b8e011f4e638469ea34a9788a8e7cf
+docfiles size=206
+ texmf-dist/doc/latex/pygmentex/Factorial.java
+ texmf-dist/doc/latex/pygmentex/README details="Readme"
+ texmf-dist/doc/latex/pygmentex/blueshade.png
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.c
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.delphi
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.hs
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.java
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.pas
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.pdf details="Package documentation"
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.py
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo.tex
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo_2.pdf details="Small example of use"
+ texmf-dist/doc/latex/pygmentex/pygmentex_demo_2.tex
+runfiles size=7
+ texmf-dist/scripts/pygmentex/pygmentex.py
+ texmf-dist/tex/latex/pygmentex/pygmentex.sty
+catalogue-ctan /macros/latex/contrib/pygmentex
+catalogue-license lppl1.3
+catalogue-topics listing synt-hlt
+catalogue-version 0.11

@@ -1,0 +1,34 @@
+name tzplot
+category Package
+revision 62288
+shortdesc Plot graphs with TikZ abbreviations
+longdesc This is a LaTeX package that provides TikZ-based macros to make
+longdesc it easy to draw graphs. The macros provided in this package are
+longdesc just abbreviations for TikZ codes, which can be complicated;
+longdesc but using the package will hopefully make drawing easier,
+longdesc especially when drawing repeatedly. The macros were chosen and
+longdesc developed with an emphasis on drawing graphs in economics. The
+longdesc package depends on TikZ, xparse, and expl3.
+containersize 24192
+containerchecksum a3141569d0826a58bc95efb732f13f7e209b3d690f350ae7c78add775cf823bae5d7d9caae04d120be7a14ab439e213348d7d47aa51ea3e62036d2547e3ec3ff
+doccontainersize 1309632
+doccontainerchecksum 7d470db41783a2a39dc273bd715d890bf86a83535ce7cb00af0ba7f7fac3f99f250998b9357c836e0fbeb72289aa8ae62d74e2830dccd2af6a61a94e50d57dae
+docfiles size=411
+ texmf-dist/doc/latex/tzplot/README.txt details="Readme"
+ texmf-dist/doc/latex/tzplot/tzplot-doc-A-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc-B-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc-C-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc-C1-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc-C2-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc-D-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc-E-v2.0.tex
+ texmf-dist/doc/latex/tzplot/tzplot-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/tzplot/tzplot-doc.tex
+ texmf-dist/doc/latex/tzplot/tzplot-oblivoirpartstyle.tex
+ texmf-dist/doc/latex/tzplot/tzplot.ist
+runfiles size=54
+ texmf-dist/tex/latex/tzplot/tzplot.sty
+catalogue-ctan /graphics/pgf/contrib/tzplot
+catalogue-license lppl1.3c
+catalogue-topics graphics graphics-plotfn pgf-tikz expl3 maths
+catalogue-version 2.0

@@ -1,0 +1,109 @@
+name almendra
+category Package
+revision 56035
+shortdesc Almendra fonts with LaTeX support
+longdesc This package provides LaTeX, pdfLaTeX, XeLaTeX, and LuaLaTeX
+longdesc support for the Almendra family of fonts, designed by Ana
+longdesc Sanfelippo. Almendra is a typeface design based on calligraphy.
+longdesc Its style is related to the chancery and gothic hands. There
+longdesc are regular and bold weights with matching italics. There is
+longdesc also a regular-weight small-caps.
+execute addMap almendra.map
+containersize 314792
+containerchecksum 4e3a7334755c0f1a1d092904cee87a0aa72cbe843901df81b010d1e63a197d9c922223ff4247fa2557a5017e62ab9ee06958058c955ca56afb4cc0aad857eb0f
+doccontainersize 29928
+doccontainerchecksum 6674ae47d682e1817263e03f61307af2a6e5ecefe9de30a559ef39d188c0fb80da37ea73b39076e6c38d9c8c7b2513e5e893ab15e198669ad419b30ab7742b53
+docfiles size=11
+ texmf-dist/doc/fonts/almendra/OFL.txt
+ texmf-dist/doc/fonts/almendra/README details="Readme"
+ texmf-dist/doc/fonts/almendra/almendra-samples.pdf details="Package documentation"
+ texmf-dist/doc/fonts/almendra/almendra-samples.tex
+runfiles size=186
+ texmf-dist/fonts/enc/dvips/almendra/almndr_2bmcpz.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_aphd5h.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_d2g35l.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_fqyk3x.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_gd2dkq.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_jcmsbq.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_ktaaad.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_ncjtqa.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_piphgo.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_x2ojwl.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_xs7q5m.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_yxs7h5.enc
+ texmf-dist/fonts/enc/dvips/almendra/almndr_zt62bd.enc
+ texmf-dist/fonts/map/dvips/almendra/almendra.map
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-ly1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-ot1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-t1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Bold-osf-ts1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-ly1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-ot1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-t1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-BoldItalic-osf-ts1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-ly1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-ot1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-t1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Italic-osf-ts1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-ly1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-ot1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-t1.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/Almndr-Regular-osf-ts1.tfm
+ texmf-dist/fonts/tfm/public/almendra/AlmndrSC-Regular-osf-sc-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/AlmndrSC-Regular-osf-sc-ly1.tfm
+ texmf-dist/fonts/tfm/public/almendra/AlmndrSC-Regular-osf-sc-ot1.tfm
+ texmf-dist/fonts/tfm/public/almendra/AlmndrSC-Regular-osf-sc-t1--base.tfm
+ texmf-dist/fonts/tfm/public/almendra/AlmndrSC-Regular-osf-sc-t1.tfm
+ texmf-dist/fonts/truetype/public/almendra/Almendra-Bold.ttf
+ texmf-dist/fonts/truetype/public/almendra/Almendra-BoldItalic.ttf
+ texmf-dist/fonts/truetype/public/almendra/Almendra-Italic.ttf
+ texmf-dist/fonts/truetype/public/almendra/Almendra-Regular.ttf
+ texmf-dist/fonts/truetype/public/almendra/AlmendraSC-Regular.ttf
+ texmf-dist/fonts/type1/public/almendra/Almndr-Bold.pfb
+ texmf-dist/fonts/type1/public/almendra/Almndr-BoldItalic.pfb
+ texmf-dist/fonts/type1/public/almendra/Almndr-Italic.pfb
+ texmf-dist/fonts/type1/public/almendra/Almndr-Regular.pfb
+ texmf-dist/fonts/type1/public/almendra/AlmndrSC-Regular.pfb
+ texmf-dist/fonts/vf/public/almendra/Almndr-Bold-osf-ly1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Bold-osf-ot1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Bold-osf-t1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Bold-osf-ts1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-BoldItalic-osf-ly1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-BoldItalic-osf-ot1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-BoldItalic-osf-t1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-BoldItalic-osf-ts1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Italic-osf-ly1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Italic-osf-ot1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Italic-osf-t1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Italic-osf-ts1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Regular-osf-ly1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Regular-osf-ot1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Regular-osf-t1.vf
+ texmf-dist/fonts/vf/public/almendra/Almndr-Regular-osf-ts1.vf
+ texmf-dist/fonts/vf/public/almendra/AlmndrSC-Regular-osf-sc-ly1.vf
+ texmf-dist/fonts/vf/public/almendra/AlmndrSC-Regular-osf-sc-t1.vf
+ texmf-dist/tex/latex/almendra/LY1Almndr-OsF.fd
+ texmf-dist/tex/latex/almendra/OT1Almndr-OsF.fd
+ texmf-dist/tex/latex/almendra/T1Almndr-OsF.fd
+ texmf-dist/tex/latex/almendra/TS1Almndr-OsF.fd
+ texmf-dist/tex/latex/almendra/almendra.sty
+catalogue-contact-home https://fonts.google.com/specimen/Almendra
+catalogue-ctan /fonts/almendra
+catalogue-license ofl lppl
+catalogue-topics font font-serif font-calligraphic font-proportional font-body font-ttf font-type1 font-supp font-t1enc

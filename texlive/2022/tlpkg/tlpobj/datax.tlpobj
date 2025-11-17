@@ -1,0 +1,28 @@
+name datax
+category Package
+revision 61772
+shortdesc Import individual data from script files
+longdesc This LaTeX package uses pgfkeys to retrieve individual data
+longdesc points generated in some script. Analogous to how one might
+longdesc generate graphics in a script and import those graphics into a
+longdesc LaTeX document.
+containersize 1256
+containerchecksum 04de65ca5219e0e3b53fd0c0b92fa514bec77be2f889e48ad100f93113f54e738016fdd93ae59d79ae7f4ea31108efb9cbac87a6db010b71008fb17dcfa19900
+doccontainersize 198520
+doccontainerchecksum e1dd35b5dce9a4ea5b1bb9d9db14b8e6b6f8ab1a8f374079c2328862fb231b4eb69a05e1bddac424401d063925b4a75a9994000ee4c36c43e3fa6344badd6f5e
+docfiles size=52
+ texmf-dist/doc/latex/datax/README.md details="Readme"
+ texmf-dist/doc/latex/datax/datax-logo.tikz
+ texmf-dist/doc/latex/datax/datax.pdf details="Package documentation"
+srccontainersize 4156
+srccontainerchecksum 076509cc39ab41b028cc17551342bcc26cf8bbcd5c12d25d291e2eafb3610d390610d36e917a192b38fd7870c6ddee60a365bfa9711b024c6de2a3494dcc498a
+srcfiles size=4
+ texmf-dist/source/latex/datax/datax.dtx
+ texmf-dist/source/latex/datax/datax.ins
+runfiles size=1
+ texmf-dist/tex/latex/datax/datax.sty
+catalogue-contact-repository https://github.com/Datax-package/Datax.sty
+catalogue-ctan /macros/latex/contrib/datax
+catalogue-license lppl1.3
+catalogue-topics data-import
+catalogue-version 1.2.0

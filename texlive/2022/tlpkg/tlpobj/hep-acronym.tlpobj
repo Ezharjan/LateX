@@ -1,0 +1,33 @@
+name hep-acronym
+category Package
+revision 61168
+shortdesc An acronym extension for glossaries
+longdesc The hep-acronym package provides an acronym macro based on the
+longdesc glossaries package. The package is loaded with
+longdesc \usepackage{hep-acronym}.
+containersize 2276
+containerchecksum bd4251f8bffd16dbebff48333af4c988938da970af3c5e608f70c048f548eec0a6cfbbabc04f354dc3bbd4bc91580b9eea01e8d63d83b3ccd010f1a48f7545e7
+doccontainersize 467564
+doccontainerchecksum 072efb75240f15595193e9622bfedb3a8f21cf6683a8fe45593b466a5c5f52596dbebc04e231a604f05ce9c147939222657921a405fec81c2af19761a7d7b64c
+docfiles size=157
+ texmf-dist/doc/latex/hep-acronym/README-hep-acronym.md
+ texmf-dist/doc/latex/hep-acronym/README.md details="Readme"
+ texmf-dist/doc/latex/hep-acronym/bibliography.bib
+ texmf-dist/doc/latex/hep-acronym/hep-acronym-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-acronym/hep-acronym-documentation.tex
+ texmf-dist/doc/latex/hep-acronym/hep-acronym-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-acronym/hep-acronym-test.tex
+ texmf-dist/doc/latex/hep-acronym/license.md
+srccontainersize 5264
+srccontainerchecksum fd63dbe9e3532c953749a7aee66b057a2699f985a875e974b82a46bae79b7ba5a2afb46f0a4ae780f68c05478201b665df5b01614c9993c35aae7339a040f5fa
+srcfiles size=6
+ texmf-dist/source/latex/hep-acronym/hep-acronym-implementation.dtx
+ texmf-dist/source/latex/hep-acronym/hep-acronym.ins
+runfiles size=2
+ texmf-dist/tex/latex/hep-acronym/hep-acronym.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/hep-acronym
+catalogue-license lppl1.3c
+catalogue-topics acronym
+catalogue-version 1.0

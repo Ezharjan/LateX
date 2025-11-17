@@ -1,0 +1,38 @@
+name nanicolle
+category Package
+revision 56224
+shortdesc Typesetting herbarium specimen labels
+longdesc This package provides a LaTeX class nanicolle.cls for
+longdesc typesetting collection labels and identification labels in
+longdesc Chinese style or in western style for plant herbarium
+longdesc specimens. So far, documents using this class can only be
+longdesc compiled with XeLaTeX. Note: The name of the package is a
+longdesc compound of the Japanese "nani" (meaning "what") and a
+longdesc truncated form of the English "collect", thus expressing the
+longdesc ideas of identification/classification (taxonomy) and
+longdesc collection.
+containersize 5484
+containerchecksum e9f90cb21730e34fe03961281527cfdea0f7c15e349b9d441747be7ba591c40ac876ebed92f884bd502c3cf7a99f2f6f6328bce515680100c2f9a3d7e04a4aa4
+doccontainersize 573728
+doccontainerchecksum 3d159eb9fd84aa8bc6c183ae6a42aefc331b9bd606abbc1b2c3c53776d5b8f1554a4ad304d0555b8d2c95be2e8000eab0a3ec6a167e089292099bac6751782d2
+docfiles size=300
+ texmf-dist/doc/xelatex/nanicolle/ChinaMainland.pdf
+ texmf-dist/doc/xelatex/nanicolle/Dongguan.pdf
+ texmf-dist/doc/xelatex/nanicolle/README.md details="Readme"
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-doc-en.tex
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-doc-zh.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-doc-zh.tex
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-ex-en.pdf details="Example of use (English)"
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-ex-en.tex
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-ex-zh.pdf details="Example of use (Chinese)" language="zh"
+ texmf-dist/doc/xelatex/nanicolle/nanicolle-ex-zh.tex
+ texmf-dist/doc/xelatex/nanicolle/point.pdf
+runfiles size=4
+ texmf-dist/tex/xelatex/nanicolle/nanicolle.cls
+catalogue-contact-bugs https://github.com/Mikumikunisiteageru/nanicolle/issues
+catalogue-contact-repository https://github.com/Mikumikunisiteageru/nanicolle
+catalogue-ctan /macros/xetex/latex/nanicolle
+catalogue-license lppl1.3c
+catalogue-topics class biology covers labels chinese xetex
+catalogue-version 2.03y

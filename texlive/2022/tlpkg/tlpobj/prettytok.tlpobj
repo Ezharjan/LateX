@@ -1,0 +1,28 @@
+name prettytok
+category Package
+revision 63842
+shortdesc Pretty-print token lists
+longdesc Pretty-print token lists to HTML file for debugging purposes.
+longdesc Open the file in any browser to view the result. Can be used to
+longdesc replace \tl_analysis_show:n.
+depend filecontentsdef
+depend l3kernel
+depend precattl
+containersize 5376
+containerchecksum 8b9f5e9fec9d50b9f688115e00ad6fde21adfb9cef69e020fb297abcfe489cc6fde08d2ad4b72ea5f6b8e0b7499a97c798e8c0bd306d298427fcd19b6365c300
+doccontainersize 372452
+doccontainerchecksum 8dc2afdc9920817b13050bdb6d92164e9322a18fd1d7a7adc7a1655c8dd68181b00faef22c09f9bce45be0744e179c978ba40c6f841e3c2cdba1c88225f7486f
+docfiles size=95
+ texmf-dist/doc/latex/prettytok/DEPENDS.txt
+ texmf-dist/doc/latex/prettytok/README details="Readme"
+ texmf-dist/doc/latex/prettytok/prettytok.pdf details="Package documentation"
+ texmf-dist/doc/latex/prettytok/prettytok.tex
+runfiles size=5
+ texmf-dist/tex/latex/prettytok/prettytok.lua
+ texmf-dist/tex/latex/prettytok/prettytok.sty
+ texmf-dist/tex/latex/prettytok/prettytok_template.html
+catalogue-contact-repository https://github.com/user202729/TeXlib
+catalogue-ctan /macros/latex/contrib/prettytok
+catalogue-license lppl1.3c
+catalogue-topics expl3 debug-supp
+catalogue-version 0.0.1

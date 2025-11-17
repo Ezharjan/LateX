@@ -1,0 +1,41 @@
+name hypdvips
+category Package
+revision 53197
+shortdesc Hyperref extensions for use with dvips
+longdesc The hypdvips package fixes some problems when using hyperref
+longdesc with dvips. It also adds support for breaking links, file
+longdesc attachments, embedded documents and different types of
+longdesc GoTo-links. The cooperation of hyperref with cleveref is
+longdesc improved, which in addition allows an enhanced back-referencing
+longdesc system.
+containersize 24028
+containerchecksum 515089c437413d6d21c8d2987b8917aca7c046e42c0dc9212b39be1c9119bcc867f70c37087f9f3709db8c9f824ffe16d1b261f34d06d66e12857db9854892f7
+doccontainersize 471212
+doccontainerchecksum ef485ca27145ffc614c78547f68d574a0b27cd1a7cd5abd5752681e20ad6612e280f34f85c3e1c753bc6cfea976c9801da1768bda1dcea377c19b138ec9f2777
+docfiles size=347
+ texmf-dist/doc/latex/hypdvips/README details="Readme"
+ texmf-dist/doc/latex/hypdvips/hypdvips.pdf details="Package documentation"
+ texmf-dist/doc/latex/hypdvips/images/example1.eps
+ texmf-dist/doc/latex/hypdvips/images/example2.eps
+ texmf-dist/doc/latex/hypdvips/images/example3.eps
+ texmf-dist/doc/latex/hypdvips/images/example4.eps
+ texmf-dist/doc/latex/hypdvips/images/example5.eps
+ texmf-dist/doc/latex/hypdvips/images/example6.eps
+ texmf-dist/doc/latex/hypdvips/images/example7.eps
+ texmf-dist/doc/latex/hypdvips/images/graph.eps
+ texmf-dist/doc/latex/hypdvips/images/icon_draft.eps
+ texmf-dist/doc/latex/hypdvips/images/ids.eps
+ texmf-dist/doc/latex/hypdvips/images/logfile.eps
+ texmf-dist/doc/latex/hypdvips/images/openmsg_six.eps
+ texmf-dist/doc/latex/hypdvips/images/openmsg_sixinbrowser.eps
+ texmf-dist/doc/latex/hypdvips/images/paperclip.eps
+ texmf-dist/doc/latex/hypdvips/images/pushpin.eps
+ texmf-dist/doc/latex/hypdvips/images/tag.eps
+ texmf-dist/doc/latex/hypdvips/manifest.txt
+runfiles size=29
+ texmf-dist/tex/latex/hypdvips/hypdvips.sty
+catalogue-also breakurl
+catalogue-ctan /macros/latex/contrib/hypdvips
+catalogue-license lppl1.3
+catalogue-topics hyper
+catalogue-version 3.03

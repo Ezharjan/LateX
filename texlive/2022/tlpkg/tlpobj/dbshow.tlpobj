@@ -1,0 +1,36 @@
+name dbshow
+category Package
+revision 61634
+shortdesc A package to store and display data with custom filters, orders, and styles
+longdesc The package provides four core functions: data storage and
+longdesc display data filtering data sorting data display All data is
+longdesc saved once and then you can display these data with custom
+longdesc filters, orders and styles. The package can be used, for
+longdesc example, to record and display something you'd like to review,
+longdesc maybe the question you always answered incorrectly or some
+longdesc forgettable knowledge. But obviously, the package is much more
+longdesc powerful and extensible for more interesting tasks depending on
+longdesc the individual.
+containersize 7092
+containerchecksum 339bd686c658c462c9da56018234c6a31e72a3def962798772bed17bd453efa94c5f8e2d72a2f033714eaabbde8b45bbeed07d302e311d65a27c37f8ef177a2f
+doccontainersize 590640
+doccontainerchecksum 4d4ff36d121b950d7569f4ae8e7fee7e0a4790f61e8d2b58c136644d0ce455e8b8f4c1857c8df68d2f230016e5ea28a35047234ee101b3f949d1598f4e15e52c
+docfiles size=149
+ texmf-dist/doc/latex/dbshow/README.md details="Readme"
+ texmf-dist/doc/latex/dbshow/dbshow.pdf details="Package documentation" language="zh,en"
+srccontainersize 29152
+srccontainerchecksum 189d3f8bd131bb3fb8bc7481215fa670001ec9bbe20a4d1ec99a9864005b44fe9fb582ad5462ef23f62ec538fe8d2dd9136cf79e94756c4b6e02d644e2d66a1d
+srcfiles size=42
+ texmf-dist/source/latex/dbshow/dbshow.dtx
+ texmf-dist/source/latex/dbshow/dbshow.ins
+runfiles size=10
+ texmf-dist/tex/latex/dbshow/dbshow.sty
+catalogue-contact-bugs https://github.com/ZhiyuanLck/dbshow/issues
+catalogue-contact-development https://github.com/ZhiyuanLck/dbshow/pulls
+catalogue-contact-home https://github.com/ZhiyuanLck/dbshow
+catalogue-contact-repository https://github.com/ZhiyuanLck/dbshow/releases
+catalogue-contact-support https://github.com/ZhiyuanLck/dbshow/issues
+catalogue-ctan /macros/latex/contrib/dbshow
+catalogue-license lppl1.3c
+catalogue-topics data-disp data-prep data-sel expl3
+catalogue-version 1.5

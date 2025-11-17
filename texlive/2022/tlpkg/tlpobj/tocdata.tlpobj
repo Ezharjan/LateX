@@ -1,0 +1,36 @@
+name tocdata
+category Package
+revision 55852
+shortdesc Adds names to chapters, sections, figures in the TOC and LOF
+longdesc The tocdata package may be used to add a small amount of data
+longdesc to an entry in the table of contents or list of figures,
+longdesc between the section or caption name and the page number. The
+longdesc typical use would be to add the name of an author or artist of
+longdesc a chapter or section, such as in an anthology or a collection
+longdesc of papers. Additionally, user-level macros are provided which
+longdesc add the author's name to a chapter or section, along with an
+longdesc optional prefix and/or suffix, and add to a figure the artist's
+longdesc name, prefix, and suffix, plus optional additional text. Author
+longdesc and artist names are also added to the index. Additional
+longdesc user-level macros control formatting. tocdata works with the
+longdesc TOC/LOF formatting of the default LaTeX classes, memoir,
+longdesc koma-script, and with titletoc, tocloft, tocbasic, and
+longdesc tocstyle.
+containersize 3352
+containerchecksum d09c92d7be720882d53799e8ed8b392e8ce20f1ed78ec995918dbae80fe99e58b3d6b74264f5cf47c146b6f2adf779c97f5e4f98060bd704faf58959c7ce1dd7
+doccontainersize 915648
+doccontainerchecksum a67eb751bced4bf18dd734a7643923062f30d1dd43e1ced5f161312950d4313eb2187cb1e85cd16835ece11907bbb58bdadb0e922aded123c5d024e390b035e8
+docfiles size=227
+ texmf-dist/doc/latex/tocdata/README.txt details="Readme"
+ texmf-dist/doc/latex/tocdata/tocdata.pdf details="Package documentation"
+srccontainersize 12280
+srccontainerchecksum 4ed7570fe98eff95fea9f9bd30b772a45fb38f83f1bfe56e353b4531f65b06cb859fef310310654acf42ecb29dd78c78042971ff7957480962d86a4307c2a7f1
+srcfiles size=14
+ texmf-dist/source/latex/tocdata/tocdata.dtx
+ texmf-dist/source/latex/tocdata/tocdata.ins
+runfiles size=4
+ texmf-dist/tex/latex/tocdata/tocdata.sty
+catalogue-ctan /macros/latex/contrib/tocdata
+catalogue-license lppl1.3
+catalogue-topics toc-etc
+catalogue-version 2.04

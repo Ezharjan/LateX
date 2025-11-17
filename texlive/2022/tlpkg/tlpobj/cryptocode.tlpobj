@@ -1,0 +1,32 @@
+name cryptocode
+category Package
+revision 60249
+shortdesc Typesetting pseudocode, protocols, game-based proofs and black-box reductions in cryptography
+longdesc The cryptocode package provides a set of macros to ease the
+longdesc typesetting of pseudocode, algorithms and protocols. In
+longdesc addition it comes with a wide range of tools to typeset
+longdesc cryptographic papers. This includes simple predefined commands
+longdesc for concepts such as a security parameter or advantage terms
+longdesc but also flexible and powerful environments to layout
+longdesc game-based proofs or black-box reductions.
+containersize 21648
+containerchecksum d4d85db9f631bd2f3c78654e88b9c77df7af991f304732ec92b58d08111baf2548bd7d27e6187b0fb6dac7cb0517d27ef3973293cb76088ee8824cb28b1493b0
+doccontainersize 1046800
+doccontainerchecksum 8516c946f2a72a898a6320be3b9037b3e94ec1e4c4624ac0c7f67f64855308f793275d682e2c16b5566abc17ab58200ec1ddc32dbb9fe2c08fe21183bac2986a
+docfiles size=261
+ texmf-dist/doc/latex/cryptocode/README.md details="Readme"
+ texmf-dist/doc/latex/cryptocode/cryptocode.pdf details="Package documentation"
+srccontainersize 50996
+srccontainerchecksum ec51e316bbeaa2a28f7fea918fcfd3338fdff0153325b93309d79300b9df1655620227596cddb429952ee2d9074da8eebe6dd64207e2f300f475215eb33b9f3a
+srcfiles size=74
+ texmf-dist/source/latex/cryptocode/cryptocode.dtx
+ texmf-dist/source/latex/cryptocode/cryptocode.ins
+runfiles size=61
+ texmf-dist/tex/latex/cryptocode/cryptocode-2018-11-11.sty
+ texmf-dist/tex/latex/cryptocode/cryptocode-2020-04-24.sty
+ texmf-dist/tex/latex/cryptocode/cryptocode.sty
+catalogue-contact-repository https://github.com/arnomi/cryptocode
+catalogue-ctan /macros/latex/contrib/cryptocode
+catalogue-license lppl1.3
+catalogue-topics pseudocode
+catalogue-version 0.44

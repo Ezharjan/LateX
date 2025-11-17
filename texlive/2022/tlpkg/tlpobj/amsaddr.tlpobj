@@ -1,0 +1,29 @@
+name amsaddr
+category Package
+revision 64357
+shortdesc Alter the position of affiliations in amsart
+longdesc The package is to be used with the amsart documentclass. It
+longdesc lets you move the authors' affiliations either just below the
+longdesc authors' names on the front page or as footnotes on the first
+longdesc page. The email addresses are always listed as a footnote on
+longdesc the front page.
+containersize 1932
+containerchecksum 9452effac79a430126a8060827c603c8ce9ce441b187d2fff740a7e8f013727ac4187fa1c148d430ee17fbc1709b8e8f89465b2403ed070d0517304dd7f8aaad
+doccontainersize 209324
+doccontainerchecksum 2d501a1adb6fff4f16f0d3f44e6911ccef824cbdfb9e9a61582a00d61d1e92d03fe93f7fe6d4f87eb2575422407e634dc7e543c1ab05a744014f4d3bdd68e3c8
+docfiles size=54
+ texmf-dist/doc/latex/amsaddr/README.md details="Readme"
+ texmf-dist/doc/latex/amsaddr/amsaddr.pdf details="Package documentation"
+srccontainersize 4056
+srccontainerchecksum 473c8d5289ff0f780956d298cc1527d5abc157a442191f3a321c30ca0d8cc11808c609c71fa50c996d5354534e5b5a16c154cf870a2fbae8120b026d5c8713dc
+srcfiles size=4
+ texmf-dist/source/latex/amsaddr/amsaddr.dtx
+ texmf-dist/source/latex/amsaddr/amsaddr.ins
+runfiles size=1
+ texmf-dist/tex/latex/amsaddr/amsaddr.sty
+catalogue-contact-bugs https://github.com/jlelong/amsaddr/issues
+catalogue-contact-repository https://github.com/jlelong/amsaddr
+catalogue-ctan /macros/latex/contrib/amsaddr
+catalogue-license lppl
+catalogue-topics article-like
+catalogue-version 1.2

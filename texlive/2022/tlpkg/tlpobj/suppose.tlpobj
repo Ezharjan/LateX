@@ -1,0 +1,24 @@
+name suppose
+category Package
+revision 59281
+shortdesc Abbreviate the word "Suppose"
+longdesc This package provides commands for abbreviating the word
+longdesc "Suppose" in six fonts and with other variations. The author
+longdesc recommends only using these commands when the immediately
+longdesc succeeding strings are mathematical in nature. He does not
+longdesc recommend using them in formal work. The package requires
+longdesc amsmath, amsfonts, and graphicx.
+containersize 2448
+containerchecksum b78fab6e7784cec1ad8c44c0ea6b2dabf7aeed133ae5dbf9c8044a5fd8af8509b68a1fb615a8bc33459676e4eb6f6d13f097cd689c35acf37beca4750ee09c36
+doccontainersize 197208
+doccontainerchecksum c59de255274f2a8fb961b57e4c59e7020f990b15a54ef008b251380b63d3564cfab7ce434a3782d3f467561557eca9884745e12f3886416967ad26b0a95b1f5a
+docfiles size=53
+ texmf-dist/doc/latex/suppose/README.md details="Readme"
+ texmf-dist/doc/latex/suppose/suppose-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/suppose/suppose-doc.tex
+runfiles size=3
+ texmf-dist/tex/latex/suppose/suppose.sty
+catalogue-ctan /macros/latex/contrib/suppose
+catalogue-license lppl1.3c
+catalogue-topics maths abbrev
+catalogue-version 1.2.2

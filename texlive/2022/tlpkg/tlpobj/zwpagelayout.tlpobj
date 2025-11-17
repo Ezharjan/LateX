@@ -1,0 +1,34 @@
+name zwpagelayout
+category Package
+revision 63074
+shortdesc Page layout and crop-marks
+longdesc This package was developed as a typographers' toolbox offering
+longdesc important basic features for everyday work. It allows setting
+longdesc the paper size and the page layout; it can print crop marks;
+longdesc and it can reflect pages both horizontally and vertically. The
+longdesc package facilities work with TeX (output via dvips or
+longdesc (x)dvipdfm(x)), and with pdfTeX.
+containersize 8880
+containerchecksum a0b5ca55208fe5f2353bf846fda3bbf2ef095f68e0e80265c9c89bfb14be0c80f5ca7c1b7fbaae4c8d67d70fc381353f889c9596e96412c351d39cceba40c263
+doccontainersize 646716
+doccontainerchecksum 9b52a6267720a787826bd14efa7742ef9adf9ad14c46065edf5f0e47c94d2762a7dd2a4b9b31864a3a1bad8addd4c18e21119a70abfca89730a7c7804628877a
+docfiles size=213
+ texmf-dist/doc/latex/zwpagelayout/License.txt
+ texmf-dist/doc/latex/zwpagelayout/LoremIpsumDolor.tex
+ texmf-dist/doc/latex/zwpagelayout/README details="Readme"
+ texmf-dist/doc/latex/zwpagelayout/adjustfoot.pdf
+ texmf-dist/doc/latex/zwpagelayout/adjustfoot.tex
+ texmf-dist/doc/latex/zwpagelayout/adjusthead.pdf
+ texmf-dist/doc/latex/zwpagelayout/adjusthead.tex
+ texmf-dist/doc/latex/zwpagelayout/coversample.pdf
+ texmf-dist/doc/latex/zwpagelayout/coversample.tex
+ texmf-dist/doc/latex/zwpagelayout/zwpagelayout.pdf details="Package documentation"
+ texmf-dist/doc/latex/zwpagelayout/zwpagelayout.tex
+runfiles size=9
+ texmf-dist/tex/latex/zwpagelayout/zwpagelayout.sty
+catalogue-also geometry crop
+catalogue-contact-home http://icebearsoft.euweb.cz/tex/
+catalogue-ctan /macros/latex/contrib/zwpagelayout
+catalogue-license lppl
+catalogue-topics geometry production
+catalogue-version 1.4e

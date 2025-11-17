@@ -1,0 +1,23 @@
+name git-latexdiff
+category Package
+revision 54732
+shortdesc Call latexdiff on two Git revisions of a file
+longdesc git-latexdiff is a tool to graphically visualize differences
+longdesc between different versions of a LaTeX file. Technically, it is
+longdesc a wrapper around git and latexdiff.
+depend git-latexdiff.ARCH
+containersize 8100
+containerchecksum 74077b3dd1a91a734af6d668b309f804dc58a282393d88d8d5d74a5e6fc73c197e49b462369f829cc7151e20aaf8085c0587428ed61ce7957a1ef173d92c5481
+doccontainersize 18012
+doccontainerchecksum bfda354f808c1f94dfac207d1526409a160b89292e44541930dac34383e3ffec9ce63d04db041ea5ac529e1e01fdc80c4c64cd43e8cdc14aac974094732d6fe8
+docfiles size=9
+ texmf-dist/doc/man/man1/git-latexdiff.1
+ texmf-dist/doc/man/man1/git-latexdiff.man1.pdf
+ texmf-dist/doc/support/git-latexdiff/README.md details="Readme"
+runfiles size=7
+ texmf-dist/scripts/git-latexdiff/git-latexdiff
+catalogue-contact-home https://gitlab.com/git-latexdiff/git-latexdiff
+catalogue-ctan /support/git-latexdiff
+catalogue-license bsd2
+catalogue-topics version-control doc-mgmt
+catalogue-version 1.6.0

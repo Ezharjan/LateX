@@ -1,0 +1,28 @@
+name menukeys
+category Package
+revision 64314
+shortdesc Format menu sequences, paths and keystrokes from lists
+longdesc This package is designed to format menu sequences, paths and
+longdesc keyboard shortcuts automatically. There are several predefined
+longdesc styles and one can define one's own styles in a flexible way.
+containersize 6240
+containerchecksum 624bc3f2c0cbcf4cceacd555619b5e3932c7c8623e44f4b313390af47143908d019fa7e83d28f8ce94a5e44df40aa73d6823edc931bf8b289d20fc2bf42616b6
+doccontainersize 606780
+doccontainerchecksum 5edf9b9e2accb846aa352046e37af630d997480a3483c53796e56066c1df00798b7615d13bf69d822ed9caa300f6abf624174cf7136caff8fd14c5d23ce2b68c
+docfiles size=153
+ texmf-dist/doc/latex/menukeys/README details="Readme"
+ texmf-dist/doc/latex/menukeys/menukeys.pdf details="Package documentation"
+srccontainersize 18728
+srccontainerchecksum 724478484b110022c6bb591d92829042299226595fe9974a41efe9c6fa9b67c4a1c617690a2518e6bacd1f903bb020c1f815f4c3186ba2ceb185f624a869fabe
+srcfiles size=21
+ texmf-dist/source/latex/menukeys/menukeys.dtx
+ texmf-dist/source/latex/menukeys/menukeys.ins
+runfiles size=16
+ texmf-dist/tex/latex/menukeys/menukeys-2020-12-19.sty
+ texmf-dist/tex/latex/menukeys/menukeys.sty
+catalogue-contact-bugs https://github.com/tweh/menukeys/issues
+catalogue-contact-repository https://github.com/tweh/menukeys
+catalogue-ctan /macros/latex/contrib/menukeys
+catalogue-license lppl1.3c
+catalogue-topics doc-supp
+catalogue-version 1.6.2

@@ -1,0 +1,34 @@
+name phfcc
+category Package
+revision 60731
+shortdesc Convenient inline commenting in collaborative documents
+longdesc Easily define helper macros to insert comments in a LaTeX
+longdesc document. A convenient syntax enables you to mark text
+longdesc additions (e.g., "... \phf{I'm adding this text} ..." or "...
+longdesc \phf I'm adding this text\endphf ..."), an in-line comment
+longdesc (e.g., "... We're the best \phf[I'm not sure about this.]
+longdesc ..."), and text removals (e.g., "... \phf*{remove me} ...").
+longdesc New colors are assigned automatically to each commenter by
+longdesc default, and the appearance of all comments is highly
+longdesc customizable.
+containersize 5548
+containerchecksum 1d1f6387db333cee296545663bc4e2026fecd0f381cf4e45b42c8b297a4ae9bccfaa8e9791f92cf59bccc428b3f63b944d9173660c3606f1f49ef1878caf2181
+doccontainersize 405660
+doccontainerchecksum ac10825535fbf1e5173d5d209c26d665a128473c3100e349a63ccd921534c9645ce3c7b7391aac56de70f23657db8e1496f6afc0b2d112a45f3ae84d87220498
+docfiles size=102
+ texmf-dist/doc/latex/phfcc/README.md details="Readme"
+ texmf-dist/doc/latex/phfcc/phfcc.pdf details="Package documentation"
+srccontainersize 22680
+srccontainerchecksum 31c59c51bb48a722e4962986bef69619ca1ffd80bc25ee1308cef80e78246811ee169ca6a0c9ea5e257626e55fb04bfe40bb1ec53d09c81b2fe636e6ce215a37
+srcfiles size=24
+ texmf-dist/source/latex/phfcc/Makefile
+ texmf-dist/source/latex/phfcc/phfcc.dtx
+ texmf-dist/source/latex/phfcc/phfcc.ins
+ texmf-dist/source/latex/phfcc/pkg.mk
+runfiles size=6
+ texmf-dist/tex/latex/phfcc/phfcc.sty
+catalogue-contact-repository https://github.com/phfaist/phfqitltx
+catalogue-ctan /macros/latex/contrib/phfcc
+catalogue-license lppl1.3
+catalogue-topics editorial cond-comp
+catalogue-version 2.0

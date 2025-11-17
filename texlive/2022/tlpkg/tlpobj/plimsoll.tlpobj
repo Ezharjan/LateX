@@ -1,0 +1,40 @@
+name plimsoll
+category Package
+revision 56605
+shortdesc Fonts with the Plimsoll symbol and LaTeX support
+longdesc This package provides access to the Plimsoll symbol for use
+longdesc with LaTeX. The Plimsoll symbol is sometimes used in chemistry
+longdesc for denoting standard states and values. The LaTeX package
+longdesc provides access to this notation as well. The syntax for
+longdesc denoting the standard state is the same as suggested in the
+longdesc Comprehensive LaTeX Symbol List for emulating the Plimsoll
+longdesc mark.
+execute addMap plimsoll.map
+containersize 4692
+containerchecksum c0b44cf022ca470767d296af1ad80b2d5ede92adb22635f7ef34b9fa81ec523f769dfbfa6a78005a46bd9a4886507fa7b3a4f761bcb8f686dbf736e3ad92676e
+doccontainersize 219292
+doccontainerchecksum 9ee880e89387986e228f357f59981b18fa8565d60e88d6f1b15c4109f9f7f20108c447fb995f0edaf64723ac37635b56cb5d097e93e0374a0f64adda4215eed5
+docfiles size=62
+ texmf-dist/doc/fonts/plimsoll/LICENSE
+ texmf-dist/doc/fonts/plimsoll/README details="Readme"
+ texmf-dist/doc/fonts/plimsoll/plimsoll.pdf details="Package documentation"
+ texmf-dist/doc/fonts/plimsoll/plimsoll.tex
+srccontainersize 2364
+srccontainerchecksum 2967c9b53daaeba02405da837050a53c69b725da8daeba1d6a9c58dbef0387628aa6dceb07815c5bb0d2cc37c6a1b66f5c64037ad33d74e1179dc3fc0f0431a5
+srcfiles size=2
+ texmf-dist/source/fonts/plimsoll/plimsoll-sans.sfd
+ texmf-dist/source/fonts/plimsoll/plimsoll.sfd
+runfiles size=9
+ texmf-dist/fonts/afm/public/plimsoll/plimsoll-sans.afm
+ texmf-dist/fonts/afm/public/plimsoll/plimsoll.afm
+ texmf-dist/fonts/enc/dvips/plimsoll/plimsoll.enc
+ texmf-dist/fonts/map/dvips/plimsoll/plimsoll.map
+ texmf-dist/fonts/tfm/public/plimsoll/plimsoll-sans.tfm
+ texmf-dist/fonts/tfm/public/plimsoll/plimsoll.tfm
+ texmf-dist/fonts/type1/public/plimsoll/plimsoll-sans.pfb
+ texmf-dist/fonts/type1/public/plimsoll/plimsoll.pfb
+ texmf-dist/tex/latex/plimsoll/plimsoll.sty
+catalogue-ctan /fonts/plimsoll
+catalogue-license gpl3+
+catalogue-topics font font-symbol font-type1 font-sfd font-supp chemistry
+catalogue-version 1

@@ -1,0 +1,48 @@
+name xepersian-hm
+category Package
+revision 56272
+shortdesc Fixes kashida feature in xepersian package
+longdesc The kashida feature in xepersian has problems with some fonts
+longdesc such as the HM Series fonts and the XB Series fonts. This
+longdesc package fixes these problems. The package requires xepersian
+longdesc and l3keys2e.
+containersize 5884
+containerchecksum 50a3e4a12055aa051f72c8d9d5f616a6901aba7c8dc6777610b48d7e3c993c6a49996cdd77ef01161ca9b7dc588cd9d86b1e1c4e65eab4e4a6d3a3697a990d92
+doccontainersize 1289764
+doccontainerchecksum 79b0a6e9876f697b8c7e08d5f5051975d29e9b7b3245b49a74ae5c76bfb23926fb4810fadcc029ee529f5f2752a49c2ce748277da0fde50f5078becff090b1d2
+docfiles size=585
+ texmf-dist/doc/xelatex/xepersian-hm/INSTALL.txt
+ texmf-dist/doc/xelatex/xepersian-hm/README.txt details="Readme"
+ texmf-dist/doc/xelatex/xepersian-hm/doc-ligature-xep.pdf
+ texmf-dist/doc/xelatex/xepersian-hm/doc-ligature-xepersian-hm.pdf
+ texmf-dist/doc/xelatex/xepersian-hm/doc-samples-glyph.pdf
+ texmf-dist/doc/xelatex/xepersian-hm/doc-samples-hrule.pdf
+ texmf-dist/doc/xelatex/xepersian-hm/doc-samples-xep.pdf
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-XB.pdf details="Example of use (4)" language="fa"
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-XB.tex
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-doc.ltx
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-doc.pdf details="User documentation"
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-glyph.pdf details="Example of use (1)" language="fa"
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-glyph.tex
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-leaders-glyph.pdf details="Example of use (2)" language="fa"
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-leaders-glyph.tex
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-leaders-hrule.pdf details="Example of use (3)" language="fa"
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm-leaders-hrule.tex
+ texmf-dist/doc/xelatex/xepersian-hm/xepersian-hm.pdf details="Code documentation"
+srccontainersize 9028
+srccontainerchecksum b43f74f1cbb9e2bdd06ca614f17fce49a18018cc3df9f88ec3a4732bd0b4bbf7068ac77a65d549806be4c07a2b7ab16c165fa7d5a9c9401a4dfb60426c5fde23
+srcfiles size=11
+ texmf-dist/source/xelatex/xepersian-hm/xepersian-hm.dtx
+ texmf-dist/source/xelatex/xepersian-hm/xepersian-hm.ins
+runfiles size=8
+ texmf-dist/tex/xelatex/xepersian-hm/xepersian-hm-common-kashida.tex
+ texmf-dist/tex/xelatex/xepersian-hm/xepersian-hm-kashida.tex
+ texmf-dist/tex/xelatex/xepersian-hm/xepersian-hm.sty
+catalogue-also texnegar
+catalogue-contact-bugs https://bitbucket.org/dma8hm1334/xepersian-hm/issues
+catalogue-contact-home https://dma8hm1334.bitbucket.io/
+catalogue-contact-repository https://bitbucket.org/dma8hm1334/xepersian-hm/
+catalogue-ctan /macros/xetex/latex/xepersian-hm
+catalogue-license lppl1.3c
+catalogue-topics persian xetex expl3
+catalogue-version 1.1a

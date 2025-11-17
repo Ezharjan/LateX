@@ -1,0 +1,48 @@
+name stix2-otf
+category Package
+revision 58735
+shortdesc OpenType Unicode text and maths fonts
+longdesc The Scientific and Technical Information eXchange (STIX) fonts
+longdesc are intended to satisfy the demanding needs of authors,
+longdesc publishers, printers, and others working in the scientific,
+longdesc medical, and technical fields. They combine a comprehensive
+longdesc Unicode-based collection of mathematical symbols and alphabets
+longdesc with a set of text faces suitable for professional publishing.
+longdesc The fonts are available royalty-free under the SIL Open Font
+longdesc License.
+containersize 1382984
+containerchecksum b966a7d18a471f13b5eb85115566ef4aa7c894b142561a46144e5cda6a0198dfcd83b776d19d605cffe482d07a4ac9d80acde7879892381e1a266e7af4f9f72e
+doccontainersize 1252812
+doccontainerchecksum 15e370d490eb01022877ce01cb8e9954af89553bd0cb2b404820c8744271d13ea32c75d2971abed4cc64a692184fb0fe369bc97bf870524599b2011fec3bfec2
+docfiles size=481
+ texmf-dist/doc/fonts/stix2-otf/AUTHORS.txt
+ texmf-dist/doc/fonts/stix2-otf/CONTRIBUTORS.txt
+ texmf-dist/doc/fonts/stix2-otf/FONTLOG.txt
+ texmf-dist/doc/fonts/stix2-otf/Math-features.tex
+ texmf-dist/doc/fonts/stix2-otf/OFL-FAQ.txt
+ texmf-dist/doc/fonts/stix2-otf/OFL.txt
+ texmf-dist/doc/fonts/stix2-otf/README.md details="Readme"
+ texmf-dist/doc/fonts/stix2-otf/STIXTwoMath-Regular.pdf details="Unicode Charts for STIX Two Math Regular"
+ texmf-dist/doc/fonts/stix2-otf/STIXTwoMath-Regular.tex
+ texmf-dist/doc/fonts/stix2-otf/STIXTwoText-Regular.pdf details="Unicode Charts for STIX Two Text Regular"
+ texmf-dist/doc/fonts/stix2-otf/STIXTwoText-Regular.tex
+ texmf-dist/doc/fonts/stix2-otf/Text-features.tex
+ texmf-dist/doc/fonts/stix2-otf/intro.tex
+runfiles size=814
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Bold.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Italic.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Medium.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-MediumItalic.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Regular.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-SemiBold.otf
+ texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-SemiBoldItalic.otf
+catalogue-also stickstoo
+catalogue-contact-bugs https://github.com/stipub/stixfonts/issues
+catalogue-contact-home http://www.stixfonts.org/
+catalogue-contact-repository https://github.com/stipub/stixfonts
+catalogue-ctan /fonts/stix2-otf
+catalogue-license ofl
+catalogue-topics font font-otf font-maths font-symbol font-symbol-maths font-body font-collection font-nonroman font-serif
+catalogue-version 2.12

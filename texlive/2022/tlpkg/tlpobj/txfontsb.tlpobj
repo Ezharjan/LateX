@@ -1,0 +1,101 @@
+name txfontsb
+category Package
+revision 54512
+shortdesc Extensions to txfonts, using GNU Freefont
+longdesc A set of fonts that extend the txfonts bundle with small caps
+longdesc and old style numbers, together with Greek support. The
+longdesc extensions are made with modifications of the GNU Freefont.
+execute addMap gptimes.map
+containersize 3476328
+containerchecksum 7b73b199b6d1f109b14154ff659089b2f3c36feaad10c26fdca80f5c4ab464f8a52fdd52a6191a89538661a3a9cac8fc45748cddd09b6e32e79f23db9e8586e9
+doccontainersize 59400
+doccontainerchecksum 982d29750320bc1709ff8329effb3f7bedc6ded888a537aeb7f080c6fc37414956b1b1e149225cea3f3a60982575fbc943433cd4f9cc5e5d61c596973c07b3ed
+docfiles size=22
+ texmf-dist/doc/fonts/txfontsb/README details="Readme"
+ texmf-dist/doc/fonts/txfontsb/txfontsb.pdf details="Package documentation"
+ texmf-dist/doc/fonts/txfontsb/txfontsb.tex
+srccontainersize 1940068
+srccontainerchecksum f9e4d922abced380458f9fbb25c25a55d55e3a4b938c612bde03c0dd60d55573735816acd745c2785356e5956078615ada3c1396148f8d84a6ba9a805f4ae0fa
+srcfiles size=6871
+ texmf-dist/source/fonts/txfontsb/FreeSerifb-SmallCaps.sfd
+ texmf-dist/source/fonts/txfontsb/FreeSerifb-SmallCapsAlt.sfd
+ texmf-dist/source/fonts/txfontsb/FreeSerifb.sfd
+ texmf-dist/source/fonts/txfontsb/FreeSerifbBold.sfd
+ texmf-dist/source/fonts/txfontsb/FreeSerifbBoldItalic.sfd
+ texmf-dist/source/fonts/txfontsb/FreeSerifbItalic.sfd
+runfiles size=2083
+ texmf-dist/fonts/afm/public/txfontsb/FreeSerifb-SmallCaps.afm
+ texmf-dist/fonts/afm/public/txfontsb/FreeSerifb-SmallCapsAlt.afm
+ texmf-dist/fonts/afm/public/txfontsb/FreeSerifb.afm
+ texmf-dist/fonts/afm/public/txfontsb/FreeSerifbBold.afm
+ texmf-dist/fonts/afm/public/txfontsb/FreeSerifbBoldItalic.afm
+ texmf-dist/fonts/afm/public/txfontsb/FreeSerifbItalic.afm
+ texmf-dist/fonts/enc/dvips/txfontsb/gptimes.enc
+ texmf-dist/fonts/enc/dvips/txfontsb/gptimesy.enc
+ texmf-dist/fonts/map/dvips/txfontsb/gptimes.map
+ texmf-dist/fonts/opentype/public/txfontsb/FreeSerifb-SmallCaps.otf
+ texmf-dist/fonts/opentype/public/txfontsb/FreeSerifb-SmallCapsAlt.otf
+ texmf-dist/fonts/opentype/public/txfontsb/FreeSerifb.otf
+ texmf-dist/fonts/opentype/public/txfontsb/FreeSerifbBold.otf
+ texmf-dist/fonts/opentype/public/txfontsb/FreeSerifbBoldItalic.otf
+ texmf-dist/fonts/opentype/public/txfontsb/FreeSerifbItalic.otf
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesb6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesb6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesbi6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesbi6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesg6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesi6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesi6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesrg6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimessc6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimessc6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimessco6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimessco6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesyb6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesyb6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesybi6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesybi6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesyg6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesyi6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesyi6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesyrg6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesysc6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesysc6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesysco6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/gtimesysco6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/timessc6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/timessc6r.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/timessco6a.tfm
+ texmf-dist/fonts/tfm/public/txfontsb/timessco6r.tfm
+ texmf-dist/fonts/type1/public/txfontsb/FreeSerifb-SmallCaps.pfb
+ texmf-dist/fonts/type1/public/txfontsb/FreeSerifb-SmallCapsAlt.pfb
+ texmf-dist/fonts/type1/public/txfontsb/FreeSerifb.pfb
+ texmf-dist/fonts/type1/public/txfontsb/FreeSerifbBold.pfb
+ texmf-dist/fonts/type1/public/txfontsb/FreeSerifbBoldItalic.pfb
+ texmf-dist/fonts/type1/public/txfontsb/FreeSerifbItalic.pfb
+ texmf-dist/fonts/vf/public/txfontsb/gtimesb6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesbi6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesi6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesrg6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimessc6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimessco6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesyb6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesybi6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesyi6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesyrg6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesysc6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/gtimesysco6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/timessc6a.vf
+ texmf-dist/fonts/vf/public/txfontsb/timessco6a.vf
+ texmf-dist/tex/latex/txfontsb/lgrtxr.fd
+ texmf-dist/tex/latex/txfontsb/lgrtxrc.fd
+ texmf-dist/tex/latex/txfontsb/lgrtxry.fd
+ texmf-dist/tex/latex/txfontsb/lgrtxryc.fd
+ texmf-dist/tex/latex/txfontsb/ot1txrc.fd
+ texmf-dist/tex/latex/txfontsb/ot1txryc.fd
+ texmf-dist/tex/latex/txfontsb/txfontsb.sty
+catalogue-also newtx
+catalogue-ctan /fonts/txfontsb
+catalogue-license gpl lppl1
+catalogue-topics font font-maths font-greek font-type1
+catalogue-version 1.1.1

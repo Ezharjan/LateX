@@ -1,0 +1,35 @@
+name lineara
+category Package
+revision 63169
+shortdesc Linear A script fonts
+longdesc The linearA package provides a simple interface to two fonts
+longdesc which include all known symbols, simple and complex, of the
+longdesc Linear A script. This way one can easily replicate Linear A
+longdesc "texts" using modern typographic technology. Note that the
+longdesc Linear A script has not been deciphered yet and probably never
+longdesc will be deciphered.
+execute addMap linearA.map
+containersize 151824
+containerchecksum b87051ba4647ed2f0beb8e5bfe8419d8558421f509cb6eaa931f47a10488dfac4e36b3ece1cfdbf3e46eb431c3d15e7a7005f27522dbc4cfe6de52ce6127bea5
+doccontainersize 165068
+doccontainerchecksum 4c87a47d08606416e5d6605edb3a89bb3a67babcc621dd28b8ca02bfcb5ba6108e56e76fc166ff0d6a54c058459acfc8ee6b46d49309d6333d13305d00d3179a
+docfiles size=47
+ texmf-dist/doc/fonts/lineara/README details="Readme"
+ texmf-dist/doc/fonts/lineara/linearA_glyphs.pdf details="Font samples"
+srccontainersize 3820
+srccontainerchecksum 6476de5673f0e0f4896b0f579bd37e31c7301916dff1de1a957044b7782c04c43b5b5add887960d1a7013648a7e352d2655bd9a8e57dd0cafd31c851cef5f21e
+srcfiles size=8
+ texmf-dist/source/fonts/lineara/linearA.dtx
+ texmf-dist/source/fonts/lineara/linearA.ins
+runfiles size=53
+ texmf-dist/fonts/afm/public/lineara/LinearA.afm
+ texmf-dist/fonts/afm/public/lineara/LinearACmplxSigns.afm
+ texmf-dist/fonts/map/dvips/lineara/linearA.map
+ texmf-dist/fonts/tfm/public/lineara/LinearA.tfm
+ texmf-dist/fonts/tfm/public/lineara/LinearACmplxSigns.tfm
+ texmf-dist/fonts/type1/public/lineara/LinearA.pfb
+ texmf-dist/fonts/type1/public/lineara/LinearACmplxSigns.pfb
+ texmf-dist/tex/latex/lineara/linearA.sty
+catalogue-ctan /fonts/archaic/linearA
+catalogue-license lppl
+catalogue-topics font font-type1 font-archaic

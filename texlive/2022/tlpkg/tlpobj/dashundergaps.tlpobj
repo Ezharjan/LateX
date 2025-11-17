@@ -1,0 +1,33 @@
+name dashundergaps
+category Package
+revision 58150
+shortdesc Produce gaps that are underlined, dotted or dashed
+longdesc The package provides commands (\underline, \dotuline and
+longdesc \dashuline) each of which underlines its argument with one of
+longdesc the styles the package is capable of. A phantom mode is
+longdesc provided, where the underline (of whatever form) can serve for
+longdesc a 'fill-in block' for student evaluation sheets.
+containersize 3512
+containerchecksum c3ecf5c63fad14f82228913e0b12c6596a9aee24b6de3419a4e95de8de94e40e3d43c2b163a30cf221602ad9c1aa1c3ba42429ac2adac9d13888d74ee1f4e900
+doccontainersize 916556
+doccontainerchecksum 88ca6be34c5d68ee4f983b9385bd83047e59bbeb94af12d2bd16105bc8afb99b8e6db9d0e25717fe5bd517d7e834d8795bed30ba24455d8f09760d1ad2c47803
+docfiles size=285
+ texmf-dist/doc/latex/dashundergaps/README.md details="Readme"
+ texmf-dist/doc/latex/dashundergaps/changes.txt
+ texmf-dist/doc/latex/dashundergaps/dashundergaps-code.pdf
+ texmf-dist/doc/latex/dashundergaps/dashundergaps-code.tex
+ texmf-dist/doc/latex/dashundergaps/dashundergaps-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/dashundergaps/dashundergaps-doc.tex
+ texmf-dist/doc/latex/dashundergaps/l3doc-TUB.cls
+srccontainersize 13284
+srccontainerchecksum 1fce3d4ccecef6c2f5775792162a9cf21951f0006e168df236884f89a4bcc662c1ab9028e856805ebdf19dd410c109ca3de993c088aa9c0611ec98565be06be4
+srcfiles size=12
+ texmf-dist/source/latex/dashundergaps/dashundergaps.dtx
+ texmf-dist/source/latex/dashundergaps/dashundergaps.ins
+runfiles size=3
+ texmf-dist/tex/latex/dashundergaps/dashundergaps.sty
+catalogue-contact-repository https://github.com/FrankMittelbach/fmitex-dashundergaps
+catalogue-ctan /macros/latex/contrib/dashundergaps
+catalogue-license lppl1.3c
+catalogue-topics underline line-patt
+catalogue-version 2.0h

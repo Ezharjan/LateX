@@ -1,0 +1,34 @@
+name emisa
+category Package
+revision 60068
+shortdesc A LaTeX package for preparing manuscripts for the journal EMISA
+longdesc The EMISA LaTeX package is provided for preparing manuscripts
+longdesc for submission to EMISA (Enterprise Modelling and Information
+longdesc Systems Architectures), and for preparing accepted submissions
+longdesc for publication as well as for typesetting the final document
+longdesc by the editorial office. Articles in EMISA are published online
+longdesc at EMISA in the Portable Document Format (PDF).
+containersize 15376
+containerchecksum dbe700eed5cb82ed687a5650fb58f07cd588d7a759ef67f0b015a795a732ec1b2d3019f637ecfe39fa240c93816c41084c5448d107371d209d40ce122fbda821
+doccontainersize 513260
+doccontainerchecksum 48529f12758cc7874b45ff5fd418641b322ac33541aee2665ee309a6b0bee8362c97fc2e31870fb34430d60343cae433f5a2793dc785c5a88d4f2e5518317433
+docfiles size=130
+ texmf-dist/doc/latex/emisa/CHANGELOG.md
+ texmf-dist/doc/latex/emisa/README.md details="Readme"
+ texmf-dist/doc/latex/emisa/emisa-author-template.tex
+ texmf-dist/doc/latex/emisa/emisa.pdf details="Package documentation"
+ texmf-dist/doc/latex/emisa/manifest.txt
+srccontainersize 48384
+srccontainerchecksum 98437def2e985e2186bdee4f1ba1200807c1c1dc9882b41e60acf620907933417c774dc217c67e86a667fa84ca66ddb07f9132c7e3e8a105638097bc66b7d940
+srcfiles size=54
+ texmf-dist/source/latex/emisa/emisa.dtx
+ texmf-dist/source/latex/emisa/emisa.ins
+runfiles size=18
+ texmf-dist/tex/latex/emisa/emisa.bbx
+ texmf-dist/tex/latex/emisa/emisa.cbx
+ texmf-dist/tex/latex/emisa/emisa.cls
+catalogue-contact-repository https://github.com/emisa-journal/emisa-latex-package
+catalogue-ctan /macros/latex/contrib/emisa
+catalogue-license lppl1.3c
+catalogue-topics publisher class
+catalogue-version 2.3.0

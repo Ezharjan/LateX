@@ -1,0 +1,39 @@
+name tugboat
+category Package
+revision 63386
+shortdesc LaTeX macros for TUGboat articles
+longdesc Provides ltugboat.cls for both regular and proceedings issues
+longdesc of the TUGboat journal. Also provides a BibTeX style,
+longdesc tugboat.bst.
+containersize 29004
+containerchecksum b99910e38a79205a10446588f1119b288111d763311f01fc6ef73b6a6282be59d19bd13e76eaf59785d8ffa59bfcb33fc9bffdda4fc1fbfa205ba437bba029b4
+doccontainersize 813888
+doccontainerchecksum 8e6080dd74a9f9f5defb096c5e221ad812c80e902774056b230ea315aa9c1dff9099e2c2d6d8fdb7805f69511a8dee46cd9525b5f75e8bfbc3614883a2dbec0f
+docfiles size=223
+ texmf-dist/doc/latex/tugboat/NEWS
+ texmf-dist/doc/latex/tugboat/README details="Readme"
+ texmf-dist/doc/latex/tugboat/ltubguid.ltx
+ texmf-dist/doc/latex/tugboat/ltubguid.pdf details="Instructions for authors" language="en"
+ texmf-dist/doc/latex/tugboat/manifest.txt
+ texmf-dist/doc/latex/tugboat/tugboat.pdf details="Program documentation" language="en"
+srccontainersize 41208
+srccontainerchecksum e6d841a10bb5d8283ea43a83e6e9e382e4c44ace3b88605fb3d3f3fecf5d18a93b8337500788ecf3e32451a23e9ca97d82fb3dfa925b4bf558c3eb55c05b3580
+srcfiles size=36
+ texmf-dist/source/latex/tugboat/tugboat.dtx
+ texmf-dist/source/latex/tugboat/tugboat.ins
+runfiles size=42
+ texmf-dist/bibtex/bst/tugboat/ltugbib.bst
+ texmf-dist/bibtex/bst/tugboat/tugboat.bst
+ texmf-dist/tex/latex/tugboat/ltugboat.cls
+ texmf-dist/tex/latex/tugboat/ltugboat.sty
+ texmf-dist/tex/latex/tugboat/ltugcomn.sty
+ texmf-dist/tex/latex/tugboat/ltugproc.cls
+ texmf-dist/tex/latex/tugboat/ltugproc.sty
+catalogue-alias ltugboat
+catalogue-also tugboat-plain
+catalogue-contact-home https://tug.org/TUGboat
+catalogue-contact-repository https://github.com/TeXUsersGroup/tugboat
+catalogue-ctan /macros/latex/contrib/tugboat
+catalogue-license lppl1.3
+catalogue-topics journalpub class
+catalogue-version 2.27

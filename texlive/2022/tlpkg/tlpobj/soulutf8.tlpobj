@@ -1,0 +1,26 @@
+name soulutf8
+category Package
+revision 53163
+shortdesc Permit use of UTF-8 characters in soul
+longdesc This package extends package soul and adds some support for
+longdesc UTF-8. Namely the input encodings in 'utf8.def' from package
+longdesc inputenc and 'utf8x.def' from package ucs are supported.
+containersize 3948
+containerchecksum 777ebf7b4215b9a6e31ec284d27345de2ffc7c5d303db0e21bd31376692e528688deac59c2b49b84bf2088ab42523523adc284dd1d8fd5aaf7a074923bf7be9e
+doccontainersize 347016
+doccontainerchecksum eb3c81518312b6c0cc5b622bbf2b7ae954e42b2a813097d8c3fa681daea0a24c9df14d189ca5d5f2adcbfe479029bb985c3d85278beb6d9694bd61aaefd32103
+docfiles size=87
+ texmf-dist/doc/latex/soulutf8/README.md
+ texmf-dist/doc/latex/soulutf8/soulutf8.pdf details="Package documentation"
+srccontainersize 8044
+srccontainerchecksum a6b804099f59c6d67b5abe4146577f608176569ca4cd92fd27d43878ee012165ac65acdbf462f8a84d4e6a8d6e61c5bf7f0f5d0dc667ff97656a5d7fbf159997
+srcfiles size=9
+ texmf-dist/source/latex/soulutf8/soulutf8.dtx
+runfiles size=5
+ texmf-dist/tex/generic/soulutf8/soulutf8.sty
+catalogue-contact-bugs https://github.com/ho-tex/soul/issues
+catalogue-contact-repository https://github.com/ho-tex/soul
+catalogue-ctan /macros/latex/contrib/soulutf8
+catalogue-license lppl1.3
+catalogue-topics underline letterspace
+catalogue-version 1.2

@@ -1,0 +1,37 @@
+name currfile
+category Package
+revision 56478
+shortdesc Provide file name and path of input files
+longdesc The package provides macros holding file name information
+longdesc (directory, base name, extension, full name and full path) for
+longdesc files read by LaTeX \input and \include macros; it uses the
+longdesc file hooks provided by the author's filehook. In particular, it
+longdesc restores the parent file name after the trailing \clearpage of
+longdesc an \included file; as a result, the macros may be usefully
+longdesc employed in the page header and footer of the last printed page
+longdesc of such a file. The depth of inclusion is made available,
+longdesc together with the "parent" (including file) and "parents" (all
+longdesc including files to the root of the tree). The package
+longdesc supersedes FiNK.
+containersize 3740
+containerchecksum 8305bee1b1375f3157a938714b0803d976818dce716d0587ae3aac2020c38fdd987ca45d55aa8605c497b3bd0cb5ac909f5c8347f30836dd5ec2b36d18d06a64
+doccontainersize 173380
+doccontainerchecksum 7efdf77590627c00ebf0741cc7c77f7813f64fa7a9596c7b35c48e0b0364328a9166fdae5d93f0426ce2b8878c42e1c8f2e7d36823a08ddc7e5fcbba4bebc2d9
+docfiles size=44
+ texmf-dist/doc/latex/currfile/README details="Readme"
+ texmf-dist/doc/latex/currfile/currfile.pdf details="Package documentation"
+srccontainersize 11704
+srccontainerchecksum 34db7dc10bc9573093242480a7e9a2b1138458dfdf3e71bc5a7a8fa3642a9e2545f1fbd308e27096213f031c55638f778594a9844ce96c6921e3f2290c9d0fc1
+srcfiles size=13
+ texmf-dist/source/latex/currfile/currfile.dtx
+ texmf-dist/source/latex/currfile/currfile.ins
+runfiles size=5
+ texmf-dist/tex/latex/currfile/currfile-abspath.sty
+ texmf-dist/tex/latex/currfile/currfile.sty
+catalogue-contact-bugs https://sourceforge.net/p/currfile/tickets/
+catalogue-contact-home https://sourceforge.net/p/currfile/
+catalogue-contact-repository https://sourceforge.net/p/currfile/code/
+catalogue-ctan /macros/latex/contrib/currfile
+catalogue-license lppl1.3
+catalogue-topics doc-tool
+catalogue-version 0.7d

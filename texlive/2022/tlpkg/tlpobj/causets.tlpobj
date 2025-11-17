@@ -1,0 +1,29 @@
+name causets
+category Package
+revision 63366
+shortdesc Draw causal set (Hasse) diagrams
+longdesc This LaTeX package uses TikZ to generate (Hasse) diagrams for
+longdesc causal sets (causets) to be used inline with text or in
+longdesc mathematical expressions. The macros can also be used in the
+longdesc tikzpicture environment to annotate or modify a diagram, as
+longdesc shown with some examples in the documentation.
+containersize 5380
+containerchecksum 8267e2f0e88cd7eccb54e90e00b97e574d3e7324c22d2b8e03ae2aa60b6c37a6575dae488f3e51deb75e0058dd19f8dfccc656f1acc08eafddeaccdfd5bedea9
+doccontainersize 521244
+doccontainerchecksum 70c75b5aebd25a036ba3dca639afae2529d992062fe66f3771fd989d85f07257045ebc914bb12711085ac44775c7710224628e356866713328507aeee4b0c61c
+docfiles size=154
+ texmf-dist/doc/latex/causets/README.md details="Readme"
+ texmf-dist/doc/latex/causets/causet_tikz_example1.pdf
+ texmf-dist/doc/latex/causets/causet_tikz_example1.tex
+ texmf-dist/doc/latex/causets/causet_tikz_example2.pdf
+ texmf-dist/doc/latex/causets/causet_tikz_example2.tex
+ texmf-dist/doc/latex/causets/causets.pdf details="Package documentation"
+ texmf-dist/doc/latex/causets/causets.tex
+runfiles size=6
+ texmf-dist/tex/latex/causets/causets.sty
+catalogue-contact-bugs https://github.com/c-minz/LaTeX-causets/issues
+catalogue-contact-repository https://github.com/c-minz/LaTeX-causets
+catalogue-ctan /graphics/pgf/contrib/causets
+catalogue-license lppl1.3
+catalogue-topics graphics pgf-tikz diagram-maths maths
+catalogue-version 1.3

@@ -1,0 +1,32 @@
+name smart-eqn
+category Package
+revision 61719
+shortdesc Automatic math symbol styling for LaTeX documents
+longdesc In LaTeX typesetting, one usually needs to use different
+longdesc variants of a math symbol to clarify the meanings. For example,
+longdesc in linear algebra literature, it is common to use boldfaced
+longdesc symbols to represent vectors, and normal symbols to represent
+longdesc scalars. However, applying these variants by typing \mathbf,
+longdesc \mathrm commands manually can be daunting. This package aims to
+longdesc provide an automatic and customizable approach for math symbol
+longdesc styling which eliminates the need to enter style commands
+longdesc repeatedly.
+containersize 2556
+containerchecksum 03f69303ec66b59a7425e06a4e8941a5c93414514b5f80cbc138a75a5619791dfa3ff2f1435ddbfbe7fe5af298a1af5325f279f36d924e97a5074ef930b42997
+doccontainersize 84356
+doccontainerchecksum 85eb6e8ccbea66cb6e30f862491adc02316af9071753459eb56e8f19011e9ab7865f87868ed348e5b0f6192b2305dffe5272d885486b881e2d286ceb211c77dd
+docfiles size=22
+ texmf-dist/doc/latex/smart-eqn/README.md details="Readme"
+ texmf-dist/doc/latex/smart-eqn/smart-eqn.pdf details="Package documentation"
+srccontainersize 5804
+srccontainerchecksum f7bd8c3b2e616a739b0d5ad459e1041c492b1e00cb9258b55ce4631465e510e71c166a3f6a94b8244a7e1b4bf098ede5c9379a7a5a6baa90eb28026e9be0bad3
+srcfiles size=6
+ texmf-dist/source/latex/smart-eqn/smart-eqn.dtx
+ texmf-dist/source/latex/smart-eqn/smart-eqn.ins
+runfiles size=2
+ texmf-dist/tex/latex/smart-eqn/smart-eqn.sty
+catalogue-contact-repository https://github.com/xziyue/smart-eqn
+catalogue-ctan /macros/latex/contrib/smart-eqn
+catalogue-license lppl1.3c
+catalogue-topics maths expl3
+catalogue-version 1.0

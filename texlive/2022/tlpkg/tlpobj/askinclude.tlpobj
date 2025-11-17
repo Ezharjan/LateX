@@ -1,0 +1,27 @@
+name askinclude
+category Package
+revision 54725
+shortdesc Interactive use of \includeonly
+longdesc The package asks the user which files to put in a \includeonly
+longdesc command. There is provision for answering "same as last time"
+longdesc or "all files".
+containersize 4364
+containerchecksum 828a18ff7c2d997f25b46b9ce8626a749ce1a18989a292f7f44e9eff0c28d5819e6e017398e76a6872da6498a4ff8306d8f8e701b87b80f57f455d28389f7aa8
+doccontainersize 591304
+doccontainerchecksum a06a9170ad1637c35a25c9a0d89f3721ec350a0053cb5b85374fdb5cc67e7d4653e75c2a5f9b47d19700e3e9ab2d70e5c0c419f68715e664185bd30759dc0291
+docfiles size=148
+ texmf-dist/doc/latex/askinclude/README.md
+ texmf-dist/doc/latex/askinclude/askinclude.bib
+ texmf-dist/doc/latex/askinclude/askinclude.pdf details="Package documentation"
+srccontainersize 12216
+srccontainerchecksum 909effe3b7569cdd4a4a1fd7db12cfafab6c1ddc0987709199a051696b447f9b57ea0bece52efc28f41f49e2b81611e14e975cf93a2d5e4b1c202f84b9702569
+srcfiles size=14
+ texmf-dist/source/latex/askinclude/askinclude.dtx
+runfiles size=5
+ texmf-dist/tex/latex/askinclude/askinclude.sty
+catalogue-contact-bugs https://github.com/ho-tex/askinclude/issues
+catalogue-contact-repository https://github.com/ho-tex/askinclude
+catalogue-ctan /macros/latex/contrib/askinclude
+catalogue-license lppl1.3
+catalogue-topics compilation
+catalogue-version 2.7

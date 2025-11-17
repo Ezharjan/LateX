@@ -1,0 +1,35 @@
+name chhaya
+category Package
+revision 61719
+shortdesc Linguistic glossing in Marathi language
+longdesc muNbii vidyaapiitthaacyaa chaayaalekhn niymaavliis anusruun
+longdesc bhaassaavaijnyaanik chaayaaNgaaNce sNkssep purvnnaaraa
+longdesc aajnyaasNc. This package provides macros for linguistic
+longdesc glossing as per the rules given by Mumbai University.
+containersize 3408
+containerchecksum c8174ee6bbb8a57448caee6cd23bf7e41790dd1ff40cf496360548fadf1e7161b2e08b2ef53abb51b1410b406689267ce2d4a8668d052754e323a1d836670ba0
+doccontainersize 121504
+doccontainerchecksum 0e6bab691d5a5965ab8ee575f84aeae44d26ed12fa8c7f636fd0997a4ec7c1d4efc4a43f3f451659b69bd367c759dc8c3239ca51c5d12c91ef7182e43acfd126
+docfiles size=51
+ texmf-dist/doc/latex/chhaya/COPYING
+ texmf-dist/doc/latex/chhaya/LICENSE.md
+ texmf-dist/doc/latex/chhaya/README.txt details="Readme"
+ texmf-dist/doc/latex/chhaya/chhaya.pdf details="Package documentation" language="mr"
+ texmf-dist/doc/latex/chhaya/gfdl-tex.tex
+ texmf-dist/doc/latex/chhaya/ref.bib
+srccontainersize 6012
+srccontainerchecksum 635430d05de402f7e56110516fd16ef455c1393cda27b61198ebf92cb9787b01ce85f58d0e06389d823a98a73514470d83624d87a035565d159323524de09439
+srcfiles size=7
+ texmf-dist/source/latex/chhaya/chhaya.dtx
+ texmf-dist/source/latex/chhaya/chhaya.ins
+runfiles size=4
+ texmf-dist/tex/latex/chhaya/chhaya.sty
+ texmf-dist/tex/latex/chhaya/sankshep.tex
+catalogue-contact-bugs https://puszcza.gnu.org.ua/bugs/?group=chhaya
+catalogue-contact-home https://puszcza.gnu.org.ua/projects/chhaya
+catalogue-contact-repository https://git.gnu.org.ua/chhaya.git
+catalogue-contact-support mailto:chhaya-latex@gnu.org.ua
+catalogue-ctan /macros/unicodetex/latex/chhaya
+catalogue-license gpl3+ other-free fdl
+catalogue-topics linguistic marathi
+catalogue-version 0.4

@@ -1,0 +1,31 @@
+name jacow
+category Package
+revision 63060
+shortdesc A class for submissions to the proceedings of conferences on JACoW.org
+longdesc The jacow class is used for submissions to the proceedings of
+longdesc conferences on Joint Accelerator Conferences Website (JACoW),
+longdesc an international collaboration that publishes the proceedings
+longdesc of accelerator conferences held around the world.
+containersize 7464
+containerchecksum 7482562b56521fbb70325ad3b633ebfc82165d65149dd85b89697ff9b5941f580f43e42da9775c659fa4fceb8a2908a200258dc31162b013ad8a207b88a5152f
+doccontainersize 264036
+doccontainerchecksum b53a0cdf5c3fe1eedeacbb438fbb453f844eff9c669946963e18c0c787aac744307d51804327dfbfebba1f88332dc01c40c43d3a4a50b5d2c9c8a0bf67840dd9
+docfiles size=161
+ texmf-dist/doc/latex/jacow/JACoW_LaTeX_A4.pdf details="Package documentation"
+ texmf-dist/doc/latex/jacow/JACoW_LaTeX_A4.tex
+ texmf-dist/doc/latex/jacow/JACoW_LaTeX_Letter.pdf
+ texmf-dist/doc/latex/jacow/JACoW_LaTeX_Letter.tex
+ texmf-dist/doc/latex/jacow/JACpic_mc.pdf
+ texmf-dist/doc/latex/jacow/README details="Readme"
+ texmf-dist/doc/latex/jacow/TeamMeeting2019.jpg
+ texmf-dist/doc/latex/jacow/annexes-A4.tex
+ texmf-dist/doc/latex/jacow/annexes-Letter.tex
+ texmf-dist/doc/latex/jacow/jacow-collaboration.pdf
+ texmf-dist/doc/latex/jacow/jacow-collaboration.tex
+runfiles size=6
+ texmf-dist/tex/latex/jacow/jacow.cls
+catalogue-contact-home https://www.jacow.org/Authors/LaTeX
+catalogue-ctan /macros/latex/contrib/jacow
+catalogue-license lppl1.3c
+catalogue-topics confproc
+catalogue-version 2.7

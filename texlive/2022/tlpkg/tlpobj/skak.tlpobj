@@ -1,0 +1,69 @@
+name skak
+category Package
+revision 61719
+shortdesc Fonts and macros for typesetting chess games
+longdesc This package provides macros and fonts in Metafont format which
+longdesc can be used to typeset chess games using PGN, and to show
+longdesc diagrams of the current board in a document. The package builds
+longdesc on work by Piet Tutelaers -- the main novelty is the use of PGN
+longdesc for input instead of the more cumbersome coordinate notation
+longdesc (g1f3 becomes the more readable Nf3 in PGN). An Adobe Type 1
+longdesc implementation of skak's fonts is available as package skaknew;
+longdesc an alternative chess notational scheme is available in package
+longdesc texmate, and a general mechanism for selecting chess fonts is
+longdesc provided in chessfss.
+containersize 20756
+containerchecksum df1a6adea32b01c8ad8ad7509c68e025ad2e1005d9aaf26cc35c67f82d21f510d1e414831f5df0a2f0703e295fb4c187d359ef7dbfe8afd76a8ce75a90f3b4bb
+doccontainersize 200108
+doccontainerchecksum ffcb56dfae0a0ea91e716b99d1d91d4f20fedab8eb7b637f62630dbc4a8fad0562120cc02a754df475dc16c4b1a09fb2da48b8a9e22112d0c69550016026f76f
+docfiles size=90
+ texmf-dist/doc/latex/skak/ChangeLog.md
+ texmf-dist/doc/latex/skak/LICENSE
+ texmf-dist/doc/latex/skak/README
+ texmf-dist/doc/latex/skak/THANKS
+ texmf-dist/doc/latex/skak/WC-2004-S-00007.tex
+ texmf-dist/doc/latex/skak/andreas_wilm_1.tex
+ texmf-dist/doc/latex/skak/angletst.tex
+ texmf-dist/doc/latex/skak/debug_storegame.tex
+ texmf-dist/doc/latex/skak/demo-symbols.tex
+ texmf-dist/doc/latex/skak/fen_with_black.tex
+ texmf-dist/doc/latex/skak/font.tex
+ texmf-dist/doc/latex/skak/font2.tex
+ texmf-dist/doc/latex/skak/hightest.tex
+ texmf-dist/doc/latex/skak/informator.pdf
+ texmf-dist/doc/latex/skak/ingo-bug1.tex
+ texmf-dist/doc/latex/skak/longmove_king_bug.tex
+ texmf-dist/doc/latex/skak/longmoves.tex
+ texmf-dist/doc/latex/skak/promotion_problem_Ulrike.tex
+ texmf-dist/doc/latex/skak/refman.pdf
+ texmf-dist/doc/latex/skak/region.tex
+ texmf-dist/doc/latex/skak/show.tex
+ texmf-dist/doc/latex/skak/skakdoc.pdf
+ texmf-dist/doc/latex/skak/special.map
+ texmf-dist/doc/latex/skak/test1.tex
+ texmf-dist/doc/latex/skak/test2.tex
+ texmf-dist/doc/latex/skak/test_capture.tex
+ texmf-dist/doc/latex/skak/tuggame.pdf
+runfiles size=38
+ texmf-dist/fonts/source/public/skak/skak10.mf
+ texmf-dist/fonts/source/public/skak/skak15.mf
+ texmf-dist/fonts/source/public/skak/skak20.mf
+ texmf-dist/fonts/source/public/skak/skak30.mf
+ texmf-dist/fonts/source/public/skak/skakbase.mf
+ texmf-dist/fonts/source/public/skak/skakbrikker.mf
+ texmf-dist/fonts/source/public/skak/skakf10.mf
+ texmf-dist/fonts/source/public/skak/skakf10b.mf
+ texmf-dist/fonts/source/public/skak/skakinf.mf
+ texmf-dist/fonts/tfm/public/skak/skak10.tfm
+ texmf-dist/fonts/tfm/public/skak/skak15.tfm
+ texmf-dist/fonts/tfm/public/skak/skak20.tfm
+ texmf-dist/fonts/tfm/public/skak/skak30.tfm
+ texmf-dist/fonts/tfm/public/skak/skakf10.tfm
+ texmf-dist/fonts/tfm/public/skak/skakf10b.tfm
+ texmf-dist/tex/latex/skak/skak.fd
+ texmf-dist/tex/latex/skak/skak.sty
+catalogue-contact-repository https://github.com/lehoff/skak
+catalogue-ctan /fonts/chess/skak
+catalogue-license lppl
+catalogue-topics font font-mf font-chess games
+catalogue-version 1.5.3

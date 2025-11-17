@@ -1,0 +1,29 @@
+name magicnum
+category Package
+revision 52983
+shortdesc Access TeX systems' "magic numbers"
+longdesc This package allows access to the various parameter values in
+longdesc TeX (catcode values), e-TeX (group, if and node types, and
+longdesc interaction mode), and LuaTeX (pdfliteral mode) by a
+longdesc hierarchical name system.
+containersize 4196
+containerchecksum 305d94ec07468511e7ada667ded30a1c3ba68835d5bdd03a9a32c7bb7c0d274d5ddc77a5ad02712faf10aba5eca73c6708cb2bf497bea0b73b3f99b10923a8bd
+doccontainersize 322116
+doccontainerchecksum 084bdeb7d422a5e79f4a53864ea0c94b09962e159e103fe3ea77163a9a549605f7139bb2ba9d1a57877b3453162a99470f48a691ff78289a1caa5389b2a7f67d
+docfiles size=82
+ texmf-dist/doc/latex/magicnum/README.md details="Readme"
+ texmf-dist/doc/latex/magicnum/magicnum.pdf details="Package documentation"
+ texmf-dist/doc/latex/magicnum/magicnum.txt
+srccontainersize 10092
+srccontainerchecksum 3bc74965fdc7ecfe7481e426e3cd2c9a27c8752fec3248e707c1f0ee1fcd03205540d6cbde05b82c9313c567b7e689acc9b1146f53962eadfef22d7006c896fb
+srcfiles size=10
+ texmf-dist/source/latex/magicnum/magicnum.dtx
+runfiles size=5
+ texmf-dist/scripts/magicnum/magicnum.lua
+ texmf-dist/tex/generic/magicnum/magicnum.sty
+catalogue-contact-bugs https://github.com/ho-tex/magicnum/issues
+catalogue-contact-repository https://github.com/ho-tex/magicnum
+catalogue-ctan /macros/latex/contrib/magicnum
+catalogue-license lppl1.3c
+catalogue-topics debug-supp
+catalogue-version 1.7

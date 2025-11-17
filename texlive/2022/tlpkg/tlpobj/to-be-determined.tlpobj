@@ -1,0 +1,28 @@
+name to-be-determined
+category Package
+revision 60582
+shortdesc Highlight text passages that need further work
+longdesc This package provides a single command \tbd which highlights
+longdesc the pieces of text that need to be rewritten later. You can
+longdesc hide them all with a single package option hide, or just make
+longdesc them disappear entirely with the option off.
+depend soul
+depend xcolor
+depend xkeyval
+containersize 1508
+containerchecksum e2b4f84a8ded4d7bedf5c1fd0104f5f585a52a5a44ebb9f2a679bedd6fa9f4c68b8d9dd3a36463ad7952ef0daef46841bdb21630671938defcb98a226f4e057c
+doccontainersize 105612
+doccontainerchecksum 031aad45963ddba396e004b21f4d773625fb6c2be7257c37873bb64ca94fe63f4c79fc3ec74b279da21573bfd125cce9349ed70c8181efcc9b5e503d898184c1
+docfiles size=29
+ texmf-dist/doc/latex/to-be-determined/DEPENDS.txt
+ texmf-dist/doc/latex/to-be-determined/README.md details="Readme"
+ texmf-dist/doc/latex/to-be-determined/to-be-determined.pdf details="Package documentation"
+ texmf-dist/doc/latex/to-be-determined/to-be-determined.tex
+runfiles size=1
+ texmf-dist/tex/latex/to-be-determined/to-be-determined.sty
+catalogue-contact-bugs https://github.com/yegor256/to-be-determined/issues
+catalogue-contact-repository https://github.com/yegor256/to-be-determined
+catalogue-ctan /macros/latex/contrib/to-be-determined
+catalogue-license mit
+catalogue-topics editorial decoration cond-comp
+catalogue-version 0.1.2

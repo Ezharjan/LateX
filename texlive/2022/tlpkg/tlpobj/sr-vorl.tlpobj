@@ -1,0 +1,32 @@
+name sr-vorl
+category Package
+revision 59333
+shortdesc Class for Springer books
+longdesc This package provides a LaTeX class and templates for books to
+longdesc be published at Springer Gabler Research, Springer Vieweg
+longdesc Research, Springer Spektrum Research, Springer VS Research, or
+longdesc Springer VS Forschung. It may be used to produce monographs in
+longdesc different formats and "several-authors-books" fitting the
+longdesc conditions of the aforementioned publishers.
+containersize 4280
+containerchecksum 8a9b0833bc518b12019d2d474a70760e3b44766751485215c746b8a7c3b9ee1f9e92a5cee09c5f961fe97387855627c6a385b7484564556e0901c08c922410dd
+doccontainersize 452688
+doccontainerchecksum 774c91361a95510a356fb7fbb70f753954d30d1ac309c1cf09727a2c9ea647b65f046d3eded8e631b512190f5705eab020abe8b7923ee9d6230c6c9fd782dea5
+docfiles size=116
+ texmf-dist/doc/latex/sr-vorl/README details="Readme"
+ texmf-dist/doc/latex/sr-vorl/backmatter_sr-vorl.tex
+ texmf-dist/doc/latex/sr-vorl/frontmatter_sr-vorl.tex
+ texmf-dist/doc/latex/sr-vorl/hauptdatei_sr-vorl.tex
+ texmf-dist/doc/latex/sr-vorl/mainmatter_sr-vorl.tex
+ texmf-dist/doc/latex/sr-vorl/sr-vorl.pdf details="Package documentation"
+srccontainersize 18872
+srccontainerchecksum fafacdaf874ec094aea5451962c3c79584da5fdc1e0aec34b9965b9c8531d19538d362b68ff1d07073aaa3c24483214168b942b6b4e0391384c69c690620d9a7
+srcfiles size=20
+ texmf-dist/source/latex/sr-vorl/sr-vorl.dtx
+ texmf-dist/source/latex/sr-vorl/sr-vorl.ins
+runfiles size=4
+ texmf-dist/tex/latex/sr-vorl/sr-vorl.cls
+catalogue-ctan /macros/latex/contrib/springer/sr-vorl
+catalogue-license lppl1.3c
+catalogue-topics book-pub class doc-templ
+catalogue-version 1.2

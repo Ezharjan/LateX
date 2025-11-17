@@ -1,0 +1,37 @@
+name minimalist
+category Package
+revision 64280
+shortdesc Write your articles or books in a simple and clear way
+longdesc This package offers you a LaTeX style file and two classes to
+longdesc typeset articles or books in a simple and clear way. These
+longdesc classes currently have native support for English, French,
+longdesc German, Italian, Portuguese (European and Brazilian), and
+longdesc Spanish typesetting. They compile with any major TeX engine.
+longdesc You may also wish to consider the packages einfart and
+longdesc simplivre, which are enhanced versions of the classes provided
+longdesc here. They have unicode support, thus can only be used with
+longdesc either XeLaTeX or LuaLaTeX. Currently they have native support
+longdesc for Chinese (both simplified and traditional), English, French,
+longdesc German, Italian, Japanese, Portuguese (European and Brazilian),
+longdesc Russian and Spanish typesetting, and also use more beautiful
+longdesc fonts.
+containersize 10296
+containerchecksum ec40043e965a6bdac74fc3a958833d9a74653cccbf65a3726a4d3c0c03751a163729ffe3880ff3ad46d6f39e33bff6ed01caab29e0a0724255af1cba626f4fa8
+doccontainersize 113752
+doccontainerchecksum be03f21e00832edf1dd15f76f1f4e52402103f54fd65295a157ee50fdcc865d08e380c7d19ecc45117e70d7e3168109e3d747b52e1d608dab55e720564402d8a
+docfiles size=39
+ texmf-dist/doc/latex/minimalist/LICENSE
+ texmf-dist/doc/latex/minimalist/README.md details="Readme"
+ texmf-dist/doc/latex/minimalist/minimalist-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/minimalist/minimalist-doc.tex
+runfiles size=25
+ texmf-dist/tex/latex/minimalist/minimalist-classical.sty
+ texmf-dist/tex/latex/minimalist/minimalist-plain.sty
+ texmf-dist/tex/latex/minimalist/minimalist.sty
+ texmf-dist/tex/latex/minimalist/minimart.cls
+ texmf-dist/tex/latex/minimalist/minimbook.cls
+catalogue-also einfart simplivre
+catalogue-contact-repository https://github.com/Jinwen-XU/minimalist
+catalogue-ctan /macros/latex/contrib/minimalist
+catalogue-license lppl1.3c
+catalogue-topics class article-like book-pub multilingual expl3

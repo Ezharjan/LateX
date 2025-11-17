@@ -1,0 +1,31 @@
+name unravel
+category Package
+revision 59175
+shortdesc Watching TeX digest tokens
+longdesc The aim of this LaTeX package is to help debug complicated
+longdesc macros. This is done by letting the user step through the
+longdesc execution of some TeX code, going through the details of nested
+longdesc expansions, performing assignments, as well as some simple
+longdesc typesetting commands. To use this package, one should normally
+longdesc run TeX in a terminal. The unravel package requires up-to-date
+longdesc versions of the l3kernel, l3packages and l3experimental
+longdesc bundles.
+containersize 29924
+containerchecksum 26ff88b32e91fd872dc0286001b58a7084b38e5497125793ccb90e60e58ad19a78b780162d505aa0be9bf07e9656bc60414a55a0d6419e8d9b33d8c0e8e53d9e
+doccontainersize 845060
+doccontainerchecksum 206f3d794ba1323f9a6fd8fbed98190e376a91e5babc94aec236c46be783b0b01d80fe45394a1e73e2e29c5b19279d28430b9350e1f216369c4be707ebf6dd7c
+docfiles size=216
+ texmf-dist/doc/latex/unravel/README.md details="Readme"
+ texmf-dist/doc/latex/unravel/unravel.pdf details="Package documentation"
+srccontainersize 53380
+srccontainerchecksum ad9ebde05f2194043d75d25faa249f786e154312b4c3d6688ce766cba4092ee157a405ef1eec5654b1b6852b5bf2f994c77ddd78d284c573a07539403bc69e92
+srcfiles size=80
+ texmf-dist/source/latex/unravel/unravel.dtx
+ texmf-dist/source/latex/unravel/unravel.ins
+runfiles size=61
+ texmf-dist/tex/latex/unravel/unravel.sty
+catalogue-contact-repository https://github.com/blefloch/latex-unravel
+catalogue-ctan /macros/latex/contrib/unravel
+catalogue-license lppl1.3c
+catalogue-topics macro-supp debug-supp expl3
+catalogue-version 0.3a

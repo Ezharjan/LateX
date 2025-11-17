@@ -1,0 +1,26 @@
+name csbulletin
+category Package
+revision 54433
+shortdesc LaTeX class for articles submitted to the CSTUG Bulletin (Zpravodaj)
+longdesc The package provides the class for articles for the CSTUG
+longdesc Bulletin (Zpravodaj Ceskoslovenskeho sdruzeni uzivatelu TeXu).
+longdesc You can see the structure of a document by looking at the
+longdesc source file of the manual.
+containersize 12916
+containerchecksum 7b1f41ce8c9cecd8cce3aa1458a029a558b3a70dbcf8e5fb53e192db5d4b56ffdca3e323fa54d7960e141d6e1e32ca52b8824b3c326c94def8b32ad42d0dfee0
+doccontainersize 274080
+doccontainerchecksum 4299308a6408a826f139bbca785cbb139f94ff10e67c80c597e0e7cbfd3bb6ff4889865a04922e4cbe23cf0d3d6f1c1ccc5cfe4d5c2dfee4c747ba18873d6190
+docfiles size=73
+ texmf-dist/doc/latex/csbulletin/LICENSE.txt
+ texmf-dist/doc/latex/csbulletin/README details="Readme"
+ texmf-dist/doc/latex/csbulletin/csbulletin.pdf details="Package manual"
+ texmf-dist/doc/latex/csbulletin/csbulletin.tex
+runfiles size=13
+ texmf-dist/tex/latex/csbulletin/csbulacronym.sty
+ texmf-dist/tex/latex/csbulletin/csbulletin.cls
+ texmf-dist/tex/latex/csbulletin/csbulobalka.cls
+ texmf-dist/tex/latex/csbulletin/csbulobalka.sty
+ texmf-dist/tex/latex/csbulletin/csbulv1.cls
+catalogue-ctan /macros/latex/contrib/csbulletin
+catalogue-license lppl1.3
+catalogue-topics journalpub class

@@ -1,0 +1,44 @@
+name kdpcover
+category Package
+revision 63800
+shortdesc Covers for books published by Kindle Direct Publishing
+longdesc The problem this class solves is the necessity to change the
+longdesc size of the cover PDF according to the number of pages in the
+longdesc book -- the bigger the book, the larger the spine of the book
+longdesc must be. The provided class makes the necessary calculations
+longdesc on-the-fly, using the qpdf tool. Obviously, you need to have it
+longdesc installed. Also, you must run pdflatex with the --shell-escape
+longdesc option, in order to allow LaTeX to run qpdf.
+depend anyfontsize
+depend geometry
+depend graphics
+depend microtype
+depend pgf
+depend setspace
+depend textpos
+depend tools
+depend xcolor
+depend xifthen
+depend xkeyval
+containersize 23168
+containerchecksum f83517983e3a8f93f07d559f79a0b1c7f508182b524b1fe5a7dc4d276570bf006a0ce8f1b84999c70c65e2b9c1491abf1ed45740f454e42ac2dbabd72342ad5f
+doccontainersize 101076
+doccontainerchecksum e9ca3d552b8cf787c584ab6b7b46d644882261a8824779515dfe6848f31aa6ea358c359b41f8c3825965b141157b281464a3dbe7a23bb3ce889eef34f22f05b6
+docfiles size=29
+ texmf-dist/doc/latex/kdpcover/DEPENDS.txt
+ texmf-dist/doc/latex/kdpcover/README.md details="Readme"
+ texmf-dist/doc/latex/kdpcover/kdpcover.pdf details="Package documentation"
+ texmf-dist/doc/latex/kdpcover/kdpcover.tex
+runfiles size=13
+ texmf-dist/tex/latex/kdpcover/kdpcover-signature.pdf
+ texmf-dist/tex/latex/kdpcover/kdpcover-vol-1.pdf
+ texmf-dist/tex/latex/kdpcover/kdpcover-vol-2.pdf
+ texmf-dist/tex/latex/kdpcover/kdpcover-vol-3.pdf
+ texmf-dist/tex/latex/kdpcover/kdpcover-vol-4.pdf
+ texmf-dist/tex/latex/kdpcover/kdpcover.cls
+catalogue-contact-bugs https://github.com/yegor256/kdpcover/issues
+catalogue-contact-repository https://github.com/yegor256/kdpcover
+catalogue-ctan /macros/latex/contrib/kdpcover
+catalogue-license mit
+catalogue-topics covers class doc-templ std-conform
+catalogue-version 0.3.0

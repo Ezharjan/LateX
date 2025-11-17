@@ -1,0 +1,30 @@
+name ltximg
+category Package
+revision 59335
+shortdesc Extract LaTeX environments into separate image files
+longdesc ltximg is a Perl script that automates the process of
+longdesc extracting and converting environments provided by TikZ,
+longdesc PStricks and other packages from input file to image formats
+longdesc and standalone files using ghostscript and poppler-utils. It
+longdesc generates a file with only extracted environments and another
+longdesc with all extracted environments converted to \includegraphics.
+depend ltximg.ARCH
+containersize 26344
+containerchecksum 0c91f46da529823a96ef441ec88d6d3c077a8bd5997bc291f55012e0d227cc24f00081f846ae127a364cba26498a74f2769d401e6d5fe0057afdb2a76a875f4a
+doccontainersize 275072
+doccontainerchecksum 05f9639a0224c779276a3b7f19450c93e255c70680fd54292e1ad41b3c89aa15dc187d58a73475ed9a8f7279faa0f3a0ec15042e75a52c70d78416ec46255b44
+docfiles size=122
+ texmf-dist/doc/man/man1/ltximg.1
+ texmf-dist/doc/man/man1/ltximg.man1.pdf details="Manual page (PDF)"
+ texmf-dist/doc/support/ltximg/README.md details="Readme"
+ texmf-dist/doc/support/ltximg/ltximg-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/ltximg/ltximg-doc.tex
+ texmf-dist/doc/support/ltximg/ltximg.man1.pdf details="Manual page (PDF)"
+runfiles size=33
+ texmf-dist/scripts/ltximg/ltximg.pl
+catalogue-contact-repository https://github.com/pablgonz/ltximg
+catalogue-contact-support https://github.com/pablgonz/ltximg/issues
+catalogue-ctan /support/ltximg
+catalogue-license gpl3+
+catalogue-topics chunks graphics subdocs
+catalogue-version 2.1

@@ -1,0 +1,26 @@
+name uspace
+category Package
+revision 63123
+shortdesc Giving meaning to various Unicode space characters
+longdesc LaTeX package that gives meaning to various Unicode space
+longdesc characters.
+containersize 1112
+containerchecksum cb830007a35024a6fb7817f186fd0c02270c1cc639240f2077b10193e411f207ecb744281540dd6cfb1cd830424d9a5256fc7cf5a315adcab082b6f69e7da1d9
+doccontainersize 292136
+doccontainerchecksum 894c14ae766ada6c0eec7b3d5a2c64931a011560057fa3732eb32de0bfabb6cfedcc27d73235dfe8616e9e6403cef563880bbb66f2ec2a1244da95c92fd2002c
+docfiles size=81
+ texmf-dist/doc/latex/uspace/LICENSE
+ texmf-dist/doc/latex/uspace/README.md details="Readme"
+ texmf-dist/doc/latex/uspace/uspace-ctanify.sh
+ texmf-dist/doc/latex/uspace/uspace-test-lualatex.pdf
+ texmf-dist/doc/latex/uspace/uspace-test-pdflatex.pdf
+ texmf-dist/doc/latex/uspace/uspace-test-xelatex.pdf
+ texmf-dist/doc/latex/uspace/uspace-test.tex
+ texmf-dist/doc/latex/uspace/uspace.pdf details="Package documentation"
+ texmf-dist/doc/latex/uspace/uspace.tex
+runfiles size=1
+ texmf-dist/tex/latex/uspace/uspace.sty
+catalogue-ctan /macros/latex/contrib/uspace
+catalogue-license mit
+catalogue-topics enc-juggle inputenc hyphenation unicode
+catalogue-version 0.05

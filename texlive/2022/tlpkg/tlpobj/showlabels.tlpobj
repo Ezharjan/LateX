@@ -1,0 +1,36 @@
+name showlabels
+category Package
+revision 63940
+shortdesc Show label commands in the margin
+longdesc This package helps you keep track of all the labels you define,
+longdesc by putting the name of new labels into the margin whenever the
+longdesc \label command is used. The package allows you to do the same
+longdesc thing for other commands. The only one for which this is
+longdesc obviously useful is the \cite command, but it's easy to do it
+longdesc for others, such as the \ref or \begin commands.
+containersize 3236
+containerchecksum 285389ed8ef5efcfc4855e2b8003cf94275de536c8f28a237fbdf856947d55c935bfde721a00eb3e2a0187bfe552ff97671197bf1c40492a2e5e700f9536e3e8
+doccontainersize 232956
+doccontainerchecksum 0e624e36f96b8f0d06abc41c301753e3d71671daac4ab01a3914cbd45a5b07f4574011f93c5ce62129fbd77021712fb39364c240eb9b394b204597033ab13df1
+docfiles size=69
+ texmf-dist/doc/latex/showlabels/README details="Readme"
+ texmf-dist/doc/latex/showlabels/VERSION
+ texmf-dist/doc/latex/showlabels/lppl.txt
+ texmf-dist/doc/latex/showlabels/showlabels.html details="Package documentation (HTML)"
+ texmf-dist/doc/latex/showlabels/showlabels.pdf details="Package documentation (PDF)"
+ texmf-dist/doc/latex/showlabels/style.css
+srccontainersize 16256
+srccontainerchecksum b3bd2c4e750662b7a1728f0b100fdb1c78bd33ac95e976211156786833345f2b5a3b5744a29cc134d31b166f85064607d812f7ba1d73c00be421301f4e41031e
+srcfiles size=15
+ texmf-dist/source/latex/showlabels/showlabels.drv
+ texmf-dist/source/latex/showlabels/showlabels.dtx
+ texmf-dist/source/latex/showlabels/showlabels.ins
+runfiles size=3
+ texmf-dist/tex/latex/showlabels/showlabels.sty
+catalogue-contact-bugs https://todo.sr.ht/~nxg/showlabels
+catalogue-contact-home https://purl.org/nxg/dist/showlabels
+catalogue-contact-repository https://heptapod.host/nxg/showlabels
+catalogue-ctan /macros/latex/contrib/showlabels
+catalogue-license lppl1.3c
+catalogue-topics label-ref bibtex-supp macro-supp
+catalogue-version 1.9.2

@@ -1,0 +1,33 @@
+name childdoc
+category Package
+revision 49543
+shortdesc Directly compile \include'd child documents
+longdesc This LaTeX2e package enables the direct compilation of document
+longdesc sections included by \include to individual files.
+containersize 1320
+containerchecksum b268695b1d91b49ba6a0179124cafa5e5cfed56672424ab40cc31924c07879b4f50be47f9fe9d574f2adb3f183c71d799cde8854a2942b530c40a1e101d399ef
+doccontainersize 261280
+doccontainerchecksum 1a74059d946b82da211f5fed7cb120453049ceaf5f10841a78ff8864b41444064b223939bd2296142bde9c7bececc0ca8bed141be02431fd60f069ecab998d87
+docfiles size=75
+ texmf-dist/doc/latex/childdoc/README.txt details="Readme"
+ texmf-dist/doc/latex/childdoc/cdocsamp.tex
+ texmf-dist/doc/latex/childdoc/cdocsch1.tex
+ texmf-dist/doc/latex/childdoc/cdocsch2.tex
+ texmf-dist/doc/latex/childdoc/cdocsdrf.tex
+ texmf-dist/doc/latex/childdoc/cdocsfn1.tex
+ texmf-dist/doc/latex/childdoc/cdocsfn2.tex
+ texmf-dist/doc/latex/childdoc/cdocspt3.tex
+ texmf-dist/doc/latex/childdoc/cdocspt4.tex
+ texmf-dist/doc/latex/childdoc/childdoc.pdf details="Package documentation"
+srccontainersize 11000
+srccontainerchecksum d74e34799e3cce5093f59d66d2680350ccf559b0a06045882dad98a60626c59f8e0ed8a6e03d09cb4ff443d3f68a33208af996e2b870047fb381f97bf92dbea8
+srcfiles size=12
+ texmf-dist/source/latex/childdoc/childdoc.dtx
+ texmf-dist/source/latex/childdoc/childdoc.ins
+runfiles size=1
+ texmf-dist/tex/latex/childdoc/childdoc.def
+catalogue-also subfiles
+catalogue-ctan /macros/latex/contrib/childdoc
+catalogue-license lppl1.3
+catalogue-topics subdocs
+catalogue-version 2.0

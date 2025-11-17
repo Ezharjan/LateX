@@ -1,0 +1,74 @@
+name boondox
+category Package
+revision 54512
+shortdesc Mathematical alphabets derived from the STIX fonts
+longdesc The package contains a number of PostScript fonts derived from
+longdesc the STIX OpenType fonts that may be used in maths mode in
+longdesc regular and bold weights for calligraphic, fraktur and
+longdesc double-struck alphabets. Virtual fonts with metrics suitable
+longdesc for maths mode are provided, as are LaTeX support files.
+execute addMap boondox.map
+containersize 204696
+containerchecksum 0e1cbb6ec227a2cd17852e71f16b4972de18a076fdd4c4416ffef1416f3332fd351036fead4d82a69b5aecdf392bc7e1af85ca5bb1e44c153d25cc86ccfc631c
+doccontainersize 102680
+doccontainerchecksum 72e77b36b79bdad663db8c707daaca8d324fd3f50edc8cb7780a641f5d0217d3fe4c2b758c1775de0ce5fea3d44e9ea08e745df51485b4d1e3de11e2a98c74f0
+docfiles size=28
+ texmf-dist/doc/fonts/boondox/README details="Readme"
+ texmf-dist/doc/fonts/boondox/boondox-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/boondox/boondox-doc.tex
+runfiles size=98
+ texmf-dist/fonts/map/dvips/boondox/boondox.map
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-b-cal.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-b-calo.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-b-ds.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-b-frak.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-cal.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-calo.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-ds.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-frak.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOXUprScr-Bold.tfm
+ texmf-dist/fonts/tfm/public/boondox/BOONDOXUprScr-Regular.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbf7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbf8a.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbl7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbl8a.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbow7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbw7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxbw8a.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrf7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrf8a.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrl7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrl8a.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrow7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrw7z.tfm
+ texmf-dist/fonts/tfm/public/boondox/zxxrw8a.tfm
+ texmf-dist/fonts/type1/public/boondox/BOONDOXUprScr-Bold.pfb
+ texmf-dist/fonts/type1/public/boondox/BOONDOXUprScr-Regular.pfb
+ texmf-dist/fonts/type1/public/boondox/zxxbf8a.pfb
+ texmf-dist/fonts/type1/public/boondox/zxxbl8a.pfb
+ texmf-dist/fonts/type1/public/boondox/zxxbw8a.pfb
+ texmf-dist/fonts/type1/public/boondox/zxxrf8a.pfb
+ texmf-dist/fonts/type1/public/boondox/zxxrl8a.pfb
+ texmf-dist/fonts/type1/public/boondox/zxxrw8a.pfb
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-b-cal.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-b-calo.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-b-ds.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-b-frak.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-r-cal.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-r-calo.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-r-ds.vf
+ texmf-dist/fonts/vf/public/boondox/BOONDOX-r-frak.vf
+ texmf-dist/tex/latex/boondox/BOONDOX-cal.sty
+ texmf-dist/tex/latex/boondox/BOONDOX-calo.sty
+ texmf-dist/tex/latex/boondox/BOONDOX-ds.sty
+ texmf-dist/tex/latex/boondox/BOONDOX-frak.sty
+ texmf-dist/tex/latex/boondox/BOONDOX-uprscr.sty
+ texmf-dist/tex/latex/boondox/uboondox-cal.fd
+ texmf-dist/tex/latex/boondox/uboondox-calo.fd
+ texmf-dist/tex/latex/boondox/uboondox-ds.fd
+ texmf-dist/tex/latex/boondox/uboondox-frak.fd
+ texmf-dist/tex/latex/boondox/uboondoxuprscr.fd
+catalogue-ctan /fonts/boondox
+catalogue-license ofl lppl
+catalogue-topics font font-maths font-type1
+catalogue-version 1.02d

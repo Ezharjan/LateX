@@ -1,0 +1,31 @@
+name oscola
+category Package
+revision 54328
+shortdesc BibLaTeX style for the Oxford Standard for the Citation of Legal Authorities
+longdesc The package provides a set of style files for use with BibLaTeX
+longdesc (v 2+) and Biber (v 1+) to produce citations and bibliographies
+longdesc in accordance with the widely-used Oxford Standard for the
+longdesc Citation of Legal Authorities. It also includes facilities for
+longdesc constructing tables of cases and legislation from citations (in
+longdesc conjunction with appropriate indexing packages).
+containersize 22568
+containerchecksum 831e450ea6fa77f521eca76aaf281a0f7425e28d889c7bc919cd04c52a78c3a0665abf011ec4ef722f47e737c1dfb48f8aac231aa3f370d594cf5300d84c2456
+doccontainersize 633720
+doccontainerchecksum 6024d48e3b6f68037a68dc04051451be2ea7a952e5d8f55b9bd1160d11900751b5a58cc8662e5c38940bee01a442f3691a8cd8329ee4bd5749cf7698adf72cef
+docfiles size=281
+ texmf-dist/doc/latex/oscola/README.md details="Readme"
+ texmf-dist/doc/latex/oscola/oscola-examples.bib
+ texmf-dist/doc/latex/oscola/oscola.pdf details="Package documentation"
+ texmf-dist/doc/latex/oscola/oscola.tex
+runfiles size=54
+ texmf-dist/makeindex/oscola/oscola.ist
+ texmf-dist/tex/latex/oscola/american-oscola.lbx
+ texmf-dist/tex/latex/oscola/british-oscola.lbx
+ texmf-dist/tex/latex/oscola/english-oscola.lbx
+ texmf-dist/tex/latex/oscola/oscola.bbx
+ texmf-dist/tex/latex/oscola/oscola.cbx
+catalogue-contact-repository https://github.com/PaulStanley/oscola-biblatex
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/oscola
+catalogue-license lppl1.3
+catalogue-topics legal biblatex
+catalogue-version 1.7

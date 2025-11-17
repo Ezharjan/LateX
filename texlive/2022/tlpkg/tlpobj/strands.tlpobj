@@ -1,0 +1,26 @@
+name strands
+category Package
+revision 59906
+shortdesc Draw objects constructed from strands
+longdesc This package permits to draw objects constructed from strands,
+longdesc like set partitions, permutations, braids, etc. It depends on
+longdesc forarray, ifthen, TikZ, xfp, xstring, and xkeyval.
+containersize 7268
+containerchecksum bc902fcd06413468d2dd3f23aa774824602a910749bc2b2cc8d4c24decc184a088190422c0f2ea58995fe627f855f6fa6e0b5ad0490b1084fdd122abebb77cef
+doccontainersize 142224
+doccontainerchecksum 95cbfbe360a515fa94d0222eaaffc2cb5920a8a2f5b0ca0a052f29f7237b58214c8f39288d08db88e97ba0694f3ac6793c7c8c90d47295841e009db46b037b91
+docfiles size=37
+ texmf-dist/doc/latex/strands/README.md details="Readme"
+ texmf-dist/doc/latex/strands/strands.pdf details="Package documentation"
+srccontainersize 9124
+srccontainerchecksum 7e95d4132e4d1c4bb319d3ae2f4ddb10b65ca7b30d2ba6942274e0169a8d69f39d7d552c7470adadf006ee0725bbc0862a1c1190f425643bba108542bd8e4b75
+srcfiles size=15
+ texmf-dist/source/latex/strands/strands.dtx
+ texmf-dist/source/latex/strands/strands.ins
+runfiles size=12
+ texmf-dist/tex/latex/strands/strands.sty
+catalogue-contact-repository https://github.com/arcisd/Strands-Package
+catalogue-ctan /graphics/pgf/contrib/strands
+catalogue-license lppl1.3
+catalogue-topics graphics pgf-tikz
+catalogue-version 1.1

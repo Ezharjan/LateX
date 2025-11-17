@@ -1,0 +1,53 @@
+name authorarchive
+category Package
+revision 63146
+shortdesc Adds self-archiving information to scientific papers
+longdesc This is a LaTeX style for producing author self-archiving
+longdesc copies of (academic) papers. The following layout-styles are
+longdesc pre-defined: ACMfor the two-column layout used by many ACM
+longdesc conferences IEEE for the two-column layout used by many IEEE
+longdesc conferences LNCS for the LNCS layout (as used by Springer) LNI
+longdesc for the Lecture Notes in Informatics, published by the GI ENTCS
+longdesc for the Elsevier ENTCS layout
+containersize 3724
+containerchecksum 4be3f2ed7bb2ff49c77377ec80c595109d5e4735141c0d9a3247361611f4f1c82a896d3f513fa6f63297703b05fb4901da6044c4e40766d99bdf0caa66aae2c1
+doccontainersize 1217480
+doccontainerchecksum 5c6a4e4acd74493fb2e6d266607caf877e473a1ece7dd0a8d20d310fbd9a0e168e656fec3e83db529b9ecd7049a26414ff484e1bafaad869663f071f64fed951
+docfiles size=423
+ texmf-dist/doc/latex/authorarchive/CHANGELOG.md
+ texmf-dist/doc/latex/authorarchive/LICENSE
+ texmf-dist/doc/latex/authorarchive/README.md details="Readme"
+ texmf-dist/doc/latex/authorarchive/examples/authorarchive.config
+ texmf-dist/doc/latex/authorarchive/examples/bib/brucker-authorarchive-2016.bib
+ texmf-dist/doc/latex/authorarchive/examples/bib/brucker-authorarchive-2016.enw
+ texmf-dist/doc/latex/authorarchive/examples/bib/brucker-authorarchive-2016.ris
+ texmf-dist/doc/latex/authorarchive/examples/bib/brucker-authorarchive-2016.word.xml
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-IEEEtran-nourl.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-IEEEtran-nourl.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-IEEEtran.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-IEEEtran.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-acmart.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-acmart.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-entcs.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-entcs.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-llncs-a4.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-llncs-a4.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-llncs.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-llncs.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-lni.pdf
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016-lni.tex
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016.pdf details="Example"
+ texmf-dist/doc/latex/authorarchive/examples/brucker-authorarchive-2016.tex
+ texmf-dist/doc/latex/authorarchive/icons/README.md details="Readme"
+ texmf-dist/doc/latex/authorarchive/icons/vector_iD_icon.pdf
+ texmf-dist/doc/latex/authorarchive/icons/vector_iD_icon.svg
+runfiles size=3
+ texmf-dist/tex/latex/authorarchive/authorarchive.sty
+catalogue-also coverpage
+catalogue-contact-bugs https://github.com/adbrucker/authorarchive/issues
+catalogue-contact-home https://git.logicalhacking.com/adbrucker/authorarchive
+catalogue-contact-repository https://github.com/adbrucker/authorarchive
+catalogue-ctan /macros/latex/contrib/authorarchive
+catalogue-license lppl1.3c bsd2
+catalogue-topics archival journalpub
+catalogue-version 1.2.1

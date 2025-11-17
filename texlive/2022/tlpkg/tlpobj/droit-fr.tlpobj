@@ -1,0 +1,42 @@
+name droit-fr
+category Package
+revision 39802
+shortdesc Document class and bibliographic style for French law
+longdesc The bundle provides a toolkit intended for students writing a
+longdesc thesis in French law. It features: a LaTeX document class; a
+longdesc bibliographic style for BibLaTeX package; a practical example
+longdesc of french thesis document; and documentation. The class assumes
+longdesc use of biber and BibLaTeX.
+containersize 9772
+containerchecksum 76c928be0648ae7bddc76f654b65a99ae6670cb17b0ae9a54596599ff655636d4520b31d4e802a15af65637c5bf956d41a2095762a3c4bb77052c9f74da5e7af
+doccontainersize 279420
+doccontainerchecksum 6129658aad2fae20dd12252941ee774393e262d9322ec2163ebc964ec27c4ffb63f2ce0faf9b74a90717c137065e9af238d45c623cc58d52b1e4776da221e231
+docfiles size=103
+ texmf-dist/doc/latex/droit-fr/droit-fr.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/droit-fr/droit-fr.tex
+ texmf-dist/doc/latex/droit-fr/example/annexes.tex
+ texmf-dist/doc/latex/droit-fr/example/bibliographie.bib
+ texmf-dist/doc/latex/droit-fr/example/bibliographie.tex
+ texmf-dist/doc/latex/droit-fr/example/conclusion.tex
+ texmf-dist/doc/latex/droit-fr/example/glossaire.tex
+ texmf-dist/doc/latex/droit-fr/example/index.tex
+ texmf-dist/doc/latex/droit-fr/example/introduction.tex
+ texmf-dist/doc/latex/droit-fr/example/journaux.bib
+ texmf-dist/doc/latex/droit-fr/example/latexmkrc
+ texmf-dist/doc/latex/droit-fr/example/main.tex
+ texmf-dist/doc/latex/droit-fr/example/misc.tex
+ texmf-dist/doc/latex/droit-fr/example/partie1.tex
+ texmf-dist/doc/latex/droit-fr/example/partie2.tex
+ texmf-dist/doc/latex/droit-fr/example/resume.tex
+ texmf-dist/doc/latex/droit-fr/example/sommaire.tex
+ texmf-dist/doc/latex/droit-fr/example/titre.tex
+ texmf-dist/doc/latex/droit-fr/example/toc.tex
+ texmf-dist/doc/latex/droit-fr/latexmkrc
+runfiles size=10
+ texmf-dist/tex/latex/droit-fr/droit-fr.bbx
+ texmf-dist/tex/latex/droit-fr/droit-fr.cbx
+ texmf-dist/tex/latex/droit-fr/droit-fr.cls
+catalogue-ctan /macros/latex/contrib/droit-fr
+catalogue-license lppl1.3
+catalogue-topics dissertation legal biblatex french class
+catalogue-version 1.2

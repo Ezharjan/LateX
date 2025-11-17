@@ -1,0 +1,31 @@
+name csassignments
+category Package
+revision 63992
+shortdesc A wrapper for article with macros and customizations for computer science assignments
+longdesc This class wraps the default article and extends it for a
+longdesc homogeneous look of hand-in assignments at university (RWTH
+longdesc Aachen University, Computer Science Department), specifically
+longdesc in the field of computer science, but easily extensible to
+longdesc other fields. It provides macros for structuring exercises,
+longdesc aggregating points, and displaying a grading table, as well as
+longdesc several macros for easier math mode usage.
+containersize 3884
+containerchecksum 0e5356f133fb6f3fb33ee0407a53d59330e646e4f1356c307464c45f5dbb66435d68ec833c6482673417c53d611816c4a66a5db34da6b14e327691c0f0c3590f
+doccontainersize 106972
+doccontainerchecksum 3523504d0f7289d485fd34463ab7a0ba2fcc3d4a9b2908f3853977a8b3d7fad4266fd20050d2ee8a685483f47a66e04b50fd4cbaf0788f22c1ce48d2f4b89476
+docfiles size=36
+ texmf-dist/doc/latex/csassignments/README.md details="Readme"
+ texmf-dist/doc/latex/csassignments/csassignments.pdf details="Package documentation"
+srccontainersize 8200
+srccontainerchecksum 0ba1b40ea19e3c1196a4314427ed882a00a4c4807127d0792ad6f020cb273d3c157ffc469bb7f363726b8a73ec20a9989de43a9cd82e114ccf1b9a1e66328547
+srcfiles size=8
+ texmf-dist/source/latex/csassignments/csassignments.dtx
+ texmf-dist/source/latex/csassignments/csassignments.ins
+runfiles size=3
+ texmf-dist/tex/latex/csassignments/csassignments.cls
+catalogue-contact-bugs https://github.com/zoomoid/assignments/issues
+catalogue-contact-repository https://github.com/zoomoid/assignments
+catalogue-ctan /macros/latex/contrib/csassignments
+catalogue-license mit
+catalogue-topics class comp-sci maths
+catalogue-version 1.0.2

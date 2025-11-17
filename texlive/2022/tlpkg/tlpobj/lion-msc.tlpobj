@@ -1,0 +1,38 @@
+name lion-msc
+category Package
+revision 55415
+shortdesc LaTeX class for B.Sc. and M.Sc. reports at Leiden Institute of Physics (LION)
+longdesc LaTeX class for B.Sc. and M.Sc. reports at Leiden Institute of
+longdesc Physics (LION). The purpose of this class is twofold: It
+longdesc creates a uniform layout of the student theses from our
+longdesc department. More importantly it contains several fields on the
+longdesc front-page that the user needs to fill that are used in the
+longdesc university administration (name, student number and name of
+longdesc supervisor). Students are free to change the layout of the text
+longdesc but should leave the title page as it is.
+containersize 45376
+containerchecksum 8eed5de445edcd936654a9d7ef8e227d43b479f39279025115fd8586cb7fa107dbacd8c7272e868eb11de0e320740fb8dc5c1fd26327fc6e8394c8924ff37cf0
+doccontainersize 1464640
+doccontainerchecksum 87d5b7e8fec95c857f6c45aeeab3cd6eb70e9b7a237eea3b5a4deb8e92ec8ddd5a381c88ae4919bc1841df15a4b93a569a996ed032cf2b0b7a5bb088c779e873
+docfiles size=442
+ texmf-dist/doc/latex/lion-msc/4photon.bib
+ texmf-dist/doc/latex/lion-msc/AlexanderPRA.tex
+ texmf-dist/doc/latex/lion-msc/Fig1.png
+ texmf-dist/doc/latex/lion-msc/Fig2.png
+ texmf-dist/doc/latex/lion-msc/Fig3a.png
+ texmf-dist/doc/latex/lion-msc/Fig3b.png
+ texmf-dist/doc/latex/lion-msc/Fig4.png
+ texmf-dist/doc/latex/lion-msc/README.md details="Readme"
+ texmf-dist/doc/latex/lion-msc/lion-msc.layout
+ texmf-dist/doc/latex/lion-msc/lion-msc.pdf details="Package documentation"
+ texmf-dist/doc/latex/lion-msc/lion-msc.tex
+ texmf-dist/doc/latex/lion-msc/minimal.pdf
+ texmf-dist/doc/latex/lion-msc/minimal.tex
+runfiles size=20
+ texmf-dist/bibtex/bst/lion-msc/lion-msc.bst
+ texmf-dist/tex/latex/lion-msc/lion-msc-logo.pdf
+ texmf-dist/tex/latex/lion-msc/lion-msc.cls
+catalogue-ctan /macros/latex/contrib/lion-msc
+catalogue-license lppl1.3
+catalogue-topics class dissertation
+catalogue-version 0.30

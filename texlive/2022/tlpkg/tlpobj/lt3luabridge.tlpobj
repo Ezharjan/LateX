@@ -1,0 +1,36 @@
+name lt3luabridge
+category Package
+revision 64128
+shortdesc Execute Lua code in any TeX engine that exposes the shell
+longdesc This is an expl3(-generic) package for plain TeX, LaTeX, and
+longdesc ConTeXt that allows you to execute Lua code in LuaTeX or any
+longdesc other TeX engine that exposes the shell.
+containersize 2948
+containerchecksum dfa6b8977a39aefac3a609f6b72931eaf6110d63b248cf450a62022053f55457d062873de810df92cbd958267147fa6bb003494ae11527b4903856fd20e1137b
+doccontainersize 485896
+doccontainerchecksum 0492658bdbaf8e474f52ebe05ed1e1f9b3d133a03740fbe0b5d10d061872bdaff189e9308c6f184d4c766acb3725fd8775622c2d35ab05c3d460c78a25571b73
+docfiles size=131
+ texmf-dist/doc/generic/lt3luabridge/LICENSE
+ texmf-dist/doc/generic/lt3luabridge/README.md details="Readme"
+ texmf-dist/doc/generic/lt3luabridge/docstrip.cfg
+ texmf-dist/doc/generic/lt3luabridge/example.context
+ texmf-dist/doc/generic/lt3luabridge/example.latex
+ texmf-dist/doc/generic/lt3luabridge/example.plaintex
+ texmf-dist/doc/generic/lt3luabridge/lt3luabridge.pdf details="Package documentation"
+srccontainersize 4032
+srccontainerchecksum e0c999e49f01a1ff0a402c4d2bb28393cbc852c0252c6daf5ec7f252152e430dc9d4fa2a169060938698b4309e7f1061fc10e299a1afebbe26251ec42b35f819
+srcfiles size=5
+ texmf-dist/source/generic/lt3luabridge/lt3luabridge.dtx
+ texmf-dist/source/generic/lt3luabridge/lt3luabridge.ins
+runfiles size=5
+ texmf-dist/tex/generic/lt3luabridge/lt3luabridge.sty
+ texmf-dist/tex/generic/lt3luabridge/lt3luabridge.tex
+ texmf-dist/tex/generic/lt3luabridge/t-lt3luabridge.tex
+catalogue-contact-announce https://github.com/witiko/lt3luabridge/releases
+catalogue-contact-bugs https://github.com/witiko/lt3luabridge/issues
+catalogue-contact-development https://github.com/witiko/lt3luabridge/discussions
+catalogue-contact-repository https://github.com/witiko/lt3luabridge
+catalogue-ctan /macros/generic/lt3luabridge
+catalogue-license lppl1.3c
+catalogue-topics exec-foreign expl3
+catalogue-version 2.0.1

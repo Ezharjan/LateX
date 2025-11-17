@@ -1,0 +1,29 @@
+name nameauth
+category Package
+revision 58026
+shortdesc Name authority mechanism for consistency in body text and index
+longdesc Publications, that reference many names, require editors and
+longdesc proofreaders to track those names in the text and index. The
+longdesc package offers name authority macros that allow authors and
+longdesc compilers to normalize occurrences of names, variant name
+longdesc forms, and pen names in the text and index. This may help
+longdesc minimize writing and production time and cost.
+containersize 6868
+containerchecksum 7557d11e5f8c46aeab49e45d0a52c0bfe4b8754e4d24b4490a4912bbb7208a4f178320fd40530eb79e251c493129f2936982e3cee4212c05c295f4346b43b091
+doccontainersize 1149712
+doccontainerchecksum 1b22c9593ba4eaec9113d4fa7164a14d130a4b436ae082c9b9e5fef523df2b1a26f27f15d503e956ab75f5d75b5d7a33a4ddb27c90c79398195126bf54fb1131
+docfiles size=296
+ texmf-dist/doc/latex/nameauth/README.md details="Readme"
+ texmf-dist/doc/latex/nameauth/examples.tex
+ texmf-dist/doc/latex/nameauth/nameauth.pdf details="Package documentation"
+srccontainersize 91272
+srccontainerchecksum 363d6cc0cb052a3fd6e5c2df1725210b1a0dcadff08c272764e32d3125fb29c02321b388c43e1cf520f6362a2ba92d26e780b5e1beb3a99014ba053af94d95f7
+srcfiles size=130
+ texmf-dist/source/latex/nameauth/Makefile
+ texmf-dist/source/latex/nameauth/nameauth.dtx
+runfiles size=14
+ texmf-dist/tex/latex/nameauth/nameauth.sty
+catalogue-ctan /macros/latex/contrib/nameauth
+catalogue-license lppl1.3
+catalogue-topics editorial editorial-consistency
+catalogue-version 3.6

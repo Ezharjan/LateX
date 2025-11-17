@@ -1,0 +1,58 @@
+name acro
+category Package
+revision 62925
+shortdesc Typeset acronyms
+longdesc The package enables the author to create acronyms in a simple
+longdesc way, and provides means to add them to different 'classes' of
+longdesc acronyms. Lists can be created of separate acronym classes. The
+longdesc package option 'single' instructs the package to ignore
+longdesc acronyms that are used only once in the whole document. As an
+longdesc experimental feature the package also offers the option 'sort'
+longdesc which automatically sorts the list created by \printacronyms.
+depend etoolbox
+depend l3kernel
+depend l3packages
+containersize 44440
+containerchecksum 25c0dc9cda98db7ead55613aea92946cd90e7edfa1213d59966eb8fdd93ae1bc7b532f7849c43fb8fa77291b23dc5d8dc80cba4584c991a7b38e55564bd59ea3
+doccontainersize 1246936
+doccontainerchecksum c827f8dc5fa88b67e84e48d0cfb6d47aa5bfa98fbceed86e6262d98111a956d425d0a2f3cf54b18cba7593dfac17accc2cbe71cc04f1ea2157c511d670c41daa
+docfiles size=373
+ texmf-dist/doc/latex/acro/README details="Readme"
+ texmf-dist/doc/latex/acro/acro-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/acro/acro-manual.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.acflike.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.acflike.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.basic.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.basic.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-109.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-109.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-111.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-111.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-119.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-119.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-154.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.issue-154.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.possessive.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.possessive.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-505891.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-505891.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-507726.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-507726.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-513623.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-513623.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-515295.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-515295.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-542461.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.texsx-542461.tex
+ texmf-dist/doc/latex/acro/examples/acro.example.units.pdf
+ texmf-dist/doc/latex/acro/examples/acro.example.units.tex
+runfiles size=81
+ texmf-dist/tex/latex/acro/acro-examples.sty
+ texmf-dist/tex/latex/acro/acro.sty
+ texmf-dist/tex/latex/acro/acro2.sty
+catalogue-contact-bugs https://github.com/cgnieder/acro/issues
+catalogue-contact-repository https://github.com/cgnieder/acro/
+catalogue-ctan /macros/latex/contrib/acro
+catalogue-license lppl1.3c
+catalogue-topics acronym expl3
+catalogue-version 3.8

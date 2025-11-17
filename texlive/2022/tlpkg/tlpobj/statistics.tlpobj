@@ -1,0 +1,40 @@
+name statistics
+category Package
+revision 52212
+shortdesc Compute and typeset statistics tables and graphics
+longdesc The 'statistics' package can compute and typeset statistics
+longdesc like frequency tables, cumulative distribution functions
+longdesc (increasing or decreasing, in frequency or absolute count
+longdesc domain), from the counts of individual values, or ranges, or
+longdesc even the raw value list with repetitions. It can also compute
+longdesc and draw a bar diagram in case of individual values, or, when
+longdesc the data repartition is known from ranges, an histogram or the
+longdesc continuous cumulative distribution function. You can ask
+longdesc 'statistics' to display no result, selective results or all of
+longdesc them. Similarly 'statistics' can draw only some parts of the
+longdesc graphs. Every part of the generated tables or graphics is
+longdesc customizable.
+containersize 8416
+containerchecksum b0f2c288a57cc64c72bd2b862cd6c40b62e7404c4733b25af64b43d008b277417bc72a4398734e5620e6d2b9f97b401c1d54ee69b0a1ad5947ecba798ecfe0b2
+doccontainersize 439308
+doccontainerchecksum 9d3f7b94c6d144b89c1c947645e4e071933b402e350ef6405d533bdb0a6aed650b215a135976410fbd3a68ceb0fdaf6c877f2d7435680f8c70f3a2209c0808bc
+docfiles size=117
+ texmf-dist/doc/latex/statistics/LICENSE
+ texmf-dist/doc/latex/statistics/README.md details="Readme"
+ texmf-dist/doc/latex/statistics/statistics.pdf details="Package documentation"
+srccontainersize 23728
+srccontainerchecksum a0ea1a189cda9472bf87996d4c191ab84ea824f3034a66d8e23982a1824aa78221fa368b3c8bd696ce58b65280599617c5ccfe4ef97fab8227148e90cc7f3e4e
+srcfiles size=32
+ texmf-dist/source/latex/statistics/statistics.dtx
+ texmf-dist/source/latex/statistics/statistics.ins
+runfiles size=15
+ texmf-dist/tex/latex/statistics/statistics.sty
+catalogue-contact-bugs https://gitlab.com/frnchfrgg-latex/statistics/issues
+catalogue-contact-development https://gitlab.com/frnchfrgg-latex/statistics
+catalogue-contact-home https://gitlab.com/frnchfrgg-latex/statistics
+catalogue-contact-repository https://gitlab.com/frnchfrgg-latex/statistics
+catalogue-contact-support https://gitlab.com/frnchfrgg-latex/statistics/issues
+catalogue-ctan /macros/latex/contrib/statistics
+catalogue-license gpl3+
+catalogue-topics maths statistics
+catalogue-version 2.2

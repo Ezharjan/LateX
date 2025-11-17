@@ -1,0 +1,26 @@
+name schwalbe-chess
+category Package
+revision 63708
+shortdesc Typeset the German chess magazine "Die Schwalbe"
+longdesc The package is based on chess-problem-diagrams, which in its
+longdesc turn has a dependency on the bartel-chess-fonts.
+containersize 8032
+containerchecksum ad2f033f018767556e8e4c2b76f1d2c80e14780cc4b483e73bd165c0cfab11453514065597fd7dbce05e8acfd4c307219156abcbb3d59ccead70df61a128961a
+doccontainersize 211872
+doccontainerchecksum 2df38380cc26d4321d8b18facdc6c427d1986143ae1ef8227a2d536af2fda5f6bfb73ccc395156a7f018c9c9af20b3b89bc994d9021bb9ff3fe5d771f3a6bc59
+docfiles size=61
+ texmf-dist/doc/latex/schwalbe-chess/README details="Readme"
+ texmf-dist/doc/latex/schwalbe-chess/schwalbe.pdf details="Package documentation (German)" language="de"
+srccontainersize 16896
+srccontainerchecksum a75dd975edceca279cf120a08d0666e9227af96732ff3d71dd82068b0c185842902244baebb074ad1ab611fed8064772cc65dc2353a9a79633f8bbe21955dc95
+srcfiles size=19
+ texmf-dist/source/latex/schwalbe-chess/schwalbe.dtx
+ texmf-dist/source/latex/schwalbe-chess/schwalbe.ins
+runfiles size=12
+ texmf-dist/tex/latex/schwalbe-chess/schwalbe.cls
+ texmf-dist/tex/latex/schwalbe-chess/schwalbe.sty
+ texmf-dist/tex/latex/schwalbe-chess/swruler.sty
+catalogue-ctan /macros/latex/contrib/schwalbe-chess
+catalogue-license lppl1.2
+catalogue-topics journalpub games class
+catalogue-version 2.12

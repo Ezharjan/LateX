@@ -1,0 +1,43 @@
+name cartonaugh
+category Package
+revision 59938
+shortdesc A LuaLaTeX package for drawing karnaugh maps with up to 6 variables
+longdesc This package, a fork of 2pi's karnaugh-map package, draws
+longdesc karnaugh maps with 2, 3, 4, 5, and 6 variables. It also
+longdesc contains commands for filling the karnaugh map with terms
+longdesc semi-automatically or manually. Last but not least it contains
+longdesc commands for drawing implicants on top of the map. The name
+longdesc "cartonaugh" is a portmanteau of "cartographer" and "karnaugh".
+longdesc The package needs LuaLaTeX and depends on TikZ, xparse, and
+longdesc xstring.
+containersize 6960
+containerchecksum 354baf8e8cffc0849494e4f79a64111bc0fd4a63e2454b4d4763bcf0c25511e4fe70caf048c628695a90c55c04fea0fcb026a57e72131e746f9d795fbf54fc82
+doccontainersize 165704
+doccontainerchecksum 3811c97d39d7738ee26cc40f839eaf9f51d798d7f14a93c5906ea977a20ff864f84772adf3815216827894fec67f21c488797b4cf0b4db3c7ef6c551637d0493
+docfiles size=53
+ texmf-dist/doc/latex/cartonaugh/README.md details="Readme"
+ texmf-dist/doc/latex/cartonaugh/cartonaugh-example.pdf
+ texmf-dist/doc/latex/cartonaugh/cartonaugh-example.tex
+ texmf-dist/doc/latex/cartonaugh/cartonaugh.pdf details="Package documentation"
+ texmf-dist/doc/latex/cartonaugh/test.sh
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-bw-color.tex
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-grid.tex
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-implicant.tex
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-implicantcorner.tex
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-implicantedge.tex
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-options.tex
+ texmf-dist/doc/latex/cartonaugh/test/cartonaugh-terms.tex
+srccontainersize 10396
+srccontainerchecksum 9e417dd74451cf07d406f0c085231c175ba5bed083456a06cf9e0e3539ff32b2c6d596190ff7421b879572f0f568fd775c66e4eedeb776e69d6e5dff461dffdf
+srcfiles size=16
+ texmf-dist/source/latex/cartonaugh/cartonaugh.dtx
+ texmf-dist/source/latex/cartonaugh/cartonaugh.ins
+runfiles size=8
+ texmf-dist/tex/latex/cartonaugh/cartonaugh.lua
+ texmf-dist/tex/latex/cartonaugh/cartonaugh.sty
+catalogue-contact-bugs https://github.com/Electro707/Cartonaugh/issues
+catalogue-contact-repository https://github.com/Electro707/Cartonaugh
+catalogue-ctan /graphics/pgf/contrib/cartonaugh
+catalogue-license cc-by-sa-3
+catalogue-topics engineering maths pgf-tikz luatex
+catalogue-version 1.0

@@ -1,0 +1,39 @@
+name rutitlepage
+category Package
+revision 62143
+shortdesc Radboud University Titlepage Package
+longdesc This is an unofficial LaTeX package to generate titlepages for
+longdesc the Radboud University, Nijmegen. It uses official vector logos
+longdesc from the university. This package requires the following other
+longdesc LaTeX packages: geometry, graphicx, ifpdf, keyval, iflang, and,
+longdesc optionnaly, babel-dutch.
+containersize 2658324
+containerchecksum fb7d3aa93191c443ba31e1a366f34efa7dfcc896c534d3696002ebc54f3b24cb34131c50fc7d584f4b725d3b56a323628441398b2e1116789437460b97e21fc7
+doccontainersize 198592
+doccontainerchecksum f8293227a99eb022a2c3a3ac75d7e8ba6f61880b62f5cce11eb791bb489386de93cefcc2b607cd4880ca58bb933328af66ad93b4c6ce0e16a842c56fed231206
+docfiles size=51
+ texmf-dist/doc/latex/rutitlepage/README.md details="Readme"
+ texmf-dist/doc/latex/rutitlepage/rutitlepage.pdf details="Package documentation"
+srccontainersize 3792
+srccontainerchecksum f42d310b3697077a842fc13f580adc605826c94984102769b6b27de26548792cfac59517319ebbd20719068c012389d0c0a10dc0a89986a89855c8ab8d039620
+srcfiles size=4
+ texmf-dist/source/latex/rutitlepage/rutitlepage.dtx
+ texmf-dist/source/latex/rutitlepage/rutitlepage.ins
+runfiles size=1070
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-bw.eps
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-bw.pdf
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-cmyk.eps
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-cmyk.pdf
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-nl-bw.eps
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-nl-bw.pdf
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-nl-cmyk.eps
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo-nl-cmyk.pdf
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo.eps
+ texmf-dist/tex/latex/rutitlepage/rutitlepage-logo.pdf
+ texmf-dist/tex/latex/rutitlepage/rutitlepage.sty
+catalogue-contact-bugs https://github.com/dopefishh/rutitlepage/issues
+catalogue-contact-repository https://github.com/dopefishh/rutitlepage
+catalogue-ctan /macros/latex/contrib/rutitlepage
+catalogue-license lppl1.3
+catalogue-topics titlepage logo
+catalogue-version 3.0

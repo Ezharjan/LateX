@@ -1,0 +1,46 @@
+name latex2nemeth
+category Package
+revision 64291
+shortdesc Convert LaTeX source to Braille with math in Nemeth
+longdesc After many failed attempts to transcribe real math notes and
+longdesc books to Braille/Nemeth in order to deal with a real situation
+longdesc (blind student in Math Dept.), we decided to develop a new
+longdesc program that follows a direct, from LaTeX to Braille/Nemeth,
+longdesc approach. Our main target was the Greek language which is only
+longdesc Braille level 1, but English at level 1 is supported as well.
+longdesc Simple pictures in PSTricks are also supported in order to
+longdesc produce tactile graphics with specialized equipment. Note that
+longdesc embossing will need LibreOffice and odt2braille as this project
+longdesc does not deal with embossers' drivers. What's new in version
+longdesc 1.1 In this version, the support of the user level commands of
+longdesc the amsmath package was added, as described in its user guide,
+longdesc with the exception of commutative diagrams (amscd package) as
+longdesc well as structures that are irrelevant to visually impared
+longdesc persons. Also, the Unicode mathematics symbols of the
+longdesc unicode-math package that are represented by the Nemeth code
+longdesc are now supported by latex2nemeth. We would like to acknowledge
+longdesc support by the TUGfund for this project (TUGfund project 33).
+depend latex2nemeth.ARCH
+containersize 7296520
+containerchecksum 06a0db9c089e231ce0c4321bdbce577e0d06268df413d480f97b1f814e0a31bcbb82912e8bb2030efc71dc3f6f691a4ce1a284a75840e0f92b787c38440b787d
+doccontainersize 730372
+doccontainerchecksum d01ded211e97cd526d475ff16a21d8ac2a88461cd0fbc890550efc12a5cb660e5762c91ffb4d05b84ecd5a5c3e6800366e7adfe942994a0b8f39a2a8449ae678
+docfiles size=326
+ texmf-dist/doc/support/latex2nemeth/README details="Readme"
+ texmf-dist/doc/support/latex2nemeth/contrib/nemeth2odt
+ texmf-dist/doc/support/latex2nemeth/doc/unicode-math-braille.pdf
+ texmf-dist/doc/support/latex2nemeth/doc/unicode-math-braille.tex
+ texmf-dist/doc/support/latex2nemeth/encodings/nemeth.json
+ texmf-dist/doc/support/latex2nemeth/encodings/polytonic.json
+ texmf-dist/doc/support/latex2nemeth/examples/mathpics.tex
+ texmf-dist/doc/support/latex2nemeth/examples/mathtest.tex
+ texmf-dist/doc/support/latex2nemeth/gpl-3.0.txt
+ texmf-dist/doc/support/latex2nemeth/source.zip
+runfiles size=1993
+ texmf-dist/scripts/latex2nemeth/latex2nemeth
+ texmf-dist/scripts/latex2nemeth/latex2nemeth.jar
+catalogue-contact-home http://myria.math.aegean.gr/labs/dt/braille/index-en.html
+catalogue-ctan /support/latex2nemeth
+catalogue-license gpl3
+catalogue-topics cvt-other maths accessible
+catalogue-version 1.1.1

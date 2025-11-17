@@ -1,0 +1,44 @@
+name ekdosis
+category Package
+revision 61113
+shortdesc Typesetting TEI-xml compliant Critical Editions
+longdesc ekdosis is a LuaLaTeX package designed for multilingual
+longdesc critical editions. It can be used to typeset texts and
+longdesc different layers of critical notes in any direction accepted by
+longdesc LuaTeX. Texts can be arranged in running paragraphs or on
+longdesc facing pages, in any number of columns which in turn can be
+longdesc synchronized or not. In addition to printed texts, ekdosis can
+longdesc convert .tex source files so as to produce TEI xml-compliant
+longdesc critical editions. Database-driven encoding under LaTeX then
+longdesc allows extraction of texts entered segment by segment according
+longdesc to various criteria: main edited text, variant readings,
+longdesc translations or annotated borrowings between texts.
+containersize 21688
+containerchecksum 6fbc9c1cfbeffa9d950a3a10e0d39286985876b02efb48bd90a5853b006642c9e7042b0a660fbcd4f0a3d7438e0d647a827338bf283326162ca75ef316e53d5b
+doccontainersize 816680
+doccontainerchecksum bf829e9636940ec6dd9371f12457c306f5af3cde562ea863de3f0f3efa44f8d5c4286f7373927ccb0913c7e2a0bab70b57e03a47081626674c7b4b407784329b
+docfiles size=246
+ texmf-dist/doc/lualatex/ekdosis/README.md details="Readme"
+ texmf-dist/doc/lualatex/ekdosis/ekdosis.el
+ texmf-dist/doc/lualatex/ekdosis/ekdosis.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/ekdosis/samples/Caesar_BG-6-13-1-tei.xml
+ texmf-dist/doc/lualatex/ekdosis/samples/Caesar_BG-6-13-1.pdf
+ texmf-dist/doc/lualatex/ekdosis/samples/Caesar_BG-6-13-1.tex
+ texmf-dist/doc/lualatex/ekdosis/samples/Makefile
+srccontainersize 97384
+srccontainerchecksum 2f24f73fcee8f34ed6efa401939b6bf96e7de6f0e24bcb2352626fd293ad533d249c8a0618a9f1eb3413feca9bc9a26cdf852bb6c69fc49987488739dfb17698
+srcfiles size=113
+ texmf-dist/source/lualatex/ekdosis/Makefile
+ texmf-dist/source/lualatex/ekdosis/ekdosis.dtx
+ texmf-dist/source/lualatex/ekdosis/ekdosis.ins
+runfiles size=30
+ texmf-dist/tex/lualatex/ekdosis/ekdosis.lua
+ texmf-dist/tex/lualatex/ekdosis/ekdosis.sty
+catalogue-contact-bugs http://www.ekdosis.org/issues.html
+catalogue-contact-home http://www.ekdosis.org
+catalogue-contact-repository http://git.robertalessi.net/ekdosis
+catalogue-contact-support http://www.ekdosis.org/mailman/listinfo/ekdosis
+catalogue-ctan /macros/luatex/latex/ekdosis
+catalogue-license gpl3+ fdl
+catalogue-topics crit-ed parallel bidi luatex multilingual
+catalogue-version 1.4

@@ -1,0 +1,37 @@
+name hep-math-font
+category Package
+revision 61165
+shortdesc Extended Greek and sans-serif math
+longdesc The hep-math-font package adjust the math fonts to be
+longdesc sans-serif if the document is sans-serif. Additionally Greek
+longdesc letters are redefined to be always italic and upright in math
+longdesc and text mode respectively. Some math font macros are adjusted
+longdesc to give more consistently the naively expected results. The
+longdesc package is loaded with \usepackage{hep-math-font}.
+containersize 2984
+containerchecksum 921c86cf98717323044cf64547c0cb1f2530affb4745aca2e6ced54b078bdef6cf598ac146e00f06891ad45d38d7332a772a45ddb2dfa2f5f94e29fac20fc032
+doccontainersize 1132364
+doccontainerchecksum f186a9d2db6acb71bd50378a60852f391eb6a7b71abefb63c359f9f4c0fadfca10d886cb6333129701b76daa85971283e0f6b9862145184f19239ee9dd3c392f
+docfiles size=451
+ texmf-dist/doc/fonts/hep-math-font/README-hep-math-font.md
+ texmf-dist/doc/fonts/hep-math-font/README.md details="Readme"
+ texmf-dist/doc/fonts/hep-math-font/bibliography.bib
+ texmf-dist/doc/fonts/hep-math-font/hep-math-font-documentation.pdf details="Package documentation"
+ texmf-dist/doc/fonts/hep-math-font/hep-math-font-documentation.tex
+ texmf-dist/doc/fonts/hep-math-font/hep-math-font-implementation.pdf details="Package implementation"
+ texmf-dist/doc/fonts/hep-math-font/hep-math-font-test-sans.tex
+ texmf-dist/doc/fonts/hep-math-font/hep-math-font-test-serif.tex
+ texmf-dist/doc/fonts/hep-math-font/license.md
+srccontainersize 8980
+srccontainerchecksum 65dd0e877a22ba243986f1195a0d8ea667c4ac62cc6c94d776d710bc2654f59bb7ca9f68c4cd6e1caf0fa7b9692e86755743fdf1bb128ce451f234d6c46da4a6
+srcfiles size=9
+ texmf-dist/source/fonts/hep-math-font/hep-math-font-implementation.dtx
+ texmf-dist/source/fonts/hep-math-font/hep-math-font.ins
+runfiles size=3
+ texmf-dist/tex/latex/hep-math-font/hep-math-font.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /fonts/utilities/hep-math-font
+catalogue-license lppl1.3c
+catalogue-topics font font-mgmt font-use font-supp-maths
+catalogue-version 1.0

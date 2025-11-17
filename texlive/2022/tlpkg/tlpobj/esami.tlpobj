@@ -1,0 +1,70 @@
+name esami
+category Package
+revision 61596
+shortdesc Typeset exams with scrambled questions and answers
+longdesc The package enables the user to typeset exams with multiple
+longdesc choice, open questions and many other types of exercise. Both
+longdesc questions and answers may be randomly distributed within the
+longdesc exam, and the solutions are typeset automatically. Exercises
+longdesc may contain a wide number of random parameters and it is
+longdesc possible to do arithmetical operations on them. The package is
+longdesc localised in Italian, English, French, German, Greek, Serbian,
+longdesc and Spanish.
+containersize 21180
+containerchecksum 2e0c1bd441ccb4376d1dda69f32cff55bf4d043315dd2c004bf6bebacdc510ddc9a1347bcadbfb96dea7be94b6d59ee050746afb04f50196dd7c99937b7e8505
+doccontainersize 1515176
+doccontainerchecksum 6bc50f4083cc401278a526c44a76e5a9569d0cbb7280d38270e95676fa359c08a25779709576c1532ec9296457d970d2abd82eeb78b2ac4923caad9559da77ed
+docfiles size=498
+ texmf-dist/doc/latex/esami/README details="Readme"
+ texmf-dist/doc/latex/esami/VERSION
+ texmf-dist/doc/latex/esami/doc/esami-doc-en.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/latex/esami/doc/esami-doc-en.tex
+ texmf-dist/doc/latex/esami/doc/esami-doc-it.pdf details="Package documentation (Italian)" language="it"
+ texmf-dist/doc/latex/esami/doc/esami-doc-it.tex
+ texmf-dist/doc/latex/esami/doc/esami.bib
+ texmf-dist/doc/latex/esami/doc/examples/master-sol.tex
+ texmf-dist/doc/latex/esami/doc/examples/master.tex
+ texmf-dist/doc/latex/esami/doc/examples/problem1.tex
+ texmf-dist/doc/latex/esami/doc/examples/problem2-tabella.tex
+ texmf-dist/doc/latex/esami/doc/examples/problem2.tex
+ texmf-dist/doc/latex/esami/doc/examples/problem3-matching.tex
+ texmf-dist/doc/latex/esami/doc/examples/problem4-fillin.tex
+ texmf-dist/doc/latex/esami/doc/examples/test1.tex
+ texmf-dist/doc/latex/esami/doc/examples/test11.tex
+ texmf-dist/doc/latex/esami/doc/examples/test12.tex
+ texmf-dist/doc/latex/esami/doc/examples/test13.tex
+ texmf-dist/doc/latex/esami/doc/examples/test14.tex
+ texmf-dist/doc/latex/esami/doc/examples/test2.tex
+ texmf-dist/doc/latex/esami/doc/examples/test3.tex
+ texmf-dist/doc/latex/esami/doc/examples/test4.tex
+ texmf-dist/doc/latex/esami/doc/examples/test5-fillin.tex
+ texmf-dist/doc/latex/esami/doc/examples/test9.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA-luatex-sol.pdf
+ texmf-dist/doc/latex/esami/doc/examples/testA-luatex-sol.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA-luatex.pdf
+ texmf-dist/doc/latex/esami/doc/examples/testA-luatex.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA-sol.pdf
+ texmf-dist/doc/latex/esami/doc/examples/testA-sol.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA-xetex-sol.pdf
+ texmf-dist/doc/latex/esami/doc/examples/testA-xetex-sol.sol.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA-xetex-sol.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA-xetex.pdf
+ texmf-dist/doc/latex/esami/doc/examples/testA-xetex.tex
+ texmf-dist/doc/latex/esami/doc/examples/testA.pdf
+ texmf-dist/doc/latex/esami/doc/examples/testA.tex
+ texmf-dist/doc/latex/esami/doc/examples/totale-versioni.tex
+ texmf-dist/doc/latex/esami/esami-xyz.cfg
+runfiles size=28
+ texmf-dist/tex/latex/esami/es-UKenglish.lng
+ texmf-dist/tex/latex/esami/es-USenglish.lng
+ texmf-dist/tex/latex/esami/es-french.lng
+ texmf-dist/tex/latex/esami/es-german.lng
+ texmf-dist/tex/latex/esami/es-greek.lng
+ texmf-dist/tex/latex/esami/es-italian.lng
+ texmf-dist/tex/latex/esami/es-serbian.lng
+ texmf-dist/tex/latex/esami/es-spanish.lng
+ texmf-dist/tex/latex/esami/esami.sty
+catalogue-ctan /macros/latex/contrib/esami
+catalogue-license lppl
+catalogue-topics exam
+catalogue-version 2.7

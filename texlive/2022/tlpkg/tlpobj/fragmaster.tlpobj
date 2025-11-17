@@ -1,0 +1,35 @@
+name fragmaster
+category Package
+revision 26313
+shortdesc Using psfrag with pdfLaTeX
+longdesc Fragmaster enables you to use psfrag with pdfLaTeX. It takes
+longdesc EPS files and psfrag substitution definition files, and
+longdesc produces PDF and EPS files with the substitutions included.
+depend fragmaster.ARCH
+containersize 6872
+containerchecksum dc5d80aa4bab7a0a66258face6cf8222d03b12ea492f7cf568ef815a6d5950a8a2b36c7403ab466141f49cb8faedfbb33146820b88da17d8b8fa18a2b16235e4
+doccontainersize 80316
+doccontainerchecksum 61f0bd7dab46bfb91b634006217f01648007cbce3c9187b0811a5cc1755ec19654da94b47866ad9873fd57629f1561d1cc46bf3a4d62db618502aa0e67500637
+docfiles size=75
+ texmf-dist/doc/support/fragmaster/AUTHORS
+ texmf-dist/doc/support/fragmaster/COPYING
+ texmf-dist/doc/support/fragmaster/CREDITS
+ texmf-dist/doc/support/fragmaster/Changes
+ texmf-dist/doc/support/fragmaster/README details="Readme (English)" language="en"
+ texmf-dist/doc/support/fragmaster/README.de details="Readme (German)" language="de"
+ texmf-dist/doc/support/fragmaster/example/document.pdf
+ texmf-dist/doc/support/fragmaster/example/document.ps
+ texmf-dist/doc/support/fragmaster/example/document.tex
+ texmf-dist/doc/support/fragmaster/example/parabel.eps
+ texmf-dist/doc/support/fragmaster/example/parabel.pdf
+ texmf-dist/doc/support/fragmaster/example/parabel_fm
+ texmf-dist/doc/support/fragmaster/example/parabel_fm.eps
+ texmf-dist/doc/support/fragmaster/example/parabel_fm.gp
+ texmf-dist/doc/support/fragmaster/example/parabel_fm.pdf
+ texmf-dist/doc/support/fragmaster/fragmaster.pdf
+runfiles size=5
+ texmf-dist/scripts/fragmaster/fragmaster.pl
+catalogue-ctan /support/fragmaster
+catalogue-license gpl
+catalogue-topics graphics-prep
+catalogue-version 1.6

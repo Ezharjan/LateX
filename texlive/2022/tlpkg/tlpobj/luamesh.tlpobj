@@ -1,0 +1,42 @@
+name luamesh
+category Package
+revision 63875
+shortdesc Computes and draws 2D Delaunay triangulation
+longdesc The package allows to compute and draw 2D Delaunay
+longdesc triangulation. The algorithm is written with lua, and depending
+longdesc upon the choice of the engine, the drawing is done by MetaPost
+longdesc (with luamplib) or by TikZ. The Delaunay triangulation
+longdesc algorithm is the Bowyer and Watson algorithm. Several macros
+longdesc are provided to draw the global mesh, the set of points, or a
+longdesc particular step of the algorithm.
+containersize 12872
+containerchecksum e30e6f2bef6958c2f76df6aae5ca5899b91f41fc35afdce24840e2d028222c31a0613ba3c7eef27629686137f15eac24d3b97b7e0fc33b5d91adb7b766c0279a
+doccontainersize 251676
+doccontainerchecksum 286dc5fb713f06fccf7195f317791a8c775ddcaeb8cea4004fb7a77882bec36c60679ed9ef725128ff354c7230becdcc623683fb78eac9b24cf044f9cc97af1d
+docfiles size=168
+ texmf-dist/doc/lualatex/luamesh/README details="Readme"
+ texmf-dist/doc/lualatex/luamesh/animation-crop.pdf
+ texmf-dist/doc/lualatex/luamesh/biblio.bib
+ texmf-dist/doc/lualatex/luamesh/fond.mp
+ texmf-dist/doc/lualatex/luamesh/fond.pdf
+ texmf-dist/doc/lualatex/luamesh/luamesh-doc.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luamesh/luamesh-doc.tex
+ texmf-dist/doc/lualatex/luamesh/luamesh-title.pdf
+ texmf-dist/doc/lualatex/luamesh/luameshdoc.cls
+ texmf-dist/doc/lualatex/luamesh/maillage.geo
+ texmf-dist/doc/lualatex/luamesh/maillage.msh
+ texmf-dist/doc/lualatex/luamesh/maillagev4.msh
+ texmf-dist/doc/lualatex/luamesh/mesh.txt
+ texmf-dist/doc/lualatex/luamesh/meshgarde.txt
+runfiles size=29
+ texmf-dist/metapost/luamesh/luamesh.mp
+ texmf-dist/scripts/luamesh/luamesh-polygon.lua
+ texmf-dist/scripts/luamesh/luamesh-tex.lua
+ texmf-dist/scripts/luamesh/luamesh.lua
+ texmf-dist/tex/lualatex/luamesh/luamesh.sty
+catalogue-contact-home https://plmlab.math.cnrs.fr/mchupin/luamesh
+catalogue-contact-repository https://plmlab.math.cnrs.fr/mchupin/luamesh
+catalogue-ctan /macros/luatex/latex/luamesh
+catalogue-license lppl1.3
+catalogue-topics graphics maths pgf-tikz graphics-mpost luatex
+catalogue-version 0.7

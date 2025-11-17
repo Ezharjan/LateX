@@ -1,0 +1,27 @@
+name iexec
+category Package
+revision 61551
+shortdesc Execute shell commands and input their output
+longdesc With the help of the \iexec command, you can execute a shell
+longdesc command and then input its output into your document. This
+longdesc package also lets you use any special symbols inside your
+longdesc command.
+depend tools
+depend xkeyval
+containersize 1764
+containerchecksum 43d374797f2106c1782a3347f7ca39efc2849e95f72d741b45a33269e7542fc7aa6fbc617abcbd61ff2441236c1d794a8560b38b8b9bfa22825d243c54925c03
+doccontainersize 127304
+doccontainerchecksum ba35d036db3507b2a81789b649e3e17850fa972f6ca1489c1b8d80e1302341651afbf3e2068222822c763d533da5af18f176661a6a96e4d6953afca0df9a1cdb
+docfiles size=34
+ texmf-dist/doc/latex/iexec/DEPENDS.txt
+ texmf-dist/doc/latex/iexec/README.md details="Readme"
+ texmf-dist/doc/latex/iexec/iexec.pdf details="Package documentation"
+ texmf-dist/doc/latex/iexec/iexec.tex
+runfiles size=1
+ texmf-dist/tex/latex/iexec/iexec.sty
+catalogue-contact-bugs https://github.com/yegor256/iexec/issues
+catalogue-contact-repository https://github.com/yegor256/iexec
+catalogue-ctan /macros/latex/contrib/iexec
+catalogue-license mit
+catalogue-topics sys-supp
+catalogue-version 0.5.1

@@ -1,0 +1,34 @@
+name komacv
+category Package
+revision 57721
+shortdesc Typesetting a beautiful CV with various style options
+longdesc The class simplifies the creation of beautiful CV. The user may
+longdesc choose between different styles, and may adjust settings to
+longdesc tune the output.
+containersize 7252
+containerchecksum 028e8d2a7e5ea450ad8d6f2b14ad0b84b319db0a234f03f8a6e1efc781fa7e60a67a67e4aa5cd101eea59e2c93a073b635d74bc6443d84b01599575466994a6f
+doccontainersize 460496
+doccontainerchecksum d016f4bd23fb08fb932c3d1516167619d239f8cebe8d2ad8e6fcd07aa945c2df17d6e05e5474dc5522ce4bff1d72fa7879bf9dee4348eb8aa8624d1fe30ea86f
+docfiles size=185
+ texmf-dist/doc/latex/komacv/README details="Readme"
+ texmf-dist/doc/latex/komacv/examples/jeyre.jpg
+ texmf-dist/doc/latex/komacv/examples/komacv.bib
+ texmf-dist/doc/latex/komacv/examples/komacv_example.tex
+ texmf-dist/doc/latex/komacv/examples/komacv_example_casual.pdf details="Example of use (casual)"
+ texmf-dist/doc/latex/komacv/examples/komacv_example_classic.pdf details="Example of use (classic)"
+ texmf-dist/doc/latex/komacv/examples/komacv_example_oldstyle.pdf details="Example of use (old style)"
+ texmf-dist/doc/latex/komacv/komacv.pdf details="Package documentation"
+srccontainersize 19112
+srccontainerchecksum ab1dd4f3976bd0b1a81c7772a92f1c015f2a0a662c65f474bc36b9bc6edfce6756f428fe9e45d969dcbbbeda41a0b1ffd463c3fe5cb286fa9722de22c59847c6
+srcfiles size=21
+ texmf-dist/source/latex/komacv/komacv.dtx
+ texmf-dist/source/latex/komacv/komacv.ins
+runfiles size=12
+ texmf-dist/tex/latex/komacv/komacv-casual.sty
+ texmf-dist/tex/latex/komacv/komacv-classic.sty
+ texmf-dist/tex/latex/komacv/komacv-oldstyle.sty
+ texmf-dist/tex/latex/komacv/komacv.cls
+catalogue-ctan /macros/latex/contrib/komacv
+catalogue-license lppl1.3
+catalogue-topics cv class
+catalogue-version 1.1.2

@@ -1,0 +1,51 @@
+name bmstu-iu8
+category Package
+revision 61937
+shortdesc A class for IU8 reports
+longdesc This package consists of a class file and style files for
+longdesc writing reports at the IU8 department of IU faculty of BMSTU
+longdesc (Bauman Moscow State Technical University). The class defines
+longdesc all headings, structure elements and other things in respect of
+longdesc Russian standard GOST 7.32-2017. But there are correctives to
+longdesc be compatible with our local IU8 department requirements.
+containersize 12504
+containerchecksum 7d4d2f575bf4a3a14024b478610a1d3d1fb9a9609492890ce4edf9f3ed1e34abd99f519d3574c39347f35f8bd2bb1b19569ed6a3652443063942bb0900877ba6
+doccontainersize 171944
+doccontainerchecksum 142cceab83b83c5a0eddde753f67b44cb2e881cd01a4de1059606e02cc241d6d55f271d525db523f82f6ecd68bf6bb09dffcb15adb1b4b080b5701e041ec6f2e
+docfiles size=59
+ texmf-dist/doc/latex/bmstu-iu8/README.md details="Readme"
+ texmf-dist/doc/latex/bmstu-iu8/bmstu-example.pdf details="Example of use" language="ru"
+ texmf-dist/doc/latex/bmstu-iu8/bmstu-example.tex
+ texmf-dist/doc/latex/bmstu-iu8/bmstu.png
+runfiles size=26
+ texmf-dist/tex/latex/bmstu-iu8/01-IU8-base.sty
+ texmf-dist/tex/latex/bmstu-iu8/02-IU8-construction.sty
+ texmf-dist/tex/latex/bmstu-iu8/03-IU8-numbering.sty
+ texmf-dist/tex/latex/bmstu-iu8/04-IU8-section-numbering.sty
+ texmf-dist/tex/latex/bmstu-iu8/05-IU8-figures.sty
+ texmf-dist/tex/latex/bmstu-iu8/06-IU8-tables.sty
+ texmf-dist/tex/latex/bmstu-iu8/07-IU8-footnotes.sty
+ texmf-dist/tex/latex/bmstu-iu8/08-IU8-formulas.sty
+ texmf-dist/tex/latex/bmstu-iu8/09-IU8-cites.sty
+ texmf-dist/tex/latex/bmstu-iu8/10-IU8-titlepage.sty
+ texmf-dist/tex/latex/bmstu-iu8/11-IU8-performers.sty
+ texmf-dist/tex/latex/bmstu-iu8/12-IU8-abstract.sty
+ texmf-dist/tex/latex/bmstu-iu8/13-IU8-contents.sty
+ texmf-dist/tex/latex/bmstu-iu8/14-IU8-terms-and-definitions.sty
+ texmf-dist/tex/latex/bmstu-iu8/15-IU8-list-of-abbreviations.sty
+ texmf-dist/tex/latex/bmstu-iu8/16-IU8-references.sty
+ texmf-dist/tex/latex/bmstu-iu8/17-IU8-appendices.sty
+ texmf-dist/tex/latex/bmstu-iu8/18-IU8-extra.sty
+ texmf-dist/tex/latex/bmstu-iu8/19-IU8-counters.sty
+ texmf-dist/tex/latex/bmstu-iu8/20-IU8-listing.sty
+ texmf-dist/tex/latex/bmstu-iu8/21-IU8-math.sty
+ texmf-dist/tex/latex/bmstu-iu8/22-IU8-algorithms.sty
+ texmf-dist/tex/latex/bmstu-iu8/BMSTU-IU8.cls
+catalogue-also bmstu
+catalogue-contact-bugs https://github.com/CatInCosmicSpace/latex-template/issues
+catalogue-contact-repository https://github.com/CatInCosmicSpace/latex-template
+catalogue-contact-support https://t.me/CatInCosmicSpace
+catalogue-ctan /macros/latex/contrib/bmstu-iu8
+catalogue-license mit
+catalogue-topics class doc-templ report-like std-conform
+catalogue-version 1.2

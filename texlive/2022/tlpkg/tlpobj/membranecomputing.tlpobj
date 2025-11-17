@@ -1,0 +1,23 @@
+name membranecomputing
+category Package
+revision 60592
+shortdesc Membrane Computing notation
+longdesc This is a LaTeX package for the Membrane Computing community.
+longdesc It comprises the definition of P systems, rules and some
+longdesc concepts related to languages and computational complexity
+longdesc usually needed for Membrane Computing research. The package
+longdesc depends on ifthen and xstring.
+containersize 4728
+containerchecksum 4e22153d8c3894275d1b0a9f7b05754db602b3bc4fe9d2d2dd79f11f979bc91dfa3ef2125abe78ef8be5650dcdaf06f161fb9b3abbb90acb469c93e9712cfb85
+doccontainersize 281536
+doccontainerchecksum 1eb493ef0c1133b72299081378ca6e128158c2f11885938364b5270e02b872303b5ef9937912688e75a92a33d5c0e38fc147b8f560e7fddd3a7aa74ba7fb271a
+docfiles size=75
+ texmf-dist/doc/latex/membranecomputing/README.md details="Readme"
+ texmf-dist/doc/latex/membranecomputing/membranecomputing.pdf details="Package documentation"
+ texmf-dist/doc/latex/membranecomputing/membranecomputing.tex
+runfiles size=7
+ texmf-dist/tex/latex/membranecomputing/membranecomputing.sty
+catalogue-ctan /macros/latex/contrib/membranecomputing
+catalogue-license lppl1.3
+catalogue-topics comp-sci comp-theory
+catalogue-version 0.2

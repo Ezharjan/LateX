@@ -1,0 +1,31 @@
+name embedfile
+category Package
+revision 54865
+shortdesc Embed files into PDF
+longdesc This package embeds files in a PDF document, using the PDF
+longdesc format's embedding operation (note the contrast with the attach
+longdesc operation used by the attachfile and attachfile2 packages).
+longdesc Currently only pdfTeX >=1.30, in PDF mode, is supported.
+containersize 5124
+containerchecksum f42311a4f5488c00f33cd43af03da9fe6b1912c27b7ce9f40e488f5a4931a5c57fe637d475cfca750e191c1b605f532a32ac83476207a49543fd090e932cecd1
+doccontainersize 392868
+doccontainerchecksum 19925356dfac7c2fcd06d2886c8ffc7fda202f6639e98e993b8ddba3570223db0f4ad98f8ab51b096790e73e4c23946846ffaeaa2a847085d4d95abdaac06833
+docfiles size=100
+ texmf-dist/doc/latex/embedfile/README.md details="Readme"
+ texmf-dist/doc/latex/embedfile/embedfile-example-collection.tex
+ texmf-dist/doc/latex/embedfile/embedfile-example-plain.tex
+ texmf-dist/doc/latex/embedfile/embedfile.pdf details="Package documentation"
+srccontainersize 13236
+srccontainerchecksum e660fe1caebb232b3c7ab761ccbae1fb58535002e6f4825c00c33f3d19a2b9b2a7a8e5e4b5a63a929b2a03bbae161ffbb25113a7f6fa3c46477b0c0773c97b5b
+srcfiles size=15
+ texmf-dist/source/latex/embedfile/embedfile.dtx
+runfiles size=7
+ texmf-dist/tex/generic/embedfile/embedfile.sty
+ texmf-dist/tex/latex/embedfile/dtx-attach.sty
+catalogue-also attachfile attachfile2
+catalogue-contact-bugs https://github.com/ho-tex/embedfile/issues
+catalogue-contact-repository https://github.com/ho-tex/embedfile
+catalogue-ctan /macros/latex/contrib/embedfile
+catalogue-license lppl1.3c
+catalogue-topics pdf-feat
+catalogue-version 2.11

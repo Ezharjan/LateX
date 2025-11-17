@@ -1,0 +1,38 @@
+name incgraph
+category Package
+revision 60810
+shortdesc Sophisticated graphics inclusion in a PDF document
+longdesc The package provides tools for including graphics at the full
+longdesc size of the output medium, or for creating "pages" whose size
+longdesc is that of the graphic they contain. A principal use case is
+longdesc documents that require inclusion of (potentially many) scans or
+longdesc photographs. Bookmarking is especially supported. The tool box
+longdesc has basic macros and a 'convenience' user interface that wraps
+longdesc \includegraphics.
+containersize 4976
+containerchecksum 06c7228e1ef4d760f6d7b1d308d4946eef7a55a60ff39bba6bdc6a96407cb6fab9f47dfd2c26f37d4f674d815e0ab7196badf2590638e214c980d26343a6bd55
+doccontainersize 1111764
+doccontainerchecksum 3e37591fd1c239d2feb262434a5782be0160104392f6b6c2f330aa30d8e8af5905694a125d29045b403239d67952bb88d1194a1d1e61194e82426405fa11c772
+docfiles size=585
+ texmf-dist/doc/latex/incgraph/CHANGES.md
+ texmf-dist/doc/latex/incgraph/README.md details="Readme"
+ texmf-dist/doc/latex/incgraph/exaimage-0001.png
+ texmf-dist/doc/latex/incgraph/exaimage-0037.png
+ texmf-dist/doc/latex/incgraph/exaimage-0123.png
+ texmf-dist/doc/latex/incgraph/example.jpg
+ texmf-dist/doc/latex/incgraph/incgraph-doc.sty
+ texmf-dist/doc/latex/incgraph/incgraph-example-a.pdf
+ texmf-dist/doc/latex/incgraph/incgraph-example-a.tex
+ texmf-dist/doc/latex/incgraph/incgraph-example-b.pdf
+ texmf-dist/doc/latex/incgraph/incgraph-example-b.tex
+ texmf-dist/doc/latex/incgraph/incgraph-example-c.pdf
+ texmf-dist/doc/latex/incgraph/incgraph-example-c.tex
+ texmf-dist/doc/latex/incgraph/incgraph.pdf details="Package documentation"
+ texmf-dist/doc/latex/incgraph/incgraph.tex
+runfiles size=6
+ texmf-dist/tex/latex/incgraph/incgraph.sty
+catalogue-also graphicx
+catalogue-ctan /macros/latex/contrib/incgraph
+catalogue-license lppl1.3
+catalogue-topics graphics-incl
+catalogue-version 1.2.0

@@ -1,0 +1,31 @@
+name decorule
+category Package
+revision 55230
+shortdesc Decorative swelled rule using font character
+longdesc The package implements a decorative swelled rule using only a
+longdesc symbol from a font installed with all distributions of TeX, so
+longdesc it works independently, without the need to install any
+longdesc additional software or fonts. This is the packaged version of
+longdesc the macro which was originally published in the "Typographers'
+longdesc Inn" column in TUGboat 31:1 (2010).
+containersize 1476
+containerchecksum 783f09b3810616b14f04dace838ed1ed2faf32ea4df84dd0973df375928e16fb129ddf6429fc54560a317da0a9422630becc92543e1a1da76809c4962c423fc7
+doccontainersize 397084
+doccontainerchecksum 0c13e2ff2744ca2d0e32446a85cbec06d832ce1fc8af5a719f3c73ed59e1a85461d5f51d33fe5a51a89b209f80196ad52609e83adbf7cc41336f5bfae8c4389f
+docfiles size=101
+ texmf-dist/doc/latex/decorule/MANIFEST
+ texmf-dist/doc/latex/decorule/README.md details="Readme"
+ texmf-dist/doc/latex/decorule/VERSION
+ texmf-dist/doc/latex/decorule/decorule.pdf details="Package documentation"
+srccontainersize 17264
+srccontainerchecksum 84ab7801ab7b0772ffa3520a42e132007e05152e206072fc1ebb43d8d9675ac4929ad1abb30d8111db7d825f05d37b038ecc923267c5095ed62a34cf3955dc20
+srcfiles size=15
+ texmf-dist/source/latex/decorule/decorule.dtx
+ texmf-dist/source/latex/decorule/decorule.ins
+runfiles size=1
+ texmf-dist/tex/latex/decorule/decorule.sty
+catalogue-also swrule
+catalogue-ctan /macros/latex/contrib/decorule
+catalogue-license lppl1.3
+catalogue-topics line-weight decoration
+catalogue-version 0.7

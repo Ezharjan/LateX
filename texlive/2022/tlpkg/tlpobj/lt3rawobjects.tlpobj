@@ -1,0 +1,33 @@
+name lt3rawobjects
+category Package
+revision 64038
+shortdesc Objects and proxies in LaTeX3
+longdesc This package introduces a new mechanism to create objects like
+longdesc the well known C structures. The functions exported by this
+longdesc package are quite low level, and many important mechanisms like
+longdesc member protection and name resolution aren't already defined
+longdesc and should be introduced by intermediate packages.
+containersize 3508
+containerchecksum 5e945ef5eeacc1205b77e60cbb1611421c447163daca4f8334a063cd92af93f63f61b600f4b80a2dd19c579258521277be36ada37b51a9b65081ff5874926cb9
+doccontainersize 532092
+doccontainerchecksum fc03580015c0c1752587edaf0c568932724b241b1ee7cec79e905f9f950da8235384f586ae10ca98cf0e18cdfe25784079efc6cfbb00a717d93b1be8e156bab3
+docfiles size=132
+ texmf-dist/doc/latex/lt3rawobjects/README.md details="Readme"
+ texmf-dist/doc/latex/lt3rawobjects/lt3rawobjects.pdf details="Package documentation"
+srccontainersize 9848
+srccontainerchecksum b6a742d0ba9aacba5e3093193187aac10968a5111b8c087c81830dd2b13fe3bbb172512d1ca12e383d933c1759628cbf39db72692d19508500c47df496a19a82
+srcfiles size=14
+ texmf-dist/source/latex/lt3rawobjects/lt3rawobjects.dtx
+ texmf-dist/source/latex/lt3rawobjects/lt3rawobjects.ins
+runfiles size=5
+ texmf-dist/tex/latex/lt3rawobjects/lt3rawobjects.sty
+catalogue-contact-announce https://github.com/Loara/lt3rawobjects/releases
+catalogue-contact-bugs https://github.com/Loara/lt3rawobjects/issues
+catalogue-contact-development https://github.com/Loara/lt3rawobjects/pulls
+catalogue-contact-home https://github.com/Loara/lt3rawobjects
+catalogue-contact-repository https://github.com/Loara/lt3rawobjects.git
+catalogue-contact-support https://github.com/Loara/lt3rawobjects/discussions
+catalogue-ctan /macros/latex/contrib/lt3rawobjects
+catalogue-license gpl3+
+catalogue-topics macro-supp expl3
+catalogue-version 2.0

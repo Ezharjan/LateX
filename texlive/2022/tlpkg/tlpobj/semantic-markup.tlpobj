@@ -1,0 +1,29 @@
+name semantic-markup
+category Package
+revision 53607
+shortdesc Meaningful semantic markup in the spirit of the Text Encoding Initiative
+longdesc The package provides simple commands to allow authors
+longdesc (especially scholars in the humanities) to write with a focus
+longdesc on content rather than presentation. The commands are inspired
+longdesc by the XML elements of the Text Encoding Initiative. Commands
+longdesc like \term and \foreign are aliases for \emph. \quoted and
+longdesc \soCalled are aliases for quoting commands. These commands
+longdesc could be easily redefined for different formats. The package
+longdesc also provides a footnote environment so that long footnotes can
+longdesc be more cleanly separated from the main text. Because the
+longdesc author is a music scholar, the package also includes some
+longdesc macros for musical symbols and other basic notations for
+longdesc musical analysis.
+containersize 2500
+containerchecksum f795c901ec0b133520cde8e269364977638d410d6d06207d868e6151e7f43a4d3c54a73780237e2dfb86b9077b0724fccbd7e9121d51a64034f4bd604a38008a
+doccontainersize 270076
+doccontainerchecksum f1498e628054e91f7b0ecc0fea7c926aa55d7bec56c3c13ebcc5073f96df84e8c1e255532f9ec72b8133d21511e4f5f2996d95c39c15cb74ae39fffa87d5a785
+docfiles size=69
+ texmf-dist/doc/latex/semantic-markup/README details="Readme"
+ texmf-dist/doc/latex/semantic-markup/semantic-markup.pdf details="Package documentation"
+ texmf-dist/doc/latex/semantic-markup/semantic-markup.tex
+runfiles size=2
+ texmf-dist/tex/latex/semantic-markup/semantic-markup.sty
+catalogue-ctan /macros/latex/contrib/semantic-markup
+catalogue-license lppl1.3
+catalogue-topics humanities linguistic

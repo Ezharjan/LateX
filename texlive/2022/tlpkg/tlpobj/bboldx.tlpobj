@@ -1,0 +1,34 @@
+name bboldx
+category Package
+revision 60919
+shortdesc Extension of the bbold package with a Blackboard Bold alphabet
+longdesc Extension of bbold to a package with three weights, of which
+longdesc the original is considered as light and the additions as
+longdesc regular and bold.
+execute addMap bboldx.map
+containersize 71040
+containerchecksum 4414cca525a587cee177ad7629b5ae3ab0317b5ca9266c49da852bab595c8f076249908ef071c91f398e2f1441904393b0d0baad3a92fb53da5a34fd729136d9
+doccontainersize 158820
+doccontainerchecksum 85d590c60b708bc35924259bbf6e670d70abd48548f02ef1520e83be9fecfe3cb34c2b6e3f0c4b72384d062829aae7b4255c15e0f35a9f0e98f8dbc28882795e
+docfiles size=42
+ texmf-dist/doc/fonts/bboldx/Bboldx-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/bboldx/Bboldx-doc.tex
+ texmf-dist/doc/fonts/bboldx/README details="Readme"
+runfiles size=33
+ texmf-dist/fonts/afm/public/bboldx/BBOLDX-Bold.afm
+ texmf-dist/fonts/afm/public/bboldx/BBOLDX-Regular.afm
+ texmf-dist/fonts/afm/public/bboldx/BBOLDX-Thin.afm
+ texmf-dist/fonts/enc/dvips/bboldx/bboldx.enc
+ texmf-dist/fonts/map/dvips/bboldx/bboldx.map
+ texmf-dist/fonts/tfm/public/bboldx/BBOLDX-Bold.tfm
+ texmf-dist/fonts/tfm/public/bboldx/BBOLDX-Regular.tfm
+ texmf-dist/fonts/tfm/public/bboldx/BBOLDX-Thin.tfm
+ texmf-dist/fonts/type1/public/bboldx/BBOLDX-Bold.pfb
+ texmf-dist/fonts/type1/public/bboldx/BBOLDX-Regular.pfb
+ texmf-dist/fonts/type1/public/bboldx/BBOLDX-Thin.pfb
+ texmf-dist/tex/latex/bboldx/Ubboldx.fd
+ texmf-dist/tex/latex/bboldx/bboldx.sty
+catalogue-ctan /fonts/bboldx
+catalogue-license other-free
+catalogue-topics font font-maths font-bbd font-type1 font-supp
+catalogue-version 1.031

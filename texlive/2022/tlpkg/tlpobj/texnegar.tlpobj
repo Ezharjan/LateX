@@ -1,0 +1,75 @@
+name texnegar
+category Package
+revision 57692
+shortdesc Kashida justification in XeLaTeX and LuaLaTeX
+longdesc In some cursive scripts such as Persian or Arabic, kashida is
+longdesc used to create justification. In this type of justification
+longdesc characters are elongated rather than expanding spaces between
+longdesc words. The kashida justification in xepersian has many bugs.
+longdesc Also it has problems with some fonts. The xepersian-hm package
+longdesc was the first attempt to fix these bugs in xepersian, which
+longdesc uses the XeTeX engine. This package extends the kashida
+longdesc justification to be used with the LuaTeX engine, too.
+longdesc Explanation of the package name: Negar, in Persian, is the
+longdesc present stem of negaashtan meaning to design, to paint, to
+longdesc write; and as a noun it means "sweetheart, idol, beloved,
+longdesc figuratively referring to a beautiful woman, pattern, painting,
+longdesc and artistic design".
+containersize 14600
+containerchecksum 09e4b3753d99fb4f99c150da87f5602dad5a28778f9489e67f6e4e45d5f9dbdf0edac43826c1a162280e9399d28d050b5ff230713b2e45cc2804f21a76dba0f6
+doccontainersize 2104876
+doccontainerchecksum 403e75ef47ffc6da77e4d61dcc95419932d2b62ebb0c107cf612a195b0e2a24862139a518ead801ee15f56546c44bf9cf0e56aad7b4d8a7ede8529063aa745d1
+docfiles size=1525
+ texmf-dist/doc/latex/texnegar/INSTALL.txt
+ texmf-dist/doc/latex/texnegar/README.txt details="Readme"
+ texmf-dist/doc/latex/texnegar/doc-ligature-texnegar.pdf
+ texmf-dist/doc/latex/texnegar/doc-ligature-xep.pdf
+ texmf-dist/doc/latex/texnegar/doc-samples-glyph.pdf
+ texmf-dist/doc/latex/texnegar/doc-samples-hrule.pdf
+ texmf-dist/doc/latex/texnegar/doc-samples-xep.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-doc.ltx
+ texmf-dist/doc/latex/texnegar/texnegar-doc.pdf details="User documentation"
+ texmf-dist/doc/latex/texnegar/texnegar-luatex-glyph.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-luatex-glyph.tex
+ texmf-dist/doc/latex/texnegar/texnegar-luatex-leaders-glyph.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-luatex-leaders-glyph.tex
+ texmf-dist/doc/latex/texnegar/texnegar-luatex-leaders-hrule.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-luatex-leaders-hrule.tex
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-bidi-glyph.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-bidi-glyph.tex
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-bidi-leaders-glyph.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-bidi-leaders-glyph.tex
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-bidi-leaders-hrule.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-bidi-leaders-hrule.tex
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-xepersian-glyph.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-xepersian-glyph.tex
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-xepersian-leaders-glyph.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-xepersian-leaders-glyph.tex
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-xepersian-leaders-hrule.pdf
+ texmf-dist/doc/latex/texnegar/texnegar-xetex-xepersian-leaders-hrule.tex
+ texmf-dist/doc/latex/texnegar/texnegar.pdf details="Source code documentation"
+ texmf-dist/doc/latex/texnegar/xepersian-XB.pdf
+ texmf-dist/doc/latex/texnegar/xepersian-XB.tex
+srccontainersize 17216
+srccontainerchecksum 9785ac1b0a7ce4f33458bfb3acc203098c8985d6381eec5c610de16b22e2e60ecb386bb5b98da0f9f082b901b9dee096135c5c2a38d5233e92fb09413de214f9
+srcfiles size=26
+ texmf-dist/source/latex/texnegar/texnegar.dtx
+ texmf-dist/source/latex/texnegar/texnegar.ins
+runfiles size=28
+ texmf-dist/tex/latex/texnegar/texnegar-char-table.lua
+ texmf-dist/tex/latex/texnegar/texnegar-common-kashida.tex
+ texmf-dist/tex/latex/texnegar/texnegar-ini.lua
+ texmf-dist/tex/latex/texnegar/texnegar-ini.tex
+ texmf-dist/tex/latex/texnegar/texnegar-luatex-kashida.lua
+ texmf-dist/tex/latex/texnegar/texnegar-luatex.sty
+ texmf-dist/tex/latex/texnegar/texnegar-xetex-kashida.tex
+ texmf-dist/tex/latex/texnegar/texnegar-xetex.sty
+ texmf-dist/tex/latex/texnegar/texnegar.lua
+ texmf-dist/tex/latex/texnegar/texnegar.sty
+catalogue-contact-bugs https://bitbucket.org/dma8hm1334/texnegar/issues
+catalogue-contact-home https://dma8hm1334.bitbucket.io
+catalogue-contact-repository https://bitbucket.org/dma8hm1334/texnegar
+catalogue-ctan /macros/unicodetex/latex/texnegar
+catalogue-license lppl1.3c
+catalogue-topics arabic persian expl3
+catalogue-version 0.1e

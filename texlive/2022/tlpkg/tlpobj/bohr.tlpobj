@@ -1,0 +1,23 @@
+name bohr
+category Package
+revision 62977
+shortdesc Simple atom representation according to the Bohr model
+longdesc The package provides means for the creation of simple Bohr
+longdesc models of atoms up to the atomic number 112. In addition,
+longdesc commands are provided to convert atomic numbers to element
+longdesc symbols or element names and vice versa.
+containersize 3652
+containerchecksum 257faafc089c9864a7878e9690a96ef8a5468fa4a310232609cb769c4bd80c15ee7923ad73feac782cda4690f699ab3734dbac05e39588a34fca576fe8dd042c
+doccontainersize 424416
+doccontainerchecksum 0ffcb6071ad55d9e6a38c9cff810b625fcd6eb08e476e9ac7fb0bae73ca5373517de22a536c2348ac8646b62d70167521d70dd46327dadebfdb9e69facc0f27a
+docfiles size=107
+ texmf-dist/doc/latex/bohr/README details="Readme"
+ texmf-dist/doc/latex/bohr/bohr_en.pdf details="Package documentation"
+ texmf-dist/doc/latex/bohr/bohr_en.tex
+runfiles size=4
+ texmf-dist/tex/latex/bohr/bohr.sty
+catalogue-contact-repository https://github.com/cgnieder/bohr/
+catalogue-ctan /macros/latex/contrib/bohr
+catalogue-license lppl1.3
+catalogue-topics chemistry physics
+catalogue-version 1.0

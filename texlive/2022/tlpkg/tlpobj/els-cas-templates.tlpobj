@@ -1,0 +1,43 @@
+name els-cas-templates
+category Package
+revision 62931
+shortdesc Elsevier updated LaTeX templates
+longdesc This bundle provides two class and corresponding template files
+longdesc for typesetting journal articles supposed to go through
+longdesc Elsevier's updated workflow. One of the sets is meant for
+longdesc one-column, the other for two-column layout. These are now
+longdesc accepted for submitting articles both in Elsevier's electronic
+longdesc submission system and elsewhere.
+containersize 54856
+containerchecksum ecb340e796a94aab2e26abeb7d4d72ba5d68adcb15a0d99d3511236b8be5f8ab21d8d32995b1dcf1b0a3ea15eb321df75bbc016c52630b06498b75e9e5f164f8
+doccontainersize 349288
+doccontainerchecksum b616f6a170484f75dea1134f0570133b63ba40fd1bd474e13ae3e46249224b8ee7a777d0d18e11e828d0e5e59c2635acfecea99537060a7cea03fc2761dca892
+docfiles size=262
+ texmf-dist/doc/latex/els-cas-templates/README details="Readme"
+ texmf-dist/doc/latex/els-cas-templates/cas-dc-template.tex
+ texmf-dist/doc/latex/els-cas-templates/cas-refs.bib
+ texmf-dist/doc/latex/els-cas-templates/cas-sc-template.tex
+ texmf-dist/doc/latex/els-cas-templates/doc/dc-sample.pdf
+ texmf-dist/doc/latex/els-cas-templates/doc/elsdoc-cas.pdf details="Package documentation"
+ texmf-dist/doc/latex/els-cas-templates/doc/elsdoc-cas.tex
+ texmf-dist/doc/latex/els-cas-templates/doc/glyphtounicode.tex
+ texmf-dist/doc/latex/els-cas-templates/doc/makefile
+ texmf-dist/doc/latex/els-cas-templates/doc/pdfwidgets.sty
+ texmf-dist/doc/latex/els-cas-templates/doc/rvdtx.sty
+ texmf-dist/doc/latex/els-cas-templates/doc/sc-sample.pdf
+ texmf-dist/doc/latex/els-cas-templates/manifest.txt
+runfiles size=43
+ texmf-dist/bibtex/bst/els-cas-templates/cas-model2-names.bst
+ texmf-dist/tex/latex/els-cas-templates/cas-common.sty
+ texmf-dist/tex/latex/els-cas-templates/cas-dc.cls
+ texmf-dist/tex/latex/els-cas-templates/cas-sc.cls
+ texmf-dist/tex/latex/els-cas-templates/thumbnails/cas-email.jpeg
+ texmf-dist/tex/latex/els-cas-templates/thumbnails/cas-facebook.jpeg
+ texmf-dist/tex/latex/els-cas-templates/thumbnails/cas-gplus.jpeg
+ texmf-dist/tex/latex/els-cas-templates/thumbnails/cas-linkedin.jpeg
+ texmf-dist/tex/latex/els-cas-templates/thumbnails/cas-twitter.jpeg
+ texmf-dist/tex/latex/els-cas-templates/thumbnails/cas-url.jpeg
+catalogue-ctan /macros/latex/contrib/els-cas-templates
+catalogue-license lppl1.2
+catalogue-topics class doc-templ journalpub
+catalogue-version 2.3

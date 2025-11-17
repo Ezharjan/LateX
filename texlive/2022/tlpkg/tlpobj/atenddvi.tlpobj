@@ -1,0 +1,32 @@
+name atenddvi
+category Package
+revision 56922
+shortdesc Provides the \AtEndDvi command
+longdesc This package is unneeded and does nothing when used with a
+longdesc LaTeX format 2020-10-01 or newer as in this case the format
+longdesc provides the \AtEndDvi command. For older formats it implements
+longdesc \AtEndDvi, a counterpart to \AtBeginDvi. The execution of its
+longdesc argument is delayed to the end of the document at the end of
+longdesc the last page. Thus \special and \write remain effective,
+longdesc because they are put into the last page. This is the main
+longdesc difference to \AtEndDocument.
+containersize 1932
+containerchecksum 49b0a69eb308e19e3ed97406fc1ded6e80f15d7787031e2b71cc41ca2e1c74c19d3f3832ae13c5f1af70abf9f2f201c9a7ef669ed2e58349a584ddc767059c54
+doccontainersize 280328
+doccontainerchecksum d60dae681800be4495c2690f78513475d98a4480364306eb26c16c551b0e984f135aefccdcff549e6702b2b62bb185ccbdacd85dd3c12e5b20c128d9397c0e8c
+docfiles size=70
+ texmf-dist/doc/latex/atenddvi/README.md details="Readme"
+ texmf-dist/doc/latex/atenddvi/atenddvi.pdf details="Package documentation"
+srccontainersize 5256
+srccontainerchecksum a2c6321e825629a75d745f0bd03cab168fb51b5c33d5d256a621847f27ec2010f0331c37644e95b2ee40604d68cf34772a3dde59b6c6fe340713c0e593fc318c
+srcfiles size=5
+ texmf-dist/source/latex/atenddvi/atenddvi.dtx
+runfiles size=2
+ texmf-dist/tex/latex/atenddvi/atenddvi-2019-12-11.sty
+ texmf-dist/tex/latex/atenddvi/atenddvi.sty
+catalogue-contact-bugs https://github.com/ho-tex/atenddvi/issues
+catalogue-contact-repository https://github.com/ho-tex/atenddvi
+catalogue-ctan /macros/latex/contrib/atenddvi
+catalogue-license lppl1.3c
+catalogue-topics defer-stuff
+catalogue-version 1.5

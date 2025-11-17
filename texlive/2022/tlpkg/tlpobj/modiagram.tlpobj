@@ -1,0 +1,27 @@
+name modiagram
+category Package
+revision 56886
+shortdesc Drawing molecular orbital diagrams
+longdesc The package provides an environment MOdiagram and some
+longdesc commands, to create molecular orbital diagrams using TikZ. For
+longdesc example, the MO diagram of dihydrogen would be written as:
+longdesc \begin{MOdiagram} \atom{left}{ 1s = {0;up} } \atom{right}{ 1s =
+longdesc {0;up} } \molecule{ 1sMO = {1;pair, } } \end{MOdiagram} The
+longdesc package also needs the l3kernel and l3packages bundles from the
+longdesc LaTeX 3 experimental distribution.
+containersize 8876
+containerchecksum 3da30c6f2759d1beebc0f33c61846343b505da9527f2a34ad7e622958802cfd08e1da9ca297003330451aa913b45c872b4eed4cad3f5bf5f8e597a2b0800a09f
+doccontainersize 546580
+doccontainerchecksum cc0513fdca073761b8f6f9e34c826af2de587c9c6ef47bbe54b45e60427c5536a2c4743e2c187a9b089eeefe82359962d1081f5dd66fad9072e4c7adcb580763
+docfiles size=145
+ texmf-dist/doc/latex/modiagram/README details="Readme"
+ texmf-dist/doc/latex/modiagram/modiagram_en.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/latex/modiagram/modiagram_en.tex
+runfiles size=20
+ texmf-dist/tex/latex/modiagram/modiagram.sty
+catalogue-contact-bugs https://bitbucket.org/cgnieder/modiagram/issues
+catalogue-contact-repository https://bitbucket.org/cgnieder/modiagram/
+catalogue-ctan /macros/latex/contrib/modiagram
+catalogue-license lppl1.3c
+catalogue-topics chemistry diagram expl3
+catalogue-version 0.3a

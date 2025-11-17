@@ -1,0 +1,32 @@
+name pxbase
+category Package
+revision 64072
+shortdesc Tools for use with (u)pLaTeX
+longdesc The main purpose of this package is to provide auxiliary
+longdesc functions which are utilized by other packages created by the
+longdesc same author. It also provides a few user commands to assist in
+longdesc creating Japanese documents using (u)pLaTeX.
+containersize 12364
+containerchecksum 6723a8748f4cf2ddaf6f2a7d83b81666de0f4136806794d37a2e8032bab819f9cd6d2c8be4477fdcded60daa2e0218099ef60e7436659dd4733db46b052e35cf
+doccontainersize 161904
+doccontainerchecksum 017474cb2ded46a0cc69b28d706e70ef700f93fb30e66c5a413b911ea35c57a4cd04b5199ab802a2bc6e9b269ed2e84bc0eb7ad6bdb039550f9723cffacb341f
+docfiles size=49
+ texmf-dist/doc/platex/pxbase/LICENSE
+ texmf-dist/doc/platex/pxbase/README-ja.md details="Readme (Japanese)" language="ja"
+ texmf-dist/doc/platex/pxbase/README.md details="Readme"
+ texmf-dist/doc/platex/pxbase/pxbabel.pdf
+ texmf-dist/doc/platex/pxbase/pxbabel.tex
+runfiles size=18
+ texmf-dist/tex/platex/pxbase/pxbabel.sty
+ texmf-dist/tex/platex/pxbase/pxbase.def
+ texmf-dist/tex/platex/pxbase/pxbase.sty
+ texmf-dist/tex/platex/pxbase/pxbasenc.def
+ texmf-dist/tex/platex/pxbase/pxbsjc.def
+ texmf-dist/tex/platex/pxbase/pxbsjc1.def
+ texmf-dist/tex/platex/pxbase/pxjsfenc.def
+ texmf-dist/tex/platex/pxbase/upkcat.sty
+catalogue-contact-home https://github.com/zr-tex8r/PXbase
+catalogue-ctan /macros/jptex/latex/pxbase
+catalogue-license mit
+catalogue-topics japanese
+catalogue-version 1.3

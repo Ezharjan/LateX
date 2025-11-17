@@ -1,0 +1,38 @@
+name mathsemantics
+category Package
+revision 63241
+shortdesc Semantic math commands in LaTeX
+longdesc This LaTeX package provides both syntactic and semantic helpers
+longdesc to typeset mathematics in LaTeX. The syntactic layer eases
+longdesc typesetting of formulae in general, while the semantic layer
+longdesc provides commands like \inner{x}{y} to unify typesetting of
+longdesc inner products. These not only unify typesetting of math
+longdesc formulae but also allow to easily adapt notation if a user
+longdesc prefers to. The semantic layer is split into topics.
+containersize 7804
+containerchecksum e8cd9b91b758317d310265c41f565481a9a18c9a345ea3c8b3f771de637f0a144d131cda93b7771ee7b28563fe1e6d42a410cbc7c9fe08532a5821ca84d5a101
+doccontainersize 642040
+doccontainerchecksum 3f0b2120c9551e498d71ace121985553d1d40f2b242887fe0e6e31a9e25dd62d32fd44d3bd1b50233cbebbbe70201162dca838ede7409512a91d5e522149b479
+docfiles size=171
+ texmf-dist/doc/latex/mathsemantics/Contributing.md
+ texmf-dist/doc/latex/mathsemantics/LICENSE
+ texmf-dist/doc/latex/mathsemantics/README.md details="Readme"
+ texmf-dist/doc/latex/mathsemantics/mathsemantics-documentation-local.sty
+ texmf-dist/doc/latex/mathsemantics/mathsemantics-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/mathsemantics/mathsemantics-documentation.tex
+runfiles size=14
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-abbreviations.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-commons.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-manifolds.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-names.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-optimization.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-semantic.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics-syntax.sty
+ texmf-dist/tex/latex/mathsemantics/mathsemantics.sty
+catalogue-contact-bugs https://github.com/kellertuer/MathSemantics.sty/issues
+catalogue-contact-repository https://github.com/kellertuer/MathSemantics.sty
+catalogue-contact-support https://github.com/kellertuer/MathSemantics.sty/discussions
+catalogue-ctan /macros/latex/contrib/mathsemantics
+catalogue-license mit
+catalogue-topics maths
+catalogue-version 1.0.0

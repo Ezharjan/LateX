@@ -1,0 +1,31 @@
+name njuvisual
+category Package
+revision 61555
+shortdesc Display logos related to Nanjing University
+longdesc The njuvisual package collects standard colors and logos
+longdesc related to Nanjing University, saves the vector logos as TikZ
+longdesc pictures and provides a user-friendly interface to display them
+longdesc in documents and beamers.
+containersize 169212
+containerchecksum 46a958d59cfb73728f30123dd4a2eb046ab59de57ec8144adef14e6bc375c45c1e71effed5b179b88bc05142ae3ab9e0210cd890f3b71d3b23a53e828dae93e9
+doccontainersize 637816
+doccontainerchecksum 384ea71dc4ce25c0ccdafb820136f6af2093525e90ce158bf01709335a033e6d05705a3042db1ecb437863b5ef0ffd8042f3cf1b7d6cb33e7e3e30014da28800
+docfiles size=162
+ texmf-dist/doc/latex/njuvisual/LICENSE
+ texmf-dist/doc/latex/njuvisual/README.md details="Readme"
+ texmf-dist/doc/latex/njuvisual/njuvisual-example.tex
+ texmf-dist/doc/latex/njuvisual/njuvisual.pdf details="Package documentation" language="zh"
+srccontainersize 176228
+srccontainerchecksum 5078f3abff181a14941846fb4fb6fe1b130e8708ee5a03111b8ccd55158101bb0a27a78ddab36c914a5449e8d467ff453a24579dba28beec498536cea7c9bfc2
+srcfiles size=285
+ texmf-dist/source/latex/njuvisual/njuvisual-curves.dtx
+ texmf-dist/source/latex/njuvisual/njuvisual.dtx
+runfiles size=279
+ texmf-dist/tex/latex/njuvisual/njuvisual.sty
+catalogue-contact-announce https://github.com/nju-lug/NJUVisual/releases
+catalogue-contact-bugs https://github.com/nju-lug/NJUVisual/issues
+catalogue-contact-repository https://github.com/nju-lug/NJUVisual
+catalogue-ctan /macros/latex/contrib/njuvisual
+catalogue-license lppl1.3c
+catalogue-topics logo chinese
+catalogue-version 0.2.1

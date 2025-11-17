@@ -1,0 +1,74 @@
+name eplain
+category Package
+revision 62145
+shortdesc Extended plain TeX macros
+longdesc An extended version of the plain TeX format, adding support for
+longdesc bibliographies, tables of contents, enumerated lists, verbatim
+longdesc input of files, numbered equations, tables, two-column output,
+longdesc footnotes, hyperlinks in PDF output and commutative diagrams.
+longdesc Eplain can also load some of the more useful LaTeX packages,
+longdesc notably graphics, graphicx (an extended version of graphics),
+longdesc color, autopict (a package instance of the LaTeX picture code),
+longdesc psfrag, and url.
+depend atbegshi
+depend atveryend
+depend babel
+depend cm
+depend dehyph
+depend eplain.ARCH
+depend everyshi
+depend firstaid
+depend hyph-utf8
+depend hyphen-base
+depend knuth-lib
+depend l3backend
+depend l3kernel
+depend l3packages
+depend latex
+depend latex-fonts
+depend pdftex
+depend plain
+depend tex-ini-files
+depend unicode-data
+execute AddFormat name=eplain engine=pdftex patterns=language.dat           options="-translate-file=cp227.tcx *eplain.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,dehyph,hyph-utf8,knuth-lib,plain
+containersize 42280
+containerchecksum 5bc922f1ee34577bbaf68447519c5f2dc1fd3d7bd1e311652dfcfeb260dad26b6183d0534a6165ab0e5faf33ab2547b6ce16c507978429b8d130d60b32dc296b
+doccontainersize 982712
+doccontainerchecksum bf2f9a8fb98ffabcff593b189b5ab589da38916f9a38edf4eaa23c4327821ab1edbc898a9971fea42e9d77c40321ccfd476c5c3a2a8b966c0857aded5d9b20db
+docfiles size=528
+ texmf-dist/doc/eplain/AUTHORS
+ texmf-dist/doc/eplain/COPYING
+ texmf-dist/doc/eplain/ChangeLog
+ texmf-dist/doc/eplain/INSTALL
+ texmf-dist/doc/eplain/NEWS
+ texmf-dist/doc/eplain/README details="Package Readme"
+ texmf-dist/doc/eplain/demo/Makefile
+ texmf-dist/doc/eplain/demo/lscommnt.tex
+ texmf-dist/doc/eplain/demo/xhyper.tex
+ texmf-dist/doc/eplain/eplain.html details="Package documentation (HTML)"
+ texmf-dist/doc/eplain/eplain.pdf details="Package documentation (PDF)"
+ texmf-dist/doc/eplain/lscommnt.jpg
+ texmf-dist/doc/eplain/util/idxuniq
+ texmf-dist/doc/eplain/util/trimsee
+ texmf-dist/doc/eplain/xhyper.jpg
+ texmf-dist/doc/info/eplain.info
+ texmf-dist/doc/man/man1/eplain.1
+ texmf-dist/doc/man/man1/eplain.man1.pdf
+srccontainersize 396576
+srccontainerchecksum 494226ef0fad26861e39c8e740bf7bc0aac3f561c76494356121eabd94062dd3d0075d35cd7d7085fe1a22b682a2ea1b692af5ec122d13ced0076b0e47fe333b
+srcfiles size=136
+ texmf-dist/source/eplain/eplain-source-3.11.zip
+ texmf-dist/source/eplain/xeplain.tex
+runfiles size=50
+ texmf-dist/tex/eplain/arrow.tex
+ texmf-dist/tex/eplain/btxmac.tex
+ texmf-dist/tex/eplain/eplain.aux
+ texmf-dist/tex/eplain/eplain.ini
+ texmf-dist/tex/eplain/eplain.tex
+catalogue-contact-home https://tug.org/eplain/
+catalogue-contact-repository https://tug.org/svn/eplain/
+catalogue-contact-support https://lists.tug.org/tex-eplain
+catalogue-ctan /macros/eplain
+catalogue-license gpl2+
+catalogue-topics plain-ext format
+catalogue-version 3.11

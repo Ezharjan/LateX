@@ -1,0 +1,22 @@
+name scratch3
+category Package
+revision 61921
+shortdesc Draw programs like "scratch"
+longdesc This package permits to draw program charts in the style of the
+longdesc scatch project (scratch.mit.edu). It depends on the other LaTeX
+longdesc packages TikZ and simplekv.
+containersize 8832
+containerchecksum f33f18d725253b11097443116e6c0cf4930b7718a5f8678b0d8fd97d8e4854efb31bd016a40a7dec2701a99bf2b5ac6136a856798ead314a8c21cf38013bb513
+doccontainersize 528692
+doccontainerchecksum 97a8e684ff98c9aca2ab57cf93be2cf8bb4c0464fa772828c033622860e46d8c61bf563e346aeff1123665c878bf3fc68c58727ec2c1579e815c7a8ece078ff5
+docfiles size=138
+ texmf-dist/doc/latex/scratch3/README details="Readme"
+ texmf-dist/doc/latex/scratch3/scratch3-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/scratch3/scratch3-fr.tex
+runfiles size=12
+ texmf-dist/tex/latex/scratch3/scratch3.sty
+catalogue-also tikzcodeblocks
+catalogue-ctan /macros/latex/contrib/scratch3
+catalogue-license lppl1.3c
+catalogue-topics games pgf-tikz
+catalogue-version 0.19

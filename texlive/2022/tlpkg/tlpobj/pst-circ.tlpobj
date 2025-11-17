@@ -1,0 +1,29 @@
+name pst-circ
+category Package
+revision 60464
+shortdesc PSTricks package for drawing electric circuits
+longdesc The package is built using PSTricks and in particular pst-node.
+longdesc It can easily draw current 2-terminal devices and some 3- and
+longdesc 4-terminal devices used in electronic or electric theory. The
+longdesc package's macros are designed with a view to 'logical'
+longdesc representation of circuits, as far as possible, so as to
+longdesc relieve the user of purely graphical considerations when
+longdesc expressing a circuit.
+containersize 24900
+containerchecksum 2335b728be1227d4631e09c3994e9e1f559839e871e29854e700ed74b9031a7d2ea58cc744d20b459c99f1954b7faaecc2ced19c449e98b97fe26b2fa71755da
+doccontainersize 574764
+doccontainerchecksum c2eb37603cbba656eb1282130e112d0c3bbb49d4b3703c3d9b19d0d250d272d31fd19d2790c97cf8cd5226b0735e8466eab824a35754f41d7584208e606a6ce7
+docfiles size=174
+ texmf-dist/doc/generic/pst-circ/Changes
+ texmf-dist/doc/generic/pst-circ/README details="Readme"
+ texmf-dist/doc/generic/pst-circ/pst-circ-doc.bib
+ texmf-dist/doc/generic/pst-circ/pst-circ-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/pst-circ/pst-circ-doc.tex
+runfiles size=57
+ texmf-dist/dvips/pst-circ/pst-circ.pro
+ texmf-dist/tex/generic/pst-circ/pst-circ.tex
+ texmf-dist/tex/latex/pst-circ/pst-circ.sty
+catalogue-ctan /graphics/pstricks/contrib/pst-circ
+catalogue-license lppl
+catalogue-topics diagram-circ pstricks
+catalogue-version 2.19

@@ -1,0 +1,34 @@
+name hep-title
+category Package
+revision 61173
+shortdesc Extensions for the title page
+longdesc The hep-title package extends the title macros of the standard
+longdesc classes with macros for a preprint, affiliation, editors, and
+longdesc endorsers. The package is loaded with \usepackage{hep-title}.
+containersize 3360
+containerchecksum 026db8e4b5945399b8f68ca45133f9421e3b75185f0c536144c511afaa0305893a4da02284410568db338cce0679d0a252f3eb14e0c3c5e6984009526d726227
+doccontainersize 471616
+doccontainerchecksum 5c4900b603223483e6a7eee8fc546ebae0244bd801b5bdd07c289f745946b2106cd966dc5b3de55cfcb5cd6489f321da7bce2b44ea19d729f61e19de051b9f8d
+docfiles size=156
+ texmf-dist/doc/latex/hep-title/README-hep-title.md
+ texmf-dist/doc/latex/hep-title/README.md details="Readme"
+ texmf-dist/doc/latex/hep-title/bibliography.bib
+ texmf-dist/doc/latex/hep-title/hep-title-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-title/hep-title-documentation.tex
+ texmf-dist/doc/latex/hep-title/hep-title-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-title/hep-title-test-one.tex
+ texmf-dist/doc/latex/hep-title/hep-title-test-two.tex
+ texmf-dist/doc/latex/hep-title/license.md
+srccontainersize 6640
+srccontainerchecksum 267a998e9530411437e9bef9f8eb2c625273f10a5e3408ac10172825f3743157e49d8dc08db5738994915b66c88a131957ca73033d2270745f99f0b0d4925f52
+srcfiles size=8
+ texmf-dist/source/latex/hep-title/hep-title-implementation.dtx
+ texmf-dist/source/latex/hep-title/hep-title.ins
+runfiles size=4
+ texmf-dist/tex/latex/hep-title/hep-title.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/hep-title
+catalogue-license lppl1.3c
+catalogue-topics titlepage
+catalogue-version 1.0

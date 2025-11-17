@@ -1,0 +1,26 @@
+name luatruthtable
+category Package
+revision 64392
+shortdesc Generate truth tables of boolean values in LuaLaTeX
+longdesc This package provides an easy way for generating truth tables
+longdesc of boolean values in LuaLaTeX. The time required for operations
+longdesc is no issue while compiling with LuaLaTeX. The package supports
+longdesc nesting of commands for multiple operations. It can be modified
+longdesc or extended by writing custom lua programs. There is no need to
+longdesc install lua on users system as TeX distributions (TeX Live or
+longdesc MikTeX) come bundled with LuaLaTeX.
+containersize 2092
+containerchecksum dd2db9d04a4a8a5f9672822d9f0d958496a0f191215ef2feabe84f466953cd571f4cd93687dd5b89043d8d24daba5f468781e50b805c2334e564882392d53979
+doccontainersize 95932
+doccontainerchecksum 43dd05d789e6729ac91fac85bef1559f4a7292e30e209805b283583e6097124e0ed0f504f1c18a5b0e56d0b674d99673c117f5a5f55797dfb34ec69b6ac68b63
+docfiles size=37
+ texmf-dist/doc/lualatex/luatruthtable/README.txt details="Readme"
+ texmf-dist/doc/lualatex/luatruthtable/luatruthtable.bib
+ texmf-dist/doc/lualatex/luatruthtable/luatruthtable.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luatruthtable/luatruthtable.tex
+runfiles size=2
+ texmf-dist/tex/lualatex/luatruthtable/luatruthtable.sty
+catalogue-ctan /macros/luatex/latex/luatruthtable
+catalogue-license lppl1.3c
+catalogue-topics maths logic luatex
+catalogue-version 1.0

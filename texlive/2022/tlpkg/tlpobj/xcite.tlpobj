@@ -1,0 +1,26 @@
+name xcite
+category Package
+revision 53486
+shortdesc Use citation keys from a different document
+longdesc The package xcite is no longer necessary, because its
+longdesc functionality has been taken over by xr, so this final version
+longdesc is just a stub that loads xr.
+containersize 1048
+containerchecksum 0412a4f47a044efbd22adbbea9cda1bec44379dbc799ca83821d4650e8e40f6b5de51b80ea6a80d747639a9b840b7cff6612b6e4df0b2c09c0f3ed506d3de714
+doccontainersize 159256
+doccontainerchecksum 11af105ca5f1610e5cfa226cb191d1f69d257e21439c2408283572e136b183518f58631ec1b0b145a1edf50ca58e9a1eda789e5646c47b46f75a6325c90262f5
+docfiles size=40
+ texmf-dist/doc/latex/xcite/README details="Readme"
+ texmf-dist/doc/latex/xcite/xcite.pdf details="Package documentation"
+srccontainersize 1664
+srccontainerchecksum 0f6d0e7206b59acd468dbd77ef3358d2865f48e2d59ccae2ec185759c137b9db99bf417acf71ec40cbafbf2569cd9b4a74a97b7a3959f51f1703af9a026486e4
+srcfiles size=2
+ texmf-dist/source/latex/xcite/xcite.dtx
+ texmf-dist/source/latex/xcite/xcite.ins
+runfiles size=1
+ texmf-dist/tex/latex/xcite/xcite.sty
+catalogue-also xr
+catalogue-ctan /macros/latex/contrib/xcite
+catalogue-license lppl1.3c
+catalogue-topics cite-supp obsolete
+catalogue-version 16383.99998

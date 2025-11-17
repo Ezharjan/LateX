@@ -1,0 +1,38 @@
+name postnotes
+category Package
+revision 64031
+shortdesc Endnotes for LaTeX
+longdesc This is an endnotes package for LaTeX. Its user interface
+longdesc provides means to print multiple sections of notes along the
+longdesc document, and to subdivide them either automatically -- by
+longdesc chapter, by section -- or at manually specified places, thus
+longdesc being able to easily handle both numbered and unnumbered
+longdesc headings. The package also provides infrastructure for setting
+longdesc up contextual running headers for printed notes. The default is
+longdesc a simple but useful one, in the form "Notes to pages N-M", but
+longdesc more elaborate ones can be built. When hyperref is loaded,
+longdesc postnotes provides hyperlinked notes, including back links.
+containersize 7092
+containerchecksum e6a473a99598508ee0b2c973005ec53a4732df082c851385fa5591ab8330b88bde418a62cb7e470c24a10e7df56609ecf68013d1cf1c2722351f3b0132bae506
+doccontainersize 971052
+doccontainerchecksum 60474f99e88e889f2fd999b612cc59d47e0a270b4eec6624853366b75c52aab096d1783e1996fc7bc4cfe1a5753a03b64406c719a3c6df4479414a9dd9f58ebc
+docfiles size=257
+ texmf-dist/doc/latex/postnotes/CHANGELOG.md
+ texmf-dist/doc/latex/postnotes/DEPENDS.txt
+ texmf-dist/doc/latex/postnotes/README.md details="Readme"
+ texmf-dist/doc/latex/postnotes/postnotes-code.pdf details="Code documentation"
+ texmf-dist/doc/latex/postnotes/postnotes-code.tex
+ texmf-dist/doc/latex/postnotes/postnotes.pdf details="User manual"
+ texmf-dist/doc/latex/postnotes/postnotes.tex
+srccontainersize 21052
+srccontainerchecksum 4b005b827573429f3fb103a3fc588955b18255702cb35d36fc9e9bbf15c1de647f8bfe4194ecedaa15a80af466181b348b4b7bec14977df980eda2921e5147d6
+srcfiles size=25
+ texmf-dist/source/latex/postnotes/postnotes.dtx
+ texmf-dist/source/latex/postnotes/postnotes.ins
+runfiles size=11
+ texmf-dist/tex/latex/postnotes/postnotes.sty
+catalogue-contact-repository https://github.com/gusbrs/postnotes
+catalogue-ctan /macros/latex/contrib/postnotes
+catalogue-license lppl1.3c
+catalogue-topics endnote expl3
+catalogue-version 0.1.6

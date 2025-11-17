@@ -1,0 +1,22 @@
+name tpic2pdftex
+category TLCore
+revision 52851
+shortdesc Use tpic commands in pdfTeX
+longdesc The AWK script converts pic language, embedded inline
+longdesc (delimited by .PS and .PE markers), to \pdfliteral commands.
+depend tpic2pdftex.ARCH
+containersize 444
+containerchecksum fa8689bd257b6336badb8e5a742d5c5f12d9088b33b43bdc41474feda62358c754db05735fa471baa307907bcd61f68e8d061e66c400198d6a1dc165f39d2226
+doccontainersize 54400
+doccontainerchecksum f24f8508279ded0689bb9dda8c653cfbd903c46782744fcb8d004f50a771ca74b86549c86abc765a408f2be67334048390e407be9446faa476a02ce9c27d5547
+docfiles size=26
+ texmf-dist/doc/man/man1/tpic2pdftex.1
+ texmf-dist/doc/man/man1/tpic2pdftex.man1.pdf
+ texmf-dist/doc/tpic2pdftex/Makefile
+ texmf-dist/doc/tpic2pdftex/beamerexample.pdf
+ texmf-dist/doc/tpic2pdftex/beamerexample.pic
+ texmf-dist/doc/tpic2pdftex/example.pdf
+ texmf-dist/doc/tpic2pdftex/example.pic
+catalogue-ctan /graphics/tpic2pdftex
+catalogue-license gpl
+catalogue-topics graphics-prep

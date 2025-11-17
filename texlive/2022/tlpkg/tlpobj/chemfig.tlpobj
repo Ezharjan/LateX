@@ -1,0 +1,31 @@
+name chemfig
+category Package
+revision 60135
+shortdesc Draw molecules with easy syntax
+longdesc The package provides the command \chemfig{<code>}, which draws
+longdesc molecules using the TikZ package. The <code> argument provides
+longdesc instructions for the drawing operation. While the diagrams
+longdesc produced are essentially 2-dimensional, the package supports
+longdesc many of the conventional notations for illustrating the
+longdesc 3-dimensional layout of a molecule. The package uses TikZ for
+longdesc its actual drawing operations.
+containersize 26480
+containerchecksum 95a57f962e6f15d5e2bebc00491c60ab904afb739a0ae438346c57ffc47ed23109d436ff0f1f0ec2226d6e215d185a39e014ed24413066157c2830a1fabcee2c
+doccontainersize 2074452
+doccontainerchecksum f94ed7e4133a3c7122580f01a415922480257110e6c675ea816c15eebb3efe0ce40675bc6d6c99f02d3605dcb53c63426c6fbe23373336aeb29979a75f323e31
+docfiles size=653
+ texmf-dist/doc/generic/chemfig/README details="Readme"
+ texmf-dist/doc/generic/chemfig/chemfig-en.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/generic/chemfig/chemfig-en.tex
+ texmf-dist/doc/generic/chemfig/chemfig-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/generic/chemfig/chemfig-fr.tex
+runfiles size=32
+ texmf-dist/tex/generic/chemfig/chemfig-lewis.tex
+ texmf-dist/tex/generic/chemfig/chemfig.sty
+ texmf-dist/tex/generic/chemfig/chemfig.tex
+catalogue-contact-bugs https://framagit.org/unbonpetit/chemfig/issues
+catalogue-contact-repository https://framagit.org/unbonpetit/chemfig/tree/master
+catalogue-ctan /macros/generic/chemfig
+catalogue-license lppl1.3c
+catalogue-topics graphics diagram chemistry pgf-tikz macro-gen etex
+catalogue-version 1.6b

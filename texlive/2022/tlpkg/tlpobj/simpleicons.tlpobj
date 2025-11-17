@@ -1,0 +1,61 @@
+name simpleicons
+category Package
+revision 64413
+shortdesc Simple Icons for LaTeX
+longdesc Similar to FontAwesome icons being provided on LaTeX by the
+longdesc fontawesome package, this package aims to do the same with
+longdesc Simple Icons. For reference, visit their website:
+longdesc https://simpleicons.org/.
+execute addMap simpleicons.map
+containersize 2630556
+containerchecksum 12fcf37820395ef7be106b7b06717ef570e25b0bba16e4e0881ae266ab192b883fa1a6ea6c9fd81cfd21e7c650662d6fd91e4c965958ab814f318446fbe3a573
+doccontainersize 1933616
+doccontainerchecksum 4ff9bb3423f8a1a894d70024d835001b64b5b1919134e18c5ae6cca108ea840de15d2219fc35aa827d79cb30cb69eec759075b2c01b43a2f14685c1f969a48fa
+docfiles size=503
+ texmf-dist/doc/fonts/simpleicons/README.md details="Readme"
+ texmf-dist/doc/fonts/simpleicons/bindings.tex
+ texmf-dist/doc/fonts/simpleicons/simpleicons.pdf details="Package documentation"
+ texmf-dist/doc/fonts/simpleicons/simpleicons.tex
+runfiles size=995
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsEight.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsFive.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsFour.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsNine.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsOne.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsOneZero.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsSeven.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsSix.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsThree.enc
+ texmf-dist/fonts/enc/dvips/simpleicons/simpleiconsTwo.enc
+ texmf-dist/fonts/map/dvips/simpleicons/simpleicons.map
+ texmf-dist/fonts/opentype/public/simpleicons/SimpleIcons.otf
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsEight.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsFive.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsFour.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsNine.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsOne.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsOneZero.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsSeven.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsSix.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsThree.tfm
+ texmf-dist/fonts/tfm/public/simpleicons/SimpleIcons--simpleiconsTwo.tfm
+ texmf-dist/fonts/type1/public/simpleicons/SimpleIcons.pfb
+ texmf-dist/tex/latex/simpleicons/simpleicons.sty
+ texmf-dist/tex/latex/simpleicons/simpleiconsglyphs-pdftex.tex
+ texmf-dist/tex/latex/simpleicons/simpleiconsglyphs-xeluatex.tex
+ texmf-dist/tex/latex/simpleicons/usimpleiconsEight.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsFive.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsFour.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsNine.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsOne.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsOneZero.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsSeven.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsSix.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsThree.fd
+ texmf-dist/tex/latex/simpleicons/usimpleiconsTwo.fd
+catalogue-contact-bugs https://github.com/ineshbose/simple-icons-latex/issues
+catalogue-contact-repository https://github.com/ineshbose/simple-icons-latex
+catalogue-ctan /fonts/simpleicons
+catalogue-license cc-by-1
+catalogue-topics font font-symbol font-supp-symbol font-otf font-type1
+catalogue-version 7.11.0

@@ -1,0 +1,30 @@
+name scripture
+category Package
+revision 64211
+shortdesc A LaTeX style for typesetting Bible quotations
+longdesc The scripture package provides a set of macros for typesetting
+longdesc quotations from the Bible. It provides many features commonly
+longdesc seen in Bibles such as dropped text for chapter numbers,
+longdesc superscripts for verse numbers, indented lines for poetry
+longdesc sections, narrow sections and hanging paragraphs. A reference
+longdesc for the quotation can optionally be added.
+containersize 6752
+containerchecksum 4268b13470477c68ecb41333d0cda9e8fa034837e5575b673e16caac0a72b9981b4303c2b9e2b9156f3e200fe709675a7ad885e22f4b3358f04ca7155769f269
+doccontainersize 840956
+doccontainerchecksum c8b37e011da1349616de0f1c5304bb5bb5cb82ac63a526e35868fcb088cb97ecf8ed37a39fc5fde11a613f5e90cc9756f0cc5f43b38455fb1f94a94b62013d9d
+docfiles size=214
+ texmf-dist/doc/latex/scripture/README.md details="Readme"
+ texmf-dist/doc/latex/scripture/scripture.pdf details="Package documentation"
+srccontainersize 18068
+srccontainerchecksum ec1b179889a8c696d6e5733a3dddc4ac423eb8a5cd34b8b8fff19f4033fec85460a0512f7f6f9d6e47343df7dfe2feb41bc276908f2b4777799c66130646ce41
+srcfiles size=32
+ texmf-dist/source/latex/scripture/scripture.dtx
+ texmf-dist/source/latex/scripture/scripture.ins
+runfiles size=14
+ texmf-dist/tex/latex/scripture/scripture.sty
+catalogue-contact-bugs https://github.com/dcpurton/scripture/issues
+catalogue-contact-repository https://github.com/dcpurton/scripture
+catalogue-ctan /macros/latex/contrib/scripture
+catalogue-license lppl1.3c
+catalogue-topics theology
+catalogue-version 1.1

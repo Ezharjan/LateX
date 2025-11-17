@@ -1,0 +1,110 @@
+name familytree
+category Package
+revision 63739
+shortdesc Draw family trees
+longdesc Boxes describe individuals; lines connecting boxes represent
+longdesc sibling or parent-child relationships, or marriages. Excluding
+longdesc the marriage box, you can get a maleline/patrilineal tree, or a
+longdesc femaleline/matrilineal tree. For Japanese, the jlreq.cls
+longdesc vertical option (tate) is supported.
+containersize 6324
+containerchecksum 2f3cbff39c42d0d6414b372c165bbbf3a4dbafa28bf16ca47a89445066480317caedc9b371f9deb348ba986de2c14b71b1820aa731e74d72a4b0b39a413bf9a5
+doccontainersize 932844
+doccontainerchecksum 55f035425d11f070870cdd8ccd555447861823754a91b0a31f54403013a6427197b3ea893fa7e75e63577635a5896288f29ef052c9431aff3f1a9c2038ccdb1a
+docfiles size=349
+ texmf-dist/doc/latex/familytree/DEPENDS.txt
+ texmf-dist/doc/latex/familytree/LICENSE
+ texmf-dist/doc/latex/familytree/README.md details="Readme"
+ texmf-dist/doc/latex/familytree/doc-ja/Makefile
+ texmf-dist/doc/latex/familytree/doc-ja/familytree-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/Makefile
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig1Hidetada.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig1Ieyasu.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig1base.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig2Hidetada.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig2base-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig2cfg.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig2ival-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig3Hidetada.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig3Iemitsu.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig3Ietsuna.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig4Hidetada.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/fig4Ogou.tex
+ texmf-dist/doc/latex/familytree/doc-ja/figs/figTY-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/ft-gens-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/ft-individual-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/ft-lib-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/ft-marriage-ja.tex
+ texmf-dist/doc/latex/familytree/doc-ja/ft-sibling-ja.tex
+ texmf-dist/doc/latex/familytree/familytree-ja.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/latex/familytree/familytree.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/familytree/figs/Makefile
+ texmf-dist/doc/latex/familytree/figs/fig.tex
+ texmf-dist/doc/latex/familytree/figs/fig1Robert1.tex
+ texmf-dist/doc/latex/familytree/figs/fig1Robert2.tex
+ texmf-dist/doc/latex/familytree/figs/fig2base.tex
+ texmf-dist/doc/latex/familytree/figs/fig2ival.tex
+ texmf-dist/doc/latex/familytree/figs/fig2sis.tex
+ texmf-dist/doc/latex/familytree/figs/fig3Lily1.tex
+ texmf-dist/doc/latex/familytree/figs/fig3Lily2.tex
+ texmf-dist/doc/latex/familytree/figs/fig3Lily3.tex
+ texmf-dist/doc/latex/familytree/figs/fig3Lily4.tex
+ texmf-dist/doc/latex/familytree/figs/fig3Robert1.tex
+ texmf-dist/doc/latex/familytree/figs/fig3Robert2.tex
+ texmf-dist/doc/latex/familytree/figs/fig3sis.tex
+ texmf-dist/doc/latex/familytree/figs/fig4HenryVIII.tex
+ texmf-dist/doc/latex/familytree/figs/fig4Lily1.tex
+ texmf-dist/doc/latex/familytree/figs/fig4Lily2.tex
+ texmf-dist/doc/latex/familytree/figs/fig4Lily3.tex
+ texmf-dist/doc/latex/familytree/figs/fig4Lily4.tex
+ texmf-dist/doc/latex/familytree/figs/fig4Robert.tex
+ texmf-dist/doc/latex/familytree/fonts.tex
+ texmf-dist/doc/latex/familytree/samples/Asai.pdf details="Example of use (1)" language="ja"
+ texmf-dist/doc/latex/familytree/samples/Asai/0Ichi.tex
+ texmf-dist/doc/latex/familytree/samples/Asai/0sis.tex
+ texmf-dist/doc/latex/familytree/samples/Asai/1Chacha.tex
+ texmf-dist/doc/latex/familytree/samples/Asai/2Hatsu.tex
+ texmf-dist/doc/latex/familytree/samples/Asai/3Gou.tex
+ texmf-dist/doc/latex/familytree/samples/Asai/Asai.tex
+ texmf-dist/doc/latex/familytree/samples/Asai/Makefile
+ texmf-dist/doc/latex/familytree/samples/Crawley.pdf details="Example of use (3)"
+ texmf-dist/doc/latex/familytree/samples/Crawley.tex
+ texmf-dist/doc/latex/familytree/samples/Makefile
+ texmf-dist/doc/latex/familytree/samples/Tokugawa.pdf details="Example of use (2)" language="ja"
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/Makefile
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/Tokugawa.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-10th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-11th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-12th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-13th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-14th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-15th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-1st.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-2nd.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-3rd.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-4th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-5th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-6th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-7th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-8th.tex
+ texmf-dist/doc/latex/familytree/samples/Tokugawa/tg-9th.tex
+srccontainersize 15544
+srccontainerchecksum b6f8e0cfa54b13a95b4ab39e8a249d50f5d09fd325ed8acde8b7fca736d6aa05432fe3a40554f3c289a678c1349db542c6f321e8a35f5bd486ce6b0675450911
+srcfiles size=21
+ texmf-dist/source/latex/familytree/Makefile
+ texmf-dist/source/latex/familytree/cmd.mk
+ texmf-dist/source/latex/familytree/familytree.dtx
+ texmf-dist/source/latex/familytree/familytree.ins
+ texmf-dist/source/latex/familytree/ft-gens.dtx
+ texmf-dist/source/latex/familytree/ft-individual.dtx
+ texmf-dist/source/latex/familytree/ft-lib.dtx
+ texmf-dist/source/latex/familytree/ft-marriage.dtx
+ texmf-dist/source/latex/familytree/ft-sibling.dtx
+runfiles size=8
+ texmf-dist/tex/latex/familytree/familytree.sty
+catalogue-contact-repository https://github.com/jiro1010/familytree
+catalogue-ctan /macros/latex/contrib/familytree
+catalogue-license gpl2+
+catalogue-topics genealogy tree diagram
+catalogue-version 3.1

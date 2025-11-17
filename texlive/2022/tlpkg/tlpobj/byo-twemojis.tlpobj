@@ -1,0 +1,29 @@
+name byo-twemojis
+category Package
+revision 58917
+shortdesc "Build Your Own Twemojis" with TikZ
+longdesc This package provides the means to create your own emojis (the
+longdesc simple, round, and mostly yellow ones) from elements of
+longdesc existing emojis. The provided command creates a TikZ picture
+longdesc from the stated elements with multiple possibilities to modify
+longdesc the result in color and position.
+containersize 41616
+containerchecksum 5d9330d36bef34d5deb7fae5413741de09050bc9a0fb3bef7874b0d44f397e900f626fa64b8903038d3131e5b9ae66f121a1dbaa6f25668f73bdf7d3aeed409d
+doccontainersize 339352
+doccontainerchecksum a0329476031945d9fb694522b3bb08cfded7ee117033f758ca7a9d1dc423d66f8ca749b295e1d420b737da886b57b1bf2dbbed20d3bacfbef94d57061a22f4bc
+docfiles size=84
+ texmf-dist/doc/latex/byo-twemojis/README.md details="Readme"
+ texmf-dist/doc/latex/byo-twemojis/byo-twemojis.pdf details="Package documentation"
+srccontainersize 48520
+srccontainerchecksum 7971ba8678358883fba70f2394417f2cbaef639fa0a1fb13f1cef8d0cb182c91fc3097450bc29011c4b939afe6cb6ae5ce3c8c50f183fc92f10f3d0a46adc3ad
+srcfiles size=70
+ texmf-dist/source/latex/byo-twemojis/byo-twemojis.dtx
+ texmf-dist/source/latex/byo-twemojis/byo-twemojis.ins
+runfiles size=55
+ texmf-dist/tex/latex/byo-twemojis/byo-twemojis.sty
+catalogue-contact-bugs https://gitlab.com/rossel.jost/latex-twemojis/-/issues
+catalogue-contact-repository https://gitlab.com/rossel.jost/latex-twemojis
+catalogue-ctan /graphics/pgf/contrib/byo-twemojis
+catalogue-license cc-by-4 lppl1.3
+catalogue-topics graphics pgf-tikz amusements
+catalogue-version 1.0

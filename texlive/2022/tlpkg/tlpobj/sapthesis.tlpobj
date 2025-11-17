@@ -1,0 +1,25 @@
+name sapthesis
+category Package
+revision 63810
+shortdesc Typeset theses for Sapienza-University, Rome
+longdesc The class will typeset Ph.D., Master, and Bachelor theses that
+longdesc adhere to the publishing guidelines of the Sapienza University
+longdesc of Rome.
+containersize 30276
+containerchecksum 14ae91cff0c5487a6751d92f1ac4e252ba53feb74883c3e0f078f5269845fd85c906a4f962c4309f6765fcbadf934877a183659d68a88e1050fe636c0e5d54be
+doccontainersize 276796
+doccontainerchecksum 04c294886ecc33f3725222d9a44953dd2c4be7a5dcc5c9d08d8cc05c2d8dc9c003bfa80a7ec027956b1e680a555b1fa70af64a91c27833a77ad4469a1cbc6111
+docfiles size=93
+ texmf-dist/doc/latex/sapthesis/README details="Readme"
+ texmf-dist/doc/latex/sapthesis/sapthesis-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/sapthesis/sapthesis-doc.tex
+ texmf-dist/doc/latex/sapthesis/sapthesis.layout
+runfiles size=23
+ texmf-dist/bibtex/bst/sapthesis/sapthesis.bst
+ texmf-dist/tex/latex/sapthesis/sapienzalogo.pdf
+ texmf-dist/tex/latex/sapthesis/sapthesis.cls
+catalogue-contact-home http://biccari.altervista.org/c/informatica/latex/sapthesis.php
+catalogue-ctan /macros/latex/contrib/sapthesis
+catalogue-license lppl1.3
+catalogue-topics dissertation class
+catalogue-version 5.1

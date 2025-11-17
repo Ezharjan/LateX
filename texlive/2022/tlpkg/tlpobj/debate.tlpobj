@@ -1,0 +1,25 @@
+name debate
+category Package
+revision 60720
+shortdesc Insert notes in the form of dialogues
+longdesc This package helps to organize debates between multiple
+longdesc reviewers of a paper within the text.
+containersize 1580
+containerchecksum b3935644d4c6da7e527ed170a6497e4411fc7cea7127534737e554cc9a2392c2ff84be8dec9089e45796bfedff7c795d6e06e48fbc8293da5554649a13ce4595
+doccontainersize 236680
+doccontainerchecksum d77dffe7272a49cce96f6cb475e0d3f34acff173ca647e7c756306dd6d6d79b4e424c6b952f8ec2dd93062a70a26421d00242d4ba5181d997ecf7a014840ec65
+docfiles size=61
+ texmf-dist/doc/latex/debate/DEPENDS.txt
+ texmf-dist/doc/latex/debate/README.md details="Readme"
+ texmf-dist/doc/latex/debate/debate.pdf details="Package documentation"
+ texmf-dist/doc/latex/debate/debate.tex
+runfiles size=1
+ texmf-dist/tex/latex/debate/debate.sty
+catalogue-also fixmetodonotes
+catalogue-contact-bugs https://github.com/yegor256/debate/issues
+catalogue-contact-home https://github.com/yegor256/debate
+catalogue-contact-repository https://github.com/yegor256/debate
+catalogue-ctan /macros/latex/contrib/debate
+catalogue-license mit
+catalogue-topics notes
+catalogue-version 0.1.1

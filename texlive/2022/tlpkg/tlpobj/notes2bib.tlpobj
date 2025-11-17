@@ -1,0 +1,35 @@
+name notes2bib
+category Package
+revision 52231
+shortdesc Integrating notes into the bibliography
+longdesc The package defines a new type of note, bibnote, which will
+longdesc always be added to the bibliography. The package allows
+longdesc footnotes and endnotes to be moved into the bibliography in the
+longdesc same way. The package can be used with natbib and BibLaTeX as
+longdesc well as plain LaTeX citations. Both sorted and unsorted
+longdesc bibliography styles are supported. The package uses the LaTeX 3
+longdesc macros and the associated xpackages bundle. It also makes use
+longdesc of the e-TeX extensions (any post-2005 LaTeX distribution will
+longdesc provide these by default, but users of older systems may need
+longdesc to use an elatex command or equivalent). The package relies on
+longdesc LaTeX 3 support from the l3kernel and l3packages bundles.
+containersize 4292
+containerchecksum 019645974d270df27f5c5bf22570e26b5bfa5c076739824eff60a40d1c246010fe0e599eb2fb282cc08aa2161ec7ee753b734548ca04370d9bf923f357ced1f0
+doccontainersize 239940
+doccontainerchecksum f4b97327b98e86c64620e975130a7fe790489d16135667c95ec7a368591084c381362e1447dfd1b3afb4f57ed2657a43f8623942f6618d839cb9b1c0995234e3
+docfiles size=62
+ texmf-dist/doc/latex/notes2bib/README.md details="Readme"
+ texmf-dist/doc/latex/notes2bib/README.txt
+ texmf-dist/doc/latex/notes2bib/notes2bib-notes2bib.bib
+ texmf-dist/doc/latex/notes2bib/notes2bib.pdf details="Package documentation"
+srccontainersize 14180
+srccontainerchecksum 04cd8f2ac89b8f4fdb20a445cd98ac382a082114eca90306eb0cdb793fe088ef1d1ba9e35dd9c9b2c98238cee6ed9519144c012973d7c2e1928c11f7350091fd
+srcfiles size=15
+ texmf-dist/source/latex/notes2bib/notes2bib.dtx
+ texmf-dist/source/latex/notes2bib/notes2bib.ins
+runfiles size=5
+ texmf-dist/tex/latex/notes2bib/notes2bib.sty
+catalogue-ctan /macros/latex/contrib/notes2bib
+catalogue-license lppl1.3c
+catalogue-topics notes bib-use expl3
+catalogue-version 2.0m

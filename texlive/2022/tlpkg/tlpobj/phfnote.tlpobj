@@ -1,0 +1,34 @@
+name phfnote
+category Package
+revision 60733
+shortdesc Basic formatting for short documents
+longdesc This package provides basic formatting for short documents such
+longdesc as notes on a specific topic, short documentation, or quick
+longdesc memos. It aims to cover all basic needs for such purposes:
+longdesc include a standard set of relevant packages, a nice title which
+longdesc doesn't take up too much space, better page margin sizes, and
+longdesc some basic styling to make the note look nicer. At the same
+longdesc time, it is highly flexible and customizable.
+containersize 18752
+containerchecksum ddaea70a5bb3aecdf634b44dcf5f006db479a4d47e44e96f92bd390c2c0e166b741ea31a0f22ac39770ff0c92590a261c18fe5096bf97997743684a95a82da2b
+doccontainersize 752440
+doccontainerchecksum 2dc4e7d3615d8f185bf1bcfeb5a90d51f362538691444355ad6820f8bdcfcd68f1dcc69486c0b630d1141db1b4bc10bd17abcfb93cf37b778266090f29ec946d
+docfiles size=189
+ texmf-dist/doc/latex/phfnote/README.md details="Readme"
+ texmf-dist/doc/latex/phfnote/phfnote.pdf details="Package documentation"
+srccontainersize 39348
+srccontainerchecksum 15c0614cf6bf41c94513475d0b65f7053970505fcaa3126550d283b8597c49e30b86e716d3b643fceeee2bae37f81a65d8f65859847bee6f0aa4e508102f6617
+srcfiles size=43
+ texmf-dist/source/latex/phfnote/Makefile
+ texmf-dist/source/latex/phfnote/phfnote.dtx
+ texmf-dist/source/latex/phfnote/phfnote.ins
+ texmf-dist/source/latex/phfnote/pkg.mk
+runfiles size=23
+ texmf-dist/bibtex/bst/phfnote/naturemagdoi.bst
+ texmf-dist/tex/latex/phfnote/phfnote.sty
+ texmf-dist/tex/latex/phfnote/phfnotepreset-xpkgdoc.def
+catalogue-contact-repository https://github.com/phfaist/phfqitltx
+catalogue-ctan /macros/latex/contrib/phfnote
+catalogue-license lppl1.3
+catalogue-topics memorandum
+catalogue-version 4.0

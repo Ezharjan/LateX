@@ -1,0 +1,26 @@
+name showkerning
+category Package
+revision 63708
+shortdesc Showing kerns in a document
+longdesc The package displays all kerning values in the form of colored
+longdesc bars directly at the respective position in the document.
+longdesc Positive values are displayed in green, negative values in red.
+longdesc The width of the bars corresponds exactly to the respective
+longdesc kerning value. By option the bars can be placed behind or in
+longdesc front of the glyphs. The package requires LuaLaTeX.
+containersize 2660
+containerchecksum f0a758741d71ec8ed3664527720a1dffb34bc3ef4c4583faad782d0034202d22ca0e4d6648a4a9bb82b9def441871f9305ec9d230b1e3aaca42c0154c913eb71
+doccontainersize 45620
+doccontainerchecksum 1a85df418d58aad6e7fef73f7f6920ee68021ff83d99a9d82ab440e5a16cb8a7ac65f42a914e8533d6034f1b23a8a9996bdb0ca028b22cfd10888c54de0b9ac5
+docfiles size=17
+ texmf-dist/doc/lualatex/showkerning/DEPENDS.txt
+ texmf-dist/doc/lualatex/showkerning/README.md details="Readme"
+ texmf-dist/doc/lualatex/showkerning/showkerning.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/showkerning/showkerning.tex
+runfiles size=3
+ texmf-dist/tex/lualatex/showkerning/showkerning.lua
+ texmf-dist/tex/lualatex/showkerning/showkerning.sty
+catalogue-ctan /macros/luatex/latex/showkerning
+catalogue-license lppl1.3c
+catalogue-topics luatex
+catalogue-version 0.1

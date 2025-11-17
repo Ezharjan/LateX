@@ -1,0 +1,37 @@
+name dvipng
+category TLCore
+revision 62517
+shortdesc A fast DVI to PNG/GIF converter
+longdesc This program makes PNG and/or GIF graphics from DVI files as
+longdesc obtained from TeX and its relatives. Its benefits include:
+longdesc Speed. It offers very fast rendering of DVI as bitmap files,
+longdesc which makes it suitable for generating large amounts of images
+longdesc on-the-fly, as needed in preview-latex, WeBWorK and others; It
+longdesc does not read the postamble, so it can be started before TeX
+longdesc finishes. There is a --follow switch that makes dvipng wait at
+longdesc end-of-file for further output, unless it finds the POST marker
+longdesc that indicates the end of the DVI; Interactive query of
+longdesc options. dvipng can read options interactively through stdin,
+longdesc and all options are usable. It is even possible to change the
+longdesc input file through this interface. Support for PK, VF,
+longdesc PostScript Type1, and TrueType fonts, colour specials, and
+longdesc inclusion of PostScript, PNG, JPEG or GIF images.
+depend dvipng.ARCH
+containersize 916
+containerchecksum d24be610a63a9df22ebe6f53891519ab77900611d1159dec5e97b27160f3552b4cbce42b575a036125d2b15910a72cb5e3793a3409c5d0f4b1df0c2433e828f8
+doccontainersize 290812
+doccontainerchecksum 976ff6c9628fe85adca2287f04d76f2c1605f243e28b4d32cb1ef9a90d30dcae0d202e6d5156914c204fd42b0a66460755a89f7dbdeb9ec1ccf6010cfe8daf78
+docfiles size=121
+ texmf-dist/doc/dvipng/dvipng.html
+ texmf-dist/doc/dvipng/dvipng.pdf details="Package documentation"
+ texmf-dist/doc/info/dvipng.info
+ texmf-dist/doc/man/man1/dvigif.1
+ texmf-dist/doc/man/man1/dvigif.man1.pdf
+ texmf-dist/doc/man/man1/dvipng.1
+ texmf-dist/doc/man/man1/dvipng.man1.pdf
+catalogue-also dvi2bitmap
+catalogue-contact-repository http://savannah.nongnu.org/projects/dvipng/
+catalogue-ctan /dviware/dvipng
+catalogue-license lgpl3
+catalogue-topics dvi-bit
+catalogue-version 1.17

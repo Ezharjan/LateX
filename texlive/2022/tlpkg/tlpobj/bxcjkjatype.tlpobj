@@ -1,0 +1,27 @@
+name bxcjkjatype
+category Package
+revision 54080
+shortdesc Typeset Japanese with pdfLaTeX and CJK
+longdesc The package provides a working configuration of the CJK
+longdesc package, suitable for Japanese typesetting of moderate quality.
+longdesc Moreover, it facilitates use of the CJK package for pLaTeX
+longdesc users, by providing commands that are similar to those used by
+longdesc the pLaTeX kernel and some other packages used with it.
+containersize 8212
+containerchecksum f720106c08ffc3b8f9a2c9279325364d5ae91948d3c61b83423d41a55249cdb205bf330c8f08ce6877a7713e82a67a29f1a71e9ff07f9c1225926a61a858fb5a
+doccontainersize 261872
+doccontainerchecksum cecf43857662a4b1126edbacc017a8d06b366ad8c785db520d6b18a293cdf786b8d7bb7d3981355acf9a4d2759c2a58af25a61a9a06d20b431ba3eb50117b560
+docfiles size=74
+ texmf-dist/doc/latex/bxcjkjatype/LICENSE
+ texmf-dist/doc/latex/bxcjkjatype/README-ja.md details="Readme (Japanese)" language="ja"
+ texmf-dist/doc/latex/bxcjkjatype/README.md details="Readme (English)" language="en"
+ texmf-dist/doc/latex/bxcjkjatype/sample-bxcjkjatype-beamer.pdf details="Sample: Introductory beamer slides (English and Japanese)"
+ texmf-dist/doc/latex/bxcjkjatype/sample-bxcjkjatype-beamer.tex
+ texmf-dist/doc/latex/bxcjkjatype/sample-bxcjkjatype.pdf details="Small example of use (Japanese and English)" language="ja"
+ texmf-dist/doc/latex/bxcjkjatype/sample-bxcjkjatype.tex
+runfiles size=8
+ texmf-dist/tex/latex/bxcjkjatype/bxcjkjatype.sty
+catalogue-ctan /language/japanese/BX/bxcjkjatype
+catalogue-license mit
+catalogue-topics japanese
+catalogue-version 0.3

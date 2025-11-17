@@ -1,0 +1,137 @@
+name citation-style-language
+category Package
+revision 64429
+shortdesc Bibliography formatting with Citation Style Language
+longdesc The Citation Style Language (CSL) is an XML-based language that
+longdesc defines the formats of citations and bibliography. There are
+longdesc currently thousands of styles in CSL including the most widely
+longdesc used APA, Chicago, Vancouver, etc. The citation-style-language
+longdesc package is aimed to provide another reference formatting method
+longdesc for LaTeX that utilizes the CSL styles. It contains a citation
+longdesc processor implemented in pure Lua (citeproc-lua) which reads
+longdesc bibliographic metadata and performs sorting and formatting on
+longdesc both citations and bibliography according to the selected CSL
+longdesc style. A LaTeX package (citation-style-language.sty) is
+longdesc provided to communicate with the processor.
+depend citation-style-language.ARCH
+depend filehook
+depend l3kernel
+depend l3packages
+depend lua-uca
+depend lualibs
+depend luatex
+depend luaxml
+depend url
+containersize 129352
+containerchecksum 3b6bdb3aae1d2a0568e0b74ae8ae5b842299aa575441455391cba9ffc21d3fbd9a914965a1e3a7413101981c8d126cb5e45fa24a7b3beb2a080927a52c82e1e4
+doccontainersize 244112
+doccontainerchecksum c294cfe7330aa31281349026f68766e31c0b93f701fed4b776619149d90f3ecbd0da0142156dfa83403f249f7c2a82e8ddb23d82a98b0734d787f3527bdd7026
+docfiles size=68
+ texmf-dist/doc/latex/citation-style-language/CHANGELOG.md
+ texmf-dist/doc/latex/citation-style-language/DEPENDS.txt
+ texmf-dist/doc/latex/citation-style-language/README.md details="Readme"
+ texmf-dist/doc/latex/citation-style-language/citation-style-language-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/citation-style-language/citation-style-language-doc.tex
+ texmf-dist/doc/man/man1/citeproc-lua.1
+ texmf-dist/doc/man/man1/citeproc-lua.man1.pdf
+runfiles size=506
+ texmf-dist/scripts/citation-style-language/citeproc-bibtex-data.lua
+ texmf-dist/scripts/citation-style-language/citeproc-bibtex.lua
+ texmf-dist/scripts/citation-style-language/citeproc-cli.lua
+ texmf-dist/scripts/citation-style-language/citeproc-context.lua
+ texmf-dist/scripts/citation-style-language/citeproc-element.lua
+ texmf-dist/scripts/citation-style-language/citeproc-engine.lua
+ texmf-dist/scripts/citation-style-language/citeproc-ir-node.lua
+ texmf-dist/scripts/citation-style-language/citeproc-latex-core.lua
+ texmf-dist/scripts/citation-style-language/citeproc-latex.lua
+ texmf-dist/scripts/citation-style-language/citeproc-lua.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-choose.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-date.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-group.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-label.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-layout.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-locale.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-names.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-number.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-sort.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-style.lua
+ texmf-dist/scripts/citation-style-language/citeproc-node-text.lua
+ texmf-dist/scripts/citation-style-language/citeproc-nodes.lua
+ texmf-dist/scripts/citation-style-language/citeproc-output.lua
+ texmf-dist/scripts/citation-style-language/citeproc-util.lua
+ texmf-dist/scripts/citation-style-language/citeproc.lua
+ texmf-dist/tex/latex/citation-style-language/citation-style-language.sty
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-af-ZA.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-ar.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-bg-BG.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-ca-AD.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-cs-CZ.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-cy-GB.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-da-DK.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-de-AT.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-de-CH.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-de-DE.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-el-GR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-en-GB.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-en-US.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-es-CL.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-es-ES.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-es-MX.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-et-EE.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-eu.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-fa-IR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-fi-FI.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-fr-CA.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-fr-FR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-he-IL.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-hi-IN.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-hr-HR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-hu-HU.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-id-ID.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-is-IS.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-it-IT.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-ja-JP.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-km-KH.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-ko-KR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-la.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-lt-LT.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-lv-LV.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-mn-MN.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-nb-NO.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-nl-NL.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-nn-NO.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-pl-PL.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-pt-BR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-pt-PT.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-ro-RO.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-ru-RU.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-sk-SK.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-sl-SI.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-sr-RS.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-sv-SE.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-th-TH.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-tr-TR.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-uk-UA.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-vi-VN.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-zh-CN.xml
+ texmf-dist/tex/latex/citation-style-language/locales/csl-locales-zh-TW.xml
+ texmf-dist/tex/latex/citation-style-language/styles/american-chemical-society.csl
+ texmf-dist/tex/latex/citation-style-language/styles/american-medical-association.csl
+ texmf-dist/tex/latex/citation-style-language/styles/american-political-science-association.csl
+ texmf-dist/tex/latex/citation-style-language/styles/american-sociological-association.csl
+ texmf-dist/tex/latex/citation-style-language/styles/apa.csl
+ texmf-dist/tex/latex/citation-style-language/styles/chicago-author-date.csl
+ texmf-dist/tex/latex/citation-style-language/styles/chicago-fullnote-bibliography.csl
+ texmf-dist/tex/latex/citation-style-language/styles/chicago-note-bibliography.csl
+ texmf-dist/tex/latex/citation-style-language/styles/elsevier-harvard.csl
+ texmf-dist/tex/latex/citation-style-language/styles/harvard-cite-them-right.csl
+ texmf-dist/tex/latex/citation-style-language/styles/ieee.csl
+ texmf-dist/tex/latex/citation-style-language/styles/modern-humanities-research-association.csl
+ texmf-dist/tex/latex/citation-style-language/styles/modern-language-association.csl
+ texmf-dist/tex/latex/citation-style-language/styles/nature.csl
+ texmf-dist/tex/latex/citation-style-language/styles/vancouver.csl
+catalogue-contact-repository https://github.com/zepinglee/citeproc-lua
+catalogue-ctan /biblio/citation-style-language
+catalogue-license mit cc-by-sa-3
+catalogue-topics biblio use-lua
+catalogue-version 0.2.1

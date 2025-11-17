@@ -1,0 +1,87 @@
+name theanomodern
+category Package
+revision 54512
+shortdesc Theano Modern fonts with LaTeX support
+longdesc This package provides the TheanoModern font designed by Alexey
+longdesc Kryukov, in both TrueType and Type1 formats, with support for
+longdesc both traditional and modern LaTeX processors. An
+longdesc artificially-emboldened variant has been provided but there are
+longdesc no italic variants. The package is named after Theano, a famous
+longdesc Ancient Greek woman philosopher, who was first a student of
+longdesc Pythagoras, and supposedly became his wife.
+execute addMap TheanoModern.map
+containersize 401128
+containerchecksum a306f5b0145c1304157403de3a1ba0e0c350b1cb2bf467c5fbc5a0f4427622029c1c37b6b139f4e0fcdd145f30a979fe821353eb0782a0fdbaac6d614d041b78
+doccontainersize 33260
+doccontainerchecksum c2181c14b43a5a9670ed13e9f2828c4effabaf06a9377789c3510072c779251e3d857bbbc5655bd0285cd7f05b23c0a669292f4ef5667dfb35ae89ea70cd838a
+docfiles size=12
+ texmf-dist/doc/fonts/theanomodern/README details="Readme"
+ texmf-dist/doc/fonts/theanomodern/SILOpenFontLicense.txt
+ texmf-dist/doc/fonts/theanomodern/theanomodern-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/theanomodern/theanomodern-samples.tex
+runfiles size=218
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_alkcdl.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_ertqq3.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_f66p55.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_izaajv.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_k6ngqv.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_lqxlns.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_oiucyb.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_whuz6y.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_xgfkyc.enc
+ texmf-dist/fonts/enc/dvips/theanomodern/thedid_zj2gif.enc
+ texmf-dist/fonts/map/dvips/theanomodern/TheanoModern.map
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Bold-tosf-ts1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanomodern/TheanoModern-Regular-tosf-ts1.tfm
+ texmf-dist/fonts/truetype/public/theanomodern/TheanoModern-Bold.ttf
+ texmf-dist/fonts/truetype/public/theanomodern/TheanoModern-Regular.ttf
+ texmf-dist/fonts/type1/public/theanomodern/TheanoModern-Bold.pfb
+ texmf-dist/fonts/type1/public/theanomodern/TheanoModern-Regular.pfb
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Bold-tlf-t1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Bold-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Bold-tosf-t1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Bold-tosf-ts1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Regular-tlf-t1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Regular-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Regular-tosf-t1.vf
+ texmf-dist/fonts/vf/public/theanomodern/TheanoModern-Regular-tosf-ts1.vf
+ texmf-dist/tex/latex/theanomodern/LGRTheanoModern-TLF.fd
+ texmf-dist/tex/latex/theanomodern/LGRTheanoModern-TOsF.fd
+ texmf-dist/tex/latex/theanomodern/LY1TheanoModern-TLF.fd
+ texmf-dist/tex/latex/theanomodern/LY1TheanoModern-TOsF.fd
+ texmf-dist/tex/latex/theanomodern/OT1TheanoModern-TLF.fd
+ texmf-dist/tex/latex/theanomodern/OT1TheanoModern-TOsF.fd
+ texmf-dist/tex/latex/theanomodern/T1TheanoModern-TLF.fd
+ texmf-dist/tex/latex/theanomodern/T1TheanoModern-TOsF.fd
+ texmf-dist/tex/latex/theanomodern/TS1TheanoModern-TLF.fd
+ texmf-dist/tex/latex/theanomodern/TS1TheanoModern-TOsF.fd
+ texmf-dist/tex/latex/theanomodern/TheanoModern.sty
+catalogue-ctan /fonts/theanomodern
+catalogue-license ofl lppl
+catalogue-topics font font-body font-greek font-multilingual font-serif font-proportional font-ttf font-type1 font-supp font-t1enc

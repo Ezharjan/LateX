@@ -1,0 +1,25 @@
+name baekmuk
+category Package
+revision 56915
+shortdesc Baekmuk Korean TrueType fonts
+longdesc This bundle consists of four Korean fonts: batang.ttf: serif
+longdesc dotum.ttf: sans-serif gulim.ttf: sans-serif (rounded)
+longdesc hline.ttf: headline These fonts were originally retrieved from
+longdesc http://kldp.net/baekmuk/ and are no longer maintained.
+containersize 8688788
+containerchecksum f9270a17459444e128b5fc5d12b943043fa4ec2f87ee5996808f9dfad1c4c4146787db3ecd267767a375d1fdbd56e15850b25cd7c9c71ab270e3517b5863054a
+doccontainersize 1576
+doccontainerchecksum 3a3819f892bdf69afeb66b9fdfbfe1ffe06e2a488425e814cb3a1e223ec9659a71f0571dc25136e0f7afcdb616f717dcb3823b89e640b0894313683e4f79b197
+docfiles size=3
+ texmf-dist/doc/fonts/baekmuk/COPYRIGHT
+ texmf-dist/doc/fonts/baekmuk/COPYRIGHT.ks
+ texmf-dist/doc/fonts/baekmuk/README.md details="Readme"
+runfiles size=6936
+ texmf-dist/fonts/truetype/public/baekmuk/batang.ttf
+ texmf-dist/fonts/truetype/public/baekmuk/dotum.ttf
+ texmf-dist/fonts/truetype/public/baekmuk/gulim.ttf
+ texmf-dist/fonts/truetype/public/baekmuk/hline.ttf
+catalogue-ctan /fonts/baekmuk
+catalogue-license other-free
+catalogue-topics font font-ttf font-cjk korean
+catalogue-version 2.2.1

@@ -1,0 +1,34 @@
+name fewerfloatpages
+category Package
+revision 58058
+shortdesc Reduce the number of unnecessary float pages
+longdesc This package implements a float algorithm extension for
+longdesc handling float pages. It attempts to reduce the number of
+longdesc unnecessary (fairly empty) float pages while making sure that
+longdesc floats nevertheless stay close to their call-outs. Several
+longdesc aspects of the algorithm behavior are adjustable.
+containersize 2660
+containerchecksum 4f5637bf431b54590e8c2a8ec27e3da3d801205b8cba053c8c1294ba0882bf8aef17a0e291c149799cfc3530a415202014570460a6e2e8986ef71bd2cc05567c
+doccontainersize 893672
+doccontainerchecksum a18d15933e6efbbe3428f366bcc5ba5ec0b254dcf77f7ac2e72c19bba00e78b44c98df34f57468902101f547fe9e88b2033430a02098805c6f0072e68ac82513
+docfiles size=273
+ texmf-dist/doc/latex/fewerfloatpages/MANIFEST.md
+ texmf-dist/doc/latex/fewerfloatpages/README.md details="Readme"
+ texmf-dist/doc/latex/fewerfloatpages/changes.txt
+ texmf-dist/doc/latex/fewerfloatpages/fewerfloatpages-code.pdf details="Documented package code "
+ texmf-dist/doc/latex/fewerfloatpages/fewerfloatpages-code.tex
+ texmf-dist/doc/latex/fewerfloatpages/fewerfloatpages-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/fewerfloatpages/fewerfloatpages-doc.tex
+ texmf-dist/doc/latex/fewerfloatpages/l3doc-TUB.cls
+srccontainersize 16108
+srccontainerchecksum e98684d4cb79477c66e4a831c8571729b3da021bf9945bdecfe8a9ff57fb1e2948c42c3481adea0fb702ce4d56ac533b14f76e78c182500431af7f3671491d7c
+srcfiles size=15
+ texmf-dist/source/latex/fewerfloatpages/fewerfloatpages.dtx
+ texmf-dist/source/latex/fewerfloatpages/fewerfloatpages.ins
+runfiles size=2
+ texmf-dist/tex/latex/fewerfloatpages/fewerfloatpages.sty
+catalogue-contact-repository https://github.com/FrankMittelbach/fmitex-fewerfloatpages
+catalogue-ctan /macros/latex/contrib/fewerfloatpages
+catalogue-license lppl1.3c
+catalogue-topics float
+catalogue-version 1.0b

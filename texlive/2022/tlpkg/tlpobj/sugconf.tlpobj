@@ -1,0 +1,24 @@
+name sugconf
+category Package
+revision 58752
+shortdesc SAS(R) user group conference proceedings document class
+longdesc The class may be used to typeset articles to be published in
+longdesc the proceedings of SAS(R) User group conferences and workshops.
+longdesc The layout produced by the class is based on that published by
+longdesc SAS Institute (2021).
+containersize 2608
+containerchecksum db7082941e64a24fd7b04fd48dae2b78d67314f7483256278a8d8eceb5aeea77e24bea7e7ebb9e3742fed7cbb4add6a5d97281819ccf307b102b8265d00723f6
+doccontainersize 73408
+doccontainerchecksum 4a64c9ff5c9350b80601052093baf0d9ebddf24de17c9ded5cffb299b94cb6b4e6f0beb03c058b8a7a4c4f7cfea118cf8e95b797881ad9f77e879b228ecc2165
+docfiles size=28
+ texmf-dist/doc/latex/sugconf/README details="Readme"
+ texmf-dist/doc/latex/sugconf/banner-sgf-2021.png
+ texmf-dist/doc/latex/sugconf/sugconf-skeleton.pdf details="Example of use (1)"
+ texmf-dist/doc/latex/sugconf/sugconf-skeleton.tex
+ texmf-dist/doc/latex/sugconf/sugconf-template.pdf details="Example of use (2)"
+ texmf-dist/doc/latex/sugconf/sugconf-template.tex
+runfiles size=2
+ texmf-dist/tex/latex/sugconf/sugconf.cls
+catalogue-ctan /macros/latex/contrib/conferences/sugconf
+catalogue-license lppl
+catalogue-topics class journalpub doc-templ std-conform

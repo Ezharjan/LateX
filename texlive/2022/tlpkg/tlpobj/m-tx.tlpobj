@@ -1,0 +1,88 @@
+name m-tx
+category Package
+revision 64182
+shortdesc A preprocessor for pmx
+longdesc M-Tx is a preprocessor to pmx, which is itself a preprocessor
+longdesc to musixtex, a music typesetting system. The prime motivation
+longdesc to the development of M-Tx was to provide lyrics for music to
+longdesc be typeset. In fact, pmx now provides a lyrics interface, but
+longdesc M-Tx continues in use by those who prefer its language.
+depend m-tx.ARCH
+containersize 4524
+containerchecksum b56bc4432bcd340f3e92f5043c38bde7f14b5f2d32b9433fa21c73c20f7ebb981714175aa6f4f871636efb62a52cd24aa639e87a320039313b16db1b027ee2f5
+doccontainersize 739512
+doccontainerchecksum 316fbc2b37b903cae8da6bb9f44b8afad0e3e577c6fd84664e1724ffe318bbdbf9609dcadd5cde6a14cc5acbc134f69bd7a87dd90d9da7d4442a5f913b8132f5
+docfiles size=259
+ texmf-dist/doc/generic/m-tx/Makefile
+ texmf-dist/doc/generic/m-tx/README details="Readme"
+ texmf-dist/doc/generic/m-tx/README.documentation
+ texmf-dist/doc/generic/m-tx/borup.mtx
+ texmf-dist/doc/generic/m-tx/borup.pdf
+ texmf-dist/doc/generic/m-tx/buildmtxdoc.lua
+ texmf-dist/doc/generic/m-tx/buildzip.lua
+ texmf-dist/doc/generic/m-tx/chord.mtx
+ texmf-dist/doc/generic/m-tx/dertod.mtx
+ texmf-dist/doc/generic/m-tx/dona.mtx
+ texmf-dist/doc/generic/m-tx/dwoman.mta
+ texmf-dist/doc/generic/m-tx/dwoman.mtb
+ texmf-dist/doc/generic/m-tx/dwoman.mtx
+ texmf-dist/doc/generic/m-tx/halleluja.ltx
+ texmf-dist/doc/generic/m-tx/halleluja.pdf
+ texmf-dist/doc/generic/m-tx/hallelujashort.ltx
+ texmf-dist/doc/generic/m-tx/kanons.ltx
+ texmf-dist/doc/generic/m-tx/kanons.pdf
+ texmf-dist/doc/generic/m-tx/kroonhom.mtx
+ texmf-dist/doc/generic/m-tx/loofnou.mtx
+ texmf-dist/doc/generic/m-tx/lyrics.tex
+ texmf-dist/doc/generic/m-tx/macro.mtx
+ texmf-dist/doc/generic/m-tx/make-dvi
+ texmf-dist/doc/generic/m-tx/make-pdf
+ texmf-dist/doc/generic/m-tx/make-target
+ texmf-dist/doc/generic/m-tx/melisma.mta
+ texmf-dist/doc/generic/m-tx/melisma1.mtb
+ texmf-dist/doc/generic/m-tx/melisma1.mtx
+ texmf-dist/doc/generic/m-tx/melisma2.mtb
+ texmf-dist/doc/generic/m-tx/melisma2.mtx
+ texmf-dist/doc/generic/m-tx/melisma3.mtb
+ texmf-dist/doc/generic/m-tx/melisma3.mtx
+ texmf-dist/doc/generic/m-tx/melisma4.mtb
+ texmf-dist/doc/generic/m-tx/melisma4.mtx
+ texmf-dist/doc/generic/m-tx/melisma5.mtb
+ texmf-dist/doc/generic/m-tx/melisma5.mtx
+ texmf-dist/doc/generic/m-tx/melisma6.mtb
+ texmf-dist/doc/generic/m-tx/melisma6.mtx
+ texmf-dist/doc/generic/m-tx/meter.mtx
+ texmf-dist/doc/generic/m-tx/mozart.mtx
+ texmf-dist/doc/generic/m-tx/mozart0.mtx
+ texmf-dist/doc/generic/m-tx/mtx-install.pdf
+ texmf-dist/doc/generic/m-tx/mtx-install.tex
+ texmf-dist/doc/generic/m-tx/mtxdoc.ltx
+ texmf-dist/doc/generic/m-tx/mtxdoc.pdf details="Package documentation"
+ texmf-dist/doc/generic/m-tx/mtxdoc.sty
+ texmf-dist/doc/generic/m-tx/mtxindex.tex
+ texmf-dist/doc/generic/m-tx/netfirst.mtx
+ texmf-dist/doc/generic/m-tx/netsoos.mta
+ texmf-dist/doc/generic/m-tx/netsoos1.mtb
+ texmf-dist/doc/generic/m-tx/netsoos1.mtx
+ texmf-dist/doc/generic/m-tx/netsoos2.mtb
+ texmf-dist/doc/generic/m-tx/netsoos2.mtx
+ texmf-dist/doc/generic/m-tx/notes.tex
+ texmf-dist/doc/generic/m-tx/pdfcat
+ texmf-dist/doc/generic/m-tx/prepmx.pdf
+ texmf-dist/doc/generic/m-tx/psalm42.mtx
+ texmf-dist/doc/generic/m-tx/sanctus.mtx
+ texmf-dist/doc/generic/m-tx/title.mtx
+ texmf-dist/doc/generic/m-tx/title1.mtx
+ texmf-dist/doc/generic/m-tx/viva.mtx
+ texmf-dist/doc/generic/m-tx/volta.mtx
+ texmf-dist/doc/man/man1/prepmx.1
+ texmf-dist/doc/man/man1/prepmx.man1.pdf
+runfiles size=4
+ texmf-dist/scripts/m-tx/m-tx.lua
+ texmf-dist/tex/generic/m-tx/mtx.tex
+ texmf-dist/tex/latex/m-tx/mtxlatex.sty
+catalogue-contact-home http://icking-music-archive.org/software/indexmt6.html
+catalogue-ctan /support/m-tx
+catalogue-license mit
+catalogue-topics music
+catalogue-version 0.63d

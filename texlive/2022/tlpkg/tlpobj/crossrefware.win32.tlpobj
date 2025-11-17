@@ -1,0 +1,13 @@
+name crossrefware.win32
+category Package
+revision 45927
+shortdesc win32 files of crossrefware
+containersize 824
+containerchecksum 4be206409af49e572a90e2ebd86c3597537bf5d32c841cdb8456713619cf2bcd9eb7c482cf84531da30c9dd9a595fdea0db129e524b9dbfa6ea06d766456ebcd
+binfiles arch=win32 size=6
+ bin/win32/bbl2bib.exe
+ bin/win32/bibdoiadd.exe
+ bin/win32/bibmradd.exe
+ bin/win32/biburl2doi.exe
+ bin/win32/bibzbladd.exe
+ bin/win32/ltx2crossrefxml.exe

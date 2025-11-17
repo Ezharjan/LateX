@@ -1,0 +1,37 @@
+name sty2dtx
+category Package
+revision 56291
+shortdesc Create a .dtx file from a .sty file
+longdesc The package provides a Perl script that converts a .sty file
+longdesc (LaTeX package) to .dtx format (documented LaTeX source), by
+longdesc surrounding macro definitions with macro and macrocode
+longdesc environments. The macro name is automatically inserted as an
+longdesc argument to the macro environemnt. Code lines outside macro
+longdesc definitions are wrapped only in macrocode environments. Empty
+longdesc lines are removed. The script should not be thought to be fool
+longdesc proof and 100% accurate but rather as a good start to the
+longdesc business of making a .dtx file from an undocumented style file.
+longdesc Full .dtx files are generated. A template based on the skeleton
+longdesc file from 'dtxtut' is used. User level macros are added
+longdesc automatically to the 'Usage' section of the .dtx file. A
+longdesc corresponding .ins file can be generated as well.
+depend sty2dtx.ARCH
+containersize 8720
+containerchecksum a7e42340744a348c88bb3cde7e23d428259f4fe7c644093e4bdabf8c49bc7f9c929a2271cd14daed9be233a04f62b60602a9fa778d05b11dba716d886286e8e1
+doccontainersize 151548
+doccontainerchecksum 2fb33ea4fcc9b5e940b46cb1b53cb56692528d8926d9bf22d3615958946763a63be101a5cf146a14ade43e2dce11b8fc25866d563d844570863dce54f48472b5
+docfiles size=43
+ texmf-dist/doc/man/man1/sty2dtx.1
+ texmf-dist/doc/man/man1/sty2dtx.man1.pdf
+ texmf-dist/doc/support/sty2dtx/README details="Readme"
+ texmf-dist/doc/support/sty2dtx/sty2dtx.pdf
+runfiles size=8
+ texmf-dist/scripts/sty2dtx/sty2dtx.pl
+catalogue-also makedtx
+catalogue-contact-bugs https://sourceforge.net/p/sty2dtx/tickets/
+catalogue-contact-home https://sourceforge.net/p/sty2dtx/
+catalogue-contact-repository https://sourceforge.net/p/sty2dtx/code/ci/default/tree/
+catalogue-ctan /support/sty2dtx
+catalogue-license gpl3
+catalogue-topics package-devel
+catalogue-version 2.3

@@ -1,0 +1,45 @@
+name newtxsf
+category Package
+revision 59227
+shortdesc Sans-math fonts for use with newtx
+longdesc The package provides a maths support that amounts to
+longdesc modifications of the STIX sans serif Roman and Greek letters
+longdesc with most symbols taken from newtxmath (which must of course be
+longdesc installed and its map file enabled).
+execute addMap newtxsf.map
+containersize 105908
+containerchecksum c7665696fe28a62a2dda826b706bcefb0d468b575232c1e04a69c58a843631e631098b4feb7b93fe8bf1c443e376fa8d8dcdb17346dd188d89b9fa525dcac33e
+doccontainersize 332420
+doccontainerchecksum 98ca9aead749cf70e54acc6414d82d027160ba9d730747a38d0e55479dd4439d198cfd4093e22636e9eca58aaafba6818bb3d3583e41f4a46e0f44b1e10cc424
+docfiles size=93
+ texmf-dist/doc/fonts/newtxsf/OFL-FAQ.txt
+ texmf-dist/doc/fonts/newtxsf/OFL.txt
+ texmf-dist/doc/fonts/newtxsf/README details="Readme"
+ texmf-dist/doc/fonts/newtxsf/newtxsf-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/newtxsf/newtxsf-doc.tex
+runfiles size=62
+ texmf-dist/fonts/map/dvips/newtxsf/newtxsf.map
+ texmf-dist/fonts/tfm/public/newtxsf/ntxsfbmi.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/ntxsfbmia.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/ntxsfmi.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/ntxsfmia.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/zsfmi-bol.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/zsfmi-reg.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/zsfmia-bol.tfm
+ texmf-dist/fonts/tfm/public/newtxsf/zsfmia-reg.tfm
+ texmf-dist/fonts/type1/public/newtxsf/zsfmi-bol.pfb
+ texmf-dist/fonts/type1/public/newtxsf/zsfmi-reg.pfb
+ texmf-dist/fonts/type1/public/newtxsf/zsfmia-bol.pfb
+ texmf-dist/fonts/type1/public/newtxsf/zsfmia-reg.pfb
+ texmf-dist/fonts/vf/public/newtxsf/ntxsfbmi.vf
+ texmf-dist/fonts/vf/public/newtxsf/ntxsfbmia.vf
+ texmf-dist/fonts/vf/public/newtxsf/ntxsfmi.vf
+ texmf-dist/fonts/vf/public/newtxsf/ntxsfmia.vf
+ texmf-dist/tex/latex/newtxsf/newtxsf.sty
+ texmf-dist/tex/latex/newtxsf/omlntxsfmi.fd
+ texmf-dist/tex/latex/newtxsf/untxsfmia.fd
+catalogue-also newtx stix
+catalogue-ctan /fonts/newtxsf
+catalogue-license ofl
+catalogue-topics font font-sans font-maths font-type1
+catalogue-version 1.054

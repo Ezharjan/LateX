@@ -1,0 +1,27 @@
+name luaquotes
+category Package
+revision 64243
+shortdesc Smart setting of quotation marks
+longdesc This package automatically generates quotation marks and
+longdesc punctuation depending on the selected language.
+containersize 2596
+containerchecksum 424f0136dd785df05f617584860bffd87dcd16bcfcfbb2953f969c2f9855d409085e1e5cb9977396ac4df27abb976a08422a5bcfb708ac6239241a3457008b42
+doccontainersize 110844
+doccontainerchecksum d5ffae40dc5267595c8a3047234d9a9bde6373d6c0a047d968b52f3d2a925116647bb658784ed24faf3632c314e7b72cb025e12fe6383bee370c59c63fd835e6
+docfiles size=37
+ texmf-dist/doc/lualatex/luaquotes/README details="Readme"
+ texmf-dist/doc/lualatex/luaquotes/luaquotes-documentation.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luaquotes/luaquotes-documentation.tex
+runfiles size=3
+ texmf-dist/tex/lualatex/luaquotes/luaquotes.sty
+catalogue-also csquotes
+catalogue-contact-announce https://github.com/ezgranet/luaquotes
+catalogue-contact-bugs https://github.com/ezgranet/luaquotes
+catalogue-contact-development https://github.com/ezgranet/luaquotes
+catalogue-contact-home https://github.com/ezgranet/luaquotes
+catalogue-contact-repository https://github.com/ezgranet/luaquotes
+catalogue-contact-support https://github.com/ezgranet/luaquotes
+catalogue-ctan /macros/luatex/latex/luaquotes
+catalogue-license lppl1.3c
+catalogue-topics quote-marks
+catalogue-version 1.0.2

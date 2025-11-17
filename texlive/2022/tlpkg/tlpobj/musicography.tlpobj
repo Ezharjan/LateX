@@ -1,0 +1,26 @@
+name musicography
+category Package
+revision 53596
+shortdesc Accessing symbols for music writing with pdfLaTeX
+longdesc This package makes available the most commonly used symbols in
+longdesc writing about music in a way that can be used with pdfLaTeX and
+longdesc looks consistent and attractive. It includes accidentals,
+longdesc meters, and notes of different rhythmic values. The package
+longdesc builds on the approach used in the harmony package, where the
+longdesc symbols are taken from the MusiXTeX fonts. But it provides a
+longdesc larger range of symbols and a more flexible, user-friendly
+longdesc interface written using xparse and stackengine.
+containersize 3112
+containerchecksum 062bd689224a432188b10d53f1224cf915432147db66d93d944fd9fbe9e0ea8928562fb19a6b5f94373db7c6fcc2c23daf7a7fa338f5b9dab53e9eee2a78db35
+doccontainersize 353768
+doccontainerchecksum 9dda39b912cc766aa619254eba7a7d3d90bab3a24668d82e2d4c9c18fff1bfeb7a09e549774aac6d654da1108378f1867ad1d8e84464f8672b3f5ddf445d5e47
+docfiles size=90
+ texmf-dist/doc/latex/musicography/README.md details="Readme"
+ texmf-dist/doc/latex/musicography/musicography.pdf details="Package documentation"
+ texmf-dist/doc/latex/musicography/musicography.tex
+runfiles size=2
+ texmf-dist/tex/latex/musicography/musicography.sty
+catalogue-contact-repository https://bitbucket.org/andrewacashner/musicography
+catalogue-ctan /macros/latex/contrib/musicography
+catalogue-license lppl1.3
+catalogue-topics music font-supp-symbol

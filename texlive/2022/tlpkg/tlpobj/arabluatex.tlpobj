@@ -1,0 +1,53 @@
+name arabluatex
+category Package
+revision 54512
+shortdesc ArabTeX for LuaLaTeX
+longdesc This package provides for LuaLaTeX an ArabTeX-like interface to
+longdesc generate Arabic writing from an ascii transliteration. It is
+longdesc particularly well-suited for complex documents such as
+longdesc technical documents or critical editions where a lot of
+longdesc left-to-right commands intertwine with Arabic writing.
+longdesc arabluatex is able to process any ArabTeX input notation. Its
+longdesc output can be set in the same modes of vocalization as ArabTeX,
+longdesc or in different roman transliterations. It further allows many
+longdesc typographical refinements. It will eventually interact with
+longdesc some other packages yet to come to produce from .tex source
+longdesc files, in addition to printed books, TEI xml compliant critical
+longdesc editions and/or lexicons that can be searched, analyzed and
+longdesc correlated in various ways.
+containersize 19824
+containerchecksum 34c30ac3f9382b56c013fc8cd85c8c42ab903739c3feb73d5c1d6531340d2c0deb157b6b88f2a7554c21be413420484a667a0a672f04096a5dc2afe6c82511f2
+doccontainersize 758844
+doccontainerchecksum b9153998fe52ac42bed2bce670db355c805c274b71e3a1f18d8794c36bf9143641b01d9b42cb95f0c126659651aa7dff38e69a7a122326b54e719dabb6f7ebe0
+docfiles size=227
+ texmf-dist/doc/lualatex/arabluatex/arabluatex.el
+ texmf-dist/doc/lualatex/arabluatex/arabluatex.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/arabluatex/samples/al-Jahiz.pdf details="Example of use"
+ texmf-dist/doc/lualatex/arabluatex/samples/al-Jahiz.tex
+ texmf-dist/doc/lualatex/arabluatex/samples/exporting.pdf
+ texmf-dist/doc/lualatex/arabluatex/samples/exporting.tex
+ texmf-dist/doc/lualatex/arabluatex/samples/template-01.pdf
+ texmf-dist/doc/lualatex/arabluatex/samples/template-01.tex
+srccontainersize 55668
+srccontainerchecksum bc4aabaf735415ae31c0b4a44e339ba7dafee4f5f01462a36c2871574fe540847e98e279f971c17f9cc22626f894dcf8ec5a74e4bbe92ec8498a43c6647231f7
+srcfiles size=61
+ texmf-dist/source/lualatex/arabluatex/README.md
+ texmf-dist/source/lualatex/arabluatex/README.tex
+ texmf-dist/source/lualatex/arabluatex/arabluatex.dtx
+ texmf-dist/source/lualatex/arabluatex/arabluatex.ins
+ texmf-dist/source/lualatex/arabluatex/makefile
+runfiles size=45
+ texmf-dist/tex/lualatex/arabluatex/arabluatex-patch.sty
+ texmf-dist/tex/lualatex/arabluatex/arabluatex.lua
+ texmf-dist/tex/lualatex/arabluatex/arabluatex.sty
+ texmf-dist/tex/lualatex/arabluatex/arabluatex_fullvoc.lua
+ texmf-dist/tex/lualatex/arabluatex/arabluatex_novoc.lua
+ texmf-dist/tex/lualatex/arabluatex/arabluatex_trans.lua
+ texmf-dist/tex/lualatex/arabluatex/arabluatex_voc.lua
+catalogue-contact-bugs https://gitlab.com/ralessi/arabluatex/issues
+catalogue-contact-home http://www.robertalessi.net/arabluatex
+catalogue-contact-repository http://git.robertalessi.net/arabluatex
+catalogue-ctan /macros/luatex/latex/arabluatex
+catalogue-license gpl3+ cc-by-sa-4
+catalogue-topics multilingual arabic luatex
+catalogue-version 1.20

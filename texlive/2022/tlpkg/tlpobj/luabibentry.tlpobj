@@ -1,0 +1,27 @@
+name luabibentry
+category Package
+revision 55777
+shortdesc Repeat BibTeX entries in a LuaLaTeX document body
+longdesc The package reimplements bibentry, for use in LuaLaTeX.
+containersize 2344
+containerchecksum ea46242da727c40f24fa232e1cd1db4bdaa7391aa372ae7dcb0210e2755fdfa2155de5c80a61b0c4554ab1c23a14bf286d00f07b34aef5edf416ac6b06f031ac
+doccontainersize 144332
+doccontainerchecksum 9b4954e294173699cef6ba965948bbc2518d42158c3f80cfa5bec17c5e58166240f8c8d3864f5dda94ae325aef688db7003138ccdf3d6eb249b544baa72ec13e
+docfiles size=41
+ texmf-dist/doc/lualatex/luabibentry/News
+ texmf-dist/doc/lualatex/luabibentry/README details="Readme"
+ texmf-dist/doc/lualatex/luabibentry/luabibentry.pdf details="Package documentation"
+srccontainersize 5424
+srccontainerchecksum d43a9d2024e5293966335df592451e3bd44e3f3522a06163c93da3d242b3e70377dda3612333a64e57d9db8ae8052753cebe9a73e01125b41e495c7a0f3a7592
+srcfiles size=4
+ texmf-dist/source/lualatex/luabibentry/Makefile
+ texmf-dist/source/lualatex/luabibentry/luabibentry.dtx
+runfiles size=2
+ texmf-dist/tex/lualatex/luabibentry/luabibentry.lua
+ texmf-dist/tex/lualatex/luabibentry/luabibentry.sty
+catalogue-contact-bugs https://github.com/koppor/luabibentry/issues
+catalogue-contact-repository https://github.com/koppor/luabibentry
+catalogue-ctan /macros/luatex/latex/luabibentry
+catalogue-license lppl1.3
+catalogue-topics cite-supp luatex use-lua
+catalogue-version 0.1a

@@ -1,0 +1,26 @@
+name crumbs
+category Package
+revision 60499
+shortdesc Add a Navigation Path to the page header
+longdesc This package adds a navigation path ("breadcrumb trail") at the
+longdesc header of a presentation, just like some websites do in order
+longdesc to simplify navigation.
+depend catchfile
+depend etoolbox
+containersize 2104
+containerchecksum 583e335d4501e7cdc15708aea14741d2106a8bb475868a5b283458baf302a818abb8bec702236fbb32da7b0bdc50865d82da1bfdd9f8aa7f1f4faa7dc4baced6
+doccontainersize 348924
+doccontainerchecksum 9183bb7940e9e61bee823ca54eaa36e2905ff236a9f87190d807aa6a97fbb1ac9e87c315e33ea1bd38c6ae5fe5b46850775dfb9aac0ec4f0f2dfa2e798ef2d20
+docfiles size=89
+ texmf-dist/doc/latex/crumbs/DEPENDS.txt
+ texmf-dist/doc/latex/crumbs/README.md details="Readme"
+ texmf-dist/doc/latex/crumbs/crumbs.pdf details="Package documentation"
+ texmf-dist/doc/latex/crumbs/crumbs.tex
+runfiles size=2
+ texmf-dist/tex/latex/crumbs/crumbs.sty
+catalogue-contact-bugs https://github.com/yegor256/crumbs/issues
+catalogue-contact-repository https://github.com/yegor256/crumbs
+catalogue-ctan /macros/latex/contrib/crumbs
+catalogue-license mit
+catalogue-topics headings
+catalogue-version 0.3.1

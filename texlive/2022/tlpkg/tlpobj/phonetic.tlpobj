@@ -1,0 +1,53 @@
+name phonetic
+category Package
+revision 56468
+shortdesc Metafont Phonetic fonts, based on Computer Modern
+longdesc The fonts are based on Computer Modern, and specified in
+longdesc Metafont. Macros for the fonts' use are provided, both for
+longdesc LaTeX 2.09 and for current LaTeX.
+containersize 23380
+containerchecksum 655dda5113926fe28ee0695d8d87a18c1ae63599a2d476f7d9b3e3a28bde475cfe33fd06aa70d709fc05a2d43026e91348bc0c5435f4a9132859b7afcdf41a7f
+doccontainersize 46824
+doccontainerchecksum 626ca0614b723fc3e4b75ca977c7a12e77908ca710ec52994e62e9e89e2064f973ab2bda3182a3b466eb2df2bdf030e0e6432cbf9f984bd7316b483f9c310b47
+docfiles size=25
+ texmf-dist/doc/fonts/phonetic/209/phonetic-table.tex
+ texmf-dist/doc/fonts/phonetic/209/phonetic.sty
+ texmf-dist/doc/fonts/phonetic/README details="Readme"
+ texmf-dist/doc/fonts/phonetic/makefile
+ texmf-dist/doc/fonts/phonetic/phonetic-table.pdf
+ texmf-dist/doc/fonts/phonetic/phonetic-table.tex
+runfiles size=55
+ texmf-dist/fonts/source/public/phonetic/cmph10.mf
+ texmf-dist/fonts/source/public/phonetic/cmph5.mf
+ texmf-dist/fonts/source/public/phonetic/cmph6.mf
+ texmf-dist/fonts/source/public/phonetic/cmph7.mf
+ texmf-dist/fonts/source/public/phonetic/cmph8.mf
+ texmf-dist/fonts/source/public/phonetic/cmph9.mf
+ texmf-dist/fonts/source/public/phonetic/cmphb10.mf
+ texmf-dist/fonts/source/public/phonetic/cmphi10.mf
+ texmf-dist/fonts/source/public/phonetic/cmphi7.mf
+ texmf-dist/fonts/source/public/phonetic/cmphi8.mf
+ texmf-dist/fonts/source/public/phonetic/cmphi9.mf
+ texmf-dist/fonts/source/public/phonetic/local.mf
+ texmf-dist/fonts/source/public/phonetic/phochar.mf
+ texmf-dist/fonts/source/public/phonetic/phoital.mf
+ texmf-dist/fonts/source/public/phonetic/phoitchar.mf
+ texmf-dist/fonts/source/public/phonetic/phosym.mf
+ texmf-dist/fonts/source/public/phonetic/symchar.mf
+ texmf-dist/fonts/tfm/public/phonetic/cmph10.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmph5.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmph6.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmph7.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmph8.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmph9.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmphb10.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmphi10.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmphi7.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmphi8.tfm
+ texmf-dist/fonts/tfm/public/phonetic/cmphi9.tfm
+ texmf-dist/tex/latex/phonetic/Uphon.fd
+ texmf-dist/tex/latex/phonetic/phonetic.sty
+catalogue-also tipa
+catalogue-ctan /fonts/phonetic
+catalogue-license lppl
+catalogue-topics font font-mf font-specialist phonetic

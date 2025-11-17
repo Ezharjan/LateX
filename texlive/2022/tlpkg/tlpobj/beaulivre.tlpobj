@@ -1,0 +1,34 @@
+name beaulivre
+category Package
+revision 64280
+shortdesc Write your books in a colorful way
+longdesc This package provides a LaTeX class for typesetting books with
+longdesc a colorful design. Currently, it has native support for Chinese
+longdesc (both simplified and traditional), English, French, German,
+longdesc Italian, Japanese, Portuguese (European and Brazilian), Russian
+longdesc and Spanish typesetting. It compiles with either XeLaTeX or
+longdesc LuaLaTeX. This is part of the colorist class series and depends
+longdesc on colorist.sty from the colorist package. The package name
+longdesc "beaulivre" is taken from the French words "beau" (=
+longdesc "beautiful") and "livre" (= "book").
+depend colorist
+containersize 4628
+containerchecksum 7fa9fac71a151bc1e100ed3ad4261cb4d76df8734d424ba5600f73d526f48183f3d7024426be5c35114b20e6ff341f3cf735dfafaa96d17a42a4d7fc0e54179a
+doccontainersize 476940
+doccontainerchecksum d489dadc440661b8c8ceb645a5a2ffbc50c5461d9fb1ac9964be76907aa250f657a1b6bbb7a4f8674babdece60958ce1f089a953e6597af971ace22184eb2d1a
+docfiles size=158
+ texmf-dist/doc/latex/beaulivre/LICENSE
+ texmf-dist/doc/latex/beaulivre/README.md details="Readme"
+ texmf-dist/doc/latex/beaulivre/beaulivre-doc-cn.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/beaulivre/beaulivre-doc-cn.tex
+ texmf-dist/doc/latex/beaulivre/beaulivre-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/beaulivre/beaulivre-doc-en.tex
+ texmf-dist/doc/latex/beaulivre/beaulivre-doc-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/beaulivre/beaulivre-doc-fr.tex
+runfiles size=8
+ texmf-dist/tex/latex/beaulivre/beaulivre.cls
+catalogue-also colorist
+catalogue-contact-repository https://github.com/Jinwen-XU/colorist
+catalogue-ctan /macros/unicodetex/latex/beaulivre
+catalogue-license lppl1.3c
+catalogue-topics class book-pub chinese multilingual expl3

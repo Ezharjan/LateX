@@ -1,0 +1,16 @@
+name mathlig
+category Package
+revision 54244
+shortdesc Define maths "ligatures"
+longdesc The package defines character sequences that "behave like"
+longdesc ligatures, in maths mode. Example definitions (chosen to show
+longdesc the package's flexibility, are: \mathlig{->}{\rightarrow}
+longdesc \mathlig{<-}{\leftarrow} \mathlig{<->}{\leftrightarrow}
+containersize 2436
+containerchecksum 1ec5761aded23b8ebd4b9afece00ab1f3f9a18886edd12ffd2a2e0b5b9fe9adc9a4ee6fb629933f36f6a161c76e85b54e3d9855871c3387cb0f70f90194b2615
+runfiles size=2
+ texmf-dist/tex/generic/mathlig/mathlig.tex
+catalogue-ctan /macros/generic/misc/mathlig.tex
+catalogue-license other-free
+catalogue-topics shortcut
+catalogue-version 1.0

@@ -1,0 +1,25 @@
+name annotate-equations
+category Package
+revision 62932
+shortdesc Easily annotate math equations using TikZ
+longdesc This package provides commands that make it easy to highlight
+longdesc terms in equations and add annotation labels using TikZ. It
+longdesc should work with pdfLaTeX as well as LuaLaTeX.
+containersize 2916
+containerchecksum b4e7665b8285509e8fc603dfc3284ea37f862a26aecbcf9f85e4d2a9e2298192bf5dcd97437e31c2b54f8abee2ec02f60d5426e8f7b00caab99aa6afae9d7b03
+doccontainersize 126536
+doccontainerchecksum 6ef62fc560f51a3f34233f4d4fa4d5685b81461d6f1530b1df082b2e06bd57a96e3ba7cb89e7f56ac58c9f41e3fbe830ade1d87bb3d5d4dec29854516a9bf523
+docfiles size=36
+ texmf-dist/doc/latex/annotate-equations/LICENSE
+ texmf-dist/doc/latex/annotate-equations/README.md details="Readme"
+ texmf-dist/doc/latex/annotate-equations/annotate-equations.pdf details="Package documentation"
+ texmf-dist/doc/latex/annotate-equations/annotate-equations.tex
+runfiles size=2
+ texmf-dist/tex/latex/annotate-equations/annotate-equations.sty
+catalogue-contact-bugs https://github.com/st--/annotate-equations/issues
+catalogue-contact-development https://github.com/st--/annotate-equations/pulls
+catalogue-contact-repository https://github.com/st--/annotate-equations
+catalogue-ctan /macros/latex/contrib/annotate-equations
+catalogue-license mit
+catalogue-topics maths decoration pgf-tikz
+catalogue-version 0.1.0

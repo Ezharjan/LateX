@@ -1,0 +1,26 @@
+name mylatex
+category Package
+revision 56751
+shortdesc Make a format containing a document's preamble
+longdesc The file mylatex.ltx permits you to create a format that
+longdesc pre-loads a set of package files (and/or other macros) that you
+longdesc regularly use. In some circumstances, this can be a great
+longdesc advantage (though on an ordinarily fast modern computer on the
+longdesc desktop, gains will be limited). The general scheme is to
+longdesc initialise your usage by a command of the form: latex -ini
+longdesc mylatex.ltx <document> whick will create a format file
+longdesc mylatex.fmt, which you then use as: latex -fmt=mylatex
+longdesc <document>
+containersize 3976
+containerchecksum b7ffebb46952c41818081cc14545d429fa65e376a2214d0ed41b56cea05cb1d3146d87513b4a701825b01bcf1ab268cefe6e9d709cb627dbe7b95daaf439d509
+doccontainersize 728
+doccontainerchecksum 791cce1eb8370e62642b64389b26a91af563ca875268039ffa978cd07a743b999573199f1a3851ee65f8118cb462ab5d5c658118a735875db90eb8482246e889
+docfiles size=1
+ texmf-dist/doc/latex/mylatex/README.txt details="Readme"
+runfiles size=3
+ texmf-dist/tex/latex/mylatex/mylatex.ltx
+catalogue-contact-bugs https://github.com/davidcarlisle/dpctex/issues
+catalogue-contact-repository https://github.com/davidcarlisle/dpctex
+catalogue-ctan /macros/latex/contrib/mylatex
+catalogue-license lppl
+catalogue-topics format

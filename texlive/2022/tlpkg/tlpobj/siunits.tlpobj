@@ -1,0 +1,31 @@
+name siunits
+category Package
+revision 59702
+shortdesc International System of Units
+longdesc Typeset physical units following the rules of the International
+longdesc System of Units (SI). The package requires amstext, for proper
+longdesc representation of some values. Note that the package is now
+longdesc superseded by siunitx; siunits has maintenance-only support,
+longdesc now.
+containersize 6040
+containerchecksum 01b2b83edba4482a6d0434efd4590b3b0fbbb596da6075632a215d60a16cc48d66f0f47d3ca61a0e73290e933952cac15fa2048f6ac12112dc603956f123f5b2
+doccontainersize 250232
+doccontainerchecksum d6c34f20671b68a1ffdf47b32e037d7660b660fb8a8e3768083ee7e33b08e7c313eb5f2c585657dcfa258f85574bf6b13a86ef81e49c2ed1b407e4dfc8dc5d04
+docfiles size=82
+ texmf-dist/doc/latex/siunits/README details="Readme"
+ texmf-dist/doc/latex/siunits/SIunits.pdf details="Package documentation"
+srccontainersize 34532
+srccontainerchecksum 8cd5d556cc4c6abc503b9882a7c2ff19052a9004d703b37383d6a6c6ec671ea434b03f6f1df362aef2fec06dfeefb7b231072c975eb946262b71b15131f38daa
+srcfiles size=40
+ texmf-dist/source/latex/siunits/SIunits.drv
+ texmf-dist/source/latex/siunits/SIunits.dtx
+ texmf-dist/source/latex/siunits/SIunits.ins
+runfiles size=8
+ texmf-dist/tex/latex/siunits/SIunits.cfg
+ texmf-dist/tex/latex/siunits/SIunits.sty
+ texmf-dist/tex/latex/siunits/binary.sty
+catalogue-also sistyle
+catalogue-ctan /macros/latex/contrib/SIunits
+catalogue-license lppl1.3
+catalogue-topics typesetting scientific-docs
+catalogue-version 1.36

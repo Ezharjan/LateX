@@ -1,0 +1,35 @@
+name hereapplies
+category Package
+revision 64391
+shortdesc A LaTeX package for referencing groups of pages that share something in common
+longdesc Here Applies is a LaTeX package that allows to collect groups
+longdesc of labels and reference them altogether. It can be used for
+longdesc creating informal glossaries that cross-link concepts to their
+longdesc applications, or simply mentioning multiple pages that share
+longdesc something in common.
+containersize 5300
+containerchecksum 46862b370a803e3be6ace08da5f1d6d114e9d8ff96d0a2a368016d903e38560367710eee0e90920bdcee6e0db2c062c8631cfd1c9b384b81728bf36281fffc47
+doccontainersize 421652
+doccontainerchecksum a4d9255c057e22d345ad684b9031349e41f3c9a794f55067c6d8f3e83c65a469fdd879f2451ecc29ef63dfd42d4e8bbd1749e22a9fa9487a15aacc135db84899
+docfiles size=126
+ texmf-dist/doc/latex/hereapplies/COPYING
+ texmf-dist/doc/latex/hereapplies/ChangeLog.md
+ texmf-dist/doc/latex/hereapplies/README.md details="Readme"
+ texmf-dist/doc/latex/hereapplies/hereapplies-doc.lyx
+ texmf-dist/doc/latex/hereapplies/hereapplies-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/hereapplies/hereapplies-doc.tex
+ texmf-dist/doc/latex/hereapplies/hereapplies-example.pdf details="Example of use"
+ texmf-dist/doc/latex/hereapplies/hereapplies-example.tex
+ texmf-dist/doc/latex/hereapplies/lyx-module/hereapplies-example.lyx
+ texmf-dist/doc/latex/hereapplies/lyx-module/hereapplies.module
+ texmf-dist/doc/latex/hereapplies/package.json
+runfiles size=5
+ texmf-dist/tex/latex/hereapplies/hereapplies.sty
+catalogue-contact-announce https://github.com/madmurphy/hereapplies.sty/releases
+catalogue-contact-bugs https://github.com/madmurphy/hereapplies.sty/issues
+catalogue-contact-development https://github.com/madmurphy
+catalogue-contact-repository https://github.com/madmurphy/hereapplies.sty
+catalogue-ctan /macros/latex/contrib/hereapplies
+catalogue-license gpl3+
+catalogue-topics label-ref
+catalogue-version 1.0.0

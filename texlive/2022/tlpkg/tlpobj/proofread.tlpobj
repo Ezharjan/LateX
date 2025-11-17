@@ -1,0 +1,41 @@
+name proofread
+category Package
+revision 61719
+shortdesc Commands for inserting annotations
+longdesc This package defines a few LaTeX commands that may be useful
+longdesc when you proofread a LaTeX document. They allow you to easily
+longdesc highlight text and add comments in the margin. Vim escape
+longdesc sequences are provided for inserting or removing these LaTeX
+longdesc commands in the source. Options are provided for displaying the
+longdesc document with extra line spacing, and for displaying it in
+longdesc either corrected or uncorrected state, both without margin
+longdesc notes. The package is based on code for a text highlighting
+longdesc command that was published by Antal Spector-Zabusky on
+longdesc https://tex.stackexchange.com/questions/5959. The main file,
+longdesc proofread.dtx, is self-extracting, so you can generate the
+longdesc style file by compiling proofread.dtx with pdfLaTeX. This
+longdesc package is based on the soul package; so if you plan to
+longdesc highlight non-ASCII characters, you must compile your source
+longdesc with either XeTeX- or LuaTeX-based compilers.
+containersize 2588
+containerchecksum 79787978d7888ba127b9b72ea38f0f3e7ef9d427cf8e493120849cf7c2852ffe79b5fbf349160bac419be0725a9d79f33a00c13d6b3eded2cf0600b7d0994513
+doccontainersize 290844
+doccontainerchecksum e33aa6e720a22bebe6f64d90b00bc4e01b0892ae66c5f9c4dc8758e6494fe2bbb9ba84df442471b9db652223fd3e7f40fae486f09c7500095f7a2d1cb2280b3a
+docfiles size=84
+ texmf-dist/doc/latex/proofread/README details="Readme"
+ texmf-dist/doc/latex/proofread/README.txt
+ texmf-dist/doc/latex/proofread/example.pdf details="Example of use"
+ texmf-dist/doc/latex/proofread/example.tex
+ texmf-dist/doc/latex/proofread/proofread.pdf details="Package documentation"
+ texmf-dist/doc/latex/proofread/proofread.vmb
+srccontainersize 6352
+srccontainerchecksum b1b334a3bc3dc61dad0eb071a1c5dc3595cb9231a3b7e50856bf0d5c50a4ecf188f5efbaf7a0065ad51341c2408cbf3d81a6e7c473bbd003289cca02d1962f46
+srcfiles size=6
+ texmf-dist/source/latex/proofread/proofread.dtx
+ texmf-dist/source/latex/proofread/proofread.ins
+runfiles size=2
+ texmf-dist/tex/latex/proofread/proofread.sty
+catalogue-ctan /macros/latex/contrib/proofread
+catalogue-license lppl1.3c
+catalogue-topics editorial decoration
+catalogue-version 1.04

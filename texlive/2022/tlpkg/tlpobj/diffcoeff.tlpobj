@@ -1,0 +1,33 @@
+name diffcoeff
+category Package
+revision 63590
+shortdesc Write differential coefficients easily and consistently
+longdesc diffcoeff.sty allows the easy and consistent writing of
+longdesc ordinary, partial and other derivatives of arbitrary (algebraic
+longdesc or numeric) order. For mixed partial derivatives, the total
+longdesc order of differentiation is calculated by the package. Optional
+longdesc arguments allow specification of points of evaluation (ordinary
+longdesc derivatives), or variables held constant (partial derivatives),
+longdesc and the placement of the differentiand (numerator or appended).
+longdesc The package is built on xtemplate, allowing systematic
+longdesc fine-tuning of the display and generation and use of variant
+longdesc forms (like derivatives built from D, \Delta or \delta). A
+longdesc command for differentials ensures the dx used in e.g. integrals
+longdesc is consistent with the form used in derivatives. The package
+longdesc requires the LaTeX3 bundles l3kernel and l3packages.
+containersize 6380
+containerchecksum 3ef1e285d44c0f83a7d7645da087b8ccc65efcd7f994769c55f601723e0ea477f37f63e8388acadd8975f5468e24bbd2d6c3dfe9295930cf5678ee64db166c90
+doccontainersize 681556
+doccontainerchecksum 3d59588c095bf88b714e67454035088a98aab9c608bc03e568963861bf51e478726124044fd94db42c6dc2ae4b058bac4f790b8086ca16943913036d832e54e5
+docfiles size=212
+ texmf-dist/doc/latex/diffcoeff/README.txt details="Readme"
+ texmf-dist/doc/latex/diffcoeff/diffcoeff.pdf details="Package documentation"
+ texmf-dist/doc/latex/diffcoeff/diffcoeff.tex
+runfiles size=8
+ texmf-dist/tex/latex/diffcoeff/diffcoeff-doc.def
+ texmf-dist/tex/latex/diffcoeff/diffcoeff.sty
+catalogue-also derivative
+catalogue-ctan /macros/latex/contrib/diffcoeff
+catalogue-license lppl1.3c
+catalogue-topics maths
+catalogue-version 4.1

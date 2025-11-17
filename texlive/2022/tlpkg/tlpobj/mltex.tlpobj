@@ -1,0 +1,50 @@
+name mltex
+category Package
+revision 62145
+shortdesc The MLTeX system
+longdesc MLTeX is a modification of TeX version >=3.0 that allows the
+longdesc hyphenation of words with accented letters using ordinary
+longdesc Computer Modern (CM) fonts. The system is distributed as a TeX
+longdesc change file.
+depend atbegshi
+depend atveryend
+depend babel
+depend cm
+depend dehyph
+depend everyshi
+depend firstaid
+depend hyph-utf8
+depend hyphen-base
+depend knuth-lib
+depend l3backend
+depend l3kernel
+depend l3packages
+depend latex
+depend latex-fonts
+depend latexconfig
+depend mltex.ARCH
+depend plain
+depend tex-ini-files
+depend unicode-data
+execute AddFormat name=mllatex engine=pdftex patterns=language.dat           options="-translate-file=cp227.tcx -mltex *mllatex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,dehyph,hyph-utf8,latex,latexconfig
+execute AddFormat name=mltex engine=pdftex            options="-translate-file=cp227.tcx -mltex mltex.ini"            fmttriggers=cm,hyphen-base,knuth-lib,plain
+containersize 6452
+containerchecksum e04f33b83474e58c4725abbba21ae56659920ad2929faba7f25b47befeeb7e207e36888e1dbf7260ecc95c126e1732f6f5dced3d277db7c3889f2b08590b04dc
+doccontainersize 8676
+doccontainerchecksum e9d5a1cfdc6183bf99ef369b447c73e9ec5926952a80a75708db4fc6343ffc1a10d599276c13f295005f7c8c56e2e35ad9edc9dee3ee06928fa8c7b267d82bbf
+docfiles size=9
+ texmf-dist/doc/latex/mltex/README
+ texmf-dist/doc/latex/mltex/mltex.txt
+ texmf-dist/doc/latex/mltex/testmlft.dvi
+ texmf-dist/doc/latex/mltex/testmlft.tex
+ texmf-dist/doc/latex/mltex/testmlsw.dvi
+ texmf-dist/doc/latex/mltex/testmlsw.tex
+runfiles size=8
+ texmf-dist/tex/latex/mltex/lo1enc.def
+ texmf-dist/tex/latex/mltex/mlltxchg.def
+ texmf-dist/tex/latex/mltex/mltex.sty
+ texmf-dist/tex/mltex/config/mltex.ini
+catalogue-ctan /systems/generic/mltex
+catalogue-license knuth
+catalogue-topics engine multilingual
+catalogue-version 2.2

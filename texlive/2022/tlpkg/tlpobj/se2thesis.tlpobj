@@ -1,0 +1,42 @@
+name se2thesis
+category Package
+revision 64364
+shortdesc A Thesis Class for the Chair of Software Engineering II at the University of Passau, Germany
+longdesc The se2thesis bundle provides a document class for writing a
+longdesc theses with the Chair of Software Engineering II at the
+longdesc University of Passau, Germany. The class is based on Markus
+longdesc Kohm's KOMA-Script classes and provides several additions and
+longdesc customizations to these classes. While the class provides some
+longdesc basic settings, mostly regrading the type area, fonts, and the
+longdesc title page, it still provides large degrees of freedom to its
+longdesc users. However, the package's documentation also provides
+longdesc recommendations regarding several aspects, for example,
+longdesc recommending BibLaTeX for bibliographies.
+containersize 7828
+containerchecksum 1e5224d1fd304ee19c75db5a74d34eb397a7e7f92f611ea7a519ec83b6802520daba90846e8e75f8a467628d338259259903859d25f259376afc8af150e18e38
+doccontainersize 1422480
+doccontainerchecksum b727ccdf6d53e2e18ea427477eeee93e063ed2863fdbf7ee5dbecc5cbdab24219e68d605a56f20ec80d873cc08e1fb857d44a86bdc967ba95bd0de2b494255e5
+docfiles size=366
+ texmf-dist/doc/latex/se2thesis/CHANGELOG.md
+ texmf-dist/doc/latex/se2thesis/README.md details="Readme"
+ texmf-dist/doc/latex/se2thesis/se2thesis-master-thesis-example.pdf
+ texmf-dist/doc/latex/se2thesis/se2thesis-master-thesis-example.tex
+ texmf-dist/doc/latex/se2thesis/se2thesis.pdf details="Package documentation"
+srccontainersize 21076
+srccontainerchecksum d61dde624fa5b4391d94ce82955bb4dbaa5960ca2e92fe86c5a6938bbcb0ee0e524a7ba9a66778dd55748ff7481ca7e90c255cf0dcf3b4a8967b77735efec27c
+srcfiles size=22
+ texmf-dist/source/latex/se2thesis/se2thesis.dtx
+ texmf-dist/source/latex/se2thesis/se2thesis.ins
+runfiles size=11
+ texmf-dist/tex/latex/se2thesis/se2colors.sty
+ texmf-dist/tex/latex/se2thesis/se2fonts.sty
+ texmf-dist/tex/latex/se2thesis/se2thesis.cls
+ texmf-dist/tex/latex/se2thesis/se2translations-english.trsl
+ texmf-dist/tex/latex/se2thesis/se2translations-german.trsl
+catalogue-contact-bugs https://github.com/se2p/se2thesis/issues
+catalogue-contact-home https://github.com/se2p/se2thesis
+catalogue-contact-repository https://github.com/se2p/se2thesis
+catalogue-ctan /macros/latex/contrib/se2thesis
+catalogue-license lppl1.3c
+catalogue-topics dissertation
+catalogue-version 1.1.0

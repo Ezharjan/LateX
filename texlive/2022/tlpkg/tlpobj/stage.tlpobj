@@ -1,0 +1,28 @@
+name stage
+category Package
+revision 62929
+shortdesc A LaTeX class for stage plays
+longdesc Stage.cls is a LaTeX class for creating plays of any length in
+longdesc a standard manuscript format for production and submission.
+containersize 2800
+containerchecksum 8472bc96265ea7fd3be748f147238b6852079ba002f9c7548f5a5e8cb0f34a8155a799635ee5e31b22bb30554795a6fd08e62312b25ce83e727e10f6ccd13f37
+doccontainersize 158680
+doccontainerchecksum 82df4a8fa154a09cd8231c21f3a450a089796306e8275b17291bfc903ef00b316a1ae0a4175637294ecbed0dd6eeffa7baf134d60352284aa07e0a1a0224c205
+docfiles size=42
+ texmf-dist/doc/latex/stage/README details="Package README"
+ texmf-dist/doc/latex/stage/stage-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/stage/stage-documentation.tex
+srccontainersize 436
+srccontainerchecksum 82255aaf0407da34f219f220deb5b12edd5dea55f168a4ae11a5bc5fbc6144fb45d7e79a4d9562405f838955e72efc3a5533269f05b493a48027bd35713ddd65
+srcfiles size=1
+ texmf-dist/source/latex/stage/Makefile
+runfiles size=2
+ texmf-dist/tex/latex/stage/stage.cls
+catalogue-contact-bugs https://github.com/rrthomas/stage/issues
+catalogue-contact-development https://github.com/rrthomas/stage
+catalogue-contact-home https://github.com/rrthomas/stage
+catalogue-contact-repository https://github.com/rrthomas/stage
+catalogue-ctan /macros/latex/contrib/stage
+catalogue-license lppl1.3
+catalogue-topics class drama-script
+catalogue-version 1.03

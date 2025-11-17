@@ -1,0 +1,27 @@
+name chemformula
+category Package
+revision 61719
+shortdesc Command for typesetting chemical formulas and reactions
+longdesc The package provides a command to typeset chemical formulas and
+longdesc reactions in support of other chemistry packages (such as
+longdesc chemmacros). The package used to be distributed as a part of
+longdesc chemmacros.
+depend units
+containersize 15792
+containerchecksum 907efcb72ebf3a315bffc11a8d78caa82b510993b4a4de1da8a960bbd6c66bdf5bc202933fce5f4f0626ad4507a5095b571487beb2414bc49bd37e735f0299f1
+doccontainersize 863468
+doccontainerchecksum c839fed7313744c6abb77fd4f803524c47af7f9ca0e4b533b307a198cc2fefc072541d58afca8cfab6a17b85ecdda4d3bacd451ac9616b47a448560a97f3b62a
+docfiles size=231
+ texmf-dist/doc/latex/chemformula/HISTORY
+ texmf-dist/doc/latex/chemformula/README details="Readme"
+ texmf-dist/doc/latex/chemformula/chemformula-manual.cls
+ texmf-dist/doc/latex/chemformula/chemformula-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/chemformula/chemformula-manual.tex
+runfiles size=30
+ texmf-dist/tex/latex/chemformula/chemformula.sty
+catalogue-contact-bugs https://github.com/cgnieder/chemformula/issues
+catalogue-contact-repository https://github.com/cgnieder/chemformula/
+catalogue-ctan /macros/latex/contrib/chemformula
+catalogue-license lppl1.3c
+catalogue-topics chemistry expl3
+catalogue-version 4.17

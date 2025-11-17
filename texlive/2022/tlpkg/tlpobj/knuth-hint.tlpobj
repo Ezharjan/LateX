@@ -1,0 +1,111 @@
+name knuth-hint
+category Package
+revision 62971
+shortdesc HINT collection of typeset C/WEB sources in TeX Live
+longdesc The knuth-hint package contains the large collection of HINT
+longdesc documents for many of the CWEB amd WEB sources of programs in
+longdesc the TeX Live distribution (and, for technical reasons, PDF
+longdesc documents for CTWILL and XeTeX). Each program is presented in
+longdesc its original form as written by the respective authors, and in
+longdesc the "changed" form as used in TeX Live. Care has been taken to
+longdesc keep the section numbering intact, so that you can study the
+longdesc codes and the changes in parallel. Also included are the
+longdesc "errata" for Donald Knuth's "Computers & Typesetting". HINT is
+longdesc the dynamic document format created by Martin Ruckert's HiTeX
+longdesc engine that was added to TeX Live 2022. The HINT files can be
+longdesc viewed on Linux, Windows, and Android with the hintview
+longdesc application. The knuth-hint package is a showcase of HiTeX's
+longdesc capabilities.
+containersize 888
+containerchecksum 0fee38074b4f7abb32f021259951072ee662ab96bcf7127e14e0e3fa68fa981a533a9112a56eaa7a71da48805737abdf3db3d41acc012300217082068e72c10a
+doccontainersize 19402560
+doccontainerchecksum 0cefe2852a97aa680989280e7e2349dce4355f5442ca34334b585596eae9923537a5acada9fca5e90eb4ff10a817df58f6bac35c5944b407cf3d6cb87cc745d9
+docfiles size=13422
+ texmf-dist/doc/generic/knuth-hint/README.md details="Readme"
+ texmf-dist/doc/generic/knuth-hint/bibtex/bibtex-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/bibtex/bibtex.hnt
+ texmf-dist/doc/generic/knuth-hint/ctie/ctie-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/ctie/ctie.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/common-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/common.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/ctangle-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/ctangle.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/ctwill.pdf
+ texmf-dist/doc/generic/knuth-hint/cweb/cweave-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/cweave.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/cwebman.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/refsort-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/refsort.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/twinx-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/cweb/twinx.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.eight.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.eleven.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.five.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.four.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.nine.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.one.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.seven.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.six.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.ten.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.three.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.twelve.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errata.two.hnt
+ texmf-dist/doc/generic/knuth-hint/errata/errorlog.hnt
+ texmf-dist/doc/generic/knuth-hint/etc/vftovp-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/etc/vftovp.hnt
+ texmf-dist/doc/generic/knuth-hint/etc/vptovf-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/etc/vptovf.hnt
+ texmf-dist/doc/generic/knuth-hint/index.html
+ texmf-dist/doc/generic/knuth-hint/index.pdf
+ texmf-dist/doc/generic/knuth-hint/mf/mf-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/mf/mf.hnt
+ texmf-dist/doc/generic/knuth-hint/mf/trapman.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/gftodvi-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/gftodvi.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/gftopk-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/gftopk.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/gftype-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/gftype.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/mft-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/mfware/mft.hnt
+ texmf-dist/doc/generic/knuth-hint/other/dvicopy-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/other/dvicopy.hnt
+ texmf-dist/doc/generic/knuth-hint/other/patgen-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/other/patgen.hnt
+ texmf-dist/doc/generic/knuth-hint/other/pktogf-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/other/pktogf.hnt
+ texmf-dist/doc/generic/knuth-hint/other/pktype-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/other/pktype.hnt
+ texmf-dist/doc/generic/knuth-hint/pdftex/pdftex-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/pdftex/pdftex.hnt
+ texmf-dist/doc/generic/knuth-hint/tex/glue.hnt
+ texmf-dist/doc/generic/knuth-hint/tex/tex-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/tex/tex.hnt
+ texmf-dist/doc/generic/knuth-hint/tex/tripman.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/dvitype-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/dvitype.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/pltotf-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/pltotf.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/pooltype-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/pooltype.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/tftopl-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/texware/tftopl.hnt
+ texmf-dist/doc/generic/knuth-hint/tie/tie-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/tie/tie.hnt
+ texmf-dist/doc/generic/knuth-hint/web/tangle-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/web/tangle.hnt
+ texmf-dist/doc/generic/knuth-hint/web/twill.hnt
+ texmf-dist/doc/generic/knuth-hint/web/weave-changes.hnt
+ texmf-dist/doc/generic/knuth-hint/web/weave.hnt
+ texmf-dist/doc/generic/knuth-hint/web/webman.hnt
+ texmf-dist/doc/generic/knuth-hint/xetex/xetex-changes.pdf
+ texmf-dist/doc/generic/knuth-hint/xetex/xetex.pdf
+catalogue-also knuth-pdf
+catalogue-contact-home https://github.com/ascherer/web
+catalogue-contact-repository https://github.com/ascherer/web
+catalogue-contact-support https://tug.org/texmfbug
+catalogue-ctan /info/knuth-hint
+catalogue-license pd knuth
+catalogue-topics collection
+catalogue-version 1.0

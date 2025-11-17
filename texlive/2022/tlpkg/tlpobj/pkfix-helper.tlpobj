@@ -1,0 +1,33 @@
+name pkfix-helper
+category Package
+revision 56061
+shortdesc Make PostScript files accessible to pkfix
+longdesc Pkfix is a useful utility for replacing resolution-dependent
+longdesc bitmapped fonts in a dvips-produced PostScript file with the
+longdesc corresponding resolution-independent vector fonts.
+longdesc Unfortunately, pkfix needs to parse certain PostScript comments
+longdesc that appear only in files produced by dvips versions later than
+longdesc 5.58 (ca. 1996); it fails to work on PostScript files produced
+longdesc by older versions of dvips. Pkfix-helper is a program that
+longdesc attempts to insert newer-dvips comments into an older-dvips
+longdesc PostScript file, thereby making the file suitable for
+longdesc processing by pkfix. pkfix-helper can sometimes process
+longdesc documents fully autonomously but does require the user to
+longdesc verify and, if needed, correct its decisions.
+depend pkfix-helper.ARCH
+containersize 20208
+containerchecksum e5151d85d2db65f41b69320ad92611adcc8d211719aa06f39488ba75972f6bd4eda3a9ebd9f13e8889eb84451a640bbdbfd8862c95620304917cca3dcff4a194
+doccontainersize 393612
+doccontainerchecksum 50103799bbfc18a728b6510f9cd3d9aa4cbafaebb1e68f2f3280b3a57efbdbf75ff68f36e72b4442e49bbb04801795250fb3e2d0728968e30c1e70fc5b7d15d0
+docfiles size=132
+ texmf-dist/doc/man/man1/pkfix-helper.1
+ texmf-dist/doc/man/man1/pkfix-helper.man1.pdf
+ texmf-dist/doc/support/pkfix-helper/README details="Readme"
+ texmf-dist/doc/support/pkfix-helper/encoding-samples.pdf details="Encoding tables and how to use them"
+ texmf-dist/doc/support/pkfix-helper/encoding-samples.tex
+runfiles size=18
+ texmf-dist/scripts/pkfix-helper/pkfix-helper
+catalogue-ctan /support/pkfix-helper
+catalogue-license lppl1.3c
+catalogue-topics font-util
+catalogue-version 1.6

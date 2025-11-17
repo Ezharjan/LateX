@@ -1,0 +1,28 @@
+name lambdax
+category Package
+revision 60278
+shortdesc Use Lambda expression within LaTeX
+longdesc This package provides Lambda expressions. It is an interface to
+longdesc specify the parameters and replacement code of a
+longdesc document-command, and then to evaluate it with compatible
+longdesc arguments. Optionally, it can be used recursively.
+containersize 1992
+containerchecksum 63ce2370079b4b2a286355d05d40771658e35fef085570aaf07d264d81571378a6d76db128e3fcea1c6c27632cb37f317ae28300059027979114e9eefcb5cf53
+doccontainersize 541164
+doccontainerchecksum 203a8ecde6022efcaba0680a507833ec56601887b47dbd563683195b828cd246d55cc9a44b91cb6ec2a3d0b8d7ce6d0777aa9519b93ca2b4b0f96f643df35dd9
+docfiles size=138
+ texmf-dist/doc/latex/lambdax/README.md details="Readme"
+ texmf-dist/doc/latex/lambdax/lambdax.bib
+ texmf-dist/doc/latex/lambdax/lambdax.pdf details="Package documentation"
+srccontainersize 4292
+srccontainerchecksum 2790c5696eaa95b18c4c301d3a72d5aa0a72566cfebd514dab3546738897f2d0aafe55ef96ba51073fd07e98f0052eaca4cc9bd8d46f5fd9cf7b544b4f103c64
+srcfiles size=4
+ texmf-dist/source/latex/lambdax/lambdax.dtx
+ texmf-dist/source/latex/lambdax/lambdax.ins
+runfiles size=2
+ texmf-dist/tex/latex/lambdax/lambdax.sty
+catalogue-contact-repository https://github.com/rogard/lambdax
+catalogue-ctan /macros/latex/contrib/lambdax
+catalogue-license lppl1.3c
+catalogue-topics macro-supp macro-def
+catalogue-version 1.1

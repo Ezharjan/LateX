@@ -1,0 +1,40 @@
+name exsheets
+category Package
+revision 52227
+shortdesc Create exercise sheets and exams
+longdesc The package provides the means to create exercises or questions
+longdesc and their corresponding solutions. The questions may be divided
+longdesc into classes and/or topics and may be printed selectively.
+longdesc Meta-data to questions can be added and recovered. The
+longdesc solutions may be printed where they are, or collected and
+longdesc printed at a later point in the document all together,
+longdesc section-wise or selectively by ID. The package provides the
+longdesc means to selectively include questions from an external file,
+longdesc and to control the style of headings of both questions and
+longdesc solutions. As of May 2017, this package has been superseded by
+longdesc its official successor xsim. exsheets itself is now considered
+longdesc obsolete, but will stay alive, and will continue to receive
+longdesc bugfix releases. However, new features will not be added any
+longdesc more.
+containersize 24116
+containerchecksum c1263842d06916762306b0ead03cfec31535f40d41a0abe504366d0a762850f683b10563d47d149e89ddd75c18c3da7687a19b0a5bbe2b628acac1ed891a8285
+doccontainersize 694564
+doccontainerchecksum fbb9dc0826789f6c19734b0b50925d035f3b55a5402dce6ced4cf6881c032d784d5f219b222170961a5e1563b2dd8a5c64e7bcdd434ca61dec94a857451250a8
+docfiles size=196
+ texmf-dist/doc/latex/exsheets/README details="Readme"
+ texmf-dist/doc/latex/exsheets/exsheets_en.pdf details="Package documentation"
+ texmf-dist/doc/latex/exsheets/exsheets_en.tex
+ texmf-dist/doc/latex/exsheets/grading-table.pdf
+ texmf-dist/doc/latex/exsheets/grading-table.tex
+runfiles size=42
+ texmf-dist/tex/latex/exsheets/exsheets-listings.sty
+ texmf-dist/tex/latex/exsheets/exsheets.sty
+ texmf-dist/tex/latex/exsheets/exsheets_configurations.cfg
+ texmf-dist/tex/latex/exsheets/exsheets_headings.cfg
+ texmf-dist/tex/latex/exsheets/exsheets_headings.def
+catalogue-also xsim
+catalogue-contact-repository https://bitbucket.org/cgnieder/exsheets/
+catalogue-ctan /macros/latex/contrib/exsheets
+catalogue-license lppl1.3
+catalogue-topics exercise exam expl3
+catalogue-version 0.21k

@@ -1,0 +1,26 @@
+name graphicxpsd
+category Package
+revision 57341
+shortdesc Adobe Photoshop Data format (PSD) support for graphicx package
+longdesc This package provides Adobe Photoshop Data format (PSD) support
+longdesc for the graphicx package with the sips (Darwin/macOS) or
+longdesc convert (ImageMagick) command.
+containersize 1892
+containerchecksum c1327b1adc6657f423bf8eb0d29224773055f434cf749da8a8b2d1713c2a90a6fdeed2bded223c7cc941cb2b7403cb68927d72b0eb085e906750ce64ffcad3b8
+doccontainersize 405280
+doccontainerchecksum 082a8e580113ef796be4cc750d98f6dd0bf783298fef80a06f5387f352183d513e0d8b90dfb684bcaa575ff7b9307fe11e55f84aa66d7f29b411e06af76e70e7
+docfiles size=254
+ texmf-dist/doc/latex/graphicxpsd/LICENSE
+ texmf-dist/doc/latex/graphicxpsd/README.md details="Readme"
+ texmf-dist/doc/latex/graphicxpsd/graphicxpsd.pdf details="Package documentation"
+ texmf-dist/doc/latex/graphicxpsd/graphicxpsd.tex
+ texmf-dist/doc/latex/graphicxpsd/test-gin-rule-psd.tex
+ texmf-dist/doc/latex/graphicxpsd/tigerpsdfmt.psd
+runfiles size=2
+ texmf-dist/tex/latex/graphicxpsd/graphicxpsd.sty
+catalogue-also graphicx
+catalogue-contact-repository https://github.com/munepi/graphicxpsd
+catalogue-ctan /macros/latex/contrib/graphicxpsd
+catalogue-license mit
+catalogue-topics graphics-incl
+catalogue-version 1.2

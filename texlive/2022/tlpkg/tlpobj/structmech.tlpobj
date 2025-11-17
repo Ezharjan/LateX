@@ -1,0 +1,26 @@
+name structmech
+category Package
+revision 58985
+shortdesc A TikZ command set for structural mechanics drawings
+longdesc This package provides a collection of TikZ commands that allow
+longdesc users to draw basic elements in material/structural mechanics.
+longdesc It is thus possible to draw member forces, nodal
+longdesc forces/displacements, various boundary conditions, internal
+longdesc force distributions, etc.
+containersize 3688
+containerchecksum 4b4bfc5962b57792e34f22f19f8127a048ffc4428eccded53452b165d11d798866f4dfb477dc87f3be52e074ffef9e13e496894bb14e4ad1876b09852efc7f69
+doccontainersize 142568
+doccontainerchecksum 48623a95193f3613d16b82a0df650b1bfcbf62bb1fc7f2fbe2b878199eae01d89a5ca9d151931ae16eceeb1d47dd835086f3eb46b0b3bd36133835e797eee4a6
+docfiles size=51
+ texmf-dist/doc/latex/structmech/LICENSE
+ texmf-dist/doc/latex/structmech/README.md details="Readme"
+ texmf-dist/doc/latex/structmech/structmech.pdf details="Package documentation"
+ texmf-dist/doc/latex/structmech/structmech.tex
+runfiles size=6
+ texmf-dist/tex/latex/structmech/structmech.sty
+catalogue-contact-bugs https://github.com/TLCFEM/structmech/issues
+catalogue-contact-home https://github.com/TLCFEM/structmech
+catalogue-ctan /graphics/pgf/contrib/structmech
+catalogue-license gpl3+
+catalogue-topics pgf-tikz physics
+catalogue-version 1.1

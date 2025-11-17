@@ -1,0 +1,164 @@
+name stix2-type1
+category Package
+revision 57448
+shortdesc Type1 versions of the STIX Two OpenType fonts
+longdesc The stix2 package provides minimal support for using the STIX
+longdesc Two fonts with versions of TeX that are limited to TFM files,
+longdesc Type 1 PostScript fonts, and 8-bit font encodings. Version
+longdesc 2.0.0 of the STIX fonts are being released in this format in
+longdesc hopes of easing the transition from legacy TeX engines to
+longdesc modern fully Unicode-compatible systems. The Type 1 versions
+longdesc are merely a repackaging of the original OpenType versions and
+longdesc should not be viewed as independent entities. Some glyphs that
+longdesc are traditionally available in TeX math fonts are not yet
+longdesc available in the STIX Two OpenType fonts. In such cases, we
+longdesc have chosen to omit them from the stix2 package rather than
+longdesc create incompatibilities between the OpenType and Type 1
+longdesc versions. In addition, while development of the OpenType
+longdesc versions is ongoing, no further updates are planned to the Type
+longdesc 1 versions of the fonts.
+execute addMap stix2.map
+containersize 3110736
+containerchecksum 802ea99ccb3b8e2e727537113843846dd6629f722508219be88cddd9e7f1e6f67a1bf48ae3a61c51991ec91ba5c543467d3aaba64116e4be08707def58c70f34
+doccontainersize 1393108
+doccontainerchecksum b4f1e6e8962fd77ecaf0df94b156783d9f77c07231e6cc258e04c26a8190dcd0a3175c71bd3a1187ad6cc083595ee80925712f12e0f838c474ac93701b47401e
+docfiles size=1063
+ texmf-dist/doc/fonts/stix2-type1/README.md details="Readme"
+ texmf-dist/doc/fonts/stix2-type1/ot1-stix2text-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/ot1-stix2text-bolditalic.pl
+ texmf-dist/doc/fonts/stix2-type1/ot1-stix2text-italic.pl
+ texmf-dist/doc/fonts/stix2-type1/ot1-stix2text.pl
+ texmf-dist/doc/fonts/stix2-type1/ot1-stix2textsc-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/ot1-stix2textsc.pl
+ texmf-dist/doc/fonts/stix2-type1/ot2-stix2text-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/ot2-stix2text-bolditalic.pl
+ texmf-dist/doc/fonts/stix2-type1/ot2-stix2text-italic.pl
+ texmf-dist/doc/fonts/stix2-type1/ot2-stix2text.pl
+ texmf-dist/doc/fonts/stix2-type1/ot2-stix2textsc-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/ot2-stix2textsc.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathbb.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathbbit.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathcal.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathex.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathfrak-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathfrak.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathit-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathit.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathrm-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathrm.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathscr-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathscr.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathsf-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathsf.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathsfit-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathsfit.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2-mathtt.pl
+ texmf-dist/doc/fonts/stix2-type1/stix2.pdf details="Package documentation"
+ texmf-dist/doc/fonts/stix2-type1/t1-stix2text-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/t1-stix2text-bolditalic.pl
+ texmf-dist/doc/fonts/stix2-type1/t1-stix2text-italic.pl
+ texmf-dist/doc/fonts/stix2-type1/t1-stix2text.pl
+ texmf-dist/doc/fonts/stix2-type1/t1-stix2textsc-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/t1-stix2textsc.pl
+ texmf-dist/doc/fonts/stix2-type1/ts1-stix2text-bold.pl
+ texmf-dist/doc/fonts/stix2-type1/ts1-stix2text-bolditalic.pl
+ texmf-dist/doc/fonts/stix2-type1/ts1-stix2text-italic.pl
+ texmf-dist/doc/fonts/stix2-type1/ts1-stix2text.pl
+srccontainersize 28092
+srccontainerchecksum 5963bee636210eb89d31ea8d5954468fe9959429d516fb988c8ceab3c591f53b47a5a77df8f10d8e20f136adbf2fe23f546fa62b1768db7164ed74fcf706a228
+srcfiles size=52
+ texmf-dist/source/fonts/stix2-type1/stix2.dtx
+ texmf-dist/source/fonts/stix2-type1/stix2.fdd
+ texmf-dist/source/fonts/stix2-type1/stix2.ins
+runfiles size=930
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathbb.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathbbit.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathex.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathfrak-bold.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathfrak.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathit-bold.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathit.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathrm-bold.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathscr-bold.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathscr.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsf-bold.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsf.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsfit-bold.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsfit.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathtt.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ot1.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ot1sc.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ot2.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ot2sc.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-t1.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-t1sc.enc
+ texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc
+ texmf-dist/fonts/map/dvips/stix2-type1/stix2.map
+ texmf-dist/fonts/tfm/public/stix2-type1/ot1-stix2text-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot1-stix2text-bolditalic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot1-stix2text-italic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot1-stix2text.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot1-stix2textsc-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot1-stix2textsc.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot2-stix2text-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot2-stix2text-bolditalic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot2-stix2text-italic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot2-stix2text.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot2-stix2textsc-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ot2-stix2textsc.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathbb.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathbbit.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathcal.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathex.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathfrak-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathfrak.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathit-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathit.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathrm-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathrm.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathscr-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathscr.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathsf-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathsf.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathsfit-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathsfit.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathtt.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2text-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2text-bolditalic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2text-italic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2text.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2textsc-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2textsc.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ts1-stix2text-bold.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ts1-stix2text-bolditalic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ts1-stix2text-italic.tfm
+ texmf-dist/fonts/tfm/public/stix2-type1/ts1-stix2text.tfm
+ texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb
+ texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb
+ texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-BoldItalic.pfb
+ texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb
+ texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb
+ texmf-dist/tex/latex/stix2-type1/ls1stix2.fd
+ texmf-dist/tex/latex/stix2-type1/ls1stix2bb.fd
+ texmf-dist/tex/latex/stix2-type1/ls1stix2frak.fd
+ texmf-dist/tex/latex/stix2-type1/ls1stix2scr.fd
+ texmf-dist/tex/latex/stix2-type1/ls1stix2sf.fd
+ texmf-dist/tex/latex/stix2-type1/ls2stix2.fd
+ texmf-dist/tex/latex/stix2-type1/ls2stix2cal.fd
+ texmf-dist/tex/latex/stix2-type1/ls2stix2ex.fd
+ texmf-dist/tex/latex/stix2-type1/ls2stix2tt.fd
+ texmf-dist/tex/latex/stix2-type1/ot1stix2.fd
+ texmf-dist/tex/latex/stix2-type1/ot2stix2.fd
+ texmf-dist/tex/latex/stix2-type1/stix2.sty
+ texmf-dist/tex/latex/stix2-type1/t1stix2.fd
+ texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
+catalogue-also stickstoo
+catalogue-contact-bugs https://github.com/stipub/stixfonts/issues
+catalogue-contact-development https://github.com/stipub/stixfonts
+catalogue-contact-home http://www.stixfonts.org/
+catalogue-ctan /fonts/stix2-type1
+catalogue-license ofl lppl1.3
+catalogue-topics font font-type1 font-maths font-symbol-maths font-bbd font-body font-collection font-nonroman font-otf font-serif font-symbol font-supp font-supp-maths font-supp-symbol
+catalogue-version 2.0.2

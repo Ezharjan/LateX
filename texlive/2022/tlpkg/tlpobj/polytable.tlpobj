@@ -1,0 +1,27 @@
+name polytable
+category Package
+revision 55837
+shortdesc Tabular-like environments with named columns
+longdesc This package implements a variant of tabular-like environments
+longdesc where columns can be given a name and entries can flexibly be
+longdesc placed between arbitrary columns. Complex alignment-based
+longdesc layouts, for example for program code, are possible. The
+longdesc package depends on lazylist.
+containersize 6408
+containerchecksum 2ff55bb460357dc11b274ad3233e5ddd67fbfe05e60d25bcc69f1d06f9b0f247831cb5db4123b7ff859dfa88bd56fd5bdfc24aa992e98f5a17d0f883b40fcd2e
+doccontainersize 446940
+doccontainerchecksum 5bdc4a4c8f95255343fccb6db79da434a6b883e0e2a769eac5c8accbb6343d3f5b8de2fd465c5e229ca0ac3e9964fbd96c50062440970921ebf70f01a3097943
+docfiles size=111
+ texmf-dist/doc/latex/polytable/README details="Readme"
+ texmf-dist/doc/latex/polytable/polytable.pdf details="Package documentation"
+srccontainersize 21528
+srccontainerchecksum dc5c2c007012a4a57a20b569adf784afef0db7b22ae88ac91f54bcab5f8a25a3dbde48a118ff5090d806d42954ea28276ed2adbddfd974972012a645805d9fc3
+srcfiles size=22
+ texmf-dist/source/latex/polytable/polytable.dtx
+ texmf-dist/source/latex/polytable/polytable.ins
+runfiles size=7
+ texmf-dist/tex/latex/polytable/polytable.sty
+catalogue-ctan /macros/latex/contrib/polytable
+catalogue-license lppl
+catalogue-topics table
+catalogue-version 0.8.6

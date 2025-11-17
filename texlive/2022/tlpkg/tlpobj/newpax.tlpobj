@@ -1,0 +1,41 @@
+name newpax
+category Package
+revision 64415
+shortdesc Experimental package to extract and reinsert PDF annotations
+longdesc The package is based on the pax package from Heiko Oberdiek. It
+longdesc offers a lua-based alternative to the java based pax.jar to
+longdesc extract the annotations from a PDF. The resulting file can then
+longdesc be used together with pax.sty. It also offers an extended style
+longdesc which works with all three major engines.
+containersize 8836
+containerchecksum 0a7cd4311e9e77517e320d1ce1d3a8747e1f13a00a0fe98c72dd394047d56fe7cac81bb4a5562ff057d9052dae85201e8d783e21a3d55425580ec713e303ece9
+doccontainersize 63844
+doccontainerchecksum 1f0148baddf2d0c65456cfd5b1c8204f23574b7a3bc8d394f68cc63e0b397dd8517466f90a5fa5dbf3079c787a6955df44a52b330b67153a771b05543dc34d92
+docfiles size=101
+ texmf-dist/doc/latex/newpax/README.md details="Readme"
+ texmf-dist/doc/latex/newpax/doc-extract-newpax.tex
+ texmf-dist/doc/latex/newpax/doc-extract-pax.tex
+ texmf-dist/doc/latex/newpax/doc-input1.pdf
+ texmf-dist/doc/latex/newpax/doc-input1.tex
+ texmf-dist/doc/latex/newpax/doc-input2.pdf
+ texmf-dist/doc/latex/newpax/doc-input2.tex
+ texmf-dist/doc/latex/newpax/doc-use-newpax.pdf details="Documentation on Use"
+ texmf-dist/doc/latex/newpax/doc-use-newpax.tex
+ texmf-dist/doc/latex/newpax/doc-use-pax.pdf
+ texmf-dist/doc/latex/newpax/doc-use-pax.tex
+ texmf-dist/doc/latex/newpax/newpax.pdf details="Package documentation"
+ texmf-dist/doc/latex/newpax/newpax.tex
+srccontainersize 9040
+srccontainerchecksum 2469863c13b6b2db2d8f03929d52b7d92527e8194e91a90234ab10c588ecc0926155ac65ee297859fdc2cc96022ee4d34da675e2fa094181f77c0edf33830029
+srcfiles size=11
+ texmf-dist/source/latex/newpax/newpax.dtx
+ texmf-dist/source/latex/newpax/newpax.ins
+runfiles size=10
+ texmf-dist/tex/latex/newpax/newpax.lua
+ texmf-dist/tex/latex/newpax/newpax.sty
+catalogue-contact-repository https://github.com/u-fischer/newpax
+catalogue-contact-support https://github.com/u-fischer/newpax/issues
+catalogue-ctan /macros/latex/contrib/newpax
+catalogue-license lppl1.3c
+catalogue-topics luatex pdf-feat
+catalogue-version 0.53

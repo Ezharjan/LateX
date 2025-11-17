@@ -1,0 +1,31 @@
+name rmpage
+category Package
+revision 54080
+shortdesc A package to help change page layout parameters in LaTeX
+longdesc The package lets you change page layout parameters in small
+longdesc steps over a range of values using options. It can set
+longdesc \textwidth appropriately for the main fount, and ensure that
+longdesc the text fits inside the printable area of a printer. An
+longdesc rmpage-formatted document can be typeset identically without
+longdesc rmpage after a single cut and paste operation. Local
+longdesc configuration can set defaults: for all documents; and by
+longdesc class, by printer, and by paper size. The geometry package is
+longdesc better if you want to set page layout parameters to particular
+longdesc measurements.
+containersize 61812
+containerchecksum 13c05ff27a2b5979102c80bf30cda04d72fd144ecf43359cafd427417ed9f8921332a0cbba704061847c9f1d740f795ee1135f6ba2ba183311496884189e3fec
+doccontainersize 553688
+doccontainerchecksum e4de990151be0c984486b833b9f883d1f3412371fdbcc09900b89849b943800cb269fe0164695e95472b463bb4dc81b92fdc532dd59a9c3ba451fb961b89211e
+docfiles size=194
+ texmf-dist/doc/latex/rmpage/readme
+ texmf-dist/doc/latex/rmpage/rmpage-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/rmpage/rmpage-doc.tex
+ texmf-dist/doc/latex/rmpage/rmpage.tex
+ texmf-dist/doc/latex/rmpage/rmplocal.gfc
+runfiles size=66
+ texmf-dist/tex/latex/rmpage/rmpage.sty
+ texmf-dist/tex/latex/rmpage/rmpgen.cfg
+catalogue-ctan /macros/latex/contrib/rmpage
+catalogue-license gpl
+catalogue-topics geometry
+catalogue-version 0.92

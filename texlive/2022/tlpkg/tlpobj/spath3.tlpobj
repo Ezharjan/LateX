@@ -1,0 +1,39 @@
+name spath3
+category Package
+revision 57842
+shortdesc Manipulate "soft paths" in PGF
+longdesc The spath3 library provides methods for manipulating the "soft
+longdesc paths" of TikZ/PGF. Packaged with it are two TikZ libraries
+longdesc that make use of the methods provided. These are libraries for
+longdesc drawing calligraphic paths and for drawing knot diagrams.
+containersize 21472
+containerchecksum f6e1dde75534c8f29db02afca9ebbf288d55bfe3468aaab889ec8bac8519c2183026354a17a709accf9a7de6047e8cc4ce2be072dd5a5f27175a0259547af92b
+doccontainersize 1371428
+doccontainerchecksum fbc4ad198e31907bac75115e232aad20ea3e29d5485f17d199e20fda6fc721447b03c404aa664b4668ed588f8fac88d654a536087d6511363c5e95cef69f8ce3
+docfiles size=406
+ texmf-dist/doc/latex/spath3/README details="Readme"
+ texmf-dist/doc/latex/spath3/README.txt
+ texmf-dist/doc/latex/spath3/calligraphy.pdf details="Use for calligraphy"
+ texmf-dist/doc/latex/spath3/calligraphy.tex
+ texmf-dist/doc/latex/spath3/knots.pdf details="Use for knot (and similar) diagrams"
+ texmf-dist/doc/latex/spath3/knots.tex
+ texmf-dist/doc/latex/spath3/spath3.pdf
+ texmf-dist/doc/latex/spath3/spath3.tex
+ texmf-dist/doc/latex/spath3/spath3_code.pdf details="Package documentation"
+srccontainersize 31740
+srccontainerchecksum 173c53c0bfdbe07fa17326a14249e7df2b7a20be58b6e9f7572b075b5c38242443b161f038da9778b0fbf5d91ba71a3eb868b0f8105c0019ec7fa125ae8889c3
+srcfiles size=66
+ texmf-dist/source/latex/spath3/spath3_code.dtx
+ texmf-dist/source/latex/spath3/spath3_code.ins
+runfiles size=60
+ texmf-dist/tex/latex/spath3/spath3.sty
+ texmf-dist/tex/latex/spath3/tikzlibrarycalligraphy.code.tex
+ texmf-dist/tex/latex/spath3/tikzlibraryknots.code.tex
+ texmf-dist/tex/latex/spath3/tikzlibraryspath3.code.tex
+catalogue-contact-bugs https://github.com/loopspace/spath3/issues
+catalogue-contact-home https://github.com/loopspace/spath3
+catalogue-contact-repository https://github.com/loopspace/spath3
+catalogue-ctan /graphics/pgf/contrib/spath3
+catalogue-license lppl1.3c
+catalogue-topics pgf-tikz graphics-curve expl3
+catalogue-version 2.4

@@ -1,0 +1,55 @@
+name asmeconf
+category Package
+revision 64435
+shortdesc A LaTeX template for ASME conference papers
+longdesc The asmeconf class provides a LaTeX template for ASME
+longdesc conference papers, following ASME's guidelines for margins,
+longdesc fonts, headings, captions, and reference formats as of 2022.
+longdesc This LaTeX template is intended to be used with the
+longdesc asmeconf.bst BibTeX style, for reference formatting, which is
+longdesc part of this distribution. Unlike older ASME conference LaTeX
+longdesc templates, asmeconf pdfs will contain hyperlinks, bookmarks,
+longdesc and metadata; and the references can include the DOI and URL
+longdesc fields. This LaTeX template enables inline author names,
+longdesc following ASME's current style, but it can also produce the
+longdesc traditional grid style. Options include line numbering, final
+longdesc column balancing, various math options, government copyright,
+longdesc archivability (PDF/A), and multilingual support. The code is
+longdesc compatible with pdfLaTeX or LuaLaTeX. This LaTeX template is
+longdesc not a publication of ASME, but it does conform to ASME's
+longdesc currently published guidelines for conference papers.
+containersize 29172
+containerchecksum 31f5688bb7aff1357e21aaa4d883aeaaa6055c56dca8ed7a12aeb8fd5cbad746d48c12b9633f7337dbfb20e6891e6eafbe8392292ae96163f957c64eae936d8b
+doccontainersize 2655724
+doccontainerchecksum 9a77c31532fb1a7e8efe51d84773ff3b9815efb3c8002bad5395b78bda52822388ce9e23b1f5e7a20143ef054b102d9ce4aed1ae737a726a9ef696989b6e982e
+docfiles size=2099
+ texmf-dist/doc/latex/asmeconf/README.md details="Readme"
+ texmf-dist/doc/latex/asmeconf/asmeconf-sample.bib
+ texmf-dist/doc/latex/asmeconf/asmeconf-template.pdf details="Example of use"
+ texmf-dist/doc/latex/asmeconf/asmeconf-template.tex
+ texmf-dist/doc/latex/asmeconf/examples/CONTRACTOR-copyright-asmeconf-template.pdf
+ texmf-dist/doc/latex/asmeconf/examples/GOVT-copyright-asmeconf-template.pdf
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-authorgrid-example.pdf
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-authorgrid-example.tex
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-fontspec.pdf
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-fontspec.tex
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-lualatex-ode-example.pdf
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-lualatex-ode-example.tex
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-wide-equation-example/asmeconf-template-widetext.pdf
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-wide-equation-example/asmeconf-template-widetext.tex
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-wide-equation-example/asmewide.sty
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-wide-equation-example/tesseral-harmonic.pdf
+ texmf-dist/doc/latex/asmeconf/examples/asmeconf-wide-equation-example/zonal-harmonic2.pdf
+ texmf-dist/doc/latex/asmeconf/sample-figure-1.pdf
+ texmf-dist/doc/latex/asmeconf/sample-figure-2a.pdf
+ texmf-dist/doc/latex/asmeconf/sample-figure-2b.pdf
+runfiles size=34
+ texmf-dist/bibtex/bst/asmeconf/asmeconf.bst
+ texmf-dist/tex/latex/asmeconf/asmeconf.cls
+catalogue-contact-bugs https://github.com/John02139/asmeconf/issues
+catalogue-contact-repository https://github.com/John02139/asmeconf
+catalogue-contact-support https://github.com/John02139/asmeconf/issues
+catalogue-ctan /macros/latex/contrib/asmeconf
+catalogue-license mit
+catalogue-topics bibtex-sty class confproc engineering scientific-docs
+catalogue-version 1.32

@@ -1,0 +1,32 @@
+name hep-float
+category Package
+revision 61169
+shortdesc Convenience package for float placement
+longdesc The hep-float package redefines some LaTeX float placement
+longdesc defaults and defines convenience wrappers for floats. The
+longdesc package is loaded with \usepackage{hep-float}.
+containersize 1588
+containerchecksum 15fa9118c9ed26b4ae48ad98b4762893bdbfd41d95a71cafeb16b7b5af3fbf83a64a14bbe9400ec3fd24585d99b706513bede28c1e074321e17d7a20106b0cb4
+doccontainersize 446920
+doccontainerchecksum 3e91d4edd87a7fb517626eee0baa279b059731f6c5a9c745643214304da8593d2f2899bcbdcd2e1d195957f11e6895f667b63f83a68bd415561dd520a3cb6cfd
+docfiles size=160
+ texmf-dist/doc/latex/hep-float/README-hep-float.md
+ texmf-dist/doc/latex/hep-float/README.md details="Readme"
+ texmf-dist/doc/latex/hep-float/bibliography.bib
+ texmf-dist/doc/latex/hep-float/hep-float-documentation.pdf details="Package documentation"
+ texmf-dist/doc/latex/hep-float/hep-float-documentation.tex
+ texmf-dist/doc/latex/hep-float/hep-float-implementation.pdf details="Package implementation"
+ texmf-dist/doc/latex/hep-float/license.md
+srccontainersize 4300
+srccontainerchecksum 0a18700c119e829fd81d5956c4b31ac198c3a376f2fd9a8bc29779d4d4a923f1094f8e0e45abb8ffc330267f6b2ca450c5b185474f48ad71012b43dc784e0065
+srcfiles size=4
+ texmf-dist/source/latex/hep-float/hep-float-implementation.dtx
+ texmf-dist/source/latex/hep-float/hep-float.ins
+runfiles size=1
+ texmf-dist/tex/latex/hep-float/hep-float.sty
+catalogue-contact-bugs https://github.com/janhajer/hep-paper/issues
+catalogue-contact-repository https://github.com/janhajer/hep-paper
+catalogue-ctan /macros/latex/contrib/hep-float
+catalogue-license lppl1.3c
+catalogue-topics float
+catalogue-version 1.0

@@ -1,0 +1,33 @@
+name codebox
+category Package
+revision 61771
+shortdesc Highlighted source code in a fancy box
+longdesc This LaTeX3 package provides environments codebox and codeview
+longdesc to typset with an environment body, and macros \codefile and
+longdesc \cvfile to typeset programming source code from a file in a
+longdesc fancy box. Starred versions of these environments and macros
+longdesc are provided to add a comment at the bottom of the fancy box.
+longdesc The package is based on tcolorbox, minted, and listings.
+containersize 3640
+containerchecksum 04f63b435f360fdfa81bb7afeef38117a8a4b81b70562e21020470f49f33abc33038d6c55665a5ae4573ff61c19ed9120e824eb319ea97523fe1fa8e82ba9424
+doccontainersize 385704
+doccontainerchecksum 165fffcfbff35064a3c55a0fe1b095f3a45a5c01d1c8a8704cd151cbb20c440592edecc3be71900b1a7a5e7af28d6a8d6c4a3b9fd09f850c7da71362e2377ddd
+docfiles size=119
+ texmf-dist/doc/latex/codebox/README.md details="Readme"
+ texmf-dist/doc/latex/codebox/build.sh
+ texmf-dist/doc/latex/codebox/codebox-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/codebox/codebox-doc-en.tex
+ texmf-dist/doc/latex/codebox/codebox.dtx
+ texmf-dist/doc/latex/codebox/codebox.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/codebox/ctxdoc-en.cls
+ texmf-dist/doc/latex/codebox/hellojava.java
+ texmf-dist/doc/latex/codebox/hellopy.py
+ texmf-dist/doc/latex/codebox/test.c
+runfiles size=4
+ texmf-dist/tex/latex/codebox/codebox.sty
+catalogue-contact-bugs https://github.com/registor/codebox/issues
+catalogue-contact-repository https://github.com/registor/codebox
+catalogue-ctan /macros/latex/contrib/codebox
+catalogue-license lppl1.3c
+catalogue-topics boxing listing decoration synt-hlt expl3
+catalogue-version 1.0.4

@@ -1,0 +1,104 @@
+name forum
+category Package
+revision 56025
+shortdesc Forum fonts with LaTeX support
+longdesc This package provides LaTeX, pdfLaTeX, XeLaTeX and LuaLaTeX
+longdesc support for the Forum font, designed by Denis Masharov. Forum
+longdesc has antique, classic "Roman" proportions. It can be used to set
+longdesc body texts and works well in titles and headlines too. It is
+longdesc truly multilingual, with glyphs for Central and Eastern Europe,
+longdesc Baltics, Cyrillic and Asian Cyrillic communities. There is
+longdesc currently just a regular weight and an artificially emboldened
+longdesc bold.
+execute addMap forum.map
+containersize 675572
+containerchecksum fafb6f261a58546c717cd37dd0d5bc3f22b4342d28a62f6cb5dff8132993dc0a4081681e1ad2acdd96421b8d758b7079028b50507586e66dbd80fa6adb0cb180
+doccontainersize 27440
+doccontainerchecksum b4b86a30087dfb1d8a3fb2edc9535926717e07ce619ab7ecfd709b93abb1ed4535893bbc6a0b40c9dc93f16f5c556639f8875bc1ae8183e38715aa383efd6a29
+docfiles size=10
+ texmf-dist/doc/fonts/forum/OFL.txt
+ texmf-dist/doc/fonts/forum/README details="Readme"
+ texmf-dist/doc/fonts/forum/forum-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/forum/forum-samples.tex
+runfiles size=364
+ texmf-dist/fonts/enc/dvips/forum/frm_acf3pt.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_b5i5mx.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_brq6mf.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_e2otk2.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_fx2ufv.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_jsuphk.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_smvvub.enc
+ texmf-dist/fonts/enc/dvips/forum/frm_ylkcu6.enc
+ texmf-dist/fonts/map/dvips/forum/forum.map
+ texmf-dist/fonts/opentype/public/forum/Forum-Regular.otf
+ texmf-dist/fonts/opentype/public/forum/Frm-Bold.otf
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ly1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ot1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2a--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2a--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2a.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2b--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2b--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2b.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2c--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2c--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-t2c.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-Bold-lf-ts1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ly1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ot1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t1.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2a--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2a--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2a.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2b--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2b--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2b.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2c--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2c--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-t2c.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/forum/Frm-lf-ts1.tfm
+ texmf-dist/fonts/type1/public/forum/Frm-Bold.pfb
+ texmf-dist/fonts/type1/public/forum/Frm-BoldLCDFJ.pfb
+ texmf-dist/fonts/type1/public/forum/Frm.pfb
+ texmf-dist/fonts/type1/public/forum/FrmLCDFJ.pfb
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-ly1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-ot1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-t1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-t2a.vf
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-t2b.vf
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-t2c.vf
+ texmf-dist/fonts/vf/public/forum/Frm-Bold-lf-ts1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-ly1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-ot1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-t1.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-t2a.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-t2b.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-t2c.vf
+ texmf-dist/fonts/vf/public/forum/Frm-lf-ts1.vf
+ texmf-dist/tex/latex/forum/LY1Frm-LF.fd
+ texmf-dist/tex/latex/forum/OT1Frm-LF.fd
+ texmf-dist/tex/latex/forum/T1Frm-LF.fd
+ texmf-dist/tex/latex/forum/T2AFrm-LF.fd
+ texmf-dist/tex/latex/forum/T2BFrm-LF.fd
+ texmf-dist/tex/latex/forum/T2CFrm-LF.fd
+ texmf-dist/tex/latex/forum/TS1Frm-LF.fd
+ texmf-dist/tex/latex/forum/forum.sty
+catalogue-contact-home https://fonts.google.com/specimen/Forum
+catalogue-ctan /fonts/forum
+catalogue-license ofl lppl
+catalogue-topics font font-body font-serif font-proportional font-cyrillic font-multilingual font-otf font-type1 font-supp font-t1enc

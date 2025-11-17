@@ -1,0 +1,27 @@
+name xcntperchap
+category Package
+revision 54080
+shortdesc Track the number of subsections etc. that occur in a specified tracklevel
+longdesc This package is the successor of cntperchap and allows to
+longdesc provide more tracklevels than just only one.
+containersize 3300
+containerchecksum 7be16f92de86fe67fd34857f7151f197e5ae52e9ab944e0ef3603882585dfb240b8e01072747b18092c6ff060f2f4c341b27e106ffe8864dd1879c3965435e47
+doccontainersize 344160
+doccontainerchecksum c7d25df1dbac57e05b589662214e46ba446def465ae7f64d8a2d52283151ee04aaee93ac1bbe0f2c7b01c50e505ca6c1cfac96750d1b13211d309a906427c6f6
+docfiles size=102
+ texmf-dist/doc/latex/xcntperchap/README details="Readme"
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_basicusage.pdf
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_basicusage.tex
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_doc.tex
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_driver.pdf
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_driver.tex
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_labelusage.pdf
+ texmf-dist/doc/latex/xcntperchap/xcntperchap_labelusage.tex
+runfiles size=3
+ texmf-dist/tex/latex/xcntperchap/xcntperchap.sty
+catalogue-also cntperchap
+catalogue-ctan /macros/latex/contrib/xcntperchap
+catalogue-license lppl1.3
+catalogue-topics counter-mgmt macro-supp
+catalogue-version 0.5

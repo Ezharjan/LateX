@@ -1,0 +1,29 @@
+name schooldocs
+category Package
+revision 61719
+shortdesc Various layout styles for school documents
+longdesc The purpose of this package is to provide several layout styles
+longdesc for school documents. It is useful for exercise sheets, exams,
+longdesc course materials. The package sets the page geometry
+longdesc (dimensions of text and margins) and the title typesetting; the
+longdesc various styles define the header, footer and title formatting.
+longdesc Many features are freely configurable.
+containersize 3048
+containerchecksum 41c980670fb57b6758aadf3f77e9de1795060bf667e74dc20d6fdc1d0dbab801a8e7d5c75fc303c28f53b24cd42e80ff580e8b79c329d4440011cbcfa7425f73
+doccontainersize 905936
+doccontainerchecksum aeb5a6485099437bc556d3a78d900b48013082a4948d903d797e594161f22c705bb5225a31a2b12e3d5ca3d741566c3a30c081b988ed8eb92ef0af9bd584cc7e
+docfiles size=226
+ texmf-dist/doc/latex/schooldocs/README.md details="Readme"
+ texmf-dist/doc/latex/schooldocs/schooldocs-examples.pdf details="Example of use"
+ texmf-dist/doc/latex/schooldocs/schooldocs.pdf details="Package documentation"
+srccontainersize 10412
+srccontainerchecksum d9fb7e94ee08c48bdee1f8344fe9f632876cc17de8d4505c1aa899774632e3ea8eca80889cad3edaaaa1a5672861aded9a9d2bff0255a8bd1d2f1ccf00861a63
+srcfiles size=11
+ texmf-dist/source/latex/schooldocs/schooldocs.dtx
+ texmf-dist/source/latex/schooldocs/schooldocs.ins
+runfiles size=4
+ texmf-dist/tex/latex/schooldocs/schooldocs.sty
+catalogue-ctan /macros/latex/contrib/schooldocs
+catalogue-license lppl1.3
+catalogue-topics exercise exam course-material
+catalogue-version 1.1

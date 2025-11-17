@@ -1,0 +1,39 @@
+name nwafuthesis
+category Package
+revision 63438
+shortdesc A thesis template package for Northwest A&F University, China
+longdesc This template supports doctoral and master dissertations and
+longdesc undergraduate theses in Chinese. With the help of modern LaTeX3
+longdesc technology, nwafuthesis aims to create a simple interface, a
+longdesc normative format, as well as a hackable class for the users. At
+longdesc present, nwafuthesis only supports XeTeX and LuaTeX engines.
+longdesc nwafuthesis only allows UTF-8 encoding. nwafuthesis is based on
+longdesc the fduthesis template.
+containersize 19760
+containerchecksum fb446200dd57be37bca4e526506124bcfe3c35c3af452cbe542bf3f5e7c56f3108d5482131641a9bb8b379c4aa713152fdc13ee9f1aedb6a97c545328c0f04a1
+doccontainersize 2263888
+doccontainerchecksum 009615c925755952d8a26a8d51f6d8d066b644a9168e241b339a137e56365bb17452016c8befe3fa3dbdccf6ae68daea3f29b99ae8d8c8e50e8028570620da2f
+docfiles size=982
+ texmf-dist/doc/latex/nwafuthesis/README.md details="Readme"
+ texmf-dist/doc/latex/nwafuthesis/logo/building.jpg
+ texmf-dist/doc/latex/nwafuthesis/logo/motto.png
+ texmf-dist/doc/latex/nwafuthesis/logo/nwafu-bar.pdf
+ texmf-dist/doc/latex/nwafuthesis/logo/nwafu-circle.pdf
+ texmf-dist/doc/latex/nwafuthesis/logo/workflow.pdf
+ texmf-dist/doc/latex/nwafuthesis/nwafudoc.cls
+ texmf-dist/doc/latex/nwafuthesis/nwafuthesis.pdf details="Package documentation" language="zh"
+srccontainersize 62492
+srccontainerchecksum d2544ff7f20410b3f84459776d5f5b29c0b0b88e3cd9a1da6f3280f6e536996ca04c15cfb831c859b2c7a95d9bc8c93ca45b4a5fd3967d9c5b4d49969b9e7c06
+srcfiles size=85
+ texmf-dist/source/latex/nwafuthesis/build-win.bat
+ texmf-dist/source/latex/nwafuthesis/build.sh
+ texmf-dist/source/latex/nwafuthesis/nwafuthesis-doc.dtx
+ texmf-dist/source/latex/nwafuthesis/nwafuthesis.dtx
+runfiles size=33
+ texmf-dist/tex/latex/nwafuthesis/nwafuthesis.cls
+catalogue-contact-bugs https://gitee.com/nwafu_nan/nwafuthesis-l3/issues
+catalogue-contact-repository https://gitee.com/nwafu_nan/nwafuthesis-l3
+catalogue-ctan /macros/unicodetex/latex/nwafuthesis
+catalogue-license lppl1.3c
+catalogue-topics class doc-templ dissertation chinese expl3
+catalogue-version 1.15

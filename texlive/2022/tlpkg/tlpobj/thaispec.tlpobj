@@ -1,0 +1,29 @@
+name thaispec
+category Package
+revision 58019
+shortdesc Thai Language Typesetting in XeLaTeX
+longdesc This package allows you to input Thai characters directly to
+longdesc LaTeX documents and choose any (system wide) Thai fonts for
+longdesc typesetting in XeLaTeX. It also tries to appropriately justify
+longdesc paragraphs with no more external tools. Required packages are
+longdesc fontspec, ucharclasses, polyglossia, setspace, kvoptions,
+longdesc xstring, and xpatch.
+containersize 3240
+containerchecksum 02434f56fcc8ab499b4f80439fe9099d5dedef00d6dd295dfc47644a7b1397486a419e1ae2b89a0aefd9cb3a093974158a72a2eb2921d25df3231a7628897968
+doccontainersize 86548
+doccontainerchecksum 26b88ea1b87d8391b8864011449116df3fccbbb978aa76e6cc51dfa893eac87851ee10b1320350de57103b80c6bfb30ca97dd1cdf13014157ea35eaff780843b
+docfiles size=23
+ texmf-dist/doc/latex/thaispec/README.md details="Readme"
+ texmf-dist/doc/latex/thaispec/thaispec.pdf details="Package documentation (Thai)" language="th"
+srccontainersize 7068
+srccontainerchecksum e79096902654f302311ab531f8ead3ab9852323ed774fd217aff94c0e1ce456c01a5d8a28854b7c5d65d0274318a22cacd4dc04a00498eaacd92f538f20f6013
+srcfiles size=7
+ texmf-dist/source/latex/thaispec/thaispec.dtx
+ texmf-dist/source/latex/thaispec/thaispec.ins
+runfiles size=3
+ texmf-dist/tex/latex/thaispec/thaispec.sty
+catalogue-contact-home https://github.com/epsilonxe/LaTeX/tree/master/package/thaispec
+catalogue-ctan /language/thai/thaispec
+catalogue-license lppl1.3
+catalogue-topics thai xetex
+catalogue-version 2021.03.01

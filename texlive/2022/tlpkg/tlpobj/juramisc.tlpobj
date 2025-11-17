@@ -1,0 +1,31 @@
+name juramisc
+category Package
+revision 15878
+shortdesc Typesetting German juridical documents
+longdesc A collection of classes for typesetting court sentences, legal
+longdesc opinions, books and dissertations for German lawyers. A
+longdesc jurabook class is also provided, which may not yet be complete.
+containersize 24848
+containerchecksum cbf6ebe12bf72dfb823578ed49066f34059e5ab1beefe0eeee84c7df55135644eabdea7582dc848b52cd575579d8807a2a2723bdb697e851eb8aef88f8a5e533
+doccontainersize 1142256
+doccontainerchecksum 3925418b9e4d05def76b9e0ebcf882c4b7061ff7ae446aa63d412c093caa04536ad45c757e04e088c3b4099c569885c6e6708ad31b866ebe89ecabb8395964b2
+docfiles size=469
+ texmf-dist/doc/latex/juramisc/README details="Package README" language="de"
+ texmf-dist/doc/latex/juramisc/doc/jbook/jbook.dtx
+ texmf-dist/doc/latex/juramisc/doc/jbook/jbook.ins
+ texmf-dist/doc/latex/juramisc/doc/jmgerdoc.pdf details="Package documentation" language="de"
+ texmf-dist/doc/latex/juramisc/doc/jmgerdoc.tex
+ texmf-dist/doc/latex/juramisc/doc/jmgerdoc_scr.pdf
+runfiles size=31
+ texmf-dist/tex/latex/juramisc/jbgoe.clo
+ texmf-dist/tex/latex/juramisc/jbstgallen.clo
+ texmf-dist/tex/latex/juramisc/jbtrier.clo
+ texmf-dist/tex/latex/juramisc/jurabase.sty
+ texmf-dist/tex/latex/juramisc/jurabook.cls
+ texmf-dist/tex/latex/juramisc/juraovw.cls
+ texmf-dist/tex/latex/juramisc/juraurtl.cls
+catalogue-also jura alphanum alnumsec jurabib
+catalogue-ctan /macros/latex/contrib/juramisc
+catalogue-license lppl
+catalogue-topics legal book-pub class german
+catalogue-version 0.91

@@ -1,0 +1,26 @@
+name willowtreebook
+category Package
+revision 60638
+shortdesc Easy basic book class, built on memoir
+longdesc The willowtreebook class is a simple book class, which the
+longdesc author uses for his lecture notes to be found on his web page
+longdesc Benjamin McKay. It actually just selects options for the more
+longdesc sophisticated memoir class.
+containersize 6300
+containerchecksum 835b19d0927b01e4acf9da483148d3fa45b1c12eecebe39802ee4bab7426843710dd67306b2a8946c9c2b51d4c1864eb054f440c3ea021ae124bbeb6e4908b33
+doccontainersize 24230688
+doccontainerchecksum 9e5fddf4765325a550e6dbea529d110bbbfbcdf89e1dafcfe62099a4e8fa6ce2bf3384ef9e1b2453f1155b6e6d3f48d1d1675100c8295362653aaabec35aaf86
+docfiles size=5982
+ texmf-dist/doc/latex/willowtreebook/README details="Readme"
+ texmf-dist/doc/latex/willowtreebook/notation.gst
+ texmf-dist/doc/latex/willowtreebook/willow.jpg
+ texmf-dist/doc/latex/willowtreebook/willowtreebook.bib
+ texmf-dist/doc/latex/willowtreebook/willowtreebook.pdf details="Package documentation"
+ texmf-dist/doc/latex/willowtreebook/willowtreebook.tex
+runfiles size=5
+ texmf-dist/tex/latex/willowtreebook/willowtreebook.cls
+catalogue-also memoir
+catalogue-ctan /macros/latex/contrib/willowtreebook
+catalogue-license lppl1.3c
+catalogue-topics class book-pub
+catalogue-version 1.03

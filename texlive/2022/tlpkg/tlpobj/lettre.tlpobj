@@ -1,0 +1,53 @@
+name lettre
+category Package
+revision 54722
+shortdesc Letters and faxes in French
+longdesc Developed from the ancestor of the standard letter class, at
+longdesc the Observatoire de Geneve.
+containersize 25428
+containerchecksum 308dc21e8be8d8f6952eadf9b5e9002fe32e8ea3b79ba679606badef75ae346721270e85e3fbcd269ee86b9ae049390164c57cfd73d7f2efe22fe82c7466a813
+doccontainersize 1005116
+doccontainerchecksum 9962763ae46836874eccf4ea5a2dd695eaa1ab890224d6a54e83670618e2cae4a917fb6bf05610c5104f4d241e0163e079628e79ddad3edf374b513cf6a457f6
+docfiles size=371
+ texmf-dist/doc/latex/lettre/3.002-release-notes.txt
+ texmf-dist/doc/latex/lettre/ALIRE details="Readme (French)" language="fr"
+ texmf-dist/doc/latex/lettre/README details="Readme"
+ texmf-dist/doc/latex/lettre/amgmono.mps
+ texmf-dist/doc/latex/lettre/ecusson55.mps
+ texmf-dist/doc/latex/lettre/latexmkrc
+ texmf-dist/doc/latex/lettre/letdoc.ist
+ texmf-dist/doc/latex/lettre/letex1.tex
+ texmf-dist/doc/latex/lettre/letex2.tex
+ texmf-dist/doc/latex/lettre/letex3.tex
+ texmf-dist/doc/latex/lettre/letex4.tex
+ texmf-dist/doc/latex/lettre/letex5.tex
+ texmf-dist/doc/latex/lettre/letex6.tex
+ texmf-dist/doc/latex/lettre/letex7.tex
+ texmf-dist/doc/latex/lettre/letex8.tex
+ texmf-dist/doc/latex/lettre/lettre-languages.tex
+ texmf-dist/doc/latex/lettre/lettre-path.tex
+ texmf-dist/doc/latex/lettre/lettre-sondes.tex
+ texmf-dist/doc/latex/lettre/lettre.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/lettre/lettre.tex
+ texmf-dist/doc/latex/lettre/testfaxd.tex
+ texmf-dist/doc/latex/lettre/testfaxe.tex
+ texmf-dist/doc/latex/lettre/testfaxf.tex
+runfiles size=35
+ texmf-dist/tex/latex/lettre/lettre-USenglish.ldf
+ texmf-dist/tex/latex/lettre/lettre-amg.cfg
+ texmf-dist/tex/latex/lettre/lettre-default.cfg
+ texmf-dist/tex/latex/lettre/lettre-english.ldf
+ texmf-dist/tex/latex/lettre/lettre-french.ldf
+ texmf-dist/tex/latex/lettre/lettre-german.ldf
+ texmf-dist/tex/latex/lettre/lettre-institut.tpl
+ texmf-dist/tex/latex/lettre/lettre-obs.cfg
+ texmf-dist/tex/latex/lettre/lettre-romand.ldf
+ texmf-dist/tex/latex/lettre/lettre-telefax.tpl
+ texmf-dist/tex/latex/lettre/lettre.cls
+ texmf-dist/tex/latex/lettre/lettre.tpl
+catalogue-contact-bugs https://puszcza.gnu.org.ua/bugs/?group=latex-lettre
+catalogue-contact-home https://puszcza.gnu.org.ua/projects/latex-lettre
+catalogue-ctan /macros/latex/contrib/lettre
+catalogue-license lppl1.3
+catalogue-topics class letter french
+catalogue-version 3.002

@@ -1,0 +1,31 @@
+name tile-graphic
+category Package
+revision 55325
+shortdesc Create tiles of a graphical file
+longdesc This package breaks a given graphical file into n rows and m
+longdesc columns of subgraphics, which are called tiles. The tiles can
+longdesc be written separately to individual PDF files, or packaged into
+longdesc a single PDF file.
+containersize 3700
+containerchecksum b6235459600c5c8bc683c9fe778bf864f5ab3dfcc8c15afd7b997c45f349f05b57ded236daeeef1e6bbbb7e535a4f203625344a35d6e4de401c082a937090cfb
+doccontainersize 6503612
+doccontainerchecksum c945ece6ed1b83f4fd8923dd74d0c961c907071fd5d33feda3ea514beeb8b85878dc63011ba73edd1d4a62799ee2555cafe7d4c866d55d160c7e97168ab16038
+docfiles size=2449
+ texmf-dist/doc/latex/tile-graphic/README.md details="Readme"
+ texmf-dist/doc/latex/tile-graphic/docs/tile-graphic.pdf details="Package documentation"
+ texmf-dist/doc/latex/tile-graphic/examples/choo/choo.pdf
+ texmf-dist/doc/latex/tile-graphic/examples/create-tg.tex
+ texmf-dist/doc/latex/tile-graphic/examples/flowers.pdf
+ texmf-dist/doc/latex/tile-graphic/examples/postscript/flowers.eps
+ texmf-dist/doc/latex/tile-graphic/examples/postscript/flowers.pdf
+ texmf-dist/doc/latex/tile-graphic/tg.cfg.txt
+srccontainersize 13648
+srccontainerchecksum 8334012b871abc58eb44f3b20f76d1afb2764f07be12b7122c81e5ab627a14fe2221596756868523ab8c6b11e0e7f4aba0b9740efbb221e569ab1889141b250c
+srcfiles size=13
+ texmf-dist/source/latex/tile-graphic/tile-graphic.dtx
+ texmf-dist/source/latex/tile-graphic/tile-graphic.ins
+runfiles size=3
+ texmf-dist/tex/latex/tile-graphic/tile-graphic.sty
+catalogue-ctan /macros/latex/contrib/tile-graphic
+catalogue-license lppl1.2
+catalogue-topics graphics-subpic

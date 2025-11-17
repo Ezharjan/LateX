@@ -1,0 +1,30 @@
+name yfonts-otf
+category Package
+revision 64075
+shortdesc OpenType version of the Old German fonts designed by Yannis Haralambous
+longdesc This is an OpenType version of the Old German fonts yfrak,
+longdesc ygoth, yswab designed by Yannis Haralambous in Metafont. The
+longdesc OpenType features make it easier to deal with the long/round s
+longdesc and with older forms of umlauts (small e over the letter). A
+longdesc style file yfonts-otf.sty is provided as a replacement, for
+longdesc LuaLaTeX and XeLaTeX, of yfonts.sty or oldgerm.sty.
+containersize 53544
+containerchecksum b5187c07d5e6fb3ef29dbff559deb9653bb59d0f890a1f85aac05440062fe9c4fe0845f8c865186c53b31169a2ffbcb78a7276d79ef09ee1a03242290674029a
+doccontainersize 149860
+doccontainerchecksum 611232457204c61f8bbc2970c7bbc1c0ebd057ae70e16d5d7378757b88da2fd03ebdfcd82cae1fe22a2f1280a60b3b78f54c4f6277e273a1c8a6570d53d2474a
+docfiles size=42
+ texmf-dist/doc/fonts/yfonts-otf/Erlkonig.ltx
+ texmf-dist/doc/fonts/yfonts-otf/Erlkonig.pdf details="Example of use"
+ texmf-dist/doc/fonts/yfonts-otf/README.md details="Readme"
+ texmf-dist/doc/fonts/yfonts-otf/yfonts-otf.ltx
+ texmf-dist/doc/fonts/yfonts-otf/yfonts-otf.pdf details="Package documentation"
+runfiles size=35
+ texmf-dist/fonts/opentype/public/yfonts-otf/yfrak.otf
+ texmf-dist/fonts/opentype/public/yfonts-otf/ygoth.otf
+ texmf-dist/fonts/opentype/public/yfonts-otf/yswab.otf
+ texmf-dist/tex/latex/yfonts-otf/oldgerm-otf.sty
+ texmf-dist/tex/latex/yfonts-otf/yfonts-otf.sty
+catalogue-ctan /fonts/yfonts-otf
+catalogue-license ofl lppl1.3
+catalogue-topics font font-otf font-gothic font-supp
+catalogue-version 0.40

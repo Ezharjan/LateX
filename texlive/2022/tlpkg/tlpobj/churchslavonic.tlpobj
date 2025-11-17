@@ -1,0 +1,38 @@
+name churchslavonic
+category Package
+revision 42751
+shortdesc Typeset documents in Church Slavonic language using Unicode
+longdesc The package provides fonts, hyphenation patterns, and
+longdesc supporting macros to typeset Church Slavonic texts. It depends
+longdesc on the following other packages: fonts-churchslavonic,
+longdesc hyph-utf8, intcalc, etoolbox, and xcolor.
+depend etoolbox
+depend fonts-churchslavonic
+depend hyphen-churchslavonic
+depend oberdiek
+depend xcolor
+containersize 7036
+containerchecksum 6c572235b95bb1f8407addefdefa1d7d3facc09b963f4d65d2be317986eb6523db9a8ff7104f15c526962ea8fbd0e1430b68867bf619cebc9b494f5cc04bfb07
+doccontainersize 176072
+doccontainerchecksum 90d563afc8248ded0ea4f30ff685e2fd9da8dec7ea92a3d4313040905be883af3f11393a031ec85ad39e9e51d374557e0f1f373a78caf855d2048fc4e0393e37
+docfiles size=58
+ texmf-dist/doc/latex/churchslavonic/LICENSE
+ texmf-dist/doc/latex/churchslavonic/README details="Readme"
+ texmf-dist/doc/latex/churchslavonic/churchslavonic-en.pdf details="Package documentation"
+ texmf-dist/doc/latex/churchslavonic/churchslavonic-en.tex
+ texmf-dist/doc/latex/churchslavonic/churchslavonic-ru.pdf details="Package documentation" language="ru"
+ texmf-dist/doc/latex/churchslavonic/churchslavonic-ru.tex
+ texmf-dist/doc/latex/churchslavonic/churchslavonic.tex
+runfiles size=11
+ texmf-dist/tex/latex/churchslavonic/churchslavonic.sty
+ texmf-dist/tex/latex/churchslavonic/cu-calendar.sty
+ texmf-dist/tex/latex/churchslavonic/cu-kinovar.sty
+ texmf-dist/tex/latex/churchslavonic/cu-num.sty
+ texmf-dist/tex/latex/churchslavonic/cu-util.sty
+ texmf-dist/tex/latex/churchslavonic/gloss-churchslavonic.ldf
+catalogue-also fonts-churchslavonic
+catalogue-contact-repository https://github.com/slavonic/cu-tex
+catalogue-ctan /language/churchslavonic
+catalogue-license mit
+catalogue-topics churchslavonic multilingual-addon
+catalogue-version 0.2.1

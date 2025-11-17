@@ -1,0 +1,33 @@
+name annee-scolaire
+category Package
+revision 55988
+shortdesc Automatically typeset the academic year (French way)
+longdesc This package provides a macro \anneescolaire to automatically
+longdesc write the academic year in the French way, according to the
+longdesc date of compilation, two other macros to obtain the first and
+longdesc the second calendar year of the academic year, a macro to be
+longdesc redefined to change the presentation of the years.
+containersize 1404
+containerchecksum 73158727d9c5da0b28fe71661c72a8d1faa705034be8cd10ae36abc266240958cdf0dac962926a96ce445be187016d8440b7aded3129de6fff814ceb6366beb6
+doccontainersize 1134124
+doccontainerchecksum 3e02616de1f5d55837511eb2b1edaa571b6686192433941e1412d812588fede1eb8a8d160b724d1fb8ef8f369cbecd401d1bcd09d4692a79b182ce5bccfb6021
+docfiles size=345
+ texmf-dist/doc/latex/annee-scolaire/LISEZMOI.md
+ texmf-dist/doc/latex/annee-scolaire/MANIFEST.md
+ texmf-dist/doc/latex/annee-scolaire/README.md details="Readme"
+ texmf-dist/doc/latex/annee-scolaire/annee-scolaire-eng.pdf details="User guide"
+ texmf-dist/doc/latex/annee-scolaire/annee-scolaire-eng.tex
+ texmf-dist/doc/latex/annee-scolaire/annee-scolaire-fra.pdf details="Guide de l'utilisateur" language="fr"
+ texmf-dist/doc/latex/annee-scolaire/annee-scolaire-fra.tex
+ texmf-dist/doc/latex/annee-scolaire/annee-scolaire.pdf details="Code documentation"
+srccontainersize 5896
+srccontainerchecksum 2e0e2a08820a7826fc6e58dc97ee9587818bdd62d0eb046982dd1f8a676df705e5bb87cfaabf7e260089d71ede1f597b0afd92b69616c0047d64983d919da50c
+srcfiles size=6
+ texmf-dist/source/latex/annee-scolaire/annee-scolaire.dtx
+ texmf-dist/source/latex/annee-scolaire/annee-scolaire.ins
+runfiles size=1
+ texmf-dist/tex/latex/annee-scolaire/annee-scolaire.sty
+catalogue-ctan /macros/latex/contrib/annee-scolaire
+catalogue-license lppl1.3c
+catalogue-topics calendar expl3
+catalogue-version 1.6

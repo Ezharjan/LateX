@@ -1,0 +1,29 @@
+name makerobust
+category Package
+revision 52811
+shortdesc Making a macro robust (legacy package)
+longdesc Heiko Oberdiek's makerobust package defined a command with name
+longdesc \MakeRobustCommand that could be used to make fragile commands
+longdesc robust. The LaTeX format has, since 2015, included a command
+longdesc \MakeRobust with the same syntax and behaviour. Also by 2019,
+longdesc almost all commands in LaTeX that may be used in a moving
+longdesc argument are already robust. This package is now just a simple
+longdesc one-liner defining the name \MakeRobustCommand as an alias for
+longdesc \MakeRobust. This package should not be used in any new
+longdesc documents.
+containersize 1036
+containerchecksum 502b4dd65ae3535a2519c696b8b2ef73b3eb8f19d20af7dce94e24c8f718f827e55ddf7ff229bfc0810ab8747c94720cc7a66335a7d44065d0a0ac6b156a683e
+doccontainersize 66632
+doccontainerchecksum 4503551b0085c7c829d41042083209bc02dfd2391f99cf0fabafb363e288a455e51273bf0f9d4ff5a5fe17050fb5288a7835742e06865407b8400c88244f4e6e
+docfiles size=19
+ texmf-dist/doc/latex/makerobust/README.md details="Readme"
+ texmf-dist/doc/latex/makerobust/makerobust.pdf details="Package documentation" language="en"
+ texmf-dist/doc/latex/makerobust/makerobust.tex
+runfiles size=1
+ texmf-dist/tex/latex/makerobust/makerobust.sty
+catalogue-contact-bugs https://github.com/ho-tex/makerobust/issues
+catalogue-contact-repository https://github.com/ho-tex/makerobust
+catalogue-ctan /macros/latex/contrib/makerobust
+catalogue-license lppl1.3c
+catalogue-topics macro-supp
+catalogue-version 2.0

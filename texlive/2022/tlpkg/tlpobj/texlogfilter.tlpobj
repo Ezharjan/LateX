@@ -1,0 +1,28 @@
+name texlogfilter
+category Package
+revision 62792
+shortdesc Filter LaTeX engines output or log file
+longdesc texlogfilter is a Perl script designed to filter LaTeX engines
+longdesc output or log file (LaTeX, pdfLaTeX, LuaLaTeX or XeLaTeX). It
+longdesc reduces the LaTeX output or log to keep only warnings and
+longdesc errors. The result is colorised. Options allow to mask specific
+longdesc warnings, such as box or references/citations warnings. It's
+longdesc also possible to add custom filter patterns.
+depend texlogfilter.ARCH
+containersize 3716
+containerchecksum 8012a0cca2e408c60a5ead5d59af92ba4befffe184f298ba16f6b57f1487d1e4cb22301a88d61748c8db0fca444bf861e01dbae5335aabaeb2c25e3f94f1ff8d
+doccontainersize 31060
+doccontainerchecksum 76fbce938945ebfd6bfb78022219fe217b7e6f0ae3c298e1bd9d0c570bfff1100d34034475f2577a9676e01a5bf64428664bb5cce4fd65c7d0cd350c9f156d5f
+docfiles size=16
+ texmf-dist/doc/man/man1/texlogfilter.1
+ texmf-dist/doc/man/man1/texlogfilter.man1.pdf
+ texmf-dist/doc/support/texlogfilter/LICENSE
+ texmf-dist/doc/support/texlogfilter/README details="Readme"
+ texmf-dist/doc/support/texlogfilter/texlogfilter.html details="Package documentation"
+runfiles size=3
+ texmf-dist/scripts/texlogfilter/texlogfilter
+catalogue-contact-home https://gricad-gitlab.univ-grenoble-alpes.fr/labbeju/latex-packages/
+catalogue-ctan /support/texlogfilter
+catalogue-license lppl1.3
+catalogue-topics log-manip
+catalogue-version 1.1

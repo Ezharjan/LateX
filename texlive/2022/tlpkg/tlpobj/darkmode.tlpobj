@@ -1,0 +1,32 @@
+name darkmode
+category Package
+revision 64271
+shortdesc General Dark Mode Support for LaTeX-Documents
+longdesc This package provides an API for template and package
+longdesc developers to create dynamic color schemes for light- and
+longdesc darkmodes. For those unaware: We refer to dark mode when a
+longdesc document has a dark background with a light font and to light
+longdesc mode if it has a dark font with a light background.
+containersize 1508
+containerchecksum f844ce29d5147d9a558f257bfd1a6c32f2f1de1fcca4f3319d22528da052fc228e61606623820fe078db208509774dfc87dcd82058a2e744e703d03edc0bdec1
+doccontainersize 753688
+doccontainerchecksum db103f2257b3d844592ba12c0e2c22d6ae97e8dc5e47521392ddd59951d9f9a56004d0891f0a5e84d511ec2043f1fa26c4cca4ddfa23ef7abea39637e6d54a99
+docfiles size=243
+ texmf-dist/doc/latex/darkmode/README.md details="Readme"
+ texmf-dist/doc/latex/darkmode/darkmode-code.pdf details="Package documentation"
+ texmf-dist/doc/latex/darkmode/darkmode-code.tex
+ texmf-dist/doc/latex/darkmode/darkmode.pdf
+ texmf-dist/doc/latex/darkmode/darkmode.tex
+srccontainersize 3624
+srccontainerchecksum 39a760fd973d56c94f60026906597bf74b57ddc8a0bdb913856a06358b849999e7f7c49c54e102160771e599bc3177da5788651f48abaffceb14d9e77465ac0b
+srcfiles size=4
+ texmf-dist/source/latex/darkmode/darkmode.dtx
+ texmf-dist/source/latex/darkmode/darkmode.ins
+runfiles size=1
+ texmf-dist/tex/latex/darkmode/darkmode.sty
+catalogue-contact-bugs https://github.com/Rdeisenroth/darkmode-latex-package/issues
+catalogue-contact-repository https://github.com/Rdeisenroth/darkmode-latex-package
+catalogue-ctan /macros/latex/contrib/darkmode
+catalogue-license lppl1.3
+catalogue-topics colour expl3
+catalogue-version 1.0.1

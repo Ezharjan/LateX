@@ -1,0 +1,58 @@
+name tkz-base
+category Package
+revision 63906
+shortdesc Tools for drawing with a cartesian coordinate system
+longdesc The bundle is a set of packages, designed to give mathematics
+longdesc teachers (and students) easy access to programming of drawings
+longdesc with TikZ.
+containersize 16328
+containerchecksum 76699c858692579d33dab40e0ff6ef29c01ce83285a1d6bf01029c0b80b10c506fc4bc7083ff5bef8b39acf05ec2d3e09e8570a40d6e63b3b71a93ea9654cc9e
+doccontainersize 373136
+doccontainerchecksum 1c68d5a509691a941b026fdd4994e35ff87fdfed6a31777bac4b66c44bd1b7d8869f0d284ab4d9c787c84e24bc90891f3abef1ec86064bd8fd4570b6fc7ed760
+docfiles size=133
+ texmf-dist/doc/latex/tkz-base/README.md details="Readme"
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-BB.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-axes.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-compilation.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-divers.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-example.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-faq.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-grid.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-initialisation.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-installation.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-main.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-marks.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-news.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-obj.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-point.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-rep.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-style.tex
+ texmf-dist/doc/latex/tkz-base/TKZdoc-base-texte.tex
+ texmf-dist/doc/latex/tkz-base/tiger.pdf
+ texmf-dist/doc/latex/tkz-base/tkz-base.pdf details="Package documentation" language="fr"
+runfiles size=31
+ texmf-dist/tex/latex/tkz-base/tkz-base.cfg
+ texmf-dist/tex/latex/tkz-base/tkz-base.sty
+ texmf-dist/tex/latex/tkz-base/tkz-lib-marks.tex
+ texmf-dist/tex/latex/tkz-base/tkz-lib-shape.tex
+ texmf-dist/tex/latex/tkz-base/tkz-obj-axes.tex
+ texmf-dist/tex/latex/tkz-base/tkz-obj-grids.tex
+ texmf-dist/tex/latex/tkz-base/tkz-obj-marks.tex
+ texmf-dist/tex/latex/tkz-base/tkz-obj-points.tex
+ texmf-dist/tex/latex/tkz-base/tkz-obj-rep.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-BB.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-arith.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-base.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-colors.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-misc.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-modules.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-print.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-text.tex
+ texmf-dist/tex/latex/tkz-base/tkz-tools-utilities.tex
+catalogue-also pgf
+catalogue-contact-home http://altermundus.fr
+catalogue-contact-repository https://github.com/tkz-sty
+catalogue-ctan /macros/latex/contrib/tkz/tkz-base
+catalogue-license lppl1.3
+catalogue-topics pgf-tikz
+catalogue-version 4.2c

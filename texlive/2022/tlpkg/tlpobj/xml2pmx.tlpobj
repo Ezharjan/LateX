@@ -1,0 +1,20 @@
+name xml2pmx
+category Package
+revision 57972
+shortdesc Convert MusicXML to PMX and MusiXTeX
+longdesc This program translates MusicXML files to input suitable for
+longdesc PMX and MusiXTeX processing. This package supports Windows,
+longdesc MacOS and Linux systems.
+depend xml2pmx.ARCH
+containersize 496
+containerchecksum 9545fb5ca0e95788afab79d8a29336f337619adbcac68472bb5de6af6c54187f19bda655232175223168891c064f6fadc67c4ab8f5a0256e2c55e1a65c5e6f6b
+doccontainersize 15512
+doccontainerchecksum 973960f65159f5107caa7e9a041dca75f0171fc61f94794c7b7560eb9b6898534974fb8b360a28dfa3a01d422b71618bcaf8aba2ed25ae4d4b9f67d24ab730be
+docfiles size=6
+ texmf-dist/doc/man/man1/xml2pmx.1
+ texmf-dist/doc/man/man1/xml2pmx.man1.pdf
+catalogue-contact-home http://icking-music-archive.org/software/htdocs/
+catalogue-contact-support https://www.tug.org/mailman/listinfo/tex-music
+catalogue-ctan /support/xml2pmx
+catalogue-license gpl3+
+catalogue-topics music

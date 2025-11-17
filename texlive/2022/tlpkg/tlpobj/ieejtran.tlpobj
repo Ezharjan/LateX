@@ -1,0 +1,25 @@
+name ieejtran
+category Package
+revision 62957
+shortdesc Unofficial bibliography style file for the Institute of Electrical Engineers of Japan
+longdesc This package provides an unofficial BibTeX style for authors of
+longdesc the Institute of Electrical Engineers of Japan (IEEJ)
+longdesc transactions journals and conferences.
+containersize 17644
+containerchecksum e61293c30d05ba10f281b2ddf4455f786c3439491ba6f38dc74b0f91c3769032dbedd84136121f01026fc238e332f4eafc5f38c385066d7c00f21ec7aeac4796
+doccontainersize 149524
+doccontainerchecksum 612e27f0ecab3c6befb40b5e7ef9cb89a1471b6f8c9c6d4c4555b059b9ec4b6ccf0735cd5230a22a4b96628395f7e352ae2e7d7f45096fa7184ffc7758bcc00f
+docfiles size=46
+ texmf-dist/doc/bibtex/ieejtran/README details="Readme"
+ texmf-dist/doc/bibtex/ieejtran/ieejtran-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/bibtex/ieejtran/ieejtran-en.tex
+ texmf-dist/doc/bibtex/ieejtran/ieejtran.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/bibtex/ieejtran/ieejtran.tex
+ texmf-dist/doc/bibtex/ieejtran/mixej.py
+runfiles size=21
+ texmf-dist/bibtex/bst/ieejtran/IEEJtran.bst
+catalogue-contact-repository https://github.com/ehki/jIEEEtran
+catalogue-ctan /biblio/bibtex/contrib/ieejtran
+catalogue-license mit
+catalogue-topics bibtex-sty japanese
+catalogue-version 0.18

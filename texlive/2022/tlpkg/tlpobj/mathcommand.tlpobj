@@ -1,0 +1,31 @@
+name mathcommand
+category Package
+revision 59512
+shortdesc \newcommand-like commands for defining math macros
+longdesc This package provides functionalities for defining macros that
+longdesc have different behaviors depending on whether in math or text
+longdesc mode, that absorb Primes, Indices and Exponents (PIE) as extra
+longdesc parameters usable in the code; and it offers some iteration
+longdesc facilities for defining macros with similar code. The primary
+longdesc objective of this package is to be used together with the
+longdesc knowledge package for a proper handling of mathematical
+longdesc notations.
+containersize 4748
+containerchecksum 4be34084705419757f92b8f31be35a606689c25786bc5b95a0531d572ce21601881cbd7548b7d380241089d4473fbfb70debeab9b30633671b3494d66bfbb9f6
+doccontainersize 452340
+doccontainerchecksum 80191b36dd3e34193c2aff764b7ffcf274a4d9fc41b1d19fc92ac807e03809069efbcace953fdbddd481db7d6604a859eab44a2c93024ecd59968c9e24e2630f
+docfiles size=113
+ texmf-dist/doc/latex/mathcommand/README.md details="Readme"
+ texmf-dist/doc/latex/mathcommand/makefile
+ texmf-dist/doc/latex/mathcommand/mathcommand.pdf details="Package documentation"
+srccontainersize 12088
+srccontainerchecksum 99fb6c9f81e72c3b78807ff1d073ff4c6e193a163c3aa6aaa2e45d94ca246933733b1b35a671557cf40fdb33184af6ea28fa8a590b0339db373820ad9c38d514
+srcfiles size=14
+ texmf-dist/source/latex/mathcommand/mathcommand.dtx
+ texmf-dist/source/latex/mathcommand/mathcommand.ins
+runfiles size=7
+ texmf-dist/tex/latex/mathcommand/mathcommand.sty
+catalogue-ctan /macros/latex/contrib/mathcommand
+catalogue-license lppl1.3
+catalogue-topics maths macro-def macro-iterate expl3
+catalogue-version 1.04

@@ -1,0 +1,30 @@
+name pdfxup
+category Package
+revision 59001
+shortdesc Create n-up PDF pages with minimal margins
+longdesc pdfxup is a Unix/Linux shell script that creates a PDF document
+longdesc where each page is obtained by combining several pages of a PDF
+longdesc file given as output. pdfxup uses ghostscript for computing the
+longdesc maximal bounding box of (some of) the pages of the document,
+longdesc and then uses pdflatex (with the graphicx package) in order to
+longdesc produce the new document.
+depend pdfxup.ARCH
+containersize 14804
+containerchecksum f5b7623c1ecd132bb3646af5953245bc7378901bd5ded2e910487770cd79bb3d248cad426aafd18dd12a28bdd46be0f89b81dc95959f06688fb6a7a8f96dd11b
+doccontainersize 119780
+doccontainerchecksum 23db38fd8ebbd04bf6fed3b2814360cb6d0b736db1540d0298e9ab6edd449894c420078adae11d97998fa1fceb8e7083adacc0048337afbf4b6fbb253c8ed21f
+docfiles size=36
+ texmf-dist/doc/man/man1/pdfxup.1
+ texmf-dist/doc/man/man1/pdfxup.man1.pdf
+ texmf-dist/doc/support/pdfxup/README details="Readme"
+ texmf-dist/doc/support/pdfxup/RELEASES
+ texmf-dist/doc/support/pdfxup/pdfxup.pdf details="Package documentation"
+runfiles size=17
+ texmf-dist/scripts/pdfxup/pdfxup
+ texmf-dist/tex/latex/pdfxup/beamer2.xup
+ texmf-dist/tex/latex/pdfxup/beamer4.xup
+ texmf-dist/tex/latex/pdfxup/pdfxup-template.tex
+catalogue-ctan /support/pdfxup
+catalogue-license lppl1.3
+catalogue-topics pdfprocess
+catalogue-version 2.10

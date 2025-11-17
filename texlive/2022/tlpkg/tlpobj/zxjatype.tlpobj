@@ -1,0 +1,21 @@
+name zxjatype
+category Package
+revision 53500
+shortdesc Standard conforming typesetting of Japanese, for XeLaTeX
+containersize 8760
+containerchecksum 21eaace7188c9e61f5dd65f34e26b1ca16358e7396d44188ae17e8e01a58f38ac3be9f09f8f41923c257d089210d1fb7d841eada5c9a345cec42b934d257ef94
+doccontainersize 138180
+doccontainerchecksum 0fccc73af66a05231cf8283920d65717600be4673329ed1f46b93a494d766aa9542deb1a56b5d23d6c0d6b93be98aa778234ddc2dcd9c0936542a45d057b6dc2
+docfiles size=50
+ texmf-dist/doc/latex/zxjatype/LICENSE
+ texmf-dist/doc/latex/zxjatype/README-ja.md details="Readme" language="ja"
+ texmf-dist/doc/latex/zxjatype/README.md details="Readme"
+ texmf-dist/doc/latex/zxjatype/example/example.pdf
+ texmf-dist/doc/latex/zxjatype/example/example.tex
+ texmf-dist/doc/latex/zxjatype/example/xetexsamp01.pdf
+runfiles size=8
+ texmf-dist/tex/latex/zxjatype/zxjatype.sty
+catalogue-ctan /language/japanese/zxjatype
+catalogue-license mit
+catalogue-topics std-conform japanese xetex
+catalogue-version 0.7

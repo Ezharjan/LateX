@@ -1,0 +1,15 @@
+name plainyr
+category Package
+revision 52783
+shortdesc Plain bibliography style, sorted by year first
+longdesc This is a version of the standard plain BibTeX style, modified
+longdesc to sort chronologically (by year) first, then by author, title,
+longdesc etc. (The style's name isn't what the author submitted: it was
+longdesc renamed for clarity.)
+containersize 5000
+containerchecksum a42c5fc8c9a530f91d467ab3707fbec05f49764e85b906510f4605749c60bdda224a4ba23be85acd722f48b0958ed7184b4bfe88dc7c3fea4a64e70f9407afc6
+runfiles size=6
+ texmf-dist/bibtex/bst/plainyr/plainyr.bst
+catalogue-ctan /biblio/bibtex/contrib/misc/plainyr.bst
+catalogue-license other-free
+catalogue-topics bibtex-sty

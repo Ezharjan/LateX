@@ -1,0 +1,33 @@
+name boxedminipage
+category Package
+revision 54827
+shortdesc Framed minipages of a specified total width (text and frame combined)
+longdesc The package essentially just wraps a minipage within an \fbox.
+longdesc However, while
+longdesc \fbox{\begin{minipage}{\linewidth}...\end{minipage}} juts out
+longdesc into the margin, \begin{boxedminipage}...\end{boxedminipage}
+longdesc does not. Instead, it subtracts the frame's dimensions from the
+longdesc specified dimensions of the minipage before typesetting the
+longdesc minipage. Note: The package was formerly known as
+longdesc boxedminipage2e and now replaces Mario Wolczko's earlier
+longdesc boxedminipage package.
+containersize 1460
+containerchecksum 697cc00b10468f515b5ebae838d623eec58085269c98897a5c2c4ea932ec52ae819110612feb84b6951ff391bff9309655abf6a41e13da156e5ecc52c015431b
+doccontainersize 336440
+doccontainerchecksum 54209e9e5fb8da8db65901c729b78aa3c9b536c3bca4d40437848287d8a07d955a84ea0f13d93e7e702c47c6bf8bece3b6d3f3026d5f78568205746c9009b968
+docfiles size=88
+ texmf-dist/doc/latex/boxedminipage/README details="Readme"
+ texmf-dist/doc/latex/boxedminipage/boxedminipage.pdf details="Package documentation"
+srccontainersize 4744
+srccontainerchecksum 718499cb248fb8a98a9650a78ae377f9aaed9318b91c4417c7690201504366e073e80615106156087686273f9f86adb58f854cc758c2329ad99103f788ba0164
+srcfiles size=4
+ texmf-dist/source/latex/boxedminipage/boxedminipage.dtx
+ texmf-dist/source/latex/boxedminipage/boxedminipage.ins
+runfiles size=2
+ texmf-dist/tex/latex/boxedminipage/boxedminipage.sty
+ texmf-dist/tex/latex/boxedminipage/boxedminipage2e.sty
+catalogue-alias boxedminipage2e
+catalogue-ctan /macros/latex/contrib/boxedminipage
+catalogue-license lppl1.3c
+catalogue-topics boxing
+catalogue-version 1.1

@@ -1,0 +1,23 @@
+name numerica-tables
+category Package
+revision 61288
+shortdesc Create multi-column tables of mathematical functions
+longdesc The package defines a command to create possibly multi-column
+longdesc tables of mathematical function values. Key = value settings
+longdesc produce a wide variety of table styles consistent with the
+longdesc booktabs package (required). Also required are the packages
+longdesc numerica(v.2), l3kernel, l3packages, amsmath and mathtools.
+containersize 7376
+containerchecksum d06b2e85dcba39b2dff338f02ead71149330a711570d4c14ea4c2ca1f6c95d1bd8465967cfdb0e57b0a4b2b8cafff4f56ff585a1b2b2272f225e44958cbd316b
+doccontainersize 577124
+doccontainerchecksum 9585b95c14bfde30d5de6acf47c0f23328c1b986c075b6842f5a6878eb15761c59843806c649bd548faa90cc46ba93d7ecc021ca699f5eeb8644a3d314e5d737
+docfiles size=186
+ texmf-dist/doc/latex/numerica-tables/README.txt details="Readme"
+ texmf-dist/doc/latex/numerica-tables/numerica-tables.pdf details="Package documentation"
+ texmf-dist/doc/latex/numerica-tables/numerica-tables.tex
+runfiles size=11
+ texmf-dist/tex/latex/numerica-tables/numerica-tables.sty
+catalogue-ctan /macros/latex/contrib/numerica-tables
+catalogue-license lppl1.3c
+catalogue-topics maths calculation expl3
+catalogue-version 2.0.0

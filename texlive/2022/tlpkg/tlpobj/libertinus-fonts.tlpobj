@@ -1,0 +1,54 @@
+name libertinus-fonts
+category Package
+revision 57948
+shortdesc The Libertinus font family
+longdesc This is a fork of the Linux Libertine and Linux Biolinum fonts
+longdesc that started as an OpenType math companion of the Libertine
+longdesc font family, but grown as a full fork to address some of the
+longdesc bugs in the fonts. The family consists of: Libertinus Serif:
+longdesc forked from Linux Libertine. Libertinus Sans: forked from Linux
+longdesc Biolinum. Libertinus Mono: forked from Linux Libertine Mono.
+longdesc Libertinus Math: an OpenType math font for use in OpenType
+longdesc math-capable applications like LuaTeX, XeTeX or MS Word 2007+.
+containersize 1659740
+containerchecksum 5deeffa40e2399169a7ec16fec4d417c27350cb5ccb7f59eb1638172758e88167d24470d889b311760b0739b9fa0251e2389f7ccda0e4e8e2ce3a454406f13be
+doccontainersize 553012
+doccontainerchecksum 410edfda953b321c9fa53e99854eea206177e4486c0fdd6ae3cc20eddb31111f28f17dfd725c5f2dc573d82ba5daa1f75c544709accae84292cff45d52b10c18
+docfiles size=279
+ texmf-dist/doc/fonts/libertinus-fonts/AUTHORS.txt
+ texmf-dist/doc/fonts/libertinus-fonts/CONTRIBUTING.md
+ texmf-dist/doc/fonts/libertinus-fonts/CONTRIBUTORS.txt
+ texmf-dist/doc/fonts/libertinus-fonts/Design-Guidelines.md
+ texmf-dist/doc/fonts/libertinus-fonts/FONTLOG.txt
+ texmf-dist/doc/fonts/libertinus-fonts/Features.md
+ texmf-dist/doc/fonts/libertinus-fonts/Math-Sample.pdf details="Math font samples"
+ texmf-dist/doc/fonts/libertinus-fonts/OFL.txt
+ texmf-dist/doc/fonts/libertinus-fonts/Opentype-Features.pdf
+ texmf-dist/doc/fonts/libertinus-fonts/README.md details="Readme"
+ texmf-dist/doc/fonts/libertinus-fonts/Sample.pdf details="Font samples"
+ texmf-dist/doc/fonts/libertinus-fonts/libertinus.css
+ texmf-dist/doc/fonts/libertinus-fonts/preview.pdf
+ texmf-dist/doc/fonts/libertinus-fonts/preview.svg
+runfiles size=871
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusKeyboard-Regular.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusMath-Regular.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusMono-Regular.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSans-Bold.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSans-Italic.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSans-Regular.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerif-Bold.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerif-BoldItalic.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerif-Italic.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerif-Regular.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerif-Semibold.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerif-SemiboldItalic.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerifDisplay-Regular.otf
+ texmf-dist/fonts/opentype/public/libertinus-fonts/LibertinusSerifInitials-Regular.otf
+catalogue-also libertinus-otf libertinus-type1
+catalogue-contact-announce https://github.com/alerque/libertinus/releases
+catalogue-contact-bugs https://github.com/alerque/libertinus/issues
+catalogue-contact-repository https://github.com/alerque/libertinus
+catalogue-ctan /fonts/libertinus-fonts
+catalogue-license ofl
+catalogue-topics font font-body font-proportional font-mono font-serif font-sans font-multilingual font-maths font-otf
+catalogue-version 7.040

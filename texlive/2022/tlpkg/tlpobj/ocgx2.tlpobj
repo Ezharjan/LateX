@@ -1,0 +1,29 @@
+name ocgx2
+category Package
+revision 64048
+shortdesc Drop-in replacement for 'ocgx' and 'ocg-p'
+longdesc This package serves as a drop-in replacement for the packages
+longdesc ocgx by Paul Gaborit and ocg-p by Werner Moshammer for the
+longdesc creation of PDF Layers. It re-implements the functionality of
+longdesc the ocg, ocgx, and ocg-p packages and adds support for all
+longdesc known engines and back-ends including: LaTeX - dvips -
+longdesc ps2pdf/Distiller (Xe)LaTeX(x) - dvipdfmx pdfLaTeX and LuaLaTeX
+longdesc . It also ensures compatibility with the media9 and animate
+longdesc packages.
+containersize 17248
+containerchecksum 9d2c50821fc03d5d00bcbb5d307669307baac326ef45ede2aa2d9f92e5f671187c1f16e492a46fd1857095a530a9f38cace8cd512b953c96160a1b5c06e2eab6
+doccontainersize 6212
+doccontainerchecksum 63489d038f643ec375b77290412debd5ca6db26c8029bd6f74a978e9b2cd0d61a485a6a110190f1ef7dd0c1974c1b74ec455e10d7a6e54e24c70680e4e813b55
+docfiles size=5
+ texmf-dist/doc/latex/ocgx2/ChangeLog
+ texmf-dist/doc/latex/ocgx2/README.txt
+runfiles size=35
+ texmf-dist/tex/latex/ocgx2/fixocgx.sty
+ texmf-dist/tex/latex/ocgx2/ocgbase.sty
+ texmf-dist/tex/latex/ocgx2/ocgx2.sty
+catalogue-also ocgx ocg-p
+catalogue-contact-repository https://gitlab.com/agrahn/ocgx2
+catalogue-ctan /macros/latex/contrib/ocgx2
+catalogue-license lppl
+catalogue-topics pdf-feat adobe-distiller expl3
+catalogue-version 0.55

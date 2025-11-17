@@ -1,0 +1,47 @@
+name biblatex-iso690
+category Package
+revision 62866
+shortdesc BibLaTeX style for ISO 690 standard
+longdesc The package provides a bibliography and citation style which
+longdesc conforms to the latest revision of the international standard
+longdesc ISO 690:2010. The implementation follows BibLaTeX conventions
+longdesc and requires BibLaTeX [?] 3.4 and biber [?] 2.5.
+containersize 13132
+containerchecksum e337c10a9eaee195b091deddb93fed9416912856599d31562812dc4b5818d495e6ed6443ea1c801298e351be7ae37f830e5ff23d31beba8ea0bcb682da15f5c2
+doccontainersize 289680
+doccontainerchecksum ec7f5e962bbe119e583c8dd671b28229c39043e1aa06319772d878c8a49e466541ebd5adbab4e1b229afcbf91e9cf981dc6d0918f3358a12882bfa5d282d3a51
+docfiles size=83
+ texmf-dist/doc/latex/biblatex-iso690/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-iso690/biblatex-iso690-examples.bib
+ texmf-dist/doc/latex/biblatex-iso690/biblatex-iso690.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-iso690/biblatex-iso690.tex
+runfiles size=34
+ texmf-dist/tex/latex/biblatex-iso690/bulgarian-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/czech-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/english-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/french-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/german-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-alphabetic.bbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-alphabetic.cbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-alphabetic.dbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-authortitle.bbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-authortitle.cbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-authortitle.dbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-authoryear.bbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-authoryear.cbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-authoryear.dbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-fullcite.cbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-numeric.bbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-numeric.cbx
+ texmf-dist/tex/latex/biblatex-iso690/iso-numeric.dbx
+ texmf-dist/tex/latex/biblatex-iso690/iso.bbx
+ texmf-dist/tex/latex/biblatex-iso690/ngerman-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/polish-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/slovak-iso.lbx
+ texmf-dist/tex/latex/biblatex-iso690/spanish-iso.lbx
+catalogue-contact-bugs https://github.com/michal-h21/biblatex-iso690/issues
+catalogue-contact-repository https://github.com/michal-h21/biblatex-iso690
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-iso690
+catalogue-license lppl1.3
+catalogue-topics biblatex
+catalogue-version 0.4.1

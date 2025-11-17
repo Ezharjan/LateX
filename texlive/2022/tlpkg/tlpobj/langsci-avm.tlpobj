@@ -1,0 +1,35 @@
+name langsci-avm
+category Package
+revision 55846
+shortdesc Attribute-value matrices and feature structures for use in linguistics
+longdesc This package is aimed at typesetting beautiful feature
+longdesc structures, also known as attribute-value matrices (AVMs), for
+longdesc use in linguistics. The package provides a minimal and easy to
+longdesc read syntax. It depends only on the array package and can be
+longdesc placed almost everywhere, in particular in footnotes or graphs
+longdesc and tree structures. The package is meant as an update to, and
+longdesc serves the same purpose as, Christopher Manning's avm package,
+longdesc but shares no code base with that package. langsci-avm was
+longdesc developed at Language Science Press to help in the production
+longdesc of scientific texts in linguistics, in particular an upcoming
+longdesc HPSG handbook.
+containersize 3360
+containerchecksum 45e13bfd02059c610e29e486effc0fd6b2b9f3c6ab2ac12dc52de45f8ac564215141450619c6d10021f649114c9faf84ff7b6ccfd5c2ea29d0cefce188b71615
+doccontainersize 112560
+doccontainerchecksum d1430be2082f046538d035ed3aecd3be47694ed251a51e542a26b2206686d08594d443107fbb019732d06152d97724359b8e42a3be4bdcdf6ec778e80116df9a
+docfiles size=29
+ texmf-dist/doc/latex/langsci-avm/README details="Readme"
+ texmf-dist/doc/latex/langsci-avm/langsci-avm.pdf details="Package documentation"
+srccontainersize 11436
+srccontainerchecksum 4f7432db385da2317e11a7c41d90d06f47ca0867897db38c14f91a138d6b671fe808800eea40736266cb6b49c1f7ae30c62be84af64cfb47d986672bb9a27a16
+srcfiles size=12
+ texmf-dist/source/latex/langsci-avm/langsci-avm.dtx
+ texmf-dist/source/latex/langsci-avm/langsci-avm.ins
+runfiles size=4
+ texmf-dist/tex/latex/langsci-avm/langsci-avm.sty
+catalogue-contact-bugs https://github.com/langsci/langsci-avm/issues
+catalogue-contact-repository https://github.com/langsci/langsci-avm
+catalogue-ctan /macros/latex/contrib/langsci-avm
+catalogue-license lppl1.3c
+catalogue-topics linguistic matrix expl3
+catalogue-version 0.2.1

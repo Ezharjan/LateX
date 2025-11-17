@@ -1,0 +1,29 @@
+name customdice
+category Package
+revision 64089
+shortdesc Simple commands for drawing customisable dice
+longdesc The customdice package for LaTeX, LuaLaTeX and XeTeX that
+longdesc provides functionality for drawing dice. The aim is to provide
+longdesc highly-customisable but simple-to-use commands, allowing:
+longdesc adding custom text to dice faces; control over colouring;
+longdesc control over sizing.
+containersize 2616
+containerchecksum d537d8357fa1d718f685d3bd05afe849eaffcd63050b8ef5f85dfea39260b9268e7ed12e727ac3a14a7194f21e4de158bc0a8143408c45e5f3718ea143a27aff
+doccontainersize 360976
+doccontainerchecksum 7512a7fa81198895666d135bd50d75345e8d7152289f51126fa3fb68a028f05666d4807e63c82db5068a9aeaca11fcb06d7b0edd4d77804bee195409bf042144
+docfiles size=92
+ texmf-dist/doc/latex/customdice/README.md details="Readme"
+ texmf-dist/doc/latex/customdice/customdice.pdf details="Package documentation"
+srccontainersize 7408
+srccontainerchecksum 8ab4af162c7abb96a129934f5c6b1471ba781d43dd7d0dd220a53638010c9c082d26c634a3e65c02f51bb92a7603a3aea9f370e82cea1d8de17afb9d815d1a33
+srcfiles size=14
+ texmf-dist/source/latex/customdice/customdice.dtx
+ texmf-dist/source/latex/customdice/customdice.ins
+runfiles size=5
+ texmf-dist/tex/latex/customdice/customdice.sty
+catalogue-contact-bugs https://github.com/prowlett/customdice/issues
+catalogue-contact-repository https://github.com/prowlett/customdice
+catalogue-ctan /graphics/pgf/contrib/customdice
+catalogue-license cc-by-sa-4
+catalogue-topics graphics-use
+catalogue-version 1.1

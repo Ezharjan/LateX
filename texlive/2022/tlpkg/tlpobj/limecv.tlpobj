@@ -1,0 +1,38 @@
+name limecv
+category Package
+revision 61199
+shortdesc A (Xe/Lua)LaTeX document class for curriculum vitae
+longdesc limecv is a (Xe/Lua)LaTeX document class to write curriculum
+longdesc vitae. It is designed with the following design rules: simple,
+longdesc elegant and clean. To this end, it offers several environments
+longdesc and macros for convenience.
+containersize 8416
+containerchecksum 14c7bb278113e8d8ec249e18fe7a142f5216984468a51a2c64926b2dea6e79d928310600cee498cb3773b0ae70e97199b4800a8c5df94431df121ccf62955b5a
+doccontainersize 380648
+doccontainerchecksum 7e64c4a940dfb321da2c81ae84e709e1601068935f2531c8e6fdf514b5cbca6407485005f60e4f410a303b97557986f1962dfad976a3c3914d01309c67ae8049
+docfiles size=123
+ texmf-dist/doc/latex/limecv/LICENSE
+ texmf-dist/doc/latex/limecv/README.md details="Readme"
+ texmf-dist/doc/latex/limecv/examples/limecv-icon.pdf
+ texmf-dist/doc/latex/limecv/examples/mwe-latex.pdf
+ texmf-dist/doc/latex/limecv/examples/mwe-latex.tex
+ texmf-dist/doc/latex/limecv/examples/mwe-lualatex.pdf
+ texmf-dist/doc/latex/limecv/examples/mwe-lualatex.tex
+ texmf-dist/doc/latex/limecv/examples/mwe-xelatex.pdf details="Example of use"
+ texmf-dist/doc/latex/limecv/examples/mwe-xelatex.tex
+ texmf-dist/doc/latex/limecv/examples/picture.png
+ texmf-dist/doc/latex/limecv/limecv.pdf details="Package documentation"
+srccontainersize 20000
+srccontainerchecksum 43ab876f14fa2f920741f26252b852e5d579e9394efa1d5e00753f23365b62192293aa48850275c2aeadfebae4c2f8e0a929d4459c5feecedd7176514dbdcc9f
+srcfiles size=24
+ texmf-dist/source/latex/limecv/limecv.dtx
+ texmf-dist/source/latex/limecv/limecv.ins
+runfiles size=11
+ texmf-dist/tex/latex/limecv/limecv.cls
+catalogue-contact-bugs https://github.com/opieters/limecv/issues
+catalogue-contact-home https://olivierpieters.be/projects/limecv
+catalogue-contact-repository https://github.com/opieters/limecv
+catalogue-ctan /macros/latex/contrib/limecv
+catalogue-license lppl1.3c
+catalogue-topics cv class
+catalogue-version 0.1.12

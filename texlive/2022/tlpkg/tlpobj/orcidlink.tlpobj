@@ -1,0 +1,28 @@
+name orcidlink
+category Package
+revision 59560
+shortdesc Insert hyperlinked ORCiD logo
+longdesc This package provides a command to insert the ORCiD logo, which
+longdesc is hyperlinked to the URL of the researcher whose iD was
+longdesc specified.
+containersize 1664
+containerchecksum ba51e034e90800c402b559fd636acc38a96f0913c552e506e26457d5c690299c7860bf9a1fc911eb2d4e734c90f775e814b8bac52a492ad7743a47f3e89efc5f
+doccontainersize 174664
+doccontainerchecksum c20f8e77d3c5866f414f0dcc47d84fa3328492a003a81be1ac3aa69f9ebc2bfff7198be5656192ba7bc4330ca7b773c6d319ec389bd0ad9821ebd6159b7d0b97
+docfiles size=45
+ texmf-dist/doc/latex/orcidlink/README.md details="Readme"
+ texmf-dist/doc/latex/orcidlink/orcidlink.pdf details="Package documentation"
+srccontainersize 3336
+srccontainerchecksum 485492dfc8256d97fd747196bb142eb178283eee98aed5edea689543075fe0992e9c25fa522c9fadd48c9b631ffb31c8600c82be598678b03e78c4e5643b8cb2
+srcfiles size=3
+ texmf-dist/source/latex/orcidlink/orcidlink.dtx
+ texmf-dist/source/latex/orcidlink/orcidlink.ins
+runfiles size=1
+ texmf-dist/tex/latex/orcidlink/orcidlink.sty
+catalogue-also doi
+catalogue-contact-bugs https://github.com/duetosymmetry/orcidlink-LaTeX-command/issues
+catalogue-contact-repository https://github.com/duetosymmetry/orcidlink-LaTeX-command
+catalogue-ctan /macros/latex/contrib/orcidlink
+catalogue-license lppl1.3c
+catalogue-topics hyper
+catalogue-version 1.0.4

@@ -1,0 +1,38 @@
+name translations
+category Package
+revision 61896
+shortdesc Internationalisation of LaTeX2e packages
+longdesc This package (once part of the exsheets package), provides a
+longdesc framework for providing multilingual features to a LaTeX
+longdesc package. The package has its own basic dictionaries for
+longdesc English, Brazilian, Catalan, Dutch, French, German and Spanish;
+longdesc it aims to use translation material for English, Dutch, French,
+longdesc German, Italian, Spanish, Catalan, Turkish, Croatian,
+longdesc Hungarian, Danish and Portuguese from babel or polyglossia if
+longdesc either is in use in the document. (Additional languages from
+longdesc the multilingual packages may be possible: ask the author.)
+containersize 13476
+containerchecksum 82d2a821c42bda66658f8557d85f2c52bee6324c88cf44e5440cac4de5bf7e938a3e37f7fe2371069a923c1f3fb794f8860274765054f902eaba560ea195297f
+doccontainersize 518100
+doccontainerchecksum ab72edcca1d3407eaef679acd3f3d2a49f559e5ca6d9d1ad7221dd76152560be307722155cd4da54215e3b7f561f39e08ae737c70ff2e7fea1ddce2561b506fb
+docfiles size=136
+ texmf-dist/doc/latex/translations/README details="Readme"
+ texmf-dist/doc/latex/translations/translations-manual.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/latex/translations/translations-manual.tex
+runfiles size=27
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-brazil.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-catalan.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-dutch.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-german.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-polish.trsl
+ texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
+ texmf-dist/tex/latex/translations/translations.sty
+catalogue-also translator
+catalogue-contact-bugs https://github.com/cgnieder/translations/issues
+catalogue-contact-repository https://github.com/cgnieder/translations/
+catalogue-ctan /macros/latex/contrib/translations
+catalogue-license lppl1.3c
+catalogue-topics multilingual package-supp
+catalogue-version 1.12

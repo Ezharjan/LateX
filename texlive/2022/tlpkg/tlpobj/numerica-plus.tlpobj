@@ -1,0 +1,24 @@
+name numerica-plus
+category Package
+revision 61289
+shortdesc Iteration and recurrence relations: finding fixed points, zeros and extrema of functions
+longdesc The package defines commands to iterate functions of a single
+longdesc variable, find fixed points, zeros and extrema of such
+longdesc functions, and calculate the terms of recurrence relations.
+longdesc numerica-plus requires the package numerica, version 2, which
+longdesc in turn requires l3kernel , l3packages, and the amsmath and
+longdesc mathtools packages.
+containersize 6016
+containerchecksum 821e5f200b50097f245802fe7fc272a609988e5c8cee98c07ec1bd562d79bea17b8688cb5886febbd596904498aecee5794845deb83ef25a36c60afcbe8026c8
+doccontainersize 566944
+doccontainerchecksum f680560ebe7777ccc0e9f04dd209eee90c478c3d5bae3b32f829ab889997c31d9c5f9efe3a57450304aafcebfff09edb02481a596315e7f233b47fe328c6f3c8
+docfiles size=179
+ texmf-dist/doc/latex/numerica-plus/README.txt details="Readme"
+ texmf-dist/doc/latex/numerica-plus/numerica-plus.pdf details="Package documentation"
+ texmf-dist/doc/latex/numerica-plus/numerica-plus.tex
+runfiles size=9
+ texmf-dist/tex/latex/numerica-plus/numerica-plus.sty
+catalogue-ctan /macros/latex/contrib/numerica-plus
+catalogue-license lppl1.3c
+catalogue-topics maths calculation expl3
+catalogue-version 2.0.0

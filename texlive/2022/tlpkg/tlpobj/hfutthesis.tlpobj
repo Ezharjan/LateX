@@ -1,0 +1,42 @@
+name hfutthesis
+category Package
+revision 64025
+shortdesc LaTeX Thesis Template for Hefei University of Technology
+longdesc This project is based on the HFUT_Thesis LaTeX template of
+longdesc Hefei University of Technology compiled on the basis of
+longdesc ustctug/ustcthesis, in accordance with the latest version of
+longdesc Hefei University of Technology Graduate Dissertation Writing
+longdesc Specifications and Hefei University of Technology Undergraduate
+longdesc Graduation Project (Thesis) Work Implementation Rules.
+containersize 25440
+containerchecksum 928dc93116a78a440fd1dcb163ccd5d88daa4b96a6850f5bb45c996c3c81249982588ffda7f51f4c76f153f3df6f85e033ce15d28593c4d6235f7781a829ddb6
+doccontainersize 799628
+doccontainerchecksum 491a841f563a79fbbc71d19bc9aa259ffc4429db53c86812724306432dcd7a5d3af98eb2ce1defd4f6af02fd5f4b34d4b5a96de540e95bd59fd7991ddd5dbc85
+docfiles size=271
+ texmf-dist/doc/xelatex/hfutthesis/README.md details="Readme"
+ texmf-dist/doc/xelatex/hfutthesis/hfut-bib/hfut.bib
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/abstract.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/acknowledgements.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/citations.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/complementary.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/expertspage.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/floats.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/intro.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/math.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/notation.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-chapters/publications.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfut-figures/hfut-badge.pdf
+ texmf-dist/doc/xelatex/hfutthesis/hfut-figures/hfut-name.pdf
+ texmf-dist/doc/xelatex/hfutthesis/hfutsetup.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfutthesis-doc.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/xelatex/hfutthesis/hfutthesis-doc.tex
+ texmf-dist/doc/xelatex/hfutthesis/hfutthesis-example.pdf details="Example of use" language="zh"
+ texmf-dist/doc/xelatex/hfutthesis/hfutthesis-example.tex
+runfiles size=28
+ texmf-dist/tex/xelatex/hfutthesis/hfutthesis.cls
+catalogue-contact-bugs https://github.com/HFUTTUG/HFUT_Thesis/issues
+catalogue-contact-repository https://github.com/HFUTTUG/HFUT_Thesis
+catalogue-ctan /macros/xetex/latex/hfutthesis
+catalogue-license lppl1.3c
+catalogue-topics class doc-templ dissertation chinese xetex
+catalogue-version 1.0.4

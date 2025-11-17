@@ -1,0 +1,87 @@
+name theanooldstyle
+category Package
+revision 54512
+shortdesc Theano OldStyle fonts with LaTeX support
+longdesc This package provides the Theano OldStyle font designed by
+longdesc Alexey Kryukov, in both TrueType and Type1 formats, with
+longdesc support for both traditional and modern LaTeX processors. An
+longdesc artificially-emboldened variant has been provided but there are
+longdesc no italic variants. The package is named after Theano, a famous
+longdesc Ancient Greek woman philosopher, who was first a student of
+longdesc Pythagoras, and supposedly became his wife.
+execute addMap TheanoOldStyle.map
+containersize 493064
+containerchecksum b8890a2f8af2700c042d1953fbf8c8cf0d499d7458985476bba4a1ad83c9b4c6ec9f8d6f30986b57ca532b0b41208ce07d4d76687f52fa8863da75cc39f24d24
+doccontainersize 34680
+doccontainerchecksum ceb00e62d2e9adeab0244ba58b052fcc0a068f7afd8e3936767909b8377da11c8178eaa9015d1d84dd95cc4b5c63c01654e032855b707c03197b63c9e2097d55
+docfiles size=12
+ texmf-dist/doc/fonts/theanooldstyle/README details="Readme"
+ texmf-dist/doc/fonts/theanooldstyle/SILOpenFontLicense.txt
+ texmf-dist/doc/fonts/theanooldstyle/theanooldstyle-samples.pdf details="Font samples"
+ texmf-dist/doc/fonts/theanooldstyle/theanooldstyle-samples.tex
+runfiles size=251
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_alkcdl.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_ertqq3.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_f66p55.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_izaajv.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_ogssaz.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_oiucyb.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_whuz6y.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_xf32t5.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_xgfkyc.enc
+ texmf-dist/fonts/enc/dvips/theanooldstyle/thost_zj2gif.enc
+ texmf-dist/fonts/map/dvips/theanooldstyle/TheanoOldStyle.map
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Bold-tosf-ts1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tlf-ts1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-lgr.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-ly1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-ot1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-t1.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/theanooldstyle/TheanoOldStyle-Regular-tosf-ts1.tfm
+ texmf-dist/fonts/truetype/public/theanooldstyle/TheanoOldStyle-Bold.ttf
+ texmf-dist/fonts/truetype/public/theanooldstyle/TheanoOldStyle-Regular.ttf
+ texmf-dist/fonts/type1/public/theanooldstyle/TheanoOldStyle-Bold.pfb
+ texmf-dist/fonts/type1/public/theanooldstyle/TheanoOldStyle-Regular.pfb
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Bold-tlf-t1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Bold-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Bold-tosf-t1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Bold-tosf-ts1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Regular-tlf-t1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Regular-tlf-ts1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Regular-tosf-t1.vf
+ texmf-dist/fonts/vf/public/theanooldstyle/TheanoOldStyle-Regular-tosf-ts1.vf
+ texmf-dist/tex/latex/theanooldstyle/LGRTheanoOldStyle-TLF.fd
+ texmf-dist/tex/latex/theanooldstyle/LGRTheanoOldStyle-TOsF.fd
+ texmf-dist/tex/latex/theanooldstyle/LY1TheanoOldStyle-TLF.fd
+ texmf-dist/tex/latex/theanooldstyle/LY1TheanoOldStyle-TOsF.fd
+ texmf-dist/tex/latex/theanooldstyle/OT1TheanoOldStyle-TLF.fd
+ texmf-dist/tex/latex/theanooldstyle/OT1TheanoOldStyle-TOsF.fd
+ texmf-dist/tex/latex/theanooldstyle/T1TheanoOldStyle-TLF.fd
+ texmf-dist/tex/latex/theanooldstyle/T1TheanoOldStyle-TOsF.fd
+ texmf-dist/tex/latex/theanooldstyle/TS1TheanoOldStyle-TLF.fd
+ texmf-dist/tex/latex/theanooldstyle/TS1TheanoOldStyle-TOsF.fd
+ texmf-dist/tex/latex/theanooldstyle/TheanoOldStyle.sty
+catalogue-ctan /fonts/theanooldstyle
+catalogue-license ofl lppl
+catalogue-topics font font-body font-greek font-multilingual font-serif font-proportional font-ttf font-type1 font-supp font-t1enc

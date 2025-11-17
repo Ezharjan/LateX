@@ -1,0 +1,38 @@
+name langnames
+category Package
+revision 64376
+shortdesc Name languages and their genetic affiliations consistently
+longdesc This package attempts to make the typing of language names,
+longdesc codes, and families slightly easier by providing macros to
+longdesc access pre-defined language--code--family combinations from two
+longdesc important databases, as well as the possibility to create new
+longdesc combinations. It may be particularly useful for large,
+longdesc collaborative projects as well as typologically minded ones
+longdesc with a variety of language examples.
+containersize 137980
+containerchecksum 9e6dd4b04515e0fa8bc3cfb63df30227e457b8392abc45d2b79fc76f81d1bf133a6f26ad3b27cb6eddc721df3114ab8d3ae60fb428ba661d727c99d2f2eb16d8
+doccontainersize 114752
+doccontainerchecksum ccdb2e217ec6d3c12ceb1347f3183da793b18fe2597a5142d8adf469af3019a22fcc83f1af6a3443efb21000ff0ba2df93c42c5497379e8b18a5a25e42b5efdb
+docfiles size=44
+ texmf-dist/doc/latex/langnames/README.md details="Readme"
+ texmf-dist/doc/latex/langnames/langnames.pdf details="Package documentation"
+srccontainersize 6200
+srccontainerchecksum 1dedbe49ac091c80d49582acbb8a26040696ba52dcb7fa9dc8ad3cbc81017a925e328dec20ca95b5f89fbbebd202b53bdae3d10fea328668807c60c90e40330c
+srcfiles size=6
+ texmf-dist/source/latex/langnames/langnames.dtx
+ texmf-dist/source/latex/langnames/langnames.ins
+runfiles size=331
+ texmf-dist/tex/latex/langnames/langnames.sty
+ texmf-dist/tex/latex/langnames/ln_fams_glot.tex
+ texmf-dist/tex/latex/langnames/ln_fams_wals.tex
+ texmf-dist/tex/latex/langnames/ln_langs_glot.tex
+ texmf-dist/tex/latex/langnames/ln_langs_glot_native.tex
+ texmf-dist/tex/latex/langnames/ln_langs_wals.tex
+ texmf-dist/tex/latex/langnames/ln_langs_wals_native.tex
+catalogue-contact-bugs https://github.com/cicervlvs/langnames/issues
+catalogue-contact-home https://github.com/cicervlvs/langnames
+catalogue-contact-repository https://github.com/cicervlvs/langnames
+catalogue-ctan /macros/latex/contrib/langnames
+catalogue-license lppl1.3
+catalogue-topics abbrev linguistic
+catalogue-version 2.0

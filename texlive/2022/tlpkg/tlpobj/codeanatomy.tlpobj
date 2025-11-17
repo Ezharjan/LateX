@@ -1,0 +1,36 @@
+name codeanatomy
+category Package
+revision 51627
+shortdesc Typeset code with annotations
+longdesc The idea of this Package is to typeset illustrations of pieces
+longdesc of code with annotations on each single part of code (Code
+longdesc Anatomy). The origin of this idea are code illustrations from
+longdesc the book "Computer Science: An Interdisciplinary Approach" from
+longdesc Robert Sedgewick and Kevin Wayne. The package depends on expl3,
+longdesc xparse, and TikZ.
+containersize 1836
+containerchecksum 0f7613af5e91d364d0c8cc3978ce5251cff4650bf5e187ef03606b9cf5294eed82751b8f7604583af5187b62f40688733a39aaaca6a022ddd0087ab610f8c978
+doccontainersize 257164
+doccontainerchecksum 877a827dfd0bb9e79f80fa0a9cd7275a647fc4f0451af5c5a5253caee306f202a419f0164b2878c7a780176e018a2f1a3f8e9ec37fd8245997da537eefcd4e7b
+docfiles size=87
+ texmf-dist/doc/latex/codeanatomy/README.md details="Readme"
+ texmf-dist/doc/latex/codeanatomy/codeanatomy.lstlisting.pdf details="Usage with listings"
+ texmf-dist/doc/latex/codeanatomy/codeanatomy.lstlisting.tex
+ texmf-dist/doc/latex/codeanatomy/codeanatomy.pdf details="Package documentation (Implementation)"
+ texmf-dist/doc/latex/codeanatomy/codeanatomy.usage.pdf details="Package documentation (Usage)"
+ texmf-dist/doc/latex/codeanatomy/codeanatomy.usage.tex
+ texmf-dist/doc/latex/codeanatomy/literatur.bib
+srccontainersize 4596
+srccontainerchecksum 9cbe9969e777ccbe711f68936798bdd28e570e6ed772ba3aa8ad54f083792cd725c97055859cecc115bab420f3a929d707eb49584c483a9f223d7ea7bb5fe388
+srcfiles size=5
+ texmf-dist/source/latex/codeanatomy/codeanatomy.dtx
+ texmf-dist/source/latex/codeanatomy/codeanatomy.ins
+runfiles size=1
+ texmf-dist/tex/latex/codeanatomy/codeanatomy.sty
+catalogue-contact-bugs https://github.com/hpb-htw/codeanatomy/issues
+catalogue-contact-home https://github.com/hpb-htw/codeanatomy
+catalogue-contact-repository https://github.com/hpb-htw/codeanatomy.git
+catalogue-ctan /graphics/pgf/contrib/codeanatomy
+catalogue-license lppl1.3c
+catalogue-topics program-doc graphics pgf-tikz expl3
+catalogue-version 0.4-Alpha

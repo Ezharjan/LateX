@@ -1,0 +1,36 @@
+name texaccents
+category Package
+revision 64447
+shortdesc Convert composite accented characters to Unicode
+longdesc This small utility, written in SNOBOL, converts the composition
+longdesc of special characters to Unicode, e. g. \"{a} - a, \k{a} - a,
+longdesc ...
+depend texaccents.ARCH
+containersize 4752
+containerchecksum 5a2a79c9faddebd523939cb3cf42236b1d2c441a036cd7fc6f6f62422e5142cdbc0a45ddaa9e642266c41c9fe5b723fc440d0372639cffd399a89d489bd11b66
+doccontainersize 68972
+doccontainerchecksum 87bc11f186513adbf32c15af2f1c1253dd72802fb2008b76b9d7d67fc0a039aab0d2424fb853b6bd8e968cd4e9c1cd93bff786fa07e84593fbda99191b053eaa
+docfiles size=29
+ texmf-dist/doc/man/man1/texaccents.1
+ texmf-dist/doc/man/man1/texaccents.man1.pdf
+ texmf-dist/doc/support/texaccents/LICENSE
+ texmf-dist/doc/support/texaccents/README.md details="Readme"
+ texmf-dist/doc/support/texaccents/testaccents-in
+ texmf-dist/doc/support/texaccents/texaccents.md
+ texmf-dist/doc/support/texaccents/texaccents.pdf details="Package documentation"
+ texmf-dist/doc/support/texaccents/texaccents.spt
+ texmf-dist/doc/support/texaccents/texaccents.tex
+srccontainersize 2344
+srccontainerchecksum 8bf5d4957008833d54f87eff9feb14f60694ea02e7e9fd2cd5c5d2e2db3f6de3a33784121208ffab516763fbf578125399cbd6f39750e6bb0162a65c2fc44f24
+srcfiles size=5
+ texmf-dist/source/support/texaccents/compiler.inc
+ texmf-dist/source/support/texaccents/delete.inc
+ texmf-dist/source/support/texaccents/grepl.inc
+ texmf-dist/source/support/texaccents/newline.inc
+ texmf-dist/source/support/texaccents/systype.inc
+runfiles size=4
+ texmf-dist/scripts/texaccents/texaccents.sno
+catalogue-ctan /support/texaccents
+catalogue-license mit
+catalogue-topics inputenc
+catalogue-version 1.0.1

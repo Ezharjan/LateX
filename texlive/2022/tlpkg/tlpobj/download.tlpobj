@@ -1,0 +1,27 @@
+name download
+category Package
+revision 52257
+shortdesc Allow LaTeX to download files using an external process
+longdesc The package allows the user to download files (using cURL or
+longdesc wget), from within a document. To run the external commands,
+longdesc LaTeX (or whatever) needs to be run with the --shell-escape
+longdesc flag; this creates a tension between your needs and the
+longdesc security implications of the flag; users should exercise due
+longdesc caution.
+containersize 2004
+containerchecksum 051fdf31160c95e88c8ed1214311b0ec8eda80b7128752c27a203c7e7dc5cee6d275dc4ed93f06308b71d199d9216b18600a2b6b219f852fc256eb2486c2bfd2
+doccontainersize 261712
+doccontainerchecksum 388fbef93df8f76de34e7968b8a1925f294b87972e2e26cb1ae92145b252b5a88fc06254453a6bc15eab14a4532e1a18e3b719ea243142c09239e3521ff8f7d7
+docfiles size=65
+ texmf-dist/doc/latex/download/README
+ texmf-dist/doc/latex/download/download.pdf details="Package documentation"
+srccontainersize 5564
+srccontainerchecksum 6090434f8a33e1ac95363082c0536a9990ea6c4936adbe151c1f8e5ad20e7ad9635ee656c9c29af9360b5d8bd427f78d26c9527c4a84dfefec7dd73a007e9839
+srcfiles size=5
+ texmf-dist/source/latex/download/download.tex
+runfiles size=2
+ texmf-dist/tex/latex/download/download.sty
+catalogue-ctan /macros/latex/contrib/download
+catalogue-license lppl1.3
+catalogue-topics ext-code
+catalogue-version 1.2

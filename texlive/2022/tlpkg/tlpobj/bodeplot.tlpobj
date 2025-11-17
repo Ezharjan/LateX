@@ -1,0 +1,36 @@
+name bodeplot
+category Package
+revision 64022
+shortdesc Draw Bode, Nyquist and Nichols plots with gnuplot or pgfplots
+longdesc This is a LaTeX package to plot Bode, Nichols, and Nyquist
+longdesc diagrams. It provides added functionality over the similar
+longdesc bodegraph package: New \BodeZPK and \BodeTF commands to
+longdesc generate Bode plots of any transfer function given either
+longdesc poles, zeros, gain, and delay, or numerator and denominator
+longdesc coefficients and delay Support for unstable poles and zeros.
+longdesc Support for complex poles and zeros. Support for general stable
+longdesc and unstable second order transfer functions. Support for both
+longdesc Gnuplot (default) and pgfplots (package option pgf). Support
+longdesc for linear and asymptotic approximation of magnitude and phase
+longdesc plots of any transfer function given poles, zeros, and gain.
+containersize 5528
+containerchecksum bd984f227dc67a6460b12c301b40fa316ac75231c3319ed089b02e91620df9784453a7f6cb5fcc67f30a8328ab44f4b7e4668b5befe82776a1181b85f7f8ee81
+doccontainersize 729796
+doccontainerchecksum 5c72bc616902d6acb71c564e43b401caec8f6f9ea1b42b535110cf26da91fa1453f3beebfd8ba0f5b846e184d993fb6cdd03982f7e23e3a89640d581f52b5eb4
+docfiles size=261
+ texmf-dist/doc/latex/bodeplot/README.md details="Readme"
+ texmf-dist/doc/latex/bodeplot/bodeplot.pdf details="Package documentation"
+srccontainersize 16696
+srccontainerchecksum 7ae6ed6b9f5de7f2f28ae2fad575a6686dc962751be384c4d71e6c2d1fb2202a26b270a4db7249f60ed83b542e6191bcb2a4f039e4c65f05faf090ecec86245c
+srcfiles size=25
+ texmf-dist/source/latex/bodeplot/bodeplot.dtx
+ texmf-dist/source/latex/bodeplot/bodeplot.ins
+runfiles size=9
+ texmf-dist/tex/latex/bodeplot/bodeplot.sty
+catalogue-also bodegraph
+catalogue-contact-bugs https://github.com/rlkamalapurkar/bodeplot/issues
+catalogue-contact-repository https://github.com/rlkamalapurkar/bodeplot
+catalogue-ctan /graphics/pgf/contrib/bodeplot
+catalogue-license lppl1.3c
+catalogue-topics engineering graphics-plot pgf-tikz
+catalogue-version 1.1.1

@@ -1,0 +1,34 @@
+name semantex
+category Package
+revision 60312
+shortdesc Semantic, keyval-based mathematics
+longdesc The SemanTeX package for LaTeX delivers a more semantic,
+longdesc systematized way of writing mathematics, compared to the
+longdesc classical math syntax in LaTeX. The system uses keyval syntax,
+longdesc and the user can define their own keys and customize the system
+longdesc down to the last detail. At the same time, care has been taken
+longdesc to make the syntax as simple, natural, practical, and
+longdesc lightweight as possible. Furthermore, the package has a
+longdesc companion package, called stripsemantex, which allows you to
+longdesc completely strip your documents of SemanTeX markup to prepare
+longdesc them e.g. for publication. The package is still in beta, but is
+longdesc considered feature-complete and more or less stable, so using
+longdesc it at this point should be safe. Still, suggestions, ideas, and
+longdesc bug reports are more than welcome!
+depend semtex
+containersize 26984
+containerchecksum e4e6656d2126cdfa9cd58042a7aa28cd7b8bbc0cd5b891e8edabc1749a7b34d45a109139ab88f64cd115a62a5c32871187209865d76659fd1b80dea6721e0a38
+doccontainersize 407284
+doccontainerchecksum d801226caef1e9e7720eb02275196fdb300670cfbc8aea01fd17a959ed030532f844fbe8a8de0b802eb81515a9414f14922c3310fbeac0adb5354861635e0747
+docfiles size=140
+ texmf-dist/doc/latex/semantex/README.md details="Readme"
+ texmf-dist/doc/latex/semantex/semantex.pdf details="Package documentation"
+ texmf-dist/doc/latex/semantex/semantex.tex
+runfiles size=83
+ texmf-dist/tex/latex/semantex/semantex.sty
+ texmf-dist/tex/latex/semantex/stripsemantex.lua
+ texmf-dist/tex/latex/semantex/stripsemantex.sty
+catalogue-ctan /macros/latex/contrib/semantex
+catalogue-license lppl1.3c
+catalogue-topics maths expl3
+catalogue-version 0.513

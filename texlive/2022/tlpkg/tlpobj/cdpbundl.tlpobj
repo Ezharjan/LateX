@@ -1,0 +1,46 @@
+name cdpbundl
+category Package
+revision 61719
+shortdesc Business letters in the Italian style
+longdesc The C.D.P. Bundle can be used to typeset high-quality business
+longdesc letters formatted according to Italian style conventions. It is
+longdesc highly configurable, and its modular structure provides you
+longdesc with building blocks of increasing level, by means of which you
+longdesc can compose a large variety of letters. It is also possible to
+longdesc write letters divided into sections and paragraphs, to include
+longdesc floating figures and tables, and to have the relevant indexes
+longdesc compiled automatically. A single input file can contain several
+longdesc letters, and each letter will have its own table of contents,
+longdesc etc., independent from the other ones.
+containersize 19080
+containerchecksum ab13c84673df8a4da5b694256ab14f3c4fab34ff32e8d2faa8712da128baefcedc19c8bcccc77a585171d25e17369af274176971a33679e07d2bd138d4766603
+doccontainersize 768180
+doccontainerchecksum 5ac8e2878434ca3b30ae20c6d1ca7c19b7ac12a38f9598d265ca6c7c214beccc144b75ff5962faf3b58b74b1ec91ab2c265d5429b98206db1fd1c558fa79385e
+docfiles size=201
+ texmf-dist/doc/latex/cdpbundl/00readme.txt details="Basic introduction"
+ texmf-dist/doc/latex/cdpbundl/Makefile
+ texmf-dist/doc/latex/cdpbundl/README details="Readme"
+ texmf-dist/doc/latex/cdpbundl/cdp-ver-0-36.pdf
+ texmf-dist/doc/latex/cdpbundl/cdp-ver-0-36.tex
+ texmf-dist/doc/latex/cdpbundl/cdpbundl-doc.pdf details="Package overview"
+ texmf-dist/doc/latex/cdpbundl/manifest.txt
+srccontainersize 68824
+srccontainerchecksum b958ade1a2a9f9b685c6d7821e1a97304f0c07b9405a95231a166fe5d8ccd8f89dbf168d38996e1e633629042827cb316b81754996d9b09f4d951573967dcea9
+srcfiles size=75
+ texmf-dist/source/latex/cdpbundl/cdpbundl.dtx
+ texmf-dist/source/latex/cdpbundl/cdpbundl.ins
+runfiles size=28
+ texmf-dist/tex/latex/cdpbundl/articoletteracdp.cls
+ texmf-dist/tex/latex/cdpbundl/cdpaddon.sty
+ texmf-dist/tex/latex/cdpbundl/cdpbabel.sty
+ texmf-dist/tex/latex/cdpbundl/cdpnamesenglish.ldf
+ texmf-dist/tex/latex/cdpbundl/cdpnamesitalian.ldf
+ texmf-dist/tex/latex/cdpbundl/cdpshues-example.def
+ texmf-dist/tex/latex/cdpbundl/cdpshues.cfg
+ texmf-dist/tex/latex/cdpbundl/epson-stylus-740.def
+ texmf-dist/tex/latex/cdpbundl/hp-laserjet-4500.def
+ texmf-dist/tex/latex/cdpbundl/letteracdp.cls
+catalogue-ctan /macros/latex/contrib/cdpbundl
+catalogue-license lppl
+catalogue-topics letter
+catalogue-version 0.36d

@@ -1,0 +1,25 @@
+name tikz-bbox
+category Package
+revision 57444
+shortdesc Precise determination of bounding boxes in TikZ
+longdesc The built-in determination of the bounding box in TikZ is not
+longdesc entirely accurate. This is because, for Bezier curves, it is
+longdesc the smallest box that contains all control points, which is in
+longdesc general larger than the box that just contains the curve. This
+longdesc library determines the exact bounding box of the curve.
+containersize 1512
+containerchecksum e68c3c6922c8529bea0b7c25bafc488d7aa41ad81afacae0f674caf637a1638dc8666bd16628b123063d94031d4cd4691ca127bbb648c1fb5a20d72ca8a41fbd
+doccontainersize 238660
+doccontainerchecksum 428d94e87d51e000c5fed4f5b0bd87b8fdb261b9550e0c67e05a69fcee7a4ce3ee070f262d278e21cbdc5bfeea790c6d17450bc91e1e51250b572e754ded3df8
+docfiles size=62
+ texmf-dist/doc/latex/tikz-bbox/README.txt details="Readme"
+ texmf-dist/doc/latex/tikz-bbox/pgfmanual-en-library-bbox.tex
+ texmf-dist/doc/latex/tikz-bbox/pgfmanual4bbox.pdf details="Package documentation"
+ texmf-dist/doc/latex/tikz-bbox/pgfmanual4bbox.tex
+runfiles size=2
+ texmf-dist/tex/latex/tikz-bbox/pgflibrarybbox.code.tex
+catalogue-contact-repository https://github.com/marmotghost/tikz-bbox
+catalogue-ctan /graphics/pgf/contrib/tikz-bbox
+catalogue-license lppl1.3c
+catalogue-topics graphics pgf-tikz
+catalogue-version 0.1

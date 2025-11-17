@@ -1,0 +1,22 @@
+name mecaso
+category Package
+revision 60346
+shortdesc Formulas frequently used in rigid body mechanics
+longdesc This package provides a number of formulas frequently used in
+longdesc rigid body mechanics. Since most of these formulas are long and
+longdesc tedious to write, this package wraps them up in short commands.
+containersize 2832
+containerchecksum b240bfbeda5a18fd24625444403f508e3dffc5b3631a8ff6e88db6aebcc97da3eaa2ebb3ebb0d15b0c1bca0d7f62a72511a00c0ca1870f6d0d3e90398bbc5754
+doccontainersize 221844
+doccontainerchecksum 42744543f456f1c77a30be81b4dc47f69b220d2d0abd8cf7f05ec7136bda9f55f98e63a48cb9b2fb65d6fdb3270bce7a31cbcbece15527d4141bac301dd55963
+docfiles size=70
+ texmf-dist/doc/latex/mecaso/README.md details="Readme"
+ texmf-dist/doc/latex/mecaso/mecaso.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/mecaso/mecaso.tex
+runfiles size=3
+ texmf-dist/tex/latex/mecaso/mecaso.sty
+catalogue-contact-repository https://github.com/YDFTW/mecaso
+catalogue-ctan /macros/latex/contrib/mecaso
+catalogue-license gpl3+
+catalogue-topics physics
+catalogue-version 1.0

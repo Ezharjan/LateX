@@ -1,0 +1,37 @@
+name proflycee
+category Package
+revision 64289
+shortdesc A LaTeX package for French maths teachers in high school
+longdesc This package provides some commands to help French mathematics
+longdesc teachers for 15-18 years olds, for example: \splinetikz to
+longdesc create splines with "derivative control"; \paramCF and \ligneCF
+longdesc in order to create an xcas-windows-like; \envconsolepythontex
+longdesc and \envcodepythontex to create code presentation and code
+longdesc execution with pythontex.
+containersize 15648
+containerchecksum c287b997541839235f834390526d533ce15badf4c7c756eeb0a0cd1b5e8f64f9e68f42bb2b1a7a0f8f0239603971d4c98b5ca540118ea19a4b1f738dca1a7b4c
+doccontainersize 884940
+doccontainerchecksum 35e459dd11ea82d21e839ce2fb62bc46450b858d5047dee59c64d4fc24ec6f9ae938fabccb2a25af627de4885f32a065b84698370589f0c9fc76331258504aba
+docfiles size=260
+ texmf-dist/doc/latex/proflycee/ProfLycee-doc.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/proflycee/ProfLycee-doc.tex
+ texmf-dist/doc/latex/proflycee/README.md details="Readme"
+ texmf-dist/doc/latex/proflycee/basique.csv
+ texmf-dist/doc/latex/proflycee/cap.csv
+ texmf-dist/doc/latex/proflycee/perroquet.csv
+ texmf-dist/doc/latex/proflycee/pl-doc-stats_a.png
+ texmf-dist/doc/latex/proflycee/pl-doc-stats_b.png
+ texmf-dist/doc/latex/proflycee/pl-doc-stats_c.png
+ texmf-dist/doc/latex/proflycee/pl-doc-stats_c2.png
+ texmf-dist/doc/latex/proflycee/pl-doc-stats_d.png
+ texmf-dist/doc/latex/proflycee/pl-doc-stats_e.png
+ texmf-dist/doc/latex/proflycee/testscript.py
+runfiles size=17
+ texmf-dist/tex/latex/proflycee/ProfLycee.sty
+catalogue-also profcollege
+catalogue-contact-bugs https://github.com/cpierquet/ProfLycee/issues
+catalogue-contact-repository https://github.com/cpierquet/ProfLycee
+catalogue-ctan /macros/latex/contrib/proflycee
+catalogue-license lppl1.3c
+catalogue-topics maths french teaching expl3 pgf-tikz
+catalogue-version 1.2.5

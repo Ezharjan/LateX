@@ -1,0 +1,38 @@
+name eq-pin2corr
+category Package
+revision 59477
+shortdesc Add PIN security to the "Correct" button of a quiz created by exerquiz
+longdesc This package is an add-on to the quiz environment of the
+longdesc exerquiz package (part of the acrotex bundle). It adds PIN
+longdesc security to a quiz created by the quiz environment. To correct
+longdesc a quiz, the document consumer must press the "Correct" button
+longdesc of the quiz and successfully enter the correct PIN number. The
+longdesc PIN security is designed for the instructor to mark and record
+longdesc the student's effort on that quiz. The package works for the
+longdesc usual workflows.
+containersize 3368
+containerchecksum 631f8dc9f50f7a45a0d03f0c4210af427cf8492d56886cedeff6cb0e9587453976beb1ac960afb53b7a31538a176bb63f55afd330ca2463847f86e57c3d545c3
+doccontainersize 558764
+doccontainerchecksum 4e704295ff398a2e167293178d69edc4882e9b9f37dae4f9debda7edd921a7c2d19c036b4d1424405ac1b9853e57615d9183fbf56a763088dc58919842da2720
+docfiles size=258
+ texmf-dist/doc/latex/eq-pin2corr/README.md details="Readme"
+ texmf-dist/doc/latex/eq-pin2corr/doc/eq-pin2corr.pdf details="Package documentation"
+ texmf-dist/doc/latex/eq-pin2corr/doc/eqpin2corrman.pdf details="User manual"
+ texmf-dist/doc/latex/eq-pin2corr/doc/eqpin2corrman.tex
+ texmf-dist/doc/latex/eq-pin2corr/doc/install_jsfiles.pdf
+ texmf-dist/doc/latex/eq-pin2corr/doc/install_jsfiles.tex
+ texmf-dist/doc/latex/eq-pin2corr/examples/get-hash-string.pdf
+ texmf-dist/doc/latex/eq-pin2corr/examples/get-hash-string.tex
+ texmf-dist/doc/latex/eq-pin2corr/examples/qz-p2c.pdf
+ texmf-dist/doc/latex/eq-pin2corr/examples/qz-p2c.tex
+srccontainersize 7684
+srccontainerchecksum eb40f073d1763c59f9a0ed0444930f6698fbde754e213a73bff251df7f83b2c5a730345104d3b947ee8400363d324f968e3ebb7b74ed6f484d0c3589d5134b37
+srcfiles size=7
+ texmf-dist/source/latex/eq-pin2corr/eq-pin2corr.dtx
+ texmf-dist/source/latex/eq-pin2corr/eq-pin2corr.ins
+runfiles size=2
+ texmf-dist/tex/latex/eq-pin2corr/eq-pin2corr.sty
+catalogue-also exerquiz
+catalogue-ctan /macros/latex/contrib/eq-pin2corr
+catalogue-license lppl1.2
+catalogue-topics exercise exam security pdf-feat pdf-forms acrobat

@@ -1,0 +1,40 @@
+name datetime2-serbian
+category Package
+revision 52893
+shortdesc Serbian language module for the datetime2 package
+longdesc This module provides the "serbian" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. It provides both
+longdesc Cyrillic and Latin, Ekavian and Ijekavian variants of Serbian
+longdesc date formats, regionalized and non-regionalized.
+containersize 6716
+containerchecksum ebcdbb32af1743e9dc2b46b6730664c48a26ac4d15c4e9936c9df883a718fb52e8800f29285295e7521a02130471bdc10f8227b5dbbbeaf6481355d7025a8dd4
+doccontainersize 277140
+doccontainerchecksum c56761130dc00406a27356a8b38f4c82f233dab32fa6f19d58626139ecd7e12fe3c736edc676db52176c5918800b4f0a47362fcb9b3ef265ec3beebd641c1b15
+docfiles size=71
+ texmf-dist/doc/latex/datetime2-serbian/README.md details="Readme"
+ texmf-dist/doc/latex/datetime2-serbian/datetime2-serbian.pdf details="Package documentation"
+srccontainersize 15704
+srccontainerchecksum a7d421d3e090bfdcdd0fc5f734a45cf32d8849e1c27ddb2de3f829c5488d99220797400c8039deef2fb76c3ede96059519dad3d54412f2c780ca5b9bca39f043
+srcfiles size=53
+ texmf-dist/source/latex/datetime2-serbian/datetime2-serbian.dtx
+ texmf-dist/source/latex/datetime2-serbian/datetime2-serbian.ins
+runfiles size=35
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-serbian-base-ascii.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-serbian-base-utf8.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-serbian-base.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-serbian.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-serbianc.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Cyrl-BA.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Cyrl-ME.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Cyrl-RS.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Cyrl.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Latn-BA.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Latn-ME.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Latn-RS.ldf
+ texmf-dist/tex/latex/datetime2-serbian/datetime2-sr-Latn.ldf
+catalogue-contact-bugs https://gitlab.com/andrejr/datetime2-serbian/issues
+catalogue-contact-home https://gitlab.com/andrejr/datetime2-serbian
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-serbian
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual serbian
+catalogue-version 2.1.0

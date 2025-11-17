@@ -1,0 +1,45 @@
+name ufrgscca
+category Package
+revision 64314
+shortdesc A bundle for undergraduate students final work/report (tcc) at UFRGS/EE
+longdesc This bundled is aimed at producing undergraduate students'
+longdesc final work/report at UFRGS/EE (Engineering School at the
+longdesc Federal University of Rio Grande do Sul), closely following
+longdesc ABNT rules (Brazilian Association for Technical Norms). It is
+longdesc composed of a main class, ufrgscca, and a set of auxiliary
+longdesc packages, some of which can be used independently.
+containersize 27764
+containerchecksum cd2b5ee7f22d54cad75488e74837069dc847dd006a82a72239ecba8213996bdeff8bbdaaace009336d141692ecdf5e3bcf152f45d7d65fa0a26089f609b7dd3f
+doccontainersize 453996
+doccontainerchecksum a5089c493bc344922ca156e45a302662c8f74135bc1fcfffb5b3b06bade5ce29cfb08a496e72f633f7d673838ceb061a47c979d0e47c47adbffb66304a747e33
+docfiles size=141
+ texmf-dist/doc/latex/ufrgscca/README.md details="Readme"
+ texmf-dist/doc/latex/ufrgscca/ufrgscca.pdf details="Package documentation"
+ texmf-dist/doc/latex/ufrgscca/ufrgscca.tex
+runfiles size=55
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-abnt.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-coord.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-core.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-cover.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-curr-graph.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-curr-tab.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-curr.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-en-base.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-en-coord.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-en-core.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-en-forms.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-forms.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-gen.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-lists.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-ppc.sty
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-ptBR-base.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-ptBR-coord.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-ptBR-core.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca-ptBR-forms.def
+ texmf-dist/tex/latex/ufrgscca/ufrgscca.cls
+catalogue-contact-bugs https://github.com/alceu-frigeri/ufrgscca/issues
+catalogue-contact-repository https://github.com/alceu-frigeri/ufrgscca
+catalogue-ctan /macros/latex/contrib/ufrgscca
+catalogue-license lppl1.3c gpl
+catalogue-topics dissertation portuguese-br
+catalogue-version 1.0.1

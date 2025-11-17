@@ -1,0 +1,27 @@
+name wtref
+category Package
+revision 55558
+shortdesc Extend LaTeX's cross-reference system
+longdesc This package extends the cross-reference system of LaTeX2e and
+longdesc introduces concepts of namespace and scope. It also allows
+longdesc users to customize reference formats. The package is part of
+longdesc the WT Series. Prerequisite packages: xparse and xkeyval.
+containersize 2144
+containerchecksum 1c946778722ba4e7014b98447d1c2c5472b34d916a4aada1ad1098ab05d67a1466fb181f19bacde5fe18a0b28a055a87b626893d6c49346fb665b4595910401c
+doccontainersize 347716
+doccontainerchecksum b1ebac65ff228e7a6221240ce90d83121d726959d95f2271eb3c6597c7740a376da62371fedf2c0bd068e660950167d4b09cf22c01fd78c337c10402eda63bd1
+docfiles size=92
+ texmf-dist/doc/latex/wtref/LICENSE
+ texmf-dist/doc/latex/wtref/README.md details="Readme"
+ texmf-dist/doc/latex/wtref/wtref-ja.pdf details="Package documentation (Japanese)" language="ja"
+ texmf-dist/doc/latex/wtref/wtref-ja.tex
+ texmf-dist/doc/latex/wtref/wtref.pdf details="Package documentation"
+ texmf-dist/doc/latex/wtref/wtref.tex
+runfiles size=2
+ texmf-dist/tex/latex/wtref/wtref.sty
+catalogue-contact-bugs https://github.com/wtsnjp/WTRef/issues
+catalogue-contact-repository https://github.com/wtsnjp/WTRef
+catalogue-ctan /macros/latex/contrib/wtref
+catalogue-license mit
+catalogue-topics label-ref
+catalogue-version 0.4.0

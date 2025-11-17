@@ -1,0 +1,35 @@
+name einfart
+category Package
+revision 64280
+shortdesc Write your articles in a simple and clear way
+longdesc This package provides a LaTeX class for typesetting articles
+longdesc with a simple and clear design. Currently, it has native
+longdesc support for Chinese (simplified and traditional), English,
+longdesc French, German, Italian, Japanese, Portuguese (European and
+longdesc Brazilian), Russian and Spanish typesetting. It compiles with
+longdesc either XeLaTeX or LuaLaTeX. This is part of the minimalist
+longdesc class series and depends on minimalist.sty from the minimalist
+longdesc package. The package name "einfart" is taken from the German
+longdesc word "einfach" ("simple"), combined with the first three
+longdesc letters of "Artikel" ("article").
+depend minimalist
+containersize 4748
+containerchecksum 0038664f40f0cf5c940d44d618876e98f1419058b7bfe27e741d536743c4ca208bd728aa4a193544956efa30c0e970ffbb04559e751b116037c8760d34a615f6
+doccontainersize 378612
+doccontainerchecksum 89cb6a140802ed0395bbad43c3bdaeca5879e4564d0f9ae15f333f243490788651bdef214d2aafa5c44c0d720e8fbfc66f3dd584b544d80ad3058015cb883553
+docfiles size=121
+ texmf-dist/doc/latex/einfart/LICENSE
+ texmf-dist/doc/latex/einfart/README.md details="Readme"
+ texmf-dist/doc/latex/einfart/einfart-doc-cn.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/latex/einfart/einfart-doc-cn.tex
+ texmf-dist/doc/latex/einfart/einfart-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/einfart/einfart-doc-en.tex
+ texmf-dist/doc/latex/einfart/einfart-doc-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/einfart/einfart-doc-fr.tex
+runfiles size=8
+ texmf-dist/tex/latex/einfart/einfart.cls
+catalogue-also minimalist
+catalogue-contact-repository https://github.com/Jinwen-XU/minimalist
+catalogue-ctan /macros/unicodetex/latex/einfart
+catalogue-license lppl1.3c
+catalogue-topics class article-like multilingual expl3

@@ -1,0 +1,26 @@
+name repltext
+category Package
+revision 56433
+shortdesc Control how text gets copied from a PDF file
+longdesc The repltext package exposes to LaTeX a relatively obscure PDF
+longdesc feature: replacement text. When replacement text is specified
+longdesc for a piece of text, it is the replacement text, not the
+longdesc typeset text that is copied and pasted.
+containersize 1412
+containerchecksum a5deadeab45a6a2ab4732e91c26da32f276e2d5b35ff357faeb3361c917c3b47c81e59cb6934d052d3525df2a810510e6fa7a8b9e9d6d272c91b4b558de7132d
+doccontainersize 426068
+doccontainerchecksum 0694a76754c98bcfb6999ddb96c368701556eb1de025af1ae32ab8e39361d18405fbd2c1438c1ebafd2cb06f2d9884afc08e1c94f57eaa89313f54d58a289808
+docfiles size=108
+ texmf-dist/doc/latex/repltext/README details="Readme"
+ texmf-dist/doc/latex/repltext/repltext.pdf details="Package documentation"
+srccontainersize 7104
+srccontainerchecksum 79a4c693599b0f20e4e1b2210f65dab3b1cc276bf3a661f385a2ec70c703846e881bebd2d6ae8913a007b832206e033f178c4017fc69ef099c3ff87f4b40f651
+srcfiles size=6
+ texmf-dist/source/latex/repltext/repltext.dtx
+ texmf-dist/source/latex/repltext/repltext.ins
+runfiles size=1
+ texmf-dist/tex/latex/repltext/repltext.sty
+catalogue-ctan /macros/latex/contrib/repltext
+catalogue-license lppl1.3c
+catalogue-topics pdf-feat
+catalogue-version 1.1

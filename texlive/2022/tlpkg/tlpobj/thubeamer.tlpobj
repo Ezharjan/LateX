@@ -1,0 +1,45 @@
+name thubeamer
+category Package
+revision 61071
+shortdesc A beamer theme for Tsinghua University
+longdesc This package provides a beamer theme designed for Tsinghua
+longdesc University.
+containersize 121904
+containerchecksum 8391507179c7237588645f08c0611ab441cb4f426808bece8122ddcccdec8c94457efb8db75f7078b6b2adb6430350d5279bf9efa091cecbc263d31fbbfc11c4
+doccontainersize 695128
+doccontainerchecksum fb2383dc358f2d0990a3f697746b6941a04116af8f184dbc37cccb100bfb19fc72ecd876bc581234c6dafc2c897576992fe8f741fea07ee0889bb1f51555601a
+docfiles size=236
+ texmf-dist/doc/latex/thubeamer/License
+ texmf-dist/doc/latex/thubeamer/README.md details="Readme"
+ texmf-dist/doc/latex/thubeamer/dtx-style.sty
+ texmf-dist/doc/latex/thubeamer/macros.tex
+ texmf-dist/doc/latex/thubeamer/reference.bib
+ texmf-dist/doc/latex/thubeamer/thubeamer-example-en.pdf details="Example of use (English)"
+ texmf-dist/doc/latex/thubeamer/thubeamer-example-en.tex
+ texmf-dist/doc/latex/thubeamer/thubeamer-example.pdf details="Example of use (Chinese)" language="zh"
+ texmf-dist/doc/latex/thubeamer/thubeamer-example.tex
+ texmf-dist/doc/latex/thubeamer/thubeamer.pdf details="Package documentation" language="zh"
+srccontainersize 8136
+srccontainerchecksum 775b719a02f4ce703a37844cbff77e476c35dc105f8c370e6213f157053a397ac80295cf67c84229ff565e997bb89d89f7db209c7f84d8e47b4c92acca98ff48
+srcfiles size=12
+ texmf-dist/source/latex/thubeamer/Makefile
+ texmf-dist/source/latex/thubeamer/makebeamer-en.bat
+ texmf-dist/source/latex/thubeamer/makebeamer.bat
+ texmf-dist/source/latex/thubeamer/makeclean.bat
+ texmf-dist/source/latex/thubeamer/makecleanall.bat
+ texmf-dist/source/latex/thubeamer/makedoc.bat
+ texmf-dist/source/latex/thubeamer/thubeamer.dtx
+runfiles size=68
+ texmf-dist/bibtex/bst/thubeamer/thubeamer.bst
+ texmf-dist/tex/latex/thubeamer/beamercolorthemethubeamer.sty
+ texmf-dist/tex/latex/thubeamer/beamerinnerthemethubeamer.sty
+ texmf-dist/tex/latex/thubeamer/beamerouterthemethubeamer.sty
+ texmf-dist/tex/latex/thubeamer/beamerthemethubeamer.sty
+ texmf-dist/tex/latex/thubeamer/thulogo.pdf
+catalogue-contact-announce https://github.com/YangLaTeX/thubeamer/releases
+catalogue-contact-bugs https://github.com/YangLaTeX/thubeamer/issues
+catalogue-contact-repository https://github.com/YangLaTeX/thubeamer
+catalogue-ctan /macros/latex/contrib/beamer-contrib/themes/thubeamer
+catalogue-license lppl1.3c
+catalogue-topics presentation chinese
+catalogue-version 1.1.0

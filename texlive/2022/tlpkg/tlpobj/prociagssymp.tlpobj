@@ -1,0 +1,21 @@
+name prociagssymp
+category Package
+revision 63242
+shortdesc Macros for IAG symposium papers
+longdesc This package provides (re-)definitions of some LaTeX commands
+longdesc that can be useful for the preparation of papers with the style
+longdesc of the proceedings of symposia sponsored by the 'International
+longdesc Association of Geodesy (IAG)' published by Springer-Verlag.
+containersize 2532
+containerchecksum f85716931c9fb7ac695db838d5e76160c485dac5f5f6a8f1c27cb7e375d78b385dce513103fdef30eca238fed78734661e192d712e74d948fbce0ccd209a1066
+doccontainersize 84172
+doccontainerchecksum 9d7e118fb0b704649176bb51f523d8a64ed11fb8e58cd1cafc7ffe3f4ad5005366cf518df9d7a4577b600524e19f089a4086d46f946668e82a1272b28c750f8f
+docfiles size=23
+ texmf-dist/doc/latex/prociagssymp/README.txt details="Readme"
+ texmf-dist/doc/latex/prociagssymp/TestprocIAGssymp.pdf details="Minimal user manual and example of use"
+ texmf-dist/doc/latex/prociagssymp/TestprocIAGssymp.tex
+runfiles size=2
+ texmf-dist/tex/latex/prociagssymp/procIAGssymp.sty
+catalogue-ctan /macros/latex/contrib/prociagssymp
+catalogue-license lppl
+catalogue-topics confproc

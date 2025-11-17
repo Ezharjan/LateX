@@ -1,0 +1,47 @@
+name ran_toks
+category Package
+revision 59515
+shortdesc Randomise token strings
+longdesc The package provides means of randomising lists of tokens, or
+longdesc lists of chunks of tokens. Two mechanisms for defining chunks
+longdesc are provided: the \ranToks command accepts an argument
+longdesc containing tokens to be randomised; and the \bRTVToks/\eRTVToks
+longdesc commands delimit a collection of tokens for randomising; each
+longdesc group inside a rtVw constitutes one of these (typically larger)
+longdesc token sets.
+containersize 5324
+containerchecksum 25b78e30d7e6a2f082a7740fcdb968cd4032e6fd612bafdbeb58613f45882e788809457d0fcf29af76d3eb82c57d8772960ad84f9ed5940fe670f8662853364d
+doccontainersize 524452
+doccontainerchecksum 7e837aba73d0d578494845f038f7616a64eaeecde059655c8ce3ed5a5bc2c5910086c955b6a16a42abd09dbbafb71409387959eaf2378618532d2e494bba42d2
+docfiles size=165
+ texmf-dist/doc/latex/ran_toks/README.md details="Readme"
+ texmf-dist/doc/latex/ran_toks/docs/ran_toks.pdf
+ texmf-dist/doc/latex/ran_toks/docs/rantoks_man.pdf details="Package documentation"
+ texmf-dist/doc/latex/ran_toks/docs/rantoks_man.tex
+ texmf-dist/doc/latex/ran_toks/examples/ctrl-build.tex
+ texmf-dist/doc/latex/ran_toks/examples/db1.tex
+ texmf-dist/doc/latex/ran_toks/examples/db2.tex
+ texmf-dist/doc/latex/ran_toks/examples/db3.tex
+ texmf-dist/doc/latex/ran_toks/examples/db4.tex
+ texmf-dist/doc/latex/ran_toks/examples/mc-db.tex
+ texmf-dist/doc/latex/ran_toks/examples/mc-dbu-ctrld.tex
+ texmf-dist/doc/latex/ran_toks/examples/mc-dbu.tex
+ texmf-dist/doc/latex/ran_toks/examples/mytext.verb
+ texmf-dist/doc/latex/ran_toks/examples/nested-matching.tex
+ texmf-dist/doc/latex/ran_toks/examples/ran-toks.tex
+ texmf-dist/doc/latex/ran_toks/examples/rt-cb.tex
+ texmf-dist/doc/latex/ran_toks/examples/rt-tst-eqe.tex
+ texmf-dist/doc/latex/ran_toks/examples/rt-tst-qz.tex
+ texmf-dist/doc/latex/ran_toks/examples/viewDB.tex
+srccontainersize 12204
+srccontainerchecksum ad77e0842ddd144f49b26a548846f2058611336f51d7540e96ad63258ee46c2f0a139b6945c0fea1f26fbf61b5e1d21ec45f87a9f68009d87ea6b9b5634a2895
+srcfiles size=12
+ texmf-dist/source/latex/ran_toks/ran_toks.dtx
+ texmf-dist/source/latex/ran_toks/ran_toks.ins
+runfiles size=6
+ texmf-dist/tex/latex/ran_toks/ran-toks.sty
+ texmf-dist/tex/latex/ran_toks/ran_toks.sty
+ texmf-dist/tex/latex/ran_toks/rt-dbapp.def
+catalogue-ctan /macros/latex/contrib/ran_toks
+catalogue-license lppl1
+catalogue-topics macro-supp

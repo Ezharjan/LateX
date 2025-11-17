@@ -1,0 +1,79 @@
+name nwejm
+category Package
+revision 62129
+shortdesc Support for the journal "North-Western European Journal of Mathematics"
+longdesc The bundle includes LaTeX classes and BibLaTeX styles files
+longdesc dedicated to the new journal "North-Western European Journal of
+longdesc Mathematics": nwejm for the complete issues of the journal,
+longdesc aimed at the NWEJM's team, nwejmart, intended for the authors
+longdesc who wish to publish an article in the NWEJM. This class's goal
+longdesc is to: faithfully reproduce the layout of the nwejm, thus
+longdesc enabling the authors to be able to work their document in
+longdesc actual conditions, provide a number of tools (commands and
+longdesc environments) to facilitate the drafting of documents, in
+longdesc particular those containing mathematical formulas.
+containersize 4089520
+containerchecksum 5b349e509088d67543f3cd133b96cc475166328853a05429a368e0be6a96206a09c44ecf7ee4cd7de6a35cf94de3a36ce70b4770a8dd8ee1d6c2e574a95138fe
+doccontainersize 1321156
+doccontainerchecksum 8ecc8f7e439b8e5adf7d34dc2e2adf40959db22eaada9c9ecbcfed6c0251ad9f26f614a6150a35c4eb4407bb3715aa7078d71c66bdb808e117874582b5c469e3
+docfiles size=483
+ texmf-dist/doc/latex/nwejm/CHANGELOG.md
+ texmf-dist/doc/latex/nwejm/README.md details="Readme.md"
+ texmf-dist/doc/latex/nwejm/addons/completion/nwejm.cwl
+ texmf-dist/doc/latex/nwejm/addons/completion/nwejmart.cwl
+ texmf-dist/doc/latex/nwejm/english/README-TRANSLATION.md
+ texmf-dist/doc/latex/nwejm/english/latexmkrc
+ texmf-dist/doc/latex/nwejm/english/nwejm-en.tex
+ texmf-dist/doc/latex/nwejm/examples/article-in-dutch.pdf
+ texmf-dist/doc/latex/nwejm/examples/article-in-dutch.tex
+ texmf-dist/doc/latex/nwejm/examples/article-in-english.pdf
+ texmf-dist/doc/latex/nwejm/examples/article-in-english.tex
+ texmf-dist/doc/latex/nwejm/examples/article-in-french.pdf
+ texmf-dist/doc/latex/nwejm/examples/article-in-french.tex
+ texmf-dist/doc/latex/nwejm/examples/article-in-german.pdf
+ texmf-dist/doc/latex/nwejm/examples/article-in-german.tex
+ texmf-dist/doc/latex/nwejm/examples/issue.pdf
+ texmf-dist/doc/latex/nwejm/examples/issue.tex
+ texmf-dist/doc/latex/nwejm/examples/latexmkrc
+ texmf-dist/doc/latex/nwejm/examples/sample.bib
+ texmf-dist/doc/latex/nwejm/examples/sample.pdf details="Example of use"
+ texmf-dist/doc/latex/nwejm/examples/sample.tex
+ texmf-dist/doc/latex/nwejm/examples/template.tex
+ texmf-dist/doc/latex/nwejm/french/latexmkrc
+ texmf-dist/doc/latex/nwejm/french/nwejm-fr.bib
+ texmf-dist/doc/latex/nwejm/french/nwejm-fr.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/nwejm/french/nwejm-fr.tex
+srccontainersize 49332
+srccontainerchecksum 89b999e52b400ec5ada8316ca47875e692813b844ae7f0bde2b260354caa8235a2e26a96e2ffdff6adf8cbfacd1bb1d5f504fc902d58467bfaa9255a99c79066
+srcfiles size=61
+ texmf-dist/source/latex/nwejm/nwejm-examples-template.dtx
+ texmf-dist/source/latex/nwejm/nwejm.dtx
+runfiles size=2120
+ texmf-dist/tex/latex/nwejm/images/nwejm-cover-background.jpg
+ texmf-dist/tex/latex/nwejm/images/nwejm-federation-recherche-math-npdc-logo.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-fields-institute-logo.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-kwg-logo.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-logo-NB.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-logo-painleve.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-logo.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-logos-collection.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-logos-collection.tex
+ texmf-dist/tex/latex/nwejm/images/nwejm-smf-logo.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-sml-logo.pdf
+ texmf-dist/tex/latex/nwejm/images/nwejm-ul-fst-math.pdf
+ texmf-dist/tex/latex/nwejm/nwejm-dutch.trsl
+ texmf-dist/tex/latex/nwejm/nwejm-english.trsl
+ texmf-dist/tex/latex/nwejm/nwejm-french.trsl
+ texmf-dist/tex/latex/nwejm/nwejm-german.trsl
+ texmf-dist/tex/latex/nwejm/nwejm.bbx
+ texmf-dist/tex/latex/nwejm/nwejm.cbx
+ texmf-dist/tex/latex/nwejm/nwejm.cfg
+ texmf-dist/tex/latex/nwejm/nwejm.cls
+ texmf-dist/tex/latex/nwejm/nwejm.dbx
+ texmf-dist/tex/latex/nwejm/nwejm.lbx
+ texmf-dist/tex/latex/nwejm/nwejmart.cls
+catalogue-contact-repository https://github.com/dbitouze/nwejm/
+catalogue-ctan /macros/latex/contrib/nwejm
+catalogue-license lppl1.3c
+catalogue-topics journalpub class
+catalogue-version 1.0.4

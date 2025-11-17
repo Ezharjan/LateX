@@ -1,0 +1,31 @@
+name termsim
+category Package
+revision 61414
+shortdesc Simulate Win10, Ubuntu, and Mac terminals
+longdesc This LaTeX3 package provides environments terminal and
+longdesc terminal*, and macros \termfile and \termfile* to simulate
+longdesc Win10, Ubuntu and Mac terminals. It is based on tcolorbox,
+longdesc minted and listings.
+containersize 3860
+containerchecksum 132615cbdbe257f2c7643414ef4b577053425e457a2e2ee2a9b4d8d56a7e6758db587b7f5223ef1a324931f5468ac5365b7dde7b971312bc8b8ea069ee5efb9e
+doccontainersize 390080
+doccontainerchecksum af5047a490608fbb5769b6b4d3dad3fac6b9b20abb5dbaf20d08a633045ea45ca1a01f572d3f0701567a91a8429ae0c7279fa82f054e6fe0802d413765c46ccc
+docfiles size=111
+ texmf-dist/doc/latex/termsim/README.md details="Readme"
+ texmf-dist/doc/latex/termsim/build.sh
+ texmf-dist/doc/latex/termsim/ctxdoc-en.cls
+ texmf-dist/doc/latex/termsim/termsim-doc-en.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/termsim/termsim-doc-en.tex
+ texmf-dist/doc/latex/termsim/termsim.pdf details="Package documentation (Chinese)" language="zh"
+srccontainersize 9472
+srccontainerchecksum 45ad375a19ca939496f6f6546c9d2568367b3cd49c11fe1b2d94785448eb679d3e82c41a3282df054027636ca367b86b82dc3d937b42056398c23622ffa6e34a
+srcfiles size=12
+ texmf-dist/source/latex/termsim/termsim.dtx
+runfiles size=4
+ texmf-dist/tex/latex/termsim/termsim.sty
+catalogue-contact-bugs https://github.com/registor/termsim/issues
+catalogue-contact-repository https://github.com/registor/termsim
+catalogue-ctan /macros/latex/contrib/termsim
+catalogue-license lppl1.3c
+catalogue-topics listing boxing comp-sci expl3
+catalogue-version 1.1.1

@@ -1,0 +1,28 @@
+name datetime2-welsh
+category Package
+revision 52553
+shortdesc Welsh language module for the datetime2 package
+longdesc This module provides the "welsh" style that can be set using
+longdesc \DTMsetstyle provided by datetime2.sty. This package is
+longdesc currently unmaintained. Please see the README for the procedure
+longdesc to follow if you want to take over the maintenance.
+containersize 2580
+containerchecksum 2c3b56f2e2796840fec8a60b4f75800743a4d71128cb900ed7419a7a01acd306a9ef86c2b1587e661833f8de48ef89e22c11589af21c9abfa2cedbf709c4c340
+doccontainersize 286200
+doccontainerchecksum 7abb3d603eb94f99c1fc49e53ee28996d2a536d647b0940db20e5a9aa70eb10d7e00385300bfb3adbaf4f463db20c4277a8afbf0f174c449e402c02954c57243
+docfiles size=71
+ texmf-dist/doc/latex/datetime2-welsh/README details="Readme"
+ texmf-dist/doc/latex/datetime2-welsh/datetime2-welsh.pdf details="Package documentation"
+srccontainersize 4868
+srccontainerchecksum 92b71dbc5a21f650de8e9ef42bab3e3cdae1f4f1a48b34db9b656d894edc678e79e27dfe8b2143d85dd69aebf6e1cc9156a9b72d632065a2d146084f7da0f12f
+srcfiles size=5
+ texmf-dist/source/latex/datetime2-welsh/datetime2-welsh.dtx
+ texmf-dist/source/latex/datetime2-welsh/datetime2-welsh.ins
+runfiles size=4
+ texmf-dist/tex/latex/datetime2-welsh/datetime2-welsh-ascii.ldf
+ texmf-dist/tex/latex/datetime2-welsh/datetime2-welsh-utf8.ldf
+ texmf-dist/tex/latex/datetime2-welsh/datetime2-welsh.ldf
+catalogue-ctan /macros/latex/contrib/datetime2-contrib/datetime2-welsh
+catalogue-license lppl1.3
+catalogue-topics date-time multilingual
+catalogue-version 1.1

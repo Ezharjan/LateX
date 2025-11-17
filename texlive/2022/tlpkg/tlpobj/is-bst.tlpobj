@@ -1,0 +1,25 @@
+name is-bst
+category Package
+revision 52623
+shortdesc Extended versions of standard BibTeX styles
+longdesc The bundle contains an extended version (xbtxbst.doc) of the
+longdesc source of the standard BibTeX styles, together with
+longdesc corresponding versions of the standard styles. The styles offer
+longdesc support for CODEN, ISBN, ISSN, LCCN, and PRICE fields, extended
+longdesc PAGES fields, the PERIODICAL entry, and extended citation label
+longdesc suffixing.
+containersize 9932
+containerchecksum 491b40704ad4c36e7ffac12bd5b823a4d796a9d52b82176cbd9654b6fe07d3a8a0c63f9756070bd4a971a33836e179ce6c7609e5de2eebddfac9c6aaecb92b43
+doccontainersize 18792
+doccontainerchecksum bbd5aa6261779b7d395a89c04421c680b6906f795ec713b9c72bbdc282fbf459c443a08ccc7c395ac5274ef5aa1b3f56cd773e50faa7ced4ab4629f1b91e73e9
+docfiles size=20
+ texmf-dist/doc/bibtex/is-bst/xbtxbst.doc
+runfiles size=40
+ texmf-dist/bibtex/bst/is-bst/is-abbrv.bst
+ texmf-dist/bibtex/bst/is-bst/is-alpha.bst
+ texmf-dist/bibtex/bst/is-bst/is-plain.bst
+ texmf-dist/bibtex/bst/is-bst/is-unsrt.bst
+catalogue-ctan /biblio/bibtex/contrib/is-bst
+catalogue-license other-free
+catalogue-topics bibtex-sty
+catalogue-version 2.03

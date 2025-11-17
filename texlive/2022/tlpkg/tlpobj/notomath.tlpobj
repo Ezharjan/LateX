@@ -1,0 +1,60 @@
+name notomath
+category Package
+revision 58726
+shortdesc Math support for Noto fonts
+longdesc Math support via newtxmath for Google's NotoSerif and NotoSans.
+longdesc (Regular and Bold weights only.)
+execute addMap NotoMath.map
+containersize 213352
+containerchecksum 87ea63d518f58926be25b144f1a76442873e991207feca20d32d5615c2a52cbc9df9547c081d220603cfe26e4e02f565de60d510d63dcd8179b2249ae2f764a9
+doccontainersize 417208
+doccontainerchecksum fcbcf7df38116022d439d6eb3b98e7e8979d934011bff5d7241e2490e83f4ae19168a4aff1cf4aa887c7aee90ecd82980679d21e53fd8780f5aa13c3b2681857
+docfiles size=125
+ texmf-dist/doc/fonts/notomath/README.txt details="Readme"
+ texmf-dist/doc/fonts/notomath/manifest
+ texmf-dist/doc/fonts/notomath/newtx-noto-subs.tex
+ texmf-dist/doc/fonts/notomath/newtx-notosans-subs.tex
+ texmf-dist/doc/fonts/notomath/notomath-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/notomath/notomath-doc.tex
+ texmf-dist/doc/fonts/notomath/samplerSerif-crop.pdf details="Font samples"
+runfiles size=86
+ texmf-dist/fonts/map/dvips/notomath/NotoMath.map
+ texmf-dist/fonts/tfm/public/notomath/NotoMathBMI.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoMathBRM.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoMathMI.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoMathRM.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoSansMathBMI.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoSansMathBRM.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoSansMathMI.tfm
+ texmf-dist/fonts/tfm/public/notomath/NotoSansMathRM.tfm
+ texmf-dist/fonts/tfm/public/notomath/notobmi.tfm
+ texmf-dist/fonts/tfm/public/notomath/notobmia.tfm
+ texmf-dist/fonts/tfm/public/notomath/notomi.tfm
+ texmf-dist/fonts/tfm/public/notomath/notomia.tfm
+ texmf-dist/fonts/tfm/public/notomath/notosansbmi.tfm
+ texmf-dist/fonts/tfm/public/notomath/notosansbmia.tfm
+ texmf-dist/fonts/tfm/public/notomath/notosansmi.tfm
+ texmf-dist/fonts/tfm/public/notomath/notosansmia.tfm
+ texmf-dist/fonts/type1/public/notomath/NotoMathBMI.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoMathBRM.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoMathMI.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoMathRM.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoSansMathBMI.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoSansMathBRM.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoSansMathMI.pfb
+ texmf-dist/fonts/type1/public/notomath/NotoSansMathRM.pfb
+ texmf-dist/fonts/vf/public/notomath/notobmi.vf
+ texmf-dist/fonts/vf/public/notomath/notobmia.vf
+ texmf-dist/fonts/vf/public/notomath/notomi.vf
+ texmf-dist/fonts/vf/public/notomath/notomia.vf
+ texmf-dist/fonts/vf/public/notomath/notosansbmi.vf
+ texmf-dist/fonts/vf/public/notomath/notosansbmia.vf
+ texmf-dist/fonts/vf/public/notomath/notosansmi.vf
+ texmf-dist/fonts/vf/public/notomath/notosansmia.vf
+ texmf-dist/tex/latex/notomath/notomath.sty
+ texmf-dist/tex/latex/notomath/omlnotomi.fd
+ texmf-dist/tex/latex/notomath/omlnotosansmi.fd
+catalogue-ctan /fonts/notomath
+catalogue-license ofl lppl1.3
+catalogue-topics font font-maths font-serif font-sans font-type1 font-supp
+catalogue-version 1.02

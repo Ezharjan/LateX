@@ -1,0 +1,26 @@
+name texsurgery
+category Package
+revision 59885
+shortdesc A LaTeX companion to the "texsurgery" python project
+longdesc This LaTeX library is a companion to the texsurgery python
+longdesc project. It will make sure that "pdflatex document.tex" will
+longdesc work, with reasonable defaults, for a document that is intended
+longdesc to work with texsurgery, and also has other uses, always in
+longdesc tandem with the texsurgery pypi package.
+containersize 2236
+containerchecksum 39c270382bb228beeb9ec61f744f66805c76a7fb1522158a59daa5dbbf29b3f4151c20d7dbadf404cab8ca023456b9988d45e53f65a1396da9259832390a0980
+doccontainersize 136868
+doccontainerchecksum 76fe49291714772ac56097e5869f82868d149959bc091d3e9b1810013c92440c05825e2d585841a3e7fe015d66e09c3e8a92847fe7fbb8bfbe308c62919e8c26
+docfiles size=35
+ texmf-dist/doc/latex/texsurgery/README.md details="Readme"
+ texmf-dist/doc/latex/texsurgery/texsurgery.pdf details="Package documentation"
+runfiles size=2
+ texmf-dist/tex/latex/texsurgery/texsurgery.sty
+catalogue-contact-announce https://framagit.org/pang/texsurgery/-/releases
+catalogue-contact-bugs https://framagit.org/pang/texsurgery/-/issues
+catalogue-contact-development https://framagit.org/pang/texsurgery/-/project_members
+catalogue-contact-repository https://framagit.org/pang/texsurgery
+catalogue-ctan /macros/latex/contrib/texsurgery
+catalogue-license bsd3
+catalogue-topics preprocessor callback graphics-inline
+catalogue-version 0.6.0

@@ -1,0 +1,23 @@
+name tikz-optics
+category Package
+revision 62977
+shortdesc A library for drawing optical setups with TikZ
+longdesc This package provides a new TikZ library designed to easily
+longdesc draw optical setups with TikZ. It provides shapes for lens,
+longdesc mirror, etc. The geometrically (in)correct computation of light
+longdesc rays through the setup is left to the user.
+containersize 13160
+containerchecksum ac0a42947cf864f28d5bc23aef1163fdee23e05d54ae570ed28e3445a66cf3e9345d6be7aa231496ad86065731ff0a2afa7ad0ce53332fbb3592c07bd396e297
+doccontainersize 393040
+doccontainerchecksum 7b088c27e6cdb4c2b7b44400a31353963b0b45cb26251edc60b4b8eb54663ce2cb76784c9850349e50728d6e7366be22ee6d84a79fccd5791cf713133079a1ff
+docfiles size=118
+ texmf-dist/doc/latex/tikz-optics/README details="Readme"
+ texmf-dist/doc/latex/tikz-optics/tikz-optics.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/tikz-optics/tikz-optics.tex
+runfiles size=22
+ texmf-dist/tex/latex/tikz-optics/tikzlibraryoptics.code.tex
+catalogue-contact-repository https://github.com/fruchart/tikz-optics
+catalogue-ctan /graphics/pgf/contrib/tikz-optics
+catalogue-license lppl1.3
+catalogue-topics physics optics pgf-tikz graphics-in-tex
+catalogue-version 0.2.3

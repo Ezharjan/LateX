@@ -1,0 +1,24 @@
+name chordbox
+category Package
+revision 51000
+shortdesc Draw chord diagrams
+longdesc This package provides two macros for drawing chord diagrams, as
+longdesc may be found for example in chord charts/books and educational
+longdesc materials. They are composed as TikZ pictures and have several
+longdesc options to modify their appearance.
+containersize 3376
+containerchecksum 0e07cae95a8ee5f040b4df4d94f996f772f0780bbe47c77db891fbf44b08f20e28ba8442dee3e981a052b0ccebb0d630e0f0917eb7c65a490c844a65f3b2e3f4
+doccontainersize 565268
+doccontainerchecksum 0826513579953ea80047d596b6c577e4b6f00fcdddb7a06bdc953bccd72e09ec2fd9123995c1e04260ad880bc860454abd283885817a9eb359ec7cb5beba3cc5
+docfiles size=143
+ texmf-dist/doc/latex/chordbox/README.md details="Readme"
+ texmf-dist/doc/latex/chordbox/chordbox.pdf details="Package documentation"
+ texmf-dist/doc/latex/chordbox/chordbox.tex
+runfiles size=2
+ texmf-dist/tex/latex/chordbox/chordbox.sty
+catalogue-contact-bugs https://github.com/sfranzen/chordbox/issues
+catalogue-contact-repository https://github.com/sfranzen/chordbox
+catalogue-ctan /graphics/pgf/contrib/chordbox
+catalogue-license lppl1.3
+catalogue-topics music chords pgf-tikz
+catalogue-version 1.0

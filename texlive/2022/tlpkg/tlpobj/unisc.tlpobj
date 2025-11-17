@@ -1,0 +1,34 @@
+name unisc
+category Package
+revision 63178
+shortdesc Unicode small caps with Lua/XeLaTeX
+longdesc LaTeX produces small caps with \textsc{text} or {\scshape
+longdesc text}. Neither of these commands produce small caps in Unicode.
+longdesc If the output text is copied and pasted somewhere it shows the
+longdesc same characters as used in the input. This package aims to
+longdesc internally convert all the characters provided to the commands
+longdesc mentioned above. It assumes that the file using this package is
+longdesc compiled with Lua/XeLaTeX and a good Unicode font which has the
+longdesc small caps characters, e.g., Charis SIL.
+containersize 2584
+containerchecksum 41f9763e8d090ccf8669af560e53d0abdb4d3f81aaa8c88a97d3b72b8698e95b9ec3c81ebd7d863027f832a945fc11d7e225bb56711cd49b90d430107e9a1938
+doccontainersize 196864
+doccontainerchecksum 26e6907ee5f0d7e7093946cbb524e8dac63ed5c71f761875877a352f8f1454487a91ac46c6be16378c46540175d23d3d50a72eb32b3f3f96599fff9b00db1e48
+docfiles size=73
+ texmf-dist/doc/latex/unisc/COPYING
+ texmf-dist/doc/latex/unisc/README.txt details="Readme"
+ texmf-dist/doc/latex/unisc/unisc.pdf details="Package documentation"
+srccontainersize 4696
+srccontainerchecksum 076c5e0cfa27c31226fd1d729ae8de7d0d009f6e4f3d4d1b9e1339e29ac2db19377d34d2c16b4d821bfca999b3c59826f3b263c6bbadf022aa24447a0ffcb85b
+srcfiles size=6
+ texmf-dist/source/latex/unisc/unisc.dtx
+ texmf-dist/source/latex/unisc/unisc.ins
+runfiles size=3
+ texmf-dist/tex/latex/unisc/unisc.sty
+catalogue-contact-bugs https://puszcza.gnu.org.ua/bugs/?group=unisc
+catalogue-contact-repository https://git.gnu.org.ua/unisc.git
+catalogue-contact-support mailto:unisc-help@gnu.org.ua
+catalogue-ctan /macros/unicodetex/latex/unisc
+catalogue-license gpl3+ fdl
+catalogue-topics unicode
+catalogue-version 0.2

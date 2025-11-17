@@ -1,0 +1,30 @@
+name ut-thesis
+category Package
+revision 64314
+shortdesc University of Toronto thesis style
+longdesc This LaTeX document class implements the formatting
+longdesc requirements of the University of Toronto School of Graduate
+longdesc Studies (SGS), as of Fall 2020 (
+longdesc https://www.sgs.utoronto.ca/academic-progress/program-completio
+longdesc n/formatting). For example usage, see the GitHub repository.
+containersize 2632
+containerchecksum b5358a7327f85a91b76790729d78af41767a1c3dfc6dfb8c33eddfb6c2cc1ecc5a05916db9fdb44ff6b40cbe77a9a4b9c79989ab8cc34387531f0406d5381858
+doccontainersize 138448
+doccontainerchecksum 7f0f4350585aa8391cb48f186da06457a6782f9b3c51409988abaf474251d8a7976ee7a8e26e150f484b399b60de9851017affb8ad4358be5667ce67bb2146cc
+docfiles size=36
+ texmf-dist/doc/latex/ut-thesis/README details="Readme"
+ texmf-dist/doc/latex/ut-thesis/ut-thesis.pdf details="Package documentation"
+srccontainersize 6716
+srccontainerchecksum ad91f3dcea04c556e0b95a3ef0c412608e4330a4733b5e5802b56ab38b0ec5c5a74ee827ca9d2b2b5c5ee126ba350099251f4df44fa22ca10bea9015b1aa1421
+srcfiles size=6
+ texmf-dist/source/latex/ut-thesis/ut-thesis.dtx
+ texmf-dist/source/latex/ut-thesis/ut-thesis.ins
+runfiles size=2
+ texmf-dist/tex/latex/ut-thesis/ut-thesis.cls
+catalogue-also utorontothesis
+catalogue-contact-bugs https://github.com/jessexknight/ut-thesis/issues
+catalogue-contact-repository https://github.com/jessexknight/ut-thesis
+catalogue-ctan /macros/latex/contrib/ut-thesis
+catalogue-license lppl1.3c
+catalogue-topics dissertation class std-conform
+catalogue-version 3.1.6

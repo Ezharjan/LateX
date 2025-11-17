@@ -1,0 +1,23 @@
+name bxghost
+category Package
+revision 63354
+shortdesc Ghost insertion for proper xkanjiskip
+longdesc The package provides two commands to help authors for documents
+longdesc in Japanese to insert proper xkanjiskips. It supports LuaTeX,
+longdesc XeTeX, pTeX, upTeX, and ApTeX (pTeX-ng).
+containersize 2012
+containerchecksum aad0d3f278c32a4699339785dd28b6ac7dd626a53659aeffe77414dcc8d22f96a43efcee41bd77354f57a2702f610bff4742bd8dc558d2494e909b3ad7b1062f
+doccontainersize 1980
+doccontainerchecksum 0e4af87e981c02415a13bd6d1be74552c1ab039acfca35736e8cc51b4c4f442c9e0073070fbd002050749d59a69eac64ad1e264e16281f4dd399e9f0ceabafce
+docfiles size=2
+ texmf-dist/doc/latex/bxghost/LICENSE
+ texmf-dist/doc/latex/bxghost/README.md details="Readme"
+runfiles size=2
+ texmf-dist/tex/latex/bxghost/bxghost-lib.sty
+ texmf-dist/tex/latex/bxghost/bxghost.sty
+catalogue-contact-bugs https://github.com/wtsnjp/BXghost/issues
+catalogue-contact-repository https://github.com/wtsnjp/BXghost
+catalogue-ctan /language/japanese/BX/bxghost
+catalogue-license mit
+catalogue-topics japanese macro-supp
+catalogue-version 0.5.0

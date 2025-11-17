@@ -1,0 +1,52 @@
+name xassoccnt
+category Package
+revision 61112
+shortdesc Associated counters stepping simultaneously
+longdesc This package provides a way of associating counters to an
+longdesc existing driver counter so that incrementing the driver counter
+longdesc will increase its associated counters as well. This package can
+longdesc be regarded as a supplement to the totcount package by
+longdesc Vasileios Koutavas, but it can be used without it, too.
+longdesc xassoccnt is a successor and a complete rewrite of the assoccnt
+longdesc package by the same author. However, as of 2017-03-05, some
+longdesc features of assoccnt are not (yet) contained in xassoccnt so
+longdesc that the older package cannot yet be regarded as obsolete.
+containersize 19596
+containerchecksum 4b3934d7a4a219fca3f276b26b893706ed8a65682425ac40d6722734f3e133099837ea8aebf214bad32c0d6b415121f73ea605dd851f0f2542dfb0bc38744313
+doccontainersize 1141224
+doccontainerchecksum 020a2fb86c86372302e68636d727203625ddfbf63cf8eb5b3055502fcd073c54b52a44f8c7bfcb2c3c73a206082e5d285f05cf762b9857d2e16c43fe36f8fb96
+docfiles size=333
+ texmf-dist/doc/latex/xassoccnt/README details="Readme"
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_counterformats_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_counterformats_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_counterhierarchy_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_counterhierarchy_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_coupledcounters_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_coupledcounters_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_doc.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_driver_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_driver_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_getparentcounter_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_getparentcounter_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_label_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_label_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_periodiccounters_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_periodiccounters_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_resetlist_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_resetlist_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_resetloop_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_resetloop_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_suspendedcounters_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_suspendedcounters_example.tex
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_totalcounters_example.pdf
+ texmf-dist/doc/latex/xassoccnt/xassoccnt_totalcounters_example.tex
+runfiles size=31
+ texmf-dist/tex/latex/xassoccnt/xassoccnt.sty
+catalogue-also assoccnt
+catalogue-ctan /macros/latex/contrib/xassoccnt
+catalogue-license lppl1.3
+catalogue-topics counter-mgmt macro-supp
+catalogue-version 2.0

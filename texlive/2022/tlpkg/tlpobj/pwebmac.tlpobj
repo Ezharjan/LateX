@@ -1,0 +1,42 @@
+name pwebmac
+category Package
+revision 63731
+shortdesc Consolidated WEB macros for DVI and PDF output
+longdesc The original WEB system by Donald Knuth has the macros
+longdesc webmac.tex that produce DVI output only; for historic reasons,
+longdesc it will never be modified (apart from catastrophic errors). Han
+longdesc The Thanh has modified these macros in his pdfwebmac.tex for
+longdesc PDF output (only) with pdfTeX. Jonathan Kew's XeTeX has similar
+longdesc macros xewebmac.tex by Khaled Hosny that modify webmac.tex for
+longdesc PDF output; these macros can only be used with a specific "TeX
+longdesc engine" each. The present pwebmac package integrates these
+longdesc three WEB macro files similar to cwebmac.tex in Silvio Levy's
+longdesc and Don Knuth's CWEB system, so pwebmac.tex can be used with
+longdesc "plain TeX", pdfTeX, and XeTeX alike. Its initial application
+longdesc is the production of PDF files for all major WEB programs for
+longdesc "TeX and friends" as distributed in TeX Live. For this purpose,
+longdesc the shell script makeall was whipped together; it provides
+longdesc various commandline options and works around several "quirks"
+longdesc in the WEB sources. WEB programmers who want to use pwebmac.tex
+longdesc instead of the default webmac.tex in their programs have to
+longdesc change the first line in the TeX file created by weave. From
+longdesc there, all depends on the "TeX engine" you use.
+containersize 8644
+containerchecksum ab1351295df1586617b6efc850475c8bbde08ff935ef0a3f72f54402e3d16fc7aa01e80aab5a39330c4bfd9f6003f08a7e804c1caf6a21f4edd94cd1182e1d72
+doccontainersize 11340
+doccontainerchecksum 844a684b9e9d3eb148acce41d7385150f57ed22d802a04dcbad57f7d23cb8a08f6da556c9b3d8e1bff9525728249e64766c8e0af143ba05d59316da289676e3e
+docfiles size=12
+ texmf-dist/doc/plain/pwebmac/README.md details="Readme"
+ texmf-dist/doc/plain/pwebmac/Xerrorlog.tex
+ texmf-dist/doc/plain/pwebmac/index.md
+ texmf-dist/doc/plain/pwebmac/makeall
+ texmf-dist/doc/plain/pwebmac/trapman.ch
+ texmf-dist/doc/plain/pwebmac/webman.ch
+runfiles size=6
+ texmf-dist/tex/plain/pwebmac/pwebmac.tex
+catalogue-contact-repository https://github.com/ascherer/web
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-ctan /web/pwebmac
+catalogue-license pd
+catalogue-topics litprog
+catalogue-version 4.8.1

@@ -1,0 +1,24 @@
+name kotex-plain
+category Package
+revision 63689
+shortdesc Macros for typesetting Korean under Plain TeX
+longdesc The package provides macros for typesetting Hangul, the native
+longdesc alphabet of the Korean language, using plain *TeX. Input Korean
+longdesc text should be encoded in UTF-8. The package belongs to the
+longdesc ko.TeX bundle.
+containersize 9116
+containerchecksum 940f6672fd2d490cae446408ed6421c77ada3ea9c0c4820b00a0b38026ed5d30fa2b0f8bf86a5904a8c04b15e561e3f146ae4f817e7e2ef8c3a9284f9c841350
+doccontainersize 1852
+doccontainerchecksum 34a45ea6cda9fa9b6ba453fef795740869b1cc3c3eec84b467847b7221a916f4eada3bac97b78dc6e5a545e12f87f1d56c3540fafa658535f9ca89335bc6b534
+docfiles size=2
+ texmf-dist/doc/plain/kotex-plain/ChangeLog
+ texmf-dist/doc/plain/kotex-plain/README details="Readme"
+runfiles size=11
+ texmf-dist/tex/plain/kotex-plain/hangulcweb.tex
+ texmf-dist/tex/plain/kotex-plain/kotexplain.tex
+ texmf-dist/tex/plain/kotex-plain/kotexutf-core.tex
+ texmf-dist/tex/plain/kotex-plain/kotexutf.tex
+catalogue-ctan /language/korean/kotex-plain
+catalogue-license lppl1.3c
+catalogue-topics korean plain-ext enc-juggle
+catalogue-version 3.0.0

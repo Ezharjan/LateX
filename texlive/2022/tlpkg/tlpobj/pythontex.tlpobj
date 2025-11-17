@@ -1,0 +1,61 @@
+name pythontex
+category Package
+revision 59514
+shortdesc Run Python from within a document, typesetting the results
+longdesc The package allows you to enter Python code within a LaTeX
+longdesc document, execute the code, and access its output in the
+longdesc original document. There is also support for Bash, JavaScript,
+longdesc Julia, Octave, Perl, R, Raku (Perl 6), Ruby, Rust, and
+longdesc SageMath. Code is only executed when it has been modified, or
+longdesc when it meets user-specified criteria. Code may be divided into
+longdesc user-defined sessions, which automatically run in parallel.
+longdesc Errors and warnings are synchronized with the LaTeX document,
+longdesc so that they refer to the document's line numbers. External
+longdesc dependencies can be tracked, so that code is re-executed when
+longdesc the data it depends on is modified. PythonTeX also provides
+longdesc syntax highlighting for code in LaTeX documents via the
+longdesc Pygments syntax highlighter. The package provides a depythontex
+longdesc utility. This creates a copy of the document in which all
+longdesc Python code has been replaced by its output. This is useful for
+longdesc journal submissions, sharing documents, and conversion to other
+longdesc formats.
+depend pythontex.ARCH
+containersize 66988
+containerchecksum 2e67beb9974eb9a567726d8a68f7d565aeca97d20484ef6e36312100411eef9d9de937297399a98f367a756f6679314cc1a25201ff11936b8a61f8f1f148830b
+doccontainersize 1553140
+doccontainerchecksum 3ec2fe0f095384734575c2c9fd1bc9d485b628485c8ee75cd8fb9ebd6d1f56edbec6f378c7c9e1d5ba9c10c4bbcc3934ddb957dc47a258ac81ca89b5ce3a2e92
+docfiles size=407
+ texmf-dist/doc/latex/pythontex/NEWS.rst
+ texmf-dist/doc/latex/pythontex/README details="Readme"
+ texmf-dist/doc/latex/pythontex/pythontex.pdf details="Package documentation"
+ texmf-dist/doc/latex/pythontex/pythontex_gallery.pdf details="Gallery of use"
+ texmf-dist/doc/latex/pythontex/pythontex_gallery.tex
+ texmf-dist/doc/latex/pythontex/pythontex_quickstart.pdf details="Quick start documentation"
+ texmf-dist/doc/latex/pythontex/pythontex_quickstart.tex
+ texmf-dist/doc/latex/pythontex/syncpdb.py
+srccontainersize 83944
+srccontainerchecksum 8a3cf562716df588d4ada0273c3340b73e16a01524e02a9c83c4ca781b8dd1763a1deb9e303635878721831e0d57b780c0666b694629106650f639061d2f32f4
+srcfiles size=98
+ texmf-dist/source/latex/pythontex/depythontex.bat
+ texmf-dist/source/latex/pythontex/pythontex.bat
+ texmf-dist/source/latex/pythontex/pythontex.dtx
+ texmf-dist/source/latex/pythontex/pythontex.ins
+ texmf-dist/source/latex/pythontex/pythontex_install.bat
+runfiles size=154
+ texmf-dist/scripts/pythontex/depythontex.py
+ texmf-dist/scripts/pythontex/depythontex2.py
+ texmf-dist/scripts/pythontex/depythontex3.py
+ texmf-dist/scripts/pythontex/pythontex.py
+ texmf-dist/scripts/pythontex/pythontex2.py
+ texmf-dist/scripts/pythontex/pythontex3.py
+ texmf-dist/scripts/pythontex/pythontex_2to3.py
+ texmf-dist/scripts/pythontex/pythontex_engines.py
+ texmf-dist/scripts/pythontex/pythontex_install.py
+ texmf-dist/scripts/pythontex/pythontex_utils.py
+ texmf-dist/tex/latex/pythontex/pythontex.sty
+catalogue-also perltex
+catalogue-contact-repository https://github.com/gpoore/pythontex
+catalogue-ctan /macros/latex/contrib/pythontex
+catalogue-license lppl1.3
+catalogue-topics callback
+catalogue-version 0.18

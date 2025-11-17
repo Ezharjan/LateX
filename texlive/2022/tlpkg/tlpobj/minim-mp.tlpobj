@@ -1,0 +1,31 @@
+name minim-mp
+category Package
+revision 62419
+shortdesc Low-level mplib integration for LuaTeX
+longdesc This package offers low-level mplib integration for plain
+longdesc LuaTeX and is designed with the purpose of being easy to
+longdesc extend. The use of multiple simultaneous MetaPost instances is
+longdesc supported, as well as running TeX or lua code from within
+longdesc MetaPost. With the included minim-mp format file, you can even
+longdesc use LuaTeX as a stand-alone MetaPost compiler.
+containersize 14504
+containerchecksum 2dc49d3ca36fca5c79836c19a6a8688b7d7ade9d1f70896cf19a336d0962176ea681ccd80469b0961322c696a7efbfcc0ab1b36e61550c2def1f6c73b78865b6
+doccontainersize 89636
+doccontainerchecksum 5a8267ef4bc6cc94e187233b092101c972c218e7457eb412651700728f0cb4fbbc6cea106ad1d0f99a13d6f3af80b3129138f54bf07ad9b3536ec778c9d478f4
+docfiles size=34
+ texmf-dist/doc/luatex/minim-mp/EUPL-1.2-EN.txt
+ texmf-dist/doc/luatex/minim-mp/README details="Readme"
+ texmf-dist/doc/luatex/minim-mp/minim-mp.doc
+ texmf-dist/doc/luatex/minim-mp/minim-mp.pdf details="Package documentation"
+runfiles size=16
+ texmf-dist/metapost/minim-mp/minim.mp
+ texmf-dist/tex/luatex/minim-mp/minim-lamp.ini
+ texmf-dist/tex/luatex/minim-mp/minim-mp.ini
+ texmf-dist/tex/luatex/minim-mp/minim-mp.lua
+ texmf-dist/tex/luatex/minim-mp/minim-mp.tex
+catalogue-also minim
+catalogue-contact-repository https://gitlab.com/renkema/minim
+catalogue-ctan /macros/luatex/generic/minim-mp
+catalogue-license other-free
+catalogue-topics luatex mp-supp mp-use
+catalogue-version 2022/1.1

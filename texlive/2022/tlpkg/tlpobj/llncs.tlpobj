@@ -1,0 +1,25 @@
+name llncs
+category Package
+revision 64299
+shortdesc Document class and bibliography style for Lecture Notes in Computer Science (LNCS)
+longdesc This is Springer's official macro package for typesetting
+longdesc contributions to be published in Springer's Lecture Notes in
+longdesc Computer Science (LNCS) and its related proceedings series
+longdesc CCIS, LNBIP, LNICST, and IFIP AICT.
+containersize 16476
+containerchecksum 76371faeebdde62b5444dadd7c08b5fd6fcfbc9fb57dfb5a29ad63760bcd692115e206458adfd13e2f16ac24713e128e7905194ecca369568b662c78aa6cea48
+doccontainersize 209032
+doccontainerchecksum 63b67674403e67e7f019fdfa09f3859bd1a6da5cdb93bf68321a441c9fda1db026ff64e0a3a15dad1f7b27b4fe8f7f4a086eccff88a282133d825dcdd6d11d25
+docfiles size=65
+ texmf-dist/doc/latex/llncs/README.md details="Readme"
+ texmf-dist/doc/latex/llncs/history.txt
+ texmf-dist/doc/latex/llncs/llncsdoc.pdf details="Package documentation"
+ texmf-dist/doc/latex/llncs/llncsdoc.tex
+runfiles size=19
+ texmf-dist/bibtex/bst/llncs/splncs04.bst
+ texmf-dist/tex/latex/llncs/llncs.cls
+catalogue-contact-home https://www.springer.com/gp/computer-science/lncs
+catalogue-ctan /macros/latex/contrib/llncs
+catalogue-license cc-by-4
+catalogue-topics journalpub
+catalogue-version 2.22

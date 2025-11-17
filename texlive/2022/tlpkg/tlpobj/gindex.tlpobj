@@ -1,0 +1,24 @@
+name gindex
+category Package
+revision 52311
+shortdesc Formatting indexes
+longdesc This package provides a way to generate the format of index
+longdesc entries from within LaTeX.
+containersize 2188
+containerchecksum b65317c570c923c7b6b84c2923122d844f895657267b694b46fed2d505348833a57700e4da93cde3d5a81e7589a456eea179a455dacb7c9324e0f65d9c718c9b
+doccontainersize 33788
+doccontainerchecksum 2a3ed388473c669874b0474b9b1f45c60e2efd69e8c589a9f9086cecaeb5f1e3192fbb949c3d0b485422c7f6b49075d3db4cb8ba03bbdde0f5f77089331f770c
+docfiles size=11
+ texmf-dist/doc/latex/gindex/README.md details="Readme"
+ texmf-dist/doc/latex/gindex/gindex.pdf details="Package documentation"
+ texmf-dist/doc/latex/gindex/gindex.tex
+runfiles size=3
+ texmf-dist/makeindex/gindex/gindex.ist
+ texmf-dist/makeindex/gindex/gindexh.ist
+ texmf-dist/tex/latex/gindex/gindex.sty
+catalogue-contact-home http://www.texnia.com
+catalogue-contact-repository https://github.com/jbezos/gindex
+catalogue-ctan /macros/latex/contrib/gindex
+catalogue-license mit
+catalogue-topics index index-proc
+catalogue-version 0.2

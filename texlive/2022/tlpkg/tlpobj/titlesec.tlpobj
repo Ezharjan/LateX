@@ -1,0 +1,32 @@
+name titlesec
+category Package
+revision 59845
+shortdesc Select alternative section titles
+longdesc A package providing an interface to sectioning commands for
+longdesc selection from various title styles. E.g., marginal titles and
+longdesc to change the font of all headings with a single command, also
+longdesc providing simple one-step page styles. Also includes a package
+longdesc to change the page styles when there are floats in a page. You
+longdesc may assign headers/footers to individual floats, too.
+containersize 20028
+containerchecksum 50af3f379bedf55c3c53809dfa5dfa8fa4ed072e232dde83f4a257b12d7b4bf06f041eb6891b95fd0efdf9420a5d252cb9688c28b91161036eee7f45516a8b86
+doccontainersize 658700
+doccontainerchecksum 04ca9fb221b3c0c83ef5c3728b9a40eb46a4899b83837c90017c5436468c02740dfb861abb42e9987dabf63858730f4accbf060c67ee8954ed7481f334443798
+docfiles size=185
+ texmf-dist/doc/latex/titlesec/CHANGES.old
+ texmf-dist/doc/latex/titlesec/README.md details="Readme"
+ texmf-dist/doc/latex/titlesec/titleps.pdf
+ texmf-dist/doc/latex/titlesec/titleps.tex
+ texmf-dist/doc/latex/titlesec/titlesec.pdf details="Package documentation"
+ texmf-dist/doc/latex/titlesec/titlesec.tex
+runfiles size=24
+ texmf-dist/tex/latex/titlesec/titleps.sty
+ texmf-dist/tex/latex/titlesec/titlesec.sty
+ texmf-dist/tex/latex/titlesec/titletoc.sty
+catalogue-also fancyhdr titleps sectsty titletoc tocloft
+catalogue-contact-bugs https://github.com/jbezos/titlesec/issues
+catalogue-contact-repository https://github.com/jbezos/titlesec
+catalogue-ctan /macros/latex/contrib/titlesec
+catalogue-license mit
+catalogue-topics headings page-hf
+catalogue-version 2.14

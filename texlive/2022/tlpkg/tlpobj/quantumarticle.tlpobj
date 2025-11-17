@@ -1,0 +1,47 @@
+name quantumarticle
+category Package
+revision 62944
+shortdesc Document class for submissions to the Quantum journal
+longdesc This package provides the preferred document class for papers
+longdesc to be submitted to "Quantum -- the open journal of quantum
+longdesc science". It is based on the widely used article document class
+longdesc and designed to allow a seamless transition from documents
+longdesc typeset with the article, revtex4-1, and elsarticle document
+longdesc classes. As a service to authors, the document class comes with
+longdesc a predefined bibilography style quantum.bst that is optimized
+longdesc to be used with the quantumarticle document class.
+longdesc Additionally, the quantumview documentclass is provided, which
+longdesc can be used as a proxy to typeset the HTML-only editorial
+longdesc pieces in Quantum Views in a LaTeX editor. The quantumarticle
+longdesc document class also offers an option to remove the
+longdesc Quantum-related branding. In that way, users appreciating the
+longdesc esthetics of this document class can use it for their notes as
+longdesc well.
+containersize 24760
+containerchecksum 26e91134a37df19c95e62e0f3756bac78f6bcd87bbc9368f868f9706cfbf72f652a8262455fe0fdf73bda242732c38b525c683f922fd276e1a1c0e97d5688c03
+doccontainersize 1271516
+doccontainerchecksum 8297f035750576a74b7d28317668460be39b72953c240b3e7715db71e613a67bb19fc7c511d65bed105f8aa4aa19191295c9714f313479d09b641986b574bb12
+docfiles size=344
+ texmf-dist/doc/latex/quantumarticle/README.md details="Readme"
+ texmf-dist/doc/latex/quantumarticle/example-plot.pdf
+ texmf-dist/doc/latex/quantumarticle/quantum-bibliographystyle-demo.bib
+ texmf-dist/doc/latex/quantumarticle/quantum-bibliographystyle-demo.pdf
+ texmf-dist/doc/latex/quantumarticle/quantum-bibliographystyle-demo.tex
+ texmf-dist/doc/latex/quantumarticle/quantum-template.pdf details="Example of use (template)"
+ texmf-dist/doc/latex/quantumarticle/quantum-template.tex
+ texmf-dist/doc/latex/quantumarticle/quantumarticle.pdf details="Package documentation"
+ texmf-dist/doc/latex/quantumarticle/quantumarticle.tex
+ texmf-dist/doc/latex/quantumarticle/quantumview-template.bib
+ texmf-dist/doc/latex/quantumarticle/quantumview-template.pdf
+ texmf-dist/doc/latex/quantumarticle/quantumview-template.tex
+runfiles size=35
+ texmf-dist/bibtex/bst/quantumarticle/quantum.bst
+ texmf-dist/tex/latex/quantumarticle/quantumarticle.cls
+ texmf-dist/tex/latex/quantumarticle/quantumview.cls
+catalogue-contact-bugs https://github.com/quantum-journal/quantum-journal/issues
+catalogue-contact-home https://quantum-journal.org
+catalogue-contact-repository https://github.com/quantum-journal/quantum-journal
+catalogue-ctan /macros/latex/contrib/quantumarticle
+catalogue-license lppl1.3c
+catalogue-topics class journalpub physics
+catalogue-version 6.0

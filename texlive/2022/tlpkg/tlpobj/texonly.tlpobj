@@ -1,0 +1,19 @@
+name texonly
+category Package
+revision 50985
+shortdesc A sample document in Plain TeX
+longdesc A file written with TeX, not using any packgages or sty-files,
+longdesc to be compiled with TeX or pdfTeX only, not with LaTeX et al.
+containersize 456
+containerchecksum a51d7288abaa3bd03e8f3816eaf2d7f8931340e95e3897ea4a63ae3d251277a78e71ae66b617da6cc81a8100c9ffe64a1c9142369c67d58daf200ab2ed7c9682
+doccontainersize 73548
+doccontainerchecksum 5f03987ce079f21801f08a7e325a36c6f1065f5cc32ff2dbec7989bdd3a6b3c54ade8f96a71e19553972d3c36454a08b007adf3287a7be7972a8b3ce6961778a
+docfiles size=22
+ texmf-dist/doc/plain/texonly/README.md details="Readme"
+ texmf-dist/doc/plain/texonly/texonly2.pdf details="Package documentation" language="de-de"
+ texmf-dist/doc/plain/texonly/texonly2.tex
+catalogue-also gentle
+catalogue-ctan /info/texonly
+catalogue-license lppl1.3c
+catalogue-topics tut-plaintex
+catalogue-version 2

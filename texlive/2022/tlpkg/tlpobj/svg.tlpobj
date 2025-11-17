@@ -1,0 +1,42 @@
+name svg
+category Package
+revision 57010
+shortdesc Include and extract SVG pictures in LaTeX documents
+longdesc This bundle contains the two packages svg and svg-extract. The
+longdesc svg package is intended for the automated integration of SVG
+longdesc graphics into LaTeX documents. Therefore the capabilities
+longdesc provided by Inkscape -- or more precisely its command line tool
+longdesc -- are used to export the text within an SVG graphic to a
+longdesc separate file, which is then rendered by LaTeX. For this
+longdesc purpose the two commands \includesvg and \includeinkscape are
+longdesc provided which are very similar to the \includegraphics command
+longdesc of the graphicx package. In addition, the package svg-extract
+longdesc allows the extraction of these graphics into independent files
+longdesc in different graphic formats, exactly as it is rendered within
+longdesc the LaTeX document, using either ImageMagick or Ghostscript.
+containersize 14120
+containerchecksum fd2c051969ea85b2e5c2818292128044038003456f8019efc3c6decb7e811f3eeeed6f3505cb661ee2b4768fa7715f5b3aff4583124d6cc99fef5c5f6a2fed77
+doccontainersize 1077424
+doccontainerchecksum 84f35fd26786e57a8eea08af996d6edc93116529ab364e2b2e23ea6826748435d8487264438f7ff6b44b6d6975e0f18b1f27599e0e554b3d664055296e8fb0d7
+docfiles size=439
+ texmf-dist/doc/latex/svg/LICENSE.md
+ texmf-dist/doc/latex/svg/README.md details="Readme"
+ texmf-dist/doc/latex/svg/root.C
+ texmf-dist/doc/latex/svg/root.svg
+ texmf-dist/doc/latex/svg/svg-example.svg
+ texmf-dist/doc/latex/svg/svg-preamble.tex
+ texmf-dist/doc/latex/svg/svg.pdf details="Package documentation"
+srccontainersize 43032
+srccontainerchecksum 834958e4f8a0d8102ff88af0c499455c9bdcf61b0bd2795e25a07507c55ad6e7a5bcd131bbac48e463bd93b4bf49dee9aebe46a8999d75c24218a332814d5974
+srcfiles size=55
+ texmf-dist/source/latex/svg/svg.dtx
+runfiles size=21
+ texmf-dist/tex/latex/svg/svg-extract.sty
+ texmf-dist/tex/latex/svg/svg.sty
+catalogue-also svg-inkscape
+catalogue-contact-bugs https://github.com/mrpiggi/svg/issues
+catalogue-contact-repository https://github.com/mrpiggi/svg
+catalogue-ctan /graphics/svg
+catalogue-license lppl1.3c
+catalogue-topics graphics graphics-incl graphics-import
+catalogue-version 2.02k

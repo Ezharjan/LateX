@@ -1,0 +1,47 @@
+name pyluatex
+category Package
+revision 63491
+shortdesc Execute Python code on the fly in your LaTeX documents
+longdesc PyLuaTeX allows you to execute Python code and to include the
+longdesc resulting output in your LaTeX documents in a single
+longdesc compilation run. LaTeX documents must be compiled with LuaLaTeX
+longdesc for this to work. PyLuaTeX runs a Python InteractiveInterpreter
+longdesc (actually several if you use different sessions) in the
+longdesc background for on-the-fly code execution. Python code from your
+longdesc LaTeX file is sent to the background interpreter through a TCP
+longdesc socket. This approach allows your Python code to be executed
+longdesc and the output to be integrated in your LaTeX file in a single
+longdesc compilation run. No additional processing steps are needed. No
+longdesc intermediate files have to be written. No placeholders have to
+longdesc be inserted.
+containersize 7256
+containerchecksum 001a6aae1e9cbf0ea95609128e440c7c26c2bea74f7d6d48e11957ecf84f410789f808a511a9a45bceae8cbd5a5fb80dac242a9662087a7a91ff4e53e7cbe038
+doccontainersize 101088
+doccontainerchecksum 14899b03635cf5c6841dd7d3e035f0ec76f3d57388031c08d7be899b5bc608d1285c1f3baeeb9d2d6868599e6106c876925c09391b2515be1853fc7144fc7dec
+docfiles size=48
+ texmf-dist/doc/lualatex/pyluatex/README.md details="Readme"
+ texmf-dist/doc/lualatex/pyluatex/example/beamer.tex
+ texmf-dist/doc/lualatex/pyluatex/example/data-visualization.tex
+ texmf-dist/doc/lualatex/pyluatex/example/matplotlib-external.tex
+ texmf-dist/doc/lualatex/pyluatex/example/matplotlib-pgf.tex
+ texmf-dist/doc/lualatex/pyluatex/example/population.csv
+ texmf-dist/doc/lualatex/pyluatex/example/readme-custom-env.tex
+ texmf-dist/doc/lualatex/pyluatex/example/readme-example.tex
+ texmf-dist/doc/lualatex/pyluatex/example/repl.tex
+ texmf-dist/doc/lualatex/pyluatex/example/sessions.tex
+ texmf-dist/doc/lualatex/pyluatex/example/typesetting-example.tex
+ texmf-dist/doc/lualatex/pyluatex/example/typesetting-listings.tex
+ texmf-dist/doc/lualatex/pyluatex/example/typesetting-minted.tex
+ texmf-dist/doc/lualatex/pyluatex/pyluatex.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/pyluatex/pyluatex.tex
+runfiles size=8
+ texmf-dist/tex/lualatex/pyluatex/pyluatex-interpreter.py
+ texmf-dist/tex/lualatex/pyluatex/pyluatex-json.lua
+ texmf-dist/tex/lualatex/pyluatex/pyluatex.lua
+ texmf-dist/tex/lualatex/pyluatex/pyluatex.sty
+catalogue-contact-bugs https://github.com/tndrle/PyLuaTeX/issues
+catalogue-contact-repository https://github.com/tndrle/PyLuaTeX
+catalogue-ctan /macros/luatex/latex/pyluatex
+catalogue-license mit lppl1.3c
+catalogue-topics luatex callback expl3
+catalogue-version 0.5.0

@@ -1,0 +1,41 @@
+name unicodefonttable
+category Package
+revision 60894
+shortdesc A Unicode font table generator
+longdesc This package produces font tables for unicode fonts as well as
+longdesc for 8bit fonts. The table layout can be adjusted in various
+longdesc ways including restricting the range of output to show only a
+longdesc portion of a specific font. To quickly produce a one-off table
+longdesc there is a stand-alone version `unicodefont.tex` that asks you
+longdesc a few questions and then generates the table --- somewhat
+longdesc similar to `nfssfont.tex` for 8-bit fonts. The official package
+longdesc source can be found at: The license is LPPL.
+containersize 7500
+containerchecksum e74461a4f98c4794dad68cb5d2f3611f64f42028d7759a4b86a13b2758759f90050594a30fe152b207e3f1774103bd34b5cc575955558787a95570d639c89f03
+doccontainersize 1716712
+doccontainerchecksum 87f92404623c46244e05f921aea0700056ddd2069c66d03877173d24c721a29a9b1e001ef592ae723ee5f78032ba5700412058cf20c86ccfa46b6920b6fbe007
+docfiles size=667
+ texmf-dist/doc/latex/unicodefonttable/README.md details="Readme"
+ texmf-dist/doc/latex/unicodefonttable/TODO.md
+ texmf-dist/doc/latex/unicodefonttable/changes.txt
+ texmf-dist/doc/latex/unicodefonttable/l3doc-TUB.cls
+ texmf-dist/doc/latex/unicodefonttable/unicodefonttable-code.pdf
+ texmf-dist/doc/latex/unicodefonttable/unicodefonttable-code.tex
+ texmf-dist/doc/latex/unicodefonttable/unicodefonttable-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/unicodefonttable/unicodefonttable-doc.tex
+ texmf-dist/doc/latex/unicodefonttable/unicodefonttable-samples.pdf
+ texmf-dist/doc/latex/unicodefonttable/unicodefonttable-samples.tex
+srccontainersize 21672
+srccontainerchecksum 586de7c1ce10c127d14d31bb34321235470020cca4c5a80953d2b058e087feaf8decd4b7cad214c153eda8592eb77dfa215a9217488bc169958a1ed8b85c7521
+srcfiles size=22
+ texmf-dist/source/latex/unicodefonttable/unicodefonttable.dtx
+ texmf-dist/source/latex/unicodefonttable/unicodefonttable.ins
+runfiles size=9
+ texmf-dist/tex/latex/unicodefonttable/unicodefont.tex
+ texmf-dist/tex/latex/unicodefonttable/unicodefonttable.sty
+catalogue-contact-bugs https://github.com/FrankMittelbach/fmitex-unicodefonttable/issues
+catalogue-contact-repository https://github.com/frankmittelbach/fmitex-unicodefonttable
+catalogue-ctan /macros/latex/contrib/unicodefonttable
+catalogue-license lppl
+catalogue-topics unicode font
+catalogue-version 1.0f

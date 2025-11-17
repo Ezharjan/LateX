@@ -1,0 +1,30 @@
+name calculator
+category Package
+revision 64424
+shortdesc Use LaTeX as a scientific calculator
+longdesc The calculator and calculus packages define several
+longdesc instructions which allow us to realise algebraic operations and
+longdesc to evaluate elementary functions and derivatives in our
+longdesc documents. The package's main goal is to define the arithmetic
+longdesc and functional calculations needed in the author's package
+longdesc xpicture, but the numeric abilities of "calculator" and
+longdesc "calculus" may be useful in other contexts.
+containersize 10164
+containerchecksum de62244340b27b1b62c7cfabc8da5acac3da0440f3190c392ae86f6160544d3b8e44dbcf5b5c95526b87cb7a0272c63fb19c06181c2b996e6de2affcddfa797e
+doccontainersize 569004
+doccontainerchecksum d699c74a2b5a7932f454f121582ab4f03482022aef0b145f21ce04bf500f01a6504a39989fe22170fedb27206274285abff54a1fe59e2804a91d05c923c88e86
+docfiles size=142
+ texmf-dist/doc/latex/calculator/README.md details="Readme"
+ texmf-dist/doc/latex/calculator/calculator.pdf details="Package documentation"
+srccontainersize 29892
+srccontainerchecksum 819c7159200ceca98ab34302951af308233a12a18daebced97370eda15e41490c83b577c3f3a0bd375601f1ef4f380ef3f3cc3e4f6df84b4c3a0d9ab9fcc7a03
+srcfiles size=46
+ texmf-dist/source/latex/calculator/calculator.dtx
+ texmf-dist/source/latex/calculator/calculator.ins
+runfiles size=19
+ texmf-dist/tex/latex/calculator/calculator.sty
+ texmf-dist/tex/latex/calculator/calculus.sty
+catalogue-ctan /macros/latex/contrib/calculator
+catalogue-license lppl1.3
+catalogue-topics calculation maths
+catalogue-version 2.1

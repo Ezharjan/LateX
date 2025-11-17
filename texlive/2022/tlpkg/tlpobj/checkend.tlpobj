@@ -1,0 +1,25 @@
+name checkend
+category Package
+revision 51475
+shortdesc Extend "improperly closed environment" messages
+longdesc When an environment is left open, LaTeX gives an error at the
+longdesc end of the document. However it only informs about the first of
+longdesc them, while the rest are shown with meaningless errors: (\end
+longdesc occurred inside a group at level N) This package replaces these
+longdesc errors with more useful messages which show which environments
+longdesc (in reverse order) were not closed. There are no user macros:
+longdesc just use the package.
+containersize 1732
+containerchecksum 40af84a5510dc3038c536c4b0aae0176651f01953650c1e6ec8b5d76459e7000246205d55f2b13ef566930649daf1eafc38e6d2d822787d1fa462e99837b6ba7
+doccontainersize 672
+doccontainerchecksum 0527c3c080f502baaaaa14a398ecbdfa714cec872f6cf8391ef8a766aa24b497a0fc00012433409904ea11d7fec425dd7c7116a52e8d983bddb2633248d2b090
+docfiles size=1
+ texmf-dist/doc/latex/checkend/README.md details="Readme"
+runfiles size=1
+ texmf-dist/tex/latex/checkend/checkend.sty
+catalogue-contact-home http://www.texnia.com/
+catalogue-contact-repository https://github.com/jbezos
+catalogue-ctan /macros/latex/contrib/checkend
+catalogue-license mit
+catalogue-topics macro-supp
+catalogue-version 1.0

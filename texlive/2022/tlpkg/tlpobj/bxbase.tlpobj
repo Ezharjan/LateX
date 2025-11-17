@@ -1,0 +1,33 @@
+name bxbase
+category Package
+revision 56528
+shortdesc BX bundle base components
+longdesc The main purpose of this bundle is to serve as an underlying
+longdesc library for other packages created by the same author (their
+longdesc names start with "BX" or "PX"). However bxbase package contains
+longdesc a few user-level commands and is of some use by itself.
+containersize 22704
+containerchecksum 279018d86ea2c933ae8106678b1fc3164439de59e74ba2244104951b352346e51d6a5a78591e605e25d2dc5dbfa15b6481d5b2f637517dd4e19a53da3d0fc179
+doccontainersize 76320
+doccontainerchecksum aa76f5acfe7367c48219eee28635bddc4655fde3e91a7eae5ff8fd03baf0e2732c0f3b587b7518f660cf58fd124a8c021ea495b57520347c4bacbd5246cc2a99
+docfiles size=28
+ texmf-dist/doc/latex/bxbase/LICENSE
+ texmf-dist/doc/latex/bxbase/README-ja.md details="Readme" language="ja"
+ texmf-dist/doc/latex/bxbase/README.md details="Readme"
+ texmf-dist/doc/latex/bxbase/bxbase-ja.pdf details="Package documentation" language="ja"
+ texmf-dist/doc/latex/bxbase/bxbase-ja.tex
+runfiles size=29
+ texmf-dist/tex/latex/bxbase/bxbase.def
+ texmf-dist/tex/latex/bxbase/bxbase.sty
+ texmf-dist/tex/latex/bxbase/bxtoolbox-ext.def
+ texmf-dist/tex/latex/bxbase/bxtoolbox-ja.def
+ texmf-dist/tex/latex/bxbase/bxtoolbox.def
+ texmf-dist/tex/latex/bxbase/bxtoolbox.sty
+ texmf-dist/tex/latex/bxbase/bxutf8.def
+ texmf-dist/tex/latex/bxbase/bxutf8x.def
+ texmf-dist/tex/latex/bxbase/zxbase.sty
+catalogue-contact-home https://github.com/zr-tex8r/BXbase
+catalogue-ctan /language/japanese/BX/bxbase
+catalogue-license mit
+catalogue-topics japanese macro-supp
+catalogue-version 1.2

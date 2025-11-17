@@ -1,0 +1,40 @@
+name xskak
+category Package
+revision 51432
+shortdesc An extension to the skak package for chess typesetting
+longdesc Xskak, as its prime function, saves information about a chess
+longdesc game for later use (e.g., to loop through a game to make an
+longdesc animated board). The package also extends the input that the
+longdesc parsing commands can handle and offers an interface to define
+longdesc and switch between indefinite levels of styles.
+containersize 14052
+containerchecksum 202f61fffbf22346ff6ad6b2b8f411b2a8e4f58a9d53e5613810f2fe0b56b0c73867f0c1c293bb0c1f0edcd4ab73135ae33a953d3709d2d01060c1b638842dd4
+doccontainersize 789680
+doccontainerchecksum 6256df468580dcee451e4a650ebab0323c92024e9bf872fd683af1f10c19221887b5bd1bed7540a517eb6716627e689759b7ceaaa2944869e18591fba5467114
+docfiles size=270
+ texmf-dist/doc/latex/xskak/README.md details="Readme"
+ texmf-dist/doc/latex/xskak/UF-xskak-documentation.sty
+ texmf-dist/doc/latex/xskak/skak-comment-test.pdf
+ texmf-dist/doc/latex/xskak/skak-comment-test.tex
+ texmf-dist/doc/latex/xskak/skak-longmoves-test-new.pdf
+ texmf-dist/doc/latex/xskak/skak-longmoves-test-new.tex
+ texmf-dist/doc/latex/xskak/xskak.pdf details="Package documentation"
+ texmf-dist/doc/latex/xskak/xskak.tex
+ texmf-dist/doc/latex/xskak/xskak_and_beamer.pdf
+ texmf-dist/doc/latex/xskak/xskak_and_beamer.tex
+ texmf-dist/doc/latex/xskak/xskakgames.xsk
+srccontainersize 14172
+srccontainerchecksum 11119e38b4f21663e36764d2b9e7da22d9493de7296590db4beefe185b2c9e89224806257d3880c78b07c3984478843b1886e37e5a33fc798920be221789de04
+srcfiles size=23
+ texmf-dist/source/latex/xskak/xskak.dtx
+ texmf-dist/source/latex/xskak/xskak.ins
+runfiles size=23
+ texmf-dist/tex/latex/xskak/xskak-keys.sty
+ texmf-dist/tex/latex/xskak/xskak-nagdef.sty
+ texmf-dist/tex/latex/xskak/xskak.sty
+catalogue-contact-repository https://github.com/u-fischer/xskak
+catalogue-contact-support https://github.com/u-fischer/xskak/issues
+catalogue-ctan /macros/latex/contrib/xskak
+catalogue-license lppl
+catalogue-topics games etex
+catalogue-version 1.5

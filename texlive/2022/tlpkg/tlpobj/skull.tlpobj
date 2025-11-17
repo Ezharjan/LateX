@@ -1,0 +1,22 @@
+name skull
+category Package
+revision 51907
+shortdesc A font to draw a skull
+longdesc The font (defined in Metafont) defines a single character, a
+longdesc black solid skull. A package is supplied to make this character
+longdesc available as a symbol in maths mode.
+containersize 1752
+containerchecksum 261ba31f30fa26e25f82dfe60ff7600c71db51f1dee68a5c094fa8a746995ee9031e41c0f24a4e83aec52c603cbea71a0773cae63481f167b81abdfb0ac3f782
+srccontainersize 2276
+srccontainerchecksum 3967550eb9af93aaa3fb9c623437e2c6ceb90f52f20533832aae3be91c719a774e3fe6a51f4d1543d6547479a2efa6c1965f0870174cfcd5c93cef0c20aecddc
+srcfiles size=2
+ texmf-dist/source/fonts/skull/skull.dtx
+ texmf-dist/source/fonts/skull/skull.ins
+runfiles size=3
+ texmf-dist/fonts/source/public/skull/skull.mf
+ texmf-dist/fonts/tfm/public/skull/skull.tfm
+ texmf-dist/tex/latex/skull/skull.sty
+catalogue-ctan /fonts/skull
+catalogue-license gpl
+catalogue-topics font font-mf font-novelty
+catalogue-version 0.1

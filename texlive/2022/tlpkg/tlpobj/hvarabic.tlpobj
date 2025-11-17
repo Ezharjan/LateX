@@ -1,0 +1,23 @@
+name hvarabic
+category Package
+revision 59423
+shortdesc Macros for RTL typesetting
+longdesc This package provides some macros for right-to-left
+longdesc typesetting. It uses by default the arabic fonts Scheherazade
+longdesc and ALM fixed, the only monospaced arabic font. The package
+longdesc works with LuaLaTeX or XeLaTeX, but not with pdfLaTeX or latex.
+containersize 1468
+containerchecksum 2f9af35f3e3ebf6d90ed05a77fcd6d6c079d3a476c26e0704e6f6b74899badc3eb0cc79d37f5f9e8b6a2846edb869bf57fc5b4bf14e834629d126bc71b77e42a
+doccontainersize 150588
+doccontainerchecksum 8508cab70c4cc87665790dcfd34a4465fa22002ca19a41d2d24e21ae0a2ed833a7f3c0e346d36e8c95411ea925ad3ebda8b6d1ee4179610ce0e3f673e6226246
+docfiles size=49
+ texmf-dist/doc/latex/hvarabic/CHANGELOG
+ texmf-dist/doc/latex/hvarabic/README.md
+ texmf-dist/doc/latex/hvarabic/hvarabic.pdf details="Package documentation"
+ texmf-dist/doc/latex/hvarabic/hvarabic.tex
+runfiles size=1
+ texmf-dist/tex/latex/hvarabic/hvarabic.sty
+catalogue-ctan /macros/latex/contrib/hvarabic
+catalogue-license lppl1.3c
+catalogue-topics arabic bidi
+catalogue-version 0.02

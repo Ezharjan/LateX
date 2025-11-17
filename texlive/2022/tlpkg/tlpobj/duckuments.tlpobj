@@ -1,0 +1,38 @@
+name duckuments
+category Package
+revision 52271
+shortdesc Create duckified dummy content
+longdesc The package provides facilities to create duckified dummy
+longdesc contents. It was inspired by the question "Getting ducks in
+longdesc example images" on TeX-LaTeX Stack Exchange. The following
+longdesc macros are available: \duckument[key=val] - print a short
+longdesc duckument \blindduck[key=val] - print a paragraph
+longdesc \ducklist(*){environment} - create a list of type environment
+longdesc \ducklistlist(*){environment} - create nested lists
+longdesc \duckitemize - ducklist{itemize} \duckenumerate -
+longdesc ducklist{enumerate} \duckdescription - ducklist{description}
+longdesc \duckumentsCreateExampleFile \duckumentsDrawRandomDucks The
+longdesc package works with pdfTeX, LuaTeX, and XeTeX.
+containersize 484476
+containerchecksum 77c975ea3e42faee4db5d99d692220884b24ccce2d69a30ce484d113cd261ddf5cf5a13ee04d9e8a95572e98c8c4bedfd901db34379af6a567777f9358e4bad5
+doccontainersize 495140
+doccontainerchecksum 0c9e24cc988b9350d188878dd8b463428133fe30c00218eed3d67917ace24412e55c396422890fc6c02030378b560b3d374970e879e3a331db7d8e34b3302421
+docfiles size=124
+ texmf-dist/doc/latex/duckuments/README.md details="Readme"
+ texmf-dist/doc/latex/duckuments/duckuments.pdf details="Package documentation"
+ texmf-dist/doc/latex/duckuments/example-image-duck-portrait.tex
+ texmf-dist/doc/latex/duckuments/example-image-duck.tex
+srccontainersize 9108
+srccontainerchecksum 528db05e9c1c0232fae271aff911f35cd55f85bfcdc931820f5a74d6f490fa3fada99c274b36fdddc6163cad6f779183b0056b1a6e003c4c2737282fed608497
+srcfiles size=10
+ texmf-dist/source/latex/duckuments/duckuments.dtx
+runfiles size=147
+ texmf-dist/tex/latex/duckuments/duckuments.sty
+ texmf-dist/tex/latex/duckuments/example-image-duck-portrait.pdf
+ texmf-dist/tex/latex/duckuments/example-image-duck.pdf
+catalogue-also lipsum tikzducks
+catalogue-contact-repository https://github.com/Skillmon/ltx_duckuments
+catalogue-ctan /macros/latex/contrib/duckuments
+catalogue-license lppl1.3c
+catalogue-topics macro-supp dummy-gen
+catalogue-version 0.5

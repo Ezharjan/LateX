@@ -1,0 +1,31 @@
+name ebproof
+category Package
+revision 57544
+shortdesc Formal proofs in the style of sequent calculus
+longdesc This package provides commands to typeset proof trees in the
+longdesc style of sequent calculus and related systems. The commands
+longdesc allow for writing inferences with any number of premises and
+longdesc alignment of successive formulas on an arbitrary point. Various
+longdesc options allow complete control over spacing, styles of
+longdesc inference rules, placement of labels, etc. The package requires
+longdesc expl3 and xparse.
+containersize 4220
+containerchecksum e2b130cbc7b98555ad010ab5bc5226c68f413581b3128245500ad3ba734e4291c91cc42c96ee4108a1f359fb7cb4c884dd717aedba9e594865466e6c29d13be1
+doccontainersize 496192
+doccontainerchecksum d5a1b900c73969c590921f3fea138e1ece49d9c9c4f1ccf7d3c1c877f501196a08d8099afde9913b83e653f4a8937e91878640975233f5482b6538d262a6139f
+docfiles size=123
+ texmf-dist/doc/latex/ebproof/README.md details="Readme"
+ texmf-dist/doc/latex/ebproof/ebproof.pdf details="Package documentation"
+srccontainersize 13524
+srccontainerchecksum 16145b4ae4c6998533ed85df9a19abe7108ac13208f19fde0906280f68d96817df87db2db89ef77e1734e5c9ae6f2825939ce670856d6f35429cde10442907f0
+srcfiles size=15
+ texmf-dist/source/latex/ebproof/ebproof.dtx
+ texmf-dist/source/latex/ebproof/ebproof.ins
+runfiles size=5
+ texmf-dist/tex/latex/ebproof/ebproof.sty
+catalogue-also bussproofs
+catalogue-contact-repository https://framagit.org/manu/ebproof
+catalogue-ctan /macros/latex/contrib/ebproof
+catalogue-license lppl1.3
+catalogue-topics maths proof expl3
+catalogue-version 2.1.1

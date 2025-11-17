@@ -1,0 +1,31 @@
+name curve2e
+category Package
+revision 57402
+shortdesc Extensions for package pict2e
+longdesc The package extends the drawing capacities of the pict2e that
+longdesc serves as a LaTeX2e replacement for picture mode. In
+longdesc particular, curve2e introduces new macros for lines and
+longdesc vectors, new specifications for line terminations and joins,
+longdesc arcs with any angular aperture, arcs with arrows at one or both
+longdesc ends, generic curves specified with their nodes and the tangent
+longdesc direction at these nodes.
+containersize 9920
+containerchecksum 9346fff324a93225d271a2bce1a038888a1850c27ec090832740c22538342192889098ccdcbff1c5034d48c41c479b131b1fa7a401e0db684ba01536f3eb7ef3
+doccontainersize 1170628
+doccontainerchecksum bd84b3122aac83e5584921c4c8484430b546012bd5d93f49a1387acf6476636bdf6f00f77b90af53252acb3600ae75c7038fed4d213b76e71543df3b5900eb09
+docfiles size=320
+ texmf-dist/doc/latex/curve2e/README.txt details="Readme"
+ texmf-dist/doc/latex/curve2e/curve2e-manual.pdf details="User manual"
+ texmf-dist/doc/latex/curve2e/curve2e-manual.tex
+ texmf-dist/doc/latex/curve2e/curve2e.pdf details="Code documentation"
+srccontainersize 46304
+srccontainerchecksum c64897e4f2c6c2705b5093b2a937d2cf2dfa8cc2d0c9290775d155f733c82e0b7f11d30b8c58e21416b0f4a1e0cd4b29f1bbac5cdb665e821ec11218767865b5
+srcfiles size=45
+ texmf-dist/source/latex/curve2e/curve2e.dtx
+runfiles size=15
+ texmf-dist/tex/latex/curve2e/curve2e-v161.sty
+ texmf-dist/tex/latex/curve2e/curve2e.sty
+catalogue-ctan /macros/latex/contrib/curve2e
+catalogue-license lppl1.3c
+catalogue-topics graphics graphics-in-tex graphics-curve
+catalogue-version 2.2.15

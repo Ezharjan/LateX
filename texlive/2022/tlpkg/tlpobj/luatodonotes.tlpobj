@@ -1,0 +1,36 @@
+name luatodonotes
+category Package
+revision 53825
+shortdesc Add editing annotations in a LuaLaTeX document
+longdesc The package allows the user to insert comments into a document
+longdesc that suggest (for example) further editing that may be needed.
+longdesc The comments are shown in the margins alongside the text;
+longdesc different styles for the comments may be used; the styles are
+longdesc selected using package options. The package is based on the
+longdesc package todonotes, and depends heavily on Lua, so it can only
+longdesc be used with LuaLaTeX.
+containersize 26600
+containerchecksum 4cc24f72014d50179fa1cd3630a483677a98a5dedd28e94f2c7003c3c61eae66bf9b6787bcde81b654f4187d873440828655be372b4d6bbf59c802da23beaeea
+doccontainersize 209076
+doccontainerchecksum 2b7298a56975f0ac71bf6c0327d95531622de23a33c4a1999cdd35ae960766342071722e388fd3d9fc10fcbd23c0752e5e5399516c8465f7e66f5ea8b952e447
+docfiles size=54
+ texmf-dist/doc/lualatex/luatodonotes/README.md details="Readme"
+ texmf-dist/doc/lualatex/luatodonotes/luatodonotes.pdf details="Package documentation"
+srccontainersize 20788
+srccontainerchecksum 0ed8cbb2160246c499ed98a7865216e8f5739a7c87a1b9a6ef8b63944a4b3f2c6a011ebb4276486d2ff8fca96428b0c25e87936fade5967cf41f7cee79307880
+srcfiles size=22
+ texmf-dist/source/lualatex/luatodonotes/luatodonotes.dtx
+ texmf-dist/source/lualatex/luatodonotes/luatodonotes.ins
+runfiles size=35
+ texmf-dist/tex/lualatex/luatodonotes/inspect.lua
+ texmf-dist/tex/lualatex/luatodonotes/luatodonotes.lua
+ texmf-dist/tex/lualatex/luatodonotes/luatodonotes.sty
+ texmf-dist/tex/lualatex/luatodonotes/path_line.lua
+ texmf-dist/tex/lualatex/luatodonotes/path_point.lua
+catalogue-also todonotes
+catalogue-contact-bugs https://github.com/fabianlipp/luatodonotes/issues
+catalogue-contact-repository https://github.com/fabianlipp/luatodonotes
+catalogue-ctan /macros/luatex/latex/luatodonotes
+catalogue-license lppl1.2
+catalogue-topics notes editorial luatex use-lua
+catalogue-version 0.5

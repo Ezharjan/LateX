@@ -1,0 +1,54 @@
+name biblatex-bookinother
+category Package
+revision 54015
+shortdesc Manage book edited in other entry type
+longdesc This package provides new BibLaTeX entry types and fields for
+longdesc book edited in other types, like for instance @bookinarticle.
+longdesc It offers more types than the older package
+longdesc biblatex-bookinarticle which it superseeds.
+containersize 3172
+containerchecksum afafb9bf593dc3541ad527f09ee881fdda4af3bff78f02b68d53463a07494ac6c03ba55165738501b685e3e1d998eeb973e8431651ccf904b3ce0ea591dc0592
+doccontainersize 282448
+doccontainerchecksum ebf06bec2cc1b083a472bcdf03772c9f5568a1482c926ebf886f02ece86a6f0c31a127d285ee16baadc4c0ea771eaac05e374c0a3de215d677b07a0335d362e5
+docfiles size=143
+ texmf-dist/doc/latex/biblatex-bookinother/README details="Readme"
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/biblatex-bookinother.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/biblatex-bookinother.tex
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinarticle.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinarticle.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinarticle.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookincollection.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookincollection.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookincollection.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininarticle.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininarticle.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininarticle.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininbook.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininbook.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininbook.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinincollection.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinincollection.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinincollection.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininproceedings.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininproceedings.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookininproceedings.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinjournal.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinjournal.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinjournal.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinproceedings.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinproceedings.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinproceedings.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinthesis.bib
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinthesis.dot
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/example-bookinthesis.pdf
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/generate-crossref-graphs.py
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/latexmkrc
+ texmf-dist/doc/latex/biblatex-bookinother/documentation/makefile
+ texmf-dist/doc/latex/biblatex-bookinother/makefile
+runfiles size=6
+ texmf-dist/tex/latex/biblatex-bookinother/bookinother.bbx
+ texmf-dist/tex/latex/biblatex-bookinother/bookinother.dbx
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-bookinother
+catalogue-license lppl1.3
+catalogue-topics humanities biblatex
+catalogue-version 2.3.3

@@ -1,0 +1,28 @@
+name semtex
+category Package
+revision 56530
+shortdesc Deals with stripped SemanTeX documents
+longdesc This package is a small LaTeX package that adds a collection of
+longdesc simple macros for parentheses and bullets. It exists for one
+longdesc purpose only: To be loaded by documents which were originally
+longdesc typeset using the package SemanTeX, but which have been
+longdesc stripped of SemanTeX markup using the package stripsemantex
+longdesc which is part of SemanTeX. Therefore, unless your document is
+longdesc one of those, simply don't use this package. And even if your
+longdesc document is one of those, there is a good chance you will not
+longdesc have to load it after all. In most cases, you will be able to
+longdesc replace the macros it provides by macros from other packages.
+containersize 1196
+containerchecksum 10d2b93b30581cede982f5d7ec1ee5bf6f60406e27e1750f2bc6b6dfe0f683ca922a762fafac0d5d037687c0a98188617ee48bb51ea132ccde7cd1c33bbdf273
+doccontainersize 65952
+doccontainerchecksum 316df9ed5f2d058e6c28e5e8e5f4bc3ed64439409d1ae1c608b2a75a23c40d438b657642093cb723b23da4f14382f1080aaa3a9a49d8ce143e26e494a3e7b3e9
+docfiles size=19
+ texmf-dist/doc/latex/semtex/README.md details="Readme"
+ texmf-dist/doc/latex/semtex/semtex.pdf details="Package documentation"
+ texmf-dist/doc/latex/semtex/semtex.tex
+runfiles size=1
+ texmf-dist/tex/latex/semtex/semtex.sty
+catalogue-ctan /macros/latex/contrib/semtex
+catalogue-license lppl1.3c
+catalogue-topics maths expl3
+catalogue-version 0.45

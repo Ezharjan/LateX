@@ -1,0 +1,51 @@
+name gridpapers
+category Package
+revision 58723
+shortdesc Graph paper backgrounds and color schemes
+longdesc This package provides many preset yet customizable graph paper
+longdesc backgrounds. Some of the preset patterns include standard
+longdesc quadrille or graph pattern, dot grid, hexagons, isometric or
+longdesc triangular grid, squares with 45deg "light cone" lines, ruled,
+longdesc and more. Pattern sizes can be controlled via package options.
+longdesc There are several preset color palletes, and colors can be
+longdesc overridden. The package uses the PGF/TikZ package, and the
+longdesc geometry package to control page size.
+containersize 5164
+containerchecksum 17f9b6b16a0d2f45648b131623c243e0b62f5e2d2fb1c1997af921a1307d941ffb07729d5e4787b4627961160a75de98165e97a42331b07a3259e91c987f27e0
+doccontainersize 225000
+doccontainerchecksum 0f4fed3e0d17f317f3d56f69a7100d36ac6d022f7c7c81c8dd0bb1f740f782ca5a4064cc2c80daf865c85e7ee84027a97fe675a13f9d0d348e489a2a8afa2ed9
+docfiles size=75
+ texmf-dist/doc/latex/gridpapers/README.md details="Readme"
+ texmf-dist/doc/latex/gridpapers/examples/custom-colors.tex
+ texmf-dist/doc/latex/gridpapers/examples/dot-grid-10spi.tex
+ texmf-dist/doc/latex/gridpapers/examples/dot-grid-5spi.tex
+ texmf-dist/doc/latex/gridpapers/examples/engineer-pad.tex
+ texmf-dist/doc/latex/gridpapers/examples/engineer-paper-8spi.tex
+ texmf-dist/doc/latex/gridpapers/examples/graph-paper-8spi.tex
+ texmf-dist/doc/latex/gridpapers/examples/graph-paper.tex
+ texmf-dist/doc/latex/gridpapers/examples/grid-with-light-cones.tex
+ texmf-dist/doc/latex/gridpapers/examples/hex-engineer-letterpaper-fullpage.tex
+ texmf-dist/doc/latex/gridpapers/examples/hex-grid-large.tex
+ texmf-dist/doc/latex/gridpapers/examples/hex-grid-small.tex
+ texmf-dist/doc/latex/gridpapers/examples/isometric-grid.tex
+ texmf-dist/doc/latex/gridpapers/examples/plum-graph-paper.tex
+ texmf-dist/doc/latex/gridpapers/examples/precocious-young-engineer.tex
+ texmf-dist/doc/latex/gridpapers/examples/quadrille-10spi.tex
+ texmf-dist/doc/latex/gridpapers/examples/quadrille-8spi.tex
+ texmf-dist/doc/latex/gridpapers/examples/red-graph.tex
+ texmf-dist/doc/latex/gridpapers/examples/triangular-grid.tex
+ texmf-dist/doc/latex/gridpapers/gridpapers.pdf details="Package documentation"
+srccontainersize 7964
+srccontainerchecksum 962b9dd3c99ce419e58cc1f146406b0703807d365069a333971c1b0ad3409f64c9c89d6dfb9c4ce80731164af1d6dcde6b510c156602b0bdde2f231d7da45406
+srcfiles size=8
+ texmf-dist/source/latex/gridpapers/gridpapers.dtx
+ texmf-dist/source/latex/gridpapers/gridpapers.ins
+runfiles size=5
+ texmf-dist/tex/latex/gridpapers/gridpapers.sty
+catalogue-also graphpaper
+catalogue-contact-bugs https://github.com/mcnees/LaTeX-Graph-Paper/issues
+catalogue-contact-repository https://github.com/mcnees/LaTeX-Graph-Paper
+catalogue-ctan /macros/latex/contrib/gridpapers
+catalogue-license lppl1.3
+catalogue-topics pgf-tikz background
+catalogue-version 1.0.2

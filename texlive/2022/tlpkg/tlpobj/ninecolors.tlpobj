@@ -1,0 +1,27 @@
+name ninecolors
+category Package
+revision 62006
+shortdesc Select colors with proper WCAG color contrast
+longdesc This package carefully selects and defines 9 colors for 13 hues
+longdesc each. All colors with the same suffix number have equal
+longdesc luminance level. Also the color black is of level 0, and the
+longdesc color white is of level 10. By simply choosing two colors in
+longdesc the above list, which differ in level by at least 5, as
+longdesc foreground and background colors, you will get proper WCAG
+longdesc Color Contrast.
+containersize 2648
+containerchecksum f755768830e02aa434432ab4e879646ad43d092f50b7e38e39009c98327c5ddcd23d0b5a7ee8d8afad30e69b6219bb871a14dc7b274ae11a60aec33df2c94ae6
+doccontainersize 48184
+doccontainerchecksum 0550d7b4a8b7040541edf156c5b82bf61d350a21c732c4ef324c58289eda288b7e30edd1f36d8650d453a590bdeb97b61d0c782f3d945b033b0fb746b6c802f7
+docfiles size=15
+ texmf-dist/doc/latex/ninecolors/README.txt details="Readme"
+ texmf-dist/doc/latex/ninecolors/ninecolors.pdf details="Package documentation"
+ texmf-dist/doc/latex/ninecolors/ninecolors.tex
+runfiles size=7
+ texmf-dist/tex/latex/ninecolors/ninecolors.sty
+catalogue-contact-bugs https://github.com/lvjr/ninecolors/issues
+catalogue-contact-repository https://github.com/lvjr/ninecolors
+catalogue-ctan /macros/latex/contrib/ninecolors
+catalogue-license lppl1.3
+catalogue-topics colour expl3
+catalogue-version 2022D

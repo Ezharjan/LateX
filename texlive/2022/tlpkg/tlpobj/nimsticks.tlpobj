@@ -1,0 +1,31 @@
+name nimsticks
+category Package
+revision 64118
+shortdesc Draws sticks for games of multi-pile Nim
+longdesc This LaTeX package provides commands \drawnimstick to draw a
+longdesc single nim stick and \nimgame which represents games of
+longdesc multi-pile Nim. Nim sticks are drawn with a little random
+longdesc wobble so they look 'thrown together' and not too regular. The
+longdesc package also provides options to customise the size and colour
+longdesc of the sticks, and flexibility to draw heaps of different
+longdesc objects.
+containersize 2140
+containerchecksum 0b2485f7833cc8f4912a035284fcc4d0e710d942330a16a36788f7d80ebc5d9eb9ceb98f6a15b11e6391429d4684c985a83753696c1202bff5f0c5f4e528ce59
+doccontainersize 213532
+doccontainerchecksum 6848acf10eb3c4b2e0dbb9e33868ac4a1c639771c1508a19e4d41512750cb0978dbb61a570830f2f555e09ade976d9cd5c91d23da73013a7310b9cae02b6ee1a
+docfiles size=55
+ texmf-dist/doc/latex/nimsticks/README.md details="Readme"
+ texmf-dist/doc/latex/nimsticks/nimsticks.pdf details="Package documentation"
+srccontainersize 5548
+srccontainerchecksum 76903857b5e115f5c3462e114ef7a142855c7606e78f0ed96de54b4c810cdac596b39f38333db445387264ed6723c6c1788b13c17c6c9702407aec267d4b38c5
+srcfiles size=6
+ texmf-dist/source/latex/nimsticks/nimsticks.dtx
+ texmf-dist/source/latex/nimsticks/nimsticks.ins
+runfiles size=2
+ texmf-dist/tex/latex/nimsticks/nimsticks.sty
+catalogue-contact-bugs https://github.com/prowlett/nimsticks/issues
+catalogue-contact-repository https://github.com/prowlett/nimsticks
+catalogue-ctan /graphics/pgf/contrib/nimsticks
+catalogue-license mit
+catalogue-topics graphics pgf-tikz games
+catalogue-version 2.0.1

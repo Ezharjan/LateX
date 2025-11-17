@@ -1,0 +1,33 @@
+name footnoterange
+category Package
+revision 52910
+shortdesc References to ranges of footnotes
+longdesc The package provides the environments footnoterange and
+longdesc footnoterange*. Multiple footnotes inside these environments
+longdesc are not referenced as (e.g.) "1 2 3" but as "1-3", i.e., the
+longdesc range (from first to last referred footnote at that place) is
+longdesc given. If the hyperref package is loaded with enabled
+longdesc hyperfootnotes-option, then the references are hyperlinked.
+longdesc (References to footnotes in footnoterange* environments are
+longdesc never hyperlinked.)
+containersize 2624
+containerchecksum 6d1a5ae7982aa9f928d09dbe0dc8cb3fcae5894bd8d0eace4590a7627d476dd32c9c91dd2d68aa9a9428b7258b305b13911421f0834b694fe828654aafcc4eb7
+doccontainersize 402812
+doccontainerchecksum eb31ded0bf2112afd6c278456701690a0a7d846af6bd1f28721bb6db4e67b8a83e2ec67b6876fb05315430d9d1d400ae4b5dd7e04f5bfeecde322ec6aa84e30d
+docfiles size=102
+ texmf-dist/doc/latex/footnoterange/README details="Readme"
+ texmf-dist/doc/latex/footnoterange/footnoterange-example.pdf
+ texmf-dist/doc/latex/footnoterange/footnoterange.pdf details="Package documentation"
+srccontainersize 10844
+srccontainerchecksum 1cd3a85585772bfe701cbd25f45ed5a94e476d48c9c2efe5868b4d7d2a41c3add423a51238ee793c0cf8d4f65767e9c2b9e0c0c19603259f61e221aa40935b35
+srcfiles size=13
+ texmf-dist/source/latex/footnoterange/footnoterange.drv
+ texmf-dist/source/latex/footnoterange/footnoterange.dtx
+ texmf-dist/source/latex/footnoterange/footnoterange.ins
+runfiles size=2
+ texmf-dist/tex/latex/footnoterange/footnoterange.sty
+catalogue-also footmisc
+catalogue-ctan /macros/latex/contrib/footnoterange
+catalogue-license lppl1.3c
+catalogue-topics footnote label-ref
+catalogue-version 1.0c

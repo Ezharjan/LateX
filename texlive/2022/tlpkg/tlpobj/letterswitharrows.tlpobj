@@ -1,0 +1,25 @@
+name letterswitharrows
+category Package
+revision 59993
+shortdesc Draw arrows over math letters
+longdesc This package provides LaTeX math-mode commands for setting left
+longdesc and right arrows over mathematical symbols so that the arrows
+longdesc dynamically scale with the symbols. While it is possible to set
+longdesc arrows over longer strings of symbols, the focus lies on single
+longdesc characters.
+containersize 3252
+containerchecksum dcfd59b7a51100a4e1d856d3cbc0d4f2ac258e745566b278e275d8ebd0273e7f96fa1431b681d42e10b1c7496596f1ecdd92753b8b58df4fe352c51b9b009bcb
+doccontainersize 480964
+doccontainerchecksum a21ff5d9a4c2e409cd7a32207e1e162b263dff46919fdad25bd5fbc1cca86329efebf847ed24ff7401293d8a318bde9fe7fd2c9def69f39740d5e0686c0ab849
+docfiles size=122
+ texmf-dist/doc/latex/letterswitharrows/README.txt details="Readme"
+ texmf-dist/doc/latex/letterswitharrows/letterswitharrows.pdf details="Package documentation"
+srccontainersize 5380
+srccontainerchecksum 50e2521b55a238cd6e461b3bcde326c5948573363988bf3bdcc428d04341728dbf73e891d09af65ca1832924cdbd0b0320bd94d662afdf78b3d1039ca3519231
+srcfiles size=5
+ texmf-dist/source/latex/letterswitharrows/letterswitharrows.dtx
+runfiles size=3
+ texmf-dist/tex/latex/letterswitharrows/letterswitharrows.sty
+catalogue-ctan /macros/latex/contrib/letterswitharrows
+catalogue-license lppl1.3
+catalogue-topics maths expl3 pgf-tikz

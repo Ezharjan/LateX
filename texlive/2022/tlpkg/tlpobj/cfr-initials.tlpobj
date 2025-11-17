@@ -1,0 +1,49 @@
+name cfr-initials
+category Package
+revision 61719
+shortdesc LaTeX packages for use of initials
+longdesc This is a set of 23 tiny packages designed to make it easier to
+longdesc use fonts from the initials package in LaTeX, e.g. with the
+longdesc lettrine package. It is a response to comments on an answer at
+longdesc TeX Stack Exchange (https://tex.stackexchange.com/a/236410/)
+longdesc requesting sample package files for others to copy. I had
+longdesc previously assumed these were too trivial to be of interest,
+longdesc but if they would be useful, then I would prefer them to be
+longdesc generally available via CTAN.
+containersize 2312
+containerchecksum b4799007822a3bc82370b72ead503661f70cce1beb7a27bf1bd2523283a248045b0ef863ab1dd9bd93b39441e50d51fabe11a12fe6528a7966219a2da2618141
+doccontainersize 687228
+doccontainerchecksum 124dbae846ced93e4cbf5b9c16235295c7e76306830bc9e08cdb5a4e8d0d5f9deada4706c6c41cc383f440e9e874cc1cc338176787ad029f8164bbeba99db965
+docfiles size=171
+ texmf-dist/doc/latex/cfr-initials/README details="Readme"
+ texmf-dist/doc/latex/cfr-initials/cfr-initials.pdf details="Package documentation"
+ texmf-dist/doc/latex/cfr-initials/cfr-initials.tex
+ texmf-dist/doc/latex/cfr-initials/manifest.txt
+runfiles size=23
+ texmf-dist/tex/latex/cfr-initials/Acorn.sty
+ texmf-dist/tex/latex/cfr-initials/AnnSton.sty
+ texmf-dist/tex/latex/cfr-initials/ArtNouv.sty
+ texmf-dist/tex/latex/cfr-initials/ArtNouvc.sty
+ texmf-dist/tex/latex/cfr-initials/Carrickc.sty
+ texmf-dist/tex/latex/cfr-initials/Eichenla.sty
+ texmf-dist/tex/latex/cfr-initials/Eileen.sty
+ texmf-dist/tex/latex/cfr-initials/EileenBl.sty
+ texmf-dist/tex/latex/cfr-initials/Elzevier.sty
+ texmf-dist/tex/latex/cfr-initials/GotIn.sty
+ texmf-dist/tex/latex/cfr-initials/GoudyIn.sty
+ texmf-dist/tex/latex/cfr-initials/Kinigcap.sty
+ texmf-dist/tex/latex/cfr-initials/Konanur.sty
+ texmf-dist/tex/latex/cfr-initials/Kramer.sty
+ texmf-dist/tex/latex/cfr-initials/MorrisIn.sty
+ texmf-dist/tex/latex/cfr-initials/Nouveaud.sty
+ texmf-dist/tex/latex/cfr-initials/Romantik.sty
+ texmf-dist/tex/latex/cfr-initials/Rothdn.sty
+ texmf-dist/tex/latex/cfr-initials/Royal.sty
+ texmf-dist/tex/latex/cfr-initials/Sanremo.sty
+ texmf-dist/tex/latex/cfr-initials/Starburst.sty
+ texmf-dist/tex/latex/cfr-initials/Typocaps.sty
+ texmf-dist/tex/latex/cfr-initials/Zallman.sty
+catalogue-ctan /macros/latex/contrib/cfr-initials
+catalogue-license lppl1.3
+catalogue-topics font-supp font-decor
+catalogue-version 1.01

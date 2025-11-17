@@ -1,0 +1,42 @@
+name optexcount
+category Package
+revision 59817
+shortdesc Python script for counting words in OpTeX documents
+longdesc OpTeXcount is a basic python utility that analyzes OpTeX source
+longdesc code. It is inspired by already existing TeXcount for LaTeX.
+longdesc The functionality is really lightweight and basic. It counts
+longdesc words and other elements of OpTeX document and sorts them out
+longdesc into individual categories. Users can print the source code
+longdesc with highlighted words using several colors,so they see what is
+longdesc considered as word, header etc.
+depend optexcount.ARCH
+containersize 7312
+containerchecksum 88a35391d3deb37dd6466e903f3cdd7d134eb9fb8c0a9ab548ca2eeee86687544e1b499248c2d0a7aa3b801d9604913e763128309f88f768d0dafb8ac1fd6998
+doccontainersize 33964
+doccontainerchecksum 7f0d33068083736fe58c08dc9e37929efcf65de3b62a3afb51077a21d0e27b473a65ee1b333a0dd31b1d39e7f6ce79cae3343e8b7a9742199fb409e90030f7aa
+docfiles size=14
+ texmf-dist/doc/support/optexcount/LICENSE
+ texmf-dist/doc/support/optexcount/README.md details="Readme"
+ texmf-dist/doc/support/optexcount/example_01.tex
+ texmf-dist/doc/support/optexcount/final_bird.png
+ texmf-dist/doc/support/optexcount/optexcount-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/optexcount/optexcount-doc.tex
+srccontainersize 5984
+srccontainerchecksum c62820e25f1251b6baba3095afa41a39616e49147fc88c5ddd00fe56e0eb2d20a6b2a0ab633b01f2578819308fa0f05e53fd1daf781e276b08ade1407024c46e
+srcfiles size=12
+ texmf-dist/source/support/optexcount/color_print.py
+ texmf-dist/source/support/optexcount/counter.py
+ texmf-dist/source/support/optexcount/header.py
+ texmf-dist/source/support/optexcount/install.sh
+ texmf-dist/source/support/optexcount/keywords.py
+ texmf-dist/source/support/optexcount/optexcount.py
+ texmf-dist/source/support/optexcount/word_iterator.py
+runfiles size=2
+ texmf-dist/scripts/optexcount/optexcount
+catalogue-contact-bugs https://github.com/rihartma/OpTeXcount/issues
+catalogue-contact-home https://github.com/rihartma/OpTeXcount
+catalogue-contact-repository https://github.com/rihartma/OpTeXcount
+catalogue-ctan /support/optexcount
+catalogue-license mit
+catalogue-topics word-count
+catalogue-version 1.1

@@ -1,0 +1,42 @@
+name beamerposter
+category Package
+revision 54512
+shortdesc Extend beamer and a0poster for custom sized posters
+longdesc The package enables the user to use beamer style operations on
+longdesc a canvas of the sizes provided by a0poster; font scaling is
+longdesc available (using packages such as type1cm if necessary). In
+longdesc addition, the package allows the user to benefit from the nice
+longdesc colour box handling and alignment provided by the beamer class
+longdesc (for example, with rounded corners and shadows). Good looking
+longdesc posters may be created very rapidly. Features include: scalable
+longdesc fonts using the fp and type1cm packages; posters in A-series
+longdesc sizes, and custom sizes like double A0 are possible; still
+longdesc applicable to custom beamer slides, e.g. 16:9 slides for a
+longdesc wide-screen (i.e. 1.78 aspect ratio); orientation may be
+longdesc portrait or landscape; a 'debug mode' is provided.
+containersize 7456
+containerchecksum 7483f14a3008997c0c39c351e0f8b9a01dc42331ae990575ab33ab29c18cea648e0e6ab328a2c1fde404bc10eec78d7c7b8352bb02636e00d5d6e8689f1c717f
+doccontainersize 77044
+doccontainerchecksum f597797340286e4a87b62696fa167af07a1717a175646d11836e1f347601551fe0aec5ad4362c135d0f6bbf6b45e217a91bdb5053ba1331828fbc352583d3697
+docfiles size=22
+ texmf-dist/doc/latex/beamerposter/README details="Readme"
+ texmf-dist/doc/latex/beamerposter/beamerposter.pdf details="Package documentation (PDF)"
+ texmf-dist/doc/latex/beamerposter/beamerposter.tex
+ texmf-dist/doc/latex/beamerposter/example.tex
+runfiles size=16
+ texmf-dist/tex/latex/beamerposter/beamerposter.sty
+ texmf-dist/tex/latex/beamerposter/beamerthemeAachen.sty
+ texmf-dist/tex/latex/beamerposter/beamerthemeI6dv.sty
+ texmf-dist/tex/latex/beamerposter/beamerthemeI6pd.sty
+ texmf-dist/tex/latex/beamerposter/beamerthemeI6pd2.sty
+ texmf-dist/tex/latex/beamerposter/beamerthemeI6td.sty
+ texmf-dist/tex/latex/beamerposter/beamerthemeZH.sty
+catalogue-contact-announce https://groups.google.com/forum/#!forum/beamerposter
+catalogue-contact-bugs https://github.com/deselaers/latex-beamerposter/issues
+catalogue-contact-home https://github.com/deselaers/latex-beamerposter
+catalogue-contact-repository https://github.com/deselaers/latex-beamerposter
+catalogue-contact-support https://groups.google.com/forum/#!forum/beamerposter
+catalogue-ctan /macros/latex/contrib/beamerposter
+catalogue-license lppl gpl
+catalogue-topics poster presentation
+catalogue-version 1.13

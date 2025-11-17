@@ -1,0 +1,89 @@
+name toptesi
+category Package
+revision 56276
+shortdesc Bundle for typesetting multilanguage theses
+longdesc This bundle contains everything needed for typesetting a
+longdesc bachelor, master, or PhD thesis in Italian (or in any other
+longdesc language supported by LaTeX: the bundle is constructed to
+longdesc support multilingual use). The infix strings may be selected
+longdesc and specified at will by means of a configuration file, so as
+longdesc to customize the layout of the front page to the requirements
+longdesc of a specific university. Thanks to its language management,
+longdesc the bundle is suited for multilanguage theses that are becoming
+longdesc more and more frequent thanks to the double degree programs of
+longdesc the European Community Socrates programs. Toptesi is designed
+longdesc to save the PDF version of a thesis in PDF/A-1b compliant mode
+longdesc and with all the necessary metadata.
+containersize 20420
+containerchecksum be7a920e195b9ffd3fcfc0bbe1647d1b47fb98743ec69ea9b23783f052d9c10c26acdea42d4d2c7501bd57d3853f53642a5328a1c6954294a2cd38d8aeeaaac2
+doccontainersize 5776432
+doccontainerchecksum 7dd70306861e8528cd4c645893a3cb81c20a6f82db2237e595573226c77f8df71ecfa57909b9675e19e441301fecf38f1b1c4bb7b4ed2705a4e132d4bf19b436
+docfiles size=2186
+ texmf-dist/doc/latex/toptesi/FrontespiziAssemblati.pdf
+ texmf-dist/doc/latex/toptesi/FrontespiziAssemblati1.pdf
+ texmf-dist/doc/latex/toptesi/FrontespiziAssemblati2.pdf
+ texmf-dist/doc/latex/toptesi/Frontespizio-sss.pdf
+ texmf-dist/doc/latex/toptesi/FrontespizioLandscape.pdf
+ texmf-dist/doc/latex/toptesi/FrontespizioScudo.pdf
+ texmf-dist/doc/latex/toptesi/FrontespizioScudo.tex
+ texmf-dist/doc/latex/toptesi/GuITlogo.pdf
+ texmf-dist/doc/latex/toptesi/MPlogo.pdf
+ texmf-dist/doc/latex/toptesi/README.txt details="Readme" language="en"
+ texmf-dist/doc/latex/toptesi/TITDocScCropped.pdf
+ texmf-dist/doc/latex/toptesi/TITlogoCropped.pdf
+ texmf-dist/doc/latex/toptesi/Toptesi-con-topfront.pdf
+ texmf-dist/doc/latex/toptesi/Toptesi-con-topfront.tex
+ texmf-dist/doc/latex/toptesi/Toptesi-example-topfront.pdf
+ texmf-dist/doc/latex/toptesi/Toptesi-example-topfront.tex
+ texmf-dist/doc/latex/toptesi/VeraPDFiniziale.jpg
+ texmf-dist/doc/latex/toptesi/logodue.pdf
+ texmf-dist/doc/latex/toptesi/logoguittondo.pdf
+ texmf-dist/doc/latex/toptesi/logoquattro.pdf
+ texmf-dist/doc/latex/toptesi/logotre.pdf
+ texmf-dist/doc/latex/toptesi/logouno.pdf
+ texmf-dist/doc/latex/toptesi/lppl.tex
+ texmf-dist/doc/latex/toptesi/topfront-example.pdf
+ texmf-dist/doc/latex/toptesi/topfront-example.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-con-frontespizio.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-con-frontespizio.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-dottorale.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-dottorale.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-luatex.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-luatex.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-magistrale.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-magistrale.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-sss.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-sss.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-triennale.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-triennale.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example-xetex.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example-xetex.tex
+ texmf-dist/doc/latex/toptesi/toptesi-example.cfg
+ texmf-dist/doc/latex/toptesi/toptesi-example.pdf
+ texmf-dist/doc/latex/toptesi/toptesi-example.tex
+ texmf-dist/doc/latex/toptesi/toptesi-it.pdf details="Class documentation (Italian)" language="it"
+ texmf-dist/doc/latex/toptesi/toptesi-it.tex
+ texmf-dist/doc/latex/toptesi/toptesi-scudo-example.zip
+ texmf-dist/doc/latex/toptesi/toptesi.pdf details="Package documentation"
+ texmf-dist/doc/latex/toptesi/veraPDFconformance.jpg
+ texmf-dist/doc/latex/toptesi/veraPDFnoconformance.jpg
+ texmf-dist/doc/latex/toptesi/veraPDFnoconformance.pdf
+srccontainersize 97136
+srccontainerchecksum f127b3ece0428207e503bf2f9258da2c4128b524069c45c4d7b188ac06ef52527d04020a8f002c72a878a9cf5caa358323e5db9e0b65c46d6fafadc657ec014f
+srcfiles size=100
+ texmf-dist/source/latex/toptesi/toptesi.dtx
+runfiles size=40
+ texmf-dist/tex/latex/toptesi/topcoman.sty
+ texmf-dist/tex/latex/toptesi/topfront.sty
+ texmf-dist/tex/latex/toptesi/toptesi-dottorale.sty
+ texmf-dist/tex/latex/toptesi/toptesi-magistrale.sty
+ texmf-dist/tex/latex/toptesi/toptesi-monografia.sty
+ texmf-dist/tex/latex/toptesi/toptesi-scudo.sty
+ texmf-dist/tex/latex/toptesi/toptesi-sss.sty
+ texmf-dist/tex/latex/toptesi/toptesi.cfg
+ texmf-dist/tex/latex/toptesi/toptesi.cls
+ texmf-dist/tex/latex/toptesi/toptesi.sty
+catalogue-ctan /macros/latex/contrib/toptesi
+catalogue-license lppl1.3c
+catalogue-topics dissertation class multilingual
+catalogue-version 6.4.06

@@ -1,0 +1,21 @@
+name yamlvars
+category Package
+revision 63046
+shortdesc A YAML parser and tool for easy LaTeX definition creation
+longdesc This LuaLaTeX package provides a YAML parser and some functions
+longdesc to declare and define LaTeX definitions using YAML files.
+containersize 6044
+containerchecksum 8cb57f359189264c5bbb81a83897d0d6109b68abd9b910145be88e67b10c93f73ea3ec45eda317708ea39a18904a61659627f74e2206059a0eae535e3f1ea1c3
+doccontainersize 77460
+doccontainerchecksum 824380d69f048936c026ea872bd29f90f9e812a355e86fe1645c05d593aac0628607578ca9b88e934383ab1e4b807514b725624759b9421a6fa08cc8a11e3cba
+docfiles size=26
+ texmf-dist/doc/lualatex/yamlvars/README.md details="Readme"
+ texmf-dist/doc/lualatex/yamlvars/yamlvars.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/yamlvars/yamlvars.tex
+runfiles size=6
+ texmf-dist/tex/lualatex/yamlvars/yamlvars.lua
+ texmf-dist/tex/lualatex/yamlvars/yamlvars.sty
+catalogue-contact-repository https://github.com/kalekje/yamlvars
+catalogue-ctan /macros/luatex/latex/yamlvars
+catalogue-license mit
+catalogue-topics luatex data-import

@@ -1,0 +1,35 @@
+name zebra-goodies
+category Package
+revision 51554
+shortdesc A collection of handy macros for paper writing
+longdesc This package offers a collection of macros to help in the
+longdesc process of writing a paper. You may add comments, todo notes,
+longdesc etc. during revision, in a colourful way. The package also
+longdesc summarizes the inserted notes at the end of the document. There
+longdesc are some predefined note commands as well as a way of defining
+longdesc new ones to suit the user's needs. You may safely remove this
+longdesc package once the paper is finished. This package depends on the
+longdesc following other LaTeX packages: kvoptions, manfnt, marginnote,
+longdesc tikzpagenodes, xcolor, and, optionally, microtype. Note:
+longdesc "zebra" is the name of the package author's lab.
+containersize 2364
+containerchecksum c6ba09e174207ed9f28053bd82ae46551910358e74ad7afd74b406a93d4720f5b11b1921497c3c464c80b55d8fd4e4adbfb115f3ed9a9bcdf68ebf96bda06434
+doccontainersize 112304
+doccontainerchecksum 48652f89e032526de7c37ad57ff5719d75dd50e5a00ec48a4d94c314bb159d76061ce9c9cf8519bfc8d546e274f8ab1344751d798abac422562efe6026df1872
+docfiles size=29
+ texmf-dist/doc/latex/zebra-goodies/README.md details="Readme"
+ texmf-dist/doc/latex/zebra-goodies/zebra-goodies.pdf details="Package documentation"
+srccontainersize 6812
+srccontainerchecksum 2f2cebe6593b55cdbe03bec6215f74a4520a3a0f5198316e749eafd9adab2f9b4a7fef99dcd831cccffb0d758e2755bf7a97c21df8b7f1b770b4e5359d69bc7e
+srcfiles size=6
+ texmf-dist/source/latex/zebra-goodies/zebra-goodies.dtx
+ texmf-dist/source/latex/zebra-goodies/zebra-goodies.ins
+runfiles size=1
+ texmf-dist/tex/latex/zebra-goodies/zebra-goodies.sty
+catalogue-contact-bugs https://github.com/xueruini/zebra-goodies/issues
+catalogue-contact-repository https://github.com/xueruini/zebra-goodies
+catalogue-contact-support https://github.com/xueruini/zebra-goodies/issues
+catalogue-ctan /macros/latex/contrib/zebra-goodies
+catalogue-license lppl1.3c
+catalogue-topics notes editorial marginal
+catalogue-version 0.8.0

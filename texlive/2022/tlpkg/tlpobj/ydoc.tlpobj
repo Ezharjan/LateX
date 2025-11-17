@@ -1,0 +1,41 @@
+name ydoc
+category Package
+revision 56291
+shortdesc Macros for documentation of LaTeX classes and packages
+longdesc The package provides macros and environments to document LaTeX
+longdesc packages and classes. It is an (as yet unfinished) alternative
+longdesc to the ltxdoc class and the doc or xdoc packages. The aim is to
+longdesc provide a different layout and more modern styles (using the
+longdesc xcolor, hyperref packages, etc.) This is an alpha release, and
+longdesc should probably not (yet) be used with other packages, since
+longdesc the implementation might change. Nevertheless, the author uses
+longdesc it to document his own packages.
+containersize 9196
+containerchecksum 59c30887f6f7e5efb1aadd24b63fe15489f99c7af2f448aeb4e8cc10e846831df2061aa470e8bd104f7ae86dd438bb65a91e7666c68a5ecc18b607adf6962c97
+doccontainersize 321388
+doccontainerchecksum 74d2d0ea05849b280aba78ed0f3ac409cb379938166e791c2fbc77f3bb792e4df3bba287912b6bd35ad9e99592f8b36ff2113ab8c667ad58374dc20298af9121
+docfiles size=81
+ texmf-dist/doc/latex/ydoc/README details="Readme"
+ texmf-dist/doc/latex/ydoc/ydoc.pdf details="Package documentation"
+srccontainersize 17476
+srccontainerchecksum 3b09eb1036668097dc185595a8ed703b99f83cab068ab8221385d8ca3dfa73b476478f337adb1ed273554c6c2011f0f03ae1b4138a5d1f62268cbf892e70051c
+srcfiles size=20
+ texmf-dist/source/latex/ydoc/ydoc.dtx
+runfiles size=14
+ texmf-dist/tex/generic/ydoc/ydocincl.tex
+ texmf-dist/tex/generic/ydoc/ydocstrip.tex
+ texmf-dist/tex/latex/ydoc/ydoc-code.sty
+ texmf-dist/tex/latex/ydoc/ydoc-desc.sty
+ texmf-dist/tex/latex/ydoc/ydoc-doc.sty
+ texmf-dist/tex/latex/ydoc/ydoc-expl.sty
+ texmf-dist/tex/latex/ydoc/ydoc.cfg
+ texmf-dist/tex/latex/ydoc/ydoc.cls
+ texmf-dist/tex/latex/ydoc/ydoc.sty
+catalogue-also ltxdoc doc xdoc gmdoc codedoc nicetext showexpl
+catalogue-contact-bugs https://sourceforge.net/p/ydoc/tickets/
+catalogue-contact-home https://sourceforge.net/p/ydoc/
+catalogue-contact-repository https://sourceforge.net/p/ydoc/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/ydoc
+catalogue-license lppl1.3
+catalogue-topics doc-supp class macro-demo
+catalogue-version 0.6alpha

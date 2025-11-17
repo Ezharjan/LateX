@@ -1,0 +1,37 @@
+name gamebooklib
+category Package
+revision 63424
+shortdesc Macros for setting numbered entries in shuffled order
+longdesc This package provides macros and environments to allow the user
+longdesc to typeset a series of cross-referenced, numbered "entries",
+longdesc shuffled into random order, to produce an interactive novel or
+longdesc "gamebook". This allows entries to be written in natural order
+longdesc and shuffled automatically into a repeatable non-linear order.
+longdesc Limited support is provided for footnotes to appear at the
+longdesc natural position: the end of each entry, or the end of each
+longdesc page, whichever is closest to the footnote mark. This is
+longdesc unrelated to the gamebook package which is more concerned with
+longdesc the formatting of entries rather than their order. The two
+longdesc packages can be used together or separately.
+containersize 3616
+containerchecksum 84c24df164a2f74e790a5ee64e3041510e7f9fc1f64e82a4004d8cf2db8c9c34f1853ac43741b5be08b98e44e9f3269e09019a114578036c7182bbf2a03e2e84
+doccontainersize 391300
+doccontainerchecksum 7584a7ad39a267f71a84111c17ee8b59393672a69dcd128004a368045a2f9540f1eb21a62b596be7dff29551ef6411fb53f9b0857ef841734cc26bf8acfe34b3
+docfiles size=99
+ texmf-dist/doc/latex/gamebooklib/README details="Readme"
+ texmf-dist/doc/latex/gamebooklib/gamebooklib.pdf details="Package documentation"
+ texmf-dist/doc/latex/gamebooklib/gamebooklib_countpagesperseed.sh
+ texmf-dist/doc/latex/gamebooklib/gamebooklib_test.pdf details="Example of use"
+ texmf-dist/doc/latex/gamebooklib/gamebooklib_test.tex
+srccontainersize 15104
+srccontainerchecksum 9e00870190f03892ebc2c8115b4ba46e88244b3824d732d4dce6b767c0b5fb479ef5f009a3c8b02f58278c140e399c3bc7b501048d94acc7e69647f679c438df
+srcfiles size=14
+ texmf-dist/source/latex/gamebooklib/Makefile
+ texmf-dist/source/latex/gamebooklib/gamebooklib.dtx
+ texmf-dist/source/latex/gamebooklib/gamebooklib.ins
+runfiles size=3
+ texmf-dist/tex/latex/gamebooklib/gamebooklib.sty
+catalogue-ctan /macros/latex/contrib/gamebooklib
+catalogue-license lppl1.3
+catalogue-topics games random
+catalogue-version 1.3

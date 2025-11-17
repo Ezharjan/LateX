@@ -1,0 +1,30 @@
+name fancypar
+category Package
+revision 58895
+shortdesc Decoration of individual paragraphs
+longdesc Decorates individual paragraphs of a document, offering five
+longdesc pre-defined styles. The command offers an optional 'key-value'
+longdesc argument with the user may define parameters of the selected
+longdesc style. Predefined styles offer a spiral-notebook, a zebra-like,
+longdesc a dashed, a marked design, and an underlined style. Users may
+longdesc also define their own styles. Decorated paragraphs may not
+longdesc include displayed mathematics.
+containersize 2932
+containerchecksum 2f4e242eabb151834c6014a15d0ae012949e5e35f87bc32374e12f032bbb0fa21d6562b207ba855afaa28c36497cda3ca51eaefa579956f51283c84be8cefbba
+doccontainersize 117660
+doccontainerchecksum 1d972212b86e56eb692cbcca5d7d47b9454a6c0900803818c286b6cc071df93c5444d36eb29a8035e53c65fc9c30582686a6b9203af8e142e1cf1c31a6e4d58d
+docfiles size=30
+ texmf-dist/doc/latex/fancypar/README details="Readme"
+ texmf-dist/doc/latex/fancypar/fancypar.pdf details="Package documentation"
+srccontainersize 9668
+srccontainerchecksum 3f88c040637b50d49981474b38d50cb5c3ba7baa5b6390b53f98e3315d1f17f0b0c48780f4c719583f3e452041ddaeb36fdfa367a616ce07a2758b11db152d39
+srcfiles size=10
+ texmf-dist/source/latex/fancypar/fancypar.dtx
+ texmf-dist/source/latex/fancypar/fancypar.ins
+runfiles size=2
+ texmf-dist/tex/latex/fancypar/fancypar.sty
+catalogue-also boites framed
+catalogue-ctan /macros/latex/contrib/fancypar
+catalogue-license lppl1.3
+catalogue-topics decoration
+catalogue-version 1.3

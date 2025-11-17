@@ -1,0 +1,26 @@
+name zx-calculus
+category Package
+revision 60838
+shortdesc A library to typeset ZX Calculus diagrams
+longdesc This library (based on the great TikZ and TikZ-cd packages)
+longdesc allows you to typeset ZX-calculus directly in LaTeX. It comes
+longdesc with many pre-built wire shapes, a highly customizable node
+longdesc style (with multiple flavours for putting labels inside or
+longdesc outside nodes), and a "debugging" mode to avoid getting lost in
+longdesc big diagrams.
+containersize 19132
+containerchecksum 17854656622c012a3c0a4711e9c38d2c100a156072e7556b3ba3d6ce6edf1463c69078073bd72b83d3136e96e72e4adfff3982a73d4fd4d66fa98ff6823eafb5
+doccontainersize 631596
+doccontainerchecksum 076a25ef96775d28fad2e97027ef69b983f1cc44f11866b7f6db0408bca45759b8ed0f3914516712f235ee4a670bb3fcb28954a2b3f745786e6d6f8f7c06cde9
+docfiles size=185
+ texmf-dist/doc/latex/zx-calculus/README.md details="Readme"
+ texmf-dist/doc/latex/zx-calculus/zx-calculus.pdf details="Package documentation"
+ texmf-dist/doc/latex/zx-calculus/zx-calculus.tex
+runfiles size=21
+ texmf-dist/tex/latex/zx-calculus/tikzlibraryzx-calculus.code.tex
+ texmf-dist/tex/latex/zx-calculus/zx-calculus.sty
+catalogue-contact-bugs https://github.com/leo-colisson/zx-calculus/issues
+catalogue-contact-repository https://github.com/leo-colisson/zx-calculus
+catalogue-ctan /graphics/pgf/contrib/zx-calculus
+catalogue-license mit
+catalogue-topics pgf-tikz diagram

@@ -1,0 +1,44 @@
+name tikz-timing
+category Package
+revision 56291
+shortdesc Easy generation of timing diagrams as TikZ pictures
+longdesc This package provides macros and an environment to generate
+longdesc timing diagrams (digital waveforms) without much effort. The
+longdesc TikZ package is used to produce the graphics. The diagrams may
+longdesc be inserted into text (paragraphs, \hbox, etc.) and into
+longdesc tikzpictures. A tabular-like environment is provided to produce
+longdesc larger timing diagrams.
+depend svn-prov
+containersize 19084
+containerchecksum 7787480f873cc2c5e08c73a14c5f2965c57425ac223de41997727765f2c3f9693242e3f11d1cfe915d712153f64b7c47795134a98b3907569a12f468afa00617
+doccontainersize 468644
+doccontainerchecksum fea8cec1685740fd7a14ec94e5e7944ed3408ea34c852572ba8de5d97f38efdfe8f7f622ebd0c43cb04881d97e105891e509bd9ae49b64fa41b19497107fd0d9
+docfiles size=117
+ texmf-dist/doc/latex/tikz-timing/README details="Readme"
+ texmf-dist/doc/latex/tikz-timing/tikz-timing.pdf details="Package documentation"
+srccontainersize 54980
+srccontainerchecksum e3b8567c0d8dba6e691bc9b67ca5850a1beeea2a27185eeb1522ed99387d0dda31a0f6e9d6013253230e21897d4579f06d6e6591947e8c433ca6f9bedb293427
+srcfiles size=71
+ texmf-dist/source/latex/tikz-timing/tikz-timing.dtx
+ texmf-dist/source/latex/tikz-timing/tikz-timing.ins
+runfiles size=41
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-advnodes.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-arrows.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-beamer.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-clockarrows.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-columntype.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-counters.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-either.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-ifsym.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-interval.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-nicetabs.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing-overlays.sty
+ texmf-dist/tex/latex/tikz-timing/tikz-timing.sty
+catalogue-also timing
+catalogue-contact-bugs https://sourceforge.net/p/tikz-timing/tickets/
+catalogue-contact-home https://sourceforge.net/p/tikz-timing/
+catalogue-contact-repository https://sourceforge.net/p/tikz-timing/code/ci/default/tree/
+catalogue-ctan /graphics/pgf/contrib/tikz-timing
+catalogue-license lppl
+catalogue-topics electronic diagram-tmg
+catalogue-version 0.7f

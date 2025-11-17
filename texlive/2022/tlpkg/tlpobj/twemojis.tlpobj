@@ -1,0 +1,29 @@
+name twemojis
+category Package
+revision 62930
+shortdesc Use Twitter's open source emojis through LaTeX commands
+longdesc This package provides a simple wrapper which allows to use
+longdesc Twitter's open source emojis through LaTeX commands. This
+longdesc relies on images, so no fancy unicode-font stuff is needed and
+longdesc it should work on every installation.
+containersize 4425040
+containerchecksum d9204536ff2cf76cfb341bf8096ea71571663527dea945de901758032393f6e4f53c88f0d274e37da4cccf6b61149cb64f19a8712df80523c2f921354155b797
+doccontainersize 4751536
+doccontainerchecksum 3f2f3b13f898545a32aeccef972ed52c448f3547a6834c8cc1a5589e2ff8479b822591d20acdc41f1cfaab1e43469d75abfd0841baed7b1a1dcd4000b87d1045
+docfiles size=1594
+ texmf-dist/doc/latex/twemojis/README.md details="Readme"
+ texmf-dist/doc/latex/twemojis/twemojis.pdf details="Package documentation"
+srccontainersize 70504
+srccontainerchecksum e9c85a850603cfc49b5ab4f5c51a303dae326a3e44af547c5c9e77319422273c762facc885b76234e935c82b217e53945af524ec9e9431d834ad6645265f78bc
+srcfiles size=212
+ texmf-dist/source/latex/twemojis/twemojis.dtx
+ texmf-dist/source/latex/twemojis/twemojis.ins
+runfiles size=1782
+ texmf-dist/tex/latex/twemojis/all-twemojis.pdf
+ texmf-dist/tex/latex/twemojis/twemojis.sty
+catalogue-contact-bugs https://gitlab.com/rossel.jost/latex-twemojis/-/issues
+catalogue-contact-repository https://gitlab.com/rossel.jost/latex-twemojis
+catalogue-ctan /macros/latex/contrib/twemojis
+catalogue-license lppl1.3 cc-by-4
+catalogue-topics graphics text-symbol
+catalogue-version 1.3.1 (twemoji v14.0.1)

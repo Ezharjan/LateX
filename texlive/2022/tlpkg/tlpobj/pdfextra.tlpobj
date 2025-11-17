@@ -1,0 +1,34 @@
+name pdfextra
+category Package
+revision 61719
+shortdesc Extra PDF features for (Op)TeX
+longdesc This package provides extra PDF features for OpTeX (or in
+longdesc limited form for plain LuaTeX and LuaLaTeX). As a minimalistic
+longdesc format, OpTeX does not support "advanced" features of the PDF
+longdesc file format in its base. This third party package aims to
+longdesc provide them. Summary of supported features: insertion of
+longdesc multimedia (audio, video, 3D), hyperlinks and other actions,
+longdesc triggering events, transitions, attachments.
+containersize 25320
+containerchecksum 2276413818e73fe0c1a6dcde308a5ac00b3d094f5269e7fbee90e35fa336ca5e79bc888bdefc67fd132e5bab1e43ff0b9d3728fa52792a1faa4138f360da78b3
+doccontainersize 641676
+doccontainerchecksum 5a937aaad731f643b7b21002e42a28c556459e6025cfdeaa171922a5d54432d3756004c4ad72c88448b520ff0270cb25c4c6c3eb95b231316c1c4b87cc1314dc
+docfiles size=187
+ texmf-dist/doc/optex/pdfextra/LICENSE
+ texmf-dist/doc/optex/pdfextra/README.md details="Readme"
+ texmf-dist/doc/optex/pdfextra/examples/pdfextra-example-latex.tex
+ texmf-dist/doc/optex/pdfextra/examples/pdfextra-example-part.prc
+ texmf-dist/doc/optex/pdfextra/examples/pdfextra-example.pdf details="Example of use"
+ texmf-dist/doc/optex/pdfextra/examples/pdfextra-example.tex
+ texmf-dist/doc/optex/pdfextra/pdfextra-doc.pdf details="Package documentation"
+ texmf-dist/doc/optex/pdfextra/pdfextra-doc.tex
+runfiles size=21
+ texmf-dist/tex/luatex/pdfextra/pdfextra.sty
+ texmf-dist/tex/luatex/pdfextra/pdfextra.tex
+ texmf-dist/tex/optex/pdfextra/pdfextra.opm
+catalogue-contact-bugs https://github.com/vlasakm/pdfextra/issues
+catalogue-contact-repository https://github.com/vlasakm/pdfextra
+catalogue-ctan /macros/luatex/generic/pdfextra
+catalogue-license other-free
+catalogue-topics pdf-feat
+catalogue-version 0.2

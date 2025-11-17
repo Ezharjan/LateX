@@ -1,0 +1,38 @@
+name verifica
+category Package
+revision 56625
+shortdesc Typeset (Italian high school) exercises
+longdesc This class provides various environments and commands to
+longdesc produce the typical exercises contained in a test. It is mainly
+longdesc intended for Italian high school teachers, as the style is
+longdesc probably more in line with Italian high school tests.
+containersize 3804
+containerchecksum 8c3258fdf2040e00495b56605f88160b5179743a7ae3abc6334e734ba9f1fb122bf2e4847fd9a577c1221c9e22dcfa650f15612d7a005b3719ce6c92df180bb3
+doccontainersize 1158784
+doccontainerchecksum de41df53ca78cabf7ab3f672dd00c0042cfd8a71219d694985c18aeffa045dcd37c7b999058d7edf6a2348d83c9ae27d1e242f17a91d43b61f2b873ee2d157ef
+docfiles size=363
+ texmf-dist/doc/latex/verifica/README details="Readme"
+ texmf-dist/doc/latex/verifica/example1.pdf details="Example of use" language="it"
+ texmf-dist/doc/latex/verifica/example1.tex
+ texmf-dist/doc/latex/verifica/example2.pdf
+ texmf-dist/doc/latex/verifica/example2.tex
+ texmf-dist/doc/latex/verifica/example3.pdf
+ texmf-dist/doc/latex/verifica/example3.tex
+ texmf-dist/doc/latex/verifica/example4.pdf
+ texmf-dist/doc/latex/verifica/example4.tex
+ texmf-dist/doc/latex/verifica/example5.pdf
+ texmf-dist/doc/latex/verifica/example5.tex
+ texmf-dist/doc/latex/verifica/ver-doc.sty
+ texmf-dist/doc/latex/verifica/verifica-template.tex
+ texmf-dist/doc/latex/verifica/verifica.pdf details="Package documentation" language="it"
+srccontainersize 21712
+srccontainerchecksum 85e46be6f8ee729753362243492c7946166049ebd0a89f0871bb9308e6803f5ef9416c30fe380be4961aa466a03afd9541d09e5920a196550582d326a6de8b9f
+srcfiles size=23
+ texmf-dist/source/latex/verifica/verifica.dtx
+ texmf-dist/source/latex/verifica/verifica.ins
+runfiles size=3
+ texmf-dist/tex/latex/verifica/verifica.cls
+catalogue-ctan /macros/latex/contrib/verifica
+catalogue-license lppl1.3
+catalogue-topics class exercise exam
+catalogue-version 1.3

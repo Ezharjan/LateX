@@ -1,0 +1,56 @@
+name circ
+category Package
+revision 62977
+shortdesc Macros for typesetting circuit diagrams
+longdesc Several electrical symbols like resistor, capacitor,
+longdesc transistors etc., are defined. The symbols can be connected
+longdesc with wires. The package also contains an American resistor
+longdesc symbol for those of us on that side of the Atlantic. The
+longdesc package also has simple facilities for producing optics
+longdesc diagrams; however, no-one would deny that the PSTricks
+longdesc pst-optic package, or the MetaPost makecirc package do the job
+longdesc better.
+containersize 23672
+containerchecksum 12f50efbbb07593485120d0e0b428ff2035a44c668025eb4a6ac78ecb3c733c5975f9f7ab4685c71488e7480a3a280fb90f618d03d79f1afed278bfd67810573
+doccontainersize 207696
+doccontainerchecksum efdc13dc7bc670719c854be45155549fa24e1e195a6a61f84a075aeca1903eb13a6579a330d7ddd6bd5a1b7073217a453e29f790600ad2013e0d82a80763d29a
+docfiles size=81
+ texmf-dist/doc/latex/circ/COPYING
+ texmf-dist/doc/latex/circ/README details="Readme"
+ texmf-dist/doc/latex/circ/cidoc.tex
+ texmf-dist/doc/latex/circ/circ.pdf details="Package documentation"
+ texmf-dist/doc/latex/circ/circ.txt
+ texmf-dist/doc/latex/circ/cisyms.tex
+ texmf-dist/doc/latex/circ/index.hlp
+srccontainersize 38440
+srccontainerchecksum e9b6ea17103eb8438f230d2066833d8d5281f14367632fdb6e8acfcd8d33348286198ee7438c04d6b04d42bb248554946aa6eaa3a2edb6900b7c20540e5b1617
+srcfiles size=47
+ texmf-dist/source/latex/circ/Makefile
+ texmf-dist/source/latex/circ/circ.drv
+ texmf-dist/source/latex/circ/circ.dtx
+ texmf-dist/source/latex/circ/circ.ins
+runfiles size=43
+ texmf-dist/fonts/source/public/circ/cibimos.mf
+ texmf-dist/fonts/source/public/circ/cicirc.mf
+ texmf-dist/fonts/source/public/circ/cidiod.mf
+ texmf-dist/fonts/source/public/circ/cioptic.mf
+ texmf-dist/fonts/source/public/circ/ciphysic.mf
+ texmf-dist/fonts/source/public/circ/cirest.mf
+ texmf-dist/fonts/source/public/circ/cisym.mf
+ texmf-dist/fonts/source/public/circ/ciwidko.mf
+ texmf-dist/fonts/source/public/circ/csym.mf
+ texmf-dist/fonts/source/public/circ/defcirc.mf
+ texmf-dist/fonts/tfm/public/circ/cioptic.tfm
+ texmf-dist/tex/latex/circ/basic.def
+ texmf-dist/tex/latex/circ/box.def
+ texmf-dist/tex/latex/circ/circ.sty
+ texmf-dist/tex/latex/circ/gate.def
+ texmf-dist/tex/latex/circ/ic.def
+ texmf-dist/tex/latex/circ/oldgate.def
+ texmf-dist/tex/latex/circ/optics.def
+ texmf-dist/tex/latex/circ/physics.def
+catalogue-also circuit-macros
+catalogue-ctan /macros/generic/diagrams/circ
+catalogue-license gpl
+catalogue-topics diagram-circ font font-mf optics
+catalogue-version 1.1

@@ -1,0 +1,37 @@
+name pdfoverlay
+category Package
+revision 64210
+shortdesc A LaTeX style for overlaying text on a PDF
+longdesc It is often desirable to take an exisiting PDF and easily add
+longdesc annotations or text overlaying the PDF. This might arise if you
+longdesc wish to add comments to a PDF, fill in a PDF form, or add text
+longdesc to a PDF where space has been left for notes. This package
+longdesc provides a simple interface to do this without having to resort
+longdesc to inserting one page at a time. Some or all of the pages of
+longdesc the PDF can be included and not all pages of the PDF need have
+longdesc overlayed text. It is also possible to include text between
+longdesc pages of the PDF. Another advantage of this package is that the
+longdesc overlayed text can be set as normal flowing from one page to
+longdesc another or with manual page breaks if you wish. It is also
+longdesc possible to use any standard method to position text at
+longdesc arbitrary places on a given page.
+containersize 3008
+containerchecksum e167d180f13a5d15684072f2b9df8521e5c2dd89ee1eb6d515d6a73452508c083ab3b188fa856b571a0d41c0d490b65705631c236e677b4c58bcb0505c310cc2
+doccontainersize 565420
+doccontainerchecksum c77f221b34d01653995bb15ea7c05c13089d99a5d213b4f991fd09ef96dd8ac9a12e9b58f39b8216b1421d84204ffff8413694f4cbfe571a7225930a7c3b244e
+docfiles size=143
+ texmf-dist/doc/latex/pdfoverlay/README.md details="Readme"
+ texmf-dist/doc/latex/pdfoverlay/pdfoverlay.pdf details="Package documentation"
+srccontainersize 5900
+srccontainerchecksum 4b4b18a150e6de4d4e40daacb06faffe0b838dafe619ccc065f88777cda32b765939bc38d9e72fcd7ab9be49063e26c42b6590a9a5905d541e3fb3c1e1bea8b8
+srcfiles size=7
+ texmf-dist/source/latex/pdfoverlay/pdfoverlay.dtx
+ texmf-dist/source/latex/pdfoverlay/pdfoverlay.ins
+runfiles size=3
+ texmf-dist/tex/latex/pdfoverlay/pdfoverlay.sty
+catalogue-contact-bugs https://github.com/dcpurton/pdfoverlay/issues
+catalogue-contact-repository https://github.com/dcpurton/pdfoverlay
+catalogue-ctan /macros/latex/contrib/pdfoverlay
+catalogue-license lppl1.3c
+catalogue-topics graphics-incl expl3
+catalogue-version 1.3

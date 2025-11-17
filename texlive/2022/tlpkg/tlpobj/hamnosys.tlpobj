@@ -1,0 +1,31 @@
+name hamnosys
+category Package
+revision 61941
+shortdesc A font for sign languages
+longdesc The Hamburg Notation System, HamNoSys for short, is a system
+longdesc for the phonetic transcription of signed languages. This
+longdesc package makes HamNoSys available in XeLaTeX and LuaLaTeX. The
+longdesc package provides a Unicode font for rendering HamNoSys symbols
+longdesc as well as three methods for entering them.
+containersize 20636
+containerchecksum 36af23f5eb95a743a691047d9dc02a19825e88e8fa62f1931f5c2f13e95f89351b42dda6a204493d5f2a147e0d8c039b6b5bbb2aa82bec00824c7c5612d5056c
+doccontainersize 181248
+doccontainerchecksum 068e8232cf97513c69845e66eb6772e80de0dcf9422a3547db3b002ada137a1b385829a7e8258145ec2b5a05becfd08ad5ee40fce71326b93c3241bbc9f8c0b6
+docfiles size=47
+ texmf-dist/doc/fonts/hamnosys/README.md details="Readme"
+ texmf-dist/doc/fonts/hamnosys/hamnosys.pdf details="Package documentation"
+srccontainersize 15888
+srccontainerchecksum bacd0fdea3934bcfd32749c759d1e57e740c0e47e477790dd3c706d252c9439182c0af36eba30b8c00c785bf782605c319bf63b7d9ab677c799a5997f63af32c
+srcfiles size=24
+ texmf-dist/source/fonts/hamnosys/hamnosys.dtx
+ texmf-dist/source/fonts/hamnosys/hamnosys.ins
+runfiles size=16
+ texmf-dist/fonts/truetype/public/hamnosys/HamNoSysUnicode.ttf
+ texmf-dist/tex/latex/hamnosys/hamnosys.sty
+catalogue-contact-bugs https://github.com/DGS-Korpus/HamNoSys4TeX/issues
+catalogue-contact-home https://github.com/DGS-Korpus/HamNoSys4TeX
+catalogue-contact-repository https://github.com/DGS-Korpus/HamNoSys4TeX
+catalogue-ctan /fonts/hamnosys
+catalogue-license lppl1.3c
+catalogue-topics accessible font-ttf
+catalogue-version 1.0.3

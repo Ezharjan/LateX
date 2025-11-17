@@ -1,0 +1,33 @@
+name zhlineskip
+category Package
+revision 51142
+shortdesc Line spacing for CJK documents
+longdesc This package supports typesetting CJK documents. It allows
+longdesc users to specify the two ratios between the leading and the
+longdesc font size of the body text and the footnote text. For CJK
+longdesc typesetting, these ratios usually range from 1.5 to 1.67. This
+longdesc package is also capable of restoring the math leading to that
+longdesc of the Latin text (usually 1.2 times the font size). Finally,
+longdesc it is possible to achieve the Microsoft Word multiple line
+longdesc spacing style using zhlineskip.
+containersize 2380
+containerchecksum c1e92d164d0b46ca1165775e5c17f72687cd83b6efbba95dd58fe55008877ab3f08bbaf90d36d491ec861705e9d15f74511c8a0f9cf66ef8bf5127d7aa2cf203
+doccontainersize 284028
+doccontainerchecksum 794822b3b89aec655af2663f3dfbe848ccac9fea8369f446596562178e73c01ddadcf1ce46fd1811e4b72a25917c310bd42e45f9b16a3adb897304ae345d5415
+docfiles size=80
+ texmf-dist/doc/latex/zhlineskip/CJKmetrics.pdf
+ texmf-dist/doc/latex/zhlineskip/Latinmetrics.pdf
+ texmf-dist/doc/latex/zhlineskip/README.md details="Readme"
+ texmf-dist/doc/latex/zhlineskip/zhlineskip-test.tex
+ texmf-dist/doc/latex/zhlineskip/zhlineskip.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/zhlineskip/zhlineskip.tex
+runfiles size=2
+ texmf-dist/tex/latex/zhlineskip/zhlineskip.sty
+catalogue-contact-bugs https://github.com/CTeX-org/ctex-kit/issues
+catalogue-contact-home http://www.ctex.org/
+catalogue-contact-repository https://github.com/CTeX-org/ctex-kit
+catalogue-contact-support https://github.com/CTeX-org/ctex-kit/issues
+catalogue-ctan /language/chinese/zhlineskip
+catalogue-license lppl1.3c
+catalogue-topics chinese
+catalogue-version 1.0e

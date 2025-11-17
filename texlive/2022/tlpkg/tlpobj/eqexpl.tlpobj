@@ -1,0 +1,26 @@
+name eqexpl
+category Package
+revision 63629
+shortdesc Align explanations for formulas
+longdesc This package was developed in response to a question on
+longdesc https://tex.stackexchange.com. Its purpose is to enable a
+longdesc perfectly formatted explanation of components of a formula. The
+longdesc package depends on calc, etoolbox, and xparse.
+containersize 1272
+containerchecksum 75f328b6b1e729b76b9be92ec7ad9844e5a41d8b6776700175af98ec217ef93df6dc56b92b49892090523e9308afa069ba3e6beaef8ca6712aa2fc3995417103
+doccontainersize 87944
+doccontainerchecksum 2ad0eb828e3ea2484220335d61102e0ccdf9787b0165d6f8ebab2073ad2407757c04165d5f872a4b3c674d2c27b952ce9ce1bdc09a626b8e4fe804a5ddc5b1ba
+docfiles size=30
+ texmf-dist/doc/latex/eqexpl/README.md details="Readme"
+ texmf-dist/doc/latex/eqexpl/README.ru.md details="Readme (Russian)" language="ru"
+ texmf-dist/doc/latex/eqexpl/eqexpl.pdf details="Package documentation"
+ texmf-dist/doc/latex/eqexpl/eqexpl.tex
+runfiles size=1
+ texmf-dist/tex/latex/eqexpl/eqexpl.sty
+catalogue-also nomencl
+catalogue-contact-bugs https://github.com/konstantin-morenko/latex-equation-explanation/issues
+catalogue-contact-repository https://github.com/konstantin-morenko/latex-equation-explanation
+catalogue-ctan /macros/latex/contrib/eqexpl
+catalogue-license cc-by-sa-4
+catalogue-topics alignment maths
+catalogue-version 1.1.1

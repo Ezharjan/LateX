@@ -1,0 +1,79 @@
+name media9
+category Package
+revision 64047
+shortdesc Multimedia inclusion package with Adobe Reader-9/X compatibility
+longdesc The package provides an interface to embed interactive Flash
+longdesc (SWF) and 3D objects (Adobe U3D & PRC), as well as video and
+longdesc sound files or streams in the popular MP4, FLV and MP3 formats
+longdesc into PDF documents with Acrobat-9/X compatibility. Playback of
+longdesc multimedia files uses the built-in Flash Player of Adobe Reader
+longdesc and does, therefore, not depend on external plug-ins. Flash
+longdesc Player supports the efficient H.264 codec for video
+longdesc compression. The package is based on the RichMedia Annotation,
+longdesc an Adobe addition to the PDF specification. It replaces the now
+longdesc obsolete movie15 package.
+containersize 1895928
+containerchecksum 3eab7f0687395941f6805db51fff943b6bc795a8a5cf2fb2ed9f03f0103b4fef0bfebdf449701a051b72d8f18a8e332ec02f1893812e4be6d31a56980d50a1e4
+doccontainersize 3637360
+doccontainerchecksum e3f97ec8b1fbb345e42f641eb37f6210d4ebc2e791f6ca21af6c7ac7c7f86c149fa874cafe6a2eb1d47508e2a72aded6ea40b381393ae79e9baab5ecded73c6c
+docfiles size=899
+ texmf-dist/doc/latex/media9/ChangeLog
+ texmf-dist/doc/latex/media9/README.txt
+ texmf-dist/doc/latex/media9/media9.pdf details="Package documentation"
+srccontainersize 1776700
+srccontainerchecksum 907343fbe326e491f543f104ea9335d6c69848b3d4a69469587bc5d417e3a58e2d18567a0377c71a28e8e7ee6d94959ee8a7e632819773692d34b6cc47a3cb09
+srcfiles size=555
+ texmf-dist/source/latex/media9/files/3dsystem.fig
+ texmf-dist/source/latex/media9/files/3dsystem.pdf
+ texmf-dist/source/latex/media9/files/3dsystem.tex
+ texmf-dist/source/latex/media9/files/bird.mp3
+ texmf-dist/source/latex/media9/files/boutona.pdf
+ texmf-dist/source/latex/media9/files/boutonb.pdf
+ texmf-dist/source/latex/media9/files/boutonc.pdf
+ texmf-dist/source/latex/media9/files/boutond.pdf
+ texmf-dist/source/latex/media9/files/boutone.pdf
+ texmf-dist/source/latex/media9/files/boutonf.pdf
+ texmf-dist/source/latex/media9/files/config.xml
+ texmf-dist/source/latex/media9/files/ctan_lion_1200.png
+ texmf-dist/source/latex/media9/files/ctan_lion_200.png
+ texmf-dist/source/latex/media9/files/ctan_lion_400.png
+ texmf-dist/source/latex/media9/files/ctan_lion_800.png
+ texmf-dist/source/latex/media9/files/cube.asy
+ texmf-dist/source/latex/media9/files/cube.mp4
+ texmf-dist/source/latex/media9/files/cubeposter.png
+ texmf-dist/source/latex/media9/files/dice.u3d
+ texmf-dist/source/latex/media9/files/dice.vws
+ texmf-dist/source/latex/media9/files/dice.wrl
+ texmf-dist/source/latex/media9/files/epix.asy
+ texmf-dist/source/latex/media9/files/epix.prc
+ texmf-dist/source/latex/media9/files/epixposter.pdf
+ texmf-dist/source/latex/media9/files/malte.js
+ texmf-dist/source/latex/media9/files/malte.u3d
+ texmf-dist/source/latex/media9/files/random.mp4
+ texmf-dist/source/latex/media9/media9.tex
+ texmf-dist/source/latex/media9/players/APlayer.mxml
+ texmf-dist/source/latex/media9/players/APlayer9.mxml
+ texmf-dist/source/latex/media9/players/BSD-License
+ texmf-dist/source/latex/media9/players/SMPfixes.patch
+ texmf-dist/source/latex/media9/players/SlideShow.mxml
+ texmf-dist/source/latex/media9/players/StrobeMediaPlayback-license
+ texmf-dist/source/latex/media9/players/VPlayer.mxml
+ texmf-dist/source/latex/media9/players/VPlayer9.mxml
+runfiles size=535
+ texmf-dist/tex/latex/media9/javascript/3Dmenu.js
+ texmf-dist/tex/latex/media9/javascript/3Dspintool.js
+ texmf-dist/tex/latex/media9/javascript/animation.js
+ texmf-dist/tex/latex/media9/javascript/asylabels.js
+ texmf-dist/tex/latex/media9/media9.sty
+ texmf-dist/tex/latex/media9/pdfbase.sty
+ texmf-dist/tex/latex/media9/players/APlayer.swf
+ texmf-dist/tex/latex/media9/players/APlayer9.swf
+ texmf-dist/tex/latex/media9/players/SlideShow.swf
+ texmf-dist/tex/latex/media9/players/StrobeMediaPlayback.swf
+ texmf-dist/tex/latex/media9/players/VPlayer.swf
+ texmf-dist/tex/latex/media9/players/VPlayer9.swf
+catalogue-contact-repository https://gitlab.com/agrahn/media9
+catalogue-ctan /macros/latex/contrib/media9
+catalogue-license lppl
+catalogue-topics multimedia expl3
+catalogue-version 1.25

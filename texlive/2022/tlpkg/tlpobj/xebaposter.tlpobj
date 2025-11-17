@@ -1,0 +1,41 @@
+name xebaposter
+category Package
+revision 63513
+shortdesc Create beautiful scientific Persian/Latin posters using TikZ
+longdesc This package is designed for making beautiful scientific
+longdesc Persian/Latin posters. It is a fork of baposter by Brian Amberg
+longdesc and Reinhold Kainhofer available at
+longdesc http://www.brian-amberg.de/uni/poster/. baposter's users should
+longdesc be able to compile their poster using xebaposter (instead of
+longdesc baposter) without any problem.
+containersize 10092
+containerchecksum c12da79ef06b07aaaa361fcc474da416bfabe898095eef7bdb9ea80efddc8051735b3cb4c86eeb052bb906b3fc96d3e3ea10b23e0bf00bc0aefa80433d6e6ae0
+doccontainersize 503972
+doccontainerchecksum c1018a8009d360ea411fd816719844af3e13b429135e533c2c033898f763f010f281ac7cca9c41572eaf1d5f4a9c4a837e4f0651aa03c140c2285dd3f087a7ba
+docfiles size=255
+ texmf-dist/doc/latex/xebaposter/README details="Readme"
+ texmf-dist/doc/latex/xebaposter/images/docs-boxshape.pdf
+ texmf-dist/doc/latex/xebaposter/images/docs-headerborder.pdf
+ texmf-dist/doc/latex/xebaposter/images/docs-headershape.pdf
+ texmf-dist/doc/latex/xebaposter/images/docs-shade.pdf
+ texmf-dist/doc/latex/xebaposter/images/fig1.pdf
+ texmf-dist/doc/latex/xebaposter/images/fig2.png
+ texmf-dist/doc/latex/xebaposter/images/fig3.pdf
+ texmf-dist/doc/latex/xebaposter/images/fig4.pdf
+ texmf-dist/doc/latex/xebaposter/images/fig5.pdf
+ texmf-dist/doc/latex/xebaposter/images/fig6.pdf
+ texmf-dist/doc/latex/xebaposter/images/logo.png
+ texmf-dist/doc/latex/xebaposter/images/shariflogo.png
+ texmf-dist/doc/latex/xebaposter/poster-fa.pdf details="Example of use (Persian)" language="fa"
+ texmf-dist/doc/latex/xebaposter/poster-fa.tex
+ texmf-dist/doc/latex/xebaposter/poster.pdf details="Example of use (English)"
+ texmf-dist/doc/latex/xebaposter/poster.tex
+ texmf-dist/doc/latex/xebaposter/xebaposter-doc.pdf details="Package documentation" language="fa"
+ texmf-dist/doc/latex/xebaposter/xebaposter-doc.tex
+runfiles size=13
+ texmf-dist/tex/latex/xebaposter/xebaposter.cls
+catalogue-contact-bugs https://github.com/javadr/xebaposter/issues
+catalogue-ctan /graphics/pgf/contrib/xebaposter
+catalogue-license lppl1.3
+catalogue-topics poster class pgf-tikz
+catalogue-version 2.53

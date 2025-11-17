@@ -1,0 +1,44 @@
+name nomencl
+category Package
+revision 61029
+shortdesc Produce lists of symbols as in nomenclature
+longdesc Produces lists of symbols using the capabilities of the
+longdesc MakeIndex program.
+containersize 3772
+containerchecksum ee20b8a21b03cb02ed2ef37d38c219841d4a07e17ff781c067906ecbb8f5383d8558c20164f7db79af0c8cd11c5ad8d76142b15ea74674593bb52a5a5993b6c3
+doccontainersize 547080
+doccontainerchecksum 1caa5bcde6c1a3ac5de024f513793c52011285e70e32664d6c5d1a103027c74d45c716d01aaf849726b5b7ffac511ebe6cd16ba669bfeb5fdf37addc59e24a6e
+docfiles size=176
+ texmf-dist/doc/latex/nomencl/README details="Readme"
+ texmf-dist/doc/latex/nomencl/nomencl.pdf details="Package documentation"
+ texmf-dist/doc/latex/nomencl/sample01.pdf
+ texmf-dist/doc/latex/nomencl/sample01.tex
+ texmf-dist/doc/latex/nomencl/sample02.pdf
+ texmf-dist/doc/latex/nomencl/sample02.tex
+ texmf-dist/doc/latex/nomencl/sample03.pdf
+ texmf-dist/doc/latex/nomencl/sample03.tex
+ texmf-dist/doc/latex/nomencl/sample04.cfg
+ texmf-dist/doc/latex/nomencl/sample04.pdf
+ texmf-dist/doc/latex/nomencl/sample04.tex
+ texmf-dist/doc/latex/nomencl/sample05.cfg
+ texmf-dist/doc/latex/nomencl/sample05.pdf
+ texmf-dist/doc/latex/nomencl/sample05.tex
+ texmf-dist/doc/latex/nomencl/sample06.cfg
+srccontainersize 18876
+srccontainerchecksum 0fda8a0c5e46933cf991bb4120e4bdf98a8ba05e1ca96600fc9e6abd5d3a5c78ce50ae9e625fdda956c90a8f9f569f18d9ebd96b6de4e0e5bb0fbd2b5b00889b
+srcfiles size=20
+ texmf-dist/source/latex/nomencl/Makefile
+ texmf-dist/source/latex/nomencl/nomencl.drv
+ texmf-dist/source/latex/nomencl/nomencl.dtx
+ texmf-dist/source/latex/nomencl/nomencl.ins
+runfiles size=4
+ texmf-dist/makeindex/nomencl/nomencl.ist
+ texmf-dist/tex/latex/nomencl/nomencl.sty
+catalogue-also glosstex
+catalogue-contact-bugs https://github.com/borisveytsman/nomencl
+catalogue-contact-home https://github.com/borisveytsman/nomencl
+catalogue-contact-repository https://github.com/borisveytsman/nomencl
+catalogue-ctan /macros/latex/contrib/nomencl
+catalogue-license lppl
+catalogue-topics glossary
+catalogue-version 5.6

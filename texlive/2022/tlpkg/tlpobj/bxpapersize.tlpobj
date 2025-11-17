@@ -1,0 +1,22 @@
+name bxpapersize
+category Package
+revision 63174
+shortdesc Synchronize output paper size with layout paper size
+longdesc As is well known, in LaTeX processing layout paper size
+longdesc specified by document class options is not automatically
+longdesc applied to output paper size. This package enables LaTeX
+longdesc authors to synchronize both kinds of paper sizes.
+containersize 4768
+containerchecksum 1a58a1a8281505922f5a6a2abc8695be6826f55dd1d37d8d42633665aaaae98544a0662cd4ba4c384757caa593eb000ff933bb7d7b215447fec6d6f5517993fd
+doccontainersize 3384
+doccontainerchecksum f6631a73d4d29616fd197f9c32b7b533f60e6b007a4849930c33afa4eb866798e1ab415f0842cee8142e7e7379507b2557b096df627dabb1d714ee305a8ba0a2
+docfiles size=3
+ texmf-dist/doc/latex/bxpapersize/LICENSE
+ texmf-dist/doc/latex/bxpapersize/README.md details="Readme"
+runfiles size=4
+ texmf-dist/tex/latex/bxpapersize/bxpapersize.sty
+catalogue-contact-home https://github.com/zr-tex8r/BXpapersize
+catalogue-ctan /macros/latex/contrib/bxpapersize
+catalogue-license mit
+catalogue-topics page-control
+catalogue-version 0.6

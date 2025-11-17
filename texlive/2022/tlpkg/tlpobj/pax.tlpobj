@@ -1,0 +1,49 @@
+name pax
+category Package
+revision 63509
+shortdesc Extract and reinsert PDF annotations with pdfTeX
+longdesc If PDF files are included using pdfTeX, PDF annotations are
+longdesc stripped. The pax project offers a solution without altering
+longdesc pdfTeX. A Java program (pax.jar) parses the PDF file that will
+longdesc later be included. The program then writes the data of the
+longdesc annotations into a file that can be read by TeX. The LaTeX
+longdesc package pax extends the graphics package to support the scheme:
+longdesc if a PDF file is included, the package looks for the file with
+longdesc the annotation data, reads them and puts the annotations in the
+longdesc right place. Project status: experimental
+depend pax.ARCH
+containersize 5264960
+containerchecksum 71a2c105a7d593ca432a50a68fbcd16d876c8a28ce25be99326f323bcdba997b000158514328542378384f55a0ceadd9d34b71840980346b0b5c1c63843f7c1b
+doccontainersize 3064
+doccontainerchecksum a2e0e7129e98efc8a44184d445118220e16f8149166c2093b7c44a936885845c0d49d37a7588f32e2c06fc834f808b0e4a1b15808a32183bf9e457a9a1c19ba7
+docfiles size=2
+ texmf-dist/doc/latex/pax/README details="Package README"
+srccontainersize 5267156
+srccontainerchecksum 3920502e3ef59332129792eb87b771bac81ec3061d6cf35d77fcf785fdc88434824592b6f0d5b74041d372977e17b85d9253e7280a5ce9bc361ce56857397dd1
+srcfiles size=1372
+ texmf-dist/source/latex/pax/Makefile
+ texmf-dist/source/latex/pax/build.xml
+ texmf-dist/source/latex/pax/lib/commons-logging.jar
+ texmf-dist/source/latex/pax/lib/pdfbox.jar
+ texmf-dist/source/latex/pax/license/LaTeX/lppl.txt
+ texmf-dist/source/latex/pax/license/PDFAnnotExtractor/gpl.txt
+ texmf-dist/source/latex/pax/src/Constants.java
+ texmf-dist/source/latex/pax/src/Entry.java
+ texmf-dist/source/latex/pax/src/EntryWriteException.java
+ texmf-dist/source/latex/pax/src/MANIFEST.MF
+ texmf-dist/source/latex/pax/src/PDFAnnotExtractor.java
+ texmf-dist/source/latex/pax/src/StringVisitor.java
+runfiles size=1354
+ texmf-dist/scripts/pax/pax.jar
+ texmf-dist/scripts/pax/pdfannotextractor.pl
+ texmf-dist/tex/latex/pax/pax.sty
+catalogue-also pdftex
+catalogue-contact-announce https://github.com/bastien-roucaries/latex-pax
+catalogue-contact-bugs https://github.com/bastien-roucaries/latex-pax/issues
+catalogue-contact-development https://github.com/bastien-roucaries/latex-pax
+catalogue-contact-home https://github.com/bastien-roucaries/latex-pax
+catalogue-contact-repository https://github.com/bastien-roucaries/latex-pax
+catalogue-contact-support https://github.com/bastien-roucaries/latex-pax/issues
+catalogue-ctan /macros/latex/contrib/pax
+catalogue-license lppl gpl
+catalogue-topics pdf-feat

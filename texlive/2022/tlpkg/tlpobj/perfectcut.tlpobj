@@ -1,0 +1,32 @@
+name perfectcut
+category Package
+revision 54080
+shortdesc Nested delimiters that consistently grow regardless of the contents
+longdesc This package defines the command \perfectcut#1#2 which displays
+longdesc a bracket <#1||#2>. Various other delimiters are similarly
+longdesc defined (parentheses, square brackets ...). The effect of these
+longdesc commands is to let the delimiters grow according to the number
+longdesc of nested \perfectcommands (regardless of the size of the
+longdesc contents). The package was originally intended for solving a
+longdesc notational issue for direct-style continuation calculi in proof
+longdesc theory. For general use, the package also defines commands for
+longdesc defining other sorts of delimiters which will behave in the
+longdesc same way (see example in the documentation). The package also
+longdesc offers a robust reimplementation of \big, \bigg, etc.
+containersize 4660
+containerchecksum edf0b4dc69d24b4515b0285dd4f4c7a89dae239eea2cad7cd194e9625dcc7e306c295ae67869d1e58d64e0f68d8c39779e0cd90a4c4f5a4e769be73037cef75f
+doccontainersize 167560
+doccontainerchecksum 84443432cdd05634c4f75ce3b912bbb2f1681237cfcf3c34ae070fb07e0342b7a5a0abf7dc4d26994bb7506ad3d6b5bd008d4a2cc738b418cbb9b397ecb1d2ba
+docfiles size=45
+ texmf-dist/doc/latex/perfectcut/README details="Readme"
+ texmf-dist/doc/latex/perfectcut/perfectcut.pdf details="Package documentation"
+ texmf-dist/doc/latex/perfectcut/perfectcut.tex
+runfiles size=5
+ texmf-dist/tex/latex/perfectcut/perfectcut.sty
+catalogue-contact-bugs https://gitlab.com/gadmm/perfectcut/issues
+catalogue-contact-home https://gitlab.com/gadmm/perfectcut
+catalogue-contact-repository https://gitlab.com/gadmm/perfectcut.git
+catalogue-ctan /macros/latex/contrib/perfectcut
+catalogue-license lppl1.3
+catalogue-topics paren-mgmt comp-theory maths
+catalogue-version 2.3

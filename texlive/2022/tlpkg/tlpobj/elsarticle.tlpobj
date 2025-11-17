@@ -1,0 +1,46 @@
+name elsarticle
+category Package
+revision 56999
+shortdesc Class for articles for submission to Elsevier journals
+longdesc This class for typesetting journal articles is accepted for
+longdesc submitted articles both in Elsevier's electronic submission
+longdesc system and elsewhere. Please note that this webpage is meant
+longdesc for uploading updates to the elsarticle software itself, not
+longdesc for submitting articles using it .
+containersize 18868
+containerchecksum 5a0a7c98a8e255e55468f9b01a43c33d757a38faa1b3130b1c3613648dfcbd0fbedfc69db99727c4406ddc0601249b2d021c680f83edd34bc3d64dcd4a7af64a
+doccontainersize 807964
+doccontainerchecksum 47fe52924e95cb8267d0f65ee6962fd56fdc4ce00ccdf49533ff7af0916a962bd8c045b31f2159d7c70d8a041f7c20aafc73b23a8982572d456223afbb85e718
+docfiles size=386
+ texmf-dist/doc/latex/elsarticle/1pseperateaug.pdf
+ texmf-dist/doc/latex/elsarticle/1psingleauthorgroup.pdf
+ texmf-dist/doc/latex/elsarticle/README details="Readme"
+ texmf-dist/doc/latex/elsarticle/elsarticle-template-harv.tex
+ texmf-dist/doc/latex/elsarticle/elsarticle-template-num-names.tex
+ texmf-dist/doc/latex/elsarticle/elsarticle-template-num.tex
+ texmf-dist/doc/latex/elsarticle/elsdoc.pdf details="Package documentation"
+ texmf-dist/doc/latex/elsarticle/elsdoc.tex
+ texmf-dist/doc/latex/elsarticle/elstest-1p.pdf
+ texmf-dist/doc/latex/elsarticle/elstest-1pdoubleblind.pdf
+ texmf-dist/doc/latex/elsarticle/elstest-3p.pdf
+ texmf-dist/doc/latex/elsarticle/elstest-3pd.pdf
+ texmf-dist/doc/latex/elsarticle/elstest-5p.pdf
+ texmf-dist/doc/latex/elsarticle/jfigs.pdf
+ texmf-dist/doc/latex/elsarticle/makefile
+ texmf-dist/doc/latex/elsarticle/manifest.txt
+ texmf-dist/doc/latex/elsarticle/pdfwidgets.sty
+ texmf-dist/doc/latex/elsarticle/rvdtx.sty
+srccontainersize 10880
+srccontainerchecksum 5887604f9a6ed0077bbbb2498f6ba7c1a3c8a74485688d40a6fb0e9e9765035d22e928b104876a19e42775fb766502ef71446e659f6d75a519e2b84ffdd2a01c
+srcfiles size=13
+ texmf-dist/source/latex/elsarticle/elsarticle.dtx
+ texmf-dist/source/latex/elsarticle/elsarticle.ins
+runfiles size=35
+ texmf-dist/bibtex/bst/elsarticle/elsarticle-harv.bst
+ texmf-dist/bibtex/bst/elsarticle/elsarticle-num-names.bst
+ texmf-dist/bibtex/bst/elsarticle/elsarticle-num.bst
+ texmf-dist/tex/latex/elsarticle/elsarticle.cls
+catalogue-ctan /macros/latex/contrib/elsarticle
+catalogue-license lppl1.2
+catalogue-topics journalpub class
+catalogue-version 3.3

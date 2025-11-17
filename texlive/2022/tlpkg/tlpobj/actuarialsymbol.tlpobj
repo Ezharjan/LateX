@@ -1,0 +1,36 @@
+name actuarialsymbol
+category Package
+revision 54080
+shortdesc Actuarial symbols of life contingencies and financial mathematics
+longdesc This package provides commands to compose actuarial symbols of
+longdesc life contingencies and financial mathematics characterized by
+longdesc subscripts and superscripts on both sides of a principal
+longdesc symbol. The package also features commands to easily and
+longdesc consistently position precedence numbers above or below
+longdesc statuses in symbols for multiple lives contracts. Since the
+longdesc actuarial notation can get quite involved, the package defines
+longdesc a number of shortcut macros to ease entry of the most common
+longdesc elements. Appendix A of the package documentation lists the
+longdesc commands to typeset a large selection of symbols of life
+longdesc contingencies. This package requires actuarialangle.
+containersize 2724
+containerchecksum 81260a4e92a75f5ace84c190b9bd7e6b46e8c697824856cfc69f4d9e9f14a4e0230d5623cb6e3bd546d84b29240865dfa14f433c9ad34875fec22944053bb5ef
+doccontainersize 282876
+doccontainerchecksum 95efefa6e40a77806a2fe8d47575cb78c7e295ddb17b263d2e324610614d36d6ccf1dda75a428b12719d8c4b1fdd3b94656df1ff351f4fb98fc6a94eb87d357d
+docfiles size=89
+ texmf-dist/doc/latex/actuarialsymbol/README.md details="Readme"
+ texmf-dist/doc/latex/actuarialsymbol/actuarialsymbol.pdf details="Package documentation"
+ texmf-dist/doc/latex/actuarialsymbol/mosaic.jpg
+srccontainersize 16192
+srccontainerchecksum 48211fe7604a931a8e53599d617bcf2be100ceed5003fd1bcc96ce84525904e68bc279ef672100044e03cbf70fa47f53548ec3686f70a795a50d78d96f792d81
+srcfiles size=18
+ texmf-dist/source/latex/actuarialsymbol/actuarialsymbol.dtx
+runfiles size=2
+ texmf-dist/tex/latex/actuarialsymbol/actuarialsymbol.sty
+catalogue-contact-bugs https://gitlab.com/vigou3/actuarialsymbol/issues
+catalogue-contact-home https://vigou3.gitlab.io/actuarialsymbol
+catalogue-contact-repository https://gitlab.com/vigou3/actuarialsymbol
+catalogue-ctan /macros/latex/contrib/actuarialsymbol
+catalogue-license lppl1.3c
+catalogue-topics graphics-symb
+catalogue-version 1.1

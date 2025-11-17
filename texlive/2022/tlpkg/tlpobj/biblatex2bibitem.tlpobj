@@ -1,0 +1,37 @@
+name biblatex2bibitem
+category Package
+revision 61648
+shortdesc Convert BibLaTeX-generated bibliography to bibitems
+longdesc Some journals accept the reference list only as \bibitems. If
+longdesc you use BibTeX, there is no problem: just paste the content of
+longdesc the .bbl file into your document. However, there was no
+longdesc out-of-the-box way to do the same for biblatex, and you had to
+longdesc struggle with searching appropriate .bst files, or formatting
+longdesc your reference list by hand, or something like that. Using the
+longdesc workaround provided by this package solves the problem.
+containersize 1728
+containerchecksum c5c80c9c9951ed57cbedb64976e96540dcbb7797e7af58e3cd983779863617f8deb4cca3b4223f6de2e1f4bd15940df02f6b87188e937b2b5a79ebcf2b1a068c
+doccontainersize 224856
+doccontainerchecksum a44dcfab5daf60da858ad548e306732c7bd3bcd4121f9143f5bbb7150616edae5b42fabe301c7f3fa271bb6fe851276528304c801fa8d7c3aed7c41f5fbde91f
+docfiles size=203
+ texmf-dist/doc/latex/biblatex2bibitem/LICENSE.txt
+ texmf-dist/doc/latex/biblatex2bibitem/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-examples.bib
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-hyperref-result.pdf
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-hyperref-result.tex
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-hyperref.pdf
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-hyperref.tex
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-mwe-result.pdf
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-mwe-result.tex
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-mwe.pdf details="Minimal working example"
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-mwe.tex
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-new-result.pdf
+ texmf-dist/doc/latex/biblatex2bibitem/biblatex2bibitem-new.pdf
+runfiles size=1
+ texmf-dist/tex/latex/biblatex2bibitem/biblatex2bibitem.sty
+catalogue-contact-bugs https://gitlab.com/Nickkolok/biblatex2bibitem/issues
+catalogue-contact-repository https://gitlab.com/Nickkolok/biblatex2bibitem
+catalogue-ctan /macros/latex/contrib/biblatex2bibitem
+catalogue-license lppl1.3c
+catalogue-topics bibtex-supp
+catalogue-version 0.2.2

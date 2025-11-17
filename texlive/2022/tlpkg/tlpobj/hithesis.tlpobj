@@ -1,0 +1,59 @@
+name hithesis
+category Package
+revision 64005
+shortdesc Harbin Institute of Technology Thesis Template
+longdesc hithesis is a LaTeX thesis template package for Harbin
+longdesc Institute of Technology supporting bachelor, master, doctor
+longdesc dissertations.
+containersize 25980
+containerchecksum d4060e3b06d2a103f414402e83bf5f5277c2af784b00abc7c6c0468518b0bbeded50f08735573e4a170eedd46227957127e3c3d2ab44edebe7386a7893af432e
+doccontainersize 979888
+doccontainerchecksum c5fe2912c4429fc14fb43aa7de9ef76e30b0354f8e673ab9ce693c75a85f5c6dbf77927d1dcd82c0c5aae4a84a665d37fdd505f1bb2dd0e1ade7e5dad3ba5ad1
+docfiles size=304
+ texmf-dist/doc/xelatex/hithesis/README.md details="Readme"
+ texmf-dist/doc/xelatex/hithesis/back/acknowledgements.tex
+ texmf-dist/doc/xelatex/hithesis/back/appA.tex
+ texmf-dist/doc/xelatex/hithesis/back/appendix01.tex
+ texmf-dist/doc/xelatex/hithesis/back/ceindex.tex
+ texmf-dist/doc/xelatex/hithesis/back/conclusion.tex
+ texmf-dist/doc/xelatex/hithesis/back/publications.tex
+ texmf-dist/doc/xelatex/hithesis/back/resume.tex
+ texmf-dist/doc/xelatex/hithesis/body/introduction.tex
+ texmf-dist/doc/xelatex/hithesis/dtx-style.sty
+ texmf-dist/doc/xelatex/hithesis/figures/bthesistitle.eps
+ texmf-dist/doc/xelatex/hithesis/figures/golfer.eps
+ texmf-dist/doc/xelatex/hithesis/figures/hitlogo.eps
+ texmf-dist/doc/xelatex/hithesis/front/cover.tex
+ texmf-dist/doc/xelatex/hithesis/front/denotation.tex
+ texmf-dist/doc/xelatex/hithesis/hithesis.pdf details="Package documentation (Chinese)" language="zh"
+ texmf-dist/doc/xelatex/hithesis/latexmkrc
+ texmf-dist/doc/xelatex/hithesis/main.pdf
+ texmf-dist/doc/xelatex/hithesis/main.tex
+ texmf-dist/doc/xelatex/hithesis/reference.bib
+ texmf-dist/doc/xelatex/hithesis/wct1.eps
+ texmf-dist/doc/xelatex/hithesis/wct10.eps
+ texmf-dist/doc/xelatex/hithesis/wct5.eps
+ texmf-dist/doc/xelatex/hithesis/zfb.eps
+srccontainersize 58908
+srccontainerchecksum 64515fa70127ba17b9a8d846c9670bc93f16db80db83945037a4ae8b505979202a16e0fc7187731ead320078b8d9277337b555c2b2a271e99677e0330940b9f9
+srcfiles size=63
+ texmf-dist/source/xelatex/hithesis/Makefile
+ texmf-dist/source/xelatex/hithesis/hithesis.dtx
+ texmf-dist/source/xelatex/hithesis/hithesis.ins
+runfiles size=53
+ texmf-dist/bibtex/bst/hithesis/hithesis.bst
+ texmf-dist/makeindex/hithesis/hithesis.ist
+ texmf-dist/tex/xelatex/hithesis/ctex-fontset-siyuan.def
+ texmf-dist/tex/xelatex/hithesis/hithesis.cfg
+ texmf-dist/tex/xelatex/hithesis/hithesis.cls
+ texmf-dist/tex/xelatex/hithesis/hithesis.sty
+catalogue-contact-announce https://github.com/dustincys
+catalogue-contact-bugs https://github.com/dustincys/hithesis/issues
+catalogue-contact-development https://github.com/dustincys
+catalogue-contact-home https://github.com/dustincys/hithesis
+catalogue-contact-repository https://github.com/dustincys
+catalogue-contact-support https://github.com/dustincys/hithesis/issues
+catalogue-ctan /macros/xetex/latex/hithesis
+catalogue-license lppl1.3a
+catalogue-topics dissertation class chinese xetex
+catalogue-version 2.0.11

@@ -1,0 +1,32 @@
+name msu-thesis
+category Package
+revision 64154
+shortdesc Class for Michigan State University Master's and PhD theses
+longdesc This is a class file for producing dissertations and theses
+longdesc according to the Michigan State University Graduate School
+longdesc Guidelines for Electronic Submission of Master's Theses and
+longdesc Dissertations. The class should meet all current requirements
+longdesc and is updated whenever the university guidelines change. The
+longdesc class is based on the memoir document class, and inherits the
+longdesc functionality of that class.
+containersize 11452
+containerchecksum ed2ff9f0bc62060cdc4f12fa31f996259d3f36a6689e837d948a0c60174b8f746854f1b19238fc38041652bd2ceeb0d8e34c878294344a1fda8fba1a39600156
+doccontainersize 279160
+doccontainerchecksum c4bc65a89463de1f9f553206dfe3bb50e83a8f57f7a20412ee80da996fa85d8760345d6786cde425ac58703ef3d91fdefad70005dc63456ea67a46c14cf2ee90
+docfiles size=84
+ texmf-dist/doc/latex/msu-thesis/README.md details="Readme"
+ texmf-dist/doc/latex/msu-thesis/docs/msu-thesis.tex
+ texmf-dist/doc/latex/msu-thesis/msu-thesis.pdf details="Package documentation"
+ texmf-dist/doc/latex/msu-thesis/samples/MSU-thesis-template.tex
+ texmf-dist/doc/latex/msu-thesis/samples/MSU-thesis-testfile.bib
+ texmf-dist/doc/latex/msu-thesis/samples/MSU-thesis-testfile.pdf
+ texmf-dist/doc/latex/msu-thesis/samples/MSU-thesis-testfile.tex
+runfiles size=9
+ texmf-dist/tex/latex/msu-thesis/msu-thesis.cls
+catalogue-contact-bugs https://github.com/amunn/msu-thesis/issues
+catalogue-contact-home https://amunn.github.io/msu-thesis
+catalogue-contact-repository https://github.com/amunn/msu-thesis
+catalogue-ctan /macros/latex/contrib/msu-thesis
+catalogue-license lppl1.3
+catalogue-topics class dissertation doc-templ std-conform
+catalogue-version 3.5b

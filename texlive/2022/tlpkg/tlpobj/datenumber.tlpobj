@@ -1,0 +1,35 @@
+name datenumber
+category Package
+revision 61761
+shortdesc Convert a date into a number and vice versa
+longdesc This package provides commands to convert a date into a number
+longdesc and vice versa. Additionally there are commands for
+longdesc incrementing and decrementing a date. Leap years and the
+longdesc Gregorian calendar reform are considered.
+containersize 3308
+containerchecksum 5c7d23f949684000d0e38855e11e4869433c33f82fc42da0568d4b74fb0e69fe3fbcd5f72516222059ee446938144c18b10552290e24e077f2e624286e729d28
+doccontainersize 307264
+doccontainerchecksum 18f2573f8c02685d20085c31384b75dd1ab5a47a5bb2b9dcda036a7cd1ecec80db175a674c1f148cd51a078721ed88a3c9b7a0915acd7c023c02ea9a16e2a1f2
+docfiles size=105
+ texmf-dist/doc/latex/datenumber/README.txt details="Package README"
+ texmf-dist/doc/latex/datenumber/datenumber-english.pdf details="Package documentation (English)"
+ texmf-dist/doc/latex/datenumber/datenumber-english.tex
+ texmf-dist/doc/latex/datenumber/datenumber-german.pdf details="Package documentation (German)" language="de"
+ texmf-dist/doc/latex/datenumber/datenumber-german.tex
+srccontainersize 5704
+srccontainerchecksum 7835857f1c4f3e59918fe9ecc903dc09139191b050b1b0166e4e1fbe4a5d0c95f33b8591f30012ef5d69af324e8a71cf24b39893029519c13e13d8044b191261
+srcfiles size=6
+ texmf-dist/source/latex/datenumber/datenumber.dtx
+ texmf-dist/source/latex/datenumber/datenumber.ins
+runfiles size=8
+ texmf-dist/tex/latex/datenumber/datenumber.sty
+ texmf-dist/tex/latex/datenumber/datenumberUSenglish.ldf
+ texmf-dist/tex/latex/datenumber/datenumberdummy.ldf
+ texmf-dist/tex/latex/datenumber/datenumberenglish.ldf
+ texmf-dist/tex/latex/datenumber/datenumberfrench.ldf
+ texmf-dist/tex/latex/datenumber/datenumbergerman.ldf
+ texmf-dist/tex/latex/datenumber/datenumberspanish.ldf
+catalogue-ctan /macros/latex/contrib/datenumber
+catalogue-license lppl1.2
+catalogue-topics date-time
+catalogue-version 0.03

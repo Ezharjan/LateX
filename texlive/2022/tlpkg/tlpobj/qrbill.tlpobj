@@ -1,0 +1,36 @@
+name qrbill
+category Package
+revision 64406
+shortdesc Create QR bills using LaTeX
+longdesc This LaTeX package provides support for creating QR-bills for
+longdesc the new Swiss payment standards. This open source
+longdesc implementation is intended to offer a free option to support
+longdesc these regulations and can be adapted for international use.
+longdesc Packages loaded by qrbill are expl3, fontspec (except if one is
+longdesc using a custom font setup), graphicx, scrbase, qrcode, iftex,
+longdesc l3keys2e, and numprint.
+containersize 8808
+containerchecksum 8d6c11437e6f1a43d11d59c7ecafe8074099265af6a2389a1e33051e3b09d9aabe1e401cb76e47c70bc5a2a5d5e73ec972b14f3a1d9ffd2d88cebbaf7ce354b2
+doccontainersize 84604
+doccontainerchecksum 8bd0b67f463c44c090dda461389c29b26782d61a1add40d3851c4215e6b7739b2666b8d292ebfda988344feb264032de284f9b9f25bf6dadaa39ea68e7afc722
+docfiles size=22
+ texmf-dist/doc/latex/qrbill/README.md details="Readme"
+ texmf-dist/doc/latex/qrbill/qrbill.pdf details="Package documentation"
+srccontainersize 15000
+srccontainerchecksum bca860966af3e5bebbb2db92958828252db597542de87c8091775bb8f17f32f6954940c0fc052bc225ba9d3716997e32c8f697923e29a64c606ee2b182cba421
+srcfiles size=15
+ texmf-dist/source/latex/qrbill/qrbill.dtx
+ texmf-dist/source/latex/qrbill/qrbill.ins
+runfiles size=12
+ texmf-dist/scripts/qrbill/qrbill-latexluaqrcode.lua
+ texmf-dist/tex/latex/qrbill/epc.qrbill-cfg.tex
+ texmf-dist/tex/latex/qrbill/qrbill-vocab.csv
+ texmf-dist/tex/latex/qrbill/qrbill.sty
+ texmf-dist/tex/latex/qrbill/qrbill_swiss-cross.pdf
+ texmf-dist/tex/latex/qrbill/swiss.qrbill-cfg.tex
+catalogue-contact-bugs https://github.com/peitex/qrbill/issues
+catalogue-contact-repository https://github.com/peitex/qrbill
+catalogue-ctan /macros/latex/contrib/qrbill
+catalogue-license lppl1.3c
+catalogue-topics qrcode invoice swiss expl3
+catalogue-version 1.05

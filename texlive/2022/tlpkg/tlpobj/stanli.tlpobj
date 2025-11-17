@@ -1,0 +1,24 @@
+name stanli
+category Package
+revision 54512
+shortdesc TikZ Library for Structural Analysis
+longdesc stanli is a STructural ANalysis LIbrary based on PGF/TikZ.
+longdesc Creating new assignments and tests, at university, is usually a
+longdesc very time-consuming task, especially when this includes drawing
+longdesc graphics. In the field of structural engineering, those small
+longdesc structures are a key part for teaching. This package permits to
+longdesc create such 2D and 3D structures in a very fast and simple way.
+containersize 9720
+containerchecksum 2273ba6dc99762490a0cd7af09edd5c4a511ace7317e62874535946bafa69c14f02663afa21fbc54753d1b5d3884858ae93e4790de7dfe4a829e4cc4ecf4e004
+doccontainersize 461048
+doccontainerchecksum e4405c8903478ad2b8a5c524666e2fd4aa99dc34dae2d15ace5de7ca4713a6964467f18d4ae2b73c02316bc7d0e51f12e82312544e2e44d50eb3e4ca51671ebc
+docfiles size=153
+ texmf-dist/doc/latex/stanli/README.md details="Readme"
+ texmf-dist/doc/latex/stanli/stanli.pdf details="Package documentation"
+ texmf-dist/doc/latex/stanli/stanli.tex
+runfiles size=20
+ texmf-dist/tex/latex/stanli/stanli.sty
+catalogue-ctan /graphics/pgf/contrib/stanli
+catalogue-license gpl lppl1.3
+catalogue-topics pgf-tikz engineering
+catalogue-version 3.0

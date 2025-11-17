@@ -1,0 +1,64 @@
+name biblatex-apa
+category Package
+revision 63719
+shortdesc BibLaTeX citation and reference style for APA
+longdesc This is a fairly complete BibLaTeX style (citations and
+longdesc references) for APA (American Psychological Association)
+longdesc publications. It implements and automates most of the
+longdesc guidelines in the APA 7th edition style guide for citations and
+longdesc references. An example document is also given which typesets
+longdesc every citation and reference example in the APA 7th edition
+longdesc style guide. This version of the package requires use of
+longdesc csquotes [?]4.3, BibLaTeX [?]3.4, and the biber backend for
+longdesc BibLaTeX [?]2.5.
+containersize 29584
+containerchecksum cceda3efc358f1cb2ea6e8c19063e3a2568e1a7569f6d18a10db5db69347a8fce01cf1a2e811af35b8905f096527783f5c62a875978c807f2860eb2e123d0de6
+doccontainersize 322904
+doccontainerchecksum cf7ef8e8998b7be34c115d71a8c832724277baf775a03313e5e4bb906be140eb996dde8852d95e46950c9ba9d725cfd08e51177e2e3c133f8e1ea8977f71df16
+docfiles size=114
+ texmf-dist/doc/latex/biblatex-apa/README details="Readme"
+ texmf-dist/doc/latex/biblatex-apa/biblatex-apa-test-citations.bib
+ texmf-dist/doc/latex/biblatex-apa/biblatex-apa-test-references.bib
+ texmf-dist/doc/latex/biblatex-apa/biblatex-apa-test.pdf details="The examples in the APA style guide"
+ texmf-dist/doc/latex/biblatex-apa/biblatex-apa-test.tex
+ texmf-dist/doc/latex/biblatex-apa/biblatex-apa.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-apa/biblatex-apa.tex
+runfiles size=115
+ texmf-dist/tex/latex/biblatex-apa/american-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/apa.bbx
+ texmf-dist/tex/latex/biblatex-apa/apa.cbx
+ texmf-dist/tex/latex/biblatex-apa/apa.dbx
+ texmf-dist/tex/latex/biblatex-apa/austrian-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/brazilian-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/british-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/catalan-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/danish-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/dutch-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/english-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/finnish-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/french-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/galician-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/german-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/greek-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/italian-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/naustrian-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/ngerman-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/norsk-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/norwegian-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/nswissgerman-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/nynorsk-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/portuguese-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/russian-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/slovene-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/spanish-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/swedish-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/swissgerman-apa.lbx
+ texmf-dist/tex/latex/biblatex-apa/turkish-apa.lbx
+catalogue-contact-announce https://github.com/plk/biblatex-apa/wiki
+catalogue-contact-bugs https://github.com/plk/biblatex-apa/issues
+catalogue-contact-home https://github.com/plk/biblatex-apa
+catalogue-contact-repository https://github.com/plk/biblatex-apa.git
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-apa
+catalogue-license lppl1.3c
+catalogue-topics apa biblatex psychology journalpub
+catalogue-version 9.16

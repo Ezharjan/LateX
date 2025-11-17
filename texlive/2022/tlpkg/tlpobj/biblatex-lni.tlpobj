@@ -1,0 +1,28 @@
+name biblatex-lni
+category Package
+revision 61719
+shortdesc LNI style for BibLaTeX
+longdesc BibLaTeX style for the Lecture Notes in Informatics, which is
+longdesc published by the Gesellschaft fur Informatik (GI e.V.).
+containersize 2928
+containerchecksum c91f3f8cc6e238602682893ef0ef20af2ac87a518d845e46262f17773f9082c5ed7ffb59329ac4852d8b3d72b3b1364395d3d16aa9ddff52619d9591f2b7257c
+doccontainersize 9704
+doccontainerchecksum 19bd2d8f8f7539543c876c214731d407def9c193d70ea3eeb7a9869202fa26242674a996934a599004e36bddc62669bc769c6a76af6cec6ca85bf44436c41de0
+docfiles size=11
+ texmf-dist/doc/latex/biblatex-lni/CHANGELOG.md
+ texmf-dist/doc/latex/biblatex-lni/LICENSE
+ texmf-dist/doc/latex/biblatex-lni/LNI-examples.bib
+ texmf-dist/doc/latex/biblatex-lni/LNI-test-de.tex
+ texmf-dist/doc/latex/biblatex-lni/LNI-test-en.tex
+ texmf-dist/doc/latex/biblatex-lni/README.md details="Readme"
+runfiles size=6
+ texmf-dist/tex/latex/biblatex-lni/LNI-english.lbx
+ texmf-dist/tex/latex/biblatex-lni/LNI-ngerman.lbx
+ texmf-dist/tex/latex/biblatex-lni/LNI.bbx
+ texmf-dist/tex/latex/biblatex-lni/LNI.cbx
+catalogue-contact-bugs https://github.com/gi-ev/biblatex-lni/issues
+catalogue-contact-repository https://github.com/gi-ev/biblatex-lni
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-lni
+catalogue-license lppl1.3
+catalogue-topics biblatex journalpub
+catalogue-version 0.5

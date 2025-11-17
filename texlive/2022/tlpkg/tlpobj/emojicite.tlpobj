@@ -1,0 +1,24 @@
+name emojicite
+category Package
+revision 55131
+shortdesc Add emojis to citations
+longdesc This package adds emojis to citations.
+containersize 1328
+containerchecksum 351fd8292800ce22d821351a6f69afadc87a24e4077dafd7a83b5f70b3f700c44764f2434255fde29532007faf952cb39d97f642a0b91c1cecc3b58d85753ab5
+doccontainersize 173436
+doccontainerchecksum 642c3656e3f6e89deab561df4253bcac0f98f1b65537ba3c78079ebc4d3a9336ce40fe8abb1955583e404b3945d76fcbca19845dbde7bd7c8f4db0a6209d80bf
+docfiles size=53
+ texmf-dist/doc/lualatex/emojicite/LICENSE.txt
+ texmf-dist/doc/lualatex/emojicite/README.md details="Readme"
+ texmf-dist/doc/lualatex/emojicite/emojicite-doc.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/emojicite/emojicite-doc.tex
+ texmf-dist/doc/lualatex/emojicite/example.tex
+runfiles size=1
+ texmf-dist/tex/lualatex/emojicite/emojicite.sty
+catalogue-also emoji
+catalogue-contact-bugs https://github.com/berleon/emojicite/issues
+catalogue-contact-repository https://github.com/berleon/emojicite
+catalogue-ctan /macros/luatex/latex/emojicite
+catalogue-license lppl1.3c
+catalogue-topics luatex graphics-use cite-supp expl3
+catalogue-version 0.3

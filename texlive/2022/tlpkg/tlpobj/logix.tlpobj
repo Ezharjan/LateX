@@ -1,0 +1,36 @@
+name logix
+category Package
+revision 63688
+shortdesc Supplement to the Unicode math symbols
+longdesc The package provides a Unicode font with over 4,000 symbols to
+longdesc supplement the Unicode math symbols. It is compatible with and
+longdesc complements the AMS STIX2 math fonts, but focuses on new
+longdesc symbols and symbol variants more suited to work in logic.
+containersize 2343812
+containerchecksum 29a2701ae91a5d7fec49e564b90b8a7e31374d2218680f4fa0c65c9df6dadae78c6599977e88cbf293fe2435d8b7403f41748abfb1cd5f9b00e94c76ff43e139
+doccontainersize 960252
+doccontainerchecksum 7b655c727fdb2775a0d980bc54198d1b2c262842fb278f94caa764204022f8da4bdfef8e40a8560359e6fef23e28aa97da4c08a44c80140ed337010d47173eed
+docfiles size=949
+ texmf-dist/doc/fonts/logix/CHANGELOG
+ texmf-dist/doc/fonts/logix/README details="Readme"
+ texmf-dist/doc/fonts/logix/logix.math
+ texmf-dist/doc/fonts/logix/logix.pdf details="Package documentation"
+ texmf-dist/doc/fonts/logix/logix.tex
+ texmf-dist/doc/fonts/logix/logix.vfc
+ texmf-dist/doc/fonts/logix/logixMono.vfc
+runfiles size=979
+ texmf-dist/fonts/opentype/public/logix/logix.eot
+ texmf-dist/fonts/opentype/public/logix/logix.otf
+ texmf-dist/fonts/opentype/public/logix/logix.woff
+ texmf-dist/fonts/opentype/public/logix/logix.woff2
+ texmf-dist/fonts/opentype/public/logix/logixMono.eot
+ texmf-dist/fonts/opentype/public/logix/logixMono.otf
+ texmf-dist/fonts/opentype/public/logix/logixMono.woff
+ texmf-dist/fonts/opentype/public/logix/logixMono.woff2
+ texmf-dist/fonts/truetype/public/logix/logix.ttf
+ texmf-dist/fonts/truetype/public/logix/logixMono.ttf
+ texmf-dist/tex/latex/logix/logix.sty
+catalogue-ctan /fonts/logix
+catalogue-license ofl lppl1.3c
+catalogue-topics font font-maths font-symbol-maths font-otf font-ttf font-supp logic
+catalogue-version 1.13

@@ -1,0 +1,28 @@
+name context-filter
+category ConTeXt
+revision 62070
+shortdesc Run external programs on the contents of a start-stop environment
+longdesc The filter module provides a simple interface to run external
+longdesc programs on the contents of a start-stop environment. Options
+longdesc are available to run the external program only if the content
+longdesc of the environment has changed, to specify how the program
+longdesc output should be read back, and to choose the name of the
+longdesc temporary files that are created. The module is compatible with
+longdesc both MkII and MkIV.
+depend context
+containersize 6872
+containerchecksum c2534b543fd5444776a054f43fafa393040af5bcb67f869d61d200a4a1d0355f1d81c64adab683d15a6be806a21dfc9ad661995bbe51da3c0bfb841ade4b077f
+doccontainersize 11080
+doccontainerchecksum a9c2ea88b0e2514840c368ea7686894dda4b86c93ec8f34989238ffdf5704f1c1898d0ee5e0724035314d2d37803f1a1afdd445dd802a94f5ff4223148f81767
+docfiles size=10
+ texmf-dist/doc/context/third/filter/VERSION
+ texmf-dist/doc/context/third/filter/filter.txt details="Package notes"
+runfiles size=18
+ texmf-dist/tex/context/third/filter/t-filter.mkii
+ texmf-dist/tex/context/third/filter/t-filter.mkiv
+ texmf-dist/tex/context/third/filter/t-filter.mkxl
+ texmf-dist/tex/context/third/filter/t-module-catcodes.mkii
+ texmf-dist/tex/context/third/filter/t-module-catcodes.mkiv
+catalogue-ctan /macros/context/contrib/context-filter
+catalogue-license bsd2
+catalogue-topics ext-code

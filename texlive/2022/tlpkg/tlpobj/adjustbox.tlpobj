@@ -1,0 +1,58 @@
+name adjustbox
+category Package
+revision 56291
+shortdesc Graphics package-alike macros for "general" boxes
+longdesc The package provides several macros to adjust boxed content.
+longdesc One purpose is to supplement the standard graphics package,
+longdesc which defines the macros \resizebox, \scalebox and \rotatebox ,
+longdesc with the macros\trimbox and \clipbox. The main feature is the
+longdesc general \adjustbox macro which extends the "key=value"
+longdesc interface of \includegraphics from the graphics package and
+longdesc applies it to general text content. Additional provided box
+longdesc macros are \lapbox, \marginbox, \minsizebox, \maxsizebox and
+longdesc \phantombox. All macros use the collectbox package to read the
+longdesc content as a box and not as a macro argument. This allows for
+longdesc all forms of content including special material like verbatim
+longdesc content. A special feature of collectbox is used to provide
+longdesc matching environments with the identical names as the macros.
+containersize 13596
+containerchecksum 851d9abec7b4eabaf470755cea1200978146f93fca4cb8cdd33adb53f3b427031ea70685b8458fa77c5bd8b842b62524dd713c12a901331778cd854fa862098c
+doccontainersize 719424
+doccontainerchecksum 3ddd36dcf4c56390aef552644e053612f1b2a900b2031f63aa6dd5da013916a00ead80a4e677c5225a14055f3b34d972faf17fe42e3cbe1f74b59a3b7d5206d6
+docfiles size=195
+ texmf-dist/doc/latex/adjustbox/README details="Readme"
+ texmf-dist/doc/latex/adjustbox/adjcalc.pdf
+ texmf-dist/doc/latex/adjustbox/adjustbox.pdf details="Package documentation"
+ texmf-dist/doc/latex/adjustbox/box.tex
+ texmf-dist/doc/latex/adjustbox/compare.tex
+ texmf-dist/doc/latex/adjustbox/margin.tex
+ texmf-dist/doc/latex/adjustbox/margin2.tex
+ texmf-dist/doc/latex/adjustbox/trim.tex
+ texmf-dist/doc/latex/adjustbox/trim2.tex
+ texmf-dist/doc/latex/adjustbox/trim3.tex
+ texmf-dist/doc/latex/adjustbox/trimclip.pdf
+ texmf-dist/doc/latex/adjustbox/viewport.tex
+ texmf-dist/doc/latex/adjustbox/viewport2.tex
+srccontainersize 49556
+srccontainerchecksum 0a25cd50b343094fc6a5a07f9196f96c4f391fbf6845cf78f5c76c76c2af0a5c8c9ed79a29d14d3575a416c7fe1c9ae6e455e17d3d03ca09e9f9e1ddb170bf6c
+srcfiles size=79
+ texmf-dist/source/latex/adjustbox/adjcalc.dtx
+ texmf-dist/source/latex/adjustbox/adjustbox.dtx
+ texmf-dist/source/latex/adjustbox/adjustbox.ins
+ texmf-dist/source/latex/adjustbox/trimclip.dtx
+runfiles size=24
+ texmf-dist/tex/latex/adjustbox/adjcalc.sty
+ texmf-dist/tex/latex/adjustbox/adjustbox.sty
+ texmf-dist/tex/latex/adjustbox/tc-dvips.def
+ texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+ texmf-dist/tex/latex/adjustbox/tc-pgf.def
+ texmf-dist/tex/latex/adjustbox/tc-xetex.def
+ texmf-dist/tex/latex/adjustbox/trimclip.sty
+catalogue-also gincltex collectbox realboxes
+catalogue-contact-bugs https://sourceforge.net/p/adjustbox/tickets/
+catalogue-contact-home https://sourceforge.net/p/adjustbox/
+catalogue-contact-repository https://sourceforge.net/p/adjustbox/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/adjustbox
+catalogue-license lppl1.3
+catalogue-topics typesetting box-manip
+catalogue-version 1.3

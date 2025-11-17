@@ -1,0 +1,28 @@
+name piton
+category Package
+revision 64446
+shortdesc Typeset Python listings with LPEG
+longdesc This package uses the Lua library LPEG to typeset and highlight
+longdesc Python listings.
+containersize 6916
+containerchecksum e891b8b1baf4ca6ac25038a70e96cf081e018ae787402191c77287b9fc418b06d40f8233a8388b14c62507b217815fb979ed272176c61d296aee167dad7f8cf9
+doccontainersize 260792
+doccontainerchecksum d4c71c41deb673beb3a6fa3fc4eff084a4ad8a13e0c1a377727b804429df7b7495f1656ed15b2dd190b2af334c1851047d89bb051754978d1f70b425dada132c
+docfiles size=99
+ texmf-dist/doc/lualatex/piton/README.md details="Readme"
+ texmf-dist/doc/lualatex/piton/piton-french.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/lualatex/piton/piton-french.tex
+ texmf-dist/doc/lualatex/piton/piton.pdf details="Package documentation"
+srccontainersize 8080
+srccontainerchecksum 8de59ff9dc8c60c58083699ec02981c2a3c062a88453ab9cbc98ffdd3d876f3f3e4416b03fc4dc46676d960841559a34bddfe655d4d526280947ea0e5c157b42
+srcfiles size=8
+ texmf-dist/source/lualatex/piton/piton.dtx
+ texmf-dist/source/lualatex/piton/piton.ins
+runfiles size=7
+ texmf-dist/tex/lualatex/piton/piton.lua
+ texmf-dist/tex/lualatex/piton/piton.sty
+catalogue-also codehigh
+catalogue-ctan /macros/luatex/latex/piton
+catalogue-license lppl1.3
+catalogue-topics listing synt-hlt luatex
+catalogue-version 0.6a

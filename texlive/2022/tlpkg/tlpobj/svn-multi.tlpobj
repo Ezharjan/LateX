@@ -1,0 +1,41 @@
+name svn-multi
+category Package
+revision 56291
+shortdesc Subversion keywords in multi-file LaTeX documents
+longdesc This package lets you typeset keywords of the version control
+longdesc system Subversion inside your LaTeX files anywhere you like.
+longdesc Unlike the otherwise similar package svn the use of multiple
+longdesc files for one LaTeX document is well supported. The package
+longdesc uses the author's filehook and currfile packages. The package
+longdesc interacts with an external Perl script, to retrieve information
+longdesc necessary for the required output.
+depend svn-multi.ARCH
+containersize 12464
+containerchecksum 237955b5606c5c4fbca7a5c06d4cb1b180ad33647d39337a6814c95a43ecb84004715f3b639353608bd52a64ee3ea70f392ba831ff64499b5162aed64a85da9d
+doccontainersize 401628
+doccontainerchecksum 2ae2947a0b15e82a9b241a757ffc60cf5a5be04bb49c4ae5ef7de9dcf9e1ef4082c83e2a57058dd431d16c56eae7647ec4c43dd47a4f0c2a925f4f989a7f6844
+docfiles size=104
+ texmf-dist/doc/latex/svn-multi/README details="Readme"
+ texmf-dist/doc/latex/svn-multi/example_chap1.tex
+ texmf-dist/doc/latex/svn-multi/example_main.tex
+ texmf-dist/doc/latex/svn-multi/group_example.tex
+ texmf-dist/doc/latex/svn-multi/svn-multi.pdf details="Package documentation"
+ texmf-dist/doc/support/svn-multi/svn-multi-pl.pdf details="Perl script documentation"
+srccontainersize 39000
+srccontainerchecksum 45e948ed51554b3b12b883238b628ab6dc43a0ae6a0eea093399d1f771bfc368b2839c568a7183abc3a8cdf687095692e0063cac26869c2fc2b89087096b412e
+srcfiles size=42
+ texmf-dist/source/latex/svn-multi/svn-multi-pl.dtx
+ texmf-dist/source/latex/svn-multi/svn-multi.dtx
+ texmf-dist/source/latex/svn-multi/svn-multi.ins
+runfiles size=15
+ texmf-dist/scripts/svn-multi/svn-multi.pl
+ texmf-dist/tex/latex/svn-multi/svn-multi.sty
+ texmf-dist/tex/latex/svn-multi/svnkw.sty
+catalogue-also svn svninfo
+catalogue-contact-bugs https://sourceforge.net/p/svn-multi/tickets/
+catalogue-contact-home https://sourceforge.net/p/svn-multi/
+catalogue-contact-repository https://sourceforge.net/p/svn-multi/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/svn-multi
+catalogue-license lppl
+catalogue-topics version-control doc-mgmt
+catalogue-version 2.4d

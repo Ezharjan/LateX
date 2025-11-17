@@ -1,0 +1,56 @@
+name shtthesis
+category Package
+revision 62441
+shortdesc An unofficial LaTeX thesis template for ShanghaiTech University
+longdesc This package, forked from ucasthesis, is an unofficial LaTeX
+longdesc thesis template for ShanghaiTech University and satisfies all
+longdesc format requirements of the school. The user just needs to set
+longdesc \documentclass{shtthesis} and to set up mandatory information
+longdesc via \shtsetup, then his or her thesis document will be typeset
+longdesc properly.
+depend alphalph
+depend biber
+depend biblatex
+depend biblatex-gb7714-2015
+depend booktabs
+depend caption
+depend colortbl
+depend ctex
+depend datetime
+depend enumitem
+depend fancyhdr
+depend fmtcount
+depend lastpage
+depend latexmk
+depend listings
+depend lua-alt-getopt
+depend lualatex-math
+depend mathtools
+depend ntheorem
+depend tex-gyre
+depend tocvsec2
+depend transparent
+depend undolabl
+depend unicode-math
+depend xits
+depend xstring
+containersize 11700
+containerchecksum da3b02cc3558a337d7d35018fad00faf6d9183f3f4bc5b5b31e168a11dcfa705a77cad6c42f3fe3d98ce67f50d94ca1f75a82999d5a27837ea8fba6c01602594
+doccontainersize 2123460
+doccontainerchecksum 04f1ccf2bef9e11364d7f066ed1a7fc218e39ef7a08824eb65537d88ed03097399eb01d07ba6d0a34e7456fc6de1291ea4f1c9264074eecd2e1af341c42e9197
+docfiles size=549
+ texmf-dist/doc/latex/shtthesis/CHANGELOG.md
+ texmf-dist/doc/latex/shtthesis/DEPENDS.txt
+ texmf-dist/doc/latex/shtthesis/LICENSE
+ texmf-dist/doc/latex/shtthesis/README.md details="Readme"
+ texmf-dist/doc/latex/shtthesis/shtthesis-user-guide.pdf details="Package documentation" language="zh"
+ texmf-dist/doc/latex/shtthesis/shtthesis-user-guide.tex
+runfiles size=13
+ texmf-dist/tex/latex/shtthesis/shtthesis.cls
+catalogue-contact-announce https://github.com/lirundong/shtthesis/releases
+catalogue-contact-bugs https://github.com/lirundong/shtthesis/issues
+catalogue-contact-repository https://github.com/lirundong/shtthesis
+catalogue-ctan /macros/latex/contrib/shtthesis
+catalogue-license gpl3
+catalogue-topics dissertation class chinese
+catalogue-version 0.3.3

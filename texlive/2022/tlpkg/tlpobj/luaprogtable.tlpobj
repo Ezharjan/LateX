@@ -1,0 +1,25 @@
+name luaprogtable
+category Package
+revision 56113
+shortdesc Programmable table interface for LuaLaTeX
+longdesc This package allows you to modify a cell based on the contents
+longdesc of other cells using LaTeX macros.
+containersize 7092
+containerchecksum 68ed668fcc84eddad444edfdd18ede2c94ad81fd61162d62c5a052fabcda6e5bcb519d6eb473721fc2cc090bb7f642dd55ac35b9f1f0a682b2fb8c480a0a1014
+doccontainersize 442728
+doccontainerchecksum d91bb2fdf9851b1aeb3dba0b5eeb75bd1f9aa8c806fc3a99e063af7f56e0878152630aa18731c1c40aa00de72a0d192981a272d586fb25f7a19d14b4fc25b5e6
+docfiles size=114
+ texmf-dist/doc/lualatex/luaprogtable/README.md details="Readme"
+ texmf-dist/doc/lualatex/luaprogtable/luaprogtable-doc.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luaprogtable/luaprogtable-doc.tex
+runfiles size=10
+ texmf-dist/tex/lualatex/luaprogtable/luaprogtable-parse.lua
+ texmf-dist/tex/lualatex/luaprogtable/luaprogtable-stringbuffer.lua
+ texmf-dist/tex/lualatex/luaprogtable/luaprogtable-utility.lua
+ texmf-dist/tex/lualatex/luaprogtable/luaprogtable.lua
+ texmf-dist/tex/lualatex/luaprogtable/luaprogtable.sty
+catalogue-contact-repository https://github.com/xziyue/luaprogtable
+catalogue-ctan /macros/luatex/latex/luaprogtable
+catalogue-license mit
+catalogue-topics table
+catalogue-version 1.0

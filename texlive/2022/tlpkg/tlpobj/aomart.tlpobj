@@ -1,0 +1,36 @@
+name aomart
+category Package
+revision 63442
+shortdesc Typeset articles for the Annals of Mathematics
+longdesc The package provides a class for typesetting articles for The
+longdesc Annals of Mathematics.
+containersize 13736
+containerchecksum 26216ce5a5069aeab93234a02063961d4895e45d35129a4888107dfa670e319d7d1f1947920700033b31f68bbc3a59fd189feea33305e2893581e8f6d89ab553
+doccontainersize 1186444
+doccontainerchecksum 414142b801b286e4064ebd8a73cd40ba07c5d5cc6441e19f7657f94c2fb97665828d2c664908b8efa91af10d17d7bbf1b1b887de393d3752cbf0213b800e0c15
+docfiles size=451
+ texmf-dist/doc/latex/aomart/README details="Readme"
+ texmf-dist/doc/latex/aomart/aomart.bib
+ texmf-dist/doc/latex/aomart/aomart.pdf details="Package documentation"
+ texmf-dist/doc/latex/aomart/aomfrench.pdf
+ texmf-dist/doc/latex/aomart/aomfrench.tex
+ texmf-dist/doc/latex/aomart/aomsample.bib
+ texmf-dist/doc/latex/aomart/aomsample.pdf details="Sample article"
+ texmf-dist/doc/latex/aomart/aomsample.tex
+ texmf-dist/doc/latex/aomart/aomsample1.pdf
+ texmf-dist/doc/latex/aomart/aomsample1.tex
+ texmf-dist/doc/latex/aomart/fullref.pl
+srccontainersize 22360
+srccontainerchecksum 79fbbac627d55cc394fbbec70c4550c2e889d88483b4e7c2bc19ddfc660be93072a7ffcfae92804b75e2fab47ea91c137c98ab7161e84399d586496940bf14b8
+srcfiles size=23
+ texmf-dist/source/latex/aomart/Makefile
+ texmf-dist/source/latex/aomart/aomart.dtx
+ texmf-dist/source/latex/aomart/aomart.ins
+runfiles size=21
+ texmf-dist/bibtex/bst/aomart/aomalpha.bst
+ texmf-dist/bibtex/bst/aomart/aomplain.bst
+ texmf-dist/tex/latex/aomart/aomart.cls
+catalogue-ctan /macros/latex/contrib/aomart
+catalogue-license lppl1.3
+catalogue-topics journalpub class
+catalogue-version 1.27

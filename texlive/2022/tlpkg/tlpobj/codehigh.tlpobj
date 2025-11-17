@@ -1,0 +1,28 @@
+name codehigh
+category Package
+revision 63175
+shortdesc Highlight code and demos with l3regex and lpeg
+longdesc This package uses the l3regex package from the LaTeX3
+longdesc Programming Layer to parse and highlight source code and demos.
+longdesc It is more powerful than the listings package, and more easy to
+longdesc use than minted. But it is slower than both of them. Therefore
+longdesc in LuaTeX the package provides another way to highlight code:
+longdesc using LPeg (Parsing Expression Grammars for Lua). LPeg is much
+longdesc more powerful and faster than l3regex.
+containersize 6036
+containerchecksum 7e14b55357db61c06af88b77c15d03babc86eec0166f99b4824769f8f3d6197e56f0334b90fbf1917df2c8c93d10a08b8471f801f4d608a302ac736642755fa8
+doccontainersize 92664
+doccontainerchecksum ddfafc50ae9ab6b79046abf05454d06f718ec695f1463d205f417a00d853dd8972fde5424172edf5455f4e11f14413557c00289fa02ffa77f13166ec45c88701
+docfiles size=33
+ texmf-dist/doc/latex/codehigh/README.txt details="Readme"
+ texmf-dist/doc/latex/codehigh/codehigh.pdf details="Package documentation"
+ texmf-dist/doc/latex/codehigh/codehigh.tex
+runfiles size=8
+ texmf-dist/tex/latex/codehigh/codehigh.lua
+ texmf-dist/tex/latex/codehigh/codehigh.sty
+catalogue-contact-bugs https://github.com/lvjr/codehigh/issues
+catalogue-contact-repository https://github.com/lvjr/codehigh
+catalogue-ctan /macros/latex/contrib/codehigh
+catalogue-license lppl1.3c
+catalogue-topics listing synt-hlt expl3 use-luatex
+catalogue-version 2022E

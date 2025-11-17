@@ -1,0 +1,14 @@
+name luajittex.win32
+category TLCore
+revision 62665
+shortdesc win32 files of luajittex
+containersize 2235888
+containerchecksum 23aeb13df1ea063eb1fd2effadaa66d91c56623ce72f03a16d7b13f1ad88fbb31c58650464c8ff4ef324429c3574b3d994b55c62b1c83cd220d5112bdc3f7a30
+binfiles arch=win32 size=3140
+ bin/win32/luajit51.dll
+ bin/win32/luajithbtex.dll
+ bin/win32/luajithbtex.exe
+ bin/win32/luajittex.dll
+ bin/win32/luajittex.exe
+ bin/win32/texluajit.exe
+ bin/win32/texluajitc.exe

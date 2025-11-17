@@ -1,0 +1,36 @@
+name tex4ebook
+category Package
+revision 62076
+shortdesc Converter from LaTeX to ebook formats
+longdesc This is a bundle of Lua scripts and LaTeX packages for
+longdesc conversion of LaTeX files to ebook formats such as epub, mobi
+longdesc and epub3. tex4ht is used as the conversion engine.
+depend tex4ebook.ARCH
+containersize 17748
+containerchecksum ce9a19544d63fdec5e37fd129bfc87c6fa7c35ebfd719a703b9ba59dfd4ddcded42d03d075f2fd80730a5f295b2393c083098e5782b3a0ab2cbace335bb78c50
+doccontainersize 95544
+doccontainerchecksum 08bfe7b1ca1b245174df6b4e4a1640ba0cf7c5c821ed76cb9b85b512055088354ab0d59383b5973720fd83b298efae795f46a61c7cc95c2816edd57408c4efd7
+docfiles size=36
+ texmf-dist/doc/support/tex4ebook/README details="Readme"
+ texmf-dist/doc/support/tex4ebook/changelog.tex
+ texmf-dist/doc/support/tex4ebook/readme.tex
+ texmf-dist/doc/support/tex4ebook/tex4ebook-doc.pdf details="Package documentation"
+ texmf-dist/doc/support/tex4ebook/tex4ebook-doc.tex
+ texmf-dist/doc/support/tex4ebook/tex4ebook-tidyconf.conf
+runfiles size=20
+ texmf-dist/scripts/tex4ebook/tex4ebook
+ texmf-dist/scripts/tex4ebook/tex4ebook-exec_azw.lua
+ texmf-dist/scripts/tex4ebook/tex4ebook-exec_azw3.lua
+ texmf-dist/scripts/tex4ebook/tex4ebook-exec_epub.lua
+ texmf-dist/scripts/tex4ebook/tex4ebook-exec_epub3.lua
+ texmf-dist/scripts/tex4ebook/tex4ebook-exec_mobi.lua
+ texmf-dist/tex/latex/tex4ebook/tex4ebook-epub3.4ht
+ texmf-dist/tex/latex/tex4ebook/tex4ebook.4ht
+ texmf-dist/tex/latex/tex4ebook/tex4ebook.sty
+catalogue-also make4ht tex4ht
+catalogue-contact-bugs https://github.com/michal-h21/tex4ebook/issues
+catalogue-contact-repository https://github.com/michal-h21/tex4ebook
+catalogue-ctan /support/tex4ebook
+catalogue-license lppl1.3
+catalogue-topics ebook
+catalogue-version 0.3h

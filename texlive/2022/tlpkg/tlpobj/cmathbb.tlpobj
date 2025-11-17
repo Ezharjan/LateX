@@ -1,0 +1,45 @@
+name cmathbb
+category Package
+revision 56414
+shortdesc Computer modern mathematical blackboard bold font
+longdesc This font contains all digits and latin letters uppercase and
+longdesc lowercase for the Computer Modern font family in blackboard
+longdesc bold.
+execute addMap cmathbb.map
+containersize 89308
+containerchecksum 8e720662ac4d00557b143c883e9d410da8593cdfa056b5320e0ff348c2c0e37f9c0045341c28e583aa544790e576d9b7db8c80f93cffd8c4da699e46e35f73e0
+doccontainersize 71808
+doccontainerchecksum f1b0b1067260287c66347e52111883834d575e5857a3aede8e14930252a284b5c0bd6bd7247c9ee36462d57a63d351110582cb66ca894d9430d476445f37da44
+docfiles size=21
+ texmf-dist/doc/fonts/cmathbb/README.md details="Readme"
+ texmf-dist/doc/fonts/cmathbb/cmathbb.pdf details="Package documentation"
+ texmf-dist/doc/fonts/cmathbb/cmathbb.tex
+runfiles size=44
+ texmf-dist/fonts/enc/dvips/cmathbb/a_ghauqe.enc
+ texmf-dist/fonts/enc/dvips/cmathbb/a_jggq4p.enc
+ texmf-dist/fonts/enc/dvips/cmathbb/a_ns6ls2.enc
+ texmf-dist/fonts/enc/dvips/cmathbb/a_szuv3s.enc
+ texmf-dist/fonts/map/dvips/cmathbb/cmathbb.map
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ly1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ot1--base.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ot1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-t1--lcdfj.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/cmathbb/cmathbb-Regular-tlf-ts1.tfm
+ texmf-dist/fonts/type1/public/cmathbb/cmathbb-Regular.pfb
+ texmf-dist/fonts/type1/public/cmathbb/cmathbb-RegularLCDFJ.pfb
+ texmf-dist/fonts/vf/public/cmathbb/cmathbb-Regular-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/cmathbb/cmathbb-Regular-tlf-ot1.vf
+ texmf-dist/fonts/vf/public/cmathbb/cmathbb-Regular-tlf-t1.vf
+ texmf-dist/fonts/vf/public/cmathbb/cmathbb-Regular-tlf-ts1.vf
+ texmf-dist/tex/latex/cmathbb/cmathbb.sty
+ texmf-dist/tex/latex/cmathbb/ucmath.fd
+catalogue-ctan /fonts/cmathbb
+catalogue-license lppl1.3c
+catalogue-topics font-supp-maths
+catalogue-version 1.0

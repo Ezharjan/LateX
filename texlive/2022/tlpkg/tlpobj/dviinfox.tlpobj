@@ -1,0 +1,21 @@
+name dviinfox
+category Package
+revision 59216
+shortdesc Perl script to print DVI meta information
+longdesc The package provides a perl script which prints information
+longdesc about a DVI file. It also supports XeTeX XDV format.
+depend dviinfox.ARCH
+containersize 3628
+containerchecksum d366c28a88f488418405944e299b8e8c681a2bfbe1fb8d37847d89920ab41d3103d52072c7455ecec2451702cbbea02971ac6f1e1d609bde9a2f5e8abd345ef5
+doccontainersize 2164
+doccontainerchecksum 4da7f09620beb3aa7e5a572f31c1d53466607ec0f6401b687ac1da624ea435f0efb3e0e2074252f49a720cb6d53412658a8a45dcba5553315fc9423233755dbe
+docfiles size=2
+ texmf-dist/doc/latex/dviinfox/LICENSE
+ texmf-dist/doc/latex/dviinfox/README.md details="Readme"
+runfiles size=3
+ texmf-dist/scripts/dviinfox/dviinfox.pl
+catalogue-contact-repository https://github.com/aminophen/tex-assort
+catalogue-ctan /dviware/dviinfox
+catalogue-license mit
+catalogue-topics metadata dvi-struc
+catalogue-version 1.06

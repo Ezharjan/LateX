@@ -1,0 +1,29 @@
+name mpman-ru
+category Package
+revision 15878
+shortdesc A Russian translation of the MetaPost manual
+longdesc A translation of the user manual, as distributed with MetaPost
+longdesc itself.
+containersize 428
+containerchecksum e234fc25e9d8e5aa89a59e21186a16de3c695ce45c9ee8d132546381cb18e9be681bd4ee9c70bb10b4769ada5e5874b500d2a3cd7d264d89610dcda35fcba9a1
+doccontainersize 864700
+doccontainerchecksum 57f2449eaed3651b808095348f056fdfa90b00979ba2e21fad120efe096dca9a9e48474e9dbb539f347ffe20ccd5582f4815ff4552c54e9ea5f9df391dd75edb
+docfiles size=338
+ texmf-dist/doc/metapost/mpman-ru/Makefile
+ texmf-dist/doc/metapost/mpman-ru/README details="Readme (English)" language="en"
+ texmf-dist/doc/metapost/mpman-ru/README.ru.koi8-r details="Readme (Russian, KOI-8 encoded)" language="ru"
+ texmf-dist/doc/metapost/mpman-ru/bm-to-utf16be.awk
+ texmf-dist/doc/metapost/mpman-ru/ctabbing.sty
+ texmf-dist/doc/metapost/mpman-ru/extract-bm.awk
+ texmf-dist/doc/metapost/mpman-ru/idx1.awk
+ texmf-dist/doc/metapost/mpman-ru/idx2.awk
+ texmf-dist/doc/metapost/mpman-ru/idx3.awk
+ texmf-dist/doc/metapost/mpman-ru/manfig-ru.mp
+ texmf-dist/doc/metapost/mpman-ru/mpman-optab-ru.tex
+ texmf-dist/doc/metapost/mpman-ru/mpman-ru.pdf details="The document itself"
+ texmf-dist/doc/metapost/mpman-ru/mpman-ru.tex
+ texmf-dist/doc/metapost/mpman-ru/mpman.ist
+catalogue-ctan /info/metapost/doc/russian/mpman-ru
+catalogue-license other-free
+catalogue-topics mp-doc russian-doc translation
+catalogue-version 1.004

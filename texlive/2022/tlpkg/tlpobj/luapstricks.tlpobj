@@ -1,0 +1,25 @@
+name luapstricks
+category Package
+revision 64345
+shortdesc A PSTricks backend for LuaLaTeX
+longdesc This package enables the use of PSTricks directly in LuaLaTeX
+longdesc documents, without invoking external programmes, by
+longdesc implementing a PostScript interpreter in Lua. Therefore it does
+longdesc not require shell escape to be enabled or special environments,
+longdesc and instead allows PSTricks to be used exactly like in dvips
+longdesc based documents.
+containersize 26996
+containerchecksum b840b9e7209e923fc92d2a6358709c3ffd61f65558b246e24100f95c55e8d06eac43dac91e9aa6ec152bf507ca1b694683da44b1deeed0671afc4930dd0f5b14
+doccontainersize 1524
+doccontainerchecksum bfe7d5ec072d03eaf14b3de93dbddff39a9549cb2055d57d2ce648b4c4bd1c173cde661c7a5fd76185f3f1ac94579fc5d59afec08c3eb7408a4b4db025a23e5e
+docfiles size=1
+ texmf-dist/doc/lualatex/luapstricks/README.md details="Readme"
+runfiles size=35
+ texmf-dist/fonts/opentype/public/luapstricks/PSTricksDotFont.otf
+ texmf-dist/tex/lualatex/luapstricks/luapstricks.lua
+catalogue-contact-bugs https://github.com/zauguin/luapstricks/issues
+catalogue-contact-repository https://github.com/zauguin/luapstricks
+catalogue-ctan /graphics/pstricks/contrib/luapstricks
+catalogue-license lppl1.3
+catalogue-topics luatex pstricks
+catalogue-version 0.6

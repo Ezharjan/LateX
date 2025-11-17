@@ -1,0 +1,51 @@
+name latex-lab-dev
+category Package
+revision 63373
+shortdesc LaTeX laboratory: Development pre-release
+longdesc This package provides a testing release for upcoming changes to
+longdesc the latex-lab bundle, which provides a route for additions to
+longdesc the LaTeX kernel to be stablised. It accompanies the
+longdesc pre-testing kernel code (latex-base-dev), and is intended for
+longdesc testing by knowledgeable users.
+containersize 10628
+containerchecksum 32fbcc87f88dc4661cadc7cb82ed177407e1fb87c77e791d3ebc634169813f686ecd036f3fc61c574727c4bcd07f0db96f95804a48612e602f5dd0760c446d3d
+doccontainersize 2312340
+doccontainerchecksum 68128c596c6cf8edba7cc706a45970bc93dbfba5ff6d1adae557194bdb32ac3118a6699260b6f550a9254888121440782ccba5cf63a52a800bc5077090e586ba
+docfiles size=713
+ texmf-dist/doc/latex-dev/latex-lab/README.md details="Readme"
+ texmf-dist/doc/latex-dev/latex-lab/changes.txt
+ texmf-dist/doc/latex-dev/latex-lab/documentmetadata-support-code.pdf
+ texmf-dist/doc/latex-dev/latex-lab/documentmetadata-support-code.tex
+ texmf-dist/doc/latex-dev/latex-lab/documentmetadata-support-doc.pdf
+ texmf-dist/doc/latex-dev/latex-lab/documentmetadata-support-doc.tex
+ texmf-dist/doc/latex-dev/latex-lab/latex-lab-footnotes.pdf
+ texmf-dist/doc/latex-dev/latex-lab/latex-lab-new-or.pdf
+ texmf-dist/doc/latex-dev/latex-lab/latex-lab-prototype.pdf
+ texmf-dist/doc/latex-dev/latex-lab/latex-lab-testphase.pdf
+ texmf-dist/doc/latex-dev/latex-lab/usage-of-footnotemark.txt
+ texmf-dist/doc/latex-dev/latex-lab/usage-of-footnotetext.txt
+ texmf-dist/doc/latex-dev/latex-lab/usage-of-kern-kern.txt
+srccontainersize 29260
+srccontainerchecksum 09130e25139242aac0f8aca590395e5c6cfa4677aecc4871c99f8fb2c6cd0fd41f36adb12b9653723cb8c7dde43a03717f66d7c680bc93eb0f7950297d52f582
+srcfiles size=31
+ texmf-dist/source/latex-dev/latex-lab/documentmetadata-support.dtx
+ texmf-dist/source/latex-dev/latex-lab/latex-lab-footnotes.dtx
+ texmf-dist/source/latex-dev/latex-lab/latex-lab-new-or.dtx
+ texmf-dist/source/latex-dev/latex-lab/latex-lab-prototype.dtx
+ texmf-dist/source/latex-dev/latex-lab/latex-lab-testphase.dtx
+ texmf-dist/source/latex-dev/latex-lab/latex-lab.ins
+runfiles size=22
+ texmf-dist/tex/latex-dev/latex-lab/documentmetadata-support.ltx
+ texmf-dist/tex/latex-dev/latex-lab/latex-lab-footmisc.ltx
+ texmf-dist/tex/latex-dev/latex-lab/latex-lab-footnotes.ltx
+ texmf-dist/tex/latex-dev/latex-lab/latex-lab-prototype.sty
+ texmf-dist/tex/latex-dev/latex-lab/latex-lab-testphase-new-or.sty
+ texmf-dist/tex/latex-dev/latex-lab/new-or-latex-lab-testphase.ltx
+ texmf-dist/tex/latex-dev/latex-lab/phase-I-latex-lab-testphase.ltx
+ texmf-dist/tex/latex-dev/latex-lab/phase-II-latex-lab-testphase.ltx
+ texmf-dist/tex/latex-dev/latex-lab/prototype-latex-lab-testphase.ltx
+ texmf-dist/tex/latex-dev/latex-lab/tagpdf-latex-lab-testphase.ltx
+catalogue-ctan /macros/latex-dev/required/latex-lab
+catalogue-license lppl1.3c
+catalogue-topics format latex-devel
+catalogue-version 2022-06-01 pre-release 4

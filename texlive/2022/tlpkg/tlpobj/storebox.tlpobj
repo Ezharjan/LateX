@@ -1,0 +1,32 @@
+name storebox
+category Package
+revision 56291
+shortdesc Storing information for reuse
+longdesc The package provides "store boxes" whose user interface matches
+longdesc that of normal LaTeX "save boxes", except that the content of a
+longdesc store box appears at most once in the output PDF file, however
+longdesc often it is used. The present version of the package supports
+longdesc pdfLaTeX and LuaLaTeX; when DVI is output, store boxes behave
+longdesc the same as save boxes.
+containersize 2996
+containerchecksum 68feeea2592f31d3aed2b8431ab9e6c15d61151d3db7f59d54d6904e8db0f11c424b22ea6ff99e19032688c7910debed25280dde11f7a5858186772f118f0a18
+doccontainersize 194352
+doccontainerchecksum 08116b59ab292150381e1dc3e766d5ac7fbe8e1ec7a32236af4ebbd6ed410f76fff74648477615dddb8bf55281fdf918bafd25c04bab4d2be08b86c5b937a5f7
+docfiles size=49
+ texmf-dist/doc/latex/storebox/README details="Readme"
+ texmf-dist/doc/latex/storebox/storebox.pdf details="Package documentation"
+srccontainersize 6220
+srccontainerchecksum bfc6c15b82ec637d8a76f705b7e443c734fc274b6de15d93dbc5b96eb35653e7a24a1f2abc628ef0d314ea791e04d1db9efe3f8e481cfb40a30fb0a345a82e38
+srcfiles size=7
+ texmf-dist/source/latex/storebox/storebox.dtx
+ texmf-dist/source/latex/storebox/storebox.ins
+runfiles size=4
+ texmf-dist/tex/latex/storebox/storebox-pgf.sty
+ texmf-dist/tex/latex/storebox/storebox.sty
+catalogue-contact-bugs https://sourceforge.net/p/storebox/tickets/
+catalogue-contact-home https://sourceforge.net/projects/storebox/
+catalogue-contact-repository https://sourceforge.net/p/storebox/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/storebox
+catalogue-license lppl1.3
+catalogue-topics pdf-feat macro-supp
+catalogue-version 1.3a

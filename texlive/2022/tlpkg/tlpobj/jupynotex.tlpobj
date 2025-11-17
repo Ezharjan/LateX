@@ -1,0 +1,32 @@
+name jupynotex
+category Package
+revision 56715
+shortdesc Include whole or partial Jupyter notebooks in LaTeX documents
+longdesc This package provides a python3 script and a LaTeX .sty file
+longdesc which can be used together to include Jupyter Notebooks (all of
+longdesc them, or some specific cells) as part of a LaTeX document. It
+longdesc will convert the Jupyter Notebook format to proper LaTeX so it
+longdesc gets included seamlessly, supporting text, LaTeX, images, etc.
+containersize 2516
+containerchecksum 3b5cca7c6b8b14eda35d52a6db5e7ac027c0b29ee08a7b8f58411886963d8dc69348752d6cc1f010d11b9216026b705fe4cc915d2c60cb3ee9f3950fcc6bb308
+doccontainersize 28936
+doccontainerchecksum 35b8d2dbcbecfb4e7b2bfb0ef39f2d076d6f4eec9189e89cee3bdfdbb6f57d5c1dcefbca3eeecf4842f7f94616030d2e73588074618b39e232f40104e371f3ea
+docfiles size=22
+ texmf-dist/doc/latex/jupynotex/LICENSE
+ texmf-dist/doc/latex/jupynotex/README.md details="Readme"
+ texmf-dist/doc/latex/jupynotex/example/build
+ texmf-dist/doc/latex/jupynotex/example/example.tex
+ texmf-dist/doc/latex/jupynotex/example/notebook.ipynb
+ texmf-dist/doc/latex/jupynotex/tests/run
+ texmf-dist/doc/latex/jupynotex/tests/test_cellparser.py
+ texmf-dist/doc/latex/jupynotex/tests/test_main.py
+ texmf-dist/doc/latex/jupynotex/tests/test_notebook.py
+runfiles size=3
+ texmf-dist/tex/latex/jupynotex/jupynotex.py
+ texmf-dist/tex/latex/jupynotex/jupynotex.sty
+catalogue-contact-bugs https://github.com/facundobatista/jupynotex/issues
+catalogue-contact-repository https://github.com/facundobatista/jupynotex/
+catalogue-ctan /macros/latex/contrib/jupynotex
+catalogue-license apache2
+catalogue-topics foreign-import data-import ext-code
+catalogue-version 0.1

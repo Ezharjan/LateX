@@ -1,0 +1,31 @@
+name isomath
+category Package
+revision 27654
+shortdesc Mathematics style for science and technology
+longdesc The package provides tools for a mathematical style that
+longdesc conforms to the International Standard ISO 80000-2 and is
+longdesc common in science and technology. It changes the default shape
+longdesc of capital Greek letters to italic, sets up bold italic and
+longdesc sans-serif bold italic math alphabets with Latin and Greek
+longdesc characters, and defines macros for markup of vector, matrix and
+longdesc tensor symbols.
+containersize 4648
+containerchecksum c9ed49ca5df0932ab59de0988de688fa119682810c3163ec530a8cd80f439eab858bca4dfad85567dbc2de08d226117b4df5249ff29f247c208ae2b1739165f2
+doccontainersize 643076
+doccontainerchecksum 55d94c6b4cf4c2ebc0eae4998f8ed6a1f450efa70e1644549e169cabcc782f1acb879c99bec5237e3147886c696c36f675e9f3c452da9f9880570dabf7adc5ad
+docfiles size=211
+ texmf-dist/doc/latex/isomath/README.html
+ texmf-dist/doc/latex/isomath/README.txt
+ texmf-dist/doc/latex/isomath/isomath-test.pdf details="Example of appearance"
+ texmf-dist/doc/latex/isomath/isomath-test.tex
+ texmf-dist/doc/latex/isomath/isomath.html details="Package documentation (in HTML format)"
+ texmf-dist/doc/latex/isomath/isomath.pdf details="Package documentation (in PDF format)"
+ texmf-dist/doc/latex/isomath/isomath.sty.html details="Package source (in HTML format)"
+ texmf-dist/doc/latex/isomath/isomath.sty.txt
+ texmf-dist/doc/latex/isomath/isomath.txt
+runfiles size=4
+ texmf-dist/tex/latex/isomath/isomath.sty
+catalogue-ctan /macros/latex/contrib/isomath
+catalogue-license lppl
+catalogue-topics font-supp-maths std-conform
+catalogue-version 0.6.1

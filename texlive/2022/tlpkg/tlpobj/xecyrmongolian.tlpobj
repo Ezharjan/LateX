@@ -1,0 +1,27 @@
+name xecyrmongolian
+category Package
+revision 53160
+shortdesc Basic support for the typesetting of Cyrillic Mongolian documents using (Xe|Lua)LaTeX
+longdesc The 'xecyrmongolian' package can be used to produce documents
+longdesc in Cyrillic Mongolian using either XeLaTeX or LuaLaTeX. The
+longdesc command \setlanguage can be used to load alternative
+longdesc hyphenation patterns so to be able to create multilingual
+longdesc documents.
+containersize 2232
+containerchecksum 2faeeadc81ca7f6fba45b6b237fb604a6eb6e8888117f759f6d369ed354b20b35dd007eb11c017e4f0ebcfa99627f519b291eecd1b41505d7f4ecbfc23307784
+doccontainersize 61944
+doccontainerchecksum 11b9d4a92c6df44dfc629c7385b56463dcb13564e819cf1bde005e228040a9f675cfb5818ca9f5c5d59a3db7a0d42a5584d9a3a530d772ba2b4bf3145534bc0c
+docfiles size=17
+ texmf-dist/doc/latex/xecyrmongolian/README details="Readme"
+ texmf-dist/doc/latex/xecyrmongolian/xecyrmongolian.pdf details="Package documentation"
+srccontainersize 4220
+srccontainerchecksum 57a31504636eb9ebe717b6eb9028d5ed0eacdc7b9d406ac3822539a9e40ed0718668a640d557677b1a48920b272f3374817d8182b9db04a8329d2ee20227d801
+srcfiles size=4
+ texmf-dist/source/latex/xecyrmongolian/xecyrmongolian.dtx
+ texmf-dist/source/latex/xecyrmongolian/xecyrmongolian.ins
+runfiles size=2
+ texmf-dist/tex/latex/xecyrmongolian/xecyrmongolian.sty
+catalogue-ctan /language/mongolian/xecyrmongolian
+catalogue-license lppl1.3c
+catalogue-topics luatex xetex mongolian cyrillic
+catalogue-version 1.0

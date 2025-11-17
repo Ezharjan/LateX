@@ -1,0 +1,19 @@
+name texloganalyser
+category Package
+revision 54526
+shortdesc Analyse TeX logs
+longdesc This perl script allows the user to extract (and display)
+longdesc elements of the log file.
+depend texloganalyser.ARCH
+containersize 4180
+containerchecksum 85f491af4a3867283d56bc2d98ebcf491e622008b3a70bb2cae03b9deb38170e1c73088d109445fac11fcce6e10aac57f42f03066580a79c978dd19af1f74caa
+doccontainersize 760
+doccontainerchecksum 8eb890f880dc56d37e29e2f0bb3228e36031d45010677097136d40959ba7ec0cdd10b5056169325f481318f137a9de2f180438f1716bfa12705fcf0db315e3cb
+docfiles size=1
+ texmf-dist/doc/support/texloganalyser/README details="Readme"
+runfiles size=4
+ texmf-dist/scripts/texloganalyser/texloganalyser
+catalogue-ctan /support/texloganalyser
+catalogue-license bsd
+catalogue-topics log-manip
+catalogue-version 0.11

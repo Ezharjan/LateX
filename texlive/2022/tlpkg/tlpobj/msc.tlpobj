@@ -1,0 +1,28 @@
+name msc
+category Package
+revision 63291
+shortdesc Draw MSC diagrams
+longdesc The package should be useful to all people that prepare their
+longdesc texts with LaTeX and want to draw Message Sequence Charts in
+longdesc their texts. The package is not an MSC editor; it simply takes
+longdesc a textual description of an MSC and draws the corresponding
+longdesc MSC. The current version of the MSC macro package supports the
+longdesc full MSC2000 language.
+containersize 20152
+containerchecksum 7693c105f3a896e842796c0119fbcc692a1d495f394de5e2cbb9df7164b4735723504980e1ca53b76aa152a2b779c06f535542143512882f411eea40814a9d5d
+doccontainersize 251376
+doccontainerchecksum 9f8b33812702f2d9307e7f1a20c091f05da4c03220abbe8d15f3e2a3ad9871fd0806fe45f29557a71953da3c57a3f0a08d21e93570a99542b9d3ea605398e63b
+docfiles size=115
+ texmf-dist/doc/latex/msc/COPYRIGHT.txt
+ texmf-dist/doc/latex/msc/README.txt details="Package Readme"
+ texmf-dist/doc/latex/msc/biblio.bib
+ texmf-dist/doc/latex/msc/manual-macros.tex
+ texmf-dist/doc/latex/msc/msc.pdf details="User manual"
+ texmf-dist/doc/latex/msc/msc.tex
+runfiles size=30
+ texmf-dist/tex/latex/msc/msc.sty
+catalogue-contact-home http://satoss.uni.lu/mscpackage/
+catalogue-ctan /macros/latex/contrib/msc
+catalogue-license lppl1.3
+catalogue-topics comp-net pgf-tikz
+catalogue-version 2.00

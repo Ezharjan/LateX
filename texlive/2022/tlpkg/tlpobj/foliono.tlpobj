@@ -1,0 +1,31 @@
+name foliono
+category Package
+revision 58877
+shortdesc Use folio numbers to replace page numbers
+longdesc This package adds functionality to create several styles of
+longdesc folio numbers. Folio numbering preceded the modern page
+longdesc numbering convention and was in common use until the 18th
+longdesc century. In folio numbering the numbers are placed only on odd
+longdesc (right-side) pages and the numbers typically comprise of two
+longdesc parts: quire and folio numbers. The intended use for this
+longdesc package is to help creating old-style books.
+containersize 4544
+containerchecksum e5082c626e22acbaebbc7abadee75a71e3902af989767bcfba5d851fc89e771cf8a331ea540c05e6455b894351fdb6af6c598b5440e55c553662efdcb73cc093
+doccontainersize 229428
+doccontainerchecksum f03abc88291b2591b509a575735f6fe3e29ffeff52e0d2cbea287efe5426b7668462e6133394374f01aa3b968fec035e6a40a8bee01b12cbacf90fd0bca80b2e
+docfiles size=94
+ texmf-dist/doc/latex/foliono/MANIFEST-Foliono.txt
+ texmf-dist/doc/latex/foliono/README details="Readme"
+ texmf-dist/doc/latex/foliono/foliono.pdf details="Package documentation"
+ texmf-dist/doc/latex/foliono/foliono.tex
+ texmf-dist/doc/latex/foliono/lppl.txt
+ texmf-dist/doc/latex/foliono/pics/only-folio.png
+ texmf-dist/doc/latex/foliono/pics/only-quire.png
+ texmf-dist/doc/latex/foliono/pics/skip-first.png
+ texmf-dist/doc/latex/foliono/pics/standard.png
+runfiles size=4
+ texmf-dist/tex/latex/foliono/foliono.sty
+catalogue-ctan /macros/latex/contrib/foliono
+catalogue-license lppl1.3c
+catalogue-topics numbers page-nos
+catalogue-version 1.000

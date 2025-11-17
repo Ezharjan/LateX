@@ -1,0 +1,55 @@
+name cc-pl
+category Package
+revision 58602
+shortdesc Polish extension of Computer Concrete fonts
+longdesc These Metafont sources rely on the availability of the Metafont
+longdesc 'Polish' fonts and of the Metafont sources of the original
+longdesc Concrete fonts. Adobe Type 1 versions of the fonts are
+longdesc included.
+execute addMixedMap ccpl.map
+containersize 426652
+containerchecksum 3d0bef5ca5c37f1cae98bd0555d714ed4408b6fde4ffcfa78cf2512114c9aa09b81b23bc6d76705f64dd08ea493add2027e7af997357ff5c4cc360deae11ba92
+doccontainersize 1588
+doccontainerchecksum f5503008430e969a604973e4481f8ab51269a2c3570f757787eb7a1a9d11b8508ec7ca1709a21b9e2299059a9c8ca20e5806093bd24166eb44e167c06e4fd0ee
+docfiles size=1
+ texmf-dist/doc/fonts/cc-pl/README details="Readme"
+runfiles size=150
+ texmf-dist/fonts/map/dvips/cc-pl/ccpl.map
+ texmf-dist/fonts/source/public/cc-pl/fic_mic.mf
+ texmf-dist/fonts/source/public/cc-pl/pccsc10.mf
+ texmf-dist/fonts/source/public/cc-pl/pcmi10.mf
+ texmf-dist/fonts/source/public/cc-pl/pcr10.mf
+ texmf-dist/fonts/source/public/cc-pl/pcr5.mf
+ texmf-dist/fonts/source/public/cc-pl/pcr6.mf
+ texmf-dist/fonts/source/public/cc-pl/pcr7.mf
+ texmf-dist/fonts/source/public/cc-pl/pcr8.mf
+ texmf-dist/fonts/source/public/cc-pl/pcr9.mf
+ texmf-dist/fonts/source/public/cc-pl/pcsl10.mf
+ texmf-dist/fonts/source/public/cc-pl/pcslc9.mf
+ texmf-dist/fonts/source/public/cc-pl/pcti10.mf
+ texmf-dist/fonts/tfm/public/cc-pl/pccsc10.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcmi10.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcr10.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcr5.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcr6.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcr7.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcr8.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcr9.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcsl10.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcslc9.tfm
+ texmf-dist/fonts/tfm/public/cc-pl/pcti10.tfm
+ texmf-dist/fonts/type1/public/cc-pl/pccsc10.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcmi10.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcr10.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcr5.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcr6.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcr7.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcr8.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcr9.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcsl10.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcslc9.pfb
+ texmf-dist/fonts/type1/public/cc-pl/pcti10.pfb
+catalogue-ctan /fonts/cc-pl
+catalogue-license pd
+catalogue-topics polish font font-serif font-mf font-type1
+catalogue-version 1.02.3

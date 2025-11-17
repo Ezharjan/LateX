@@ -1,0 +1,43 @@
+name preview
+category Package
+revision 62130
+shortdesc Extract bits of a LaTeX source for output
+longdesc The package is a free-standing part of the preview-latex
+longdesc bundle. The package provides the support preview-latex needs,
+longdesc when it chooses the matter it will preview. The output may
+longdesc reasonably be expected to have other uses, as in html
+longdesc translators, etc.
+containersize 6984
+containerchecksum 02c4864a68cf7208e87fb0a4f25ccfe2092e198541551c3db11b75b0fd0b49188ebf9217554020f07154313418febb942e04c92b78d84c6f53b88c12d5a162ff
+doccontainersize 326124
+doccontainerchecksum a722fda1fbc3c4319edefb65a30ccde72711a65c19e6fbe7300ba2dcb47b72f12aa436c593f1dc97f9fda1a1fd4d359b4d56928877a9cb80b324ff046d0cd9e3
+docfiles size=83
+ texmf-dist/doc/latex/preview/README details="Readme"
+ texmf-dist/doc/latex/preview/preview.pdf details="Package documentation"
+srccontainersize 22852
+srccontainerchecksum d22c78058df91b03af32bb3f3c6584f492cffe6762a06a854811a3d2b3cfb1dae000252f483e78a40830d5bd808184b76b86c7e100c365c420f24496464ab53d
+srcfiles size=22
+ texmf-dist/source/latex/preview/preview.drv
+ texmf-dist/source/latex/preview/preview.dtx
+ texmf-dist/source/latex/preview/preview.ins
+runfiles size=14
+ texmf-dist/tex/latex/preview/prauctex.cfg
+ texmf-dist/tex/latex/preview/prauctex.def
+ texmf-dist/tex/latex/preview/prcounters.def
+ texmf-dist/tex/latex/preview/preview.sty
+ texmf-dist/tex/latex/preview/prfootnotes.def
+ texmf-dist/tex/latex/preview/prlyx.def
+ texmf-dist/tex/latex/preview/prshowbox.def
+ texmf-dist/tex/latex/preview/prshowlabels.def
+ texmf-dist/tex/latex/preview/prtightpage.def
+ texmf-dist/tex/latex/preview/prtracingall.def
+catalogue-contact-announce https://lists.gnu.org/mailman/listinfo/info-auctex
+catalogue-contact-bugs https://debbugs.gnu.org/cgi/pkgreport.cgi?package=auctex
+catalogue-contact-development https://lists.gnu.org/mailman/listinfo/auctex-devel
+catalogue-contact-home https://www.gnu.org/software/auctex/preview-latex.html
+catalogue-contact-repository https://git.savannah.gnu.org/gitweb/?p=auctex.git
+catalogue-contact-support https://lists.gnu.org/mailman/listinfo/auctex
+catalogue-ctan /macros/latex/contrib/preview
+catalogue-license gpl3
+catalogue-topics chunks
+catalogue-version 13.1

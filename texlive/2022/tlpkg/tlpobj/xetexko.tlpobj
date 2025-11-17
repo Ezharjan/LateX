@@ -1,0 +1,33 @@
+name xetexko
+category Package
+revision 62790
+shortdesc Typeset Korean with Xe(La)TeX
+longdesc The package supports typesetting Korean documents (including
+longdesc old Hangul texts), using XeTeX. It enhances the existing
+longdesc support, in XeTeX, providing features that provide quality
+longdesc typesetting. This package requires the cjk-ko package for its
+longdesc full functionality.
+containersize 54436
+containerchecksum bccbebffcdcb899eb854d82d47f7773ced9f121aeaf6e3a16d89ccc9f5c407f8f61f2c50b97d7147480e4d27372a38bec9e4432583f8ca61115bf8159bb2d014
+doccontainersize 271092
+doccontainerchecksum aa5470ba7cfad832c7934a18cf48def3e347d321893d4593a5227e6592e39ddd7b48c19cf693e3f90f70a35e33e7bcc50d0c6dd68d98d1cb51d0872ad3ccfecf
+docfiles size=77
+ texmf-dist/doc/xetex/xetexko/ChangeLog
+ texmf-dist/doc/xetex/xetexko/README details="Readme"
+ texmf-dist/doc/xetex/xetexko/xetexko-doc.pdf details="Package documentation" language="ko"
+ texmf-dist/doc/xetex/xetexko/xetexko-doc.tex
+runfiles size=70
+ texmf-dist/tex/xetex/xetexko/hanja_hangul.tab
+ texmf-dist/tex/xetex/xetexko/hanjacom_hangul.tab
+ texmf-dist/tex/xetex/xetexko/hanjaexa_hangul.tab
+ texmf-dist/tex/xetex/xetexko/xetexko-font.sty
+ texmf-dist/tex/xetex/xetexko/xetexko-hanging.sty
+ texmf-dist/tex/xetex/xetexko/xetexko-josa.sty
+ texmf-dist/tex/xetex/xetexko/xetexko-space.sty
+ texmf-dist/tex/xetex/xetexko/xetexko-vertical.sty
+ texmf-dist/tex/xetex/xetexko/xetexko.sty
+catalogue-contact-repository https://github.com/dohyunkim/xetexko
+catalogue-ctan /macros/xetex/generic/xetexko
+catalogue-license lppl1.3c
+catalogue-topics korean xetex
+catalogue-version 4.1

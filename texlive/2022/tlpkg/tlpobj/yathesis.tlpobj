@@ -1,0 +1,111 @@
+name yathesis
+category Package
+revision 63576
+shortdesc A LaTeX class for writing a thesis following French rules
+longdesc The purpose of yathesis is to facilitate the typesetting of
+longdesc theses prepared in France, whatever the disciplines and
+longdesc institutes. It implements most notably recommendations from the
+longdesc Ministry of Higher Education and Research, and this
+longdesc transparently to the user. It has also been designed to
+longdesc (optionally) take advantage of powerful tools available in
+longdesc LaTeX, including packages: BibLaTeX for the bibliography;
+longdesc glossaries for the glossary, list of acronyms and symbols list.
+longdesc The yathesis class, based on the book class, aims to be both
+longdesc simple to use and, to some extent, (easily) customizable.
+longdesc yathesis comes with templates and samples in the
+longdesc doc/latex/yathesis/french/exemples/ directory in the
+longdesc distribution. They can also be tested on ShareLaTeX (template
+longdesc and specimen) and on Overleaf (template and specimen). Note:
+longdesc The "ya" in the package name stands for "yet another".
+containersize 23656
+containerchecksum f8fc05aae6153e097f3328126a55b0bd255bef6446978235dbac453a0ee34185c7191aa7b9360ace22ef6f0c96dcb9ab67aac2cf479cdac709b4afd68b9a07c3
+doccontainersize 5190296
+doccontainerchecksum 877b7b2fd5e06016b145b66a4d2d0f8a0fb5f39b1efc28e01429a844bd3a06d4a21796015b57eaa6b7a37826831d49faadff4451cb8b4d4ace56d912c7cc2cb4
+docfiles size=3342
+ texmf-dist/doc/latex/yathesis/CHANGELOG.md
+ texmf-dist/doc/latex/yathesis/README.md details="Readme"
+ texmf-dist/doc/latex/yathesis/addons/completion/yathesis.cwl
+ texmf-dist/doc/latex/yathesis/english/README-TRANSLATION.md
+ texmf-dist/doc/latex/yathesis/french/canevas-specimen.zip
+ texmf-dist/doc/latex/yathesis/french/code/yathesis-code.pdf
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/add-ons.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/aspects.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/compilation.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/developpements.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/faq.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/fichiers-charges.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/incompatibilites-connues.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/installation.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/notations.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/packages-charges.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/recommandations.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/specimens-canevas.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/traduction.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/annexes/usage-avance.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/configuration/thesis.cfg
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/introduction.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/pages-annexes.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/pages-corps.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/pages-finales.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/pages-liminaires.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/pages-titre.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/personnalisation.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/corps/proprietes-document.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/introduction.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-dedicaces.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-epigraphes.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-laboratoire.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-mots-cles.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-resumes.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-symboles.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/preparation-titre.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-clause.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-dedicaces.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-epigraphes.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-laboratoire.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-mots-cles.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-resumes.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-symboles.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/production-titre.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/sommaire.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/extraits-these/table-des-matieres.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/glossaries/acronyms.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/glossaries/glossary.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/latexmkrc
+ texmf-dist/doc/latex/yathesis/french/documentation/liminaires/abstract.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/liminaires/fixed-footnotes.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/liminaires/titre.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/logoulcofondblanc.pdf
+ texmf-dist/doc/latex/yathesis/french/documentation/tableaux/commande-chapter-section.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/tableaux/expressions-standard.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/tableaux/expressions.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/tableaux/no-warnings.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/tableaux/specimens-canevas-tab.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/translations.tex
+ texmf-dist/doc/latex/yathesis/french/documentation/yathesis-fr.bib
+ texmf-dist/doc/latex/yathesis/french/documentation/yathesis-fr.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/yathesis/french/documentation/yathesis-fr.tex
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/bibliographie.bib
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/comue.pdf
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/labo.pdf
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/latexmkrc
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/paris13.pdf
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/these.pdf
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/these.tex
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/tiger.pdf
+ texmf-dist/doc/latex/yathesis/french/exemples/specimen/a-plat/ulco.pdf
+srccontainersize 54632
+srccontainerchecksum a6485ab26928fd8c883654085af733559d5bbf01828b5048788d73e1b34cfaa2b53988f763eadf61b01cca82d2a70ee188fd04d1835530d9a8766b2463e7605c
+srcfiles size=71
+ texmf-dist/source/latex/yathesis/yathesis-samples-templates.dtx
+ texmf-dist/source/latex/yathesis/yathesis.dtx
+runfiles size=37
+ texmf-dist/tex/latex/yathesis/yathesis-demo.sty
+ texmf-dist/tex/latex/yathesis/yathesis-translations.tex
+ texmf-dist/tex/latex/yathesis/yathesis.cls
+catalogue-contact-bugs https://github.com/dbitouze/yathesis/issues
+catalogue-contact-repository https://github.com/dbitouze/yathesis
+catalogue-ctan /macros/latex/contrib/yathesis
+catalogue-license lppl1.3c
+catalogue-topics class dissertation french
+catalogue-version 1.0.10

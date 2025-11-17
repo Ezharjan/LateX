@@ -1,0 +1,49 @@
+name ha-prosper
+category Package
+revision 59651
+shortdesc Patches and improvements for prosper
+longdesc HA-prosper is a patch for prosper that adds new functionality
+longdesc to prosper based presentations. Among the new features you will
+longdesc find automatic generation of a table of contents on each slide,
+longdesc support for notes and portrait slides. The available styles
+longdesc demonstrate how to expand the functionality of prosper even
+longdesc further.
+containersize 28404
+containerchecksum fc78d9c422c05e4d5b859d39f4b681c5deda4d6850ea383f33b71b0e2aebc5e4740811a831e8e364122c7f451866751d77af8d5e4fd6b8b9f5dbf76f23a7d09f
+doccontainersize 205056
+doccontainerchecksum 939e86ee09351991654d8542cc21667e16d64dc56f0e9d29932b816458319c3ba8e0632e92bc8c17cd104fd10dd7171a89f9026fc9faaa197fd7376c61377d63
+docfiles size=62
+ texmf-dist/doc/latex/ha-prosper/HA-prosper.pdf details="Package documentation"
+ texmf-dist/doc/latex/ha-prosper/HAPBigtest.tex
+ texmf-dist/doc/latex/ha-prosper/HAPDualslide.tex
+ texmf-dist/doc/latex/ha-prosper/HAPIntroduction.tex
+ texmf-dist/doc/latex/ha-prosper/README details="Package README"
+srccontainersize 38768
+srccontainerchecksum 0ef051d229ef636232751d77ead251622845f9b973ee32cfcdf67c046423334c0fff283fa1f569464931ff8a6ec139e9fb16acb133874bb56aa11684b7388f00
+srcfiles size=41
+ texmf-dist/source/latex/ha-prosper/HA-prosper.def
+ texmf-dist/source/latex/ha-prosper/HA-prosper.dtx
+runfiles size=57
+ texmf-dist/tex/latex/ha-prosper/HA-prosper.cfg
+ texmf-dist/tex/latex/ha-prosper/HA-prosper.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/Aggie/AMLogo.eps
+ texmf-dist/tex/latex/ha-prosper/Styles/Aggie/HAPAggie.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/Aggie/files.txt
+ texmf-dist/tex/latex/ha-prosper/Styles/Capsules/HAPcapsules.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/Ciment/HAPciment.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/Fyma/HAPFyma.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/HA/HAPHA.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/HA/flower.ps
+ texmf-dist/tex/latex/ha-prosper/Styles/Lakar/HAPLakar.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/Simple/HAPsimple.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/TCS/HAPTCS.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/TCS/HAPTCSTealBlue.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/TCS/HAPTCSgrad.sty
+ texmf-dist/tex/latex/ha-prosper/Styles/TCS/TCSgradlogo.ps
+ texmf-dist/tex/latex/ha-prosper/Styles/TCS/TCSlogo.ps
+ texmf-dist/tex/latex/ha-prosper/Styles/Tycja/HAPTycja.sty
+catalogue-also powerdot
+catalogue-ctan /macros/latex/contrib/ha-prosper
+catalogue-license lppl
+catalogue-topics presentation
+catalogue-version 4.21

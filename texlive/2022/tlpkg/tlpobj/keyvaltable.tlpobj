@@ -1,0 +1,31 @@
+name keyvaltable
+category Package
+revision 54677
+shortdesc Re-usable table layouts separating content and presentation
+longdesc The main goal of this package is to offer means for typesetting
+longdesc tables easily and yet still looking rather nicely in a way that
+longdesc separates content from presentation and with re-usable layout
+longdesc for tables of the same type. For this purpose, the package
+longdesc provides the environment KeyValTable, which allows one to
+longdesc typeset tables that have a previously defined column layout and
+longdesc whose rows can be produced in a key-value fashion.
+containersize 8740
+containerchecksum 5f3f337347df00a955dd7d7694a51ecce15027580d2264da3f580cb9ea602f6e1583f41e72cbe39a5d4ffb36640eb26cd39132967e0e5a138de8703eb1651de7
+doccontainersize 459000
+doccontainerchecksum 7709c3ea7ad6fac4625620bc86bddeda751c6e36accf7b14b3dab2d5280c77ee4b704b2657511c4226efaffc7db79cb8eea068566ae099354920a522975dbef5
+docfiles size=117
+ texmf-dist/doc/latex/keyvaltable/README.md details="Readme"
+ texmf-dist/doc/latex/keyvaltable/keyvaltable.pdf details="Package documentation"
+srccontainersize 37812
+srccontainerchecksum aeab384eab5a414cdee5162ccfea90284e9ccaa96129a2fcd77059abcdf2039350a8f6e17f4d5a7ea8759cf414daa620d12eb85ac42523ecfca70e6424e5df6c
+srcfiles size=42
+ texmf-dist/source/latex/keyvaltable/keyvaltable.dtx
+ texmf-dist/source/latex/keyvaltable/keyvaltable.ins
+runfiles size=10
+ texmf-dist/tex/latex/keyvaltable/keyvaltable.sty
+catalogue-contact-bugs https://github.com/Ri-Ga/keyvaltable/issues
+catalogue-contact-repository https://github.com/Ri-Ga/keyvaltable
+catalogue-ctan /macros/latex/contrib/keyvaltable
+catalogue-license lppl1.2
+catalogue-topics table
+catalogue-version 2.2

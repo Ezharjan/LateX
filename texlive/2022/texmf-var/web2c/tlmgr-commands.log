@@ -1,0 +1,490 @@
+[Thu Sep 22 13:35:50 2022] running mktexlsr
+[Thu Sep 22 13:35:53 2022] success, output:
+mktexlsr: Updating D:/XAMPP/LateX/texlive/texmf-local/ls-R...
+mktexlsr: Updated D:/XAMPP/LateX/texlive/texmf-local/ls-R.
+mktexlsr: Updating D:/XAMPP/LateX/texlive/2022/texmf-config/ls-R...
+mktexlsr: Updated D:/XAMPP/LateX/texlive/2022/texmf-config/ls-R.
+mktexlsr: Updating D:/XAMPP/LateX/texlive/2022/texmf-var/ls-R...
+mktexlsr: Updated D:/XAMPP/LateX/texlive/2022/texmf-var/ls-R.
+mktexlsr: Updating D:/XAMPP/LateX/texlive/2022/texmf-dist/ls-R...
+mktexlsr: Updated D:/XAMPP/LateX/texlive/2022/texmf-dist/ls-R.
+mktexlsr: Done.
+--end of output of mktexlsr.
+
+[Thu Sep 22 13:35:53 2022] running mtxrun --generate
+[Thu Sep 22 13:38:03 2022] success, output:
+resolvers       | resolving | variable 'SELFAUTOLOC' set to 'D:/XAMPP/LateX/texlive/2022/bin/win32'
+resolvers       | resolving | variable 'SELFAUTODIR' set to 'D:/XAMPP/LateX/texlive/2022/bin'
+resolvers       | resolving | variable 'SELFAUTOPARENT' set to 'D:/XAMPP/LateX/texlive/2022'
+resolvers       | resolving | variable 'TEXMFCNF' set to ''
+resolvers       | resolving | variable 'TEXMF' set to ''
+resolvers       | resolving | variable 'TEXOS' set to 'bin'
+resolvers       | resolving |
+resolvers       | resolving | using configuration specification 'home:texmf/web2c;{selfautoloc:,selfautoloc:/share/texmf-local/web2c,selfautoloc:/share/texmf-dist/web2c,selfautoloc:/share/texmf/web2c,selfautoloc:/texmf-local/web2c,selfautoloc:/texmf-dist/web2c,selfautoloc:/texmf/web2c,selfautodir:,selfautodir:/share/texmf-local/web2c,selfautodir:/share/texmf-dist/web2c,selfautodir:/share/texmf/web2c,selfautodir:/texmf-local/web2c,selfautodir:/texmf-dist/web2c,selfautodir:/texmf/web2c,$SELFAUTOGRANDPARENT/texmf-local/web2c,selfautoparent:,selfautoparent:/share/texmf-local/web2c,selfautoparent:/share/texmf-dist/web2c,selfautoparent:/share/texmf/web2c,selfautoparent:/texmf-local/web2c,selfautoparent:/texmf-dist/web2c,selfautoparent:/texmf/web2c}'
+resolvers       | resolving |
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'C:/Users/艾孜尔江/texmf/web2c' from specification 'home:texmf/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on weird path 'D:/XAMPP/LateX/texlive/2022/bin/win32' from specification 'selfautoloc:'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/win32/share/texmf-local/web2c' from specification 'selfautoloc:/share/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/win32/share/texmf-dist/web2c' from specification 'selfautoloc:/share/texmf-dist/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/win32/share/texmf/web2c' from specification 'selfautoloc:/share/texmf/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/win32/texmf-local/web2c' from specification 'selfautoloc:/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/win32/texmf-dist/web2c' from specification 'selfautoloc:/texmf-dist/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/win32/texmf/web2c' from specification 'selfautoloc:/texmf/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on weird path 'D:/XAMPP/LateX/texlive/2022/bin' from specification 'selfautodir:'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/share/texmf-local/web2c' from specification 'selfautodir:/share/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/share/texmf-dist/web2c' from specification 'selfautodir:/share/texmf-dist/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/share/texmf/web2c' from specification 'selfautodir:/share/texmf/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/texmf-local/web2c' from specification 'selfautodir:/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/texmf-dist/web2c' from specification 'selfautodir:/texmf-dist/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/bin/texmf/web2c' from specification 'selfautodir:/texmf/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path '$SELFAUTOGRANDPARENT/texmf-local/web2c' from specification '$SELFAUTOGRANDPARENT/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on weird path 'D:/XAMPP/LateX/texlive/2022' from specification 'selfautoparent:'
+resolvers       | resolving | found regular configuration file 'D:/XAMPP/LateX/texlive/2022/texmfcnf.lua'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/share/texmf-local/web2c' from specification 'selfautoparent:/share/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/share/texmf-dist/web2c' from specification 'selfautoparent:/share/texmf-dist/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/share/texmf/web2c' from specification 'selfautoparent:/share/texmf/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/texmf-local/web2c' from specification 'selfautoparent:/texmf-local/web2c'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/texmf-dist/web2c' from specification 'selfautoparent:/texmf-dist/web2c'
+resolvers       | resolving | found regular configuration file 'D:/XAMPP/LateX/texlive/2022/texmf-dist/web2c/texmfcnf.lua'
+resolvers       | resolving | looking for regular 'texmfcnf.lua' on given path 'D:/XAMPP/LateX/texlive/2022/texmf/web2c' from specification 'selfautoparent:/texmf/web2c'
+resolvers       | resolving |
+resolvers       | resolving | loading configuration file 'selfautoparent:/texmfcnf.lua'
+resolvers       | resolving |
+resolvers       | resolving | loading configuration file 'selfautoparent:/texmf-dist/web2c/texmfcnf.lua'
+resolvers       | resolving |
+resolvers       | resolving | locating list of 'home:.texlive2022/texmf-config' (runtime) (tree:///home:.texlive2022/texmf-config)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'tree', argument 'tree:///home:.texlive2022/texmf-config'
+resolvers       | trees | locator 'home:.texlive2022/texmf-config' not found
+resolvers       | resolving | locating list of 'home:texmf' (runtime) (tree:///home:texmf)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'tree', argument 'tree:///home:texmf'
+resolvers       | trees | locator 'home:texmf' not found
+resolvers       | resolving | locating list of 'selfautoparent:texmf-config' (cached)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'file', argument 'selfautoparent:texmf-config'
+resolvers       | files | file locator 'selfautoparent:texmf-config' found as 'D:/XAMPP/LateX/texlive/2022/texmf-config'
+resolvers       | resolving | hash 'selfautoparent:texmf-config' appended
+resolvers       | resolving | locating list of 'selfautoparent:texmf-var' (cached)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'file', argument 'selfautoparent:texmf-var'
+resolvers       | files | file locator 'selfautoparent:texmf-var' found as 'D:/XAMPP/LateX/texlive/2022/texmf-var'
+resolvers       | resolving | hash 'selfautoparent:texmf-var' appended
+resolvers       | resolving | locating list of 'selfautoparent:texmf-project' (cached)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'file', argument 'selfautoparent:texmf-project'
+resolvers       | files | file locator 'selfautoparent:texmf-project' not found
+resolvers       | resolving | locating list of 'selfautoparent:texmf-fonts' (cached)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'file', argument 'selfautoparent:texmf-fonts'
+resolvers       | files | file locator 'selfautoparent:texmf-fonts' not found
+resolvers       | resolving | locating list of 'D:/XAMPP/LateX/texlive/texmf-local' (cached)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'file', argument 'D:/XAMPP/LateX/texlive/texmf-local'
+resolvers       | files | file locator 'D:/XAMPP/LateX/texlive/texmf-local' found as 'D:/XAMPP/LateX/texlive/texmf-local'
+resolvers       | resolving | hash 'D:/XAMPP/LateX/texlive/texmf-local' appended
+resolvers       | resolving | locating list of 'selfautoparent:texmf-dist' (cached)
+resolvers       | methods | resolving, method 'locators', how 'uri', handler 'file', argument 'selfautoparent:texmf-dist'
+resolvers       | files | file locator 'selfautoparent:texmf-dist' found as 'D:/XAMPP/LateX/texlive/2022/texmf-dist'
+resolvers       | resolving | hash 'selfautoparent:texmf-dist' appended
+resolvers       | resolving |
+resolvers       | methods | resolving, method 'generators', how 'uri', handler 'file', argument 'selfautoparent:texmf-config'
+resolvers       | expansions | scanning path 'selfautoparent:texmf-config', branch 'selfautoparent:texmf-config'
+resolvers       | expansions | 1 files found on 0 directories with 1 uppercase remappings
+resolvers       | methods | resolving, method 'generators', how 'uri', handler 'file', argument 'selfautoparent:texmf-var'
+resolvers       | expansions | scanning path 'selfautoparent:texmf-var', branch 'selfautoparent:texmf-var'
+resolvers       | expansions | 382 files found on 38 directories with 2 uppercase remappings
+resolvers       | methods | resolving, method 'generators', how 'uri', handler 'file', argument 'D:/XAMPP/LateX/texlive/texmf-local'
+resolvers       | expansions | scanning path 'D:/XAMPP/LateX/texlive/texmf-local', branch 'D:/XAMPP/LateX/texlive/texmf-local'
+resolvers       | expansions | 1 files found on 27 directories with 1 uppercase remappings
+resolvers       | methods | resolving, method 'generators', how 'uri', handler 'file', argument 'selfautoparent:texmf-dist'
+resolvers       | expansions | scanning path 'selfautoparent:texmf-dist', branch 'selfautoparent:texmf-dist'
+resolvers       | globbing | confusing filename, name: 'custMatTransform.py', lower: 'custmattransform.py', already: 'CustMatTransform.py'
+resolvers       | globbing | confusing filename, name: 'setCustomAnchor.py', lower: 'setcustomanchor.py', already: 'SetCustomAnchor.py'
+resolvers       | globbing | confusing filename, name: 'widg_addLabel.py', lower: 'widg_addlabel.py', already: 'Widg_addLabel.py'
+resolvers       | globbing | confusing filename, name: 'widg_addPolyOpt.py', lower: 'widg_addpolyopt.py', already: 'Widg_addPolyOpt.py'
+resolvers       | globbing | confusing filename, name: 'widg_editBezier.py', lower: 'widg_editbezier.py', already: 'Widg_editBezier.py'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'FontLog.txt', lower: 'fontlog.txt', already: 'FONTLOG.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'FontLog.txt', lower: 'fontlog.txt', already: 'FONTLOG.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'FontLog.txt', lower: 'fontlog.txt', already: 'FONTLOG.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Readme.txt', lower: 'readme.txt', already: 'README.txt'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'FontLog.txt', lower: 'fontlog.txt', already: 'FONTLOG.txt'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'ChangeLog.md', lower: 'changelog.md', already: 'CHANGELOG.md'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'GUST-FONT-LICENSE.TXT', lower: 'gust-font-license.txt', already: 'GUST-FONT-LICENSE.txt'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Copyright.txt', lower: 'copyright.txt', already: 'COPYRIGHT.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Manifest.txt', lower: 'manifest.txt', already: 'MANIFEST.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'README.eng', lower: 'readme.eng', already: 'README.ENG'
+resolvers       | globbing | confusing filename, name: 'README.pol', lower: 'readme.pol', already: 'README.POL'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'History', lower: 'history', already: 'HISTORY'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG.txt', lower: 'changelog.txt', already: 'ChangeLog.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changelog', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'ANNOUNCE.txt', lower: 'announce.txt', already: 'Announce.txt'
+resolvers       | globbing | confusing filename, name: 'CHANGES.txt', lower: 'changes.txt', already: 'Changes.txt'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'ToDo', lower: 'todo', already: 'TODO'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Copying', lower: 'copying', already: 'COPYING'
+resolvers       | globbing | confusing filename, name: 'Licence.txt', lower: 'licence.txt', already: 'LICENCE.txt'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'History', lower: 'history', already: 'HISTORY'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'README-de', lower: 'readme-de', already: 'README-DE'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'ANNOUNCE.txt', lower: 'announce.txt', already: 'Announce.txt'
+resolvers       | globbing | confusing filename, name: 'SRCFILEs.txt', lower: 'srcfiles.txt', already: 'SrcFILEs.txt'
+resolvers       | globbing | confusing filename, name: 'CHANGES.txt', lower: 'changes.txt', already: 'Changes.txt'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Bugs', lower: 'bugs', already: 'BUGS'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LIESMICH.txt', lower: 'liesmich.txt', already: 'Liesmich.txt'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'SRCFILEs.txt', lower: 'srcfiles.txt', already: 'SrcFILEs.txt'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'History', lower: 'history', already: 'HISTORY'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'ChangeLog.md', lower: 'changelog.md', already: 'CHANGELOG.md'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'SRCFILEs.txt', lower: 'srcfiles.txt', already: 'SrcFILEs.txt'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'ToDo', lower: 'todo', already: 'TODO'
+resolvers       | globbing | confusing filename, name: 'LIESMICH.txt', lower: 'liesmich.txt', already: 'Liesmich.txt'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'CHANGEs.txt', lower: 'changes.txt', already: 'Changes.txt'
+resolvers       | globbing | confusing filename, name: 'SRCFILEs.txt', lower: 'srcfiles.txt', already: 'SrcFILEs.txt'
+resolvers       | globbing | confusing filename, name: 'Copyright', lower: 'copyright', already: 'COPYRIGHT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'ChangeLog.md', lower: 'changelog.md', already: 'CHANGELOG.md'
+resolvers       | globbing | confusing filename, name: 'Contributing.md', lower: 'contributing.md', already: 'CONTRIBUTING.md'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'ANNOUNCE', lower: 'announce', already: 'Announce'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'README.1st', lower: 'readme.1st', already: 'README.1ST'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'ANNOUNCE.txt', lower: 'announce.txt', already: 'Announce.txt'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Readme.txt', lower: 'readme.txt', already: 'README.txt'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'History', lower: 'history', already: 'HISTORY'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'ChangeLog.md', lower: 'changelog.md', already: 'CHANGELOG.md'
+resolvers       | globbing | confusing filename, name: 'MANIFEST.TXT', lower: 'manifest.txt', already: 'MANIFEST.txt'
+resolvers       | globbing | confusing filename, name: 'TODO.TXT', lower: 'todo.txt', already: 'ToDo.txt'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Changelog', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'VERSION.tex', lower: 'version.tex', already: 'Version.tex'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Copyright', lower: 'copyright', already: 'COPYRIGHT'
+resolvers       | globbing | confusing filename, name: 'Copyright', lower: 'copyright', already: 'COPYRIGHT'
+resolvers       | globbing | confusing filename, name: 'History.txt', lower: 'history.txt', already: 'HISTORY.TXT'
+resolvers       | globbing | confusing filename, name: 'Manifest.txt', lower: 'manifest.txt', already: 'MANIFEST.txt'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'README.1st', lower: 'readme.1st', already: 'README.1ST'
+resolvers       | globbing | confusing filename, name: 'Changelog', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'README.PL', lower: 'readme.pl', already: 'README.pl'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'History', lower: 'history', already: 'HISTORY'
+resolvers       | globbing | confusing filename, name: 'License', lower: 'license', already: 'LICENSE'
+resolvers       | globbing | confusing filename, name: 'HISTORY.txt', lower: 'history.txt', already: 'HISTORY.TXT'
+resolvers       | globbing | confusing filename, name: 'Changelog', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'README.TeXLive', lower: 'readme.texlive', already: 'README.TEXLIVE'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Contributors.md', lower: 'contributors.md', already: 'CONTRIBUTORS.md'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'logo.JPG', lower: 'logo.jpg', already: 'Logo.jpg'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'License.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changelog', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Changelog', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'LICENSE.txt', lower: 'license.txt', already: 'LICENSE.TXT'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'TODO.txt', lower: 'todo.txt', already: 'ToDo.txt'
+resolvers       | globbing | confusing filename, name: 'NEWS', lower: 'news', already: 'News'
+resolvers       | globbing | confusing filename, name: 'VERSION.tex', lower: 'version.tex', already: 'Version.tex'
+resolvers       | globbing | confusing filename, name: 'CHANGELOG', lower: 'changelog', already: 'ChangeLog'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | globbing | confusing filename, name: 'Changes', lower: 'changes', already: 'CHANGES'
+resolvers       | expansions | 205783 files found on 15289 directories with 75684 uppercase remappings
+resolvers       | resolving |
+resolvers       | resolving | saving tree 'selfautoparent:texmf-config'
+resolvers       | caches | hashing tree 'selfautoparent:texmf-config', hash '9d8576a18c59fc65c42b8c6d0dc5211a'
+resolvers       | caches | hashing tree 'selfautoparent:/texmfcnf.lua;selfautoparent:/texmf-dist/web2c/texmfcnf.lua', hash 'a86c089b384a3076dc514ba966a1fac9'
+resolvers       | caching | preparing 'files' for 'selfautoparent:texmf-config'
+resolvers       | caching | category 'files', cachename 'selfautoparent:texmf-config' saved in 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/9d8576a18c59fc65c42b8c6d0dc5211a.lua'
+system          | lua | compiling 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/9d8576a18c59fc65c42b8c6d0dc5211a.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/9d8576a18c59fc65c42b8c6d0dc5211a.luc'
+system          | lua | dumping 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/9d8576a18c59fc65c42b8c6d0dc5211a.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/9d8576a18c59fc65c42b8c6d0dc5211a.luc' stripped
+resolvers       | caching | 'files' compiled to 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/9d8576a18c59fc65c42b8c6d0dc5211a.luc'
+resolvers       | resolving | saving tree 'selfautoparent:texmf-var'
+resolvers       | caches | hashing tree 'selfautoparent:texmf-var', hash '80ba17e36177c570c2b7c4882672efc5'
+resolvers       | caching | preparing 'files' for 'selfautoparent:texmf-var'
+resolvers       | caching | category 'files', cachename 'selfautoparent:texmf-var' saved in 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/80ba17e36177c570c2b7c4882672efc5.lua'
+system          | lua | compiling 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/80ba17e36177c570c2b7c4882672efc5.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/80ba17e36177c570c2b7c4882672efc5.luc'
+system          | lua | dumping 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/80ba17e36177c570c2b7c4882672efc5.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/80ba17e36177c570c2b7c4882672efc5.luc' stripped
+resolvers       | caching | 'files' compiled to 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/80ba17e36177c570c2b7c4882672efc5.luc'
+resolvers       | resolving | saving tree 'D:/XAMPP/LateX/texlive/texmf-local'
+resolvers       | caches | hashing tree 'd:/xampp/latex/texlive/texmf-local', hash '41eec31464c91913e4afba0e0f6efe76'
+resolvers       | caching | preparing 'files' for 'D:/XAMPP/LateX/texlive/texmf-local'
+resolvers       | caching | category 'files', cachename 'D:/XAMPP/LateX/texlive/texmf-local' saved in 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/41eec31464c91913e4afba0e0f6efe76.lua'
+system          | lua | compiling 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/41eec31464c91913e4afba0e0f6efe76.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/41eec31464c91913e4afba0e0f6efe76.luc'
+system          | lua | dumping 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/41eec31464c91913e4afba0e0f6efe76.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/41eec31464c91913e4afba0e0f6efe76.luc' stripped
+resolvers       | caching | 'files' compiled to 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/41eec31464c91913e4afba0e0f6efe76.luc'
+resolvers       | resolving | saving tree 'selfautoparent:texmf-dist'
+resolvers       | caches | hashing tree 'selfautoparent:texmf-dist', hash '929f6dbc83f6d3b65dab91f1efa4aacb'
+resolvers       | caching | preparing 'files' for 'selfautoparent:texmf-dist'
+resolvers       | caching | category 'files', cachename 'selfautoparent:texmf-dist' saved in 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/929f6dbc83f6d3b65dab91f1efa4aacb.lua'
+system          | lua | compiling 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/929f6dbc83f6d3b65dab91f1efa4aacb.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/929f6dbc83f6d3b65dab91f1efa4aacb.luc'
+system          | lua | dumping 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/929f6dbc83f6d3b65dab91f1efa4aacb.lua' into 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/929f6dbc83f6d3b65dab91f1efa4aacb.luc' stripped
+resolvers       | caching | 'files' compiled to 'D:/XAMPP/LateX/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/trees/929f6dbc83f6d3b65dab91f1efa4aacb.luc'
+mtxrun          |
+mtxrun          | elapsed lua time: 129.942 seconds
+--end of output of mtxrun --generate.
+
+[Thu Sep 22 13:38:06 2022] running updmap-sys
+[Thu Sep 22 13:38:35 2022] success, output:
+updmap will read the following updmap.cfg files (in precedence order):
+  d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg
+updmap may write changes to the following updmap.cfg file:
+  d:/xampp/latex/texlive/2022/texmf-config/web2c/updmap.cfg
+dvips output dir: "d:/xampp/latex/texlive/2022/texmf-var/fonts/map/dvips/updmap"
+pdftex output dir: "d:/xampp/latex/texlive/2022/texmf-var/fonts/map/pdftex/updmap"
+dvipdfmx output dir: "d:/xampp/latex/texlive/2022/texmf-var/fonts/map/dvipdfmx/updmap"
+
+updmap is creating new map files
+using the following configuration:
+  LW35 font names                  : URWkb (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  prefer outlines                  : true (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  texhash enabled                  : true
+  download standard fonts (dvips)  : true (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  download standard fonts (pdftex) : true (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  jaEmbed replacement string       : haranoaji (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  jaVariant replacement string     : -04 (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  scEmbed replacement string       : arphic (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  tcEmbed replacement string       : arphic (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  koEmbed replacement string       : baekmuk (d:/xampp/latex/texlive/2022/texmf-dist/web2c/updmap.cfg)
+  create a mapfile for pxdvi       : false (default)
+
+Scanning for LW35 support files  [  3 files]
+Scanning for MixedMap entries    [ 46 files]
+Scanning for KanjiMap entries    [ 11 files]
+Scanning for Map entries         [324 files]
+
+Generating output for dvipdfmx...
+Generating output for ps2pk...
+Generating output for dvips...
+Generating output for pdftex...
+
+Files generated:
+  d:/xampp/latex/texlive/2022/texmf-var/fonts/map/dvips/updmap:
+       16061 2022-09-22 13:38:19 builtin35.map
+       21535 2022-09-22 13:38:19 download35.map
+     4378393 2022-09-22 13:38:20 psfonts_pk.map
+     4644621 2022-09-22 13:38:19 psfonts_t1.map
+     4635086 2022-09-22 13:38:19 ps2pk.map
+     4644621 2022-09-22 13:38:19 psfonts.map = psfonts_t1.map
+  d:/xampp/latex/texlive/2022/texmf-var/fonts/map/pdftex/updmap:
+     4635093 2022-09-22 13:38:21 pdftex_dl14.map
+     4633428 2022-09-22 13:38:20 pdftex_ndl14.map
+     4635093 2022-09-22 13:38:21 pdftex.map = pdftex_dl14.map
+  d:/xampp/latex/texlive/2022/texmf-var/fonts/map/dvipdfmx/updmap:
+       12167 2022-09-22 13:38:18 kanjix.map
+
+Transcript written on: d:/xampp/latex/texlive/2022/texmf-var/web2c/updmap.log
+updmap: updating ls-R files.
+--end of output of updmap-sys.
+

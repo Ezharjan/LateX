@@ -1,0 +1,23 @@
+name luahyphenrules
+category Package
+revision 56200
+shortdesc Loading patterns in LuaLaTeX with language.dat
+longdesc Preloading hyphenation patterns (or 'hyphen rules.) into any
+longdesc format based upon LuaTeX is not required in LuaTeX and recent
+longdesc releases of babel don't do it anyway. This package is addressed
+longdesc to those who just want to select the languages and load their
+longdesc patterns by means of `language.dat` without loading `babel`.
+containersize 2368
+containerchecksum 01025f1aa9abf7fb0c06045e8bebba3572b1aad06bb6edafd916e721c8ecb295fc680bc4da968e4fb059173ed9ba8e8de72ed42923b458a8dc42de4424b6ef9c
+doccontainersize 41252
+doccontainerchecksum 1487269c78bdef7aa626bee1c339358aea03af7df17cf92d48e56a1530b5e4bb7a5dd56fd7e094512fc3c149343e35e9e1683ffcdb8634042f26e86083f3ca69
+docfiles size=12
+ texmf-dist/doc/lualatex/luahyphenrules/README.md details="Readme"
+ texmf-dist/doc/lualatex/luahyphenrules/luahyphenrules.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/luahyphenrules/luahyphenrules.tex
+runfiles size=2
+ texmf-dist/tex/lualatex/luahyphenrules/luahyphenrules.sty
+catalogue-ctan /macros/luatex/latex/luahyphenrules
+catalogue-license lppl1.3
+catalogue-topics hyphenation luatex
+catalogue-version 1.1

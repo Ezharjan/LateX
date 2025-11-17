@@ -1,0 +1,29 @@
+name color-edits
+category Package
+revision 56707
+shortdesc Colorful edits for multiple authors of a shared document
+longdesc This package provides a fairly light-weight solution for
+longdesc annotating LaTeX source code with color to show
+longdesc additions/changes, replacements, deletions, and comments. This
+longdesc is particularly useful when a document is being edited by
+longdesc multiple authors. Two package options allow the quick
+longdesc suppression of all colorful edits and comments, and showing
+longdesc text whose deletion was proposed.
+containersize 1920
+containerchecksum e1023d734b7c8c2c781fd037f29a8c845a45fcd1c62d7880d51755bf943dba142fee040c2f0b9bea2ef6986818b5f67126ff468639c0d962d0a779f6840fb1c7
+doccontainersize 231020
+doccontainerchecksum 17322e4a1e9cd8cd6043a37e0c06bca019b887aad0100367b0c99b70fe3043d32568b5cf587cb42d0bdfe77cf18bf222fba126833d9a61789bba88bd121dbc4c
+docfiles size=62
+ texmf-dist/doc/latex/color-edits/README.md details="Readme"
+ texmf-dist/doc/latex/color-edits/color-edits.pdf details="Package documentation"
+srccontainersize 7604
+srccontainerchecksum b23f1893840a3a2a8d5a77386515c224656ca0c82aec3eb82209c862ebb222e8a2cdf4942bce3d43f4538bd380f9518fe031f08259dd063578760431a6230f10
+srcfiles size=8
+ texmf-dist/source/latex/color-edits/color-edits.dtx
+ texmf-dist/source/latex/color-edits/color-edits.ins
+runfiles size=2
+ texmf-dist/tex/latex/color-edits/color-edits.sty
+catalogue-ctan /macros/latex/contrib/color-edits
+catalogue-license lppl1.3
+catalogue-topics editorial colour
+catalogue-version 1.1

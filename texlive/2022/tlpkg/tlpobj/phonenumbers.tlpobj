@@ -1,0 +1,37 @@
+name phonenumbers
+category Package
+revision 63774
+shortdesc Typesetting telephone numbers with LaTeX
+longdesc The phonenumbers package makes it possible to typeset telephone
+longdesc numbers according to different national conventions. German,
+longdesc Austrian, French, British and North American phone numbers are
+longdesc supported. Phone numbers from other countries are supported
+longdesc rudimentarily. The user can select from various formatting
+longdesc options, including the additional output of the country calling
+longdesc code. The package is able to check if a phone number is valid
+longdesc according to the national rules. It also allows to link phone
+longdesc numbers using the hyperref package.
+containersize 70792
+containerchecksum 328a221086c26804d8655bd38f4a302b9d76b25e1a6238395f342bba8d1f6206b1d64a7a2fe4de41940015701e8fb8bcf33a0ed5d7298b8c7642429d93a85f8f
+doccontainersize 1167224
+doccontainerchecksum ec94445c39683298feaf57ac7d074147fa094aeb3fad983b85fd922ec8baf533160a865997c246a62677ba79bf85ce8f385ede4bae159667ecae6eec2cf84824
+docfiles size=982
+ texmf-dist/doc/latex/phonenumbers/Literatur.bib
+ texmf-dist/doc/latex/phonenumbers/README details="Readme"
+ texmf-dist/doc/latex/phonenumbers/phonenumbers-de.pdf details="German package documentation" language="de"
+ texmf-dist/doc/latex/phonenumbers/phonenumbers-de.tex
+ texmf-dist/doc/latex/phonenumbers/phonenumbers-en.pdf details="English package documentation"
+ texmf-dist/doc/latex/phonenumbers/phonenumbers-en.tex
+runfiles size=167
+ texmf-dist/tex/latex/phonenumbers/phonenumbers-AT.def
+ texmf-dist/tex/latex/phonenumbers/phonenumbers-DE.def
+ texmf-dist/tex/latex/phonenumbers/phonenumbers-FR.def
+ texmf-dist/tex/latex/phonenumbers/phonenumbers-UK.def
+ texmf-dist/tex/latex/phonenumbers/phonenumbers-US.def
+ texmf-dist/tex/latex/phonenumbers/phonenumbers.sty
+catalogue-contact-bugs https://github.com/wehro/phonenumbers/issues
+catalogue-contact-repository https://github.com/wehro/phonenumbers
+catalogue-ctan /macros/latex/contrib/phonenumbers
+catalogue-license lppl1.3
+catalogue-topics addr-list numbers expl3
+catalogue-version 2.5

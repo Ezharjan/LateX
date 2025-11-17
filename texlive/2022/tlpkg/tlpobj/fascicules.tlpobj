@@ -1,0 +1,52 @@
+name fascicules
+category Package
+revision 54080
+shortdesc Create mathematical manuals for schools
+longdesc This package enables LaTeX users to create math books for
+longdesc middle and high schools. It provides commands to create the
+longdesc front page of the manual and the chapters. Each chapter can
+longdesc consist of three sections: the lesson, the exercises and the
+longdesc activities.
+containersize 5664
+containerchecksum 0d6318bea8660796a5ddeab06c416017ec2075633a391a536c7c3355de7b7e7f711e74f0e43e8b4fd39debfec797164f1961eb27776ca3b53eee729d0e27a479
+doccontainersize 2042296
+doccontainerchecksum ee9a54c4b2d746577e94abb6d458c473f88bff18e4f0f57bed5923a1ef08c6ca533183ad9e9eb1d1bcfae6aa5082d88a9c08fe7cf96c3ab9d71ab099ec64c1c0
+docfiles size=760
+ texmf-dist/doc/latex/fascicules/README.md details="Readme"
+ texmf-dist/doc/latex/fascicules/fascicules.pdf details="Package documentation"
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/chapitre.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/act.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/activite_TP_geogebra_paraboles.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/cours_second_degre.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/crs.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/exos.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/exos_algebre.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/content/exos_second_degre.tex
+ texmf-dist/doc/latex/fascicules/guide/ch4_mon_chapitre/img/chapitre.jpg
+ texmf-dist/doc/latex/fascicules/guide/content/act.tex
+ texmf-dist/doc/latex/fascicules/guide/content/act_back.tex
+ texmf-dist/doc/latex/fascicules/guide/content/ch1_introduction.tex
+ texmf-dist/doc/latex/fascicules/guide/content/ch2_organisation.tex
+ texmf-dist/doc/latex/fascicules/guide/content/ch3_graphiques.tex
+ texmf-dist/doc/latex/fascicules/guide/content/ch4_nouveau_chapitre.tex
+ texmf-dist/doc/latex/fascicules/guide/content/exos.tex
+ texmf-dist/doc/latex/fascicules/guide/content/img/ch1.png
+ texmf-dist/doc/latex/fascicules/guide/content/img/ch2.jpg
+ texmf-dist/doc/latex/fascicules/guide/content/img/ch3.jpg
+ texmf-dist/doc/latex/fascicules/guide/content/img/vieuxlivres.jpg
+ texmf-dist/doc/latex/fascicules/guide/guide.pdf details="Package documentation" language="fr"
+ texmf-dist/doc/latex/fascicules/guide/guide.tex
+ texmf-dist/doc/latex/fascicules/guide/preamble.tex
+ texmf-dist/doc/latex/fascicules/guide/solutions/ch2.tex
+srccontainersize 9288
+srccontainerchecksum c5fec67754d84dc42dd6c62267c8a906a5717f53d9c063efc51b6cc45f3f616d270fa3af2658deac438739cb231bcf9b2c9497477c910f576ca943b80e03f3c9
+srcfiles size=9
+ texmf-dist/source/latex/fascicules/fascicules.dtx
+ texmf-dist/source/latex/fascicules/fascicules.ins
+runfiles size=5
+ texmf-dist/tex/latex/fascicules/fascicules.sty
+catalogue-also schule
+catalogue-ctan /macros/latex/contrib/fascicules
+catalogue-license lppl
+catalogue-topics teaching
+catalogue-version 1

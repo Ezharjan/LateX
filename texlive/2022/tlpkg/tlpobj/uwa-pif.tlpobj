@@ -1,0 +1,31 @@
+name uwa-pif
+category Package
+revision 64314
+shortdesc A Participant Information Form (PIF) for a human research protocol at the University of Western Australia
+longdesc This package generates a Participant Information Form (PIF) for
+longdesc a human research protocol at the University of Western
+longdesc Australia. It requires the UWA logo in PDF format, which is
+longdesc available in SVG format at
+longdesc https://static-listing.weboffice.uwa.edu.au/visualid/core-rebra
+longdesc nd/img/uwacrest/, and uses the Calibri fonts by default. The
+longdesc class works with XeLaTeX and LuaLaTeX. It depends on the
+longdesc uwa-letterhead package.
+containersize 2588
+containerchecksum 861581624b873a2ba4ea9e8a8a89412a83fd40ae6bc8f90083ea94d91da3e595c3b8b3748cd3c33fe21762ca3bc8dadd19aac3586896ecff1b28b874d242b1bf
+doccontainersize 50500
+doccontainerchecksum 3d6d0f5fa5abdf66e748bef489e906fc4fa050cf99e64491b15bdb2dda62f884ebbe9ff642673d050a5eefb0c1c1f0d6f0bcb7889143e3755a103cf27870e249
+docfiles size=15
+ texmf-dist/doc/latex/uwa-pif/README details="Readme"
+ texmf-dist/doc/latex/uwa-pif/uwa-pif-example.tex
+ texmf-dist/doc/latex/uwa-pif/uwa-pif.pdf details="Package documentation"
+srccontainersize 5692
+srccontainerchecksum 6cb33c10620032ccce8cc40ea897963daf5d8dd6f9a7434d7c23c28fc2b4b93e8a207c8e96dcca401aee2858f8c2d1149407065821ee1be6de32da56e6ce3a04
+srcfiles size=6
+ texmf-dist/source/latex/uwa-pif/uwa-pif.dtx
+ texmf-dist/source/latex/uwa-pif/uwa-pif.ins
+runfiles size=2
+ texmf-dist/tex/latex/uwa-pif/uwa-pif.cls
+catalogue-ctan /macros/unicodetex/latex/uwa-pif
+catalogue-license lppl1.3
+catalogue-topics class std-conform
+catalogue-version 1.0.1

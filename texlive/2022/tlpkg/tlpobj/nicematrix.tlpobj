@@ -1,0 +1,33 @@
+name nicematrix
+category Package
+revision 64433
+shortdesc Improve the typesetting of mathematical matrices with PGF
+longdesc This package is based on the package array. It creates PGF/TikZ
+longdesc nodes under the cells of the array and uses these nodes to
+longdesc provide functionalities to construct tabulars, arrays and
+longdesc matrices. Among the features : continuous dotted lines for the
+longdesc mathematical matrices; exterior rows and columns (so-called
+longdesc border matrices); control of the width of the columns; tools to
+longdesc color rows and columns with a good PDF result; blocks of cells;
+longdesc etc. The package requires and loads l3keys2e, xparse, array,
+longdesc amsmath, pgfcore, and the module shapes of PGF.
+containersize 38164
+containerchecksum bff0dccf33f4759f0af8b51a99852cdb16182e2c9fe8494d2fe6c65b25c3231f619d242f0e2c0379ec29d184bacd07970a35d2f64836e6e5e1d105e4234af668
+doccontainersize 1818852
+doccontainerchecksum 92ed3f558e5b12a47b6fbcd1edcb615eb35871482676dc0948b7816ad5300cecc17c2fcd8f33855bd574dee0e24f5a430542642c8734cf292c15e869904bd82b
+docfiles size=499
+ texmf-dist/doc/latex/nicematrix/README.md details="Readme"
+ texmf-dist/doc/latex/nicematrix/nicematrix-french.pdf details="Package documentation in French" language="fr"
+ texmf-dist/doc/latex/nicematrix/nicematrix-french.tex
+ texmf-dist/doc/latex/nicematrix/nicematrix.pdf details="Package documentation"
+srccontainersize 120672
+srccontainerchecksum 752230a055c4f427b5419be310c5f18583a219e500bb5192b8690025345f7fb291fec1ae6706da6d0cfd4b8ed81b43cab1954be5cb074809452af63bda762ca0
+srcfiles size=186
+ texmf-dist/source/latex/nicematrix/nicematrix.dtx
+ texmf-dist/source/latex/nicematrix/nicematrix.ins
+runfiles size=85
+ texmf-dist/tex/latex/nicematrix/nicematrix.sty
+catalogue-ctan /macros/latex/contrib/nicematrix
+catalogue-license lppl1.3
+catalogue-topics maths matrix pgf-tikz expl3
+catalogue-version 6.13a

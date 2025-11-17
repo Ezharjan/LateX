@@ -1,0 +1,30 @@
+name matrix-skeleton
+category Package
+revision 54080
+shortdesc A PGF/TikZ library that simplifies working with multiple matrix nodes
+longdesc The package provides a PGF/TikZ library that simplifies working
+longdesc with multiple matrix nodes. To do so, it correctly aligns
+longdesc groups of nodes with the content of the whole matrix.
+longdesc Furthermore, matrix.skeleton provides rows and columns for easy
+longdesc styling.
+containersize 3504
+containerchecksum 19c2f1b0fedee30735177dd509d312f128f44943ff6ad15574faa9ff2a9bd0c26ba7d5cfbbd11f3caf69d8c12a4ac3adac6ff83232d2ecde6858a860e8140d47
+doccontainersize 145316
+doccontainerchecksum 645a4e02d88f9f4e6dde2bf4d8cc4d5d0cb4ad321f54089874e1dac44cbef13602356f5bcff68b982bcada21ac985abbe4a78e2d93e3053c511eba6e95569e2d
+docfiles size=44
+ texmf-dist/doc/latex/matrix-skeleton/LICENSE
+ texmf-dist/doc/latex/matrix-skeleton/README.md details="Readme"
+ texmf-dist/doc/latex/matrix-skeleton/example.pdf
+ texmf-dist/doc/latex/matrix-skeleton/example.tex
+ texmf-dist/doc/latex/matrix-skeleton/manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/matrix-skeleton/manual.tex
+runfiles size=7
+ texmf-dist/tex/latex/matrix-skeleton/pgflibrarymatrix.skeleton.code.tex
+ texmf-dist/tex/latex/matrix-skeleton/tikzlibrarymatrix.skeleton.code.tex
+catalogue-contact-bugs https://github.com/dudebout/matrix.skeleton/issues
+catalogue-contact-home https://github.com/dudebout/matrix.skeleton
+catalogue-contact-repository https://github.com/dudebout/matrix.skeleton
+catalogue-ctan /graphics/pgf/contrib/matrix-skeleton
+catalogue-license isc
+catalogue-topics pgf-tikz maths
+catalogue-version 1.0

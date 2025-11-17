@@ -1,0 +1,30 @@
+name rojud
+category Package
+revision 56895
+shortdesc A font with the images of the counties of Romania
+longdesc This package provides a Type 1 font with images of the 42
+longdesc counties of Romania, constructed using a general method which
+longdesc is described in detail in the documentation. The package name
+longdesc is an abbreviation of "judetele Romaniei" (= counties of
+longdesc Romania).
+execute addMap rojud.map
+containersize 333376
+containerchecksum cd7065dc6a916941a0fd05ea342d29499b6f7496d1934e06c49e7ea1a99c5be5cd515bbcbc2b5935ff8132adcc7b94e653d55de967700410ace55697f6fc156e
+doccontainersize 187136
+doccontainerchecksum fb9c9f00433ba959ad8f7b5acc93b1e7b0db1cffec96b7c988eeaaae89ceecc815071a1e21f78d36279e529f4e9095602b1887d3c5d4164494be502cf4a19873
+docfiles size=50
+ texmf-dist/doc/fonts/rojud/README.txt details="Readme"
+ texmf-dist/doc/fonts/rojud/rojud.pdf details="Package documentation"
+ texmf-dist/doc/fonts/rojud/rojud.tex
+ texmf-dist/doc/fonts/rojud/rows.tex
+runfiles size=86
+ texmf-dist/fonts/map/dvips/rojud/rojud.map
+ texmf-dist/fonts/tfm/public/rojud/rojud.tfm
+ texmf-dist/fonts/type1/public/rojud/rojud.pfb
+ texmf-dist/tex/latex/rojud/ot1rojud.fd
+ texmf-dist/tex/latex/rojud/rojud.sty
+ texmf-dist/tex/latex/rojud/turojud.fd
+catalogue-ctan /fonts/rojud
+catalogue-license lppl
+catalogue-topics font font-type1 font-novelty
+catalogue-version 1.2

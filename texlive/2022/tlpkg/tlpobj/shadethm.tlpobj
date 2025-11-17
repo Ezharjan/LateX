@@ -1,0 +1,38 @@
+name shadethm
+category Package
+revision 53350
+shortdesc Theorem environments that are shaded
+longdesc Extends the \newtheorem command. If you say
+longdesc \newshadetheorem{theorem}{Theorem} in the preamble then your
+longdesc regular \begin{theorem} .. \end{theorem} will produce a theorem
+longdesc statement in a shaded box. It supports all the options of
+longdesc \newtheorem, including forms \newshadetheorem{..}[..]{..} and
+longdesc \newshadetheorem{..}{..}[..]. Environments declared using the
+longdesc package require their body to remain on one page; the mdframed
+longdesc package can frame and shade theorems, and its environments
+longdesc break at the end of a page; users are generally recommended,
+longdesc therefore, to use mdframed. In the same spirit, the author told
+longdesc us in January 2020: "These materials are obsolete. There are a
+longdesc number of more recent, more powerful packages that have
+longdesc capabilities that greatly extend the simple ones here. A new
+longdesc project should use one of those. These files only continue to
+longdesc be available to help people who are working with an old
+longdesc project."
+containersize 7540
+containerchecksum b9e15e017332eeadd3324afb858ab15a820e23da59f5bf7ea57dac719b9864304effd092c3cb2f25a6f29f22dd2b6f2585279edab4d77c62256582c66be550c3
+doccontainersize 360628
+doccontainerchecksum c24f37f7f864283f9ced1da1728dd7ae137395ecda3010aeff8ad778b96723224df77755f8f71f7672f5870ad6832a22bce47bec88ae51d0992e39c0a00c8caa
+docfiles size=94
+ texmf-dist/doc/latex/shadethm/1st_read.me
+ texmf-dist/doc/latex/shadethm/README details="Readme"
+ texmf-dist/doc/latex/shadethm/shadetest.pdf
+ texmf-dist/doc/latex/shadethm/shadetest.tex
+ texmf-dist/doc/latex/shadethm/shadethm-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/shadethm/shadethm-doc.tex
+runfiles size=8
+ texmf-dist/tex/latex/shadethm/colored.sth
+ texmf-dist/tex/latex/shadethm/shadein.sth
+ texmf-dist/tex/latex/shadethm/shadethm.sty
+catalogue-ctan /macros/latex/contrib/shadethm
+catalogue-license lppl
+catalogue-topics maths-theorem decoration

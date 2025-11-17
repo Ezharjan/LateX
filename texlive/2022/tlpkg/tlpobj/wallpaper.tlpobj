@@ -1,0 +1,25 @@
+name wallpaper
+category Package
+revision 15878
+shortdesc Easy addition of wallpapers (background images) to LaTeX documents, including tiling
+longdesc This collection contains files to add wallpapers (background
+longdesc images) to LaTeX documents. It uses the eso-pic package, but
+longdesc provides simple commands to include effects such as tiling. An
+longdesc example is provided, which works under both LaTeX and pdfLaTeX.
+containersize 1576
+containerchecksum 45647b8f8ebab9706437be2ce63f3506638fcc794839ff366210db4c35a3e16b2a39127fcacd0d97df356180770b6808e80e63ea1a50e69fc591cc0992e1787b
+doccontainersize 1277340
+doccontainerchecksum 46b890e0ea7bbfb3c3421f79338f5140a105bb90cbe712477e2dc956f834682f6d137e39492437d8f206fefaf07086cab7f3cdd6c27dc7136df54c5ba850b4a3
+docfiles size=317
+ texmf-dist/doc/latex/wallpaper/README details="Readme"
+ texmf-dist/doc/latex/wallpaper/example/TGTamber.png
+ texmf-dist/doc/latex/wallpaper/example/auto/example.el
+ texmf-dist/doc/latex/wallpaper/example/example.tex
+ texmf-dist/doc/latex/wallpaper/example/hya.png
+ texmf-dist/doc/latex/wallpaper/wallpapermanual.pdf details="Package documentation"
+runfiles size=2
+ texmf-dist/tex/latex/wallpaper/wallpaper.sty
+catalogue-ctan /macros/latex/contrib/wallpaper
+catalogue-license lppl
+catalogue-topics layout-page
+catalogue-version 1.10

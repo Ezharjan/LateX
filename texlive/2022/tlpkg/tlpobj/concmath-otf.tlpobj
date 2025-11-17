@@ -1,0 +1,25 @@
+name concmath-otf
+category Package
+revision 63096
+shortdesc Concrete based OpenType Math fontconcmath-otf
+longdesc This package provides an OpenType version of the Concrete Math
+longdesc font created by Ulrik Vieth in Metafont. "concmath-otf.sty" is
+longdesc a replacement for the original "concmath.sty" package to be
+longdesc used with LuaTeX or XeTeX engines.
+containersize 134264
+containerchecksum ad8b2673deed51a42118802c14e39946cf47d82ada82b1e88ef2cd4ed7e1de262b6720e4dcb553fbf9c35099455c708fb90cc5690d0233d3b1d2a9cabbbd6d84
+doccontainersize 1855428
+doccontainerchecksum 8fdc8d4872488c1d95eab5a523491e90876b94f6833f0a9e1412f2b21373728c14366f065667c3f947371d8fedf607c9bb250eb3c766b24a0505671a7c06069c
+docfiles size=477
+ texmf-dist/doc/fonts/concmath-otf/README.md details="Readme"
+ texmf-dist/doc/fonts/concmath-otf/concmath-otf.ltx
+ texmf-dist/doc/fonts/concmath-otf/concmath-otf.pdf details="Package documentation"
+ texmf-dist/doc/fonts/concmath-otf/unimath-concrete.ltx
+ texmf-dist/doc/fonts/concmath-otf/unimath-concrete.pdf details="List of glyphs"
+runfiles size=57
+ texmf-dist/fonts/opentype/public/concmath-otf/Concrete-Math.otf
+ texmf-dist/tex/latex/concmath-otf/concmath-otf.sty
+catalogue-ctan /fonts/concmath-otf
+catalogue-license ofl lppl1.3
+catalogue-topics font font-otf font-maths
+catalogue-version 0.21

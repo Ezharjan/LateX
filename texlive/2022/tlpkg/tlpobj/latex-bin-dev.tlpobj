@@ -1,0 +1,54 @@
+name latex-bin-dev
+category TLCore
+revision 62387
+shortdesc LaTeX pre-release executables and formats
+longdesc See the latex-base-dev package for information.
+depend atbegshi
+depend atveryend
+depend babel
+depend cm
+depend dehyph
+depend everyshi
+depend firstaid
+depend hyph-utf8
+depend hyphen-base
+depend l3backend
+depend l3kernel
+depend l3packages
+depend latex
+depend latex-base-dev
+depend latex-bin-dev.ARCH
+depend latex-firstaid-dev
+depend latex-fonts
+depend latex-graphics-dev
+depend latexconfig
+depend lm
+depend luahbtex
+depend luaotfload
+depend luatex
+depend pdftex
+depend tex-ini-files
+depend unicode-data
+execute AddFormat name=dvilualatex-dev engine=luatex           patterns=language.dat,language.dat.lua           options="dvilualatex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,latex-base-dev,latex-firstaid-dev,lm,luaotfload
+execute AddFormat name=latex-dev engine=pdftex           patterns=language.dat           options="-translate-file=cp227.tcx *latex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,latex-base-dev,latex-firstaid-dev,dehyph,hyph-utf8,latexconfig,pdftex
+execute AddFormat name=lualatex-dev engine=luahbtex           patterns=language.dat,language.dat.lua           options="lualatex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,latex-base-dev,latex-firstaid-dev,lm,luaotfload
+execute AddFormat name=pdflatex-dev engine=pdftex           patterns=language.dat           options="-translate-file=cp227.tcx *pdflatex.ini"           fmttriggers=atbegshi,atveryend,babel,cm,everyshi,firstaid,hyphen-base,l3backend,l3kernel,l3packages,latex,latex-fonts,tex-ini-files,unicode-data,latex-base-dev,latex-firstaid-dev,dehyph,hyph-utf8,latexconfig,pdftex
+containersize 676
+containerchecksum dade40731ce41c6a0304cb7472255f2d6c8b1fed45b619282aa747b3ebbdfd707da18947f06c8896d72605b324ffa58c3c7195bd90629531ef1fb54a91f1310c
+doccontainersize 14528
+doccontainerchecksum 7434698038dd90f10c51743e238cfcf0d85da2067d458f399e557b855c7ae6fd4e013ef4272e710eb9695d3e4f8757acae95c41a9e704a393202aafc11218754
+docfiles size=35
+ texmf-dist/doc/man/man1/dvilualatex-dev.1
+ texmf-dist/doc/man/man1/dvilualatex-dev.man1.pdf
+ texmf-dist/doc/man/man1/latex-dev.1
+ texmf-dist/doc/man/man1/latex-dev.man1.pdf
+ texmf-dist/doc/man/man1/lualatex-dev.1
+ texmf-dist/doc/man/man1/lualatex-dev.man1.pdf
+ texmf-dist/doc/man/man1/pdflatex-dev.1
+ texmf-dist/doc/man/man1/pdflatex-dev.man1.pdf
+ texmf-dist/doc/man/man1/platex-dev.1
+ texmf-dist/doc/man/man1/platex-dev.man1.pdf
+ texmf-dist/doc/man/man1/uplatex-dev.1
+ texmf-dist/doc/man/man1/uplatex-dev.man1.pdf
+ texmf-dist/doc/man/man1/xelatex-dev.1
+ texmf-dist/doc/man/man1/xelatex-dev.man1.pdf

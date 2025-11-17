@@ -1,0 +1,60 @@
+name exam-zh
+category Package
+revision 64434
+shortdesc LaTeX template for Chinese exams
+longdesc Although there are already several excellent exam packages or
+longdesc classes like exam and bhcexam, these do not fit the Chinese
+longdesc style very well, or they cannot be customized easily for
+longdesc Chinese exams of all types, like exams in primary school,
+longdesc junior high school, senior high school and even college. This
+longdesc is the main reason why this package was created. This package
+longdesc provides a class exam-zh.cls and several module packages like
+longdesc exam-zh-question.sty and exam-zh-choices.sty, where these
+longdesc module packages can be used individually. Using exam-zh you can
+longdesc separate the format and the content very well; use the choices
+longdesc environment to typeset choice items easily and automatically;
+longdesc design the seal line easily; and more (see manual).
+containersize 37616
+containerchecksum 72932cbe9de89515f1c50a37c7b027ad3bb99c7495712b145f4e642e99ee732ce5663604175db2966baaa04104e7112881640dde766102ae8b05809ca7d47397
+doccontainersize 1789216
+doccontainerchecksum 26c307026e5bc483d3e978a1e0e75ad5954bdab7f85ee4932df2b201f7d207dfe43658e544ed8d8d89aa0a76df8f6ec6e8d9ede0ec39b956f33ebae9fb66e9c5
+docfiles size=572
+ texmf-dist/doc/xelatex/exam-zh/CHANGELOG.md
+ texmf-dist/doc/xelatex/exam-zh/LICENSE
+ texmf-dist/doc/xelatex/exam-zh/README.md details="Readme"
+ texmf-dist/doc/xelatex/exam-zh/doc/back/about-author.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/back/development.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/back/main-changelog.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/back/package.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/body/cover.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/body/installation.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/body/introduction.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/body/usage.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/exam-zh-doc-setup.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/exam-zh-doc.pdf details="Package documentation"
+ texmf-dist/doc/xelatex/exam-zh/doc/exam-zh-doc.tex
+ texmf-dist/doc/xelatex/exam-zh/doc/figures/firstpage.pdf
+ texmf-dist/doc/xelatex/exam-zh/doc/figures/gitee-main.png
+ texmf-dist/doc/xelatex/exam-zh/doc/figures/gitee-release.png
+ texmf-dist/doc/xelatex/exam-zh/doc/xdyydoc.cls
+ texmf-dist/doc/xelatex/exam-zh/examples/example-multiple.pdf details="Example of use (2)"
+ texmf-dist/doc/xelatex/exam-zh/examples/example-multiple.tex
+ texmf-dist/doc/xelatex/exam-zh/examples/example-single.pdf details="Example of use (1)"
+ texmf-dist/doc/xelatex/exam-zh/examples/example-single.tex
+runfiles size=71
+ texmf-dist/tex/latex/exam-zh/exam-zh-chinese-english.sty
+ texmf-dist/tex/latex/exam-zh/exam-zh-choices.sty
+ texmf-dist/tex/latex/exam-zh/exam-zh-font.sty
+ texmf-dist/tex/latex/exam-zh/exam-zh-question.sty
+ texmf-dist/tex/latex/exam-zh/exam-zh-symbols.sty
+ texmf-dist/tex/latex/exam-zh/exam-zh-textfigure.sty
+ texmf-dist/tex/latex/exam-zh/exam-zh.cls
+catalogue-contact-bugs https://gitee.com/zepinglee/exam-zh/issues
+catalogue-contact-development https://gitee.com/zepinglee/exam-zh/pulls
+catalogue-contact-home https://gitee.com/zepinglee/exam-zh
+catalogue-contact-repository https://gitee.com/zepinglee/exam-zh/releases
+catalogue-contact-support https://gitee.com/zepinglee/exam-zh/issues
+catalogue-ctan /macros/xetex/latex/exam-zh
+catalogue-license lppl1.3c
+catalogue-topics exam chinese expl3 xetex
+catalogue-version 0.1.20

@@ -1,0 +1,15 @@
+name pdftosrc
+category TLCore
+revision 62387
+shortdesc Extract source file or stream from PDF file
+longdesc Extracts an embedded source file, or extracts and uncompresses
+longdesc a PDF stream given by object number. Developed as part of the
+longdesc pdfTeX source tree.
+depend pdftosrc.ARCH
+containersize 384
+containerchecksum c86b7123c88bc5c50a8ca4c6e435eccf04cb5d2e2d2b2a25922dfd69cc2eac3eb09c0bfef8fe0444a49f13035cc6a475de54e2b4ced603841f466b2c07568434
+doccontainersize 24900
+doccontainerchecksum 347ff9fe5424657b152afe0cc15ded0b2a81911934c3adac249c75f32f21ab72970bd285ae29447b7189d4df0399ff0dc3d084dba42896d17c5fbbc33cebf7e6
+docfiles size=9
+ texmf-dist/doc/man/man1/pdftosrc.1
+ texmf-dist/doc/man/man1/pdftosrc.man1.pdf

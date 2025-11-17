@@ -1,0 +1,39 @@
+name ps2eps
+category TLCore
+revision 62856
+shortdesc Produce Encapsulated PostScript from PostScript
+longdesc Produce Encapsulated PostScript Files (EPS/EPSF) from a
+longdesc one-page PostScript document, or any PostScript document. A
+longdesc correct Bounding Box is calculated for the EPS files and some
+longdesc PostScript command sequences that can produce errorneous
+longdesc results on printers are filtered. The input is cropped to
+longdesc include just the image contained in the PostScript file. The
+longdesc EPS files can then be included into TeX documents. Other
+longdesc programs like ps2epsi (a script distributed with ghostscript)
+longdesc don't always calculate the correct bounding box (because the
+longdesc values are put on the PostScript stack which may get corrupted
+longdesc by bad PostScript code) or they round it off, resulting in
+longdesc clipping the image. Therefore ps2eps uses a resolution of 144
+longdesc dpi to get the correct bounding box. The bundle includes
+longdesc binaries for Linux, Solaris, Digital Unix or Windows
+longdesc 2000/9x/NT; for other platforms, the user needs perl,
+longdesc ghostscript and an ANSI-C compiler. Included in the
+longdesc distribution is the bbox program, an application to produce
+longdesc Bounding Box values for rawppm or rawpbm format files.
+depend ps2eps.ARCH
+containersize 10892
+containerchecksum c43ba33d29d5b23ece2add44310b89036d5c4725ad76da1ed6e17bb93d0e7d103549f4a7e7807f89cdffcb19a95e0df2fe7851989b8a3b691aacfebfd41044ae
+doccontainersize 60664
+doccontainerchecksum 0194c8634c5d31cf441fb3d7fa171d85358db9831c03cc77bac37272ddfed81d8296e9b05eb4daa7c8012f3bad1a01625aeacb2232989969551e01a92912c409
+docfiles size=22
+ texmf-dist/doc/man/man1/bbox.1
+ texmf-dist/doc/man/man1/bbox.man1.pdf
+ texmf-dist/doc/man/man1/ps2eps.1
+ texmf-dist/doc/man/man1/ps2eps.man1.pdf
+runfiles size=9
+ texmf-dist/scripts/ps2eps/ps2eps.pl
+catalogue-contact-repository https://github.com/roland-bless/ps2eps
+catalogue-ctan /support/ps2eps
+catalogue-license gpl
+catalogue-topics ps-manip
+catalogue-version 1.70

@@ -1,0 +1,57 @@
+name lua-widow-control
+category Package
+revision 64191
+shortdesc Automatically remove widows and orphans from any document
+longdesc Unmodified TeX has very few ways of preventing widows and
+longdesc orphans. In documents with figures, section headings, and
+longdesc equations, TeX can stretch the vertical glue between items in
+longdesc order to prevent widows and orphans, but many documents have no
+longdesc figures or headings. TeX can also shorten the page by 1 line,
+longdesc but this will give each page a different length which can make
+longdesc a document look uneven. The typical solution is to
+longdesc strategically insert \looseness=1, but this requires manual
+longdesc editing every time that the document is edited.
+longdesc Lua-widow-control is essentially an automation of the
+longdesc \looseness method: it uses Lua callbacks to find "stretchy"
+longdesc paragraphs, then it lengthens them to remove widows and
+longdesc orphans. Lua-widow-control is compatible with all LuaTeX-based
+longdesc formats. All that is required is to load the package at the
+longdesc start of your document. To load: Plain LuaTeX: \input
+longdesc lua-widow-control LuaLaTeX: \usepackage{lua-widow-control}
+longdesc ConTeXt: \usemodule[lua-widow-control] OpTeX:
+longdesc \load[lua-widow-control]
+containersize 16552
+containerchecksum cd0274288daa39f1a60e9186fd11ace2ba07d7296ff778f29d4228b6bbbb4c12299b4a58e147ac9d49a268641bc1c7ba917e0ca1acb3dce996c05d9810350396
+doccontainersize 748240
+doccontainerchecksum 2923b4ab0cea9cfd452ad67bb7ed9435002a2f84c9c12328a47c49664c41ce066bad5d993935e85dd124179b845bca886ccdb6c96f8d2fab71d8ed04ad404065
+docfiles size=222
+ texmf-dist/doc/luatex/lua-widow-control/README.md details="Readme"
+ texmf-dist/doc/luatex/lua-widow-control/lua-widow-control.pdf details="Package documentation"
+ texmf-dist/doc/luatex/lua-widow-control/tb133chernoff-widows.pdf details="TUGboat Article"
+srccontainersize 48104
+srccontainerchecksum d8a228e05ef1fffdbd5322bb2690a993eda66f5980864e8375b944709352fe4c08abf1b5bb7bfddf16e9bf48a8cf12565776f95cc135913e83b2638f044d49b2
+srcfiles size=50
+ texmf-dist/source/luatex/lua-widow-control/CHANGELOG.md
+ texmf-dist/source/luatex/lua-widow-control/lwc-manual-samples.tex
+ texmf-dist/source/luatex/lua-widow-control/lwc-manual.bib
+ texmf-dist/source/luatex/lua-widow-control/lwc-manual.mkxl
+ texmf-dist/source/luatex/lua-widow-control/lwc-manual.tex
+ texmf-dist/source/luatex/lua-widow-control/tb133chernoff-widows-figure.ctx
+ texmf-dist/source/luatex/lua-widow-control/tb133chernoff-widows-plot.dat
+ texmf-dist/source/luatex/lua-widow-control/tb133chernoff-widows.bib
+ texmf-dist/source/luatex/lua-widow-control/tb133chernoff-widows.ltx
+runfiles size=19
+ texmf-dist/tex/context/third/lua-widow-control/t-lua-widow-control.mkiv
+ texmf-dist/tex/context/third/lua-widow-control/t-lua-widow-control.mkxl
+ texmf-dist/tex/lualatex/lua-widow-control/lua-widow-control-2022-02-22.sty
+ texmf-dist/tex/lualatex/lua-widow-control/lua-widow-control.sty
+ texmf-dist/tex/luatex/lua-widow-control/lua-widow-control.lua
+ texmf-dist/tex/luatex/lua-widow-control/lua-widow-control.tex
+ texmf-dist/tex/optex/lua-widow-control/lua-widow-control.opm
+catalogue-contact-bugs https://github.com/gucci-on-fleek/lua-widow-control/issues
+catalogue-contact-repository https://github.com/gucci-on-fleek/lua-widow-control
+catalogue-contact-support https://github.com/gucci-on-fleek/lua-widow-control/discussions
+catalogue-ctan /macros/luatex/generic/lua-widow-control
+catalogue-license other-free cc-by-sa-4
+catalogue-topics layout luatex expl3
+catalogue-version 2.2.2

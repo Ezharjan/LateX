@@ -1,0 +1,37 @@
+name llncsconf
+category Package
+revision 63136
+shortdesc LaTeX package extending Springer's llncs class
+longdesc The package extends Springer's llncs class for adding
+longdesc additional notes describing the status of the paper (submitted,
+longdesc accepted) as well as for creating author-archived versions that
+longdesc include the references to the official version hosted by
+longdesc Springer (as requested by the copyright transfer agreement for
+longdesc Springer's LNCS series).
+containersize 2284
+containerchecksum ded1d0ad62120e6665653575e6641a9bacb1fdd18b168f7c4389e2d8bbca6afa8cf15bbb7cf087f2ba502f85bb492dfd5d79862e03d909227666af7d8860d47f
+doccontainersize 269964
+doccontainerchecksum 1fc61aab273b9ba1ffaa95cc2716f36d61bc5d7d7c03a2470e3dff5fbee20dda933e4a38e5b39a7e165f68408f993de693ba5547b673e9faa9e5115358c9bfb6
+docfiles size=323
+ texmf-dist/doc/latex/llncsconf/CHANGELOG.md
+ texmf-dist/doc/latex/llncsconf/LICENSE
+ texmf-dist/doc/latex/llncsconf/README.md details="Readme"
+ texmf-dist/doc/latex/llncsconf/example/example.tex
+ texmf-dist/doc/latex/llncsconf/example/example_accepted_crop.pdf details="Example of use"
+ texmf-dist/doc/latex/llncsconf/example/example_accepted_nocrop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_intended_crop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_intended_nocrop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_llncs_crop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_llncs_nocrop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_proceedings_crop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_proceedings_nocrop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_submitted_crop.pdf
+ texmf-dist/doc/latex/llncsconf/example/example_submitted_nocrop.pdf
+runfiles size=2
+ texmf-dist/tex/latex/llncsconf/llncsconf.sty
+catalogue-contact-bugs https://github.com/adbrucker/llncsconf/issues
+catalogue-contact-repository https://github.com/adbrucker/llncsconf
+catalogue-ctan /macros/latex/contrib/llncsconf
+catalogue-license lppl1.3c
+catalogue-topics journalpub archival
+catalogue-version 1.2.0

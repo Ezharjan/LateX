@@ -1,0 +1,23 @@
+name tikz-swigs
+category Package
+revision 59889
+shortdesc Horizontally and vertically split elliptical nodes
+longdesc This package provides horizontally and vertically split
+longdesc elliptical (pairs of) nodes in TikZ. The package name derives
+longdesc from the fact that split ellipses of this type are used to
+longdesc represent Single-World Intervention Graph (SWIG) models which
+longdesc are used in counterfactual causal inference.
+containersize 5740
+containerchecksum f1e10c9cc4625fd2e61113f7d5c1cd637efd35ab9b0ccb4308837af3e384ae412bf068140a0924b0bad29e305fd4ba5a0770fdc1467e82cf85dd8eea8289190a
+doccontainersize 171860
+doccontainerchecksum 3ad431f150914461149b85fbc7ce05213c5176e6eaee553ecbf8d150644bc36fdcfa2d836e5201d9a8aecb58751eedd8b98a06ff305c60688766ce8dd00c817e
+docfiles size=56
+ texmf-dist/doc/latex/tikz-swigs/LICENSE
+ texmf-dist/doc/latex/tikz-swigs/README.md details="Readme"
+ texmf-dist/doc/latex/tikz-swigs/tikz-swigs.pdf details="Package documentation"
+ texmf-dist/doc/latex/tikz-swigs/tikz-swigs.tex
+runfiles size=10
+ texmf-dist/tex/latex/tikz-swigs/tikzlibraryswigs.code.tex
+catalogue-ctan /graphics/pgf/contrib/tikz-swigs
+catalogue-license lppl1.3c gpl
+catalogue-topics pgf-tikz

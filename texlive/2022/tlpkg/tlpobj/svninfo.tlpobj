@@ -1,0 +1,29 @@
+name svninfo
+category Package
+revision 62157
+shortdesc Typeset Subversion keywords
+longdesc A package for incorporating the values of Subversion keywords
+longdesc into typeset documents. Information about Subversion (a
+longdesc replacement for CVS) is available from the project's home site.
+containersize 3916
+containerchecksum ca2e0a3d0a5f4ab6950d5995b39f785ba071294134d947a47ca3e1f7e0bedc69398f9d0fc2162f349a635aa19ce8c963ec7c88d4bed2100d8f3da05219235655
+doccontainersize 258436
+doccontainerchecksum aa4bd06d31bad0a2441623b80f52702d67fdef03912b6f96058f3a89d00f4601cc4bae76a24f49540169ad30883177d038ddc7dedabd8d643b59df5c94be4a65
+docfiles size=70
+ texmf-dist/doc/latex/svninfo/README details="Readme"
+ texmf-dist/doc/latex/svninfo/svninfo.init
+ texmf-dist/doc/latex/svninfo/svninfo.pdf details="Package documentation"
+srccontainersize 12712
+srccontainerchecksum f9f65dcc56ae6b9cf2f5cd9dac27e3760f12428bee623e70018a767dbbf0b919178994349051893e52a04de75b8455b1c218b0f779f4a0ae4930480ba0ed24d1
+srcfiles size=14
+ texmf-dist/source/latex/svninfo/Makefile
+ texmf-dist/source/latex/svninfo/svninfo.dtx
+ texmf-dist/source/latex/svninfo/svninfo.ins
+runfiles size=5
+ texmf-dist/tex/latex/svninfo/svninfo.cfg
+ texmf-dist/tex/latex/svninfo/svninfo.sty
+catalogue-also svn svn-multi svn-prov
+catalogue-ctan /macros/latex/contrib/svninfo
+catalogue-license lppl1
+catalogue-topics version-control doc-mgmt
+catalogue-version 0.7.4

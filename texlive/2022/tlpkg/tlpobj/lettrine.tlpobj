@@ -1,0 +1,45 @@
+name lettrine
+category Package
+revision 54560
+shortdesc Typeset dropped capitals
+longdesc The lettrine package supports various dropped capitals styles,
+longdesc typically those described in the French typographic books. In
+longdesc particular, it has facilities for the paragraph text's left
+longdesc edge to follow the outline of capitals that have a regular
+longdesc shape (such as "A" and "V").
+containersize 7052
+containerchecksum 839469d3cdd53698bd9072451e7b9262633282cf46c32ecf23f3b0f46ae999ac259daeb6b4cc5c43222f9f788a95b85cc406857b19bf4eea1ac1ff3b00caac60
+doccontainersize 272308
+doccontainerchecksum 3ef14d7292d3653acfb5bd47141d16cdeaba393450fe27fe1b91b1f2c171c46949e7336a5d9a384676f3bf0d01b8297ff81f732267d94491460c7d883a520763
+docfiles size=81
+ texmf-dist/doc/latex/lettrine/README.md details="Readme"
+ texmf-dist/doc/latex/lettrine/demo-de.pdf details="Package examples (German)" language="de"
+ texmf-dist/doc/latex/lettrine/demo-de.tex
+ texmf-dist/doc/latex/lettrine/demo-fr.pdf details="Package examples (French)" language="fr"
+ texmf-dist/doc/latex/lettrine/demo-fr.tex
+ texmf-dist/doc/latex/lettrine/demo-lua.pdf
+ texmf-dist/doc/latex/lettrine/demo-lua.tex
+ texmf-dist/doc/latex/lettrine/lettrine.pdf details="Package documentation"
+srccontainersize 16720
+srccontainerchecksum 0f80bf599a303757e2a8ce836d50bd4a4ab701a623d5ea218d23c8c7ef267756cd5320998570962f9679f17bb26d89bd353ab99c3d5407aa535355239856465a
+srcfiles size=20
+ texmf-dist/source/latex/lettrine/contrib.dtx
+ texmf-dist/source/latex/lettrine/contrib.ins
+ texmf-dist/source/latex/lettrine/lettrine.dtx
+ texmf-dist/source/latex/lettrine/lettrine.ins
+runfiles size=19
+ texmf-dist/tex/latex/lettrine/lettrine-2006-03-17.sty
+ texmf-dist/tex/latex/lettrine/lettrine-2015-08-31.sty
+ texmf-dist/tex/latex/lettrine/lettrine-2018-08-18.sty
+ texmf-dist/tex/latex/lettrine/lettrine.cfg
+ texmf-dist/tex/latex/lettrine/lettrine.sty
+ texmf-dist/tex/latex/lettrine/optfile.cfl
+ texmf-dist/tex/latex/lettrine/pacl.cfl
+ texmf-dist/tex/latex/lettrine/padl.cfl
+ texmf-dist/tex/latex/lettrine/pzc2.cfl
+ texmf-dist/tex/latex/lettrine/pzc3.cfl
+catalogue-contact-home http://daniel.flipo.free.fr/lettrine
+catalogue-ctan /macros/latex/contrib/lettrine
+catalogue-license lppl1.3
+catalogue-topics lettrine
+catalogue-version 2.23

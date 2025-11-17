@@ -1,0 +1,36 @@
+name mandi
+category Package
+revision 61764
+shortdesc Macros for introductory physics and astronomy
+longdesc The package contains commands for students and teachers of
+longdesc introductory physics. Commands for physical quantities
+longdesc intelligently handle SI units so the user need not do so. There
+longdesc are other features that should make LaTeX easy for introductory
+longdesc physics students.
+containersize 11988
+containerchecksum 9bac7973ac229756b5263ee0e8a8a4381bf64400a1ee58b0abafa6765e1cea6dae0b660243e1dfa87a8072f1caf1851c11c88db81dae1b231ec6def9f965991a
+doccontainersize 483900
+doccontainerchecksum 4debcb2b892563755cd0779db9c1784f7feba4d0e35118cdb00569bc4eaddf23423f1236f0cf28adb1c399e220b5f348ef898b0e7f1c59e031891056b9148fdb
+docfiles size=125
+ texmf-dist/doc/latex/mandi/README.md details="Readme"
+ texmf-dist/doc/latex/mandi/mandi.pdf details="Package documentation"
+ texmf-dist/doc/latex/mandi/vdemo.py
+srccontainersize 30480
+srccontainerchecksum 1cf1912cd6db652bd927378970a1740153906f0c14e92da47a428c564c04f66f3496be8f639fcf3f0f0caab48fff0909ae72dd81085f2bd8a92d5ae08fce07a0
+srcfiles size=48
+ texmf-dist/source/latex/mandi/mandi.dtx
+ texmf-dist/source/latex/mandi/mandi.ins
+ texmf-dist/source/latex/mandi/mandiexp.dtx
+ texmf-dist/source/latex/mandi/mandistudent.dtx
+runfiles size=17
+ texmf-dist/tex/latex/mandi/mandi.sty
+ texmf-dist/tex/latex/mandi/mandiexp.sty
+ texmf-dist/tex/latex/mandi/mandistudent.sty
+catalogue-also siunitx
+catalogue-contact-bugs https://github.com/heafnerj/mandi/issues
+catalogue-contact-home https://github.com/heafnerj/mandi
+catalogue-contact-repository https://github.com/heafnerj/mandi
+catalogue-ctan /macros/latex/contrib/mandi
+catalogue-license lppl1.3
+catalogue-topics physics
+catalogue-version 3.1.0

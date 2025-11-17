@@ -1,0 +1,72 @@
+name amsrefs
+category Package
+revision 61937
+shortdesc A LaTeX-based replacement for BibTeX
+longdesc Amsrefs is a LaTeX package for bibliographies that provides an
+longdesc archival data format similar to the format of BibTeX database
+longdesc files, but adapted to make direct processing by LaTeX easier.
+longdesc The package can be used either in conjunction with BibTeX or as
+longdesc a replacement for BibTeX.
+containersize 27428
+containerchecksum 01416fea668e3717b14086199280582d7547cc7c555e19d2f88b7ee94dfb6863719375a140feaa5ecf7461c6d6c6f0ef52bffb544ff132b34771f11556ecdf09
+doccontainersize 1938804
+doccontainerchecksum b704ccb7bf8a49c141277b240e08ed7d22c71bdb91d625997a726b25ffb2e8f494637cd9ac7cee031f9b45476006441190ba95331e32c4ad3af4e25ecdcc6f6e
+docfiles size=522
+ texmf-dist/doc/latex/amsrefs/amsrdoc.pdf details="Package documentation"
+ texmf-dist/doc/latex/amsrefs/amsrefs.faq
+ texmf-dist/doc/latex/amsrefs/amsrefs.pdf details="Documented source"
+ texmf-dist/doc/latex/amsrefs/amsxport.pdf
+ texmf-dist/doc/latex/amsrefs/changes.pdf
+ texmf-dist/doc/latex/amsrefs/cite-xa.tex
+ texmf-dist/doc/latex/amsrefs/cite-xb.tex
+ texmf-dist/doc/latex/amsrefs/cite-xh.tex
+ texmf-dist/doc/latex/amsrefs/cite-xs.tex
+ texmf-dist/doc/latex/amsrefs/gktest.ltb
+ texmf-dist/doc/latex/amsrefs/ifoption.pdf
+ texmf-dist/doc/latex/amsrefs/jr.bib
+ texmf-dist/doc/latex/amsrefs/mathscinet.pdf
+ texmf-dist/doc/latex/amsrefs/pcatcode.pdf
+ texmf-dist/doc/latex/amsrefs/rkeyval.pdf
+ texmf-dist/doc/latex/amsrefs/textcmds.pdf
+srccontainersize 102000
+srccontainerchecksum 81b8aa65cc79f08133a6390915ed7753db3439448b608ce04330e23c849f876ff2242403b9bb3e08b9642cb0362732adbcefcab9640e75260548dce3938baa25
+srcfiles size=129
+ texmf-dist/source/latex/amsrefs/README
+ texmf-dist/source/latex/amsrefs/amsrdoc.tex
+ texmf-dist/source/latex/amsrefs/amsrefs.dtx
+ texmf-dist/source/latex/amsrefs/amsrefs.ins
+ texmf-dist/source/latex/amsrefs/amsxport.dtx
+ texmf-dist/source/latex/amsrefs/amsxport.ins
+ texmf-dist/source/latex/amsrefs/changes.tex
+ texmf-dist/source/latex/amsrefs/ifoption.dtx
+ texmf-dist/source/latex/amsrefs/ifoption.ins
+ texmf-dist/source/latex/amsrefs/install.txt
+ texmf-dist/source/latex/amsrefs/manifest.txt
+ texmf-dist/source/latex/amsrefs/mathscinet.dtx
+ texmf-dist/source/latex/amsrefs/mathscinet.ins
+ texmf-dist/source/latex/amsrefs/pcatcode.dtx
+ texmf-dist/source/latex/amsrefs/pcatcode.ins
+ texmf-dist/source/latex/amsrefs/rkeyval.dtx
+ texmf-dist/source/latex/amsrefs/rkeyval.ins
+ texmf-dist/source/latex/amsrefs/textcmds.dtx
+ texmf-dist/source/latex/amsrefs/textcmds.ins
+runfiles size=59
+ texmf-dist/bibtex/bib/amsrefs/amsj.bib
+ texmf-dist/bibtex/bst/amsrefs/amsra.bst
+ texmf-dist/bibtex/bst/amsrefs/amsrn.bst
+ texmf-dist/bibtex/bst/amsrefs/amsrs.bst
+ texmf-dist/bibtex/bst/amsrefs/amsru.bst
+ texmf-dist/bibtex/bst/amsrefs/amsry.bst
+ texmf-dist/tex/latex/amsrefs/amsbst.sty
+ texmf-dist/tex/latex/amsrefs/amsrefs.sty
+ texmf-dist/tex/latex/amsrefs/ifoption.sty
+ texmf-dist/tex/latex/amsrefs/mathscinet.sty
+ texmf-dist/tex/latex/amsrefs/pcatcode.sty
+ texmf-dist/tex/latex/amsrefs/rkeyval.sty
+ texmf-dist/tex/latex/amsrefs/textcmds.sty
+catalogue-also biblatex
+catalogue-contact-home https://www.ams.org/arc/resources/amsrefs-about.html
+catalogue-ctan /macros/latex/contrib/amsrefs
+catalogue-license lppl1.3
+catalogue-topics biblio
+catalogue-version 2.14

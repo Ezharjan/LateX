@@ -1,0 +1,39 @@
+name amiri
+category Package
+revision 55403
+shortdesc A classical Arabic typeface, Naskh style
+longdesc Amiri is a classical Arabic typeface in Naskh style for
+longdesc typesetting books and other running text. It is a revival of
+longdesc the beautiful typeface pioneered in the early 20th century by
+longdesc Bulaq Press in Cairo, also known as Amiria Press, after which
+longdesc the font is named. The project aims at the revival of the
+longdesc aesthetics and traditions of Arabic typesetting, and adapting
+longdesc it to the era of digital typesetting, in a publicly available
+longdesc form.
+containersize 495748
+containerchecksum 36e26c23ddc53de46250f95a0d4a608c7e43e781b56002a62bf96675297aa2e81c9454811b8063080937feab4dd5b1f3782bccff4a1d2376d8484c9d60295fdb
+doccontainersize 99476
+doccontainerchecksum 3328c73a7203ca3239036063c7a65faa9119ccb4c1f7fe4229abf49a0bd8216e4bef1a93a18c452a0200d781240dc643888c2d278eb97edfcd1c716ae14478e2
+docfiles size=38
+ texmf-dist/doc/fonts/amiri/Documentation-Arabic.pdf details="Package documentation (Arabic)" language="ar"
+ texmf-dist/doc/fonts/amiri/NEWS
+ texmf-dist/doc/fonts/amiri/NEWS-Arabic
+ texmf-dist/doc/fonts/amiri/OFL.txt
+ texmf-dist/doc/fonts/amiri/README details="Readme"
+ texmf-dist/doc/fonts/amiri/README-Arabic details="Readme (Arabic)" language="ar"
+runfiles size=621
+ texmf-dist/fonts/truetype/public/amiri/Amiri-Bold.ttf
+ texmf-dist/fonts/truetype/public/amiri/Amiri-BoldSlanted.ttf
+ texmf-dist/fonts/truetype/public/amiri/Amiri-Regular.ttf
+ texmf-dist/fonts/truetype/public/amiri/Amiri-Slanted.ttf
+ texmf-dist/fonts/truetype/public/amiri/AmiriQuran.ttf
+ texmf-dist/fonts/truetype/public/amiri/AmiriQuranColored.ttf
+ texmf-dist/tex/latex/amiri/Amiri.fontspec
+catalogue-contact-bugs https://github.com/alif-type/amiri/issues
+catalogue-contact-home http://amirifont.org
+catalogue-contact-repository https://github.com/alif-type/amiri
+catalogue-contact-support https://github.com/alif-type/amiri/issues
+catalogue-ctan /fonts/amiri
+catalogue-license ofl
+catalogue-topics font font-ttf arabic
+catalogue-version 0.113

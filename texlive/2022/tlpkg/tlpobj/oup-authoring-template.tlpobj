@@ -1,0 +1,30 @@
+name oup-authoring-template
+category Package
+revision 64314
+shortdesc A general template for journals published by Oxford University Press (OUP)
+longdesc This package provides a general LaTeX template for journals
+longdesc published by Oxford University Press (OUP). The template
+longdesc outputs to the three official page designs (traditional,
+longdesc contemporary, modern) used by many journals published by OUP,
+longdesc with large, medium and small page options. For more information
+longdesc see
+longdesc https://academic.oup.com/journals/pages/authors/preparing_your_
+longdesc manuscript.
+containersize 17492
+containerchecksum 9d413565df565a7f46bf6387a70b974c9c1fb9aa5d47fe4dfab0116d326d4f96b5018db1e9040f57f967a9ef5f22fcd619a5f930ea07aa52fdf1f2ad39d81e8d
+doccontainersize 322096
+doccontainerchecksum 05f28ee3b5f91b1f9a17d2a58262a248054f1d3da7969576baa2b90c4bb48bba2627b9acc43f3cb9b2654930e9009ce3a0cf961749e69dc14d71c3dcb74d8736
+docfiles size=115
+ texmf-dist/doc/latex/oup-authoring-template/README details="Readme"
+ texmf-dist/doc/latex/oup-authoring-template/doc/oup-authoring-template-doc.pdf details="User manual"
+ texmf-dist/doc/latex/oup-authoring-template/doc/oup-authoring-template-doc.tex
+ texmf-dist/doc/latex/oup-authoring-template/manifest.txt
+ texmf-dist/doc/latex/oup-authoring-template/oup-authoring-template.pdf details="Example of use"
+ texmf-dist/doc/latex/oup-authoring-template/oup-authoring-template.tex
+runfiles size=31
+ texmf-dist/tex/latex/oup-authoring-template/oup-authoring-template.cls
+catalogue-contact-home http://academic.oup.com/journals/pages/authors/preparing_your_manuscript
+catalogue-ctan /macros/latex/contrib/oup-authoring-template
+catalogue-license lppl1.2
+catalogue-topics journalpub class doc-templ
+catalogue-version 1.1

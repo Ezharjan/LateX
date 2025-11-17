@@ -1,0 +1,25 @@
+name selinput
+category Package
+revision 53098
+shortdesc Semi-automatic detection of input encoding
+longdesc This package selects the input encoding by specifying pairs of
+longdesc input characters and their glyph names.
+containersize 2548
+containerchecksum 41888a394e4c9adc60242e4c689b272a7b4e2a2db2e4824e0068a305cdae59c1edd46b0a9e45909cf29381f240693234330fb3488be68831136f8f04a72faca6
+doccontainersize 536588
+doccontainerchecksum 918b0b2bbb8230a482418c56de8081bb455980e178843b0ea84b18435c1fbfcd50a71cd0491b89c5797a374479060175219333bbde2ab28b5147cb5c3fd65ff3
+docfiles size=133
+ texmf-dist/doc/latex/selinput/README.md
+ texmf-dist/doc/latex/selinput/selinput.pdf details="Package documentation"
+srccontainersize 6840
+srccontainerchecksum c6b2c23826216a5c479c3cb3de1685dd4d695422ec67fa7109e7a1adb46dd7ad8cd21138a480e8e13bce1c4184fea0153114f338a5754778b22dc173d6f9445d
+srcfiles size=6
+ texmf-dist/source/latex/selinput/selinput.dtx
+runfiles size=2
+ texmf-dist/tex/latex/selinput/selinput.sty
+catalogue-contact-bugs https://github.com/ho-tex/selinput/issues
+catalogue-contact-repository https://github.com/ho-tex/selinput
+catalogue-ctan /macros/latex/contrib/selinput
+catalogue-license lppl1.3
+catalogue-topics inputenc
+catalogue-version 1.6

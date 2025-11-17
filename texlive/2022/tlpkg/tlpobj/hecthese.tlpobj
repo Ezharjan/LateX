@@ -1,0 +1,77 @@
+name hecthese
+category Package
+revision 60455
+shortdesc A class for dissertations and theses at HEC Montreal
+longdesc This package provides the hecthese class, a class based on
+longdesc memoir and compatible with LaTeX. Using this class,
+longdesc postgraduate students at HEC Montreal will be able to write
+longdesc their dissertation or thesis while complying with all the
+longdesc presentation standards required by the University. This class
+longdesc is meant to be as flexible as possible; in particular, there
+longdesc are very few hardcoded features except those that take care of
+longdesc the document's layout. Dissertations and theses at HEC Montreal
+longdesc can be written on a per-chapter or per-article basis. Documents
+longdesc that are written on a per-article basis require a bibliography
+longdesc for each of the included articles and a general bibliography
+longdesc for the entire document. The hecthese class takes care of these
+longdesc requirements. The class depends on babel, color, enumitem,
+longdesc fontawesome, framed, numprint, url, and hyperref.
+containersize 3980
+containerchecksum c7956496814a25dbcd42c7f0034e32cb40746da09e8a7d527b1b5cdc4d557971b55117ad35b60db18e21bd2433f13d3850fdf9e2364184c0dd9e7a248be2896b
+doccontainersize 893252
+doccontainerchecksum 680b2cc373f0b7bb265ff01f3d07fff56c07e5c789a7528a2257b2e4282da510874611a4754c5b65d88ded8b8b32ad1343706dd1d77e8a4594c7291fa5b201d5
+docfiles size=304
+ texmf-dist/doc/latex/hecthese/README.md details="Readme"
+ texmf-dist/doc/latex/hecthese/abstract-english.tex
+ texmf-dist/doc/latex/hecthese/abstract-french.tex
+ texmf-dist/doc/latex/hecthese/acknowledgements.tex
+ texmf-dist/doc/latex/hecthese/acronym-list.tex
+ texmf-dist/doc/latex/hecthese/annexe.tex
+ texmf-dist/doc/latex/hecthese/appendix.tex
+ texmf-dist/doc/latex/hecthese/article-1.tex
+ texmf-dist/doc/latex/hecthese/article-2.tex
+ texmf-dist/doc/latex/hecthese/article-3.tex
+ texmf-dist/doc/latex/hecthese/avant-propos.tex
+ texmf-dist/doc/latex/hecthese/cadre-theorique.tex
+ texmf-dist/doc/latex/hecthese/chapitre-1.tex
+ texmf-dist/doc/latex/hecthese/chapitre-2.tex
+ texmf-dist/doc/latex/hecthese/chapitre-3.tex
+ texmf-dist/doc/latex/hecthese/chapter-1.tex
+ texmf-dist/doc/latex/hecthese/chapter-2.tex
+ texmf-dist/doc/latex/hecthese/chapter-3.tex
+ texmf-dist/doc/latex/hecthese/conclusion.tex
+ texmf-dist/doc/latex/hecthese/dedicace.tex
+ texmf-dist/doc/latex/hecthese/dedication.tex
+ texmf-dist/doc/latex/hecthese/gabarit-memoire-articles.tex
+ texmf-dist/doc/latex/hecthese/gabarit-memoire-classique.tex
+ texmf-dist/doc/latex/hecthese/gabarit-these-articles.tex
+ texmf-dist/doc/latex/hecthese/gabarit-these-classique.tex
+ texmf-dist/doc/latex/hecthese/hecthese-en.pdf details="Package documentation (English)" language="en"
+ texmf-dist/doc/latex/hecthese/hecthese.pdf details="Package documentation (French)" language="fr"
+ texmf-dist/doc/latex/hecthese/introduction.tex
+ texmf-dist/doc/latex/hecthese/liste-abreviations.tex
+ texmf-dist/doc/latex/hecthese/literature-review.tex
+ texmf-dist/doc/latex/hecthese/preface.tex
+ texmf-dist/doc/latex/hecthese/remerciements.tex
+ texmf-dist/doc/latex/hecthese/resume-anglais.tex
+ texmf-dist/doc/latex/hecthese/resume-francais.tex
+ texmf-dist/doc/latex/hecthese/revue-litterature.tex
+ texmf-dist/doc/latex/hecthese/template-msc-articles.tex
+ texmf-dist/doc/latex/hecthese/template-msc-classic.tex
+ texmf-dist/doc/latex/hecthese/template-phd-articles.tex
+ texmf-dist/doc/latex/hecthese/template-phd-classic.tex
+ texmf-dist/doc/latex/hecthese/theoretical-framework.tex
+srccontainersize 30608
+srccontainerchecksum fd4318bb47d45336d5010544f0e048a8b23d1a2f33cb0c7c24d54fcca59c20ae62887285dbb128f234170dc0cd057e96793b8012274ff400e2f63da0821dd309
+srcfiles size=34
+ texmf-dist/source/latex/hecthese/hecthese-en.ins
+ texmf-dist/source/latex/hecthese/hecthese-fr.ins
+ texmf-dist/source/latex/hecthese/hecthese.dtx
+runfiles size=4
+ texmf-dist/tex/latex/hecthese/hecthese.cls
+catalogue-contact-home http://www.hec.ca/biblio
+catalogue-contact-repository https://github.com/metalogueur/hecthese
+catalogue-ctan /macros/latex/contrib/hecthese
+catalogue-license lppl1.3c
+catalogue-topics dissertation class
+catalogue-version 1.5

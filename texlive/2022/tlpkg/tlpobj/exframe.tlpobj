@@ -1,0 +1,40 @@
+name exframe
+category Package
+revision 53911
+shortdesc Framework for exercise problems
+longdesc This LaTeX2e package provides a general purpose framework to
+longdesc describe and typeset exercises and exam questions along with
+longdesc their solutions. The package features mechanisms to hide or
+longdesc postpone solutions, to assign and handle points, to collect
+longdesc problems on exercise sheets, to store and use metadata, and to
+longdesc implement a consistent numbering. It also provides a very
+longdesc flexible interface for configuring and customising the
+longdesc formatting, layout, and representation of the exercise content.
+containersize 10848
+containerchecksum 426128ad41db65598a47e0baf0e019b6592c996b10442edddd624d86524116df4e0fd01411c3ac2f4153ab1af6f3a960680a085a556f07a90ff2b326bfbc26b2
+doccontainersize 401556
+doccontainerchecksum c8f9913899a52815ddf7d96f033db62e248a92ddfbafea2091a93b55fd1bdcb01734177c7e234ac2de51383eea7e21afaf77164ce496c7858f95d63800461007
+docfiles size=115
+ texmf-dist/doc/latex/exframe/README.txt details="Readme"
+ texmf-dist/doc/latex/exframe/exframe.pdf details="Package documentation"
+ texmf-dist/doc/latex/exframe/exfsamp.tex
+ texmf-dist/doc/latex/exframe/exfser01.tex
+ texmf-dist/doc/latex/exframe/exfser02.tex
+ texmf-dist/doc/latex/exframe/exfser03.tex
+ texmf-dist/doc/latex/exframe/exfseraa.tex
+ texmf-dist/doc/latex/exframe/exfserm.tex
+ texmf-dist/doc/latex/exframe/exfsermk.mak
+ texmf-dist/doc/latex/exframe/exfsermk.sh
+ texmf-dist/doc/latex/exframe/exfserpe.tex
+ texmf-dist/doc/latex/exframe/exfserpf.tex
+srccontainersize 43532
+srccontainerchecksum 1a42fbe43846bf5e3a87b43b4e855a0f7b198aad0f0aa311a4e7c3632b4d45ef338f107484190461fa15dbfa8a52dc7fbbcf95ac00cde18281b2d58e931df060
+srcfiles size=57
+ texmf-dist/source/latex/exframe/exframe.dtx
+ texmf-dist/source/latex/exframe/exframe.ins
+runfiles size=16
+ texmf-dist/tex/latex/exframe/exframe.sty
+catalogue-ctan /macros/latex/contrib/exframe
+catalogue-license lppl1.3
+catalogue-topics exam exercise
+catalogue-version 3.4

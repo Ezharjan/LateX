@@ -1,0 +1,26 @@
+name ipaex
+category Package
+revision 61719
+shortdesc IPA (Japanese) fonts
+longdesc The fonts provide fixed-width glyphs for Kana and Kanji
+longdesc characters, proportional width glyphs for Western characters.
+containersize 15865176
+containerchecksum dec0527223fdb0f897ccf54e96691cd68b933ac61de4c036e21fd35bff93d32766444fe6971492ce64328f92621bd2949ebb669ab33b6b6f4ede88280351292d
+doccontainersize 7484
+doccontainerchecksum c53cf11bc81d9a8f5aa19c264a1970d4819400ceaffa20b688d0709546113f932b82b6b6d12cf9fb31b2a3d2c0d45b6b33ee3cb3bd0060c961360389839b1475
+docfiles size=8
+ texmf-dist/doc/fonts/ipaex/IPA_Font_License_Agreement_v1.0.txt
+ texmf-dist/doc/fonts/ipaex/README details="Readme"
+ texmf-dist/doc/fonts/ipaex/Readme_IPAexfont00401.txt
+ texmf-dist/doc/fonts/ipaex/Readme_IPAfont00303.txt
+runfiles size=10380
+ texmf-dist/fonts/truetype/public/ipaex/ipaexg.ttf
+ texmf-dist/fonts/truetype/public/ipaex/ipaexm.ttf
+ texmf-dist/fonts/truetype/public/ipaex/ipag.ttf
+ texmf-dist/fonts/truetype/public/ipaex/ipagp.ttf
+ texmf-dist/fonts/truetype/public/ipaex/ipam.ttf
+ texmf-dist/fonts/truetype/public/ipaex/ipamp.ttf
+catalogue-also ipaex-type1
+catalogue-ctan /fonts/ipaex
+catalogue-license other-free
+catalogue-topics font font-ttf japanese

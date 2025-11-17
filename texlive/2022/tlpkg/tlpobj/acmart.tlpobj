@@ -1,0 +1,73 @@
+name acmart
+category Package
+revision 63837
+shortdesc Class for typesetting publications of ACM
+longdesc This package provides a class for typesetting publications of
+longdesc the Association for Computing Machinery (ACM).
+containersize 42000
+containerchecksum afc7092b11d9b46a228360543cf3e7c4acf6233fc99fab6e3b588841a56729b95bc55821ae04f06a50343613d47350aafdc0f2420a5d8b164e537052b8d238ef
+doccontainersize 4657016
+doccontainerchecksum 9130cf225e58c3efdee7c7eb1a8eddb9298ebba632745c6e5b43bbc1fe01df497004144203cdf1e2de54560036eb42bafc78897f04d358feaf04a246071db757
+docfiles size=3386
+ texmf-dist/doc/latex/acmart/README details="Readme"
+ texmf-dist/doc/latex/acmart/acmart.bib
+ texmf-dist/doc/latex/acmart/acmart.pdf details="Documentation"
+ texmf-dist/doc/latex/acmart/acmguide.pdf
+ texmf-dist/doc/latex/acmart/samples/abbrev.bib
+ texmf-dist/doc/latex/acmart/samples/sample-acmengage.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmengage.tex
+ texmf-dist/doc/latex/acmart/samples/sample-acmlarge.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmlarge.tex
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall-biblatex.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall-biblatex.tex
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall-conf.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall-conf.tex
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall-submission.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall-submission.tex
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmsmall.tex
+ texmf-dist/doc/latex/acmart/samples/sample-acmtog.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-acmtog.tex
+ texmf-dist/doc/latex/acmart/samples/sample-authordraft.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-authordraft.tex
+ texmf-dist/doc/latex/acmart/samples/sample-base.bib
+ texmf-dist/doc/latex/acmart/samples/sample-franklin.png
+ texmf-dist/doc/latex/acmart/samples/sample-lualatex.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-lualatex.tex
+ texmf-dist/doc/latex/acmart/samples/sample-manuscript.pdf details="Example of use"
+ texmf-dist/doc/latex/acmart/samples/sample-manuscript.tex
+ texmf-dist/doc/latex/acmart/samples/sample-sigconf-biblatex.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-sigconf-biblatex.tex
+ texmf-dist/doc/latex/acmart/samples/sample-sigconf-i13n.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-sigconf-i13n.tex
+ texmf-dist/doc/latex/acmart/samples/sample-sigconf.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-sigconf.tex
+ texmf-dist/doc/latex/acmart/samples/sample-sigplan.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-sigplan.tex
+ texmf-dist/doc/latex/acmart/samples/sample-xelatex.pdf
+ texmf-dist/doc/latex/acmart/samples/sample-xelatex.tex
+ texmf-dist/doc/latex/acmart/samples/samples.dtx
+ texmf-dist/doc/latex/acmart/samples/samples.ins
+ texmf-dist/doc/latex/acmart/samples/sampleteaser.pdf
+ texmf-dist/doc/latex/acmart/samples/software.bib
+srccontainersize 59048
+srccontainerchecksum 04e3892fe6ff398a76a96a85a02e0e9931e887ae7111295a1bac9531033faf25fa731f2ca96a06dabc464700b11dde92d2e88108e5d907430ca524eeafba2f71
+srcfiles size=70
+ texmf-dist/source/latex/acmart/Makefile
+ texmf-dist/source/latex/acmart/acmart.dtx
+ texmf-dist/source/latex/acmart/acmart.ins
+runfiles size=66
+ texmf-dist/bibtex/bst/acmart/ACM-Reference-Format.bst
+ texmf-dist/tex/latex/acmart/acmart.cls
+ texmf-dist/tex/latex/acmart/acmauthoryear.bbx
+ texmf-dist/tex/latex/acmart/acmauthoryear.cbx
+ texmf-dist/tex/latex/acmart/acmdatamodel.dbx
+ texmf-dist/tex/latex/acmart/acmnumeric.bbx
+ texmf-dist/tex/latex/acmart/acmnumeric.cbx
+catalogue-contact-bugs https://github.com/borisveytsman/acmart/issues
+catalogue-contact-development https://github.com/borisveytsman/acmart/pulls
+catalogue-contact-repository https://github.com/borisveytsman/acmart/
+catalogue-ctan /macros/latex/contrib/acmart
+catalogue-license lppl1.3
+catalogue-topics class comp-sci comp-theory engineering journalpub
+catalogue-version 1.86

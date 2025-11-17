@@ -1,0 +1,26 @@
+name truthtable
+category Package
+revision 60717
+shortdesc Automatically generate truth tables for given variables and statements
+longdesc This LuaLaTeX package permits to automatically generate truth
+longdesc tables given a table header. It supports a number of logical
+longdesc operations which can be combined as needed. It is built upon
+longdesc the luacode package.
+containersize 2136
+containerchecksum 3ab6a30d6c964a810cb27cc13b314fd9b8b881427a8a1e8dc047038669e9480bbd258ce5380eab648d07669b948feafb420a16e3d599f227c3e7422e4173020b
+doccontainersize 144676
+doccontainerchecksum 3333d8ac206900fdbb4aef6777a5ad840a9d9b0b43c62871b24683c41d58b78b36b97062fc9fc4d84e71a7f6728d0fa6320bd38e1f7de4aa660bc6e7b79156c5
+docfiles size=42
+ texmf-dist/doc/lualatex/truthtable/README.md details="Readme"
+ texmf-dist/doc/lualatex/truthtable/res/exampletable.tex
+ texmf-dist/doc/lualatex/truthtable/res/exampletableoutput.tex
+ texmf-dist/doc/lualatex/truthtable/truthtable.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/truthtable/truthtable.tex
+runfiles size=2
+ texmf-dist/tex/lualatex/truthtable/truthtable.sty
+catalogue-contact-bugs https://github.com/K-Trout/truthtable/issues
+catalogue-contact-repository https://github.com/K-Trout/truthtable
+catalogue-ctan /macros/luatex/latex/truthtable
+catalogue-license lppl1.3c
+catalogue-topics maths logic luatex
+catalogue-version 0.0.2

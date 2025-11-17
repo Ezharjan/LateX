@@ -1,0 +1,43 @@
+name tipauni
+category Package
+revision 62131
+shortdesc Producing Unicode characters with TIPA commands
+longdesc Package TIPA uses the T3 encoding for producing IPA characters.
+longdesc The package is widely used in the field of linguistics, but
+longdesc because of the old encoding, the output documents are less
+longdesc productive than Unicode-based documents. This package redefines
+longdesc most of the TIPA-commands for outputting Unicode characters.
+longdesc Users can now use their beloved TIPA shortcuts with the
+longdesc benefits of Unicode, i.e. searchability, copy-pasting, changing
+longdesc the font and many more. As this package needs the fontspec
+longdesc package for loading an IPA font, it needs to be compiled with
+longdesc XeLaTeX or LuaLaTeX. This package can also be viewed as an
+longdesc ASCII-based input method for producing IPA characters in
+longdesc Unicode. It needs the Charis SIL font for printing IPA
+longdesc characters.
+containersize 6276
+containerchecksum 0ae22eb3baeb0e360a561e646512b9148ccc9180dd795ea85c4efc80a827832491fdbfda441038c3d53d08b567758facbb8bd1d5eab576a53a2be2b31d3f1b44
+doccontainersize 396332
+doccontainerchecksum 6ce540233b90a0b2dc25b02246c846f77d50cce08a4ca320526ea94806d5dd16fd17bbeea6c9c73f7815c69664bb6d2b04beae9f8a33c050f46449372f96538f
+docfiles size=111
+ texmf-dist/doc/latex/tipauni/README.txt details="Readme"
+ texmf-dist/doc/latex/tipauni/tipauni-commands.pdf details="Sample file"
+ texmf-dist/doc/latex/tipauni/tipauni-commands.tex
+ texmf-dist/doc/latex/tipauni/tipauni-example.pdf details="Example of use"
+ texmf-dist/doc/latex/tipauni/tipauni-example.tex
+ texmf-dist/doc/latex/tipauni/tipauni.pdf details="Package documentation"
+srccontainersize 14128
+srccontainerchecksum 7ece1110d0cf0e0e354b75ceb543dba7777080a13f722607ca184848e723147d95d05d787cf3af7ce8d93a6a3b0138d9c077f50233aa14ef5db6f96aeab7216d
+srcfiles size=15
+ texmf-dist/source/latex/tipauni/tipauni.dtx
+ texmf-dist/source/latex/tipauni/tipauni.ins
+runfiles size=7
+ texmf-dist/tex/latex/tipauni/tipauni.sty
+catalogue-contact-bugs https://puszcza.gnu.org.ua/bugs/?group=tipauni
+catalogue-contact-home https://puszcza.gnu.org.ua/projects/tipauni
+catalogue-contact-repository https://git.gnu.org.ua/tipauni.git
+catalogue-contact-support mailto:tipauni-help@gnu.org.ua
+catalogue-ctan /macros/unicodetex/latex/tipauni
+catalogue-license gpl3+ fdl
+catalogue-topics phonetic linguistic unicode
+catalogue-version 0.6

@@ -1,0 +1,31 @@
+name foilhtml
+category Package
+revision 61937
+shortdesc Interface between foiltex and LaTeX2HTML
+longdesc Provides integration between FoilTeX and LaTeX2HTML, adding
+longdesc sectioning commands and elements of logical formatting to
+longdesc FoilTeX and providing support for FoilTeX commands in
+longdesc LaTeX2HTML.
+containersize 3600
+containerchecksum 88bd7239cc37cc4429be37de0e68ffd6291844bb81f34a3e9e8c0dab14641d66b6d3990e44d58e5322d2cbac8da27901fe7dbb3b64a59be577ec0f94a036bafa
+doccontainersize 5044
+doccontainerchecksum c444f13c4c60cd7a723d9bca8d687a3f995438767d077c812797b91e0111372fed6c76fb51f264c0332cffb1a598e5f2a17a63882dc18b4e682f08a3ffee0900
+docfiles size=7
+ texmf-dist/doc/latex/foilhtml/foilhtml-96.perl
+ texmf-dist/doc/latex/foilhtml/foils-97.perl
+ texmf-dist/doc/latex/foilhtml/foils.perl
+ texmf-dist/doc/latex/foilhtml/readme.v12
+srccontainersize 15700
+srccontainerchecksum 9904924a8b8b1723e7496960fb9856e91efce76313cb49e756d99be5f6f97022e1cf8f27edec0ee738281137e3fe4d251448caae54335d30b0772a1be44cb8e6
+srcfiles size=18
+ texmf-dist/source/latex/foilhtml/foilhtml.drv
+ texmf-dist/source/latex/foilhtml/foilhtml.dtx
+ texmf-dist/source/latex/foilhtml/foilhtml.ins
+runfiles size=4
+ texmf-dist/tex/latex/foilhtml/foilhtml.cfg
+ texmf-dist/tex/latex/foilhtml/foilhtml.sty
+catalogue-contact-home http://borisv.lk.net
+catalogue-ctan /macros/latex/contrib/foilhtml
+catalogue-license lppl
+catalogue-topics presentation
+catalogue-version 1.2

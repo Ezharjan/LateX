@@ -1,0 +1,51 @@
+name bengali
+category Package
+revision 55475
+catalogue bengali-pandey
+shortdesc Support for the Bengali language
+longdesc The package is based on Velthuis' transliteration scheme, with
+longdesc extensions to deal with the Bengali letters that are not in
+longdesc Devanagari. The package also supports Assamese.
+containersize 17056
+containerchecksum 2ace635791a4c7a8af0843a5a92d518d0e93fc09a94929a277002a3e4426f199e207238766b07ff3f1e1bf0e3c0cf8b83897b30ba105ee7239d6ce1d591289fe
+doccontainersize 76020
+doccontainerchecksum 61bed8e39b9dc4673ce27402c0ee76b035e254133af09bbbadd00b80d367ffe204d5f660af8c633bc7dc6bd81f66ce419741e341f63e314367f2e54c61f8269e
+docfiles size=39
+ texmf-dist/doc/fonts/bengali/README
+ texmf-dist/doc/fonts/bengali/bengdoc.bn
+ texmf-dist/doc/fonts/bengali/bengdoc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/bengali/example.bn
+ texmf-dist/doc/fonts/bengali/example.pdf
+ texmf-dist/doc/fonts/bengali/manifest.txt
+srccontainersize 8944
+srccontainerchecksum ddfd0dce8379aaa3e224f74fd33fa4dd1fbe6a40d9a01bc6dc8da1dbca5b5eae97c4837ff21c75be8658d37693cdff3c2983fe01c77d13bd0eb89e14f78d6e2a
+srcfiles size=11
+ texmf-dist/source/latex/bengali/beng.c
+runfiles size=42
+ texmf-dist/fonts/source/public/bengali/bn.mf
+ texmf-dist/fonts/source/public/bengali/bnbanjon.mf
+ texmf-dist/fonts/source/public/bengali/bndigit.mf
+ texmf-dist/fonts/source/public/bengali/bnjuk.mf
+ texmf-dist/fonts/source/public/bengali/bnkaar.mf
+ texmf-dist/fonts/source/public/bengali/bnlig.mf
+ texmf-dist/fonts/source/public/bengali/bnligtbl.mf
+ texmf-dist/fonts/source/public/bengali/bnmacro.mf
+ texmf-dist/fonts/source/public/bengali/bnmisc.mf
+ texmf-dist/fonts/source/public/bengali/bnpunct.mf
+ texmf-dist/fonts/source/public/bengali/bnr10.mf
+ texmf-dist/fonts/source/public/bengali/bnsl10.mf
+ texmf-dist/fonts/source/public/bengali/bnswar.mf
+ texmf-dist/fonts/source/public/bengali/xbnr10.mf
+ texmf-dist/fonts/source/public/bengali/xbnsl10.mf
+ texmf-dist/fonts/source/public/bengali/xbnsupp.mf
+ texmf-dist/fonts/tfm/public/bengali/bnr10.tfm
+ texmf-dist/fonts/tfm/public/bengali/bnsl10.tfm
+ texmf-dist/fonts/tfm/public/bengali/xbnr10.tfm
+ texmf-dist/fonts/tfm/public/bengali/xbnsl10.tfm
+ texmf-dist/tex/latex/bengali/beng.sty
+ texmf-dist/tex/latex/bengali/ubn.fd
+ texmf-dist/tex/latex/bengali/ubnx.fd
+catalogue-also arosgn
+catalogue-ctan /language/bengali/pandey
+catalogue-license lppl
+catalogue-topics indic bengali

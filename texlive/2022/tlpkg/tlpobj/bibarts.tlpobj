@@ -1,0 +1,44 @@
+name bibarts
+category Package
+revision 61569
+shortdesc "Arts"-style bibliographical information
+longdesc BibArts is a LaTeX package to assist in making bibliographical
+longdesc features common in the arts and the humanities (history,
+longdesc political science, philosophy, etc.). bibarts.sty provides
+longdesc commands for quotations, abbreviations, and especially for a
+longdesc formatted citation of literature, journals (periodicals),
+longdesc edited sources, and archive sources. In difference to earlier
+longdesc versions, BibArts 2.x helps to use slanted fonts (italics) and
+longdesc is able to set ibidem automatically in footnotes. It will also
+longdesc copy all citation information, abbreviations, and register key
+longdesc words into lists for an automatically generated appendix. These
+longdesc lists may refer to page and footnote numbers. BibArts has
+longdesc nothing to do with BibTeX. The lists are created by bibsort
+longdesc (see below). BibArts requires the program bibsort, for which
+longdesc the sources and a Windows executable are provided. This program
+longdesc creates the bibliography without using MakeIndex or BibTeX. Its
+longdesc source is not written with any specific operating system in
+longdesc mind. A summary of contents is in English; the full
+longdesc documentation is in German.
+containersize 27280
+containerchecksum 21d7673174a53bfce1453fe8b9693d4635cbcd7cbaccc28fa49c6ab9b38197e629601019d9fb93ecbc80c4afe1f9d86678ce171fa55767840b39650ef10749aa
+doccontainersize 1206428
+doccontainerchecksum 8bed474b083e4e033e168732c3b8b133904c8ed8078270776c479b2ad1e4989c97febefae2ff89b671d9daae74569beba9bd3ad96a18b372e705aa2d0614d3f1
+docfiles size=492
+ texmf-dist/doc/latex/bibarts/COPYING
+ texmf-dist/doc/latex/bibarts/README.txt details="Readme"
+ texmf-dist/doc/latex/bibarts/ba-short.pdf details="Package short documentation"
+ texmf-dist/doc/latex/bibarts/ba-short.tex
+ texmf-dist/doc/latex/bibarts/bibarts.pdf details="Package documentation" language="de"
+ texmf-dist/doc/latex/bibarts/bibarts.tex
+ texmf-dist/doc/latex/bibarts/bibsort.exe
+srccontainersize 47504
+srccontainerchecksum 7c22719ddc2aaf521059d3863dd391b3506d9c54b4d621789ac0bbb7a90e579256f88aa07762174e4b7b3031de7b403b8dfde830d4d355c928708ed13dc4185a
+srcfiles size=73
+ texmf-dist/source/latex/bibarts/bibsort.c
+runfiles size=35
+ texmf-dist/tex/latex/bibarts/bibarts.sty
+catalogue-ctan /macros/latex/contrib/bibarts
+catalogue-license gpl
+catalogue-topics bibtex-supp humanities
+catalogue-version 2.4

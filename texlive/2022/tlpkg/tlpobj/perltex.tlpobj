@@ -1,0 +1,39 @@
+name perltex
+category Package
+revision 52162
+shortdesc Define LaTeX macros in terms of Perl code
+longdesc PerlTeX is a combination Perl script (perltex.pl) and LaTeX2e
+longdesc package (perltex.sty) that, together, give the user the ability
+longdesc to define LaTeX macros in terms of Perl code. Once defined, a
+longdesc Perl macro becomes indistinguishable from any other LaTeX
+longdesc macro. PerlTeX thereby combines LaTeX's typesetting power with
+longdesc Perl's programmability. PerlTeX will make use of persistent
+longdesc named pipes, and thereby run more efficiently, on operating
+longdesc systems that offer them (mostly Unix-like systems). Also
+longdesc provided is a switch to generate a PerlTeX-free,
+longdesc document-specific, noperltex.sty that is useful when
+longdesc distributing a document to places where PerlTeX is not
+longdesc available.
+depend perltex.ARCH
+containersize 7300
+containerchecksum af7cd6b065f2405a514d20cb386b34399742a42286002ab3e0f795b64dcb434ae97470ce9cbf25cb27a9b124ebe56844b47c7cf89e1f83a4bd35f1bfcc98163a
+doccontainersize 299716
+doccontainerchecksum d39c93f4bf3da08266bb0f10b06582db2bf96bee73faafdb191af3770c7c24abde407774f21d3c97b1f2453a8a9bd24576acaf0606796d7439334b8b1e42ac7d
+docfiles size=83
+ texmf-dist/doc/latex/perltex/README details="Readme"
+ texmf-dist/doc/latex/perltex/example.tex
+ texmf-dist/doc/latex/perltex/perltex.pdf details="Package documentation"
+ texmf-dist/doc/man/man1/perltex.1
+ texmf-dist/doc/man/man1/perltex.man1.pdf
+srccontainersize 31468
+srccontainerchecksum 99a8e27c23a7056496c56e734fefa1e921a002d7b86c153b3a209f7c3d7c415dac05e77b0ce5bc8685bd622243d6ed53be4a7f570a3ed487c3d55baa5b5af06e
+srcfiles size=31
+ texmf-dist/source/latex/perltex/perltex.dtx
+ texmf-dist/source/latex/perltex/perltex.ins
+runfiles size=6
+ texmf-dist/scripts/perltex/perltex.pl
+ texmf-dist/tex/latex/perltex/perltex.sty
+catalogue-ctan /macros/latex/contrib/perltex
+catalogue-license lppl
+catalogue-topics callback
+catalogue-version 2.2

@@ -1,0 +1,37 @@
+name rsfso
+category Package
+revision 60849
+shortdesc A mathematical calligraphic font based on rsfs
+longdesc The package provides virtual fonts and LaTeX support files for
+longdesc mathematical calligraphic fonts based on the rsfs Adobe Type 1
+longdesc fonts (which must also be present for successful installation,
+longdesc with the slant substantially reduced. The output is quite
+longdesc similar to that from the Adobe Mathematical Pi script font.
+execute addMap rsfso.map
+containersize 3780
+containerchecksum 7632b0cafcb0d28f5f4b742f8c457634a9cd1ec7fd59e61e01fd5f3da3964ae941fdf2fbaba94b0d0934270ba56a2224352e11075970e28bcf16bd9b6f97f236
+doccontainersize 149180
+doccontainerchecksum ccb3ce73add1f2a4f269728b8189569637327d85cd1a4d29a03904872cff10ce3057bd01a9d74a94373c3aaa52afe74a98d07bcad248fd18943efb0bace6db36
+docfiles size=39
+ texmf-dist/doc/fonts/rsfso/README details="Readme"
+ texmf-dist/doc/fonts/rsfso/mh2scr0.png
+ texmf-dist/doc/fonts/rsfso/rsfso-doc.pdf details="Package documentation"
+ texmf-dist/doc/fonts/rsfso/rsfso-doc.tex
+runfiles size=12
+ texmf-dist/fonts/map/dvips/rsfso/rsfso.map
+ texmf-dist/fonts/tfm/public/rsfso/rrsfso10.tfm
+ texmf-dist/fonts/tfm/public/rsfso/rrsfso5.tfm
+ texmf-dist/fonts/tfm/public/rsfso/rrsfso7.tfm
+ texmf-dist/fonts/tfm/public/rsfso/rsfso10.tfm
+ texmf-dist/fonts/tfm/public/rsfso/rsfso5.tfm
+ texmf-dist/fonts/tfm/public/rsfso/rsfso7.tfm
+ texmf-dist/fonts/vf/public/rsfso/rsfso10.vf
+ texmf-dist/fonts/vf/public/rsfso/rsfso5.vf
+ texmf-dist/fonts/vf/public/rsfso/rsfso7.vf
+ texmf-dist/tex/latex/rsfso/rsfso.sty
+ texmf-dist/tex/latex/rsfso/ursfso.fd
+catalogue-also calrsfs mathrsfs
+catalogue-ctan /fonts/rsfso
+catalogue-license lppl
+catalogue-topics font-virtual font-calligraphic font-supp font-supp-maths
+catalogue-version 1.03

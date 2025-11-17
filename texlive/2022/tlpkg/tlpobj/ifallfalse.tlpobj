@@ -1,0 +1,31 @@
+name ifallfalse
+category Package
+revision 60027
+shortdesc Compare a string against a set of other strings
+longdesc This package allows you to check whether a string is contained
+longdesc within another set of strings, and perform an action if it is
+longdesc not. This is done by using the allfalse environment and passing
+longdesc in a string and an action to be performed if the string is not
+longdesc contained in the set. Then, passing in a string to the \orcheck
+longdesc macro inside the respective allfalse environment adds that to
+longdesc the set of strings. This package does not work with the LuaTeX
+longdesc engine.
+containersize 1248
+containerchecksum 2117368f9114bfe20c7fcd387c47d27d59cb2af720eb6c55f2a8254067e2dbf7be21b9081a244367d46d5deae8150f915b17431296b02de486f4147e5ade9b87
+doccontainersize 175068
+doccontainerchecksum c952a3f591c77df2b2443352783606e57ccc35d45769d1e7892b12399de5253af174a739c7283a28463536394430d0582852abb677fd87015bada501b0bde95e
+docfiles size=45
+ texmf-dist/doc/latex/ifallfalse/README.md details="Readme"
+ texmf-dist/doc/latex/ifallfalse/ifallfalse.pdf details="Package documentation"
+srccontainersize 3084
+srccontainerchecksum 3070c2a5beefc8ce8b29f8216a66b5636aa71f6f68aee9734eba78e487110efa67a405ed4b87d4a550bd3fe45df3a8f3da10ae717d0c31cd98bb2465bb903bb9
+srcfiles size=3
+ texmf-dist/source/latex/ifallfalse/ifallfalse.dtx
+ texmf-dist/source/latex/ifallfalse/ifallfalse.ins
+runfiles size=1
+ texmf-dist/tex/latex/ifallfalse/ifallfalse.sty
+catalogue-contact-repository https://github.com/chennisden/ifallfalse
+catalogue-ctan /macros/latex/contrib/ifallfalse
+catalogue-license lppl1.3
+catalogue-topics macro-supp cond-comp
+catalogue-version 2.0.0

@@ -1,0 +1,24 @@
+name emoji
+category Package
+revision 59961
+shortdesc Emoji support in (Lua)LaTeX
+longdesc This package allows users to typeset emojis in LaTeX documents.
+longdesc It requires the LuaHBTeX engine, which can be called by
+longdesc lualatex since TeX Live 2020, or lualatex-dev in TeX Live 2019.
+containersize 43104
+containerchecksum 5c87970b1d47489027ef1a13bd35958b54c7c8b7bb59f7a97a5293d2156e3acfbef13c3a83b5eac3ce8297aa01b25423add40d3d0e654b5e0007f34556449e5a
+doccontainersize 1131608
+doccontainerchecksum 170a8e35c4f4c86751db4d357df39dbc215126465e784829cbd15e9226d04b92aca0d7836312c114d1c699daa5054883f364377d1f355f97024b63741aeede0a
+docfiles size=290
+ texmf-dist/doc/latex/emoji/README.md details="Readme"
+ texmf-dist/doc/latex/emoji/emoji-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/emoji/emoji-doc.tex
+runfiles size=106
+ texmf-dist/tex/latex/emoji/emoji-table.def
+ texmf-dist/tex/latex/emoji/emoji.sty
+catalogue-contact-bugs https://github.com/stone-zeng/latex-emoji/issues
+catalogue-contact-repository https://github.com/stone-zeng/latex-emoji
+catalogue-ctan /macros/luatex/latex/emoji
+catalogue-license lppl1.3c
+catalogue-topics graphics graphics-use luatex expl3
+catalogue-version 0.2.2

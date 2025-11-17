@@ -1,0 +1,28 @@
+name create-theorem
+category Package
+revision 64104
+shortdesc Multilingual support for theorem-like environments
+longdesc This package provides commands for naming, initializing and
+longdesc configuring theorem-like environments. These commands have
+longdesc key-value based interfaces and are especially useful in
+longdesc multilingual documents, allowing the easy declaration of
+longdesc theorem-like environments that can automatically adapt to the
+longdesc language settings.
+depend crefthe
+containersize 10224
+containerchecksum dcb4f947d6d0fed303d53c19e29049070b1c3ca47fb0d78c0c1c3455f6de59ea2aa98640ac88549bb8f00f1b5cd4320a84f92f98d08a0ee788eb47417a86486d
+doccontainersize 95776
+doccontainerchecksum 4c84bebff2a93f8326fb8ce795a9fe2193194f70d49b5448b51d25a98378336bc931a60d762dc12bcfb2fffc362663391347a4b89e69336fb47efd23dcae4499
+docfiles size=37
+ texmf-dist/doc/latex/create-theorem/DEPENDS.txt
+ texmf-dist/doc/latex/create-theorem/LICENSE
+ texmf-dist/doc/latex/create-theorem/README.md details="Readme"
+ texmf-dist/doc/latex/create-theorem/create-theorem-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/create-theorem/create-theorem-doc.tex
+runfiles size=25
+ texmf-dist/tex/latex/create-theorem/create-theorem.sty
+catalogue-contact-repository https://github.com/Jinwen-XU/create-theorem
+catalogue-ctan /macros/latex/contrib/create-theorem
+catalogue-license lppl1.3c
+catalogue-topics multilingual maths maths-theorem expl3
+catalogue-version 2022-08-08a

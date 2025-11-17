@@ -1,0 +1,32 @@
+name ifoddpage
+category Package
+revision 56291
+shortdesc Determine if the current page is odd or even
+longdesc The package provides an \ifoddpage conditional to determine if
+longdesc the current page is odd or even. The macro \checkoddpage must
+longdesc be used direct before to check the page number using a label.
+longdesc Two compiler runs are therefore required to achieve correct
+longdesc results. In addition, the conditional \ifoddpageoronside is
+longdesc provided which is also true in oneside mode where all pages use
+longdesc the odd page layout.
+containersize 1456
+containerchecksum f56738031814ba4d980455765212f074979b95ccfe62b1661e2017a839bc774b5423f994196a23e763644d40b9842221a5c862f9b427f335f5788d34bbcb9acb
+doccontainersize 134584
+doccontainerchecksum e9fdf6ca02d33a52e89046f4d648204a0e560d97e9a12aa5742971e654bdc05867460ec10cbdb5441fc66ba02d2e078007593d9c4c898f290e61965eb6111007
+docfiles size=34
+ texmf-dist/doc/latex/ifoddpage/README details="Readme"
+ texmf-dist/doc/latex/ifoddpage/ifoddpage.pdf details="Package documentation"
+srccontainersize 4176
+srccontainerchecksum d6e471eb7014a93a4593234f3f2c81fcd1b7a758d73bd3b659c86812304e9eb9a9a29b8a653653e4672a79f75c2399bdf30491069bdc26c0e45ce9834fd8de40
+srcfiles size=4
+ texmf-dist/source/latex/ifoddpage/ifoddpage.dtx
+ texmf-dist/source/latex/ifoddpage/ifoddpage.ins
+runfiles size=1
+ texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+catalogue-contact-bugs https://sourceforge.net/p/ifoddpage/tickets/
+catalogue-contact-home https://sourceforge.net/p/ifoddpage/
+catalogue-contact-repository https://sourceforge.net/p/ifoddpage/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/ifoddpage
+catalogue-license lppl1.3
+catalogue-topics typesetting macro-supp
+catalogue-version 1.1

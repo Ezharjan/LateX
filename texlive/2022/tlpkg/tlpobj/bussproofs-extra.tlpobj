@@ -1,0 +1,30 @@
+name bussproofs-extra
+category Package
+revision 51299
+shortdesc Extra commands for bussproofs.sty
+longdesc This package provides additional functionality for
+longdesc bussproofs.sty; specifically, it allows for typesetting of
+longdesc entire (sub)deductions.
+containersize 2548
+containerchecksum 8410e4a795b79e7ea06bfd72c713f39950da8d1c418002bc497eb802ae71dce5d5372f7692267ca62891cbb2a58719b76c2bce3f10ec11cff63c40bae9122a2e
+doccontainersize 231432
+doccontainerchecksum 87ed5af043bcb4d41f301d4b09dae511fa509fc9c50ac70cef29d0df4bc023f97856504c0650b6139ff8bcd9c25a046411b58f72db016d7429788db757a4e87a
+docfiles size=63
+ texmf-dist/doc/latex/bussproofs-extra/LICENSE.txt
+ texmf-dist/doc/latex/bussproofs-extra/README.md details="Readme"
+ texmf-dist/doc/latex/bussproofs-extra/bpextra.sty
+ texmf-dist/doc/latex/bussproofs-extra/bussproofs-extra.pdf details="Package documentation"
+srccontainersize 6260
+srccontainerchecksum de1b272c20c7aa3d1c6f06fef7226083890a8b43ac3ad9ec54d6ff0649ee268b9c9acdf5d3e335f1fbf7f2b9aec3ff91517f126fe8d354e32662e3d6938b197e
+srcfiles size=7
+ texmf-dist/source/latex/bussproofs-extra/bussproofs-extra.dtx
+ texmf-dist/source/latex/bussproofs-extra/bussproofs-extra.ins
+runfiles size=3
+ texmf-dist/tex/latex/bussproofs-extra/bussproofs-extra.sty
+catalogue-also bussproofs
+catalogue-contact-bugs https://github.com/OpenLogicProject/bussproofs-extra/issues
+catalogue-contact-repository https://github.com/OpenLogicProject/bussproofs-extra
+catalogue-ctan /macros/latex/contrib/bussproofs-extra
+catalogue-license lppl1.3c
+catalogue-topics maths proof
+catalogue-version 0.4

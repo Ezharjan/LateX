@@ -1,0 +1,31 @@
+name patgen
+category TLCore
+revision 62387
+shortdesc Generate hyphenation patterns
+longdesc Patgen takes a list of hyphenated words and generates a set of
+longdesc patterns that can be used by the TeX 82 hyphenation algorithm.
+longdesc Patgen was originally written by Frank M. Liang as part of his
+longdesc Stanford Ph.D. work, and has always been distributed alongside
+longdesc the other programs coming from the Stanford TeX project. It was
+longdesc updated in 1991 by Peter Breitenlohner for the new 8-bit
+longdesc features of TeX version 3. (These updates related to
+longdesc input/output and programming overhead; the actual pattern
+longdesc generation algorithms were not changed.) Patgen is currently
+longdesc maintained as part of TeX Live.
+depend kpathsea
+depend patgen.ARCH
+containersize 780
+containerchecksum e4b04bdc28d75de619307567716d2c29b41286a82cdafd6eca45df36baf67588cee94c4c320abadee4e3103fac8b33ba9367114875e56f198665388fc93e341d
+doccontainersize 30248
+doccontainerchecksum dcf16fddb0085e8a8984047ff9e500c8b7fdd7d6b24b4f6154f464e05fe137b807c13d910881fda96e617cf80780ed1e75ccfe0fda2477b1d9b95990baf5f279
+docfiles size=10
+ texmf-dist/doc/man/man1/patgen.1
+ texmf-dist/doc/man/man1/patgen.man1.pdf
+catalogue-also patgen2-tutorial
+catalogue-contact-bugs https://lists.tug.org/tex-k
+catalogue-contact-repository https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/
+catalogue-contact-support https://lists.tug.org/tex-k
+catalogue-ctan /systems/stanford/patgen
+catalogue-license pd
+catalogue-topics hyph-gen
+catalogue-version 2.4

@@ -1,0 +1,60 @@
+name yquant
+category Package
+revision 63255
+shortdesc Typesetting quantum circuits in a human-readable language
+longdesc This LaTeX package allows to quickly draw quantum circuits. It
+longdesc bridges the gap between the two groups of packages that already
+longdesc exist: those that use a logic-oriented custom language, which
+longdesc is then translated into TeX by means of an external program;
+longdesc and the pure TeX versions that mainly provide some macros to
+longdesc allow for an easier input. yquant is a pure-LaTeX solution --
+longdesc i.e., it requires no external program -- that introduces a
+longdesc logic oriented language and thus brings the best of both worlds
+longdesc together. It builds on and interacts with TikZ, which brings an
+longdesc enourmous flexibility for customization of individual circuit.
+containersize 56756
+containerchecksum fe563ece760084984dcca2ce769556460b6f50e5ea3a9b9d9f0a8e85f307ed1303233add84905d3997c4da640d732b6b1cea82f95f854ac2f5b159a3a826ae3d
+doccontainersize 825320
+doccontainerchecksum e6bc278323af211e531017bb95258713451f87b5af052527649d9b274ed095867f60ee8fa0fb1ec65432f04c5d3c65a137bc791ed8e305751073190e1820dd8b
+docfiles size=346
+ texmf-dist/doc/latex/yquant/README.md details="Readme"
+ texmf-dist/doc/latex/yquant/test1.qasm
+ texmf-dist/doc/latex/yquant/test10.qasm
+ texmf-dist/doc/latex/yquant/test11.qasm
+ texmf-dist/doc/latex/yquant/test12.qasm
+ texmf-dist/doc/latex/yquant/test13.qasm
+ texmf-dist/doc/latex/yquant/test14.qasm
+ texmf-dist/doc/latex/yquant/test15.qasm
+ texmf-dist/doc/latex/yquant/test16.qasm
+ texmf-dist/doc/latex/yquant/test17.qasm
+ texmf-dist/doc/latex/yquant/test18.qasm
+ texmf-dist/doc/latex/yquant/test2.qasm
+ texmf-dist/doc/latex/yquant/test3.qasm
+ texmf-dist/doc/latex/yquant/test4.qasm
+ texmf-dist/doc/latex/yquant/test5.qasm
+ texmf-dist/doc/latex/yquant/test6.qasm
+ texmf-dist/doc/latex/yquant/test7.qasm
+ texmf-dist/doc/latex/yquant/test8.qasm
+ texmf-dist/doc/latex/yquant/test9.qasm
+ texmf-dist/doc/latex/yquant/yquant-doc.pdf details="Package documentation"
+ texmf-dist/doc/latex/yquant/yquant-doc.tex
+runfiles size=99
+ texmf-dist/tex/latex/yquant/yquant-circuit.tex
+ texmf-dist/tex/latex/yquant/yquant-config.tex
+ texmf-dist/tex/latex/yquant/yquant-draw.tex
+ texmf-dist/tex/latex/yquant/yquant-env.tex
+ texmf-dist/tex/latex/yquant/yquant-lang.tex
+ texmf-dist/tex/latex/yquant/yquant-langhelper.tex
+ texmf-dist/tex/latex/yquant/yquant-prepare.tex
+ texmf-dist/tex/latex/yquant/yquant-registers.tex
+ texmf-dist/tex/latex/yquant/yquant-shapes.tex
+ texmf-dist/tex/latex/yquant/yquant-tools.tex
+ texmf-dist/tex/latex/yquant/yquant.sty
+ texmf-dist/tex/latex/yquant/yquantlanguage-groups.sty
+ texmf-dist/tex/latex/yquant/yquantlanguage-qasm.sty
+catalogue-contact-bugs https://github.com/projekter/yquant/issues
+catalogue-contact-home https://github.com/projekter/yquant
+catalogue-ctan /graphics/pgf/contrib/yquant
+catalogue-license lppl1.3c
+catalogue-topics graphics diagram-circ pgf-tikz
+catalogue-version 0.7.1

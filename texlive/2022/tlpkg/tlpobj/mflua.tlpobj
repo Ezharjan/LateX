@@ -1,0 +1,21 @@
+name mflua
+category TLCore
+revision 62774
+shortdesc configuration and base files for MFLua
+longdesc For information on this Lua-enabled Metafont, see, for example:
+longdesc tug.org/TUGboat/tb32-2/tb101scarso.pdf.
+depend luatex
+depend metafont
+depend mflua.ARCH
+execute AddFormat name=mflua engine=mflua-nowin options="mf.ini"   fmttriggers=luatex,metafont mode=disabled
+containersize 31676
+containerchecksum fa735fa117e7bd433339efbb709caa5fc25007088500dd5e4f6999cc417d188fd43435f74d526186880ac857f9bfc52e1fb7f1055974cea959e28536150b1a19
+runfiles size=48
+ texmf-dist/metafont/mflua/mflua.ini
+ texmf-dist/metafont/mflua/mfluajit.ini
+ texmf-dist/metafont/mflua/mfluamodes.mf
+ texmf-dist/metafont/mflua/mfluaplain.mf
+ texmf-dist/scripts/mflua/end_program.lua
+ texmf-dist/scripts/mflua/mflua.lua
+ texmf-dist/scripts/mflua/mflua_svg_backend.lua
+ texmf-dist/scripts/mflua/mflua_ttx_backend.lua

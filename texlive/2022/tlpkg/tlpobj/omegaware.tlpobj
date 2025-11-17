@@ -1,0 +1,39 @@
+name omegaware
+category TLCore
+revision 62517
+catalogue omega
+shortdesc A wide-character-set extension of TeX
+longdesc A development of TeX, which deals in multi-octet Unicode
+longdesc characters, to enable native treatment of a wide range of
+longdesc languages without changing character-set. Work on Omega has
+longdesc ceased (the TeX Live package contains only support files); its
+longdesc compatible successor is aleph, which is itself also in major
+longdesc maintenance mode only. Ongoing projects developing Omega (and
+longdesc Aleph) ideas include Omega-2 and LuaTeX.
+depend omegaware.ARCH
+containersize 604
+containerchecksum 08c491924b039476930473310611a6d2c0b5af7d0f2253a28558081cca254e6aa080727dc90456b4a011732353ca027569d7b8d8ab3ecdfb011ccc9f80e9ba68
+doccontainersize 153440
+doccontainerchecksum 6d8331109f114612d637234164e9d3d8ade9e23bba200c1ef8bbd585ff4c3e9d7f58df3ddd021990ab26a5024001fd94f7fdb3e1e329e4f91dac069fc1f6ba32
+docfiles size=60
+ texmf-dist/doc/man/man1/odvicopy.1
+ texmf-dist/doc/man/man1/odvicopy.man1.pdf
+ texmf-dist/doc/man/man1/odvitype.1
+ texmf-dist/doc/man/man1/odvitype.man1.pdf
+ texmf-dist/doc/man/man1/ofm2opl.1
+ texmf-dist/doc/man/man1/ofm2opl.man1.pdf
+ texmf-dist/doc/man/man1/opl2ofm.1
+ texmf-dist/doc/man/man1/opl2ofm.man1.pdf
+ texmf-dist/doc/man/man1/otangle.1
+ texmf-dist/doc/man/man1/otangle.man1.pdf
+ texmf-dist/doc/man/man1/otp2ocp.1
+ texmf-dist/doc/man/man1/otp2ocp.man1.pdf
+ texmf-dist/doc/man/man1/outocp.1
+ texmf-dist/doc/man/man1/outocp.man1.pdf
+ texmf-dist/doc/man/man1/ovf2ovp.1
+ texmf-dist/doc/man/man1/ovf2ovp.man1.pdf
+ texmf-dist/doc/man/man1/ovp2ovf.1
+ texmf-dist/doc/man/man1/ovp2ovf.man1.pdf
+catalogue-ctan /obsolete/systems/omega
+catalogue-license gpl
+catalogue-topics engine omega obsolete

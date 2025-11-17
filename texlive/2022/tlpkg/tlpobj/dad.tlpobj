@@ -1,0 +1,49 @@
+name dad
+category Package
+revision 54191
+shortdesc Simple typesetting system for mixed Arabic/Latin documents
+longdesc This package allows simple typesetting in Arabic script,
+longdesc intended for mixed Arabic/Latin script usage in situations
+longdesc where heavy-duty solutions are discouraged. The system operates
+longdesc with both Unicode and transliterated input, allowing the user
+longdesc to choose the most appropriate approach for every situation.
+execute addMap dad.map
+containersize 241644
+containerchecksum 600bd3267a47e5513f51e67135920c15aa7aefb51f2c3dea6e912f26d1a45071f936e4c568afd322aa7e89d5139e68398b394c287d5076c17e310297fa7f8fa8
+doccontainersize 199976
+doccontainerchecksum 97d4596972c436762e33bd1d5077f7fdbe7da2a74b016a8841ad98536c2e9d9a2bd01a91b1ad2fb306c7ba06a0a5532d47c7b813d42b0bd82a3390f3bd17760b
+docfiles size=76
+ texmf-dist/doc/fonts/dad/README details="Readme"
+ texmf-dist/doc/fonts/dad/dad-to-utf8.pl
+ texmf-dist/doc/fonts/dad/dad-user-guide.bib
+ texmf-dist/doc/fonts/dad/dad-user-guide.pdf details="Package documentation"
+ texmf-dist/doc/fonts/dad/dad-user-guide.tex
+ texmf-dist/doc/fonts/dad/dad.adjust
+ texmf-dist/doc/fonts/dad/dadbold.adjust
+ texmf-dist/doc/fonts/dad/dadmono.adjust
+ texmf-dist/doc/fonts/dad/make-dad-font.pl
+ texmf-dist/doc/fonts/dad/utf8-to-dad.pl
+runfiles size=2588
+ texmf-dist/fonts/afm/public/dad/Dad-bold.afm
+ texmf-dist/fonts/afm/public/dad/Dad-mono.afm
+ texmf-dist/fonts/afm/public/dad/Dad.afm
+ texmf-dist/fonts/map/dvips/dad/dad.map
+ texmf-dist/fonts/ofm/public/dad/dad.ofm
+ texmf-dist/fonts/ofm/public/dad/dadbold.ofm
+ texmf-dist/fonts/ofm/public/dad/dadmono.ofm
+ texmf-dist/fonts/ovf/public/dad/dad.ovf
+ texmf-dist/fonts/ovf/public/dad/dadbold.ovf
+ texmf-dist/fonts/ovf/public/dad/dadmono.ovf
+ texmf-dist/fonts/tfm/public/dad/dadreal.tfm
+ texmf-dist/fonts/tfm/public/dad/dadrealbold.tfm
+ texmf-dist/fonts/tfm/public/dad/dadrealmono.tfm
+ texmf-dist/fonts/type1/public/dad/Dad-bold.pfb
+ texmf-dist/fonts/type1/public/dad/Dad-mono.pfb
+ texmf-dist/fonts/type1/public/dad/Dad.pfb
+ texmf-dist/tex/lualatex/dad/OT1dad.fd
+ texmf-dist/tex/lualatex/dad/T1dad.fd
+ texmf-dist/tex/lualatex/dad/dad.sty
+catalogue-ctan /language/arabic/dad
+catalogue-license lppl
+catalogue-topics arabic luatex font-type1
+catalogue-version 1.2

@@ -1,0 +1,22 @@
+name highlightlatex
+category Package
+revision 58392
+shortdesc Syntax highlighting for LaTeX
+longdesc This package provides extensive colored syntax highlighting for
+longdesc LaTeX. For this purpose it builds on the generic listings
+longdesc package.
+containersize 3548
+containerchecksum befd40ea2efc15015a76f97add004e33da86c628b3bf58277f8a9feff9396544acdc6603cae74e7bb88d2c819656edcbce9897e32f65156f39a0667c087a491d
+doccontainersize 223808
+doccontainerchecksum 20760262af6cfeccf512ab205fb874b3f1c9b3c15637ed6500bf5b627ba2f319963eee0f76aa480e1257b0cb31288829bfe324f05afde290c3433aa9a018c10d
+docfiles size=61
+ texmf-dist/doc/latex/highlightlatex/LICENSE.txt
+ texmf-dist/doc/latex/highlightlatex/README.md details="Readme"
+ texmf-dist/doc/latex/highlightlatex/highlightlatex-manual.pdf details="Package documentation"
+runfiles size=3
+ texmf-dist/tex/latex/highlightlatex/highlightlatex.sty
+catalogue-contact-bugs https://github.com/vkuhlmann/highlight-latex/issues
+catalogue-contact-home https://github.com/vkuhlmann/highlight-latex
+catalogue-ctan /macros/latex/contrib/highlightlatex
+catalogue-license mit
+catalogue-topics listing synt-hlt

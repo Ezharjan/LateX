@@ -1,0 +1,39 @@
+name standalone
+category Package
+revision 56291
+shortdesc Compile TeX pictures stand-alone or as part of a document
+longdesc A class and package is provided which allows TeX pictures or
+longdesc other TeX code to be compiled standalone or as part of a main
+longdesc document. Special support for pictures with beamer overlays is
+longdesc also provided. The package is used in the main document and
+longdesc skips extra preambles in sub-files. The class may be used to
+longdesc simplify the preamble in sub-files. By default the preview
+longdesc package is used to display the typeset code without margins.
+longdesc The behaviour in standalone mode may adjusted using a
+longdesc configuration file standalone.cfg to redefine the standalone
+longdesc environment.
+containersize 11884
+containerchecksum d9fd4051c18908b69041805c4a4c631a14d8e3c35b6161ca6731962f2ad0d343db3d1dcf6a8e012d6a96971b3e0a0f00204634ac9c836b3bd28c0a96e132d946
+doccontainersize 270488
+doccontainerchecksum 5e1696289be97de97c4c68cf81933bd15ed542e3943b9a718d8f04c8ea16b9a31ddeaf5360e45d356110c7e6663872f354302cb07ca38bf0900380f575ea76bd
+docfiles size=68
+ texmf-dist/doc/latex/standalone/README details="Readme"
+ texmf-dist/doc/latex/standalone/standalone.pdf details="Package documentation"
+srccontainersize 38568
+srccontainerchecksum a921b3956908990f216f5d8da1449e7a47c4d74f34284f2c58b7c3cfa601c57de880d78e3680947349f3b5d20e0366f020d70b7c1348a9a374d2d0b57b58ef9c
+srcfiles size=47
+ texmf-dist/source/latex/standalone/standalone.dtx
+ texmf-dist/source/latex/standalone/standalone.ins
+runfiles size=18
+ texmf-dist/tex/latex/standalone/standalone.cfg
+ texmf-dist/tex/latex/standalone/standalone.cls
+ texmf-dist/tex/latex/standalone/standalone.sty
+ texmf-dist/tex/plain/standalone/standalone.tex
+catalogue-also combine docmute includex newclude
+catalogue-contact-bugs https://sourceforge.net/p/standalone/tickets/
+catalogue-contact-home https://sourceforge.net/p/standalone/
+catalogue-contact-repository https://sourceforge.net/p/standalone/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/standalone
+catalogue-license lppl1.3
+catalogue-topics subdocs class
+catalogue-version 1.3a

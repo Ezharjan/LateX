@@ -1,0 +1,30 @@
+name supertabular
+category Package
+revision 53658
+shortdesc A multi-page tables package
+longdesc The package was a predecessor of longtable; the newer package
+longdesc (designed on quite different principles) is easier to use and
+longdesc more flexible, in many cases, but supertabular retains its
+longdesc usefulness in a few situations where longtable has problems.
+containersize 3960
+containerchecksum 68ff94c82b9986983b0a8b0c1e60301067aa20c92c2576e6d0a9b9060d4db48e2770334ae941b6b7fd1a4914098e2125f324e0d5284da52b523a7616552604be
+doccontainersize 259052
+doccontainerchecksum 0a36abcb782ea20b3c45d5c42a55fb41c04c3707c9c5b0166f90b7494032376d6756f827f1293cf998b56a84192aed36b6224e4abe14646557d130427f3bb63d
+docfiles size=70
+ texmf-dist/doc/latex/supertabular/CATALOG
+ texmf-dist/doc/latex/supertabular/ChangeLog
+ texmf-dist/doc/latex/supertabular/MANIFEST
+ texmf-dist/doc/latex/supertabular/README details="Package documentation"
+ texmf-dist/doc/latex/supertabular/supertabular.pdf details="Package documentation"
+srccontainersize 13472
+srccontainerchecksum 1c84cbac59404c9f2e1adca379d24168ee4a7f1639110c3c8c5031a17025efb06608a9e8e703395727d1cc4ddb8de87932af14da71475e16d850b78fd5de0b52
+srcfiles size=17
+ texmf-dist/source/latex/supertabular/supertabular.dtx
+ texmf-dist/source/latex/supertabular/supertabular.ins
+runfiles size=4
+ texmf-dist/tex/latex/supertabular/supertabular.sty
+catalogue-also xtab
+catalogue-ctan /macros/latex/contrib/supertabular
+catalogue-license lppl1.3c
+catalogue-topics table table-long
+catalogue-version 4.1g

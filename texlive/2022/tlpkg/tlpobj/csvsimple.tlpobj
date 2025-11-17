@@ -1,0 +1,45 @@
+name csvsimple
+category Package
+revision 64450
+shortdesc Simple CSV file processing
+longdesc The package provides a simple LaTeX interface for the
+longdesc processing of files with comma separated values (CSV); it
+longdesc relies on the key value syntax supported by pgfkeys to simplify
+longdesc usage. Filtering and table generation are especially supported;
+longdesc however, this lightweight tool offers no support for data
+longdesc sorting or data base storage. The package depends on etoolbox,
+longdesc ifthen, pgfrcs, pgfkeys, and shellesc.
+containersize 11344
+containerchecksum 5c17b0055230159d8e37ab77738d7f177578fa4061dbf5fca0071da4dadcc929946fddee11bbfb32c2109adffe8e33bad74ee0f343b467ab695a85face9ca516
+doccontainersize 1659136
+doccontainerchecksum 9d63055aecb4f5939799b03691c6620c5b07b7b8b785a00a84d2c937409f675223aab97e68ceedbdf21b0193a05fcf3763971ca3c9e016933f2c55b5a2c8f8ef
+docfiles size=660
+ texmf-dist/doc/latex/csvsimple/CHANGES.md
+ texmf-dist/doc/latex/csvsimple/README.md details="Readme"
+ texmf-dist/doc/latex/csvsimple/amountsort.xml
+ texmf-dist/doc/latex/csvsimple/catsort.xml
+ texmf-dist/doc/latex/csvsimple/csvsimple-doc.sty
+ texmf-dist/doc/latex/csvsimple/csvsimple-example.csv
+ texmf-dist/doc/latex/csvsimple/csvsimple-example.pdf details="Example of use"
+ texmf-dist/doc/latex/csvsimple/csvsimple-example.tex
+ texmf-dist/doc/latex/csvsimple/csvsimple-l3.pdf details="Package documentation (LaTeX3 version)"
+ texmf-dist/doc/latex/csvsimple/csvsimple-l3.tex
+ texmf-dist/doc/latex/csvsimple/csvsimple-legacy.pdf details="Package documentation (legacy version)"
+ texmf-dist/doc/latex/csvsimple/csvsimple-legacy.tex
+ texmf-dist/doc/latex/csvsimple/csvsimple-title.png
+ texmf-dist/doc/latex/csvsimple/csvsimple.pdf details="Package documentation"
+ texmf-dist/doc/latex/csvsimple/csvsimple.tex
+ texmf-dist/doc/latex/csvsimple/encoding.xml
+ texmf-dist/doc/latex/csvsimple/gradesort.xml
+ texmf-dist/doc/latex/csvsimple/matriculationsort.xml
+ texmf-dist/doc/latex/csvsimple/namesort.xml
+ texmf-dist/doc/latex/csvsimple/transform.xml
+runfiles size=19
+ texmf-dist/tex/latex/csvsimple/csvsimple-l3.sty
+ texmf-dist/tex/latex/csvsimple/csvsimple-legacy.sty
+ texmf-dist/tex/latex/csvsimple/csvsimple.sty
+catalogue-also csvtools datatool
+catalogue-ctan /macros/latex/contrib/csvsimple
+catalogue-license lppl1.3
+catalogue-topics data-import data-disp csv-support expl3
+catalogue-version 2.3.2

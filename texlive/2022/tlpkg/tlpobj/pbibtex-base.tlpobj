@@ -1,0 +1,36 @@
+name pbibtex-base
+category Package
+revision 61914
+shortdesc Bibliography styles and miscellaneous files for pBibTeX
+longdesc These are miscellaneous files, including bibliography styles
+longdesc (.bst), for pBibTeX, which is a Japanese extended version of
+longdesc BibTeX contained in TeX Live. The bundle is a redistribution
+longdesc derived from the ptex-texmf distribution by ASCII MEDIA WORKS.
+containersize 14700
+containerchecksum dcef21019daca2ec8a2a649f58f3e648cc580c6d46fdb1c7a315fd66fe6e9075dfac8d12dfe901be0487272419cb10257007b8e34a0a6d11d93f6b5f67b5f988
+doccontainersize 27920
+doccontainerchecksum 897d18ba8ed56a44541dab0d07c0f1fff059e08ae02165b1205e439bb3b0b61484a2008a8a463690f9fbc628fbd462d271643957715a32a712e35cb9dda3bfd4
+docfiles size=31
+ texmf-dist/doc/ptex/pbibtex/LICENSE
+ texmf-dist/doc/ptex/pbibtex/README.md details="Readme"
+ texmf-dist/doc/ptex/pbibtex/cpp.awk
+ texmf-dist/doc/ptex/pbibtex/generate.sh
+ texmf-dist/doc/ptex/pbibtex/jbibtex.bib
+ texmf-dist/doc/ptex/pbibtex/jbtxbst.doc
+ texmf-dist/doc/ptex/pbibtex/jbtxdoc.bib
+runfiles size=61
+ texmf-dist/pbibtex/bib/jxampl.bib
+ texmf-dist/pbibtex/bst/jabbrv.bst
+ texmf-dist/pbibtex/bst/jalpha.bst
+ texmf-dist/pbibtex/bst/jipsj.bst
+ texmf-dist/pbibtex/bst/jname.bst
+ texmf-dist/pbibtex/bst/jorsj.bst
+ texmf-dist/pbibtex/bst/jplain.bst
+ texmf-dist/pbibtex/bst/junsrt.bst
+ texmf-dist/pbibtex/bst/tieice.bst
+ texmf-dist/pbibtex/bst/tipsj.bst
+catalogue-also pbibtex-manual
+catalogue-contact-repository https://github.com/texjporg/pbibtex-base
+catalogue-ctan /biblio/pbibtex/pbibtex-base
+catalogue-license bsd3
+catalogue-topics biblio japanese

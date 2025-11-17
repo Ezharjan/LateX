@@ -1,0 +1,43 @@
+name figput
+category Package
+revision 63957
+shortdesc Create interactive figures in LaTeX
+longdesc FigPut allows figures to be specified using JavaScript. The
+longdesc resulting document can be viewed as a static PDF, as usual, or
+longdesc the document can be viewed in a web-browser, in which case the
+longdesc figures are interactive. A variety of interactive widgets are
+longdesc included.
+containersize 8268
+containerchecksum 4ea2768b272f9be270f1ce3edf02cd73b8d8c792d8b92c20a8d38b05649e43e8441d6e439f0e1be8ca906c5b9a47db1d6a48ff7ee136f53dc4ae09cc6172d46a
+doccontainersize 861544
+doccontainerchecksum 54c8428c9b0bd267389a9bf25b005b31365fc9451d0e3ca4632e52a07af9c02a24aa1c7c9b5f19eac196f4dbfad9db91647cfef82c301496ec4be58d9e2360cd
+docfiles size=571
+ texmf-dist/doc/latex/figput/LICENSE.txt
+ texmf-dist/doc/latex/figput/README.md details="Readme"
+ texmf-dist/doc/latex/figput/example/example.pdf
+ texmf-dist/doc/latex/figput/example/example.tex
+ texmf-dist/doc/latex/figput/example/externalcode.js
+ texmf-dist/doc/latex/figput/figput-manual/figput-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/figput/figput-manual/figput-manual.tex
+ texmf-dist/doc/latex/figput/javascript/development/layout.ts
+ texmf-dist/doc/latex/figput/javascript/development/main.ts
+ texmf-dist/doc/latex/figput/javascript/development/tikz.ts
+ texmf-dist/doc/latex/figput/javascript/development/widgets.ts
+ texmf-dist/doc/latex/figput/javascript/figput.html
+ texmf-dist/doc/latex/figput/javascript/layout.js
+ texmf-dist/doc/latex/figput/javascript/main.js
+ texmf-dist/doc/latex/figput/javascript/pdf.js
+ texmf-dist/doc/latex/figput/javascript/pdf.worker.min.js
+ texmf-dist/doc/latex/figput/javascript/pdfjs_license.txt
+ texmf-dist/doc/latex/figput/javascript/release/figput.html
+ texmf-dist/doc/latex/figput/javascript/release/figput.js
+ texmf-dist/doc/latex/figput/javascript/server.py
+ texmf-dist/doc/latex/figput/javascript/tikz.js
+ texmf-dist/doc/latex/figput/javascript/widgets.js
+runfiles size=7
+ texmf-dist/tex/latex/figput/figput.sty
+catalogue-contact-repository https://github.com/rsfairman/figput
+catalogue-ctan /graphics/figput
+catalogue-license cc-by-sa-4
+catalogue-topics graphics callback cgi-latex expl3 pgf-tikz
+catalogue-version 0.90

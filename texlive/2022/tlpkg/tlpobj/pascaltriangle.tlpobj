@@ -1,0 +1,27 @@
+name pascaltriangle
+category Package
+revision 61774
+shortdesc Draw beautiful Pascal (Yanghui) triangles
+longdesc This LaTeX3 package based on TikZ helps to generate beautiful
+longdesc Pascal (Yanghui) triangles. It provides a unique drawing macro
+longdesc \pascal which can generate isosceles or right-angle triangles
+longdesc customized by means of different \pascal macro options or the
+longdesc \pascalset macro.
+containersize 3696
+containerchecksum 0736284ad69dc62a9f97887f09aaf4e527438d068147319be8710c53708bf88c156964c9737548df4b2210b1e6bf5219d157e5d5baff53a510fa373684a8eda5
+doccontainersize 164512
+doccontainerchecksum 137c13f7878fcb5f3f2e7d4d47d05e8a25f7fd19f58672d7b521ba944a5eea22e90dd12418d4b056dbb1a94faaae750a9f2e06e4dfc8fcd206609f5f95e97a5f
+docfiles size=46
+ texmf-dist/doc/latex/pascaltriangle/README.md details="Readme"
+ texmf-dist/doc/latex/pascaltriangle/build.sh
+ texmf-dist/doc/latex/pascaltriangle/pascaltriangle.pdf details="Package documentation" language="zh,en"
+ texmf-dist/doc/latex/pascaltriangle/pascaltriangle.tex
+runfiles size=4
+ texmf-dist/tex/latex/pascaltriangle/pascaltriangle.sty
+catalogue-also binomexp
+catalogue-contact-bugs https://github.com/registor/pascaltriangle/issues
+catalogue-contact-repository https://github.com/registor/pascaltriangle
+catalogue-ctan /macros/latex/contrib/pascaltriangle
+catalogue-license lppl1.3c
+catalogue-topics maths calculation pgf-tikz expl3
+catalogue-version 1.0.1

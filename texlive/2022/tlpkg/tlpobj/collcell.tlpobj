@@ -1,0 +1,32 @@
+name collcell
+category Package
+revision 56291
+shortdesc Collect contents of a tabular cell as argument to a macro
+longdesc The package provides macros that collect the content of a
+longdesc tabular cell, and offer them as an argument to a macro. Special
+longdesc care is taken to remove all aligning macros inserted by tabular
+longdesc from the cell content. The macros also work in the last column
+longdesc of a table, but do not support verbatim material inside the
+longdesc cells.
+containersize 2252
+containerchecksum fff5f9ae7f9cd27f85189a895193f205e0b52874d46171f1f3957d7c816e0641dde6d2711783897953a1f1be699e001fbd9048aa3c15c24cfd33413db1ae688f
+doccontainersize 221632
+doccontainerchecksum 22dd2b527ca195cb4cbf6d34d8dbd181dbb3386fa738fb09530957eea1413261fd596b0a00395647ce2582c477625cdd87e8ffa1cf2dad5387032a7d7d737edc
+docfiles size=68
+ texmf-dist/doc/latex/collcell/collcell.pdf details="Package documentation"
+srccontainersize 7536
+srccontainerchecksum 9a5a173381fe9b6e0383571868b215184b75c51e39d18ca209d00e4064c28d7a477c4b887a0be5dd4867d393c6854022a5abd7be63d3be593549e645e3e09aba
+srcfiles size=8
+ texmf-dist/source/latex/collcell/Makefile
+ texmf-dist/source/latex/collcell/README
+ texmf-dist/source/latex/collcell/collcell.dtx
+ texmf-dist/source/latex/collcell/collcell.ins
+runfiles size=2
+ texmf-dist/tex/latex/collcell/collcell.sty
+catalogue-contact-bugs https://sourceforge.net/p/collcell/tickets/
+catalogue-contact-home https://sourceforge.net/p/collcell/
+catalogue-contact-repository https://sourceforge.net/p/collcell/code/ci/default/tree/
+catalogue-ctan /macros/latex/contrib/collcell
+catalogue-license lppl1.3
+catalogue-topics table
+catalogue-version 0.5

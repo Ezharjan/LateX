@@ -1,0 +1,40 @@
+name asmejour
+category Package
+revision 63736
+shortdesc A template for ASME journal papers
+longdesc The asmejour class provides a template to format preprints
+longdesc submitted to ASME journals. The layout and reference formats
+longdesc closely follow the style that is currently being used for
+longdesc published papers. The class is intended to be used with the
+longdesc asmejour.bst BibTeX style, which is part of this distribution.
+longdesc Unlike older ASME LaTeX templates, asmejour pdfs will contain
+longdesc hyperlinks, bookmarks, and metadata, and references can include
+longdesc the DOI and URL fields. Options include line numbering, final
+longdesc column balancing, various math options, government copyright,
+longdesc and archivability (PDF/A). The class is compatible with
+longdesc pdfLaTeX or LuaLaTeX. This package is not a publication of
+longdesc ASME.
+containersize 22568
+containerchecksum 73960398a0c3f7b29550bfe881c7c155662cecc0cfc70eb618c802ddbd20fc83416aaeaa5cfa16910b6dad106d362deebf73db803111a7520433549367ae1cfe
+doccontainersize 1811540
+doccontainerchecksum 510bc20b673d32b8d6831f21d22564de26f14318f4adcbe7dc759a2cc3e77089c06be0133d4f76b05cac0854592ff8f1b8d65487e5356078125307d986141cc8
+docfiles size=1579
+ texmf-dist/doc/latex/asmejour/README.md details="Readme"
+ texmf-dist/doc/latex/asmejour/asmejour-sample.bib
+ texmf-dist/doc/latex/asmejour/asmejour-template.pdf details="Example of use"
+ texmf-dist/doc/latex/asmejour/asmejour-template.tex
+ texmf-dist/doc/latex/asmejour/asmewide_example/asmejour-wide-equation-examples.pdf
+ texmf-dist/doc/latex/asmejour/asmewide_example/asmejour-wide-equation-examples.tex
+ texmf-dist/doc/latex/asmejour/asmewide_example/asmewide.sty
+ texmf-dist/doc/latex/asmejour/asmewide_example/tesseral-harmonic.pdf
+ texmf-dist/doc/latex/asmejour/asmewide_example/zonal-harmonic2.pdf
+ texmf-dist/doc/latex/asmejour/sample-figure-1.pdf
+ texmf-dist/doc/latex/asmejour/sample-figure-2a.pdf
+ texmf-dist/doc/latex/asmejour/sample-figure-2b.pdf
+runfiles size=23
+ texmf-dist/bibtex/bst/asmejour/asmejour.bst
+ texmf-dist/tex/latex/asmejour/asmejour.cls
+catalogue-ctan /macros/latex/contrib/asmejour
+catalogue-license mit
+catalogue-topics class journalpub scientific-docs bibtex-sty engineering
+catalogue-version 1.19

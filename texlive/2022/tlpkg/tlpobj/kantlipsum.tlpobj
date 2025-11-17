@@ -1,0 +1,27 @@
+name kantlipsum
+category Package
+revision 51727
+shortdesc Generate sentences in Kant's style
+longdesc The package spits out sentences in Kantian style; the text is
+longdesc provided by the Kant generator for Python by Mark Pilgrim,
+longdesc described in the book "Dive into Python". The package is
+longdesc modelled on lipsum, and may be used for similar purposes.
+containersize 24020
+containerchecksum 7aac4684e6d08b46319b711a824dbe33446674f63fe301e366543553e6fc4c41aa1eb9aabfc9d11710014c9347ac559dfa1882478f6ec5d9edb39c5dc42cda8d
+doccontainersize 579876
+doccontainerchecksum bb96e91c7562c34c56c7170e246eb71c353d67d649cbbaee5904f6bd82b905b93e79baeee536a3d8eb8b9f08296591a8d0fe621883914f4af676f78c6f244523
+docfiles size=144
+ texmf-dist/doc/latex/kantlipsum/README.md details="Readme"
+ texmf-dist/doc/latex/kantlipsum/kantlipsum.pdf details="Package documentation"
+srccontainersize 27900
+srccontainerchecksum aeebdbaa22e0e2b369a18bf7243d714b872115ac9f0154438d37aa0719e3623ce27d31068d90bb60b301322b30c18bf34d4ad312355a65c8e00043653f696b54
+srcfiles size=51
+ texmf-dist/source/latex/kantlipsum/kantlipsum.dtx
+ texmf-dist/source/latex/kantlipsum/kantlipsum.ins
+runfiles size=47
+ texmf-dist/tex/latex/kantlipsum/kantlipsum.sty
+catalogue-also blindtext
+catalogue-ctan /macros/latex/contrib/kantlipsum
+catalogue-license lppl1.3c
+catalogue-topics macro-supp dummy-gen
+catalogue-version 0.8a

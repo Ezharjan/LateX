@@ -1,0 +1,31 @@
+name elements
+category Package
+revision 61792
+shortdesc Provides properties of chemical elements
+longdesc The package provides means for retrieving properties of
+longdesc chemical elements like atomic number, element symbol, element
+longdesc name, electron distribution or isotope number. Properties are
+longdesc defined for the elements up to the atomic number 112. This
+longdesc package is a spin-off of the package bohr by the same author.
+containersize 8868
+containerchecksum 576b318c0972e8862b8d4cb9c248a3303125019a321b2f5efcc0b6d6c7dbc5cee4a1db725af49754360633d654447d83a58dfc7e25c13e91e034e73ccd5765cc
+doccontainersize 413276
+doccontainerchecksum 6adb7fd993275022e49bda34889a21ce000ff7c247d6c3747494bd67adbfc1776f4c2e8d9affd57dbe659740cd9a5646bd34ab87975d306e8568a27899555e9e
+docfiles size=105
+ texmf-dist/doc/latex/elements/README details="Readme"
+ texmf-dist/doc/latex/elements/elements-manual.pdf details="Package documentation"
+ texmf-dist/doc/latex/elements/elements-manual.tex
+runfiles size=19
+ texmf-dist/tex/latex/elements/elements.sty
+ texmf-dist/tex/latex/elements/elements_names_brazil.def
+ texmf-dist/tex/latex/elements/elements_names_english.def
+ texmf-dist/tex/latex/elements/elements_names_french.def
+ texmf-dist/tex/latex/elements/elements_names_german.def
+ texmf-dist/tex/latex/elements/elements_names_portuges.def
+ texmf-dist/tex/latex/elements/elements_names_spanish.def
+catalogue-contact-bugs https://github.com/cgnieder/elements/issues
+catalogue-contact-repository https://github.com/cgnieder/elements/
+catalogue-ctan /macros/latex/contrib/elements
+catalogue-license lppl1.3c
+catalogue-topics chemistry
+catalogue-version 0.4

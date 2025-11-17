@@ -1,0 +1,30 @@
+name messagepassing
+category Package
+revision 63116
+shortdesc Draw diagrams to represent communication protocols
+longdesc This package provides an environment to easily draw diagrams to
+longdesc represent communication protocols using message passing among
+longdesc processes. Processes are represented as horizontal or vertical
+longdesc lines, and communications as arrows between lines. The package
+longdesc also provides multiple macros to decorate those diagrams, for
+longdesc instance to annotate the diagram, to add crashes to the
+longdesc processes, checkpoints, ...
+containersize 2644
+containerchecksum 31586e42be48650fd7b7057a4cdb54b7f6851c35e450cfb436dbf12d23617821c5c6e2f66a8abf2e181521c55d64fb9ad93cb195cf0d01559d6405ccc34af26d
+doccontainersize 268036
+doccontainerchecksum ac1b2ce7ca296eec4768d191547af66e3233d3ed34e68e746e870a894757df1de82b3bed6ed510fd0dbc8e5e9194e2ee024860112408b8e6b29e2bf230209a57
+docfiles size=67
+ texmf-dist/doc/latex/messagepassing/README.md details="Readme"
+ texmf-dist/doc/latex/messagepassing/messagepassing.pdf details="Package documentation"
+srccontainersize 8532
+srccontainerchecksum 7931c0b26a779915f94531bb0b3af6fb31b35cc2401e3dc539b673e15bcc21131d88102b3b6f77d8a27d70eabc897a6fbf99dcffe8adc02f6a82673c0c29a69a
+srcfiles size=9
+ texmf-dist/source/latex/messagepassing/messagepassing.dtx
+ texmf-dist/source/latex/messagepassing/messagepassing.ins
+runfiles size=2
+ texmf-dist/tex/latex/messagepassing/messagepassing.sty
+catalogue-contact-repository https://framagit.org/Bromind/LaTeX-packages/-/tree/master
+catalogue-ctan /graphics/pgf/contrib/messagepassing
+catalogue-license lppl1.3
+catalogue-topics diagram pgf-tikz
+catalogue-version 1.0

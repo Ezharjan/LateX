@@ -1,0 +1,28 @@
+name minim-math
+category Package
+revision 62419
+shortdesc Extensive maths for LuaTeX
+longdesc This package provides a simple and highly configurable way to
+longdesc use Unicode and OpenType mathematics with simple LuaTeX, taking
+longdesc advantage of most of the engine's new capabilities in
+longdesc mathematical typesetting. Also included are the proper settings
+longdesc and definitions for almost all Unicode mathematical characters.
+containersize 33316
+containerchecksum 242067b2db1fbf62174ff74c81594508d1d99a0029aa28c08af3995b6833f87e1bc2d19d6c825795650584bed96a2211e7d8b554c4b627959b61cbe50bc9c0e5
+doccontainersize 96820
+doccontainerchecksum 757f52ce6a4d6052cc9b75cd50019a5790a3943568e8d2818ba88a9427a603292ac0730fd361f75c1b5e9c9ab7b197e2f235c2b9348b669828d8b82a6e92054c
+docfiles size=35
+ texmf-dist/doc/luatex/minim-math/EUPL-1.2-EN.txt
+ texmf-dist/doc/luatex/minim-math/README details="Readme"
+ texmf-dist/doc/luatex/minim-math/minim-math.doc
+ texmf-dist/doc/luatex/minim-math/minim-math.pdf details="Package documentation"
+runfiles size=92
+ texmf-dist/tex/luatex/minim-math/minim-math-table.lua
+ texmf-dist/tex/luatex/minim-math/minim-math.lua
+ texmf-dist/tex/luatex/minim-math/minim-math.tex
+catalogue-also minim
+catalogue-contact-repository https://gitlab.com/renkema/minim
+catalogue-ctan /macros/luatex/generic/minim-math
+catalogue-license other-free
+catalogue-topics luatex maths
+catalogue-version 2022/1.1

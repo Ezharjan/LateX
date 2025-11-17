@@ -1,0 +1,33 @@
+name lua-ul
+category Package
+revision 63469
+shortdesc Underlining for LuaLaTeX
+longdesc This package provides underlining, strikethough, and
+longdesc highlighting using features in LuaLaTeX which avoid the
+longdesc restrictions imposed by other methods. In particular, kerning
+longdesc is not affected, the underlined text can use arbitrary
+longdesc commands, hyphenation works etc. The package requires LuaTeX
+longdesc version [?] 1.12.0.
+containersize 7508
+containerchecksum a6502086f7d1c57247f9371a711ae7cd1d6112f68818e2a1e04a5a04c97c81dc0c01d7b767e6a6880e366eee9d912cf1ea1f0a17f1d43645ac15ed005d2b8855
+doccontainersize 106052
+doccontainerchecksum 87793902acca0493ba9671d1052663a4c6322ee9231bb9ede780626bcfe500242b0bde8c0374a8a493336b2890a01a00ea77e2889f544fb2321cf44f08c58e4b
+docfiles size=28
+ texmf-dist/doc/lualatex/lua-ul/README details="Readme"
+ texmf-dist/doc/lualatex/lua-ul/lua-ul.pdf details="Package documentation"
+srccontainersize 11708
+srccontainerchecksum 9306925f6131bbabf018343d0ab608b501690f7ad11b8c1df6a60c8e18b26c10c940f8015beeafa112859f54d78bae5d57c8c2775fb54ad82462969c9c65e79f
+srcfiles size=11
+ texmf-dist/source/lualatex/lua-ul/lua-ul.dtx
+runfiles size=10
+ texmf-dist/tex/lualatex/lua-ul/docstrip-luacode.sty
+ texmf-dist/tex/lualatex/lua-ul/lua-ul-patches-preserve-attr.lua
+ texmf-dist/tex/lualatex/lua-ul/lua-ul.lua
+ texmf-dist/tex/lualatex/lua-ul/lua-ul.sty
+ texmf-dist/tex/lualatex/lua-ul/pre_append_to_vlist_filter.lua
+catalogue-contact-bugs https://github.com/zauguin/luaul/issues
+catalogue-contact-repository https://github.com/zauguin/luaul
+catalogue-ctan /macros/luatex/latex/lua-ul
+catalogue-license lppl1.3c
+catalogue-topics underline luatex expl3
+catalogue-version 0.2.0

@@ -1,0 +1,26 @@
+name biblatex-lncs
+category Package
+revision 62937
+shortdesc BibLaTeX style for Springer Lecture Notes in Computer Science
+longdesc This is a BibLaTeX style for Springer Lecture Notes in Computer
+longdesc Science (LNCS). It extends the standard BiBTeX model by an
+longdesc acronym entry.
+containersize 2648
+containerchecksum 6bcc10d5f613a49ce580d8fde9de3b5877d99be934f433dc88ddc8a7db161200ab315296e611fc5bd7d1eeb0b26d7f4344b2bc7cf3e02c5b2acd6559a8405e7c
+doccontainersize 8664
+doccontainerchecksum c32834d59f2d9a8fd5623023db1c3efbc552086b2c098d5bba9f18998409d96320f84f30a2c4c70723d8684d1e3d21bd1611df54ce8bcac30505d214fbb82333
+docfiles size=8
+ texmf-dist/doc/latex/biblatex-lncs/LICENSE
+ texmf-dist/doc/latex/biblatex-lncs/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-lncs/biblatex-lncs-test.bib
+ texmf-dist/doc/latex/biblatex-lncs/biblatex-lncs-test.tex
+runfiles size=5
+ texmf-dist/tex/latex/biblatex-lncs/lncs.bbx
+ texmf-dist/tex/latex/biblatex-lncs/lncs.cbx
+ texmf-dist/tex/latex/biblatex-lncs/lncs.dbx
+catalogue-contact-bugs https://github.com/mgttlinger/biblatex-lncs/issues
+catalogue-contact-repository https://github.com/mgttlinger/biblatex-lncs
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-lncs
+catalogue-license lppl1.3c
+catalogue-topics biblatex journalpub
+catalogue-version 0.5

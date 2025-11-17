@@ -1,0 +1,31 @@
+name chickenize
+category Package
+revision 57325
+shortdesc Use lua callbacks for "interesting" textual effects
+longdesc The package allows manipulations of any LuaTeX document (it is
+longdesc known to work with Plain LuaTeX and LuaLaTeX). Most of the
+longdesc package's functions are merely for fun or educational use, but
+longdesc some functions (for example, colorstretch for visualising the
+longdesc badness and font expansion of each line, and letterspaceadjust
+longdesc doing what its name says) could be useful in a "normal" LuaTeX
+longdesc document.
+containersize 14392
+containerchecksum 3cb2182717630c6d251a055021ff671eb930885e5b33978c0cd51176225b1743938447e3d761cfa83c9e3f46cbca1b5686c18f734a1ea5fef50a7ce48873ee0a
+doccontainersize 225844
+doccontainerchecksum a2a7ccaa210583de7a765b940959ed4cc2678c6800b283c05f301814b69bb8c704394f8795a1824b41b03652e27106b9e47ed9d5a57179df685294fc3caa16f2
+docfiles size=58
+ texmf-dist/doc/luatex/chickenize/README.md details="Readme"
+ texmf-dist/doc/luatex/chickenize/chickenize.pdf details="Package documentation"
+srccontainersize 34560
+srccontainerchecksum 614f105bf01bc1a36ece9ed319763a06fc2480bb5c5b1845f47b17ae1753e9fea5e4f25dab9b35cd493d2c6c31de1c636723b676269495d85829b683420b7e6d
+srcfiles size=32
+ texmf-dist/source/luatex/chickenize/chickenize.dtx
+runfiles size=17
+ texmf-dist/tex/luatex/chickenize/chickenize.lua
+ texmf-dist/tex/luatex/chickenize/chickenize.sty
+ texmf-dist/tex/luatex/chickenize/chickenize.tex
+catalogue-contact-repository https://github.com/alt/chickenize
+catalogue-ctan /macros/luatex/generic/chickenize
+catalogue-license lppl1.3
+catalogue-topics typesetting games luatex
+catalogue-version 0.3

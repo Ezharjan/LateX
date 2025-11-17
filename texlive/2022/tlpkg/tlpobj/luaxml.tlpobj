@@ -1,0 +1,33 @@
+name luaxml
+category Package
+revision 60709
+shortdesc Lua library for reading and serialising XML files
+longdesc LuaXML is a pure Lua library for reading and serializing XML
+longdesc files. The current release is aimed mainly at support for the
+longdesc odsfile package. The documentation was created by automatic
+longdesc conversion of original documentation in the source code.
+containersize 32276
+containerchecksum ebcf0216dfc05291cd1f44096785fa10b4d8f341d0c45c03a4818aaf0ffae1b8a9ee4edc0ab26d1732d651218aaa936099a81c2d732b1ff25b956339f45df8b8
+doccontainersize 123428
+doccontainerchecksum 8f42b46c552b5771058f442e2b962d49c13f31c0b58076770131d6e8bb048cd706db9e7380a43cfaeae815bb02e83709e9165a1057ac9471bcc0fa2ab322cb45
+docfiles size=38
+ texmf-dist/doc/luatex/luaxml/README details="Readme"
+ texmf-dist/doc/luatex/luaxml/luaxml.pdf details="Package documentation"
+ texmf-dist/doc/luatex/luaxml/luaxml.tex
+runfiles size=36
+ texmf-dist/tex/luatex/luaxml/luaxml-cssquery.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-domobject.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-entities.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-mod-handler.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-mod-xml.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-namedentities.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-parse-query.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-pretty.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-stack.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-testxml.lua
+ texmf-dist/tex/luatex/luaxml/luaxml-transform.lua
+catalogue-contact-repository https://github.com/michal-h21/LuaXML
+catalogue-ctan /macros/luatex/generic/luaxml
+catalogue-license other-free
+catalogue-topics foreign-import luatex use-lua
+catalogue-version 0.1q

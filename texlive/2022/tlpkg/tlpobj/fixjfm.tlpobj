@@ -1,0 +1,22 @@
+name fixjfm
+category Package
+revision 63967
+shortdesc Fix JFM (for *pTeX)
+longdesc This package fixes several bugs in the JFM format. Both LaTeX
+longdesc and plain TeX are supported.
+containersize 2384
+containerchecksum afa050087607d8eb5f36923d6ec72daff7f1bab0154edd08900486fee152068ebbfe97d87ae29cca7d8f4048e0c6091933d0b71d4a0266950828881b55aa6b59
+doccontainersize 286260
+doccontainerchecksum d1c39e4d0dcc1a8eb5510e3306d68f0bae6067d358bfb458127ff8f5d5223576f270cf628bf8ca2c3e8322d6cf1b52b936db0c2a431e4258591057a7f50513d9
+docfiles size=74
+ texmf-dist/doc/generic/fixjfm/README details="Readme"
+ texmf-dist/doc/generic/fixjfm/fixjfm-doc.pdf details="Package documentation"
+ texmf-dist/doc/generic/fixjfm/fixjfm-doc.tex
+runfiles size=3
+ texmf-dist/tex/generic/fixjfm/fixjfm.sty
+catalogue-also bxjaprnind
+catalogue-contact-repository https://github.com/Man-Ting-Fang/fixjfm
+catalogue-ctan /macros/jptex/generic/fixjfm
+catalogue-license knuth
+catalogue-topics macro-supp chinese japanese
+catalogue-version 0.8

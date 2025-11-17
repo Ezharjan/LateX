@@ -1,0 +1,31 @@
+name karnaugh-map
+category Package
+revision 61614
+shortdesc LaTeX package for drawing karnaugh maps with up to 6 variables
+longdesc This package draws karnaugh maps with 2, 3, 4, 5, and 6
+longdesc variables. It also contains commands for filling the karnaugh
+longdesc map with terms semi-automatically or manually. Last but not
+longdesc least it contains commands for drawing implicants on top of the
+longdesc map. This package depends on the keyval, kvoptions, TikZ,
+longdesc xparse, and xstring packages.
+containersize 6116
+containerchecksum 789421645939ff491e3ee00aa06813a5e194108c2d55a5e06ffb4dba593a095352ec54c5194ef8ac536f4226007d2323a923ada94966b5cdbd147117856ba680
+doccontainersize 287964
+doccontainerchecksum 6a04bc71128802a62fa2dbf92a513c9859f9bab336cd2208d05fcd3b9404a1531e4f20cfd69a1d58186cee6660582ab03e89ce87511c3e1173f84bc6ac132f29
+docfiles size=72
+ texmf-dist/doc/latex/karnaugh-map/README.md details="Readme"
+ texmf-dist/doc/latex/karnaugh-map/karnaugh-map.pdf details="Package documentation"
+srccontainersize 9980
+srccontainerchecksum 520bcc77beb97f2f106c92682898244160c2ee45ec85118776dc375763363b272e1459e73d3cfe1c27c7f82f24f723953bc9705cf1f506e7c4b679c0f3063804
+srcfiles size=19
+ texmf-dist/source/latex/karnaugh-map/karnaugh-map.dtx
+ texmf-dist/source/latex/karnaugh-map/karnaugh-map.ins
+runfiles size=11
+ texmf-dist/tex/latex/karnaugh-map/karnaugh-map.sty
+catalogue-also karnaugh karnaughmap
+catalogue-contact-bugs https://github.com/2pi/karnaugh-map/issues
+catalogue-contact-repository https://github.com/2pi/karnaugh-map
+catalogue-ctan /graphics/pgf/contrib/karnaugh-map
+catalogue-license cc-by-sa-3
+catalogue-topics maths engineering pgf-tikz
+catalogue-version 2.0

@@ -1,0 +1,25 @@
+name href-ul
+category Package
+revision 59581
+shortdesc Underscored LaTeX hyperlinks
+longdesc This LaTeX package makes hyperlinks underscored, just like on
+longdesc the web. The package uses hyperref and ulem.
+depend hyperref
+depend ulem
+containersize 1364
+containerchecksum bb9eed7d5a13e78634ca046eb09028e4fa4dd46b4536d6e5eb9e5237f625a9a452e30e25a74358fdd00138e8b272129fcb484103b75c65b5368c89150ce3a6ec
+doccontainersize 50988
+doccontainerchecksum afbfc4927a99ff871e3905e0f37294936def9ed499cbba8f327b017975e089dc6eed158f3188ca7989579f1a2a7609485282fe5866b684f7d314cf7722429b09
+docfiles size=15
+ texmf-dist/doc/latex/href-ul/DEPENDS.txt
+ texmf-dist/doc/latex/href-ul/README.md details="Readme"
+ texmf-dist/doc/latex/href-ul/href-ul.pdf details="Package documentation"
+ texmf-dist/doc/latex/href-ul/href-ul.tex
+runfiles size=1
+ texmf-dist/tex/latex/href-ul/href-ul.sty
+catalogue-contact-bugs https://github.com/yegor256/href-ul/issues
+catalogue-contact-repository https://github.com/yegor256/href-ul
+catalogue-ctan /macros/latex/contrib/href-ul
+catalogue-license mit
+catalogue-topics hyper underline verbatim
+catalogue-version 0.1.0

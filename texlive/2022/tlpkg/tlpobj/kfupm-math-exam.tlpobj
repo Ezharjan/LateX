@@ -1,0 +1,34 @@
+name kfupm-math-exam
+category Package
+revision 63977
+shortdesc A LaTeX document style to produce homework, quiz and exam papers
+longdesc The package provides commands and environments that simplify
+longdesc and streamline the process of preparing homework, quiz and exam
+longdesc papers according to apreffered style. The default style is
+longdesc based on the guidelines set by the department of mathematics at
+longdesc King Fahd University of Petroleum and Minerals (KFUPM). It can
+longdesc be easily customized to fit any style for any institution.
+containersize 4120
+containerchecksum cb050347cc1cfab5e2ef5c248b6460edb50779b81216f3b9277700780922c94e44ea2c14696b470111421de1e049378811645cde6dba004c23631f2111cadab9
+doccontainersize 63204
+doccontainerchecksum 8cebb9035b23e1919fc9428e9f57335ecfda9c98214fec78f95d665f44060cdab2aff6a9ae22eb124a6da7716e88971f559084f64f7b1c1456e95dcd03c00307
+docfiles size=20
+ texmf-dist/doc/latex/kfupm-math-exam/LICENSE
+ texmf-dist/doc/latex/kfupm-math-exam/README.txt details="Readme"
+ texmf-dist/doc/latex/kfupm-math-exam/kfupm-math-exam.pdf details="Package documentation"
+ texmf-dist/doc/latex/kfupm-math-exam/kfupm-math-exam.tex
+srccontainersize 4852
+srccontainerchecksum 0a7dbdfb80a3ae91b23256839c8174b3db13ec23f3dca35bba422440897ade8b33c0ecd8d8c76367241e71abe9b12c5d69a07bb9d0a1962d080a6d89e76a50e2
+srcfiles size=4
+ texmf-dist/source/latex/kfupm-math-exam/kfupm-math-exam.dtx
+ texmf-dist/source/latex/kfupm-math-exam/kfupm-math-exam.ins
+runfiles size=3
+ texmf-dist/tex/latex/kfupm-math-exam/kfupm-math-exam.cls
+catalogue-contact-bugs https://github.com/mmogib/kfupm-math-exam/issues
+catalogue-contact-development https://github.com/mmogib/kfupm-math-exam
+catalogue-contact-home https://github.com/mmogib/kfupm-math-exam
+catalogue-contact-repository https://github.com/mmogib/kfupm-math-exam
+catalogue-ctan /macros/latex/contrib/kfupm-math-exam
+catalogue-license mit
+catalogue-topics exam
+catalogue-version 0.1.0

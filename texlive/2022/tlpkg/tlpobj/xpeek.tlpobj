@@ -1,0 +1,26 @@
+name xpeek
+category Package
+revision 61719
+shortdesc Define commands that peek ahead in the input stream
+longdesc The package provides tools to help define commands that, like
+longdesc \xspace and the LaTeX command \textit, peek at what follows
+longdesc them in the command stream and choose appropriate behaviour.
+containersize 1376
+containerchecksum 1b264f383d76e1c213aab0ac650a934ac6a91eb8dea8122229b2ac6bcb6ed694d62acecae3882b41abf34bd016922109064de0775f91222ad88be8287bd62931
+doccontainersize 554532
+doccontainerchecksum 0633a7a51a329ff6849d080bac626b4174567823b8c597187f62158004a8df647fe40653af371d55d6a4743991fc3ca650e034f68e5b737448245c7df79cba84
+docfiles size=149
+ texmf-dist/doc/latex/xpeek/README details="Readme"
+ texmf-dist/doc/latex/xpeek/xpeek.pdf details="Package documentation"
+srccontainersize 7048
+srccontainerchecksum 38165be35b6fece20141ab61b4e212d6a754d2971e340a0f98bb02468aaad6b470aecbb5f4887969a987c9e7c45be109cac5e190b534264caced15fdc803f14d
+srcfiles size=6
+ texmf-dist/source/latex/xpeek/xpeek.dtx
+runfiles size=1
+ texmf-dist/tex/latex/xpeek/xpeek.sty
+catalogue-also xspace xpunctuate
+catalogue-contact-repository https://github.com/jcsalomon/xpeek
+catalogue-ctan /macros/latex/contrib/xpeek
+catalogue-license lppl1.3
+catalogue-topics macro-supp
+catalogue-version 0.2

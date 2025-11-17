@@ -1,0 +1,44 @@
+name lua-physical
+category Package
+revision 59138
+shortdesc Functions and objects for the computation of physical quantities
+longdesc This is a pure Lua library, which provides functions and
+longdesc objects for the computation of physical quantities. The package
+longdesc provides units of the SI and the imperial system. In order to
+longdesc display the numbers with measurement uncertainties, the package
+longdesc is able to perform Gaussian error propagation.
+containersize 359576
+containerchecksum b28768f63c2b34930a073139be3e6e90a0086a561bdcdb6aa6c8111db4e6def819c0a3a6af2b5b274d009d3c9b390c6da91416189718a67a4e1efd7eb547c500
+doccontainersize 415236
+doccontainerchecksum 52e764b0492aeb423d8c267f43436821a239e9ad019e43f7fcb881fbec31f9a56b690d792f15f954cec91ba7e3d32f70cb567994a82f3030870b44d0490fb593
+docfiles size=166
+ texmf-dist/doc/lualatex/lua-physical/LICENSE
+ texmf-dist/doc/lualatex/lua-physical/README.md details="Readme"
+ texmf-dist/doc/lualatex/lua-physical/lua-physical.pdf details="Package documentation"
+ texmf-dist/doc/lualatex/lua-physical/lua-physical.tex
+ texmf-dist/doc/lualatex/lua-physical/lua-physical_example.pdf details="Example of use"
+ texmf-dist/doc/lualatex/lua-physical/lua-physical_example.tex
+ texmf-dist/doc/lualatex/lua-physical/test/luaunit.lua
+ texmf-dist/doc/lualatex/lua-physical/test/test.lua
+ texmf-dist/doc/lualatex/lua-physical/test/testData.lua
+ texmf-dist/doc/lualatex/lua-physical/test/testDefinition.lua
+ texmf-dist/doc/lualatex/lua-physical/test/testDimension.lua
+ texmf-dist/doc/lualatex/lua-physical/test/testNumber.lua
+ texmf-dist/doc/lualatex/lua-physical/test/testQuantity.lua
+ texmf-dist/doc/lualatex/lua-physical/test/testUnit.lua
+runfiles size=270
+ texmf-dist/scripts/lua-physical/physical-astronomical.lua
+ texmf-dist/scripts/lua-physical/physical-data.lua
+ texmf-dist/scripts/lua-physical/physical-definition.lua
+ texmf-dist/scripts/lua-physical/physical-dimension.lua
+ texmf-dist/scripts/lua-physical/physical-isotope.lua
+ texmf-dist/scripts/lua-physical/physical-number.lua
+ texmf-dist/scripts/lua-physical/physical-quantity.lua
+ texmf-dist/scripts/lua-physical/physical-unit.lua
+ texmf-dist/scripts/lua-physical/physical.lua
+catalogue-contact-bugs https://github.com/tjenni/lua-physical/issues
+catalogue-contact-home https://github.com/tjenni/lua-physical
+catalogue-ctan /macros/luatex/latex/lua-physical
+catalogue-license mit
+catalogue-topics physics luatex
+catalogue-version 1.0.5

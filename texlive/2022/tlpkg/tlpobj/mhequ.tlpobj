@@ -1,0 +1,24 @@
+name mhequ
+category Package
+revision 62561
+shortdesc Multicolumn equations, tags, labels, sub-numbering
+longdesc MHequ simplifies creating multi-column equation environments,
+longdesc and tagging the equations therein. It supports sub-numbers of
+longdesc blocks of equations (like (1.2a), (1.2b), etc) and references
+longdesc to each equation individually (1.2a) or to the whole block
+longdesc (1.2). The labels can be shown in draft mode. Comments in the
+longdesc package itself describe usage.
+containersize 4236
+containerchecksum f4c729688a36ad86c05d18d32515733a0e6e1a09ce3228bbd62d9790ebce66a4f8748403b4d908dcb59fa8e778be09e426cbe70b10b073c6b644c190c83a001d
+doccontainersize 119276
+doccontainerchecksum 7c13b66aff2c150d2bbc91bdc7c562337495a5f5761af394e88948dc7638141fa82b5f341c3b50cc031b6e3a79797cc7024e86f4ca33e1b65beb25779a1d24fa
+docfiles size=33
+ texmf-dist/doc/latex/mhequ/README details="Readme"
+ texmf-dist/doc/latex/mhequ/example.pdf details="Examples of package use"
+ texmf-dist/doc/latex/mhequ/example.tex
+runfiles size=3
+ texmf-dist/tex/latex/mhequ/mhequ.sty
+catalogue-ctan /macros/latex/contrib/mhequ
+catalogue-license pd
+catalogue-topics maths
+catalogue-version 1.71

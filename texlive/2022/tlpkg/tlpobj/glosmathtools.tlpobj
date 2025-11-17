@@ -1,0 +1,32 @@
+name glosmathtools
+category Package
+revision 55920
+shortdesc Mathematical nomenclature tools based on the glossaries package
+longdesc This package can be used to generate a mathematical
+longdesc nomenclature (also called "list of symbols" or "notation"). It
+longdesc is based on the glossaries package. Its main features are:
+longdesc symbol categories (e.g.: latin, greek) automatic but
+longdesc customizable symbol sorting easy subscript management easy
+longdesc accentuation management abbreviation support (with first use
+longdesc definition) bilingual nomenclatures (for bilingual documents)
+longdesc bilingual abbreviations The documentation is based on the
+longdesc ulthese class. The package itself depends on glossaries,
+longdesc amsmath, amsfonts, and etoolbox.
+containersize 3792
+containerchecksum 38d5eb1cc7337e81a1d824fcd3d6820928e06b421e1bd1141bc4cd859a32aaa1a10062e6a7a2512687245996c8848b42720085271c1cf6a24957bbe96ff824e9
+doccontainersize 531732
+doccontainerchecksum 511c901bf123984727ccf8bc4e2449738a66fe866418f23b923391d30f6ad46ac260b5684b73b89616c07cff9bec0475e3553a70ba608c58873751d9a6dcbed2
+docfiles size=180
+ texmf-dist/doc/latex/glosmathtools/README.md details="Readme"
+ texmf-dist/doc/latex/glosmathtools/sample_glosmathtools_en.pdf details="Package documentation and sample (English)"
+ texmf-dist/doc/latex/glosmathtools/sample_glosmathtools_en.tex
+ texmf-dist/doc/latex/glosmathtools/sample_glosmathtools_fr.pdf details="Package documentation and sample (French)" language="fr"
+ texmf-dist/doc/latex/glosmathtools/sample_glosmathtools_fr.tex
+ texmf-dist/doc/latex/glosmathtools/sample_glosmathtools_glos.tex
+runfiles size=5
+ texmf-dist/tex/latex/glosmathtools/glosmathtools.sty
+catalogue-contact-repository https://github.com/franckgaga/glosmathtools
+catalogue-ctan /macros/latex/contrib/glosmathtools
+catalogue-license lppl1.3c
+catalogue-topics glossary maths etex
+catalogue-version 1.0.0

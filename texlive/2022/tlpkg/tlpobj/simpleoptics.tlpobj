@@ -1,0 +1,21 @@
+name simpleoptics
+category Package
+revision 62977
+shortdesc Drawing lenses and mirrors for optical diagrams
+longdesc This package provides some of macros for drawing simple lenses
+longdesc and mirrors for use in optical diagrams.
+containersize 1100
+containerchecksum 2b53c2ccab2dbece85653ac4d40802a41c7dc9aabbb16022f08e351e77e7bd464e47a54005889707de15041a5f3565f40c97355dc3953249a951dd984311121b
+doccontainersize 83476
+doccontainerchecksum 36aa19521be45853d96c9a0406afa60a934ff5a701993fb33d2c4070e3e99822097b9daf100e9364f80a0779158a81f5acd6904f5050dc190fe22eb4ed65deca
+docfiles size=28
+ texmf-dist/doc/latex/simpleoptics/README details="Readme"
+ texmf-dist/doc/latex/simpleoptics/simpleoptics.pdf details="Package documentation"
+ texmf-dist/doc/latex/simpleoptics/simpleoptics.tex
+runfiles size=2
+ texmf-dist/tex/latex/simpleoptics/simpleoptics.sty
+catalogue-also tikz-optics
+catalogue-ctan /graphics/pgf/contrib/simpleoptics
+catalogue-license lppl1.3c
+catalogue-topics pgf-tikz physics optics
+catalogue-version 1.1.1

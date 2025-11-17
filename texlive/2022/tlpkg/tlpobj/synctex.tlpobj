@@ -1,0 +1,18 @@
+name synctex
+category TLCore
+revision 54074
+shortdesc engine-level feature synchronizing output and source
+longdesc SyncTeX allows navigating between the TeX source and (usually
+longdesc PDF) output, in both directions, given a SyncTeX-aware front
+longdesc end. It is compiled into most engines and can be enabled with
+longdesc the --synctex=1 option. It is developed as part of TeX Live.
+depend synctex.ARCH
+containersize 464
+containerchecksum 1cc1900df90ceebc6865ce7c4a4befc86d1aa5aeb0f19808526a6cb369d7bd2ecf3c4789817da937e84fdf1fa3c921660e64e3e8a8e215d4f6dd97b2371743c5
+doccontainersize 41740
+doccontainerchecksum 37b7f0e3b86494715763c0d230a076aeec1f41ad658432099871d26b933cd8d0e8e831064cbe462a31a30260004c6dfe9b6b4d555d281d909615910470a2b1ef
+docfiles size=17
+ texmf-dist/doc/man/man1/synctex.1
+ texmf-dist/doc/man/man1/synctex.man1.pdf
+ texmf-dist/doc/man/man5/synctex.5
+ texmf-dist/doc/man/man5/synctex.man5.pdf

@@ -1,0 +1,40 @@
+name bhcexam
+category Package
+revision 64093
+shortdesc An exam class for mathematics teachers in China
+longdesc This exam class is specially designed for mathematics teachers
+longdesc in China. It is used by mathcrowd.cn (an opensource math exam
+longdesc database) as the default class for exporting exam papers to
+longdesc pdf. Using BHCexam you can separate the format and the content
+longdesc very well; export both teacher paper and student paper; typeset
+longdesc multiple choice questions with 3-6 options keeping adaptively
+longdesc neat alignment; typeset cloze questions with a customizable
+longdesc underline; typeset questions with subquestions in lists; group
+longdesc questions in a list to control whether to show score, leave
+longdesc spacing, initialize question number; and more (see BHCexam
+longdesc Documentation).
+containersize 4168
+containerchecksum 7244442c52f57270055fad1ec87b00bb0f3ff4c89e37b57be051b29046348dc781e42b156186310d58eceb1ee9d4ff2fe287a3027642fbec3c9c315e00af9c68
+doccontainersize 359312
+doccontainerchecksum 3e16cf4f60c089a21d8e2d0a9c78e8204391ba7bc5a72d7fc23637e0c875a57dd1615b8332f6fea9c5a9bcb4fc17c4818bce708998c1c8c71d0d970e9bfdd132
+docfiles size=119
+ texmf-dist/doc/xelatex/bhcexam/README-zh.md details="Readme (Chinese)" language="zh"
+ texmf-dist/doc/xelatex/bhcexam/README.md details="Readme (English)"
+ texmf-dist/doc/xelatex/bhcexam/examples/To7VxKXpZaOWO5Qq9qzeZGtlwYTwJ5KF.jpg
+ texmf-dist/doc/xelatex/bhcexam/examples/example_student_paper.pdf details="Example of use (student paper)" language="zh"
+ texmf-dist/doc/xelatex/bhcexam/examples/example_student_paper.tex
+ texmf-dist/doc/xelatex/bhcexam/examples/example_teacher_paper.pdf details="Example of use (teacher paper)" language="zh"
+ texmf-dist/doc/xelatex/bhcexam/examples/example_teacher_paper.tex
+ texmf-dist/doc/xelatex/bhcexam/examples/logo.png
+ texmf-dist/doc/xelatex/bhcexam/examples/naive.pdf
+ texmf-dist/doc/xelatex/bhcexam/examples/naive.tex
+ texmf-dist/doc/xelatex/bhcexam/examples/qrcode.png
+runfiles size=4
+ texmf-dist/tex/xelatex/bhcexam/BHCexam.cls
+catalogue-contact-announce https://github.com/mathedu4all/bhcexam/wiki
+catalogue-contact-bugs https://github.com/mathedu4all/bhcexam/issues
+catalogue-contact-repository https://github.com/mathedu4all/bhcexam
+catalogue-ctan /macros/xetex/latex/bhcexam
+catalogue-license lppl1.3
+catalogue-topics exam class chinese
+catalogue-version 1.7

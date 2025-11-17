@@ -1,0 +1,40 @@
+name expkv-cs
+category Package
+revision 62003
+shortdesc Define expandable key=val macros using expkv
+longdesc This package is a frontend to define expandable macros with
+longdesc key=val arguments. It provides four syntaxes, each of which
+longdesc will define <cs> to take a single key=val argument:
+longdesc ekvcSplit<cs>{<key>=<initial>, ...}{<definition>}
+longdesc ekvcSplitAndForward<cs><cs2>{<key>=<initial>, ...}
+longdesc ekvcHash<cs>{<key>=<initial>, ...}{<definition>}
+longdesc ekvcHashAndForward<cs><cs2>{<key>=<initial>, ...} Additional
+longdesc keys for each <cs> might be defined using
+longdesc ekvcSecondaryKeys<cs>{<prefix> <key>=<definition>, ...}
+longdesc expkv-cs is generic code and only requires expkv for its
+longdesc parsing. A LaTeX package expkv-cs.sty is included to play
+longdesc nicely on LaTeX's package loading system, but that package is
+longdesc not needed and does not provide more functionality than the
+longdesc generic code in expkv-cs.tex. Note: In this context, "cs"
+longdesc stands for "control sequence" (i.e.: macro).
+containersize 6036
+containerchecksum 2d2b736151dbd3df233d848c8b430985491da3e9b5212b34088ad0932bff4fa2e51bc50b9763da2aba76407ce18a085a839d5308e259d81e2d4d2e6e50356020
+doccontainersize 457900
+doccontainerchecksum 4375db000d07c40d1da239a1abaac2a7ac753f75c36d2bfccaab94f82c067d886395f37c8a4413034adfb3f2f49251dc21b09e5f5dcded9a4fff7d609efc084a
+docfiles size=116
+ texmf-dist/doc/latex/expkv-cs/README.md details="Readme"
+ texmf-dist/doc/latex/expkv-cs/expkv-cs.pdf details="Package documentation"
+srccontainersize 26964
+srccontainerchecksum 43078d5499d8f2586be022bda7d77c9a9678686bd633eaf790faf289a3e6bb583ed4f66f65a6f4c64f3d8f594652be326f5a05a5cdeecf43e7d3ed6694d53a1d
+srcfiles size=31
+ texmf-dist/source/latex/expkv-cs/expkv-cs.dtx
+runfiles size=11
+ texmf-dist/tex/context/third/expkv-cs/t-expkv-cs.tex
+ texmf-dist/tex/generic/expkv-cs/expkv-cs.tex
+ texmf-dist/tex/latex/expkv-cs/expkv-cs.sty
+catalogue-also expkv expkv-def
+catalogue-contact-repository https://github.com/Skillmon/tex_expkv-cs
+catalogue-ctan /macros/generic/expkv-cs
+catalogue-license lppl1.3c
+catalogue-topics keyval macro-supp macro-gen
+catalogue-version 1.2

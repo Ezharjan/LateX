@@ -1,0 +1,66 @@
+name inputenx
+category Package
+revision 52986
+shortdesc Enhanced input encoding handling
+longdesc This package deals with input encodings. It provides a wider
+longdesc range of input encodings using standard mappings, than does
+longdesc inputenc; it also covers nearly all slots. In this way, it
+longdesc serves as more uptodate replacement for package inputenc.
+containersize 30128
+containerchecksum 5550c1d76a0906f47ac3e2303fc57ef9ad1c8442e12e3522826dbe7fa8c971c7ca4241e0a1707f6e10336855eded20e94130a6db212b787383282326aee8886b
+doccontainersize 785444
+doccontainerchecksum 087bca2b38a73530b19dba7343cc488b39ab505ce00b4c622f56f9d40c448e6349052e12358cc8fe6d8db7039c6af4f06910784795a2cb1e69b85eed423d1314
+docfiles size=215
+ texmf-dist/doc/latex/inputenx/README.md details="Readme"
+ texmf-dist/doc/latex/inputenx/inputenx.pdf details="Package documentation"
+srccontainersize 40392
+srccontainerchecksum a633d0ba777e0342fe99d1ee8d9c955fe159c4a881f31c46fa205078c3b1786edc2025f58ac88b7dccce0c6bed50e8f44025ebd43b28871db953a34e54b3aad7
+srcfiles size=100
+ texmf-dist/source/latex/inputenx/inputenx.dtx
+runfiles size=120
+ texmf-dist/tex/latex/inputenx/inputenx.sty
+ texmf-dist/tex/latex/inputenx/ix-alias.def
+ texmf-dist/tex/latex/inputenx/ix-math.def
+ texmf-dist/tex/latex/inputenx/ix-name.def
+ texmf-dist/tex/latex/inputenx/ix-slot.def
+ texmf-dist/tex/latex/inputenx/ix-uc.def
+ texmf-dist/tex/latex/inputenx/ix-utf8enc.dfu
+ texmf-dist/tex/latex/inputenx/x-ascii.def
+ texmf-dist/tex/latex/inputenx/x-atarist.def
+ texmf-dist/tex/latex/inputenx/x-cp1250.def
+ texmf-dist/tex/latex/inputenx/x-cp1251.def
+ texmf-dist/tex/latex/inputenx/x-cp1252.def
+ texmf-dist/tex/latex/inputenx/x-cp1255.def
+ texmf-dist/tex/latex/inputenx/x-cp1257.def
+ texmf-dist/tex/latex/inputenx/x-cp437.def
+ texmf-dist/tex/latex/inputenx/x-cp850.def
+ texmf-dist/tex/latex/inputenx/x-cp852.def
+ texmf-dist/tex/latex/inputenx/x-cp855.def
+ texmf-dist/tex/latex/inputenx/x-cp858.def
+ texmf-dist/tex/latex/inputenx/x-cp865.def
+ texmf-dist/tex/latex/inputenx/x-cp866.def
+ texmf-dist/tex/latex/inputenx/x-dec-mcs.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-1.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-10.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-13.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-14.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-15.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-16.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-2.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-3.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-4.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-5.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-8.def
+ texmf-dist/tex/latex/inputenx/x-iso-8859-9.def
+ texmf-dist/tex/latex/inputenx/x-koi8-r.def
+ texmf-dist/tex/latex/inputenx/x-mac-centeuro.def
+ texmf-dist/tex/latex/inputenx/x-mac-cyrillic.def
+ texmf-dist/tex/latex/inputenx/x-mac-roman.def
+ texmf-dist/tex/latex/inputenx/x-nextstep.def
+ texmf-dist/tex/latex/inputenx/x-verbatim.def
+catalogue-contact-bugs https://github.com/ho-tex/inputenx/issues
+catalogue-contact-repository https://github.com/ho-tex/inputenx
+catalogue-ctan /macros/latex/contrib/inputenx
+catalogue-license lppl1.3
+catalogue-topics inputenc
+catalogue-version 1.12

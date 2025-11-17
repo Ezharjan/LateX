@@ -1,0 +1,31 @@
+name functional
+category Package
+revision 63640
+shortdesc Provide an intuitive functional programming interface for LaTeX2
+longdesc This package provides an intuitive functional programming
+longdesc interface for LaTeX2, which is an alternative choice to expl3
+longdesc or LuaTeX, if you want to do programming in LaTeX. Although
+longdesc there are functions in LaTeX3 programming layer (expl3), the
+longdesc evaluation of them is from outside to inside. With this
+longdesc package, the evaluation of functions is from inside to outside,
+longdesc which is the same as other programming languages such as Lua.
+longdesc In this way, it is rather easy to debug code too.
+containersize 12444
+containerchecksum 8504fb2fcb250f07b37e1f56e98f0aa0fb76827a9c0485bb12a87697b4ec58346b5605472211119422e0aec5cf07c5ac7bc6be662f466b91aded1a4921e87e85
+doccontainersize 730392
+doccontainerchecksum ebf2c739170e47d6b12924b2bff2da5442c96bfdc3bc96f09efae647354e9dcb1d6c8110b1bebb3968ad79bd362b64b4214b33d75b21701ce73d55dfd7c8e3c9
+docfiles size=288
+ texmf-dist/doc/latex/functional/README.txt details="Readme"
+ texmf-dist/doc/latex/functional/functional.pdf details="Package documentation"
+ texmf-dist/doc/latex/functional/functional.tex
+runfiles size=23
+ texmf-dist/tex/latex/functional/functional.sty
+catalogue-contact-announce https://github.com/lvjr/functional/wiki/ChangeLog
+catalogue-contact-bugs https://github.com/lvjr/functional/issues
+catalogue-contact-home https://github.com/lvjr/functional/wiki
+catalogue-contact-repository https://github.com/lvjr/functional
+catalogue-contact-support https://github.com/lvjr/functional/discussions
+catalogue-ctan /macros/latex/contrib/functional
+catalogue-license lppl1.3c
+catalogue-topics macro-supp latex3 expl3
+catalogue-version 2022H

@@ -1,0 +1,58 @@
+name alfaslabone
+category Package
+revision 57452
+shortdesc The Alfa Slab One font face with support for LaTeX and pdfLaTeX
+longdesc The alfaslabone package supports the Alfa Slab One font face
+longdesc for LaTeX. There is only a Regular font face. It's useful for
+longdesc book-chapter headlines.
+execute addMap AlphaSlabOne.map
+containersize 177988
+containerchecksum b958ac7987363fcefa3d8b7016f13851b91446a2a252e9561fd1a15df78b867b928f3e45a6fa1556abffa0de03b2b70543266ef9627b7474167c5672ac98d9ed
+doccontainersize 28028
+doccontainerchecksum 375ca21d23599fe365f53f461264351982340d151ebdd2ce143189d8fd3c22d191501520d571f207a1f956f433ae6491e171c7ebb3c9c5421e30b358cc79f9fa
+docfiles size=11
+ texmf-dist/doc/fonts/alfaslabone/LICENSE.TXT
+ texmf-dist/doc/fonts/alfaslabone/README details="Readme"
+ texmf-dist/doc/fonts/alfaslabone/alfaslabone-samples.pdf details="Package documentation"
+ texmf-dist/doc/fonts/alfaslabone/alfaslabone-samples.tex
+runfiles size=94
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_5xld5w.enc
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_adz5lu.enc
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_d2anrk.enc
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_lzhlbi.enc
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_rymxky.enc
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_taosrr.enc
+ texmf-dist/fonts/enc/dvips/alfaslabone/a_vqpkf5.enc
+ texmf-dist/fonts/map/dvips/alfaslabone/AlphaSlabOne.map
+ texmf-dist/fonts/opentype/public/alfaslabone/AlphaSlabOne-Regular.otf
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-sup-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-sup-ly1.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-sup-ot1.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-sup-t1--base.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-sup-t1.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-ly1--base.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-ly1.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-ot1.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-t1--base.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-t1.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-ts1--base.tfm
+ texmf-dist/fonts/tfm/public/alfaslabone/AlphaSlabOne-Regular-tlf-ts1.tfm
+ texmf-dist/fonts/type1/public/alfaslabone/AlphaSlabOne-Regular.pfb
+ texmf-dist/fonts/vf/public/alfaslabone/AlphaSlabOne-Regular-sup-ly1.vf
+ texmf-dist/fonts/vf/public/alfaslabone/AlphaSlabOne-Regular-sup-t1.vf
+ texmf-dist/fonts/vf/public/alfaslabone/AlphaSlabOne-Regular-tlf-ly1.vf
+ texmf-dist/fonts/vf/public/alfaslabone/AlphaSlabOne-Regular-tlf-t1.vf
+ texmf-dist/fonts/vf/public/alfaslabone/AlphaSlabOne-Regular-tlf-ts1.vf
+ texmf-dist/tex/latex/alfaslabone/LY1AlphaSlabOne-Sup.fd
+ texmf-dist/tex/latex/alfaslabone/LY1AlphaSlabOne-TLF.fd
+ texmf-dist/tex/latex/alfaslabone/OT1AlphaSlabOne-Sup.fd
+ texmf-dist/tex/latex/alfaslabone/OT1AlphaSlabOne-TLF.fd
+ texmf-dist/tex/latex/alfaslabone/T1AlphaSlabOne-Sup.fd
+ texmf-dist/tex/latex/alfaslabone/T1AlphaSlabOne-TLF.fd
+ texmf-dist/tex/latex/alfaslabone/TS1AlphaSlabOne-TLF.fd
+ texmf-dist/tex/latex/alfaslabone/alfaslabone.sty
+catalogue-contact-home https://github.com/ccebinger/CTAN_AlfaSlabOne
+catalogue-ctan /fonts/alfaslabone
+catalogue-license ofl
+catalogue-topics font font-display font-serif font-proportional font-otf font-type1 font-supp font-t1enc
+catalogue-version 0.0.1

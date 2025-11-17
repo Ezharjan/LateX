@@ -1,0 +1,33 @@
+name dvisvgm
+category TLCore
+revision 64182
+shortdesc Convert DVI, EPS, and PDF files to Scalable Vector Graphics format (SVG)
+longdesc Dvisvgm is a command line utility that converts TeX DVI as well
+longdesc as EPS and PDF files to the XML-based Scalable Vector Graphics
+longdesc (SVG) format. It provides full font support including virtual
+longdesc fonts, font maps, and sub-fonts. If necessary, dvisvgm
+longdesc vectorizes Metafont's bitmap output in order to always create
+longdesc lossless scalable output. The embedded SVG fonts can optionally
+longdesc be replaced with graphics paths so that applications that do
+longdesc not support SVG fonts are enabled to render the graphics
+longdesc properly. Besides many other features, dvisvgm also supports
+longdesc color, emTeX, tpic, papersize, PDF mapfile and PostScript
+longdesc specials. Users will need a working TeX installation including
+longdesc the kpathsea library. For more detailed information, see the
+longdesc project page.
+depend dvisvgm.ARCH
+containersize 880
+containerchecksum 2d491a901e151b23542aa956f7587fa36f93e43f25199868974f8b4d785d2ca1a5f4a1b92537764d28514e1919d18becf9a5cf5aa5c8eadc0637452dda93eb8d
+doccontainersize 107332
+doccontainerchecksum 6abb236d807295d2e367a7589bbc64e42c6f8bf35cb7998487038acc17b50cc00d49bf4d22f8f061a77e604c3063d598fb48836085cb7b759fbf9479f49d4796
+docfiles size=42
+ texmf-dist/doc/man/man1/dvisvgm.1
+ texmf-dist/doc/man/man1/dvisvgm.man1.pdf
+catalogue-contact-announce https://dvisvgm.de/News
+catalogue-contact-bugs https://github.com/mgieseki/dvisvgm/issues
+catalogue-contact-home https://dvisvgm.de
+catalogue-contact-repository https://github.com/mgieseki/dvisvgm
+catalogue-ctan /dviware/dvisvgm
+catalogue-license gpl3+
+catalogue-topics dvi-proc
+catalogue-version 2.14

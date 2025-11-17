@@ -1,0 +1,39 @@
+name dialogl
+category Package
+revision 28946
+shortdesc Macros for constructing interactive LaTeX scripts
+longdesc Gathers together a bunch of code and examples about how to
+longdesc write macros to carry on a dialogue with the user.
+containersize 21920
+containerchecksum 68fb25b66499e289c7615fda04fec859d2a3a6105ecb3bc69ecd0e5af8f87027e74170495fa587f21767028d9f423cf04e3d11768ea0581a7474e9a66d62882a
+doccontainersize 721964
+doccontainerchecksum cc1fa10345fa089cd86ea4b0a638334c55c6a57cac3a9c549469cd52cff27b8eb3d349ce14d49de14fbb65f41d1887bf98e9c69081688703d8eef06e6324f684
+docfiles size=192
+ texmf-dist/doc/latex/dialogl/Makefile
+ texmf-dist/doc/latex/dialogl/README details="Readme"
+ texmf-dist/doc/latex/dialogl/cnvunits.tex
+ texmf-dist/doc/latex/dialogl/codialog.pdf details="Tugboat article, overhauled"
+ texmf-dist/doc/latex/dialogl/default.los
+ texmf-dist/doc/latex/dialogl/dia-driv.pdf details="Package documentation"
+ texmf-dist/doc/latex/dialogl/dia-driv.tex
+ texmf-dist/doc/latex/dialogl/dialogl-doc.sty
+ texmf-dist/doc/latex/dialogl/diatest.tex
+ texmf-dist/doc/latex/dialogl/fontmenu.lg
+ texmf-dist/doc/latex/dialogl/fontmenu.tex
+ texmf-dist/doc/latex/dialogl/manifest.txt
+srccontainersize 59740
+srccontainerchecksum 0a39faa751021dbfe7638f139e50689201f93d4490339af70b4ddd42a77cec252cffe7a18a5ddce43ce8dde7f9645dd088fbe9c6cbdc4efefa65280f70c54d23
+srcfiles size=65
+ texmf-dist/source/latex/dialogl/dialogl.dtx
+ texmf-dist/source/latex/dialogl/dialogl.ins
+ texmf-dist/source/latex/dialogl/grabhedr.dtx
+ texmf-dist/source/latex/dialogl/listout.dtx
+ texmf-dist/source/latex/dialogl/menus.dtx
+runfiles size=29
+ texmf-dist/tex/latex/dialogl/dialog.sty
+ texmf-dist/tex/latex/dialogl/grabhedr.sty
+ texmf-dist/tex/latex/dialogl/listout.tex
+ texmf-dist/tex/latex/dialogl/menus.sty
+catalogue-ctan /macros/latex/contrib/dialogl
+catalogue-license lppl
+catalogue-topics macro-supp

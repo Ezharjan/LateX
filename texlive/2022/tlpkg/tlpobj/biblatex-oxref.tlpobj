@@ -1,0 +1,80 @@
+name biblatex-oxref
+category Package
+revision 57513
+shortdesc BibLaTeX styles inspired by the Oxford Guide to Style
+longdesc This bundle provides four BibLaTeX styles that implement (many
+longdesc of) the stipulations and examples provided by the 2014 New
+longdesc Hart's Rules and the 2002 Oxford Guide to Style: 'oxnotes' is a
+longdesc style similar to the standard 'verbose', intended for use with
+longdesc footnotes; 'oxnum' is a style similar to the standard
+longdesc 'numeric', intended for use with numeric in-text citations;
+longdesc 'oxalph' is a style similar to the standard 'alphabetic',
+longdesc intended for use with alphabetic in-text citations; 'oxyear' is
+longdesc a style similar to the standard 'author-year', intended for use
+longdesc with parenthetical in-text citations. The bundle provides
+longdesc support for a wide variety of content types, including
+longdesc manuscripts, audiovisual resources, social media and legal
+longdesc references.
+containersize 22460
+containerchecksum 77451258efdd72939a8548452c28b442250db97a4d9b88e59c463036ca0ff32b9153f87b870f7b0ebe490631e87863a979fde7b75fe11993bb2a06ee949c104a
+doccontainersize 1945172
+doccontainerchecksum 3b01e5eefbd78025442150f94de4d87959449b8eb77ee94458eb3eb4edb36fe4c1ae7c9a3320b3165122f0adbb2dd850e09e80619d78069e69d7fde3d8c9f192
+docfiles size=740
+ texmf-dist/doc/latex/biblatex-oxref/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-oxref/oxalph-doc.pdf details="Style documentation for oxalph"
+ texmf-dist/doc/latex/biblatex-oxref/oxalph-doc.tex
+ texmf-dist/doc/latex/biblatex-oxref/oxnotes-doc.pdf details="Style documentation for oxnotes"
+ texmf-dist/doc/latex/biblatex-oxref/oxnotes-doc.tex
+ texmf-dist/doc/latex/biblatex-oxref/oxnum-doc.pdf details="Style documentation for oxnum"
+ texmf-dist/doc/latex/biblatex-oxref/oxnum-doc.tex
+ texmf-dist/doc/latex/biblatex-oxref/oxref.bib
+ texmf-dist/doc/latex/biblatex-oxref/oxref.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-oxref/oxyear-doc.pdf details="Style documentation for oxyear"
+ texmf-dist/doc/latex/biblatex-oxref/oxyear-doc.tex
+srccontainersize 87044
+srccontainerchecksum 7d7bc8d02dc4e03e76d4b67a06d41a450b818d0675c2ab710e9305d13cb922bd23663c77e8e9dda9fd27b28e7b331dad15a22c6bfb94cc33e13b36ccd979331b
+srcfiles size=118
+ texmf-dist/source/latex/biblatex-oxref/Makefile
+ texmf-dist/source/latex/biblatex-oxref/oxref.dtx
+ texmf-dist/source/latex/biblatex-oxref/oxref.ins
+runfiles size=72
+ texmf-dist/tex/latex/biblatex-oxref/american-oxref.lbx
+ texmf-dist/tex/latex/biblatex-oxref/british-oxref.lbx
+ texmf-dist/tex/latex/biblatex-oxref/english-oxref.lbx
+ texmf-dist/tex/latex/biblatex-oxref/oxalph.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxalph.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxalph.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-ibid.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-ibid.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-ibid.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-inote.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-inote.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-inote.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-note.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-note.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-note.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad1.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad1.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad1.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad2.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad2.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad2.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad3.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad3.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes-trad3.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnotes.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnum.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnum.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxnum.dbx
+ texmf-dist/tex/latex/biblatex-oxref/oxref.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxyear.bbx
+ texmf-dist/tex/latex/biblatex-oxref/oxyear.cbx
+ texmf-dist/tex/latex/biblatex-oxref/oxyear.dbx
+catalogue-contact-bugs https://github.com/alex-ball/biblatex-oxref/issues
+catalogue-contact-home https://github.com/alex-ball/biblatex-oxref
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-oxref
+catalogue-license lppl1.3c
+catalogue-topics biblatex
+catalogue-version 2.2

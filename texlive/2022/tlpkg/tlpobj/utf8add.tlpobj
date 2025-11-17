@@ -1,0 +1,27 @@
+name utf8add
+category Package
+revision 61074
+shortdesc Additional support for UTF-8 encoded LaTeX input
+longdesc This bundle contains the LaTeX packages utf8add.sty and
+longdesc utf8hax.sty. The utf8add package provides additional support
+longdesc for the use of UTF-8 encoded input. This is intended for making
+longdesc LaTeX input more readable. The utf8hax package is using UTF-8
+longdesc characters for easier access to math in LaTeX, however making
+longdesc the LaTeX input less readable.
+containersize 4272
+containerchecksum 988d720d5f4dac3d15e7483e1ce904f214055407c41c19ee7c2683db592ef870cc9a87d28f47092cd062b5ac5bd061b68738046dcea919b0aa9573b0c31a04c3
+doccontainersize 78600
+doccontainerchecksum c1f41ca0ea536db11e2e6c1df561e74f8bc51da3147410f7f33863d0be1d38948bcb64d0f4d8c41737278435d2f88b8ad758d2c48f1672b682169de5e0099b70
+docfiles size=35
+ texmf-dist/doc/latex/utf8add/LICENSE
+ texmf-dist/doc/latex/utf8add/README details="Readme"
+ texmf-dist/doc/latex/utf8add/utf8add.pdf details="Utf8add package documentation"
+ texmf-dist/doc/latex/utf8add/utf8add.tex
+ texmf-dist/doc/latex/utf8add/utf8hax.pdf details="Utf8hax package documentation"
+ texmf-dist/doc/latex/utf8add/utf8hax.tex
+runfiles size=7
+ texmf-dist/tex/latex/utf8add/utf8add.sty
+ texmf-dist/tex/latex/utf8add/utf8hax.sty
+catalogue-ctan /macros/latex/contrib/utf8add
+catalogue-license gpl3+
+catalogue-topics inputenc

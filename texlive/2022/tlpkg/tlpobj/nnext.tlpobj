@@ -1,0 +1,28 @@
+name nnext
+category Package
+revision 56575
+shortdesc Extension for the gb4e package
+longdesc This is an add-on for the gb4e package used in linguistics. It
+longdesc implements the \Next, \NNext, \Last, and \LLast commands from
+longdesc the linguex package or the \nextx, \anextx, \lastx, \blastx,
+longdesc and \bblastx commands from the expex package.
+containersize 1444
+containerchecksum 406e846ebe7ed721218368cd00a021edc41af41f1ccb5989925abad92d4cbf4d604abac8144945599530c85917d9404141052ba9891b778d1006b7d339499041
+doccontainersize 142212
+doccontainerchecksum 6efbea453691fe2af7f436e79e1a486abf5dda14e2457ca3c1c2bda9c8461016d4436eee82a18b079a2491e1c4eb2f7dcbaeaf8fe8b8c7846e744f02da8e3b6f
+docfiles size=36
+ texmf-dist/doc/latex/nnext/README.md details="Readme"
+ texmf-dist/doc/latex/nnext/nnext.pdf details="Package documentation"
+srccontainersize 6340
+srccontainerchecksum a0cc70a3bed51b403ee26c2fc583642ab25565c1ebc69945a831827bfd2c192946142ad92bbfa130f891bf9a36c18bf50e5b424ecc119081d72c7efa1654310b
+srcfiles size=7
+ texmf-dist/source/latex/nnext/nnext.dtx
+ texmf-dist/source/latex/nnext/nnext.ins
+runfiles size=1
+ texmf-dist/tex/latex/nnext/nnext.sty
+catalogue-contact-bugs https://github.com/nlacara/nnext/issues
+catalogue-contact-home https://github.com/nlacara/nnext
+catalogue-ctan /macros/latex/contrib/nnext
+catalogue-license lppl1.3
+catalogue-topics linguistic
+catalogue-version 0.0

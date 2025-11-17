@@ -1,0 +1,42 @@
+name ppt-slides
+category Package
+revision 64445
+shortdesc Good-looking slide decks a la PowerPoint (PPT)
+longdesc This LaTeX package helps you create slide decks as good-looking
+longdesc as with PowerPointtm, but more precise, uniform, and visually
+longdesc strict. Check this series of lectures fully designed with the
+longdesc use of this package.
+depend crumbs
+depend enumitem
+depend hyperref
+depend pagecolor
+depend pgf
+depend pgfopts
+depend qrcode
+depend seqsplit
+depend tikzpagenodes
+depend tools
+depend varwidth
+depend xcolor
+containersize 3932
+containerchecksum 4d3012b4cc91a9a6b03f6f9190b5f19e869aa2622c799e6f601ec54c5662b34056ea920d752be6983015fba4cafe6f4510c6b6dfc9c80be4c98a459bae3525d5
+doccontainersize 226360
+doccontainerchecksum 2ae978b0516778b228207a2d75ae497f3d160f0778073005ee0a2a7a0123bc64fbb389cbb732312fa94e42936f427e72a88fbfc699e4c5f75de733541ec611b7
+docfiles size=86
+ texmf-dist/doc/latex/ppt-slides/DEPENDS.txt
+ texmf-dist/doc/latex/ppt-slides/README.md details="Readme"
+ texmf-dist/doc/latex/ppt-slides/ppt-slides.pdf details="Package documentation and example of use"
+ texmf-dist/doc/latex/ppt-slides/ppt-slides.tex
+ texmf-dist/doc/latex/ppt-slides/socrates.jpg
+runfiles size=7
+ texmf-dist/tex/latex/ppt-slides/ppt-schemes/ppt-dark-mono.tex
+ texmf-dist/tex/latex/ppt-slides/ppt-schemes/ppt-dark.tex
+ texmf-dist/tex/latex/ppt-slides/ppt-schemes/ppt-light-mono.tex
+ texmf-dist/tex/latex/ppt-slides/ppt-schemes/ppt-light.tex
+ texmf-dist/tex/latex/ppt-slides/ppt-slides.sty
+ texmf-dist/tex/latex/ppt-slides/ppt-templates/ppt-9x6.tex
+catalogue-contact-repository https://github.com/yegor256/ppt-slides
+catalogue-ctan /macros/latex/contrib/ppt-slides
+catalogue-license mit
+catalogue-topics presentation
+catalogue-version 0.1.5

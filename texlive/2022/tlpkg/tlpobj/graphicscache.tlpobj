@@ -1,0 +1,36 @@
+name graphicscache
+category Package
+revision 60150
+shortdesc Cache includegraphics calls
+longdesc This LaTeX package provides caching of \includegraphics calls,
+longdesc with several useful effects: Recompilations are much faster
+longdesc (10x speedup observed). Images can be postprocessed with
+longdesc ghostscript before inclusion, thus: Automatic downscaling to
+longdesc specified DPI Automatic JPEG compression with configurable
+longdesc quality Much smaller files (e.g. 10MB instead of 150MB)! Note:
+longdesc Due to the one-by-one invocation of pdflatex and ghostscript
+longdesc for each graphics element, the first compilation is typically
+longdesc slower than usual. Note: graphicscache needs the \write18 call
+longdesc (also called shell escape). This is a security risk if you have
+longdesc untrusted TeX sources. graphicscache supports pdfLaTeX and
+longdesc LuaLaTeX; XeLaTeX is not supported.
+containersize 3296
+containerchecksum 073c6771d9ec297bf6585f45234fdd9482d8d257b416dfe5812fed0bea6b7b7a7c975c90fff725d67669666d55928844594902da5522ce72a64183bff9e48a61
+doccontainersize 243332
+doccontainerchecksum 628625c4748a209372a89cae78cb377ff450defb6d705d3398aa4dbd961c6ef266be0d3b42d64535b3baa7cc61205c7a987a053ff4e9029ef61d48626b0f2809
+docfiles size=62
+ texmf-dist/doc/latex/graphicscache/LICENSE
+ texmf-dist/doc/latex/graphicscache/README.md details="Readme"
+ texmf-dist/doc/latex/graphicscache/graphicscache.pdf details="Package documentation"
+srccontainersize 6620
+srccontainerchecksum 0f9999427d54a96c9fe39a6bb35829dc07534ba18fd0e25b451dfb6f87ad44c10b065ed36394596ff4dd5140e74d94b5f95ffe1b1a36e357a1cb8c5d12313fe8
+srcfiles size=7
+ texmf-dist/source/latex/graphicscache/graphicscache.dtx
+ texmf-dist/source/latex/graphicscache/graphicscache.ins
+runfiles size=3
+ texmf-dist/tex/latex/graphicscache/graphicscache.sty
+catalogue-contact-repository https://github.com/xqms/graphicscache
+catalogue-ctan /macros/latex/contrib/graphicscache
+catalogue-license bsd3
+catalogue-topics graphics compilation cond-comp ext-code
+catalogue-version 0.3

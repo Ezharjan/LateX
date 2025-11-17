@@ -1,0 +1,27 @@
+name sanskrit-t1
+category Package
+revision 55475
+shortdesc Type 1 version of 'skt' fonts for Sanskrit
+longdesc The sanskrit-t1 font package provides Type 1 version of Charles
+longdesc Wikner's skt font series for the Sanskrit language.
+execute addMap skt.map
+containersize 454128
+containerchecksum 50f7a12443730bb017334ed1bad840dd2086a0225586eeae02f1386f410ae802fd043b1ce8a90e495aac7bdb20e2a8532c4cf98d48f0fc32b96da24f28de26bc
+doccontainersize 290432
+doccontainerchecksum 11a0bbb4212f72a18df5eb1ce1e2259774c6376a3c107fe32bed4176d23da2f5bda5cab71a7df618c67113ac9d65969ea8e680ab939c7c6cb2542ebd4c7e5efa
+docfiles size=83
+ texmf-dist/doc/fonts/sanskrit-t1/README details="Readme"
+ texmf-dist/doc/fonts/sanskrit-t1/sktdoc.pdf details="Package documentation"
+runfiles size=127
+ texmf-dist/fonts/map/dvips/sanskrit-t1/skt.map
+ texmf-dist/fonts/type1/public/sanskrit-t1/skt10.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/skt8.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/skt9.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/sktb10.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/sktbs10.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/sktf10.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/sktfs10.pfb
+ texmf-dist/fonts/type1/public/sanskrit-t1/skts10.pfb
+catalogue-ctan /fonts/ps-type1/sanskrit
+catalogue-license lppl
+catalogue-topics font font-type1 indic sanskrit

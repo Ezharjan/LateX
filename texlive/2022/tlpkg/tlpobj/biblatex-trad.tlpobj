@@ -1,0 +1,31 @@
+name biblatex-trad
+category Package
+revision 58169
+shortdesc "Traditional" BibTeX styles with BibLaTeX
+longdesc The bundle provides implementations of the "traditional" BibTeX
+longdesc styles (plain, abbrev, unsrt and alpha) with BibLaTeX.
+containersize 4192
+containerchecksum e14b9326eb05af2a89eac072d6c71f61527a53a813605bbb399703d2a23cf7ddcfaeb2cc77f6f7b8959e05833ae3eb343224bf126907193af557d09fc1746552
+doccontainersize 469432
+doccontainerchecksum 32d6fa6369359e15717257be6e89f77081dbd352654d4c60d55f4de9c5f522f7d222b51bfb5a1eedd7f6378343d041380c5e97e559e681bcf7647e0695ca13fc
+docfiles size=118
+ texmf-dist/doc/latex/biblatex-trad/README.md details="Readme"
+ texmf-dist/doc/latex/biblatex-trad/biblatex-trad.pdf details="Package documentation"
+ texmf-dist/doc/latex/biblatex-trad/biblatex-trad.tex
+runfiles size=15
+ texmf-dist/tex/latex/biblatex-trad/trad-abbrv.bbx
+ texmf-dist/tex/latex/biblatex-trad/trad-abbrv.cbx
+ texmf-dist/tex/latex/biblatex-trad/trad-alpha.bbx
+ texmf-dist/tex/latex/biblatex-trad/trad-alpha.cbx
+ texmf-dist/tex/latex/biblatex-trad/trad-plain.bbx
+ texmf-dist/tex/latex/biblatex-trad/trad-plain.cbx
+ texmf-dist/tex/latex/biblatex-trad/trad-standard.bbx
+ texmf-dist/tex/latex/biblatex-trad/trad-standard.cbx
+ texmf-dist/tex/latex/biblatex-trad/trad-unsrt.bbx
+ texmf-dist/tex/latex/biblatex-trad/trad-unsrt.cbx
+catalogue-contact-bugs https://github.com/moewew/biblatex-trad/issues
+catalogue-contact-home https://github.com/moewew/biblatex-trad
+catalogue-ctan /macros/latex/contrib/biblatex-contrib/biblatex-trad
+catalogue-license lppl1.3c
+catalogue-topics biblatex
+catalogue-version 0.5

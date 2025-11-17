@@ -1,0 +1,38 @@
+name blowup
+category Package
+revision 64454
+shortdesc Upscale or downscale all pages of a document
+longdesc The package blowup only defines the user-level macro \blowUp,
+longdesc which can be used to upscale or downscale all pages of a
+longdesc document. It is similar to the TeX primitive \magnification but
+longdesc more accurate and user-friendly.
+containersize 2600
+containerchecksum 3a9aa240d0315214eca58f2e42e2aea07687b0b5c80e71cce7df22f77c68d850d136832aa3da8725b8eb875b7307a0f2193b45038a3394a6be0fd9eb04878db1
+doccontainersize 278932
+doccontainerchecksum 68b4afe577bc455a47a5b75e4ad9643cdc920180d6b44c3635f5582f9910614b055994af3ada3ba43eebd93537ed8becead673d087f794ca63d19a64cfaad1fd
+docfiles size=91
+ texmf-dist/doc/latex/blowup/README.md details="Readme"
+ texmf-dist/doc/latex/blowup/blowup-ex1.pdf
+ texmf-dist/doc/latex/blowup/blowup-ex1.tex
+ texmf-dist/doc/latex/blowup/blowup-ex2.pdf
+ texmf-dist/doc/latex/blowup/blowup-ex2.tex
+ texmf-dist/doc/latex/blowup/blowup-ex3.pdf
+ texmf-dist/doc/latex/blowup/blowup-ex3.tex
+ texmf-dist/doc/latex/blowup/blowup-ex4.pdf
+ texmf-dist/doc/latex/blowup/blowup-ex4.tex
+ texmf-dist/doc/latex/blowup/blowup-ex5.pdf
+ texmf-dist/doc/latex/blowup/blowup-ex5.tex
+ texmf-dist/doc/latex/blowup/blowup.pdf details="Package documentation"
+srccontainersize 5140
+srccontainerchecksum 6e39463cf0f7d1ebd2e0523aaeffca86ee000e1a09e5b14744f054326a937d81dcfc8d924c042b71654d3a8beeed9a010fab0abdb345ddcfd9865fb6ac192c7c
+srcfiles size=5
+ texmf-dist/source/latex/blowup/blowup.dtx
+ texmf-dist/source/latex/blowup/blowup.ins
+runfiles size=2
+ texmf-dist/tex/latex/blowup/blowup.sty
+catalogue-contact-bugs https://github.com/rolfn/blowup/issues
+catalogue-contact-repository https://github.com/rolfn/blowup
+catalogue-ctan /macros/latex/contrib/blowup
+catalogue-license lppl1.3
+catalogue-topics typesetting
+catalogue-version 2.0.0

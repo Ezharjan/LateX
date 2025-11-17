@@ -1,0 +1,28 @@
+name ptex2pdf
+category Package
+revision 64072
+shortdesc Convert Japanese TeX documents to PDF
+longdesc The Lua script provides system-independent support of Japanese
+longdesc typesetting engines in TeXworks. As TeXworks typesetting setup
+longdesc does not allow for multistep processing, this script runs one
+longdesc of the ptex-based programs (ptex, uptex, eptex, platex,
+longdesc uplatex) followed by dvipdfmx.
+depend ptex2pdf.ARCH
+postaction script file=tlpkg/tlpostcode/ptex2pdf-tlpost.pl
+containersize 7852
+containerchecksum 1893a49eb389914d7a9247dece7f67d9d6af05efca77801130726d6422b1a0150b56f29d3f133f433d70989f6ffcc2b44d209cd044c84ee0833c2f77b87f3e46
+doccontainersize 8644
+doccontainerchecksum f193b44004b487d93f025b34b72a17cbaf4111b1a6e1ceb4ac1b69c6c07aa4dce46cde510cbd01fb71fb08c06f7bbb415a4a8051de5861f1f586b756060f386f
+docfiles size=7
+ texmf-dist/doc/latex/ptex2pdf/COPYING
+ texmf-dist/doc/latex/ptex2pdf/README.md details="Readme"
+runfiles size=7
+ texmf-dist/scripts/ptex2pdf/ptex2pdf.lua
+ tlpkg/tlpostcode/ptex2pdf-tlpost.pl
+catalogue-contact-bugs https://github.com/texjporg/ptex2pdf/issues
+catalogue-contact-home https://github.com/texjporg/ptex2pdf
+catalogue-contact-repository https://github.com/texjporg/ptex2pdf.git
+catalogue-ctan /macros/jptex/generic/ptex2pdf
+catalogue-license gpl2
+catalogue-topics compilation japanese
+catalogue-version 20200520.0
