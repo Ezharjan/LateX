@@ -1,0 +1,20 @@
+pst-fill: tiling and filing of areas and characters
+
+pst-fill.sty - The latex file
+pst-fill.tex - The tex file
+pst-fill-doc.pdf - The documentation, generated from the docstrip file
+
+This version of pst-fill uses the extended version of the keyval 
+package. So be sure that you 
+- have installed xkeyval with the special pst-xkey.tex
+  (CTAN: tex-archive/macros/latex/contrib/xkeyval/)
+- do not load another package after pst-fill, which loads
+  the old keyval.sty or pst-key.tex
+
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+
+
+--
+hvoss@tug.org

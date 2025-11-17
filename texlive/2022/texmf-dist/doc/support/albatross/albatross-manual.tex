@@ -1,0 +1,527 @@
+% arara: lualatex
+% arara: lualatex
+% arara: clean: { extensions: [ aux, log, gz ] }
+\documentclass[12pt,article,a4paper,oneside]{memoir}
+
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{*}{1}
+\checkandfixthelayout 
+
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{fancyvrb}
+\usepackage{booktabs}
+
+\newcommand{\albatross}{Albatross}
+\newcommand{\command}[1]{{\ttfamily#1}}
+\newcommand{\glyph}[1]{{\ttfamily#1}}
+\newcommand{\hex}[1]{{\ttfamily0x#1}}
+\newcommand{\uno}[1]{{\ttfamily U+#1}}
+\newcommand{\val}[1]{{\ttfamily#1}}
+\newcommand{\shortopt}[1]{{\ttfamily-#1}}
+\newcommand{\longopt}[1]{{\ttfamily{-}{-}#1}}
+
+\newcommand{\albatrossversion}{%
+  \InputIfFileExists{version.tex}{}{undefined}}
+
+\renewcommand\maketitlehooka{{\centering
+\em What flavour is it?\par}}
+
+\title{A gentle introduction to \albatross}
+\author{Island of \TeX}
+\date{Version \albatrossversion\ -- \today}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Introduction}
+\label{chap:introduction}
+
+\epigraph{Albatross! Albatross! Albatross!}{\textsc{Monty Python}}
+
+\albatross\ is a command line tool for finding fonts that contain a given
+Unicode glyph. It relies on Fontconfig, a library for configuring and
+customizing font access. The tool is written in Kotlin and requires a Java
+virtual machine to run.
+
+\chapter{Requirements}
+\label{chap:requirements}
+
+\epigraph{Two choc-ices please.}{\textsc{Monty Python}}
+
+\albatross\ has two hard requirements: a Java virtual machine (at least version
+8.0, from any vendor) and the \command{fc-list} tool provided by the Fontconfig
+library, available in the system path. Linux and MacOS are known to have this
+library. For Windows, note that the \TeX~Live distribution contains Fontconfig
+tools. It is also highly recommended to use a terminal with Unicode support, as
+\albatross\ will try to render the given glyphs.
+
+\newpage
+
+\chapter{Basic use}
+\label{chap:basicuse}
+
+\epigraph{I haven't got choc-ices. I only got the albatross.
+Albatross!}{\textsc{Monty Python}}
+
+The tool is a typical command line application, so we need to invoke it by
+typing \command{albatross} in the terminal:
+
+\bigskip
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=5mm]
+        __ __           __
+.---.-.|  |  |--.---.-.|  |_.----.-----.-----.-----.
+|  _  ||  |  _  |  _  ||   _|   _|  _  |__ --|__ --|
+|___._||__|_____|___._||____|__| |_____|_____|_____|
+
+Usage: albatross [OPTIONS] glyphs...
+
+Options:
+  -s, --show-styles                Show available font styles
+  -d, --detailed                   Show a detailed font list
+  -a, --ansi-level [n|a16|a256|tc]
+                                   Set the default ANSI level
+  -b, --border-style [1|2|3|4|5|6]
+                                   Set the border style
+  -o, --or                         Look for each glyph separately
+  -V, --version                    Show the version and exit
+  -h, --help                       Show this message and exit
+\end{Verbatim}
+
+\bigskip
+
+Provided that \albatross\ is properly available in the underlying operating
+system, we will get the help message listing all the available options and the
+tool usage.
+
+\section{Glyphs}
+\label{sec:glyphs}
+
+\epigraph{What flavour is it?}{\textsc{Monty Python}}
+
+\albatross\ takes a list of glyphs, separated by spaces, as input. Three formats
+are supported by the command line tool:
+
+\begin{itemize}[label={--}]
+\item The glyph itself, e.g, \glyph{ß} (Eszett). Internally, the tool will
+convert it to the corresponding Unicode code point.
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=3.5mm]
+$ albatross ß
+\end{Verbatim}
+
+\item The glyph as a Unicode code point in the hexadecimal notation, e.g,
+\hex{DF}. The \hex{} prefix is mandatory.
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=3.5mm]
+$ albatross 0xDF
+\end{Verbatim}
+
+Note that the tool takes the value as case insensitive, e.g, \hex{DF} is equal
+to \hex{df} (or any case combination thereof).
+
+\item The glyph as a Unicode code point using the multiset union notation, e.g,
+\uno{DF}. The \uno{} prefix is mandatory.
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=3.5mm]
+$ albatross U+DF
+\end{Verbatim}
+
+Be mindful that this notation expects an uppercase \glyph{U}.
+\end{itemize}
+
+Formats can be used interchangeably.
+
+When a list of glyphs is provided, the tool will take a conjunctive approach and
+look for fonts that contain all elements in such list (default behaviour). Use
+the \shortopt{o} flag (or \longopt{or} for the long flag) to look for each glyph
+separately. For instance:
+
+\begin{itemize}[label={--}]
+\item Look for fonts that contain both \glyph{a} and \glyph{b}:
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=3.5mm]
+$ albatross a b
+\end{Verbatim}
+
+\item Look for fonts that contain \glyph{a} and fonts that contain \glyph{b},
+separately:
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=3.5mm]
+$ albatross --or a b
+\end{Verbatim}
+\end{itemize}
+
+\section{Output}
+\label{sec:output}
+
+\epigraph{It's a bird, innit? It's a bloody sea bird\ldots\ it's not any bloody
+flavour. Albatross!}{\textsc{Monty Python}}
+
+\albatross\ prints the results as a table. The default behaviour is to just
+display the font names, e.g,
+
+\bigskip
+
+\begin{Verbatim}[fontsize=\scriptsize]
+                      Unicode code point DF mapping to ß                       
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Font name                                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 3270Medium Nerd Font                                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 3270Medium Nerd Font Mono                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+...
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Zilla Slab,Zilla Slab Medium                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Zilla Slab,Zilla Slab SemiBold                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+\end{Verbatim}
+
+\bigskip
+
+There is a \shortopt{s} option (or \longopt{show-styles} for the long option)
+that includes the styles available for each font, e.g,
+
+\bigskip
+
+\begin{Verbatim}[fontsize=\scriptsize]
+                      Unicode code point DF mapping to ß                       
+┌───────────────────────────────┬─────────────────────────────────────────────┐
+│ Font name                     │ Available styles                            │
+├───────────────────────────────┼─────────────────────────────────────────────┤
+│ 3270Medium Nerd Font          │ Medium                                      │
+├───────────────────────────────┼─────────────────────────────────────────────┤
+│ 3270Medium Nerd Font Mono     │ Medium                                      │
+├───────────────────────────────┼─────────────────────────────────────────────┤
+...
+├───────────────────────────────┼─────────────────────────────────────────────┤
+│ Zilla Slab,Zilla Slab Medium  │ Medium Italic, Italic, Medium, Regular      │
+├───────────────────────────────┼─────────────────────────────────────────────┤
+│ Zilla Slab,Zilla Slab         │ SemiBold, Regular, SemiBold Italic, Italic  │
+│ SemiBold                      │                                             │
+└───────────────────────────────┴─────────────────────────────────────────────┘
+\end{Verbatim}
+
+\bigskip
+
+For even more details, including the font type and paths, there is the
+\shortopt{d} option (or \longopt{detailed} for the long option), e.g,
+
+\bigskip
+
+\begin{Verbatim}[fontsize=\scriptsize]
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ 3270Medium Nerd Font                                             │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /home/paulo/.local/share/fonts/NerdFonts/3270-Medium Nerd Font  │
+│          │  Complete.otf                                                    │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ 3270Medium Nerd Font Mono                                        │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /home/paulo/.local/share/fonts/NerdFonts/3270-Medium Nerd Font  │
+│          │  Complete Mono.otf                                               │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+...
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ Zilla Slab,Zilla Slab Medium                                     │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-MediumItalic.otf  │
+│          │ ──────────────────────────────────────────────────────────────── │
+│          │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-Medium.otf        │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ Zilla Slab,Zilla Slab SemiBold                                   │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-SemiBold.otf      │
+│          │ ──────────────────────────────────────────────────────────────── │
+│          │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-SemiBoldItalic.…  │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+\end{Verbatim}
+
+\medskip
+
+For more verbosity, \longopt{detailed} can be combined with
+\longopt{show-styles} to include all font details, e.g,
+
+\medskip
+
+\begin{Verbatim}[fontsize=\scriptsize]
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ 3270Medium Nerd Font                                             │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /home/paulo/.local/share/fonts/NerdFonts/3270-Medium Nerd Font  │
+│          │  Complete.otf                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Styles   │ Medium                                                           │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ 3270Medium Nerd Font Mono                                        │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /home/paulo/.local/share/fonts/NerdFonts/3270-Medium Nerd Font  │
+│          │  Complete Mono.otf                                               │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Styles   │ Medium                                                           │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+...
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ Zilla Slab,Zilla Slab Medium                                     │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-MediumItalic.otf  │
+│          │ ──────────────────────────────────────────────────────────────── │
+│          │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-Medium.otf        │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Styles   │ Medium Italic, Italic, Medium, Regular                           │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+               Unicode code point DF, font details, mapping to ß               
+┌──────────┬──────────────────────────────────────────────────────────────────┐
+│ Name     │ Zilla Slab,Zilla Slab SemiBold                                   │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Type     │ OpenType Font                                                    │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Files    │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-SemiBold.otf      │
+│          │ ──────────────────────────────────────────────────────────────── │
+│          │  /usr/share/fonts/mozilla-zilla-slab/ZillaSlab-SemiBoldItalic.…  │
+├──────────┼──────────────────────────────────────────────────────────────────┤
+│ Styles   │ SemiBold, Regular, SemiBold Italic, Italic                       │
+└──────────┴──────────────────────────────────────────────────────────────────┘
+\end{Verbatim}
+
+\bigskip
+
+Since the results can span several rows (the more common the glyph, the more
+fonts will contain it), we strongly recommend using a pipeline and pass the
+results to a terminal pager, e.g, the \command{less} utility:
+
+\bigskip
+
+\begin{Verbatim}[frame=single, fontsize=\small, framesep=3.5mm]
+$ albatross ß | less
+\end{Verbatim}
+
+\section{Coloured output}
+\label{sec:colouredoutput}
+
+\epigraph{Do you get wafers with it?}{\textsc{Monty Python}}
+
+\albatross\ supports terminal colours by including the \shortopt{a} option (or
+\longopt{ansi-level} for the long option) followed by the corresponding colour
+level. The following levels are available:
+
+\bigskip
+\bigskip
+
+{\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Level & Description\\
+\midrule
+\val{n} & No colours at all (default)\\
+\val{a16} & ANSI 16 colours\\
+\val{a256} & ANSI 256 colours\\
+\val{tc} & Support for true colours\\
+\bottomrule
+\end{tabular}\par}
+
+\bigskip
+\bigskip
+
+Note that colours might mess the output when passed to a terminal pager. You
+might need to either adjust the terminal pager accordingly (e.g, \command{less
+-r} makes control characters to be displayed) or disable colours altogether
+(which is the default behaviour).
+
+\section{Table styles}
+\label{sec:tablestyles}
+
+\albatross\ provides 6 table styles. Include the \shortopt{b} option (or
+\longopt{border-style} for the long option) followed by the corresponding border
+style. The following styles are available:
+
+\begin{itemize}[label={--}]
+\item Style 1:
+
+\begin{Verbatim}[fontsize=\scriptsize]
++-------------------------------+-----------------------------------------+
+| Font name                     | Available styles                        |
++-------------------------------+-----------------------------------------+
+| 3270Medium Nerd Font          | Medium                                  |
++-------------------------------+-----------------------------------------+
+...
+\end{Verbatim}
+
+\item Style 2:
+
+\begin{Verbatim}[fontsize=\scriptsize]
+╭─────────────────────────────────────────────────────────────────────────╮
+│ Font name                                                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│ 3270Medium Nerd Font                                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+...
+\end{Verbatim}
+
+\item Style 3:
+
+\begin{Verbatim}[fontsize=\scriptsize]
+                                                                           
+  Font name                       Available styles                         
+                                                                           
+  3270Medium Nerd Font            Medium                                   
+                                                                           
+...
+\end{Verbatim}
+
+\item Style 4:
+
+\begin{Verbatim}[fontsize=\scriptsize]
+╔═══════════════════════════════╦═════════════════════════════════════════╗
+║ Font name                     ║ Available styles                        ║
+╠═══════════════════════════════╬═════════════════════════════════════════╣
+║ 3270Medium Nerd Font          ║ Medium                                  ║
+╠═══════════════════════════════╬═════════════════════════════════════════╣
+...
+\end{Verbatim}
+
+\item Style 5:
+
+\begin{Verbatim}[fontsize=\scriptsize]
+┌───────────────────────────────┬─────────────────────────────────────────┐
+│ Font name                     │ Available styles                        │
+├───────────────────────────────┼─────────────────────────────────────────┤
+│ 3270Medium Nerd Font          │ Medium                                  │
+├───────────────────────────────┼─────────────────────────────────────────┤
+...
+\end{Verbatim}
+
+\item Style 6:
+
+\begin{Verbatim}[fontsize=\scriptsize]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Font name                     ┃ Available styles                        ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ 3270Medium Nerd Font          ┃ Medium                                  ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+...
+\end{Verbatim}
+\end{itemize}
+
+These are the keys to be used as option values:
+
+\bigskip
+\bigskip
+
+{\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Key & Description\\
+\midrule
+1 & Style 1 (ASCII)\\
+2 & Style 2 (rounded corners)\\
+3 & Style 3 (blank)\\
+4 & Style 4 (double lines)\\
+5 & Style 5 (square corners, default)\\
+6 & Style 6 (heavy lines)\\
+\bottomrule
+\end{tabular}\par}
+
+\chapter*{License}
+
+\epigraph{Course you don't get bloody wafers with it. Albatross!}{\textsc{Monty
+Python}}
+
+\albatross\ is licensed under the New BSD License. Please note that the New BSD
+License has been verified as a GPL-compatible free software license by the Free
+Software Foundation, and has been vetted as an open source license by the Open
+Source Initiative.
+
+\chapter*{Changelog}
+
+\epigraph{How much is it?}{\textsc{Monty Python}}
+
+\section*{0.4.0 (current)}
+
+\begin{itemize}[label={--}]
+\item Included support for the Unicode code point using the \uno{} multiset union
+notation, which behaves exactly the same as the \hex{} counterpart. So \glyph{ß},
+\hex{DF} and \uno{DF} denote the same Unicode entity. 
+\end{itemize}
+
+\section*{0.3.0 (2021-01-13)}
+
+\subsection*{Changed}
+
+\begin{itemize}[label={--}]
+\item Conjunctive behavior is now default. Previously, \command{albatross a b}
+would have looked for fonts for \glyph{a} and separately for fonts for \glyph{b}.
+As we see more use cases for looking for fonts that contain \glyph{a} as well as
+\glyph{b}, we changed the default and left the previous behavior as
+\command{albatross --or a b}.
+\end{itemize}
+
+\section*{0.2.0 (2020-12-09)}
+
+\subsection*{Added}
+
+\begin{itemize}[label={--}]
+\item Inclusion of a man page.
+\end{itemize}
+
+\subsection*{Fixed}
+
+\begin{itemize}[label={--}]
+\item Windows paths were incorrectly parsed, causing font names and styles to be
+displayed incorrectly.
+\end{itemize}
+
+\section*{0.1.0 (2020-12-07)}
+
+\begin{itemize}[label={--}]
+\item Initial release.
+\end{itemize}
+
+\chapter*{The team}
+
+\epigraph{Ninepence.}{\textsc{Monty Python}}
+
+\albatross\ is brought to you by the Island of \TeX. If you want to support
+\TeX\ development by a donation, the best way to do this is donating to the
+\TeX\ Users Group.
+
+\vfill
+
+{\centering\footnotesize\em No albatrosses were harmed during the making of this
+user manual.\par}
+
+\end{document}

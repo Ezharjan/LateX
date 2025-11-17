@@ -1,0 +1,10 @@
+Save the files pst-ovl.sty|.tex| in a directory, which is part of your 
+local TeX ovl. Then do not forget to run texhash to update this ovl
+if these packages are new to your TeX distribution.
+
+pst-ovl needs pstricks, which should be part of your
+local TeX installation, otherwise get it from a CTAN server, f.ex.
+http://mirror.ctan.org/graphics/pstricks/
+
+
+hvoss@tug.org

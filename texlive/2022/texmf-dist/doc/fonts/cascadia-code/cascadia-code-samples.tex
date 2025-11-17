@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[]{cascadia-code}
+\usepackage{lipsum}
+\begin{document}
+\renewcommand*\familydefault{\ttdefault}
+\ttfamily 
+\subsection*{Regular}
+\lipsum[1]
+
+\subsection*{Bold}
+\textbf{\lipsum[2]}
+
+\subsection*{Extra Light}
+{\ttfamily \fontseries{el}\selectfont\lipsum[5]}
+
+\subsection*{Light}
+{\ttfamily \fontseries{l}\selectfont\lipsum[5]}
+
+\subsection*{Semi Light}
+{\ttfamily \fontseries{sl}\selectfont\lipsum[5]}
+
+\subsection*{Semi Bold}
+{\ttfamily \fontseries{sb}\selectfont\lipsum[6]}
+
+
+\subsection*{Default Numbers}
+
+\ttfamily 1234567890
+
+\end{document}
+

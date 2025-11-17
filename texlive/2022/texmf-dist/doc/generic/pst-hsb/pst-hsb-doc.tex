@@ -1,0 +1,153 @@
+%% $Id: pst-hsb-doc.tex 351 2021-12-16 10:37:40Z herbert $
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{}
+% $Id: pst-hsb-doc.tex 351 2021-12-16 10:37:40Z herbert $
+\documentclass[11pt,english,BCOR=10mm,DIV=12,bibliography=totoc,parskip=false,headings=small,
+    headinclude=false,footinclude=false,twoside]{pst-doc}
+\usepackage{pst-hsb}
+\let\psthsbFV\fileversion
+\usepackage{xltabular}
+\usepackage{pst-plot}
+\renewcommand\bgImage{\begin{pspicture}(0,-5)(11,5)
+% \psgrid(0,-4)(10,4)
+\psaxes{->}(0,0)(0,-4)(11,5)
+\psset{plotpoints=300,algebraic}%
+\psparametricplotHSB[linewidth=1mm,HueBegin=0,HueEnd=0.5]{0}{6.28}{t/0.628 | sin(t)*4}
+\psparametricplotHSB[linewidth=1mm,HueBegin=0.5,HueEnd=0.7]{0}{6.28}{t/0.628 | cos(t)*4}
+\psparametricplotHSB[linewidth=1mm,HueBegin=0.8,HueEnd=1]{0}{6.28}{t/0.628 | sin(t)*2}
+\end{pspicture}}
+
+\lstset{language=PSTricks,
+    morekeywords={psPrintValue},basicstyle=\footnotesize\ttfamily}
+%
+%\usepackage{biblatex}
+\addbibresource{pst-hsb-doc.bib}
+\begin{document}
+
+\title{\texttt{pst-hsb}}
+\subtitle{Curves with continoues color; v.\psthsbFV}
+\author{Denis Girout\\Manuel Luque\\Herbert Voß}
+\docauthor{}
+%\date{\today}
+\settitle
+
+\begin{abstract}
+This package defines the macros \Lcs{pslineHSB}
+ \Lcs{parametricplotHSB} for curves with a continous color.
+
+
+\tableofcontents
+
+
+
+\vfill
+\noindent
+Thanks to:  
+%Denis Girou; Manuel Luque
+\end{abstract}
+
+\newpage
+
+
+\section{Examples}
+
+\subsection{Lines}
+\begin{LTXexample}
+\begin{pspicture}(-0.5,-0.5)(11,5)
+% \psgrid(0,-4)(10,4)
+\psaxes{->}(0,0)(11,5)
+\pslineHSB[linewidth=1mm,HueBegin=0,HueEnd=0.5](0,0)(10,1)
+\pslineHSB[linewidth=1mm,HueBegin=0.5,HueEnd=0.7](0,1)(10,3)
+\pslineHSB[linewidth=1mm,HueBegin=0.8,HueEnd=1](0,2)(10,5)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\clearpage
+
+\subsection{Parametric plot}
+
+\begin{LTXexample}
+\begin{pspicture}(0,-5)(11,5)
+% \psgrid(0,-4)(10,4)
+\psaxes{->}(0,0)(0,-4)(11,5)
+\psset{plotpoints=10}%
+\psparametricplotHSB[linewidth=1mm,HSB=false,linecolor=red]{0}{360}{t 36 div t sin 4 mul}
+\psparametricplotHSB[linewidth=1mm,algebraic]{0}{6.28}{t/0.628 | cos(t)*4}
+\end{pspicture}
+\end{LTXexample}
+ 
+\begin{LTXexample}
+\begin{pspicture}(0,-5)(11,5)
+% \psgrid(0,-4)(10,4)
+\psaxes{->}(0,0)(0,-4)(11,5)
+\psset{plotpoints=300}%
+\psparametricplotHSB[linewidth=1mm,HSB=false,linecolor=red]{0}{360}{t 36 div t sin 4 mul}
+\psparametricplotHSB[linewidth=1mm,algebraic]{0}{6.28}{t/0.628 | cos(t)*4}
+\end{pspicture}
+ \end{LTXexample}
+ 
+\begin{LTXexample}
+\begin{pspicture}(0,-5)(11,5)
+% \psgrid(0,-4)(10,4)
+\psaxes{->}(0,0)(0,-4)(11,5)
+\psset{plotpoints=300,algebraic}%
+\psparametricplotHSB[linewidth=1mm,HueBegin=0,HueEnd=0.5]{0}{6.28}{t/0.628 | sin(t)*4}
+\psparametricplotHSB[linewidth=1mm,HueBegin=0.5,HueEnd=0.7]{0}{6.28}{t/0.628 | cos(t)*4}
+\psparametricplotHSB[linewidth=1mm,HueBegin=0.8,HueEnd=1]{0}{6.28}{t/0.628 | sin(t)*2}
+\end{pspicture}
+\end{LTXexample}
+ 
+\begin{LTXexample}
+\begin{pspicture}(-5,-5)(5,5)
+ \psframe*[linecolor=lightgray](-5,-4)(5,4)
+ \psgrid[gridlabels=0,subgriddiv=0](-5,-4)(5,4)
+ \multido{\nxDiv=-5+0.2}{50}{%
+ \psline(\nxDiv,-.1)(\nxDiv,0.1)}
+ \multido{\nyDiv=-4.0+0.2}{40}{%
+ \psline(-0.1,\nyDiv)(0.1,\nyDiv)}
+ \psset{linewidth=1mm}%
+ \psparametricplotHSB[plotpoints=2000,linecolor=blue,HSB=false,yunit=0.5]{-5}{5}{%
+ /temps t 2e-3 mul def
+ /frequence2 100 def
+ frequence2 360 mul temps mul cos
+ 1 mul 3 add
+ }
+ \psparametricplotHSB[plotpoints=2000,yunit=1]{-5}{5}{%
+ /temps t 2e-3 mul def
+ /frequence1 1200 def
+ /frequence2 100 def
+ frequence2 360 mul temps mul cos
+ 1 mul 3 add
+ frequence1 360 mul temps mul cos
+ 4 mul
+ mul
+ 0.1 mul
+ }
+\end{pspicture}
+\end{LTXexample}
+ 
+
+
+
+
+
+\clearpage
+\section{List of all optional arguments for \texttt{pst-hsb}}
+
+\xkvview{family=pst-hsb,columns={key,type,default}}
+
+
+\RaggedRight
+\nocite{*}
+%\bibliographystyle{plain}
+\printbibliography
+
+\printindex
+
+
+
+\end{document}
+
+

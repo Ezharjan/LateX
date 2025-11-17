@@ -1,0 +1,172 @@
+%%
+%% This is file `manual.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% buctthesis.dtx  (with options: `manual')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2019-2022 by Miracle0565
+%% 
+%%     https://github.com/Miracle0565/BUCTthesis
+%% 
+%% This file may be distributed and/or modified under
+%% the conditions of the LaTeX Project Public License,
+%% either version 1.3c of this license or (at your option)
+%% any later version. The latest version of this license
+%% is in:
+%% 
+%%     http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions
+%% of LaTeX version 1999/12/01 or later.
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{manual}[2021/09/25 document style for BUCTthesis]
+\RequirePackage{hypdoc}
+\PassOptionsToPackage{AutoFakeSlant}{xeCJK}
+\RequirePackage[UTF8, heading, fontset = none, linespread = 1.2,]{ctex}
+\RequirePackage[toc]{multitoc}
+\RequirePackage{
+    listings,
+    float,
+    tabularx,
+    booktabs,
+    siunitx,
+    unicode-math,
+    xcolor,
+    caption,
+    enumitem,
+    metalogo,
+}
+\RequirePackage[bottom,perpage]{footmisc}
+\RequirePackage[
+    a4paper,
+    hmargin={40mm,20mm},vmargin={25mm,15mm},footskip=7mm,
+]{geometry}
+
+\ctexset{
+    fontset,
+    abstractname   = 简介,
+    indexname      = 代码索引,
+    section        = {
+        format = \Large\bfseries\raggedright,
+        name   = {第,节},
+    },
+}
+\xeCJKDeclareCharClass{CJK}{"2460->"2469}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\setmainfont{TeX Gyre Pagella}
+\setmonofont[
+    HyphenChar = None ,
+    UprightFont=* Light, BoldFont=* Bold,
+    SlantedFont=* Light Oblique]{CMU Typewriter Text}
+\captionsetup{strut=off, labelsep=quad, labelfont+=bf}
+\lstdefinestyle{base}{
+    aboveskip        = 0 pt,
+    belowskip        = 0 pt,
+    tabsize          = 2,
+    basicstyle       = \ttfamily\small,
+    columns          = flexible,
+    frame            = single,
+    framerule        = 1 pt,
+    xleftmargin      = 1 em,
+    aboveskip        = 6 pt,
+    belowskip        = 6 pt,
+    commentstyle     = \slshape\color{gray},
+    keywordstyle     = \color{blue},
+    backgroundcolor  = \color{lightgray!10},
+    showtabs         = false,
+    showspaces       = false,
+    showstringspaces = true,
+    captionpos       = t,
+    breaklines       = true,
+    numbers          = none,
+    extendedchars    = false,
+    escapechar       = {@*},
+    gobble           = 4,
+}
+\lstdefinestyle{latex}{%
+    style=base,
+    rulecolor=\color{cyan},
+    language=[LaTeX]TeX,
+}
+\lstdefinestyle{shell}{%
+    style=base,
+    rulecolor=\color{violet!65},
+    language=bash,
+}
+\lstnewenvironment{latex}{\lstset{style=latex}}{}
+\lstnewenvironment{shell}{\lstset{style=shell}}{}
+\let\oldCodelineNo\theCodelineNo
+\def\theCodelineNo{\textcolor{gray}{\oldCodelineNo}}
+\setlist{
+    leftmargin = 0em,
+    nosep
+}
+\setlist[description]{%
+    itemindent = 2.5em,
+}
+\setlist[enumerate]{%
+    itemindent = 2em,
+}
+\newcommand\without\CJKsout
+\newcommand\Arg[1]{ \texttt{\char`\{} \meta{#1} \texttt{\char`\}} }
+\providecommand\marg[1]{ \Arg{#1} }
+\providecommand\oarg[1]{ \texttt[ \meta{#1} \texttt] }
+\providecommand\parg[1]{ \texttt( \meta{#1} \texttt) }
+\DeclareRobustCommand{\opt}{\texttt}
+\DeclareRobustCommand{\env}{\texttt}
+\DeclareRobustCommand{\pkg}{\textsf}
+\DeclareRobustCommand{\cls}{\textsf}
+\DeclareRobustCommand{\file}{\textsf}
+\def\DescribeOpt{\leavevmode\@bsphack%
+    \begingroup\MakePrivateLetters\Describe@Opt}
+\def\Describe@Opt#1{\endgroup%
+        \marginpar{\raggedleft\PrintDescribeOpt{#1}}%
+        \SpecialOptIndex{#1}\@esphack\ignorespaces}
+\def\PrintDescribeOpt#1{\strut \MacroFont #1\ }
+\def\SpecialOptIndex#1{\@bsphack%
+    \begingroup%
+        \HD@target%
+        \let\HDorg@encapchar\encapchar%
+        \edef\encapchar usage{%
+            \HDorg@encapchar hdclindex{\the\c@HD@hypercount}{usage}%
+        }%
+    \@bsphack
+    \index{#1\actualchar{\protect\ttfamily#1}
+            (option)\encapchar usage}%
+    \index{options:\levelchar#1\actualchar%
+            {\protect\ttfamily#1}\encapchar usage}\@esphack%
+    \endgroup\@esphack}
+\NewDocumentEnvironment{syntax}{ m }{%
+    \linespread{1}\xeCJKsetup{PunctStyle=plain}\xeCJKsetup{CJKecglue}%
+    \cs{#1}\ignorespaces%
+}{\vspace{0.5em}}
+\def\glossaryname{版本历史}
+\GlossaryPrologue{\section{\glossaryname}}
+\IndexPrologue{%
+    \clearpage\section{\indexname}
+    \textit{意大利体的数字表示描述对应索引项的页码；
+    带下划线的数字表示定义对应索引项的代码行号；
+    罗马字体的数字表示使用对应索引项的代码行号。}
+}
+\def\IndexLayout{%
+    \newgeometry{hmargin=15mm,vmargin={25mm,15mm},footskip=7mm}%
+    \setlength\IndexMin{.5\textheight}%
+    \ctexset{section/numbering=false}%
+}
+\hypersetup{
+    pdftitle  = {BUCTthesis：北京化工大学学位论文模板},
+    pdfauthor = {Miracle0565},
+}
+\CodelineIndex
+\EnableCrossrefs
+\RecordChanges
+\endinput
+%%
+%% End of file `manual.sty'.

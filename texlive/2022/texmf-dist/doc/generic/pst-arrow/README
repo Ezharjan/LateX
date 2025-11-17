@@ -1,0 +1,18 @@
+pst-arrow redefines a lot of the pstricks macros.  
+
+pst-arrow.tex: the TeX file
+pst-arrow.sty: the corresponding LaTeX file
+pst-arrow-doc.tex: the included doc file
+
+Save the files pst-arrow.sty|tex in a directory, 
+which is part of your  local TeX tree. 
+Then do not forget to run texhash to update this tree.
+
+
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+
+hvoss@tug.org
+
+# $Id: README 136 2021-07-28 09:39:03Z herbert $

@@ -1,0 +1,114 @@
+$Id: FONTLOG.txt 157 2022-05-31 22:20:57Z karl $
+The Gentium Plus PS fonts are Type 1 versions of the TrueType Gentium
+fonts released by SIL International.  The conversion to Type 1
+necessarily introduces changes in the implementation of the shapes and
+the metrics.  No changes to the shapes or advance widths have been made
+by humans, but a few human-made changes are in the kerning tables;
+see below.
+
+The Gentium Plus PS fonts incorporate the name "Gentium" by permission
+of SIL given to the TeX Users Group (TUG). These fonts are released and
+maintained by volunteers (see list of people below), under the auspices
+of TUG. For internal development changes, see the file ChangeLog.
+
+The SIL release has its own FONTLOG.txt, included in the parallel
+GentiumPlus-* directory. Please consult it for a full record of changes
+to the fonts.
+
+The home page for the Gentium Plus PS fonts and TeX support package:
+https://tug.org/gentium
+Mailing list: gentium@tug.org (https://lists.tug.org/gentium)
+
+30 May 2022 Gentium Plus PS version 1.102
+- No changes to the fonts, only the LaTeX support. See ./ChangeLog.
+
+21 May 2022 Gentium Plus PS version 1.101
+- Update to GentiumPlus 6.101. This contains two font families: Gentium Plus
+  and Gentium Book Plus.
+- All encodings support regular, italic, bold and bold italic styles now.
+  Previously bold and bold italic styles were available only for Latin
+  encodings and they missed many accented characters.
+- Remove ConTeXt support from this package, since Gentium support has
+  been in ConTeXt itself for some time.
+
+9 July 2019 Gentium Plus PS version 1.1.1
+- In lgr-*.tfm (only), add ligatures sigma + boundarychar -> final sigma.
+
+6 April 2015 Gentium Plus PS version 1.1
+- Update to GentiumPlus 5.000.
+
+2 July 2013 Gentium Plus PS version 1.0
+- First public release.
+
+
+Basic information
+-----------------
+Each of the eight fonts in GentiumPlus and GentiumBookPlus (regular,
+italic, bold, bold italic) have been converted to Type 1.
+
+These are the changes in the converted fonts; we hope they will be
+incorporated in the original fonts in due time.
+
+- Some extra kerning pairs were added between accents and capital
+  Greek letters.
+
+- There are additional kerning pairs for accented Latin letters, the
+  Czech/Slovak letters dcaron and lcaron, and for small caps.  The
+  original fonts have no such kerning pairs.  Manual corrections are
+  still needed in some cases, e.g., initial cap followed by small cap.
+
+- Several kerning pairs were added for Cyrillic letters.  There were no
+  kerning pairs for Cyrillic letters in the original fonts.  These pairs
+  try to improve the most obvious problems, but they are far from
+  complete.
+
+- There was a positive kern between the letters D and V in the regular
+  style of Gentium Plus.  The derived font has a negative kern.
+
+The conversion process, including these changes, is implemented in the
+Python and FontForge scripts included in the packages, e.g., ff-gentium.pe.
+Except that since the final sigma ligatures added in July 2019 only
+involve the TeX files, they were implemented with TeX tools;
+see ./source/fonts/gentium-tug/Makefile for specifics.
+
+Acknowledgements
+----------------
+Here is where contributors to the TeX package should be acknowledged. If
+you make modifications be sure to add your name (N), email (E),
+web-address (W), description (D), and active status (A). This list is
+sorted by last name in alphabetical order.
+
+More acknowledgements can be found in the FONTLOGs for each separate
+font project.
+
+N: Karl Berry
+E: karl@freefriends.org
+W: https://freefriends.org/~karl/
+D: Documentation, licensing, distribution, SIL <-> TUG contact, etc.
+A: yes
+
+N: Pavel Farář
+E: pavel.farar@centrum.cz
+D: Cyrillic support, conversion and generation scripts, etc.
+A: yes
+
+N: Mojca Miklavec
+E: mojca.miklavec.lists@gmail.com
+D: ConTeXt support, conversion and generation scripts, etc.
+A: yes
+
+N: Clea F. Rees
+W: [404] http://cardiff.ac.uk/encap/contactsandpeople/profiles/rees-clea.html
+D: Original LaTeX support, documentation, conversion.
+A: no
+
+N: Thomas A. Schmitz
+E: thomas.schmitz@uni-bonn.de
+W: [404] http://www.philologie.uni-bonn.de/personal/schmitz
+D: Initial version of TeX support files, AGR encoding, ConTeXt support
+A: no
+
+N: Ralf Stubner
+E: ralf.stubner@gmail.com
+D: Ligatures for final sigma in lgr-*.tfm.
+A: no

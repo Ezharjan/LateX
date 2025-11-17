@@ -1,0 +1,62 @@
+\enableregime[utf]
+\usetypescript[modern][ec]
+\setupbodyfont[10pt,rm]
+\setupexternalfigures[location={local,global,default}]
+
+% Load the Markdown module.
+\usemodule[t][markdown]
+
+% Set options of the Markdown module.
+\setupmarkdown
+  [
+    hashEnumerators = yes,
+    definitionLists = yes,
+    smartEllipses = yes,
+    footnotes = yes,
+    inlineFootnotes = yes,
+    fencedCode = yes,
+    contentBlocks = yes,
+    pipeTables = yes,
+    tableCaptions = yes,
+    taskLists = yes,
+    strikeThrough = yes,
+    superscripts = yes,
+    subscripts = yes,
+    fancyLists = yes,
+  ]
+
+% Set renderers of the Markdown module.
+\definetyping
+  [latex]
+
+\setuptyping
+  [latex]
+  [option=TEX]
+
+\starttext
+
+% Typeset the document `example.md` by letting the Markdown package handle
+% the conversion internally.
+\inputmarkdown{./example.md}
+
+% Typeset the document `example.tex` that we prepared separately using the
+% Lua command-line interface and that contains a plain TeX representation
+% of the document `example.md`.
+\catcode`\%=12\relax
+\doiffileelse{./example.tex}{\input example}{}
+\catcode`\%=14\relax
+
+% Typeset inline markdown text.
+\startmarkdown
+
+Here are some non-ASCII characters: *ěščřžýáíé*
+and ConTeXt special characters: *|*.
+
+Here is a hard line break that we inserted directly from the TeX source
+by typing two spaces at the end of a line.  
+This is stretching TeX's abilities and is only supported in ConTeXt MkIV
+and later.
+
+\stopmarkdown
+
+\stoptext

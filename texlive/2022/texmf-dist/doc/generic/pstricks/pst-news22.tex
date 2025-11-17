@@ -1,0 +1,66 @@
+%% $Id: pst-news22.tex 595 2022-08-30 18:08:22Z herbert $
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{}
+\documentclass[11pt,english,BCOR=10mm,DIV=12,bibliography=totoc,parskip=false,headings=small,
+    headinclude=false,footinclude=false,twoside,usegeometry,dvipsnames]{pst-doc}
+    
+\usepackage{libertinus}
+\usepackage{hvlogos}
+\listfiles
+%\usepackage[svgnames,dvipsnames,x11names,pspdf=-dALLOWPSTRANSPARENCY]{pstricks-pdf}
+\usepackage{showexpl,pst-arrow,pst-plot,pst-geometrictools}
+\lstset{explpreset={pos=l,width=-99pt,overhang=0pt,hsep=\columnsep,vsep=\bigskipamount,rframe={},extendedchars},
+    escapechar=?}
+
+\usepackage{biblatex}
+\addbibresource{PSTricks.bib}
+\def\Lcs#1{\texttt{\textbackslash#1}}
+\begin{document}
+
+\title{\texttt{News -- \the\year}\\ \Large new macros and bugfixes for the basic package.}
+\author{Herbert Voß}
+\date{\today}
+
+\settitle
+
+\tableofcontents
+
+\part{\texttt{pstricks} -- package}
+
+
+%--------------------------------------------------------------------------------------
+\section{\texttt{pstricks.tex} (v. 3.14 -- 2022/08/30)}
+%--------------------------------------------------------------------------------------
+
+Bugfix for \Lcs{psdots*}:
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}[showgrid=true](3,2)
+  \psdot[dotstyle=pentagon,dotscale=5](1.5,1.5)
+  \psdots[dotsize=.4cm,dotstyle=square,
+    linecolor=red](0,0)(0.5,0)(1,1)(1.5,1)(2,2)(2.5,2)
+  \psdots*(2.5,0.6)\psdot(2.5,0.2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}[showgrid=true](3,2)
+  \psdot*[dotstyle=pentagon,dotscale=5](1.5,1.5)
+  \psdots*[dotsize=.4cm,dotstyle=square,
+    linecolor=red](0,0)(0.5,0)(1,1)(1.5,1)(2,2)(2.5,2)
+  \psdots*(2.5,0.6)\psdot(2.5,0.2)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+
+
+
+\nocite{*}
+\printbibliography
+
+
+\end{document}
+

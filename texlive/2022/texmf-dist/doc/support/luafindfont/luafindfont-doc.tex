@@ -1,0 +1,318 @@
+ %% $Id: luafindfont-doc.tex 599 2022-09-02 09:48:32Z herbert $
+%
+\listfiles\setcounter{errorcontextlines}{100}
+\documentclass[paper=a4,fontsize=11pt,DIV=14,parskip=half-,
+               captions=tableabove,twoside=on]{scrartcl}
+\usepackage{fontspec}
+%\usepackage{libertinus-otf}
+\setmainfont{AccanthisADFStdNo3}[
+  UprightFont   =*-Regular,
+  BoldFont      =*-Bold,
+  ItalicFont    =*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  RawFeature    = -rlig,
+]
+\setsansfont{GilliusADF}[
+  UprightFont   =*-Regular,
+  BoldFont      =*-Bold,
+  ItalicFont    =*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  RawFeature    = -rlig,
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase,FakeStretch=0.9]
+%\setmonofont{Anonymous Pro}[Scale=MatchLowercase,FakeStretch=0.9]
+
+\usepackage[english]{babel}
+\usepackage{scrlayer-scrpage}
+\automark[section]{section}
+\automark*[subsection]{}
+\pagestyle{scrheadings}
+
+{\catcode`\%=12 
+ \gdef\perCent{%}
+ \gdef\DoubleperCent{%%}
+}
+
+\usepackage{xcolor,fancyvrb,varioref}
+\usepackage{xltabular,pdflscape}
+\usepackage{hvlogos} % for Wikipedia W
+\usepackage{listings}
+\usepackage{hvextern}
+
+\setkeys{hv}{moveToExampleDir,ExampleDir=Examples,showFilename=false,force,verbose}
+\lstset{basicstyle=\ttfamily\small,language=[LaTeX]TeX}
+\usepackage{ragged2e}
+
+\usepackage{makeidx}\makeindex
+\usepackage{hvindex}
+
+\def\Lfile#1{\texttt{#1}\index{#1 file@\texttt{#1} file}}
+\def\Lext#1{\texttt{.#1}\index{#1 file extension@\texttt{.#1} file extension}}
+\def\Lcs#1{\texttt{\textbackslash#1}\index{#1@\texttt{\textbackslash#1}}}
+\def\Lenv#1{\texttt{#1}\index{#1 environment@\texttt{#1} environment}}
+\def\Lpack#1{\texttt{#1}\index{#1 package@\texttt{#1} package}}
+\def\Lprog#1{\texttt{#1}\index{#1 program@\texttt{#1} program}}
+\def\Loption#1{\texttt{#1}\index{#1@\texttt{#1} package option}}
+\def\Largb#1{\emph{\{#1\}}}
+
+%\usepackage[bibstyle=dtk]{biblatex}
+%\addbibresource{\jobname.bib}
+
+\raggedbottom
+\usepackage{url}
+\usepackage[colorlinks,linktocpage]{hyperref}
+
+\makeatletter% from: doc.sty
+\newcommand*\GetFileInfo[1]{%
+  \def\filename{#1}%
+  \def\@tempb##1 ##2 ##3\relax##4\relax{%
+    \def\filedate{##1}%
+    \def\fileversion{##2}%
+    \def\fileinfo{##3}}%
+  \edef\@tempa{\csname ver@#1\endcsname}%
+  \expandafter\@tempb\@tempa\relax? ? \relax\relax}
+\makeatother
+
+%\GetFileInfo{xltabular.sty}
+\usepackage{xspace}
+
+\newcommand\FF{\texttt{luafindfont}\xspace}
+
+\def\setVersion#1{\setVVersion#1!!}
+\def\setVVersion#1=#2!!{\def\luafindfontVersion{#2}} 
+
+\setVersion{version = 0.10}%  can be automatically changed by perl
+
+\setkeys{hv}{cleanup={},force}
+
+\title{Program \texttt{luafindfont} \\--\\ \normalsize \luafindfontVersion\ (\today)}
+\author{\shortstack{Herbert Voß\\\small \href{mailto:hvoss@tug.org}{hvoss@tug.org}}}
+\date{}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\enlargethispage{1cm}
+\tableofcontents
+
+\vfill
+Thanks to: \\
+Gerhard Bachmaier;
+Karl Berry;
+{\setmainfont[Scale=MatchUppercase]{NotoSerifGeorgian-Medium.ttf} მამუკა ჯიბლაძე} (Mamuka Jibladze);
+Rolf Niepraschk;
+\clearpage
+
+\section{Introduction}
+The Lua program
+\FF is a  program for searching installed fonts which are usable for \LuaLaTeX\ and \XeLaTeX.
+The already existing Lua program \Lprog{luaotfload-tool} can also be used for searching, but
+the search-interface is somewhat cryptic and too complex for a user, who wants only to know
+if a font is present or not. And if present, where can it be found. For example:
+
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luaotfload-tool --find=times
+#StopVisibleMain
+\end{externalDocument}
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luaotfload-tool --fuzzy --find="times new roman"
+#StopVisibleMain
+\end{externalDocument}
+
+
+
+
+But that are not \emph{all} Times fonts. Compare it with the output of \Lprog{luafindfont},
+where the searchname \emph{times} must only be a part of a longer name:
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont times
+#StopVisibleMain
+\end{externalDocument}
+
+
+
+\subsection{Syntax}
+
+The \Index{syntax} is 
+
+\verb|luafindfont [...] <font>| 
+
+where \verb|[...]|  are optional \Index{argument}s, either in short or
+long form which, of course, can be mixed:
+
+\begin{Verbatim}[frame=lines,label=Parameter]
+  parameter handling
+    -h,--help
+    -o,--otfinfo (default 0)
+    -i,--info (default 0)
+    -x,--xetex
+    -n,--no-symbolic-names
+    -v...          Verbosity output
+    -m,--max_string (default 90)
+    <(partial) fontname>  
+\end{Verbatim}
+
+For example:
+
+\begin{verbatim}
+luafindfont times 
+luafindfont palatino -o 3
+luafindfont -i 3 -m 50 arial
+\end{verbatim}
+
+\begin{enumerate}
+\item \texttt{-m <columns>}: How many columns are used for the font with full path. This can be really long, but with e.g. \verb|-m 50| 
+the length is limited to 50 characters and in the middle of the long name there will be \ldots, representing the missing characters.
+\item \texttt{-o <number[character]>}: For the font with the given number from the font list the program \Lprog{otfinfo} is called
+    for some generell font informations. An additional optional argument for \Lprog{otfinfo} (only one character) must follow directly the fontnumber
+    (see also section~\ref{otfinfo})
+\item \texttt{-i <number>}: For the font with the given number from the font list the existing other corresponding font styles are listed.
+\end{enumerate}
+
+\section{How it works}
+\FF uses the data file \Lfile{luaotfloadtool-names.lua} which is created by \LuaTeX. If it is
+missing it will be created by \FF itself. The name of the font should be in lowercase
+characters and must not be the complete name. A ``\verb|time|'' for finding all fonts with
+``time'' in its names is sufficiant for searching ``times new roman''.
+
+
+\subsection{Fontname}
+The fontname can only be a substring of the  complete filename. It is not case sensitive, \texttt{Myriad} and \texttt{myriad}
+are the same. It is possible to combine two search strings which will act like a boolean \texttt{and}. A search with
+\texttt{"Myriad \& bold"} (in quotes)  will list all files which have \texttt{myriad} \emph{and} \texttt{bold} in its name.
+
+
+\subsection{Option \texttt{-o}}\label{otfinfo}
+This needs an installed program \Lprog{otfinfo}, which should be the default for all \TeX\ distributions.
+This program lists some useful informations of a given fontnumber. The fontnumber can be combined by an
+additional character for different outputs. For example \texttt{-o 2f} lists the features of the font number 2
+in the list. The order makes no difference:  \texttt{-o f2} prints  the same. If there is no output then the font has no such
+informations defined!
+
+The possible options are (i is the default):
+
+\begin{Verbatim}[frame=lines,label=otfinfo]
+  s   Report font’s supported scripts.
+  f   Report font’s GSUB/GPOS features.
+  z   Report font’s optical size information.
+  p   Report font’s PostScript name.
+  a   Report font’s family name.
+  v   Report font’s version information.
+  i   Report font’s names and designer/vendor info.
+  g   Report font’s glyph names.
+  t   Report font’s OpenType tables.
+\end{Verbatim}
+
+
+
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont -o 2f "myriad & semibold"
+#StopVisibleMain
+\end{externalDocument}
+
+if no parameter is given, then \texttt{-i} is assumed.
+
+
+\subsection{Option \texttt{-i}}
+For a given font number \texttt{luafindfont} will list the font styles which were found by the font search
+and which correspond to the font number. This is useful if a fontname doesn't has the style in its name or
+only in short form.
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont -i 4 "myriad & semibold"
+#StopVisibleMain
+\end{externalDocument}
+
+
+
+For the font number 4 there also exists a Regular, Bold, and a Italic font. The font no 4 itself
+is a BoldItalic version.
+
+
+\subsection{Option \texttt{-x}}\label{xetex}
+
+\XeTeX\ will find OpenType and TrueType fonts only, if they are part of the system fonts or 
+found by \texttt{kpsewhich} by its filename. With the option \texttt{-x} you'll an additional
+column, which shows if the font is found by \texttt{kpsewhich} (1) or not (0). If not, then
+it is obvious, that you have to update the filename database of the \TeX\ distribution in
+the usual way by running \texttt{texhash} or via a menu entry if using a file manager.
+
+
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont -m 55 -x PStricksdotfont
+#StopVisibleMain
+\end{externalDocument}
+
+
+The font \texttt{myFont.otf} is found by \LuaTeX\ but not by \XeTeX.
+
+
+
+
+\section{Examples}
+
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont segoe
+#StopVisibleMain
+\end{externalDocument}
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont -m 35 libertinus
+#StopVisibleMain
+\end{externalDocument}
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont -i 9 sego
+#StopVisibleMain
+\end{externalDocument}
+
+
+\begin{landscape}
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont -o 6 arial
+#StopVisibleMain
+\end{externalDocument}
+
+
+\begin{externalDocument}[redirect,includegraphic=false,force,code,docType=sh,ext=sh,compiler=sh]{exa}
+#StartVisibleMain
+luafindfont --no-symbolic-names minion
+#StopVisibleMain
+\end{externalDocument}
+
+
+
+\section{List of all fonts}
+This possible with the symbolic fontname "*" instead of a real fontname:
+
+\begin{Verbatim}[fontsize=\small]
+bash-3.2$ luafindfont "*"
+\end{Verbatim}
+
+This list maybe really long and is shortend here!
+
+\VerbatimInput[fontsize=\small]{Examples/exa05.txt}
+
+
+\end{landscape}
+
+
+\printindex
+
+\end{document}

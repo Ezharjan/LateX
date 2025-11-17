@@ -1,0 +1,53 @@
+.TH ALBATROSS 1 "27 November 2021" "v0.4.0"
+.
+.SH NAME
+albatross \- a tool for finding fonts that contain a given (Unicode) glyph.
+.
+.SH SYNOPSIS
+.B albatross
+.RI [ options ]
+.IR glyphs ...
+.
+.SH DESCRIPTION
+\fBalbatross\fP is a command line tool for finding fonts that contain a given
+(Unicode) glyph.
+It relies on Fontconfig, a library for configuring and customizing font
+access.
+.PP
+Albatross takes a list of glyphs as input.
+Three formats are supported:
+.IP #1
+The glyph itself, e.g., \fBß\fP (Eszett).
+Internally, the tool converts it to the corresponding Unicode code point.
+.IP #2
+The glyph as a Unicode code point in the hexadecimal notation,
+e.g., \fB0xDF\fP.
+The \fB0x\fP prefix is mandatory.
+Note that the tool takes the value as case insensitive, e.g.,
+\fB0xDF\fP is equal to \fB0xdf\fP (or any case combination thereof).
+.IP #3
+The glyph as a Unicode code point using the multiset union notation,
+e.g, \fBU+DF\fP.
+The \fBU+\fP prefix is mandatory.
+Be mindful that this notation expects an uppercase \fBU\fP.
+.
+.SH OPTIONS
+.IP \fB--show-styles\fP
+Show available font styles
+.IP \fB--detailed\fP
+Show a detailed font list
+.IP "\fB--ansi-level\fP [n|a16|a256|tc]"
+Set the default ANSI level
+.IP "\fB--border-style\fP [1|2|3|4|5|6]"
+Set the border style
+.IP \fB--or\fP
+Look for each glyph separately
+.IP \fB--version\fP
+Show the version and exit
+.IP \fB--help\fP
+Show a help message and exit
+.
+.SH BUGS
+Issue tracker at
+.UR https://gitlab.com/islandoftex/albatross/-/issues
+.UE .

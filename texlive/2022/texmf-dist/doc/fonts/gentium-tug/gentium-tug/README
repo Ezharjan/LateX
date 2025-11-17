@@ -1,0 +1,164 @@
+$Id: README 153 2022-05-27 11:00:14Z pavel $
+The home page for the original SIL Gentium font family is
+https://scripts.sil.org/Gentium.
+
+The home page for this TeX package, gentium-tug, is https://tug.org/gentium.
+Mailing list: gentium@tug.org (https://lists.tug.org/gentium)
+
+This TeX package consists of:
+
+1. The original (unaltered) GentiumPlus and GentiumBookPlus font
+families in TrueType format (eight fonts), as developed by SIL and
+released under the OFL. See OFL.txt and OFL-FAQ.txt in the directory
+GentiumPlus-6.101.
+
+2. Converted fonts in PostScript Type 1 format (the same eight fonts),
+released under the same terms. These incorporate the name "Gentium" by
+permission of SIL given to the TeX Users Group.
+
+3. LaTeX and other supporting files under the Expat license, whose
+text given below (also at https://directory.fsf.org/wiki/License:Expat).
+
+4. Documentation: the TeX-specific documentation is in gentium.{tex,pdf},
+also under Expat).  We have also included the original documentation,
+fontlogs, and other files from the SIL distributions, entirely
+unaltered, in the Gentium*/ subdirectories here.
+
+The contributors are listed in the FONTLOG.txt files.
+
+
+ENCODINGS:
+=========
+The package provides font files needed for both Unicode XeTeX and LuaTeX
+as well as 8-bit engines such as pdfTeX and TeX (->dvips).
+
+For 8-bit engines the following encodings are available:
+- Latin:
+  ot1      OT1 - default encoding in TeX
+  ec       T1  - for most European languages
+  texnansi LY1 - for most Western European languages
+  l7x      L7x - for Baltic languages
+  qx       QX  - for Polish
+  t5       T5  - for Vietnamese
+  ts1      TS1 - TeX symbols (for LaTeX)
+
+- Greek:
+  lgr      (only supported in LaTeX)
+
+- Cyrillic:
+  t2a      T2A
+  t2b      T2B
+  t2c      T2C
+  x2       X2
+
+
+FILES:
+=====
+See the FONTLOG for high-level descriptions of what comes from what.
+
+/doc/fonts/gentium-tug
+  /GentiumPlus-* - the original SIL documentation, including the OFL
+  /gentium-tug   - the TeX-specific documentation
+/fonts
+  /afm/public/gentium-tug - Adobe Font Metrics
+                            (only needed for generating new tfm files)
+  /enc/dvips/gentium-tug - encoding files
+    gentium-{ts1,agr,lgr}.enc
+    gentium-{ot1,ec,texnansi,qx,t5,l7x,t2a,t2b,t2c,x2}{,-sc}.enc
+    gentium-{ec,t5}-ttf{,-sc}.enc - to get around a bug in pdfTeX (dcroat & Idotaccent)
+  /map
+    /dvips/gentium-tug
+      gentium-type1.map                           - for TeX and LaTeX
+    /pdftex/gentium
+      gentium-{ec,texnansi,qx,t5,l7x,agr,t2a}.map - for ConTeXt MkII
+      gentium-{ot1,ts1,lgr,t2b,t2c,x2}.map        - (not used anywhere; might be removed)
+      gentium-truetype.map                        - for pdfTeX and pdfLaTeX
+  /tfm/public/gentium
+    {ts1,agr,lgr}-gentium{plus,book}-{regular,italic,bold,bolditalic}.tfm
+    {ot1,ec,texnansi,qx,t5,l7x,t2a,t2b,t2c,x2}-gentium{plus,book}-{regular,italic,bold,bolditalic}{,-sc}.tfm
+  /truetype/public/gentium-tug - .ttf fonts from SIL
+  /type1/public/gentium-tug - .pfb fonts, converted from TrueType by TUG
+
+/source/fonts/gentium-tug
+  /lig
+    gentium-{agr,lgr,t2a,t2b,t2c,x2}.lig - additional ligatures used to generate tfm files
+  /type1                    - scripts for TrueType -> Type1 conversion
+    afmcreator.py                - put text "Comment Creator: TeX Users Group" to afm files
+    ff-gentium.pe                - FontForge script for conversion to Type 1
+    generate-extra-kerns.sh      - main script for creating extra kerning pairs
+    greekcorrection.py           - create kerns for accent + capital Greek letter
+    kerncorrection.py            - create kerns for Latin and Cyrillic letters
+    kern-test-greek.txt          - test file for Greek accents; use it for manual review
+                                   in the Metrics Window of FontForge
+    kern-word-list-caron.txt     - test file for dcaron and lcaron; for FontForge
+    kern-word-list-cyrillic.txt  - test file for Cyrillic letters; for FontForge
+    Gentium{Book,}Plus-{Regular,Italic,Bold,BoldItalic}-Czech.kern  - manual kerns for dcaron and lcaron
+    Makefile
+    README
+  ChangeLog
+  Makefile
+  generate-support-files.rb  - ruby script to generate different files
+  gentium.rb                 - ruby library with support classes and functions
+  make-zip-4CTAN.sh          - construct distribution
+/tex
+  /latex/gentium-tug - support files for LaTeX
+    gentium.sty
+    gentiumbook.sty
+    {ot1,t1,ly1,qx,t5,l7x,ts1,lgr,t2a,t2b,t2c,x2}gentium.fd
+
+
+TODO:
+====
+- Update the Ruby scripts for current version of Ruby!
+
+- Check that there are no f-ligatures in the encodings X2, LGR
+  and possibly AGR.
+
+- Improve kerning for accented Latin letters and for Cyrillic letters.
+  More kerning pairs could be added, but not those that can never occur.
+  Some manually created kerns could replace the automatically created
+  ones.
+
+- Look at the letter Lcaron if the accent should be moved to the left
+  (reported to SIL).
+
+- The combination of two commas seems not to give quotedblbase in T1.
+  Check it and correct using lig file if needed.
+  
+- Check if there are new characters to fill the empty slots in encodings.
+
+- The code concerning the final sigma should be cleaned-up (some refactoring;
+  how would it be most useful). See commits 24, 142, 143 and mailing list
+  thread at:
+
+  https://tug.org/pipermail/gentium/2019q3/thread.html
+
+  Some test file would be usefull.
+
+
+EXPAT LICENSE:
+=============
+This file is part of the Gentium package for TeX.
+The package contains font files licensed under the SIL Open Font License,
+while the rest are under the Expat License.
+
+Copyright (c) 2008-2022 TeX Users Group
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

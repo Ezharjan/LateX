@@ -1,0 +1,27 @@
+%% $Id: Changes 358 2021-12-25 09:13:46Z herbert $
+%%
+pstricks-add.pro ----------- 
+0.23 2009-12-17 - add RGBtoGRAY and WavelengthToGRAY
+                - intiialize the random generator with realtime
+0.22 2009-03-17 - add LineByHand stuff
+0.21 2008-10-13 - add bubblesort macro
+
+
+pstricks-add.sty ----------- (hv)
+ v. 0.17 2021-09-10  move \psRiemann into the tex file
+ v. 0.16 2018-02-04  use \pscalculate from package pst-calculate
+ v. 0.15 2018-02-03  added \psCalc from xpl3 (only for latex)
+
+
+pstricks-add.tex ----------- (hv)
+ v 3.92  2021-12-25 - added \psColorLine
+ v 3.91  2021-09-25 - fix for \psContourPlot
+ v 3.90  2021-09-10 - changes for using package with lualatex
+                    - fix \psOLympicRings
+ v 3.89a 2020-02-12 - modified documentation for \psbrace
+ v 3.89  2019-11-01 - added otion sngleline for \psbrace
+ v 3.88  2019-05-11 - fix for a trailing space after \psrotatet
+ v 3.87  2019-01-12 - added \psCallout
+ v 3.86  2018-12-08 - added some more options for \psCancel
+ v 3.85b 2018-02-04 - use LaTeX package pst-calculate
+ v 3.85a 2018-02-03 - added area computing for \psStep

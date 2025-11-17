@@ -1,0 +1,18 @@
+0.10  2022-09-02  - fix for Windows and path setting 
+0.09  2022-05-07  - load first a luc.gz database, if present 
+0.08  2022-05-05  - added --no-symbolic-names as a synonym
+                  - edited some output messages
+0.07  2022-05-01  - added -x option for a kpsewhich test
+0.06  2022-02-08  - small fix for output log
+0.05  2021-12-04  - use always lowercase for internal search
+                  - allow combined search like  "times & bold"
+                  - allow additional argument for otfinfo
+0.04  2021-11-29  - rename the lua file to luafindfont
+                  - do not use xindex-lapp, handle the options by
+                    standard arg field
+0.03  2021-11-27  - added manpage
+                  - added "*" for output of all fonts
+                  - added option -n for no output of symbolic names
+                  - updated documentation
+0.02  2021-11-24  - correct README.md file
+0.01  2021-11-24  - first CTAN version

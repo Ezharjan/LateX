@@ -1,0 +1,19 @@
+If you have one of the official TeX distribution installed, then
+all files are still present or can be installed by using the file manager.
+Otherwise save the files pst-hsb.sty|tex in a directory, which is part of your 
+local TeX tree. 
+Then do not forget to run texhash to update this tree.
+
+pst-hsb needs pst-plot (pstricks-add) and pstricks, which should 
+be part of your local TeX installation, otherwise get it from a 
+CTAN server, https://mirror.ctan.org
+
+PSTricks is PostScript Tricks, the documentation cannot be run
+with pdftex, use the sequence latex->dvips->ps2pdf or simply lualatex.
+
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+
+
+%% $Id: README 350 2021-12-16 10:20:18Z herbert $

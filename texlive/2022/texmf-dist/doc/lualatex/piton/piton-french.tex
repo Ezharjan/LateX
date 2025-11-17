@@ -1,0 +1,364 @@
+% -*- coding: utf-8 ; -*-
+\documentclass[dvipsnames]{article}
+\usepackage[french]{babel}
+\frenchsetup{og = « , fg = »}
+
+\usepackage[escape-inside=$$]{piton}
+
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\geometry{left=2.8cm,right=2.8cm,top=2.5cm,bottom=2.5cm,papersize={21cm,29.7cm}}
+
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+\usepackage{caption}
+\captionsetup{labelfont = bf}
+
+% We use \MakeShortVerb of shortvrb and not \DefineShortVerb of fancyvrb
+% because we don't want the contents of short verbatim colored in gray
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+
+
+\skip\footins = 2\bigskipamount
+
+\usepackage{fancyvrb}
+\fvset{commandchars=\~\#\@,formatcom=\color{gray}}
+\def\emphase{\bgroup\color{RoyalPurple}\let\next=}
+
+
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{6.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{4.5ex plus 1ex minus .2ex}{2ex plus .2ex}
+
+\def\interitem{\vspace{7mm plus 2 mm minus 3mm}}          
+
+
+\usepackage{footnote}
+
+\usepackage[hyperfootnotes = false]{hyperref}
+
+\hypersetup
+  {
+    pdfinfo = 
+      {
+        Title = L’extension piton ,
+        Subject = Une extension LaTeX ,
+        Author = F. Pantigny 
+      }
+  } 
+
+
+\NewDocumentEnvironment {scope} {} {} {}
+
+\NewDocumentCommand {\pkg} {m} {\textsf{#1}}
+\NewDocumentCommand {\cls} {m} {\textsf{#1}}
+
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+
+\VerbatimFootnotes
+
+
+\title{L'extension LaTeX \pkg{piton}\thanks{Ce document correspond à la 
+version~\myfileversion\space de \pkg{piton}, à la date du~\myfiledate.}} 
+\author{F. Pantigny \\ \texttt{fpantigny@wanadoo.fr}}
+
+\maketitle
+
+\begin{abstract}
+L'extension \pkg{piton} propose des outils pour composer du code Python avec une coloration syntaxique
+en utilisant la bibliothèque Lua LPEG. L'extension \pkg{piton} nécessite l'emploi de LuaLaTeX.
+\end{abstract}
+
+\section{Présentation}
+
+L'extension \pkg{piton} utilise la librarie Lua nommée LPEG\footnote{LPEG est une librairie de capture de motifs
+  (\emph{pattern-matching} en anglais) pour Lua, écrite en C, fondée sur les PEG (\emph{parsing expression
+    grammars}): \url{http://www.inf.puc-rio.br/~roberto/lpeg/}} pour «parser» le code Python et le composer avec un
+coloriage syntaxique. Comme elle utilise du code Lua, elle fonctionne uniquement avec |lualatex| (et ne va pas
+fonctionner avec les autres moteurs de compilation LaTeX, que ce soit |latex|, |pdflatex| ou |xelatex|). Elle
+n'utilise aucun programme extérieur et la compilation ne requiert donc pas |--shell-escape|. La compilation est
+très rapide puisque tout le travail du parseur est fait par la librairie LPEG, écrite en C.
+
+\bigskip
+Voici un exemple de code Python composé avec l'environnement |{Piton}| proposé par \pkg{piton}.
+
+\bigskip
+\begin{Piton}
+from math import pi
+
+def arctan(x,n=10):
+    """Compute the value of arctan(x)
+       n is the number of terms if the sum"""
+    if x < 0:
+         return -arctan(-x) # recursive call
+    elif x > 1: 
+         return pi/2 - arctan(1/x) 
+         ## (on a utilisé le fait que $\arctan(x)+\arctan(1/x)=\frac{\pi}{2}$ pour $x>0$)\footnote{Cet échappement vers LaTeX a été obtenu en débutant par \ttfamily\#\#.}
+    else 
+         s = 0
+         for k in range(n):
+              s += (-1)**k/(2*k+1)*x**(2*k+1)
+         return s 
+\end{Piton}
+
+
+
+\section{Installation}
+
+L'extension \pkg{piton} est composée de deux fichiers : |piton.sty| et |piton.lua| (le fichier LaTeX |piton.sty|
+chargé par |\usepackage| va à son tour charger le fichier |piton.lua|). Les deux fichiers doivent être présents
+dans un répertoire où LaTeX pourra les trouver. Le mieux est de les installer dans une arborescence |texmf|.
+
+
+\section{Utilisation de l'extension}
+
+Pour utiliser l'extension \pkg{piton}, l'utilisateur final a seulement à charger l'extension dans son document avec
+la commande classique |\usepackage| et se souvenir que la compilation doit être faite avec LuaLaTeX. 
+
+\medskip
+L'extension \pkg{piton} fournit trois outils pour composer du code Python: la commande |\piton|, l'environnement
+|{Piton}| et la commande |\PitonInputFile|.
+
+\begin{itemize}
+\item La commande |\piton| doit être utilisée pour composer de petits éléments de code à l'intérieur d'un
+paragraphe. \emph{Attention} : Cette fonction prend son argument en mode \emph{verbatim} (comme la commande
+\verb|\verb|) et, de ce fait, cette fonction ne peut pas être utilisée à l'intérieur d'un argument d'une autre
+fonction (on peut néanmoins l'utiliser à l'intérieur d'un environnement).
+
+\item L'environnement |{Piton}| doit être utilisé pour composer des codes de plusieurs lignes. 
+
+\item La commande |\PitonInputFile| doit être utilisée pour insérer et composer un fichier extérieur.
+\end{itemize}
+
+\bigskip
+Il est possible de composer des commentaires en LaTeX en commençant par |##| (c'est un échappement vers LaTeX). Les
+caractères |##| eux-mêmes ne seront pas imprimés et les espaces qui les suivent sont supprimés.
+
+
+\section{Personnalisation}
+
+\subsection{La commande \textbackslash PitonOptions}
+
+La commande |\PitonOptions| propose cinq clés : |gobble|, |auto-gobble|, |env-gobble|, |line-numbers| et |all-line-numbers|.
+
+\begin{itemize}
+\item La clé |gobble| peut comme valeur un entier positif $n$ : les $n$ premiers caractères de chaque ligne sont
+alors retirés (avant formatage du code) dans les environnements |{Piton}|.
+
+\item Quand la clé |auto-gobble| est activée, l'extension \pkg{piton} détermine la valeur minimale $n$ du nombre
+d'espaces successifs débutant chaque ligne (non vide) de l'environnment |{Piton}| et applique |gobble| avec cette
+valeur de~$n$.
+
+* Quand la clé |env-gobble| est activée, \pkg{piton} applique la clé |gobble| avec une valeur de $n$ égale au
+nombre d'espaces sur la ligne précédant le |\end{Piton}| (si cette ligne ne comporte que des espaces).
+
+\item Avec la clé |line-numbers|, les lignes \emph{non vides} sont numérotées dans les environnements \verb|{Piton}|
+et dans les listings produits par la commande |\PitonInputFile|.
+
+\item Avec la clé |all-line-numbers|, \emph{toutes} les lignes sont numérotées, y compris les lignes vides.
+\end{itemize}
+
+\bigskip
+
+\begingroup
+\fvset{commandchars=\~\&\@,formatcom=\small\color{gray}}
+\begin{Verbatim}
+~emphase&\PitonOptions{line-numbers,auto-gobble}@
+\begin{Piton}
+    from math import pi
+
+    def arctan(x,n=10):
+        """Compute the value of arctan(x)
+           n is the number of terms if the sum"""
+        if x < 0:
+             return -arctan(-x) # recursive call
+        elif x > 1: 
+             return pi/2 - arctan(1/x) 
+             ## (on a utilisé le fait que $\arctan(x)+\arctan(1/x)=\frac{\pi}{2}$ pour $x>0$)
+        else 
+             s = 0
+             for k in range(n):
+                  s += (-1)**k/(2*k+1)*x**(2*k+1)
+             return s 
+\end{Piton}
+\end{Verbatim}
+\endgroup
+
+\begingroup
+\PitonOptions{line-numbers,auto-gobble}
+\begin{Piton}
+    from math import pi
+
+    def arctan(x,n=10):
+        """Compute the value of arctan(x)
+           n is the number of terms if the sum"""
+        if x < 0:
+             return -arctan(-x) # recursive call
+        elif x > 1: 
+             return pi/2 - arctan(1/x) 
+             ## (on a utilisé le fait que $\arctan(x)+\arctan(1/x)=\frac{\pi}{2}$ pour $x>0$)
+        else 
+             s = 0
+             for k in range(n):
+                  s += (-1)**k/(2*k+1)*x**(2*k+1)
+             return s 
+\end{Piton}
+\endgroup
+
+\subsection{L'option escape-inside}
+
+L'option |escape-inside| doit être utilisée au chargement de \pkg{piton} (c'est-à-dire dans l'instruction
+|\usepackage|). Pour des raisons techniques, elle ne peut pas être fixée dans |\PitonOptions|. Elle prend comme
+valeur deux caractères qui seront utilisés pour délimiter des parties qui seront composées en LaTeX.
+
+
+\bigskip
+Dans l'exemple suivant, on suppose que l'extension \pkg{piton} a été chargée de la manière suivante :
+
+\smallskip
+\begin{Verbatim}
+\usepackage[~emphase#escape-inside=$$@]{piton}
+\end{Verbatim}
+
+\medskip
+Dans le code suivant, qui est une programmation récursive de la factorielle, on décide de surligner en jaune
+l'instruction qui contient l'appel récursif.
+\begin{Verbatim}
+\begin{Piton}
+def fact(n):
+    if n==0:
+        return 1
+    else:
+        ~emphase#$\colorbox{yellow!50}{$@return n*fact(n-1)~emphase#$}$@
+\end{Piton}
+\end{Verbatim}
+
+\begin{Piton}
+def fact(n):
+    if n==0:
+        return 1
+    else:
+        $\colorbox{yellow!50}{$return n*fact(n-1)$}$
+\end{Piton}
+
+\bigskip
+\emph{Attention} : L'échappement vers LaTeX permis par les caractères de |escape-inside| n'est pas actif dans les
+chaînes de caractères ni dans les commentaires (pour avoir un commentaire entièrement en échappement vers LaTeX,
+il suffit de le faire débuter par |##|).
+
+\subsection{Les styles}
+
+L'extension \pkg{piton} fournit la commande |\SetPitonStyle| pour personnaliser les différents styles utilisés pour
+formater les éléments syntaxiques des listings Python. Ces personnalisations ont une portée qui correspond au
+groupe TeX courant.
+
+\bigskip
+La commande |\SetPitonStyle| prend en argument une liste de couples \textsl{clé=valeur}. Les clés sont les noms des
+styles et les valeurs sont les instructions LaTeX de formatage correspondantes.
+
+\bigskip
+Ces instructions LaTeX doivent être des instructions de formatage du type de |\color{...}|, |\bseries|,
+|\slshape|, etc. (les commandes de ce type sont parfois qualifiées de \emph{semi-globales}). Il est aussi possible
+de mettre, \emph{à la fin de la liste d'instructions}, une commande LaTeX prenant exactement un
+argument.
+
+\bigskip
+Voici un exemple qui change le style utilisé pour le nom d'une fonction Python, au moment de sa définition
+(c'est-à-dire après le mot-clé |def|).
+
+\begin{Verbatim}
+\SetPitonStyle
+  { Name.Function = \bfseries \setlength{\fboxsep}{1pt}\colorbox{yellow!50} }
+\end{Verbatim}
+
+Dans cet exemple, |\colorbox{yellow!50}| doit être considéré comme le nom d'une fonction LaTeX qui prend exactement
+un argument, puisque, habituellement, elle est utilisée avec la syntaxe |\colorbox{yellow!50}{text}|.
+
+\medskip
+\begingroup
+\SetPitonStyle 
+  { Name.Function = \bfseries \setlength{\fboxsep}{1pt}\colorbox{yellow!50} }
+Avec ce réglage, on obtient : \piton{def cube(x) : return x * x * x }
+\endgroup
+
+
+
+\medskip
+Les différents styles sont décrits dans la table \ref{Semantic}.
+
+\begin{table}[htb]
+\centering
+\caption{Usage des différents styles}
+\label{Semantic}
+\begin{tabularx}{0.9\textwidth}{@{}>{\ttfamily}l>{\raggedright\arraybackslash}X@{}}
+\toprule
+\normalfont Style  & Usage \\
+\midrule
+Number & les nombres \\
+String.Short & les chaînes de caractères courtes (entre \texttt{'} ou \texttt{"}) \\
+String.Long & les chaînes de caractères longues (entre \texttt{'''} ou \texttt{"""}) sauf les chaînes de
+              documentation \\
+String & cette clé fixe à la fois |String.Short| et |String.Long| \\
+String.Doc & les chaînes de documentation \\
+String.Interpol & les éléments syntaxiques des champs des f-strings (c'est-à-dire les caractères \texttt{\{}, \texttt{\}} et \texttt{:}) \\
+Operator & les opérateurs suivants : \texttt{!= == << >> - \~{} + / * \% = < > \& .} \verb+|+ \verb|@| \\
+Operator.Word & les opérateurs suivants : |in|, |is|, |and|, |or| et |not| \\
+Name.Builtin & la plupart des fonctions prédéfinies par Python \\
+Name.Function & le nom des fonctions définies par l'utilisateur \emph{au moment de leur définition}, c'est-à-dire 
+                après le mot-clé \verb|def| \\ 
+Name.Decorator & les décorateurs (instructions débutant par \verb|@| dans les classes) \\
+Name.Namespace & le nom des modules (= bibliothèques extérieures) \\
+Name.Class & le nom des classes au moment de leur définition \\
+Exception & le nom des exceptions prédéfinies (eg: SyntaxError) \\
+Comment & les commentaires commençant par \texttt{\#} \\
+Comment.LaTeX & les commentaires commençant par \texttt{\#\#} qui sont composés en LaTeX par \pkg{piton}
+                (\texttt{\#\#} est une séquence d'échappement vers LaTeX) \\
+Keyword.Constant & |True|, |False| et |None| \\
+Keyword & les mots-clés suivants :
+          \ttfamily assert, break, case, continue, del,
+          elif, else, except, exec, finally, for, from, 
+          global, if, import, lambda, non local,
+          pass, raise, return, try, while,
+          with, yield, yield from.\\
+  \bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+\subsection{Définition de nouveaux environnements}
+
+Comme l'environnement |{Piton}| a besoin d'absorber son contenu d'une manière spéciale (à peu près comme du texte
+verbatim), il n'est pas possible de définir de nouveaux environnements directement au-dessus de l'environnement
+|{Piton}|.
+
+C'est pourquoi \pkg{piton} propose une commande |\NewPitonEnvironment|. Cette commande a la même syntaxe que la
+commande classique |\NewDocumentEnvironment|.
+
+\bigskip
+Par exemple, avec l'instruction suivante, un nouvel environnement |{Python}| sera défini avec le même comportement
+que l'environnement |{Piton}|:
+
+\verb|\NewPitonEnvironment{Python}{}{}{}|
+
+\bigskip
+Si on souhaite un environnement |{Python}| qui compose le code inclus dans une boîte de \pkg{tcolorbox}, on peut
+écrire:
+
+\begin{verbatim}
+\NewPitonEnvironment{Python}{}
+  {\begin{tcolorbox}}
+  {\end{tcolorbox}}
+\end{verbatim}
+
+
+\end{document}

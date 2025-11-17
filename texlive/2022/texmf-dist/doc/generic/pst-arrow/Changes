@@ -1,0 +1,16 @@
+%% $Id: Changes 165 2021-08-25 19:43:54Z herbert $
+%%
+pst-arrow.sty ----------- 
+ v. 0.01 2016-09-09  initial version
+
+
+pst-arrow.tex ----------- (hv)
+ v. 0.05 2021-11-16  - fix for \psBigArrow
+ v. 0.04 2021-04-25  - moved the basic arrow code into  pstricks-arrows.tex
+                       which is in the pstricks-base dir
+                     - updated documentation
+ v. 0.03 2021-07-28  - fix introduced bug for linecolor which schould not
+                       be affected by tipcolor
+ v. 0.02 2021-07-23  - added tipcolor option
+ v. 0.01 2016-09-09  initial version
+
